@@ -1,0 +1,46 @@
+name: Flutter Analyze
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install git-crypt + gnupg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq git-crypt gnupg
+
+      - name: Import CI GPG key
+        env:
+          GIT_CRYPT_GPG_PRIVATE_KEY: ${{ secrets.GIT_CRYPT_GPG_PRIVATE_KEY }}
+        run: |
+          echo "$GIT_CRYPT_GPG_PRIVATE_KEY" | base64 -d | gpg --batch --import
+
+      - name: Unlock git-crypt
+        run: git-crypt unlock
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.1'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run code generation
+        run: dart run build_runner build --delete-conflicting-outputs
+
+      - name: Check formatting
+        run: dart format --set-exit-if-changed lib
+
+      - name: Run flutter analyze
+        run: flutter analyze lib

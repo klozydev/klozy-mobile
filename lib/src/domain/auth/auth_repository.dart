@@ -1,0 +1,45 @@
+import 'package:klozy/src/domain/auth/entity/auth_user.dart';
+
+/// Result of starting phone verification — carries the Firebase `verificationId`
+/// needed to confirm the SMS code, and whether the platform auto-resolved it.
+class PhoneVerification {
+  final String verificationId;
+  final int? resendToken;
+
+  const PhoneVerification({required this.verificationId, this.resendToken});
+}
+
+/// Firebase-backed authentication. Implementations live in the data layer.
+abstract class AuthRepository {
+  /// Emits the current [AuthUser] on sign-in/out (null when signed out).
+  Stream<AuthUser?> authStateChanges();
+
+  AuthUser? get currentUser;
+
+  Future<AuthUser> signUpWithEmail({
+    required String email,
+    required String password,
+  });
+
+  Future<AuthUser> signInWithEmail({
+    required String email,
+    required String password,
+  });
+
+  Future<void> sendPasswordReset(String email);
+
+  Future<AuthUser> signInWithGoogle();
+
+  Future<AuthUser> signInWithApple();
+
+  /// Starts phone verification; the SMS code is then confirmed via
+  /// [confirmPhoneCode]. On Android the code may auto-resolve.
+  Future<PhoneVerification> startPhoneVerification(String phoneNumber);
+
+  Future<AuthUser> confirmPhoneCode({
+    required String verificationId,
+    required String smsCode,
+  });
+
+  Future<void> signOut();
+}

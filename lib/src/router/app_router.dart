@@ -1,0 +1,185 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:injectable/injectable.dart';
+import 'package:klozy/src/feature/auth/presentation/screen/login_page.dart';
+import 'package:klozy/src/feature/auth/presentation/screen/otp_page.dart';
+import 'package:klozy/src/feature/auth/presentation/screen/phone_page.dart';
+import 'package:klozy/src/feature/auth/presentation/screen/welcome_page.dart';
+import 'package:klozy/src/feature/cart/presentation/screen/cart_page.dart';
+import 'package:klozy/src/feature/chat/presentation/screen/chat_page.dart';
+import 'package:klozy/src/feature/checkout/presentation/screen/checkout_page.dart';
+import 'package:klozy/src/feature/home/presentation/screen/home_page.dart';
+import 'package:klozy/src/feature/notifications/presentation/screen/notifications_page.dart';
+import 'package:klozy/src/feature/onboarding/presentation/screen/personalize_page.dart';
+import 'package:klozy/src/feature/onboarding/presentation/screen/profile_completion_page.dart';
+import 'package:klozy/src/feature/onboarding/presentation/screen/seller_role_page.dart';
+import 'package:klozy/src/feature/onboarding/presentation/screen/success_page.dart';
+import 'package:klozy/src/feature/orders/presentation/screen/order_detail_page.dart';
+import 'package:klozy/src/feature/orders/presentation/screen/orders_page.dart';
+import 'package:klozy/src/feature/product/presentation/screen/edit_listing_page.dart';
+import 'package:klozy/src/feature/product/presentation/screen/product_page.dart';
+import 'package:klozy/src/feature/profile/presentation/screen/follow_list_page.dart';
+import 'package:klozy/src/feature/profile/presentation/screen/profile_page.dart';
+import 'package:klozy/src/feature/profile/presentation/screen/user_profile_page.dart';
+import 'package:klozy/src/feature/reels/presentation/screen/reel_composer_page.dart';
+import 'package:klozy/src/feature/reels/presentation/screen/single_reel_page.dart';
+import 'package:klozy/src/feature/search/presentation/screen/search_page.dart';
+import 'package:klozy/src/feature/sell/presentation/screen/sell_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/address_book_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/address_form_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/blocked_users_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/edit_profile_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/legal_doc_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/payout_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/payouts_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/seller_stats_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/settings_page.dart';
+import 'package:klozy/src/feature/shell/presentation/screen/shell_page.dart';
+import 'package:klozy/src/router/auth_guard.dart';
+
+part 'app_router.gr.dart';
+
+@AutoRouterConfig(replaceInRouteName: 'Page,Route')
+@LazySingleton()
+class AppRouter extends RootStackRouter {
+  final AuthGuard _authGuard;
+
+  AppRouter(this._authGuard);
+
+  @override
+  RouteType get defaultRouteType => const RouteType.material();
+
+  @override
+  List<AutoRoute> get routes => [
+    AutoRoute(
+      path: '/',
+      page: ShellRoute.page,
+      initial: true,
+      guards: [_authGuard],
+      children: [
+        AutoRoute(path: 'home', page: HomeRoute.page, initial: true),
+        AutoRoute(path: 'search', page: SearchRoute.page),
+        AutoRoute(path: 'chat', page: ChatRoute.page),
+        AutoRoute(path: 'profile', page: ProfileRoute.page),
+      ],
+    ),
+    AutoRoute(path: '/welcome', page: WelcomeRoute.page),
+    AutoRoute(path: '/login', page: LoginRoute.page),
+    AutoRoute(path: '/phone', page: PhoneRoute.page),
+    AutoRoute(path: '/otp', page: OtpRoute.page),
+    AutoRoute(
+      path: '/onboarding/personalize',
+      page: PersonalizeRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/onboarding/profile',
+      page: ProfileCompletionRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/onboarding/success',
+      page: SuccessRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/seller-role',
+      page: SellerRoleRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(path: '/sell', page: SellRoute.page),
+    AutoRoute(path: '/cart', page: CartRoute.page, guards: [_authGuard]),
+    AutoRoute(
+      path: '/checkout',
+      page: CheckoutRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/product/:id',
+      page: ProductRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/product/:id/edit',
+      page: EditListingRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/notifications',
+      page: NotificationsRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/users/:id/connections',
+      page: FollowListRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/users/:id',
+      page: UserProfileRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(path: '/orders', page: OrdersRoute.page, guards: [_authGuard]),
+    AutoRoute(
+      path: '/orders/:id',
+      page: OrderDetailRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/reel-composer',
+      page: ReelComposerRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/reel/:id',
+      page: SingleReelRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings',
+      page: SettingsRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings/edit-profile',
+      page: EditProfileRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings/addresses',
+      page: AddressBookRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings/addresses/form',
+      page: AddressFormRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings/payouts',
+      page: PayoutsRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings/payout',
+      page: PayoutRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings/seller-stats',
+      page: SellerStatsRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings/blocked',
+      page: BlockedUsersRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings/legal/:key',
+      page: LegalDocRoute.page,
+      guards: [_authGuard],
+    ),
+    RedirectRoute(path: '*', redirectTo: '/'),
+  ];
+}

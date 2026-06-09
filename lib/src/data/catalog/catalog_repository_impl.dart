@@ -1,0 +1,143 @@
+import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
+import 'package:klozy/src/domain/catalog/catalog_repository.dart';
+import 'package:klozy/src/domain/catalog/entity/catalog_brand.dart';
+import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
+import 'package:klozy/src/domain/catalog/entity/catalog_condition.dart';
+import 'package:klozy/src/domain/catalog/entity/catalog_size_value.dart';
+
+@LazySingleton(as: CatalogRepository)
+class CatalogRepositoryImpl implements CatalogRepository {
+  final Dio _dio;
+
+  CatalogRepositoryImpl(this._dio);
+
+  @override
+  Future<List<CatalogCategory>> getRootCategories() => getCategories();
+
+  @override
+  Future<List<CatalogCategory>> getCategories({String? parentId}) async {
+    final response = await _dio.get<List<dynamic>>(
+      'v1/catalog/categories',
+      queryParameters: <String, dynamic>{'parentId': parentId ?? ''},
+    );
+    return _list(response.data)
+        .map(
+          (Map<String, dynamic> json) => CatalogCategory(
+            id: _str(json, ['id', '_id', 'slug']) ?? '',
+            label: _str(json, ['label', 'name', 'title', 'slug']) ?? '',
+            hasChildren: _hasChildren(json),
+          ),
+        )
+        .where((CatalogCategory c) => c.id.isNotEmpty && c.label.isNotEmpty)
+        .toList();
+  }
+
+  @override
+  Future<List<CatalogBrand>> searchBrands({String? query}) async {
+    final response = await _dio.get<List<dynamic>>(
+      'v1/catalog/brands',
+      queryParameters: <String, dynamic>{
+        if (query != null && query.isNotEmpty) 'q': query,
+        'limit': 100,
+      },
+    );
+    return _list(response.data)
+        .map(
+          (Map<String, dynamic> json) => CatalogBrand(
+            id: _str(json, ['id', '_id', 'slug']) ?? '',
+            name: _str(json, ['name', 'label', 'title']) ?? '',
+          ),
+        )
+        .where((CatalogBrand b) => b.id.isNotEmpty && b.name.isNotEmpty)
+        .toList();
+  }
+
+  @override
+  Future<List<CatalogCondition>> getConditions() async {
+    final response = await _dio.get<List<dynamic>>('v1/catalog/conditions');
+    return _list(response.data)
+        .map(
+          (Map<String, dynamic> json) => CatalogCondition(
+            slug: _str(json, ['slug', 'id', '_id']) ?? '',
+            label: _str(json, ['label', 'name', 'title']) ?? '',
+          ),
+        )
+        .where((CatalogCondition c) => c.slug.isNotEmpty && c.label.isNotEmpty)
+        .toList();
+  }
+
+  @override
+  Future<List<CatalogSizeValue>> getSizeConfig(String categoryId) async {
+    final response = await _dio.get<dynamic>(
+      'v1/catalog/categories/$categoryId/size-config',
+    );
+    final data = response.data;
+    final List<dynamic> sets = data is List
+        ? data
+        : (data is Map<String, dynamic>
+              ? (data['sizeSets'] ?? data['sets'] ?? data['data'] ?? const [])
+                    as List<dynamic>
+              : const <dynamic>[]);
+    return _flattenSizes(sets.whereType<Map<String, dynamic>>().toList());
+  }
+
+  @override
+  Future<List<CatalogSizeValue>> getSizes() async {
+    final response = await _dio.get<List<dynamic>>('v1/catalog/sizes');
+    return _flattenSizes(_list(response.data));
+  }
+
+  List<CatalogSizeValue> _flattenSizes(List<Map<String, dynamic>> raws) {
+    final result = <CatalogSizeValue>[];
+    for (final raw in raws) {
+      // A size set may carry a `values` list, or be a flat token.
+      final values = raw['values'];
+      if (values is List) {
+        for (final v in values.whereType<Map<String, dynamic>>()) {
+          final token = _str(v, ['value', 'token', 'label']);
+          if (token != null) {
+            result.add(
+              CatalogSizeValue(
+                token: token,
+                label: _str(v, ['label']) ?? token,
+              ),
+            );
+          }
+        }
+      } else {
+        final token = _str(raw, ['value', 'token', 'name', 'label']);
+        if (token != null) {
+          result.add(
+            CatalogSizeValue(
+              token: token,
+              label: _str(raw, ['label']) ?? token,
+            ),
+          );
+        }
+      }
+    }
+    return result;
+  }
+
+  bool _hasChildren(Map<String, dynamic> json) {
+    if (json['hasChildren'] == true) return true;
+    final children = json['children'];
+    if (children is List && children.isNotEmpty) return true;
+    final count = json['childCount'] ?? json['childrenCount'];
+    return count is num && count > 0;
+  }
+
+  List<Map<String, dynamic>> _list(List<dynamic>? data) {
+    if (data == null) return const <Map<String, dynamic>>[];
+    return data.whereType<Map<String, dynamic>>().toList();
+  }
+
+  String? _str(Map<String, dynamic> json, List<String> keys) {
+    for (final key in keys) {
+      final value = json[key];
+      if (value is String && value.isNotEmpty) return value;
+    }
+    return null;
+  }
+}

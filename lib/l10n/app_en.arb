@@ -1,0 +1,602 @@
+{
+  "app_name": "Klozy",
+  "@_error_page": {},
+  "error_page_show_details": "SHOW DETAILS",
+  "error_page_hide_details": "HIDE DETAILS",
+  "error_page_copy_for_support": "COPY FOR SUPPORT",
+  "error_page_need_help": "NEED HELP?",
+  "error_page_support_email_label": "support@klozy.app",
+  "error_page_source_label": "SOURCE",
+  "error_page_stage_label": "STAGE",
+  "error_page_request_label": "REQUEST",
+  "error_page_message_label": "MESSAGE",
+  "@_error_scenario": {},
+  "error_scenario_network_title": "You appear to be offline",
+  "error_scenario_network_body": "We need a connection to sync. Check your Wi-Fi or mobile data and try again.",
+  "error_scenario_network_primary": "Retry connection",
+  "error_scenario_network_secondary": "Work offline",
+  "error_scenario_server_title": "Something went wrong on our side",
+  "error_scenario_server_body": "The server hit an unexpected error. Our team has been notified. You can retry in a moment.",
+  "error_scenario_server_primary": "Try again",
+  "error_scenario_server_secondary": "Contact support",
+  "error_scenario_session_title": "Please sign in again",
+  "error_scenario_session_body": "Your session has expired for security. Sign back in to continue.",
+  "error_scenario_session_primary": "Sign in",
+  "error_scenario_session_secondary": "Cancel",
+  "error_scenario_permission_title": "You don't have access here",
+  "error_scenario_permission_body": "This resource is restricted. Ask your manager to grant access.",
+  "error_scenario_permission_primary": "Go back",
+  "error_scenario_permission_secondary": "Request access",
+  "error_scenario_notfound_title": "We couldn't find this",
+  "error_scenario_notfound_body": "It may have been deleted or moved.",
+  "error_scenario_notfound_primary": "Go back",
+  "error_scenario_notfound_secondary": "Refresh",
+  "error_scenario_rate_limit_title": "Slow down a moment",
+  "error_scenario_rate_limit_body": "You've made too many requests in a short time. Take a short break — you can retry in 30 seconds.",
+  "error_scenario_rate_limit_primary": "Retry in 30s",
+  "error_scenario_rate_limit_secondary": "Cancel",
+  "error_scenario_maintenance_title": "We'll be right back",
+  "error_scenario_maintenance_body": "The service is undergoing scheduled maintenance. It should resume within 15 minutes.",
+  "error_scenario_maintenance_primary": "Check status",
+  "error_scenario_maintenance_secondary": "Notify me",
+  "error_scenario_generic_title": "Something went wrong",
+  "error_scenario_generic_body": "An unexpected error occurred. Please try again in a moment.",
+  "error_scenario_generic_primary": "Try again",
+  "error_scenario_generic_secondary": "Cancel",
+  "error_scenario_server_http_label": "Internal Server Error",
+  "error_scenario_session_http_label": "Session Expired",
+  "error_scenario_permission_http_label": "Forbidden",
+  "error_scenario_notfound_http_label": "Not Found",
+  "error_scenario_rate_limit_http_label": "Too Many Requests",
+  "error_scenario_maintenance_http_label": "Maintenance",
+  "@_auth": {},
+  "auth_country_uae": "UNITED ARAB EMIRATES",
+  "auth_welcome_title": "Buy & sell pre-loved\nfashion you'll love.",
+  "auth_get_started": "Get started",
+  "auth_already_have_account": "I already have an account · ",
+  "auth_log_in": "Log in",
+  "auth_create_account_title": "Create your account",
+  "auth_welcome_back_title": "Welcome back",
+  "auth_create_account_subtitle": "Join thousands buying and selling fashion across the UAE.",
+  "auth_welcome_back_subtitle": "Log in to pick up where you left off.",
+  "auth_sign_up": "Sign up",
+  "auth_email_hint": "Email address",
+  "auth_email_invalid": "Enter a valid email address",
+  "auth_password_hint": "Password",
+  "auth_forgot_password": "Forgot password?",
+  "auth_continue_apple": "Continue with Apple",
+  "auth_continue_google": "Continue with Google",
+  "auth_continue_phone": "Continue with phone",
+  "auth_terms_prefix": "By continuing you agree to Klozy's ",
+  "auth_terms": "Terms",
+  "auth_terms_and": " & ",
+  "auth_privacy_policy": "Privacy Policy",
+  "auth_create_account_button": "Create account",
+  "auth_password_reset_sent": "Password reset link sent. Check your email.",
+  "auth_phone_title": "What's your number?",
+  "auth_phone_subtitle": "We'll text you a 6-digit code to confirm it's really you.",
+  "auth_phone_number_hint": "50 123 4567",
+  "auth_phone_disclaimer": "Standard message rates may apply. Your number is never shown publicly.",
+  "auth_send_code": "Send code",
+  "auth_enter_code_title": "Enter the code",
+  "auth_code_sent_to": "Sent to ",
+  "auth_resend_code_in": "Resend code in {time}",
+  "@auth_resend_code_in": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "auth_resend_code": "Resend code",
+  "auth_code_spam_hint": "Didn't get it? Check spam. A new code can be requested after the cooldown.",
+  "auth_verify": "Verify",
+  "auth_new_code_sent": "A new code was sent.",
+  "@_onboarding": {},
+  "onboarding_all_set": "You're all set!",
+  "onboarding_all_set_named": "You're all set, {name}!",
+  "@onboarding_all_set_named": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboarding_feed_ready_subtitle": "Your Klozy feed is ready. Discover, sell and shop the look — all in one place.",
+  "onboarding_start_exploring": "Start exploring",
+  "onboarding_complete_profile_title": "Complete your profile",
+  "onboarding_complete_profile_subtitle": "This is how other members will see you on Klozy.",
+  "onboarding_photo_upload_coming_soon": "Photo upload coming soon.",
+  "onboarding_first_name_label": "First name",
+  "onboarding_first_name_hint": "Amira",
+  "onboarding_last_name_label": "Last name",
+  "onboarding_last_name_hint": "Hassan",
+  "onboarding_address_label": "Address",
+  "onboarding_bio_label": "Bio",
+  "onboarding_bio_char_count": "{count}/{max}",
+  "@onboarding_bio_char_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "onboarding_bio_hint": "Tell buyers a little about your style…",
+  "onboarding_continue": "Continue",
+  "onboarding_skip": "Skip",
+  "onboarding_personalize_title": "Personalize your feed",
+  "onboarding_personalize_subtitle": "Pick a few things you love so we can fill your feed with the right finds. You can change these anytime.",
+  "onboarding_categories_title": "Categories",
+  "onboarding_categories_hint": "Choose any",
+  "onboarding_sizes_title": "Sizes",
+  "onboarding_clothing_label": "Clothing",
+  "onboarding_shoes_label": "Shoes · {system}",
+  "@onboarding_shoes_label": {
+    "placeholders": {
+      "system": {
+        "type": "String"
+      }
+    }
+  },
+  "onboarding_brands_title": "Brands",
+  "onboarding_brands_hint": "Follow your favourites",
+  "onboarding_brands_search_hint": "Search brands",
+  "onboarding_no_brand_matches": "No brand matches.",
+  "onboarding_show_feed": "Show my feed",
+  "onboarding_show_feed_count": "Show my feed · {count} selected",
+  "@onboarding_show_feed_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "onboarding_seller_account_set_up": "Seller account set up.",
+  "onboarding_seller_role_title": "How will you sell?",
+  "onboarding_seller_role_subtitle": "Pick the account that fits you. You can switch or upgrade anytime in Settings.",
+  "onboarding_private_seller_title": "Private seller",
+  "onboarding_private_seller_badge": "Most popular",
+  "onboarding_private_seller_description": "Clearing out your own wardrobe. Get paid straight to your bank account via IBAN — no paperwork.",
+  "onboarding_payout_iban_label": "Payout IBAN",
+  "onboarding_iban_shield_note": "Encrypted and used only to release your sales payouts. You can change it later in Settings → Payouts.",
+  "onboarding_pro_vendor_title": "Professional vendor",
+  "onboarding_pro_vendor_badge": "Pro",
+  "onboarding_pro_vendor_description": "Running a resale business. Bulk listings, a branded shop and analytics. Verified and paid via Stripe (KYB).",
+  "onboarding_buyer_protection_note": "Every sale is covered by Klozy buyer protection. Payment is held in escrow and released to you once delivery is confirmed.",
+  "@_home": {},
+  "home_tab_feed": "Feed",
+  "home_tab_wishlist": "Wishlist",
+  "home_tab_reels": "Reels",
+  "home_feed_empty": "Nothing here yet.",
+  "home_category_all": "All",
+  "home_product_badge_new": "New",
+  "home_wishlist_empty": "Your wishlist is empty",
+  "@_reels": {},
+  "reels_composer_title": "New reel",
+  "reels_pick_title": "Create a reel",
+  "reels_pick_subtitle": "Record a short video showing off your pieces, or pick one from your gallery.",
+  "reels_record_video": "Record a video",
+  "reels_choose_from_gallery": "Choose from gallery",
+  "reels_caption_hint": "Say something about your look…",
+  "reels_tag_items_title": "Tag items from your shop",
+  "reels_no_listings_to_tag": "You have no active listings to tag yet.",
+  "reels_post_reel": "Post reel",
+  "reels_posted_title": "Reel posted!",
+  "reels_posted_subtitle": "It will appear in Reels once processing finishes.",
+  "reels_done": "Done",
+  "reels_delete_reel": "Delete reel",
+  "reels_report_reel": "Report reel",
+  "reels_share": "Share",
+  "reels_shop_the_look_count": "Shop the look · {count}",
+  "@reels_shop_the_look_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reels_no_tagged_items": "No tagged items.",
+  "reels_shop_the_look": "Shop the look",
+  "reels_deleted_snackbar": "Reel deleted.",
+  "reels_report_received_snackbar": "Thanks — report received.",
+  "reels_empty": "No reels yet",
+  "reels_link_copied_snackbar": "Link copied to clipboard.",
+  "@_search": {},
+  "search_hint": "Search items, brands…",
+  "search_sort_popular": "Popular",
+  "search_sort_latest": "Latest",
+  "search_sort_price_asc": "Price ↑",
+  "search_sort_price_desc": "Price ↓",
+  "search_filters": "Filters",
+  "search_filters_with_count": "Filters · {count}",
+  "@search_filters_with_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_browse_categories": "Browse categories",
+  "search_popular_now": "Popular right now",
+  "search_no_results": "No results",
+  "search_result_count": "{count, plural, =1{1 result} other{{count} results}}",
+  "@search_result_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_condition_count": "{count, plural, =1{1 condition} other{{count} conditions}}",
+  "@search_condition_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_size_count": "{count, plural, =1{1 size} other{{count} sizes}}",
+  "@search_size_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_filter_category": "Category",
+  "search_filter_condition": "Condition",
+  "search_filter_size": "Size",
+  "search_filter_reset": "Reset",
+  "search_filter_show_results": "Show results",
+  "@_product": {},
+  "product_add_to_cart": "Add to cart",
+  "product_in_cart_view_cart": "In cart · View cart",
+  "product_edit_listing": "Edit listing",
+  "product_status_sold": "Sold",
+  "product_status_reserved": "Reserved",
+  "product_mark_as_sold": "Mark as sold",
+  "product_mark_as_available": "Mark as available",
+  "product_delete_listing": "Delete listing",
+  "product_report_listing": "Report listing",
+  "product_report_this_listing": "Report this listing",
+  "product_listing_deleted": "Listing deleted",
+  "product_back_to_feed": "Back to feed",
+  "product_added_to_cart": "Added to cart.",
+  "product_edit_coming_soon": "Editing a listing is coming soon.",
+  "product_messaging_coming_soon": "Messaging is coming soon.",
+  "product_report_received": "Thanks — report received.",
+  "product_link_copied": "Link copied to clipboard.",
+  "product_stat_views": "Views",
+  "product_stat_likes": "Likes",
+  "product_stat_posted": "Posted",
+  "product_stamp_sold": "SOLD",
+  "product_stamp_reserved": "RESERVED",
+  "product_currency_dhs": "Dhs",
+  "product_price_amount": "{amount} ",
+  "@product_price_amount": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@_sell": {},
+  "sell_sell_in_seconds": "Sell in seconds",
+  "sell_your_photos": "Your photos",
+  "sell_add_photos_hint": "Add up to 8 photos. AI will pre-fill your listing.",
+  "sell_continue": "Continue",
+  "sell_cover": "Cover",
+  "sell_add_a_photo": "Add a photo",
+  "sell_take_a_photo": "Take a photo",
+  "sell_choose_from_gallery": "Choose from gallery",
+  "sell_analysing_your_photos": "Analysing your photos…",
+  "sell_identifying_the_item": "Identifying the item…",
+  "sell_generating_title_and_price": "Generating title and price…",
+  "sell_title": "Title",
+  "sell_price": "Price",
+  "sell_description": "Description",
+  "sell_category": "Category",
+  "sell_brand": "Brand",
+  "sell_size": "Size",
+  "sell_condition": "Condition",
+  "sell_suggested_by_ai": "Suggested by AI",
+  "sell_list_item": "List item",
+  "sell_optional": "Optional",
+  "sell_title_hint": "e.g. Leather biker jacket",
+  "sell_price_hint": "AED",
+  "sell_description_hint": "Add details about condition, fit, material…",
+  "sell_search_brands": "Search brands",
+  "sell_use_quoted": "Use \"{value}\"",
+  "@sell_use_quoted": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "sell_title_error": "Add a title (at least 2 characters)",
+  "sell_price_error": "Enter a price",
+  "sell_category_error": "Pick a category",
+  "sell_condition_error": "Pick a condition",
+  "sell_youre_live": "You're live!",
+  "sell_item_visible_to_buyers": "Your item is now visible to buyers.",
+  "sell_view_listing": "View listing",
+  "sell_back_to_home": "Back to home",
+  "@_cart": {},
+  "cart_title": "Cart",
+  "cart_make_an_offer": "Make an offer",
+  "cart_cancel_offer": "Cancel offer",
+  "cart_check_out": "Check out",
+  "cart_subtotal": "Subtotal",
+  "cart_offer_pending": "Offer pending",
+  "cart_offer_accepted": "Offer accepted",
+  "cart_pro_badge": "PRO",
+  "cart_empty_title": "Your cart is empty",
+  "cart_empty_subtitle": "Add items and they'll group by seller here.",
+  "cart_offer_send": "Send offer",
+  "cart_offer_hint_single": "Your offer",
+  "cart_offer_hint_multi": "Your offer for all {count} items",
+  "@cart_offer_hint_multi": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cart_offer_error_below_total": "Offer must be below the total price",
+  "cart_offer_chat_note": "One offer covers everything from this seller. It's sent privately in chat — the seller accepts or declines.",
+  "cart_currency_dhs": "Dhs",
+  "cart_price_dhs": "{amount} Dhs",
+  "@cart_price_dhs": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "cart_item_count": "{count, plural, =1{1 item} other{{count} items}}",
+  "@cart_item_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cart_sellers_summary": "{count, plural, =1{1 seller · one offer & checkout per seller} other{{count} sellers · one offer & checkout per seller}}",
+  "@cart_sellers_summary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@_checkout": {},
+  "checkout_title": "Checkout",
+  "checkout_delivery": "Delivery",
+  "checkout_summary": "Summary",
+  "checkout_subtotal": "Subtotal",
+  "checkout_shipping_emx": "Shipping (EMX)",
+  "checkout_buyer_protection": "Buyer protection",
+  "checkout_vat": "VAT",
+  "checkout_total": "Total",
+  "checkout_pay_amount": "Pay {amount} Dhs",
+  "@checkout_pay_amount": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "checkout_amount_dhs": "{amount} Dhs",
+  "@checkout_amount_dhs": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "checkout_encrypted_escrow_note": "Encrypted checkout · payment held in escrow",
+  "checkout_order_placed_title": "Order placed!",
+  "checkout_order_placed_escrow_message": "Your payment is held in escrow until you confirm delivery.",
+  "checkout_track_order": "Track order",
+  "checkout_continue_shopping": "Continue shopping",
+  "checkout_payment_unavailable": "Payment is unavailable for this order.",
+  "checkout_payment_failed": "Payment failed. Please try again.",
+  "@_orders": {},
+  "orders_my_orders": "My orders",
+  "orders_buying": "Buying",
+  "orders_selling": "Selling",
+  "orders_in_progress": "In progress",
+  "orders_completed": "Completed",
+  "orders_no_orders_yet": "No orders yet",
+  "orders_prefix_from": "from",
+  "orders_prefix_to": "to",
+  "orders_price_dhs": "{amount} Dhs",
+  "@orders_price_dhs": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "orders_counterpart_meta": "{prefix} {name}",
+  "@orders_counterpart_meta": {
+    "placeholders": {
+      "prefix": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orders_order_details": "Order details",
+  "orders_tracking": "Tracking",
+  "orders_tracking_updates_empty": "Tracking updates will appear here.",
+  "orders_emx_door_to_door": "EMX door-to-door · UAE domestic",
+  "orders_carrier_prefix": "{carrier} · ",
+  "@orders_carrier_prefix": {
+    "placeholders": {
+      "carrier": {
+        "type": "String"
+      }
+    }
+  },
+  "orders_mark_as_shipped": "Mark as shipped",
+  "orders_download_emx_label": "Download EMX label",
+  "orders_confirm_receipt": "Confirm receipt",
+  "orders_leave_a_review": "Leave a review",
+  "orders_view_live_tracking": "View live tracking",
+  "orders_report_a_problem": "Report a problem",
+  "orders_cancel_order": "Cancel order",
+  "orders_confirm_receipt_message": "Confirm you received this order? This releases the payment to the seller.",
+  "orders_cancel_order_message": "Cancel this order? The payment will be refunded.",
+  "orders_dialog_cancel": "Cancel",
+  "orders_dialog_confirm": "Confirm",
+  "orders_submit_report": "Submit report",
+  "orders_report_problem_hint": "Describe what's wrong with your order",
+  "orders_submit_review": "Submit review",
+  "orders_review_hint": "Share details about your experience (optional)",
+  "orders_messaging_coming_soon": "Messaging is coming soon.",
+  "orders_couldnt_open_link": "Couldn't open the link.",
+  "orders_status_pending": "Pending",
+  "orders_status_awaiting_shipment": "Awaiting shipment",
+  "orders_status_in_delivery": "In delivery",
+  "orders_status_out_for_delivery": "Out for delivery",
+  "orders_status_completed": "Completed",
+  "orders_status_return_requested": "Return requested",
+  "orders_status_canceled": "Canceled",
+  "orders_status_unknown": "—",
+  "@_misc": {},
+  "profile_title": "Profile",
+  "chat_title": "Chat",
+  "@_ds": {},
+  "ds_password_strength_weak": "Weak",
+  "ds_password_strength_fair": "Fair",
+  "ds_password_strength_good": "Good",
+  "ds_password_strength_strong": "Strong",
+  "@_notifications": {},
+  "notifications_title": "Notifications",
+  "notifications_read_all": "Read all",
+  "notifications_empty": "You're all caught up.",
+  "notifications_profile_coming_soon": "Profiles are coming soon.",
+  "notifications_time_just_now": "Just now",
+  "notifications_time_minutes": "{count}m ago",
+  "@notifications_time_minutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifications_time_hours": "{count}h ago",
+  "@notifications_time_hours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifications_time_days": "{count}d ago",
+  "@notifications_time_days": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@_profile_feature": {},
+  "profile_edit": "Edit profile",
+  "profile_follow": "Follow",
+  "profile_following": "Following",
+  "profile_report_user": "Report user",
+  "profile_reported": "Thanks — report received.",
+  "profile_message_coming_soon": "Messaging is coming soon.",
+  "profile_edit_coming_soon": "Editing your profile is coming soon.",
+  "profile_settings_coming_soon": "Settings are coming soon.",
+  "profile_reel_coming_soon": "Reel playback is coming soon.",
+  "profile_tab_products": "Products",
+  "profile_tab_reels": "Reels",
+  "profile_tab_reviews": "Reviews",
+  "profile_stat_listings": "Listings",
+  "profile_stat_followers": "Followers",
+  "profile_stat_following": "Following",
+  "profile_no_listings": "No listings yet",
+  "profile_no_reels": "No reels yet",
+  "profile_no_reviews": "No reviews yet",
+  "profile_no_followers": "No followers yet",
+  "profile_no_following": "Not following anyone yet",
+  "profile_connections_title": "Connections",
+  "@_settings": {},
+  "settings_title": "Settings",
+  "settings_cancel": "Cancel",
+  "settings_save": "Save",
+  "settings_saved": "Saved.",
+  "settings_save_failed": "Couldn't save. Please try again.",
+  "settings_link_failed": "Couldn't open the link.",
+  "settings_section_profile": "Profile",
+  "settings_section_seller": "Seller",
+  "settings_section_notifications": "Notifications",
+  "settings_section_privacy": "Privacy & security",
+  "settings_section_legal": "Legal & support",
+  "settings_section_account": "Account",
+  "settings_edit_profile": "Edit profile",
+  "settings_delivery_address": "Delivery address",
+  "settings_payout_iban": "Payout IBAN",
+  "settings_seller_stats": "Seller stats",
+  "settings_push_notifications": "Push notifications",
+  "settings_email_notifications": "Email notifications",
+  "settings_blocked_users": "Blocked users",
+  "settings_change_password": "Change password",
+  "settings_terms": "Terms of Service",
+  "settings_privacy": "Privacy Policy",
+  "settings_support": "Help & support",
+  "settings_version": "Version",
+  "settings_logout": "Log out",
+  "settings_logout_confirm": "Log out of your account?",
+  "settings_delete_account": "Delete account",
+  "settings_delete_confirm": "Permanently delete your account? This cannot be undone.",
+  "settings_change_password_no_email": "No email is linked to this account.",
+  "settings_password_reset_sent": "Password reset link sent. Check your email.",
+  "settings_support_unavailable": "Support is unavailable right now.",
+  "settings_handle": "Handle",
+  "settings_address_line1": "Address line",
+  "settings_address_area": "Area",
+  "settings_address_city": "City",
+  "settings_address_emirate": "Emirate",
+  "settings_iban_label": "IBAN",
+  "settings_iban_invalid": "Enter a valid UAE IBAN (starts with AE)",
+  "settings_iban_note": "Encrypted and used only to release your sales payouts.",
+  "settings_no_stats": "No stats yet.",
+  "settings_doc_unavailable": "This document is unavailable right now.",
+  "settings_no_blocked": "You haven't blocked anyone.",
+  "settings_unblock": "Unblock",
+  "onboarding_avatar_failed": "Couldn't upload your photo. Please try again.",
+  "sell_weight": "Weight (grams)",
+  "sell_weight_hint": "e.g. 800",
+  "notifications_group_today": "Today",
+  "notifications_group_earlier": "Earlier",
+  "checkout_add_address": "Add a delivery address",
+  "checkout_add": "Add",
+  "checkout_change": "Change",
+  "address_add_title": "Add address",
+  "address_edit_title": "Edit address",
+  "address_label": "Label",
+  "address_recipient": "Recipient name",
+  "address_phone": "Phone",
+  "address_empty": "No saved addresses yet.",
+  "address_default": "DEFAULT",
+  "address_action_edit": "Edit",
+  "address_action_default": "Set as default",
+  "address_action_delete": "Delete",
+  "settings_payouts": "Payouts",
+  "payouts_pending": "Pending",
+  "payouts_lifetime": "Lifetime paid",
+  "payouts_empty": "No payouts yet.",
+  "payouts_status_completed": "Completed",
+  "payouts_status_reversal": "Reversed",
+  "payouts_status_pending": "Pending"
+}

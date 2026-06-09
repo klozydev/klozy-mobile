@@ -1,0 +1,28 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CFBundleDisplayName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klozy"
+          }
+        }
+      }
+    },
+    "CFBundleName" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klozy"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

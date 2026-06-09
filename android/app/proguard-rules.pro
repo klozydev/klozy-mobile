@@ -1,0 +1,5 @@
+-printmapping mapping.txt
+-keepclasseswithmembernames class net.openvpn.ovpn3.** { *; }
+-keepclasseswithmembernames interface net.openvpn.ovpn3.** { *; }
+-keepclasseswithmembernames class de.blinkt.openvpn.** { *; }
+-keepclasseswithmembernames interface de.blinkt.openvpn.** { *; }

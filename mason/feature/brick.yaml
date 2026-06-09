@@ -1,0 +1,9 @@
+name: feature
+description: A brick to create a new feature when you want.
+version: 0.0.1
+
+vars:
+  name:
+    type: string
+    description: Feature name
+    prompt: What is the feature name?

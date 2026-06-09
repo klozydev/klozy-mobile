@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "1062855309544",
+    "firebase_url": "https://klozy-836c3-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "klozy-836c3",
+    "storage_bucket": "klozy-836c3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062855309544:android:d64c3416b8bde94970f15d",
+        "android_client_info": {
+          "package_name": "com.klozy.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062855309544-ler9l675rkgj90dsbnn9i16orq13l2k9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.klozy.app",
+            "certificate_hash": "279931dd3867b152f7a6e19e5a3bdf153519e471"
+          }
+        },
+        {
+          "client_id": "1062855309544-m2o7d1lnul5k4cceuf78hk6um1smahg7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.klozy.app",
+            "certificate_hash": "5d1b98e611887eabeebce4f98f358aae3b90ca7b"
+          }
+        },
+        {
+          "client_id": "1062855309544-tec9l3gug34cceg569h3pqs0s2lkh5gt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.klozy.app",
+            "certificate_hash": "17f5d2969a4e5445ce00f966daa38e9cf5d52ac8"
+          }
+        },
+        {
+          "client_id": "1062855309544-439i7csdde2kvtg5ghcfu1fmneijbnp2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm7lbqU3VmDKUimAdyx8uanU9A3cLvU5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062855309544-439i7csdde2kvtg5ghcfu1fmneijbnp2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1062855309544-sl6upanfgjgb7hd1dlqvh8vv93duhb5s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.klozy.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
