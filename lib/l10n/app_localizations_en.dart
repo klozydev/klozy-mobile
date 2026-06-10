@@ -655,11 +655,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get product_stamp_reserved => 'RESERVED';
 
   @override
+  String get product_make_offer => 'Make an offer';
+
+  @override
   String get product_currency_dhs => 'Dhs';
 
   @override
   String product_price_amount(int amount) {
-    return '$amount ';
+    return '$amount Dhs';
   }
 
   @override
@@ -1499,4 +1502,77 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onboarding_address_search_hint => 'Search your address';
+
+  @override
+  String get account_gate_guest_title =>
+      'Create an account or log in to continue';
+
+  @override
+  String get account_gate_guest_subtitle =>
+      'Join Klozy to wishlist items, follow sellers and buy pre-loved fashion.';
+
+  @override
+  String get account_gate_create_account => 'Create an account';
+
+  @override
+  String get account_gate_log_in => 'Log in';
+
+  @override
+  String get account_gate_incomplete_title => 'Finish setting up your profile';
+
+  @override
+  String get account_gate_incomplete_subtitle =>
+      'Complete your profile to unlock all Klozy features.';
+
+  @override
+  String get account_gate_finish_setup => 'Finish setup';
+
+  @override
+  String get guest_tab_title => 'Sign in to Klozy';
+
+  @override
+  String get guest_tab_subtitle =>
+      'Create an account or log in to access this section.';
+
+  @override
+  String get guest_tab_cta => 'Create an account';
+
+  @override
+  String get guest_tab_log_in => 'Log in';
+
+  @override
+  String get categoryPickerTitle => 'Select category';
+
+  @override
+  String get categoryPickerBreadcrumbRoot => 'All categories';
+
+  @override
+  String get categoryPickerLoading => 'Loading...';
+
+  @override
+  String get categoryPickerRetry => 'Retry';
+
+  @override
+  String get categoryPickerAddCategories => 'Add categories';
+
+  @override
+  String get categoryPickerPreferred => 'Preferred categories';
+
+  @override
+  String get sellPhotosEmptyTitle => 'Add photos';
+
+  @override
+  String get sellPhotosEmptySubtitle => 'Take or upload photos of your item';
+
+  @override
+  String get sellPhotosCounter => 'photos';
+
+  @override
+  String get sellRecapPhotoStripEdit => 'Edit';
+
+  @override
+  String get sellRequiredHint => '* Required fields';
+
+  @override
+  String get sellSizeSystem => 'Size system';
 }

@@ -17,12 +17,14 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:google_sign_in/google_sign_in.dart' as _i116;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:klozy/src/app/bloc/account/account_bloc.dart' as _i386;
 import 'package:klozy/src/app/bloc/app_bloc.dart' as _i432;
 import 'package:klozy/src/app/cart/cart_cubit.dart' as _i675;
 import 'package:klozy/src/app/notifications/notifications_cubit.dart' as _i276;
 import 'package:klozy/src/app/push/push_service.dart' as _i27;
 import 'package:klozy/src/app/theme/app_config_change_notifier.dart' as _i616;
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart' as _i956;
+import 'package:klozy/src/core/account/account_gate.dart' as _i634;
 import 'package:klozy/src/core/network/base_url/base_url.dart' as _i402;
 import 'package:klozy/src/core/network/interceptors/authentication_interceptor.dart'
     as _i211;
@@ -45,6 +47,10 @@ import 'package:klozy/src/data/notifications/notifications_repository_impl.dart'
     as _i175;
 import 'package:klozy/src/data/offers/offers_repository_impl.dart' as _i538;
 import 'package:klozy/src/data/orders/orders_repository_impl.dart' as _i339;
+import 'package:klozy/src/data/places/datasource/places_remote_datasource.dart'
+    as _i541;
+import 'package:klozy/src/data/places/mapper/places_mapper.dart' as _i915;
+import 'package:klozy/src/data/places/places_repository_impl.dart' as _i902;
 import 'package:klozy/src/data/product/products_repository_impl.dart' as _i251;
 import 'package:klozy/src/data/sell/sell_repository_impl.dart' as _i607;
 import 'package:klozy/src/data/social/social_repository_impl.dart' as _i590;
@@ -53,6 +59,10 @@ import 'package:klozy/src/data/wishlist/wishlist_repository_impl.dart' as _i759;
 import 'package:klozy/src/di/app_module.dart' as _i816;
 import 'package:klozy/src/di/firebase_module.dart' as _i910;
 import 'package:klozy/src/di/network_module.dart' as _i1011;
+import 'package:klozy/src/domain/account/usecase/get_account_status_usecase.dart'
+    as _i865;
+import 'package:klozy/src/domain/account/usecase/require_valid_account_usecase.dart'
+    as _i631;
 import 'package:klozy/src/domain/auth/auth_repository.dart' as _i176;
 import 'package:klozy/src/domain/cart/cart_repository.dart' as _i444;
 import 'package:klozy/src/domain/catalog/catalog_repository.dart' as _i204;
@@ -63,8 +73,11 @@ import 'package:klozy/src/domain/notifications/notifications_repository.dart'
     as _i755;
 import 'package:klozy/src/domain/offers/offers_repository.dart' as _i486;
 import 'package:klozy/src/domain/orders/orders_repository.dart' as _i242;
+import 'package:klozy/src/domain/places/places_repository.dart' as _i904;
 import 'package:klozy/src/domain/product/products_repository.dart' as _i786;
 import 'package:klozy/src/domain/sell/sell_repository.dart' as _i320;
+import 'package:klozy/src/domain/sell/usecase/check_sell_prerequisite_usecase.dart'
+    as _i549;
 import 'package:klozy/src/domain/social/social_repository.dart' as _i931;
 import 'package:klozy/src/domain/uploads/uploads_repository.dart' as _i827;
 import 'package:klozy/src/domain/wishlist/wishlist_repository.dart' as _i264;
@@ -109,6 +122,7 @@ import 'package:klozy/src/feature/sell/presentation/bloc/sell_bloc.dart'
     as _i402;
 import 'package:klozy/src/feature/settings/presentation/bloc/settings_bloc.dart'
     as _i762;
+import 'package:klozy/src/router/account_guard.dart' as _i672;
 import 'package:klozy/src/router/app_router.dart' as _i774;
 import 'package:klozy/src/router/auth_guard.dart' as _i480;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
@@ -133,6 +147,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => const _i793.DefaultInterceptor(),
     );
     gh.factory<_i432.AppBloc>(() => _i432.AppBloc());
+    gh.factory<_i915.PlacesMapper>(() => const _i915.PlacesMapper());
     gh.lazySingleton<_i59.FirebaseAuth>(() => firebaseModule.firebaseAuth);
     gh.lazySingleton<_i116.GoogleSignIn>(() => firebaseModule.googleSignIn);
     gh.lazySingleton<_i892.FirebaseMessaging>(
@@ -143,16 +158,19 @@ extension GetItInjectableX on _i174.GetIt {
       () => appModule.getFlutterSecureStorage(),
     );
     gh.lazySingleton<_i370.AppLogger>(() => observabilityModule.getAppLogger());
+    gh.lazySingleton<_i541.PlacesRemoteDatasource>(
+      () => _i541.PlacesRemoteDatasource(),
+    );
+    gh.lazySingleton<_i904.PlacesRepository>(
+      () => _i902.PlacesRepositoryImpl(
+        gh<_i541.PlacesRemoteDatasource>(),
+        gh<_i915.PlacesMapper>(),
+      ),
+    );
     gh.factory<_i906.Prefs>(() => _i906.Prefs(gh<_i460.SharedPreferences>()));
     gh.factory<_i480.AuthGuard>(() => _i480.AuthGuard(gh<_i59.FirebaseAuth>()));
     gh.factory<_i32.LoggingInterceptor>(
       () => _i32.LoggingInterceptor(gh<_i370.AppLogger>()),
-    );
-    gh.lazySingleton<_i176.AuthRepository>(
-      () => _i751.FirebaseAuthRepository(
-        gh<_i59.FirebaseAuth>(),
-        gh<_i116.GoogleSignIn>(),
-      ),
     );
     gh.factory<_i211.AuthenticationInterceptor>(
       () => _i211.AuthenticationInterceptor(
@@ -190,9 +208,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i320.SellRepository>(
       () => _i607.SellRepositoryImpl(gh<_i361.Dio>()),
     );
-    gh.lazySingleton<_i774.AppRouter>(
-      () => _i774.AppRouter(gh<_i480.AuthGuard>()),
-    );
     gh.factory<_i266.FeedBloc>(
       () => _i266.FeedBloc(
         gh<_i786.ProductsRepository>(),
@@ -212,9 +227,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i486.OffersRepository>(
       () => _i538.OffersRepositoryImpl(gh<_i361.Dio>()),
     );
-    gh.lazySingleton<_i956.WishlistCubit>(
-      () => _i956.WishlistCubit(gh<_i264.WishlistRepository>()),
-    );
     gh.lazySingleton<_i827.UploadsRepository>(
       () => _i369.UploadsRepositoryImpl(gh<_i361.Dio>()),
     );
@@ -230,16 +242,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i444.CartRepository>(
       () => _i358.CartRepositoryImpl(gh<_i361.Dio>()),
     );
-    gh.lazySingleton<_i27.PushService>(
-      () => _i27.PushService(
-        gh<_i892.FirebaseMessaging>(),
-        gh<_i755.NotificationsRepository>(),
-        gh<_i276.NotificationsCubit>(),
-        gh<_i774.AppRouter>(),
-      ),
-    );
     gh.lazySingleton<_i264.PublicConfigRepository>(
       () => _i441.PublicConfigRepositoryImpl(gh<_i361.Dio>()),
+    );
+    gh.lazySingleton<_i956.WishlistCubit>(
+      () => _i956.WishlistCubit(
+        gh<_i264.WishlistRepository>(),
+        gh<_i1017.EventBus>(),
+      ),
     );
     gh.factory<_i817.NotificationsBloc>(
       () => _i817.NotificationsBloc(
@@ -268,19 +278,18 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i204.CatalogRepository>(),
       ),
     );
+    gh.lazySingleton<_i176.AuthRepository>(
+      () => _i751.FirebaseAuthRepository(
+        gh<_i59.FirebaseAuth>(),
+        gh<_i116.GoogleSignIn>(),
+        gh<_i1010.MeRepository>(),
+      ),
+    );
     gh.factory<_i1029.ProfileBloc>(
       () => _i1029.ProfileBloc(
         gh<_i931.SocialRepository>(),
         gh<_i1010.MeRepository>(),
         gh<_i1017.EventBus>(),
-      ),
-    );
-    gh.factory<_i762.SettingsBloc>(
-      () => _i762.SettingsBloc(
-        gh<_i1010.MeRepository>(),
-        gh<_i176.AuthRepository>(),
-        gh<_i264.PublicConfigRepository>(),
-        gh<_i27.PushService>(),
       ),
     );
     gh.factory<_i1007.OrdersBloc>(
@@ -289,9 +298,21 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i483.OrderDetailBloc>(
       () => _i483.OrderDetailBloc(gh<_i242.OrdersRepository>()),
     );
+    gh.factory<_i498.ProfileCompletionBloc>(
+      () => _i498.ProfileCompletionBloc(
+        gh<_i1010.MeRepository>(),
+        gh<_i904.PlacesRepository>(),
+      ),
+    );
     gh.factory<_i692.AuthBloc>(
       () =>
           _i692.AuthBloc(gh<_i176.AuthRepository>(), gh<_i1010.MeRepository>()),
+    );
+    gh.factory<_i865.GetAccountStatusUseCase>(
+      () => _i865.GetAccountStatusUseCase(
+        gh<_i176.AuthRepository>(),
+        gh<_i1010.MeRepository>(),
+      ),
     );
     gh.factory<_i651.ReelsRepository>(
       () => _i203.ReelsRepositoryImpl(
@@ -315,11 +336,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i918.SellerRoleBloc>(
       () => _i918.SellerRoleBloc(gh<_i1010.MeRepository>()),
     );
-    gh.factory<_i498.ProfileCompletionBloc>(
-      () => _i498.ProfileCompletionBloc(gh<_i1010.MeRepository>()),
+    gh.factory<_i549.CheckSellPrerequisiteUseCase>(
+      () => _i549.CheckSellPrerequisiteUseCase(gh<_i1010.MeRepository>()),
     );
     gh.lazySingleton<_i675.CartCubit>(
       () => _i675.CartCubit(gh<_i444.CartRepository>()),
+    );
+    gh.factory<_i631.RequireValidAccountUseCase>(
+      () =>
+          _i631.RequireValidAccountUseCase(gh<_i865.GetAccountStatusUseCase>()),
     );
     gh.factory<_i351.CheckoutBloc>(
       () => _i351.CheckoutBloc(
@@ -331,11 +356,45 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i496.FollowListBloc>(
       () => _i496.FollowListBloc(gh<_i931.SocialRepository>()),
     );
+    gh.factory<_i634.AccountGate>(
+      () => _i634.AccountGate(gh<_i631.RequireValidAccountUseCase>()),
+    );
+    gh.factory<_i386.AccountBloc>(
+      () => _i386.AccountBloc(
+        gh<_i865.GetAccountStatusUseCase>(),
+        gh<_i176.AuthRepository>(),
+      ),
+    );
+    gh.factory<_i672.AccountGuard>(
+      () => _i672.AccountGuard(
+        gh<_i865.GetAccountStatusUseCase>(),
+        gh<_i176.AuthRepository>(),
+      ),
+    );
     gh.factory<_i773.CartBloc>(
       () => _i773.CartBloc(
         gh<_i444.CartRepository>(),
         gh<_i486.OffersRepository>(),
         gh<_i675.CartCubit>(),
+      ),
+    );
+    gh.lazySingleton<_i774.AppRouter>(
+      () => _i774.AppRouter(gh<_i672.AccountGuard>()),
+    );
+    gh.lazySingleton<_i27.PushService>(
+      () => _i27.PushService(
+        gh<_i892.FirebaseMessaging>(),
+        gh<_i755.NotificationsRepository>(),
+        gh<_i276.NotificationsCubit>(),
+        gh<_i774.AppRouter>(),
+      ),
+    );
+    gh.factory<_i762.SettingsBloc>(
+      () => _i762.SettingsBloc(
+        gh<_i1010.MeRepository>(),
+        gh<_i176.AuthRepository>(),
+        gh<_i264.PublicConfigRepository>(),
+        gh<_i27.PushService>(),
       ),
     );
     return this;

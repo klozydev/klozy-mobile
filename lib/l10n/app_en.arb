@@ -274,8 +274,9 @@
   "product_stat_posted": "Posted",
   "product_stamp_sold": "SOLD",
   "product_stamp_reserved": "RESERVED",
+  "product_make_offer": "Make an offer",
   "product_currency_dhs": "Dhs",
-  "product_price_amount": "{amount} ",
+  "product_price_amount": "{amount} Dhs",
   "@product_price_amount": {
     "placeholders": {
       "amount": {
@@ -664,5 +665,32 @@
     }
   },
   "auth_or_continue_with": "or continue with",
-  "onboarding_address_search_hint": "Search your address"
+  "onboarding_address_search_hint": "Search your address",
+  "@_account": {},
+  "account_gate_guest_title": "Create an account or log in to continue",
+  "account_gate_guest_subtitle": "Join Klozy to wishlist items, follow sellers and buy pre-loved fashion.",
+  "account_gate_create_account": "Create an account",
+  "account_gate_log_in": "Log in",
+  "account_gate_incomplete_title": "Finish setting up your profile",
+  "account_gate_incomplete_subtitle": "Complete your profile to unlock all Klozy features.",
+  "account_gate_finish_setup": "Finish setup",
+  "@_guest_tab": {},
+  "guest_tab_title": "Sign in to Klozy",
+  "guest_tab_subtitle": "Create an account or log in to access this section.",
+  "guest_tab_cta": "Create an account",
+  "guest_tab_log_in": "Log in",
+  "@_categoryPicker": {},
+  "categoryPickerTitle": "Select category",
+  "categoryPickerBreadcrumbRoot": "All categories",
+  "categoryPickerLoading": "Loading...",
+  "categoryPickerRetry": "Retry",
+  "categoryPickerAddCategories": "Add categories",
+  "categoryPickerPreferred": "Preferred categories",
+  "@_sell_enrich": {},
+  "sellPhotosEmptyTitle": "Add photos",
+  "sellPhotosEmptySubtitle": "Take or upload photos of your item",
+  "sellPhotosCounter": "photos",
+  "sellRecapPhotoStripEdit": "Edit",
+  "sellRequiredHint": "* Required fields",
+  "sellSizeSystem": "Size system"
 }

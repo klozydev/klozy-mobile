@@ -11,6 +11,7 @@ import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
+import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
@@ -116,6 +117,7 @@ class _SearchPageState extends State<SearchPage> {
             _header(),
             _sortRow(),
             if (_filters.activeCount > 0) _activeChips(),
+            const SizedBox(height: DSSpacing.xxs),
             Expanded(
               child: BlocBuilder<SearchBloc, SearchState>(
                 builder: (BuildContext context, SearchState state) {

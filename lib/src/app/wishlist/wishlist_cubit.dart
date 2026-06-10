@@ -1,15 +1,20 @@
 import 'package:bloc/bloc.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/events/wishlist_changed_event.dart';
 import 'package:klozy/src/domain/wishlist/wishlist_repository.dart';
 
 /// App-wide set of wishlisted product ids — the single source of truth for the
 /// heart state across Feed, Wishlist, Reels, Product detail and Profile.
 /// Toggles are optimistic and reverted if the API call fails.
+/// On a successful add or remove a [WishlistChangedEvent] is fired on the
+/// [EventBus] so that open screens (e.g. the Wishlist tab) reload quietly.
 @lazySingleton
 class WishlistCubit extends Cubit<Set<String>> {
   final WishlistRepository _repository;
+  final EventBus _eventBus;
 
-  WishlistCubit(this._repository) : super(const <String>{});
+  WishlistCubit(this._repository, this._eventBus) : super(const <String>{});
 
   bool isWished(String id) => state.contains(id);
 
@@ -33,6 +38,7 @@ class WishlistCubit extends Cubit<Set<String>> {
       } else {
         await _repository.add(id);
       }
+      _eventBus.fire(const WishlistChangedEvent());
     } catch (_) {
       final reverted = Set<String>.from(state);
       wasWished ? reverted.add(id) : reverted.remove(id);

@@ -4,15 +4,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
+import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_brand_chip.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
+import 'package:klozy/src/design/components/ds_category_tree_picker.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_segmented_control.dart';
 import 'package:klozy/src/design/components/ds_selectable_chip.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
+import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/me/entity/preferences_input.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/personalize_bloc.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/personalize_event.dart';
@@ -44,12 +48,15 @@ class PersonalizePage extends StatefulWidget implements AutoRouteWrapper {
 
 class _PersonalizePageState extends State<PersonalizePage> {
   final TextEditingController _brandSearch = TextEditingController();
-  final Set<String> _categories = <String>{};
+
+  /// Categories chosen via the tree picker bottom sheet: id → path label.
+  final Map<String, String> _categoryPicks = <String, String>{};
+
   final Set<String> _sizes = <String>{};
   final Set<String> _brands = <String>{};
   String _sizeSystem = 'EU';
 
-  int get _count => _categories.length + _sizes.length + _brands.length;
+  int get _count => _categoryPicks.length + _sizes.length + _brands.length;
 
   @override
   void dispose() {
@@ -62,6 +69,23 @@ class _PersonalizePageState extends State<PersonalizePage> {
   }
 
   void _goNext() => context.router.push(const ProfileCompletionRoute());
+
+  Future<void> _openCategoryPicker() async {
+    final picked = await DSBottomSheet.show<PickedCategory>(
+      context,
+      title: context.l10N.categoryPickerTitle,
+      child: DSCategoryTreePicker(
+        repo: locator<CatalogRepository>(),
+        showBreadcrumb: true,
+        onLeafSelected: (PickedCategory p) {
+          Navigator.of(context).pop(p);
+        },
+      ),
+    );
+    if (picked != null) {
+      setState(() => _categoryPicks[picked.id] = picked.path);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,22 +160,23 @@ class _PersonalizePageState extends State<PersonalizePage> {
                       color: DSColor.onSurface60,
                     ),
                   ),
-                  _sectionTitle(
-                    context.l10N.onboarding_categories_title,
-                    hint: context.l10N.onboarding_categories_hint,
-                  ),
+                  _sectionTitle(context.l10N.categoryPickerPreferred),
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
-                    children: state.categories
-                        .map(
-                          (c) => DSSelectableChip(
-                            label: c.label,
-                            selected: _categories.contains(c.id),
-                            onTap: () => _toggle(_categories, c.id),
-                          ),
-                        )
-                        .toList(),
+                    children: <Widget>[
+                      ..._categoryPicks.entries.map(
+                        (MapEntry<String, String> e) => _RemovableChip(
+                          label: e.value,
+                          onRemove: () =>
+                              setState(() => _categoryPicks.remove(e.key)),
+                        ),
+                      ),
+                      _AddChip(
+                        label: context.l10N.categoryPickerAddCategories,
+                        onTap: _openCategoryPicker,
+                      ),
+                    ],
                   ),
                   _sectionTitle(
                     context.l10N.onboarding_sizes_title,
@@ -172,7 +197,7 @@ class _PersonalizePageState extends State<PersonalizePage> {
                     runSpacing: 8,
                     children: _clothingSizes
                         .map(
-                          (s) => DSSelectableChip(
+                          (String s) => DSSelectableChip(
                             label: s,
                             selected: _sizes.contains(s),
                             onTap: () => _toggle(_sizes, s),
@@ -186,7 +211,7 @@ class _PersonalizePageState extends State<PersonalizePage> {
                     runSpacing: 8,
                     children: _shoeSizes[_sizeSystem]!
                         .map(
-                          (s) => DSSelectableChip(
+                          (String s) => DSSelectableChip(
                             label: s,
                             selected: _sizes.contains('$_sizeSystem $s'),
                             onTap: () => _toggle(_sizes, '$_sizeSystem $s'),
@@ -248,7 +273,7 @@ class _PersonalizePageState extends State<PersonalizePage> {
                   PreferencesInput(
                     sizeSystem: _sizeSystem,
                     sizes: _sizes.toList(),
-                    categoryIds: _categories.toList(),
+                    categoryIds: _categoryPicks.keys.toList(),
                     brandIds: _brands.toList(),
                   ),
                 ),
@@ -301,6 +326,85 @@ class _PersonalizePageState extends State<PersonalizePage> {
           fontFamily: dsFontFamily,
           fontSize: DSFontSize.bodyMedium,
           color: DSColor.onSurface45,
+        ),
+      ),
+    );
+  }
+}
+
+/// A selected category chip with a remove (×) button.
+class _RemovableChip extends StatelessWidget {
+  final String label;
+  final VoidCallback onRemove;
+
+  const _RemovableChip({required this.label, required this.onRemove});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onRemove,
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+        decoration: BoxDecoration(
+          color: DSColor.primary,
+          borderRadius: BorderRadius.circular(DSBorderRadius.chip),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              label,
+              style: const TextStyle(
+                fontFamily: dsFontFamily,
+                fontSize: DSFontSize.bodyMedium,
+                fontWeight: DSFontWeight.semiBold,
+                color: DSColor.surface,
+              ),
+            ),
+            const SizedBox(width: 6),
+            const Icon(Icons.close, size: 14, color: DSColor.surface),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// "+ Add categories" trigger chip.
+class _AddChip extends StatelessWidget {
+  final String label;
+  final VoidCallback onTap;
+
+  const _AddChip({required this.label, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
+        decoration: BoxDecoration(
+          color: DSColor.onSurface07,
+          borderRadius: BorderRadius.circular(DSBorderRadius.chip),
+          border: Border.all(color: DSColor.onSurface15, width: 0.5),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const Icon(Icons.add, size: 14, color: DSColor.onSurface60),
+            const SizedBox(width: 4),
+            Text(
+              label,
+              style: const TextStyle(
+                fontFamily: dsFontFamily,
+                fontSize: DSFontSize.bodyMedium,
+                fontWeight: DSFontWeight.medium,
+                color: DSColor.onSurface75,
+              ),
+            ),
+          ],
         ),
       ),
     );

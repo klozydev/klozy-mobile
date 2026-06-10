@@ -17,10 +17,41 @@ class MeRepositoryImpl implements MeRepository {
 
   MeRepositoryImpl(this._dio);
 
+  // ── getMe cache ───────────────────────────────────────────────────────────
+  // One network round-trip per "dirty" window: all concurrent callers share
+  // a single in-flight Future; once resolved the result is cached until
+  // invalidate() is called (on mutation or sign-out).
+
+  MeProfile? _cached;
+  Future<MeProfile>? _inFlight;
+
   @override
-  Future<MeProfile> getMe() async {
+  Future<MeProfile> getMe() {
+    if (_cached != null) return Future<MeProfile>.value(_cached);
+    _inFlight ??= _fetchMe().then(
+      (profile) {
+        _cached = profile;
+        _inFlight = null;
+        return profile;
+      },
+      onError: (Object e) {
+        // Don't cache errors; allow the next caller to retry.
+        _inFlight = null;
+        throw e;
+      },
+    );
+    return _inFlight!;
+  }
+
+  Future<MeProfile> _fetchMe() async {
     final response = await _dio.get<Map<String, dynamic>>('v1/me');
     return _mapProfile(_unwrap(response.data));
+  }
+
+  @override
+  void invalidate() {
+    _cached = null;
+    _inFlight = null;
   }
 
   @override
@@ -39,7 +70,11 @@ class MeRepositoryImpl implements MeRepository {
         if (bio != null) 'bio': bio,
       },
     );
-    return _mapProfile(_unwrap(response.data));
+    final updated = _mapProfile(_unwrap(response.data));
+    // Warm the cache with the fresh profile returned by the server.
+    _cached = updated;
+    _inFlight = null;
+    return updated;
   }
 
   @override
@@ -51,6 +86,7 @@ class MeRepositoryImpl implements MeRepository {
       'v1/me/avatar',
       data: formData,
     );
+    invalidate();
     final json = _unwrap(response.data);
     return _str(json, ['avatarUrl', 'avatar', 'url', 'photoUrl']);
   }
@@ -58,6 +94,7 @@ class MeRepositoryImpl implements MeRepository {
   @override
   Future<void> setAddress(AddressInput address) async {
     await _dio.put<dynamic>('v1/me/address', data: address.toJson());
+    invalidate();
   }
 
   @override
@@ -182,6 +219,7 @@ class MeRepositoryImpl implements MeRepository {
     final response = await _dio.post<Map<String, dynamic>>(
       'v1/me/seller-connect/kyb-link',
     );
+    invalidate();
     return _str(_unwrap(response.data), ['url']);
   }
 
@@ -203,6 +241,7 @@ class MeRepositoryImpl implements MeRepository {
   @override
   Future<void> updatePreferences(PreferencesInput preferences) async {
     await _dio.put<dynamic>('v1/me/preferences', data: preferences.toJson());
+    invalidate();
   }
 
   @override
@@ -214,6 +253,7 @@ class MeRepositoryImpl implements MeRepository {
         if (iban != null && iban.isNotEmpty) 'iban': iban,
       },
     );
+    invalidate();
   }
 
   @override
@@ -248,6 +288,7 @@ class MeRepositoryImpl implements MeRepository {
       'v1/me/payout-iban',
       data: <String, dynamic>{'iban': iban},
     );
+    invalidate();
   }
 
   @override

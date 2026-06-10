@@ -11,6 +11,7 @@ import 'package:klozy/src/design/components/ds_list_item.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
+import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_bloc.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_event.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_state.dart';
@@ -106,48 +107,67 @@ class _SellPhotosWidgetState extends State<SellPhotosWidget> {
     return Column(
       children: <Widget>[
         Expanded(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  _paths.isEmpty
-                      ? context.l10N.sell_sell_in_seconds
-                      : context.l10N.sell_your_photos,
-                  style: const TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.headlineLarge,
-                    fontWeight: DSFontWeight.bold,
-                    color: DSColor.onSurface,
+          child: _paths.isEmpty
+              ? _emptyState(context)
+              : SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(
+                    DSSpacing.s,
+                    DSSpacing.xxs,
+                    DSSpacing.s,
+                    DSSpacing.s,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              context.l10N.sell_your_photos,
+                              style: const TextStyle(
+                                fontFamily: dsFontFamily,
+                                fontSize: DSFontSize.headlineLarge,
+                                fontWeight: DSFontWeight.bold,
+                                color: DSColor.onSurface,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            '${_paths.length}/$_maxPhotos',
+                            style: const TextStyle(
+                              fontFamily: dsFontFamily,
+                              fontSize: DSFontSize.bodyMedium,
+                              color: DSColor.onSurface60,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: DSSpacing.xxs),
+                      Text(
+                        context.l10N.sell_add_photos_hint,
+                        style: const TextStyle(
+                          fontFamily: dsFontFamily,
+                          fontSize: DSFontSize.bodyMedium,
+                          color: DSColor.onSurface60,
+                        ),
+                      ),
+                      const SizedBox(height: DSSpacing.s),
+                      GridView.count(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        crossAxisCount: 2,
+                        mainAxisSpacing: DSSpacing.xxs,
+                        crossAxisSpacing: DSSpacing.xxs,
+                        childAspectRatio: 3 / 4,
+                        children: <Widget>[
+                          for (int i = 0; i < _paths.length; i++)
+                            _draggableTile(context, i),
+                          if (_paths.length < _maxPhotos) _addTile(),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  context.l10N.sell_add_photos_hint,
-                  style: const TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.bodyMedium,
-                    color: DSColor.onSurface60,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  childAspectRatio: 3 / 4,
-                  children: <Widget>[
-                    for (int i = 0; i < _paths.length; i++)
-                      _draggableTile(context, i),
-                    if (_paths.length < _maxPhotos) _addTile(),
-                  ],
-                ),
-              ],
-            ),
-          ),
         ),
         DSBottomBar(
           child: DSButtonElevated(
@@ -161,6 +181,71 @@ class _SellPhotosWidgetState extends State<SellPhotosWidget> {
     );
   }
 
+  Widget _emptyState(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Container(
+                width: 132,
+                height: 132,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: RadialGradient(
+                    colors: <Color>[
+                      DSColor.primary.withOpacity(0.3),
+                      Colors.transparent,
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: _add,
+                child: Container(
+                  width: 76,
+                  height: 76,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: DSColor.primary,
+                  ),
+                  child: const Icon(
+                    Icons.add_a_photo,
+                    color: DSColor.surface,
+                    size: 34,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: DSSpacing.s),
+          Text(
+            context.l10N.sellPhotosEmptyTitle,
+            style: const TextStyle(
+              fontFamily: dsFontFamily,
+              fontSize: DSFontSize.titleLarge,
+              fontWeight: DSFontWeight.semiBold,
+              color: DSColor.onSurface,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: DSSpacing.xxxs),
+          Text(
+            context.l10N.sellPhotosEmptySubtitle,
+            style: const TextStyle(
+              fontFamily: dsFontFamily,
+              fontSize: DSFontSize.bodyMedium,
+              color: DSColor.onSurface60,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _tile(BuildContext context, int index) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(DSBorderRadius.image),
@@ -170,10 +255,13 @@ class _SellPhotosWidgetState extends State<SellPhotosWidget> {
           Image.file(File(_paths[index]), fit: BoxFit.cover),
           if (index == 0)
             Positioned(
-              left: 8,
-              top: 8,
+              left: DSSpacing.xxs,
+              bottom: DSSpacing.xxs,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: DSSpacing.xxs,
+                  vertical: 3,
+                ),
                 decoration: BoxDecoration(
                   color: DSColor.primary,
                   borderRadius: BorderRadius.circular(DSBorderRadius.chip),
@@ -190,8 +278,8 @@ class _SellPhotosWidgetState extends State<SellPhotosWidget> {
               ),
             ),
           Positioned(
-            right: 8,
-            top: 8,
+            right: DSSpacing.xxs,
+            top: DSSpacing.xxs,
             child: GestureDetector(
               onTap: () => _remove(index),
               child: const CircleAvatar(

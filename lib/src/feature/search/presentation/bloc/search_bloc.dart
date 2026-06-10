@@ -31,7 +31,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     on<SearchLoadMore>(_onLoadMore);
   }
 
-  bool get _isBrowse => _query.trim().isEmpty && _filters.isEmpty;
+  bool get _isBrowse =>
+      _query.trim().isEmpty && _filters.isEmpty && _sort == ProductSort.popular;
 
   Future<void> _onInit(SearchInitEvent event, Emitter<SearchState> emit) async {
     emit(const SearchLoadingState());

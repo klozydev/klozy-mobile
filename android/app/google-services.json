@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1062855309544-0dej0mpvan3g6o6uoi6c903k8hev070q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.klozy.app",
+            "certificate_hash": "5eb7b9ed4b1331cd99ef84ca8bde967b050db617"
+          }
+        },
+        {
           "client_id": "1062855309544-ler9l675rkgj90dsbnn9i16orq13l2k9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

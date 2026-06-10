@@ -4,9 +4,10 @@ import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
+import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
 
-/// Bottom action bar — buyer (add-to-cart / in-cart), owner (edit + delete), or
+/// Bottom action bar — buyer (add-to-cart + make-offer / in-cart), owner (edit + delete), or
 /// a disabled state when sold/reserved.
 class ProductCtaBarWidget extends StatelessWidget {
   final ProductDetail detail;
@@ -15,6 +16,7 @@ class ProductCtaBarWidget extends StatelessWidget {
   final VoidCallback onViewCart;
   final VoidCallback onEdit;
   final VoidCallback onDelete;
+  final VoidCallback onMakeOffer;
 
   const ProductCtaBarWidget({
     super.key,
@@ -24,6 +26,7 @@ class ProductCtaBarWidget extends StatelessWidget {
     required this.onViewCart,
     required this.onEdit,
     required this.onDelete,
+    required this.onMakeOffer,
   });
 
   @override
@@ -31,10 +34,10 @@ class ProductCtaBarWidget extends StatelessWidget {
     return Container(
       color: DSColor.surface,
       padding: EdgeInsets.fromLTRB(
-        16,
-        12,
-        16,
-        16 + MediaQuery.viewPaddingOf(context).bottom,
+        DSSpacing.s,
+        DSSpacing.xs,
+        DSSpacing.s,
+        DSSpacing.s + MediaQuery.viewPaddingOf(context).bottom,
       ),
       child: _content(context),
     );
@@ -50,7 +53,7 @@ class ProductCtaBarWidget extends StatelessWidget {
               onPressed: onEdit,
             ),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: DSSpacing.xs),
           GestureDetector(
             onTap: onDelete,
             child: Container(
@@ -84,9 +87,23 @@ class ProductCtaBarWidget extends StatelessWidget {
         onViewCart,
       );
     }
-    return DSButtonElevated(
-      text: context.l10N.product_add_to_cart,
-      onPressed: onAddToCart,
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: DSButtonElevated(
+            text: context.l10N.product_add_to_cart,
+            onPressed: onAddToCart,
+          ),
+        ),
+        const SizedBox(width: DSSpacing.xs),
+        Expanded(
+          child: _glass(
+            context.l10N.product_make_offer,
+            Icons.local_offer_outlined,
+            onMakeOffer,
+          ),
+        ),
+      ],
     );
   }
 
@@ -126,7 +143,7 @@ class ProductCtaBarWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Icon(icon, size: 17, color: DSColor.onSurface),
-            const SizedBox(width: 8),
+            const SizedBox(width: DSSpacing.xxs),
             Text(
               label,
               style: const TextStyle(

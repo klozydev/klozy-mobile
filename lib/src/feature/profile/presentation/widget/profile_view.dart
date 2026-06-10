@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
-import 'package:klozy/src/design/components/ds_segmented_control.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/social/entity/profile_reel.dart';
@@ -20,9 +20,9 @@ import 'package:klozy/src/feature/profile/presentation/widget/profile_menu_sheet
 import 'package:klozy/src/feature/profile/presentation/widget/profile_products_grid.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_reels_grid.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_reviews_list.dart';
+import 'package:klozy/src/feature/profile/presentation/widget/profile_tab_bar_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
 
-/// Profile UI shared by the self tab and public user pages.
 class ProfileView extends StatelessWidget {
   final String? userId;
 
@@ -42,7 +42,7 @@ class _ProfileScaffold extends StatelessWidget {
   const _ProfileScaffold();
 
   void _openMenu(BuildContext context) {
-    final bloc = context.read<ProfileBloc>();
+    final ProfileBloc bloc = context.read<ProfileBloc>();
     DSBottomSheet.show<void>(
       context,
       child: ProfileMenuSheet(
@@ -66,7 +66,16 @@ class _ProfileScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: DSColor.surface,
       appBar: AppBar(
+        backgroundColor: DSColor.surface,
         actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.shopping_bag_outlined),
+            onPressed: () => context.router.push(const CartRoute()),
+          ),
+          IconButton(
+            icon: const Icon(Icons.notifications_outlined),
+            onPressed: () => context.router.push(const NotificationsRoute()),
+          ),
           BlocBuilder<ProfileBloc, ProfileState>(
             builder: (BuildContext context, ProfileState state) {
               if (state is! ProfileLoadedState || state.profile.isMe) {
@@ -89,7 +98,7 @@ class _ProfileScaffold extends StatelessWidget {
               onRetry: () =>
                   context.read<ProfileBloc>().add(const ProfileStarted()),
             ),
-            ProfileLoadedState() => _Body(state: state),
+            ProfileLoadedState() => _ProfileBody(initialState: state),
           };
         },
       ),
@@ -97,83 +106,166 @@ class _ProfileScaffold extends StatelessWidget {
   }
 }
 
-class _Body extends StatelessWidget {
-  final ProfileLoadedState state;
+class _ProfileBody extends StatefulWidget {
+  final ProfileLoadedState initialState;
 
-  const _Body({required this.state});
+  const _ProfileBody({required this.initialState});
+
+  @override
+  State<_ProfileBody> createState() => _ProfileBodyState();
+}
+
+class _ProfileBodyState extends State<_ProfileBody>
+    with TickerProviderStateMixin {
+  late final TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(
+      length: 3,
+      vsync: this,
+      initialIndex: ProfileTab.values.indexOf(widget.initialState.tab),
+    );
+    _tabController.addListener(_onTabChanged);
+  }
+
+  void _onTabChanged() {
+    if (_tabController.indexIsChanging) return;
+    final ProfileTab tab = ProfileTab.values[_tabController.index];
+    context.read<ProfileBloc>().add(ProfileTabChanged(tab));
+  }
+
+  @override
+  void dispose() {
+    _tabController.removeListener(_onTabChanged);
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final profile = state.profile;
-    return ListView(
-      padding: const EdgeInsets.only(top: 8),
-      children: <Widget>[
-        ProfileHeaderWidget(
-          profile: profile,
-          onFollowers: () => context.router.push(
-            FollowListRoute(userId: profile.id, showFollowers: true),
-          ),
-          onFollowing: () => context.router.push(
-            FollowListRoute(userId: profile.id, showFollowers: false),
-          ),
-          onRatingTap: () => context.read<ProfileBloc>().add(
-            const ProfileTabChanged(ProfileTab.reviews),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-          child: ProfileActionsWidget(
-            profile: profile,
-            onFollow: () =>
-                context.read<ProfileBloc>().add(const ProfileFollowToggled()),
-            onMessage: () => context.openChatWith(profile.id),
-            onEdit: () => context.router.push(const EditProfileRoute()),
-            onOrders: () => context.router.push(const OrdersRoute()),
-            onNotifications: () =>
-                context.router.push(const NotificationsRoute()),
-            onSettings: () => context.router.push(const SettingsRoute()),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
-          child: DSSegmentedControl(
-            labels: <String>[
-              context.l10N.profile_tab_products,
-              context.l10N.profile_tab_reels,
-              context.l10N.profile_tab_reviews,
-            ],
-            selectedIndex: ProfileTab.values.indexOf(state.tab),
-            onChanged: (int i) => context.read<ProfileBloc>().add(
-              ProfileTabChanged(ProfileTab.values[i]),
+    return BlocBuilder<ProfileBloc, ProfileState>(
+      builder: (BuildContext context, ProfileState state) {
+        if (state is! ProfileLoadedState) return const DSLoader();
+        final profile = state.profile;
+        return NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool _) => <Widget>[
+            SliverToBoxAdapter(
+              child: ProfileHeaderWidget(
+                profile: profile,
+                onFollowers: () => context.router.push(
+                  FollowListRoute(userId: profile.id, showFollowers: true),
+                ),
+                onFollowing: () => context.router.push(
+                  FollowListRoute(userId: profile.id, showFollowers: false),
+                ),
+                onRatingTap: () {},
+              ),
             ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                child: ProfileActionsWidget(
+                  profile: profile,
+                  onFollow: () => locator<AccountGate>().guard(
+                    context,
+                    onAllowed: () => context.read<ProfileBloc>().add(
+                      const ProfileFollowToggled(),
+                    ),
+                  ),
+                  onMessage: () => context.openChatWith(profile.id),
+                  onEdit: () => context.router.push(const EditProfileRoute()),
+                  onOrders: () => context.router.push(const OrdersRoute()),
+                  onNotifications: () =>
+                      context.router.push(const NotificationsRoute()),
+                  onSettings: () => context.router.push(const SettingsRoute()),
+                ),
+              ),
+            ),
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: _TabBarDelegate(tabController: _tabController),
+            ),
+          ],
+          body: TabBarView(
+            controller: _tabController,
+            children: <Widget>[
+              SingleChildScrollView(
+                child: ProfileProductsGrid(products: state.products),
+              ),
+              _ReelTabContent(state: state),
+              _ReviewTabContent(state: state),
+            ],
           ),
-        ),
-        if (state.tabLoading)
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 48),
-            child: DSLoader(),
-          )
-        else
-          _tabBody(context),
-      ],
+        );
+      },
+    );
+  }
+}
+
+class _TabBarDelegate extends SliverPersistentHeaderDelegate {
+  final TabController tabController;
+
+  const _TabBarDelegate({required this.tabController});
+
+  @override
+  double get minExtent => 48;
+
+  @override
+  double get maxExtent => 48;
+
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    return ColoredBox(
+      color: DSColor.surface,
+      child: ProfileTabBarWidget(tabController: tabController),
     );
   }
 
-  Widget _tabBody(BuildContext context) {
-    switch (state.tab) {
-      case ProfileTab.products:
-        return ProfileProductsGrid(products: state.products);
-      case ProfileTab.reels:
-        return ProfileReelsGrid(
-          reels: state.reels ?? const [],
-          onTap: (ProfileReel reel) =>
-              context.router.push(SingleReelRoute(reelId: reel.id)),
-        );
-      case ProfileTab.reviews:
-        return ProfileReviewsList(
-          profile: state.profile,
-          reviews: state.reviews ?? const [],
-        );
+  @override
+  bool shouldRebuild(_TabBarDelegate old) => false;
+}
+
+class _ReelTabContent extends StatelessWidget {
+  final ProfileLoadedState state;
+
+  const _ReelTabContent({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    if (state.tabLoading && state.reels == null) {
+      return const DSLoader();
     }
+    return SingleChildScrollView(
+      child: ProfileReelsGrid(
+        reels: state.reels ?? const <ProfileReel>[],
+        onTap: (ProfileReel reel) =>
+            context.router.push(SingleReelRoute(reelId: reel.id)),
+      ),
+    );
+  }
+}
+
+class _ReviewTabContent extends StatelessWidget {
+  final ProfileLoadedState state;
+
+  const _ReviewTabContent({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    if (state.tabLoading && state.reviews == null) {
+      return const DSLoader();
+    }
+    return SingleChildScrollView(
+      child: ProfileReviewsList(
+        profile: state.profile,
+        reviews: state.reviews ?? const [],
+      ),
+    );
   }
 }

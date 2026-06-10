@@ -34,6 +34,16 @@
 				<string>klozy</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.googleusercontent.apps.1062855309544-sl6upanfgjgb7hd1dlqvh8vv93duhb5s</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1062855309544-sl6upanfgjgb7hd1dlqvh8vv93duhb5s</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>

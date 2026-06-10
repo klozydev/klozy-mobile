@@ -9,14 +9,20 @@ import 'package:injectable/injectable.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/auth/entity/auth_user.dart';
+import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 @LazySingleton(as: AuthRepository)
 class FirebaseAuthRepository implements AuthRepository {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
+  final MeRepository _meRepository;
 
-  FirebaseAuthRepository(this._firebaseAuth, this._googleSignIn);
+  FirebaseAuthRepository(
+    this._firebaseAuth,
+    this._googleSignIn,
+    this._meRepository,
+  );
 
   @override
   Stream<AuthUser?> authStateChanges() =>
@@ -24,6 +30,12 @@ class FirebaseAuthRepository implements AuthRepository {
 
   @override
   AuthUser? get currentUser => _mapNullable(_firebaseAuth.currentUser);
+
+  @override
+  String? get currentUserId => _firebaseAuth.currentUser?.uid;
+
+  @override
+  bool get isAnonymous => _firebaseAuth.currentUser?.isAnonymous ?? false;
 
   @override
   Future<AuthUser> signUpWithEmail({
@@ -163,6 +175,7 @@ class FirebaseAuthRepository implements AuthRepository {
 
   @override
   Future<void> signOut() async {
+    _meRepository.invalidate();
     await _googleSignIn.signOut();
     await _firebaseAuth.signOut();
   }

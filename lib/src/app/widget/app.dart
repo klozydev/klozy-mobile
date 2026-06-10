@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' show ProviderScope;
 import 'package:klozy/l10n/app_localizations.dart';
+import 'package:klozy/src/app/bloc/account/account_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_event.dart';
 import 'package:klozy/src/app/bloc/app_bloc.dart';
 import 'package:klozy/src/app/bloc/app_event.dart';
 import 'package:klozy/src/app/bloc/app_state.dart';
@@ -29,12 +31,15 @@ class _AppState extends State<App> {
   final _appRouter = locator<AppRouter>();
   final _themeChangeNotifier = locator<AppConfigChangeNotifier>();
   late final AppBloc _bloc;
+  late final AccountBloc _accountBloc;
 
   @override
   void initState() {
     super.initState();
     _bloc = locator<AppBloc>();
     _bloc.add(AppInitEvent());
+    _accountBloc = locator<AccountBloc>();
+    _accountBloc.add(const AccountBootstrapRequested());
   }
 
   @override
@@ -66,6 +71,7 @@ class _AppState extends State<App> {
                 ) {
                   return MultiBlocProvider(
                     providers: <BlocProvider<dynamic>>[
+                      BlocProvider<AccountBloc>.value(value: _accountBloc),
                       BlocProvider<WishlistCubit>.value(
                         value: locator<WishlistCubit>(),
                       ),
@@ -115,6 +121,7 @@ class _AppState extends State<App> {
   @override
   void dispose() {
     _bloc.close();
+    _accountBloc.close();
     _themeChangeNotifier.dispose();
     _appRouter.dispose();
     super.dispose();

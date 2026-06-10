@@ -21,10 +21,18 @@ class AuthenticationInterceptor extends QueuedInterceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    final token = await _idToken();
-    if (token != null && token.isNotEmpty) {
-      options.headers['Authorization'] = 'Bearer $token';
+    try {
+      final token = await _idToken();
+      if (token != null && token.isNotEmpty) {
+        options.headers['Authorization'] = 'Bearer $token';
+      }
+    } catch (_) {
+      // Token fetch failed (network error, revoked session, etc.).
+      // Proceed without the header — the server will 401 and onError will
+      // force-refresh the token once before retrying.
     }
+    // Always advance the queue; a missing catch here would stall every
+    // subsequent request in the QueuedInterceptor queue permanently.
     handler.next(options);
   }
 
@@ -53,13 +61,24 @@ class AuthenticationInterceptor extends QueuedInterceptor {
       handler.resolve(retried);
     } on DioException catch (retryError) {
       handler.next(retryError);
+    } catch (_) {
+      // Non-Dio exceptions from the retry (e.g. unexpected SDK throw).
+      // Fall through with the original error so the queue never stalls.
+      handler.next(err);
     }
   }
 
   Future<String?> _idToken({bool forceRefresh = false}) async {
     final user = _firebaseAuth.currentUser;
     if (user == null) return null;
-    return user.getIdToken(forceRefresh);
+    try {
+      return await user.getIdToken(forceRefresh);
+    } catch (_) {
+      // getIdToken can throw on network failure or a revoked credential.
+      // Return null so the request proceeds unauthenticated; the 401 path in
+      // onError will attempt one force-refresh before the caller sees an error.
+      return null;
+    }
   }
 
   Future<Response<dynamic>> _retry(

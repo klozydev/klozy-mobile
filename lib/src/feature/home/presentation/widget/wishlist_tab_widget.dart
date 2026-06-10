@@ -1,6 +1,10 @@
+import 'dart:async';
+
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
+import 'package:klozy/src/core/events/wishlist_changed_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
@@ -25,55 +29,86 @@ class WishlistTabWidget extends StatefulWidget {
 
 class _WishlistTabWidgetState extends State<WishlistTabWidget> {
   late Future<PaginatedList<Product>> _future;
+  late final StreamSubscription<WishlistChangedEvent> _wishlistChangedSub;
 
   @override
   void initState() {
     super.initState();
     _future = locator<WishlistRepository>().getWishlistProducts();
+    _wishlistChangedSub = locator<EventBus>().on<WishlistChangedEvent>().listen(
+      (_) => _reload(),
+    );
   }
 
   @override
   void didUpdateWidget(WishlistTabWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.active && !oldWidget.active) {
-      setState(() {
-        _future = locator<WishlistRepository>().getWishlistProducts();
-      });
+      _reload();
     }
+  }
+
+  void _reload() {
+    setState(() {
+      _future = locator<WishlistRepository>().getWishlistProducts();
+    });
+  }
+
+  @override
+  void dispose() {
+    _wishlistChangedSub.cancel();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final Set<String> wishedIds = context.watch<WishlistCubit>().state;
-    return FutureBuilder<PaginatedList<Product>>(
-      future: _future,
-      builder:
-          (
-            BuildContext context,
-            AsyncSnapshot<PaginatedList<Product>> snapshot,
-          ) {
-            if (snapshot.connectionState != ConnectionState.done) {
-              return const DSLoader();
-            }
-            final items = (snapshot.data?.data ?? const <Product>[])
-                .where((Product p) => wishedIds.contains(p.id))
-                .toList();
-            if (items.isEmpty) {
-              return const _Empty();
-            }
-            return GridView.builder(
-              padding: const EdgeInsets.all(16),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-                childAspectRatio: 0.56,
-              ),
-              itemCount: items.length,
-              itemBuilder: (BuildContext context, int i) =>
-                  ProductCardWidget(product: items[i]),
-            );
-          },
+    return RefreshIndicator(
+      color: DSColor.primary,
+      backgroundColor: DSColor.card,
+      onRefresh: () async => _reload(),
+      child: FutureBuilder<PaginatedList<Product>>(
+        future: _future,
+        builder:
+            (
+              BuildContext context,
+              AsyncSnapshot<PaginatedList<Product>> snapshot,
+            ) {
+              if (snapshot.connectionState != ConnectionState.done) {
+                return const DSLoader();
+              }
+              final items = (snapshot.data?.data ?? const <Product>[])
+                  .where((Product p) => wishedIds.contains(p.id))
+                  .toList();
+              if (items.isEmpty) {
+                // Wrap in a scrollable so RefreshIndicator can be triggered even
+                // when the list is empty.
+                return LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) =>
+                      SingleChildScrollView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        child: SizedBox(
+                          height: constraints.maxHeight,
+                          child: const _Empty(),
+                        ),
+                      ),
+                );
+              }
+              return GridView.builder(
+                physics: const AlwaysScrollableScrollPhysics(),
+                padding: const EdgeInsets.all(16),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 8,
+                  childAspectRatio: 0.56,
+                ),
+                itemCount: items.length,
+                itemBuilder: (BuildContext context, int i) =>
+                    ProductCardWidget(product: items[i]),
+              );
+            },
+      ),
     );
   }
 }

@@ -10,6 +10,32 @@ sealed class ProfileCompletionEvent extends Equatable {
   List<Object?> get props => [];
 }
 
+/// User typed in the address field — triggers debounced autocomplete.
+final class ProfileCompletionAddressQueryChanged
+    extends ProfileCompletionEvent {
+  final String query;
+
+  const ProfileCompletionAddressQueryChanged(this.query);
+
+  @override
+  List<Object?> get props => [query];
+}
+
+/// User tapped a suggestion — resolve full [PlaceDetails] for the [placeId].
+final class ProfileCompletionAddressSelected extends ProfileCompletionEvent {
+  final String placeId;
+  final String displayText;
+
+  const ProfileCompletionAddressSelected({
+    required this.placeId,
+    required this.displayText,
+  });
+
+  @override
+  List<Object?> get props => [placeId, displayText];
+}
+
+/// Final submit: persist profile + address to the backend.
 final class ProfileCompletionSubmitted extends ProfileCompletionEvent {
   final String firstName;
   final String lastName;

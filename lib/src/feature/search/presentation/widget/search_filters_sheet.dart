@@ -3,18 +3,18 @@ import 'package:flutter/services.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
+import 'package:klozy/src/design/components/ds_category_tree_picker.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_selectable_chip.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
-import 'package:klozy/src/design/tokens/ds_color.dart';
-import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_brand.dart';
-import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_condition.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_size_value.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_filters.dart';
+import 'package:klozy/src/feature/search/presentation/widget/filter_section_label_widget.dart';
+import 'package:klozy/src/feature/search/presentation/widget/selected_category_chip_widget.dart';
 
 /// Filters sheet body — category drill-down + conditions + sizes. Returns the
 /// chosen [SearchFilters] via `Navigator.pop`.
@@ -42,8 +42,7 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
   List<CatalogSizeValue> _allSizes = const <CatalogSizeValue>[];
   List<CatalogBrand> _brands = const <CatalogBrand>[];
 
-  final List<CatalogCategory> _path = <CatalogCategory>[];
-  List<CatalogCategory> _children = const <CatalogCategory>[];
+  PickedCategory? _selectedCategory;
 
   late Set<String> _conditions = <String>{...widget.initial.conditions};
   late Set<String> _sizes = <String>{...widget.initial.sizes};
@@ -73,7 +72,6 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
   }
 
   Future<void> _load() async {
-    final children = await _catalog.getCategories();
     try {
       _allConditions = await _catalog.getConditions();
     } catch (_) {}
@@ -85,32 +83,13 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
     } catch (_) {}
     if (!mounted) return;
     setState(() {
-      _children = children;
       _loading = false;
     });
   }
 
-  Future<void> _drill(CatalogCategory category) async {
-    final children = await _catalog.getCategories(parentId: category.id);
-    if (!mounted) return;
-    setState(() {
-      _path.add(category);
-      _children = children;
-    });
-  }
-
-  Future<void> _back() async {
-    if (_path.isEmpty) return;
-    _path.removeLast();
-    final parent = _path.isEmpty ? null : _path.last.id;
-    final children = await _catalog.getCategories(parentId: parent);
-    if (!mounted) return;
-    setState(() => _children = children);
-  }
-
   void _reset() {
     setState(() {
-      _path.clear();
+      _selectedCategory = null;
       _conditions = <String>{};
       _sizes = <String>{};
       _brandIds = <String>{};
@@ -123,10 +102,8 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
   void _apply() {
     Navigator.of(context).pop(
       SearchFilters(
-        categoryId: _path.isEmpty ? null : _path.last.id,
-        categoryPath: _path.isEmpty
-            ? null
-            : _path.map((CatalogCategory c) => c.label).join(' › '),
+        categoryId: _selectedCategory?.id,
+        categoryPath: _selectedCategory?.path,
         conditions: _conditions,
         sizes: _sizes,
         brandIds: _brandIds,
@@ -148,23 +125,26 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _label(context.l10N.search_filter_category),
-                _breadcrumb(),
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: _children
-                      .map(
-                        (CatalogCategory c) => DSSelectableChip(
-                          label: c.label,
-                          selected: false,
-                          onTap: () => _drill(c),
-                        ),
-                      )
-                      .toList(),
+                FilterSectionLabelWidget(
+                  text: context.l10N.search_filter_category,
                 ),
+                if (_selectedCategory != null)
+                  SelectedCategoryChipWidget(
+                    path: _selectedCategory!.path,
+                    onClear: () => setState(() => _selectedCategory = null),
+                  )
+                else
+                  DSCategoryTreePicker(
+                    repo: _catalog,
+                    showBreadcrumb: true,
+                    onLeafSelected: (PickedCategory picked) {
+                      setState(() => _selectedCategory = picked);
+                    },
+                  ),
                 if (_allConditions.isNotEmpty) ...<Widget>[
-                  _label(context.l10N.search_filter_condition),
+                  FilterSectionLabelWidget(
+                    text: context.l10N.search_filter_condition,
+                  ),
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
@@ -184,7 +164,9 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
                   ),
                 ],
                 if (_allSizes.isNotEmpty) ...<Widget>[
-                  _label(context.l10N.search_filter_size),
+                  FilterSectionLabelWidget(
+                    text: context.l10N.search_filter_size,
+                  ),
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
@@ -203,7 +185,9 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
                         .toList(),
                   ),
                 ],
-                _label(context.l10N.search_filter_brand),
+                FilterSectionLabelWidget(
+                  text: context.l10N.search_filter_brand,
+                ),
                 DSTextField(
                   controller: _brandQuery,
                   hintText: context.l10N.onboarding_brands_search_hint,
@@ -228,7 +212,9 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
                       )
                       .toList(),
                 ),
-                _label(context.l10N.search_filter_price),
+                FilterSectionLabelWidget(
+                  text: context.l10N.search_filter_price,
+                ),
                 Row(
                   children: <Widget>[
                     Expanded(
@@ -277,52 +263,6 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
           ],
         ),
       ],
-    );
-  }
-
-  Widget _label(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20, bottom: 12),
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontFamily: dsFontFamily,
-          fontSize: DSFontSize.titleLarge,
-          fontWeight: DSFontWeight.semiBold,
-          color: DSColor.onSurface,
-        ),
-      ),
-    );
-  }
-
-  Widget _breadcrumb() {
-    if (_path.isEmpty) return const SizedBox.shrink();
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: Row(
-        children: <Widget>[
-          GestureDetector(
-            onTap: _back,
-            child: const Icon(
-              Icons.arrow_back_ios_new,
-              size: 14,
-              color: DSColor.onSurface60,
-            ),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              _path.map((CatalogCategory c) => c.label).join(' › '),
-              style: const TextStyle(
-                fontFamily: dsFontFamily,
-                fontSize: DSFontSize.bodyMedium,
-                fontWeight: DSFontWeight.medium,
-                color: DSColor.onSurface,
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

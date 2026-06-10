@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:klozy/src/domain/product/entity/create_product_input.dart';
+import 'package:klozy/src/feature/sell/domain/entity/sell_draft_field.dart';
+import 'package:klozy/src/feature/sell/domain/entity/size_system.dart';
 
 @immutable
 sealed class SellEvent extends Equatable {
@@ -30,6 +32,26 @@ final class SellAnalyzeRequested extends SellEvent {
 
   @override
   List<Object?> get props => [paths];
+}
+
+final class SellSizeSystemToggled extends SellEvent {
+  final SizeSystem system;
+
+  const SellSizeSystemToggled(this.system);
+
+  @override
+  List<Object?> get props => [system];
+}
+
+/// Fired when the user manually edits a field that was previously AI-filled.
+/// The BLoC removes [field] from [SellRecapState.aiFilled].
+final class SellDraftFieldEdited extends SellEvent {
+  final SellDraftField field;
+
+  const SellDraftFieldEdited(this.field);
+
+  @override
+  List<Object?> get props => [field];
 }
 
 final class SellProductSubmitted extends SellEvent {

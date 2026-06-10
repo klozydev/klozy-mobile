@@ -2,8 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
+import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_product_card.dart';
+import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/router/app_router.dart';
 
@@ -23,7 +25,7 @@ class ProductCardWidget extends StatelessWidget {
     return DSProductCard(
       title: product.title,
       meta: product.meta,
-      price: product.price.toInt().toString(),
+      price: context.l10N.product_price_amount(product.price.toInt()),
       likes: product.likes,
       badge: product.isNewWithTags ? context.l10N.home_product_badge_new : null,
       isLiked: liked,
@@ -31,7 +33,10 @@ class ProductCardWidget extends StatelessWidget {
           ? null
           : NetworkImage(product.coverImageUrl!),
       onTap: onTap ?? () => context.router.push(ProductRoute(id: product.id)),
-      onLikeChanged: (_) => context.read<WishlistCubit>().toggle(product.id),
+      onLikeChanged: (_) => locator<AccountGate>().guard(
+        context,
+        onAllowed: () => context.read<WishlistCubit>().toggle(product.id),
+      ),
     );
   }
 }

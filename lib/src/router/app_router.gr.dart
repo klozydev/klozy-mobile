@@ -899,6 +899,22 @@ class SearchRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [SellCategoryPage]
+class SellCategoryRoute extends PageRouteInfo<void> {
+  const SellCategoryRoute({List<PageRouteInfo>? children})
+    : super(SellCategoryRoute.name, initialChildren: children);
+
+  static const String name = 'SellCategoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return WrappedRoute(child: const SellCategoryPage());
+    },
+  );
+}
+
+/// generated route for
 /// [SellPage]
 class SellRoute extends PageRouteInfo<void> {
   const SellRoute({List<PageRouteInfo>? children})
@@ -1043,52 +1059,6 @@ class SingleReelRouteArgs {
 
   @override
   int get hashCode => reelId.hashCode ^ key.hashCode;
-}
-
-/// generated route for
-/// [SuccessPage]
-class SuccessRoute extends PageRouteInfo<SuccessRouteArgs> {
-  SuccessRoute({Key? key, String? firstName, List<PageRouteInfo>? children})
-    : super(
-        SuccessRoute.name,
-        args: SuccessRouteArgs(key: key, firstName: firstName),
-        initialChildren: children,
-      );
-
-  static const String name = 'SuccessRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<SuccessRouteArgs>(
-        orElse: () => const SuccessRouteArgs(),
-      );
-      return SuccessPage(key: args.key, firstName: args.firstName);
-    },
-  );
-}
-
-class SuccessRouteArgs {
-  const SuccessRouteArgs({this.key, this.firstName});
-
-  final Key? key;
-
-  final String? firstName;
-
-  @override
-  String toString() {
-    return 'SuccessRouteArgs{key: $key, firstName: $firstName}';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other is! SuccessRouteArgs) return false;
-    return key == other.key && firstName == other.firstName;
-  }
-
-  @override
-  int get hashCode => key.hashCode ^ firstName.hashCode;
 }
 
 /// generated route for

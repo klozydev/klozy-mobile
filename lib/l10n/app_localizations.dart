@@ -1258,6 +1258,12 @@ abstract class AppLocalizations {
   /// **'RESERVED'**
   String get product_stamp_reserved;
 
+  /// No description provided for @product_make_offer.
+  ///
+  /// In en, this message translates to:
+  /// **'Make an offer'**
+  String get product_make_offer;
+
   /// No description provided for @product_currency_dhs.
   ///
   /// In en, this message translates to:
@@ -1267,7 +1273,7 @@ abstract class AppLocalizations {
   /// No description provided for @product_price_amount.
   ///
   /// In en, this message translates to:
-  /// **'{amount} '**
+  /// **'{amount} Dhs'**
   String product_price_amount(int amount);
 
   /// No description provided for @sell_sell_in_seconds.
@@ -2799,6 +2805,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search your address'**
   String get onboarding_address_search_hint;
+
+  /// No description provided for @account_gate_guest_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an account or log in to continue'**
+  String get account_gate_guest_title;
+
+  /// No description provided for @account_gate_guest_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Join Klozy to wishlist items, follow sellers and buy pre-loved fashion.'**
+  String get account_gate_guest_subtitle;
+
+  /// No description provided for @account_gate_create_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an account'**
+  String get account_gate_create_account;
+
+  /// No description provided for @account_gate_log_in.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get account_gate_log_in;
+
+  /// No description provided for @account_gate_incomplete_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish setting up your profile'**
+  String get account_gate_incomplete_title;
+
+  /// No description provided for @account_gate_incomplete_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete your profile to unlock all Klozy features.'**
+  String get account_gate_incomplete_subtitle;
+
+  /// No description provided for @account_gate_finish_setup.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish setup'**
+  String get account_gate_finish_setup;
+
+  /// No description provided for @guest_tab_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to Klozy'**
+  String get guest_tab_title;
+
+  /// No description provided for @guest_tab_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an account or log in to access this section.'**
+  String get guest_tab_subtitle;
+
+  /// No description provided for @guest_tab_cta.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an account'**
+  String get guest_tab_cta;
+
+  /// No description provided for @guest_tab_log_in.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get guest_tab_log_in;
+
+  /// No description provided for @categoryPickerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select category'**
+  String get categoryPickerTitle;
+
+  /// No description provided for @categoryPickerBreadcrumbRoot.
+  ///
+  /// In en, this message translates to:
+  /// **'All categories'**
+  String get categoryPickerBreadcrumbRoot;
+
+  /// No description provided for @categoryPickerLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get categoryPickerLoading;
+
+  /// No description provided for @categoryPickerRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get categoryPickerRetry;
+
+  /// No description provided for @categoryPickerAddCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Add categories'**
+  String get categoryPickerAddCategories;
+
+  /// No description provided for @categoryPickerPreferred.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferred categories'**
+  String get categoryPickerPreferred;
+
+  /// No description provided for @sellPhotosEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add photos'**
+  String get sellPhotosEmptyTitle;
+
+  /// No description provided for @sellPhotosEmptySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Take or upload photos of your item'**
+  String get sellPhotosEmptySubtitle;
+
+  /// No description provided for @sellPhotosCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'photos'**
+  String get sellPhotosCounter;
+
+  /// No description provided for @sellRecapPhotoStripEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get sellRecapPhotoStripEdit;
+
+  /// No description provided for @sellRequiredHint.
+  ///
+  /// In en, this message translates to:
+  /// **'* Required fields'**
+  String get sellRequiredHint;
+
+  /// No description provided for @sellSizeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'Size system'**
+  String get sellSizeSystem;
 }
 
 class _AppLocalizationsDelegate

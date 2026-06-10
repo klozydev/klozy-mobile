@@ -16,6 +16,15 @@ abstract class AuthRepository {
 
   AuthUser? get currentUser;
 
+  /// The current Firebase user id, or null when signed out. Exposed so the
+  /// domain (e.g. `GetAccountStatusUseCase`) can detect the guest state without
+  /// depending on FirebaseAuth.
+  String? get currentUserId;
+
+  /// Whether the current Firebase user is anonymous. Used to classify legacy
+  /// anonymous sessions as [AccountStatus.legacy] without leaking FirebaseAuth.
+  bool get isAnonymous;
+
   Future<AuthUser> signUpWithEmail({
     required String email,
     required String password,

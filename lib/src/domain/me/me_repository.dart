@@ -11,7 +11,16 @@ import 'package:klozy/src/domain/me/entity/seller_stats.dart';
 /// The current user's Klozy profile and onboarding mutations (`/v1/me/**`).
 abstract class MeRepository {
   /// `GET /v1/me` — provisions the user on first call.
+  ///
+  /// Results are cached in-memory and deduped (concurrent calls share one
+  /// in-flight request). Call [invalidate] after any mutation that changes the
+  /// profile, or on sign-out, to force a fresh fetch on the next call.
   Future<MeProfile> getMe();
+
+  /// Clears the in-memory `getMe` cache so the next call hits the network.
+  /// Must be called after every mutation that changes the profile fields, and
+  /// on sign-out.
+  void invalidate();
 
   /// `PATCH /v1/me` — name + bio + handle.
   Future<MeProfile> updateProfile({

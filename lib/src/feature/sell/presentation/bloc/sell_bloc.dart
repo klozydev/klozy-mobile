@@ -8,6 +8,7 @@ import 'package:klozy/src/domain/product/products_repository.dart';
 import 'package:klozy/src/domain/sell/entity/sell_draft.dart';
 import 'package:klozy/src/domain/sell/sell_repository.dart';
 import 'package:klozy/src/domain/uploads/uploads_repository.dart';
+import 'package:klozy/src/feature/sell/domain/entity/sell_draft_field.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_event.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_state.dart';
 
@@ -27,7 +28,49 @@ class SellBloc extends Bloc<SellEvent, SellState> {
     on<SellStarted>(_onStarted);
     on<SellPhotosUpdated>(_onPhotosUpdated);
     on<SellAnalyzeRequested>(_onAnalyzeRequested);
+    on<SellSizeSystemToggled>(_onSizeSystemToggled);
+    on<SellDraftFieldEdited>(_onDraftFieldEdited);
     on<SellProductSubmitted>(_onSubmitted);
+  }
+
+  void _onSizeSystemToggled(
+    SellSizeSystemToggled event,
+    Emitter<SellState> emit,
+  ) {
+    final current = state;
+    if (current is! SellRecapState) return;
+    emit(current.copyWith(sizeSystem: event.system));
+  }
+
+  void _onDraftFieldEdited(
+    SellDraftFieldEdited event,
+    Emitter<SellState> emit,
+  ) {
+    final current = state;
+    if (current is! SellRecapState) return;
+    if (!current.aiFilled.contains(event.field)) return;
+    emit(
+      current.copyWith(
+        aiFilled: Set<SellDraftField>.from(current.aiFilled)
+          ..remove(event.field),
+      ),
+    );
+  }
+
+  Set<SellDraftField> _aiFilledFields(SellDraft draft) {
+    return <SellDraftField>{
+      if (draft.title != null && draft.title!.isNotEmpty) SellDraftField.title,
+      if (draft.price != null) SellDraftField.price,
+      if (draft.description != null && draft.description!.isNotEmpty)
+        SellDraftField.description,
+      if (draft.categoryId != null && draft.categoryId!.isNotEmpty)
+        SellDraftField.category,
+      if (draft.brandId != null && draft.brandId!.isNotEmpty)
+        SellDraftField.brand,
+      if (draft.size != null && draft.size!.isNotEmpty) SellDraftField.size,
+      if (draft.conditionId != null && draft.conditionId!.isNotEmpty)
+        SellDraftField.condition,
+    };
   }
 
   void _onStarted(SellStarted event, Emitter<SellState> emit) {
@@ -75,6 +118,7 @@ class SellBloc extends Bloc<SellEvent, SellState> {
           rootCategories: categories,
           conditions: conditions,
           imageUrls: urls,
+          aiFilled: _aiFilledFields(draft),
         ),
       );
     } catch (error) {

@@ -1,20 +1,22 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
-import 'package:klozy/src/design/components/ds_pill_indicator.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
 
-/// Full-bleed 3:4 photo carousel with pill indicator, counter, scrims and a
-/// SOLD/RESERVED stamp when blocked.
+/// Full-bleed photo carousel with SOLD/RESERVED stamp when blocked.
+/// Delegates page-indicator rendering to [ProductPageDotsWidget] via [onPageChanged].
 class ProductCarouselWidget extends StatefulWidget {
   final List<String> images;
   final ProductStatus status;
+  final ValueChanged<int>? onPageChanged;
 
   const ProductCarouselWidget({
     super.key,
     required this.images,
     required this.status,
+    this.onPageChanged,
   });
 
   @override
@@ -23,7 +25,6 @@ class ProductCarouselWidget extends StatefulWidget {
 
 class _ProductCarouselWidgetState extends State<ProductCarouselWidget> {
   final PageController _controller = PageController();
-  int _index = 0;
 
   @override
   void dispose() {
@@ -33,83 +34,65 @@ class _ProductCarouselWidgetState extends State<ProductCarouselWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.sizeOf(context).width * 4 / 3;
     final bool blocked = widget.status != ProductStatus.active;
-    final images = widget.images;
-    return SizedBox(
-      height: height,
-      child: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          if (images.isEmpty)
-            const ColoredBox(color: DSColor.lowBlack)
-          else
-            PageView.builder(
-              controller: _controller,
-              itemCount: images.length,
-              onPageChanged: (int i) => setState(() => _index = i),
-              itemBuilder: (BuildContext context, int i) =>
-                  Image.network(images[i], fit: BoxFit.cover),
+    final List<String> images = widget.images;
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        if (images.isEmpty)
+          const ColoredBox(color: DSColor.lowBlack)
+        else
+          PageView.builder(
+            controller: _controller,
+            itemCount: images.length,
+            onPageChanged: widget.onPageChanged,
+            itemBuilder: (BuildContext context, int i) => CachedNetworkImage(
+              imageUrl: images[i],
+              fit: BoxFit.cover,
+              placeholder: (BuildContext context, String url) =>
+                  const ColoredBox(color: DSColor.card),
+              errorWidget: (BuildContext context, String url, Object error) =>
+                  const ColoredBox(
+                    color: DSColor.card,
+                    child: Icon(
+                      Icons.broken_image_outlined,
+                      color: DSColor.onSurface45,
+                    ),
+                  ),
             ),
-          const DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Color(0x73000000),
-                  Colors.transparent,
-                  Color(0x66000000),
-                ],
-                stops: <double>[0, 0.35, 1],
+          ),
+        if (blocked)
+          Center(
+            child: Transform.rotate(
+              angle: -0.16,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 26,
+                  vertical: 8,
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: const Color(0xCCFFFFFF),
+                    width: 2.5,
+                  ),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  widget.status == ProductStatus.sold
+                      ? context.l10N.product_stamp_sold
+                      : context.l10N.product_stamp_reserved,
+                  style: const TextStyle(
+                    fontFamily: dsFontFamily,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 2.9,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ),
-          if (blocked)
-            Center(
-              child: Transform.rotate(
-                angle: -0.16,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 26,
-                    vertical: 8,
-                  ),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: const Color(0xCCFFFFFF),
-                      width: 2.5,
-                    ),
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: Text(
-                    widget.status == ProductStatus.sold
-                        ? context.l10N.product_stamp_sold
-                        : context.l10N.product_stamp_reserved,
-                    style: const TextStyle(
-                      fontFamily: dsFontFamily,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 2.9,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          if (images.length > 1)
-            Positioned(
-              bottom: 14,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: DSPillIndicator(
-                  count: images.length,
-                  activeIndex: _index,
-                ),
-              ),
-            ),
-        ],
-      ),
+      ],
     );
   }
 }

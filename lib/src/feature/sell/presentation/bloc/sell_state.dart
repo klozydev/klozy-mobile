@@ -4,6 +4,8 @@ import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_condition.dart';
 import 'package:klozy/src/domain/sell/entity/sell_draft.dart';
+import 'package:klozy/src/feature/sell/domain/entity/sell_draft_field.dart';
+import 'package:klozy/src/feature/sell/domain/entity/size_system.dart';
 
 @immutable
 sealed class SellState extends Equatable {
@@ -40,6 +42,12 @@ final class SellRecapState extends SellState {
   final List<CatalogCategory> rootCategories;
   final List<CatalogCondition> conditions;
   final List<String> imageUrls;
+
+  /// Fields populated by the AI analysis — drive the sparkle badge.
+  final Set<SellDraftField> aiFilled;
+
+  /// EU / US size system selected for the size field.
+  final SizeSystem sizeSystem;
   final bool isCreating;
   final String? submitError;
 
@@ -48,16 +56,26 @@ final class SellRecapState extends SellState {
     required this.rootCategories,
     required this.conditions,
     required this.imageUrls,
+    this.aiFilled = const <SellDraftField>{},
+    this.sizeSystem = SizeSystem.eu,
     this.isCreating = false,
     this.submitError,
   });
 
-  SellRecapState copyWith({bool? isCreating, String? submitError}) {
+  SellRecapState copyWith({
+    SellDraft? draft,
+    Set<SellDraftField>? aiFilled,
+    SizeSystem? sizeSystem,
+    bool? isCreating,
+    String? submitError,
+  }) {
     return SellRecapState(
-      draft: draft,
+      draft: draft ?? this.draft,
       rootCategories: rootCategories,
       conditions: conditions,
       imageUrls: imageUrls,
+      aiFilled: aiFilled ?? this.aiFilled,
+      sizeSystem: sizeSystem ?? this.sizeSystem,
       isCreating: isCreating ?? this.isCreating,
       submitError: submitError,
     );
@@ -69,6 +87,8 @@ final class SellRecapState extends SellState {
     rootCategories,
     conditions,
     imageUrls,
+    aiFilled,
+    sizeSystem,
     isCreating,
     submitError,
   ];
