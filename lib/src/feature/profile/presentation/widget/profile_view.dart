@@ -1,13 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_state.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
+import 'package:klozy/src/core/account/account_gate_sheet.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/account/entity/account_status.dart';
 import 'package:klozy/src/domain/social/entity/profile_reel.dart';
 import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_bloc.dart';
@@ -119,6 +123,26 @@ class _ProfileBodyState extends State<_ProfileBody>
     with TickerProviderStateMixin {
   late final TabController _tabController;
 
+  /// Runs [onValid] when the account is [AccountStatus.valid]; for
+  /// [AccountStatus.incompleteOnboarding] shows [AccountGateSheet] so the
+  /// user is funnelled into the completion flow instead of hitting a silent
+  /// guard redirect.
+  void _guardedOwnerAction(
+    BuildContext context, {
+    required VoidCallback onValid,
+  }) {
+    final accountState = context.read<AccountBloc>().state;
+    if (accountState is AccountResolved &&
+        accountState.status == AccountStatus.incompleteOnboarding) {
+      AccountGateSheet.show(
+        context,
+        status: AccountStatus.incompleteOnboarding,
+      );
+      return;
+    }
+    onValid();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -175,11 +199,24 @@ class _ProfileBodyState extends State<_ProfileBody>
                     ),
                   ),
                   onMessage: () => context.openChatWith(profile.id),
-                  onEdit: () => context.router.push(const EditProfileRoute()),
-                  onOrders: () => context.router.push(const OrdersRoute()),
-                  onNotifications: () =>
-                      context.router.push(const NotificationsRoute()),
-                  onSettings: () => context.router.push(const SettingsRoute()),
+                  onEdit: () => _guardedOwnerAction(
+                    context,
+                    onValid: () =>
+                        context.router.push(const EditProfileRoute()),
+                  ),
+                  onOrders: () => _guardedOwnerAction(
+                    context,
+                    onValid: () => context.router.push(const OrdersRoute()),
+                  ),
+                  onNotifications: () => _guardedOwnerAction(
+                    context,
+                    onValid: () =>
+                        context.router.push(const NotificationsRoute()),
+                  ),
+                  onSettings: () => _guardedOwnerAction(
+                    context,
+                    onValid: () => context.router.push(const SettingsRoute()),
+                  ),
                 ),
               ),
             ),

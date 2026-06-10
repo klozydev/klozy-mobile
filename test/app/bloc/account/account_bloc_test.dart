@@ -126,5 +126,30 @@ void main() {
 
       verify(() => mockUseCase()).called(1);
     });
+
+    test('re-bootstrap after onboarding completion transitions from '
+        'incompleteOnboarding to valid', () async {
+      // First bootstrap: profile was incomplete.
+      when(
+        () => mockUseCase(),
+      ).thenAnswer((_) async => AccountStatus.incompleteOnboarding);
+      await _collectStates(bloc, const AccountBootstrapRequested());
+      expect(bloc.state, AccountResolved(AccountStatus.incompleteOnboarding));
+
+      // Profile is now complete — re-bootstrap (triggered by
+      // ProfileCompletionPage on ProfileCompletionDone).
+      when(() => mockUseCase()).thenAnswer((_) async => AccountStatus.valid);
+
+      final states = await _collectStates(
+        bloc,
+        const AccountBootstrapRequested(),
+      );
+
+      expect(states, <AccountState>[
+        const AccountResolving(),
+        AccountResolved(AccountStatus.valid),
+      ]);
+      expect(bloc.state, AccountResolved(AccountStatus.valid));
+    });
   });
 }

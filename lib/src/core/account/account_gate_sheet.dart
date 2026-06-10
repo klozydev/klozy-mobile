@@ -74,16 +74,18 @@ class _GuestOrLegacyContent extends StatelessWidget {
         DSButtonElevated(
           text: l10n.account_gate_create_account,
           onPressed: () {
+            final router = context.router;
             Navigator.of(context).maybePop();
-            context.router.push(const WelcomeRoute());
+            router.push(const WelcomeRoute());
           },
         ),
         const SizedBox(height: DSSpacing.xs),
         DSButtonOutline(
           text: l10n.account_gate_log_in,
           onPressed: () {
+            final router = context.router;
             Navigator.of(context).maybePop();
-            context.router.push(const WelcomeRoute());
+            router.push(const WelcomeRoute());
           },
         ),
         const SizedBox(height: DSSpacing.xxs),
@@ -123,8 +125,11 @@ class _IncompleteOnboardingContent extends StatelessWidget {
         DSButtonElevated(
           text: l10n.account_gate_finish_setup,
           onPressed: () {
+            // Capture router before popping the sheet: the widget's context
+            // becomes stale once maybePop() removes it from the tree.
+            final router = context.router;
             Navigator.of(context).maybePop();
-            context.router.push(const PersonalizeRoute());
+            router.push(const PersonalizeRoute());
           },
         ),
         const SizedBox(height: DSSpacing.xxs),
