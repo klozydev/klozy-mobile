@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/domain/me/entity/address.dart';
 import 'package:klozy/src/feature/auth/presentation/screen/login_page.dart';
 import 'package:klozy/src/feature/auth/presentation/screen/otp_page.dart';
 import 'package:klozy/src/feature/auth/presentation/screen/phone_page.dart';
