@@ -50,6 +50,7 @@ class ProductDetail extends Equatable {
   final ProductStatus status;
   final ProductSeller seller;
   final bool isOwner;
+  final String? categoryLabel;
 
   const ProductDetail({
     required this.id,
@@ -67,6 +68,7 @@ class ProductDetail extends Equatable {
     this.views = 0,
     this.status = ProductStatus.active,
     this.isOwner = false,
+    this.categoryLabel,
   });
 
   bool get isBlocked => status != ProductStatus.active;
@@ -88,6 +90,7 @@ class ProductDetail extends Equatable {
       views: views,
       status: status ?? this.status,
       isOwner: isOwner ?? this.isOwner,
+      categoryLabel: categoryLabel,
     );
   }
 
@@ -108,5 +111,6 @@ class ProductDetail extends Equatable {
     status,
     seller,
     isOwner,
+    categoryLabel,
   ];
 }

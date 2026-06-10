@@ -9,7 +9,6 @@ import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_bloc.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_event.dart';
-import 'package:klozy/src/feature/product/presentation/widget/product_heart_button_widget.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_menu_sheet.dart';
 import 'package:klozy/src/router/app_router.dart';
 
@@ -71,22 +70,20 @@ class ProductTopBarWidget extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            if (!detail.isOwner) ProductHeartButtonWidget(detail: detail),
+            DSGlassButton(
+              onTap: () => _openMenu(context),
+              child: const Icon(
+                Icons.more_horiz,
+                size: 20,
+                color: Colors.white,
+              ),
+            ),
             const SizedBox(width: DSSpacing.xxs),
             DSGlassButton(
               onTap: () => AppShare.product(detail.id, title: detail.title),
               child: const Icon(
                 Icons.ios_share_rounded,
                 size: 18,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(width: DSSpacing.xxs),
-            DSGlassButton(
-              onTap: () => _openMenu(context),
-              child: const Icon(
-                Icons.more_horiz,
-                size: 20,
                 color: Colors.white,
               ),
             ),

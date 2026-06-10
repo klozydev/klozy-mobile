@@ -17,51 +17,56 @@ class ProductTitleBlockWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: DSSpacing.s),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(
-            product.title,
-            style: const TextStyle(
-              fontFamily: dsFontFamily,
-              fontSize: DSFontSize.headlineLarge,
-              fontWeight: DSFontWeight.bold,
-              color: Colors.white,
-              shadows: <Shadow>[
-                Shadow(color: Color(0x99000000), blurRadius: 6),
-              ],
-            ),
-          ),
-          const SizedBox(height: DSSpacing.xxs),
-          Text.rich(
-            TextSpan(
-              text: context.l10N.product_price_amount(product.price.toInt()),
-              style: const TextStyle(
-                fontFamily: dsFontFamily,
-                fontSize: DSFontSize.displayLarge,
-                fontWeight: DSFontWeight.bold,
-                color: DSColor.primary,
-              ),
-              children: <TextSpan>[
-                TextSpan(
-                  text: context.l10N.product_currency_dhs,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  product.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
-                    fontSize: DSFontSize.bodyMedium,
-                    fontWeight: DSFontWeight.medium,
-                    color: DSColor.onSurface60,
+                    fontFamily: dsFontFamily,
+                    fontSize: DSFontSize.headlineLarge,
+                    fontWeight: DSFontWeight.bold,
+                    color: Colors.white,
+                    height: 1.25,
+                    shadows: <Shadow>[
+                      Shadow(color: Color(0x99000000), blurRadius: 6),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(width: DSSpacing.s),
+              Padding(
+                padding: const EdgeInsets.only(top: DSSpacing.xxxs),
+                child: Text(
+                  context.l10N.product_price_amount(product.price.toInt()),
+                  style: const TextStyle(
+                    fontFamily: dsFontFamily,
+                    fontSize: DSFontSize.headlineLarge,
+                    fontWeight: DSFontWeight.bold,
+                    color: DSColor.primary,
+                  ),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: DSSpacing.xs),
           Wrap(
             spacing: DSSpacing.xxs,
             runSpacing: DSSpacing.xxs,
             children: <Widget>[
-              if (product.brand.isNotEmpty)
-                DSAttributeChip(label: product.brand),
               if (product.size.isNotEmpty) DSAttributeChip(label: product.size),
               if (product.conditionLabel != null)
                 DSAttributeChip(label: product.conditionLabel!),
+              if (product.brand.isNotEmpty)
+                DSAttributeChip(label: product.brand),
+              if (product.categoryLabel != null &&
+                  product.categoryLabel!.isNotEmpty)
+                DSAttributeChip(label: product.categoryLabel!),
             ],
           ),
         ],
