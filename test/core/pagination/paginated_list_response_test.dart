@@ -16,7 +16,7 @@ void main() {
     'pickedForYou': <dynamic>['Dresses'],
   };
 
-  String mapId(Object? json) => (json as Map<String, dynamic>)['id'] as String;
+  String mapId(Object? json) => (json! as Map<String, dynamic>)['id'] as String;
 
   test('parses the live {items, page, limit, total} envelope', () {
     final parsed = PaginatedListResponse<String>.fromJson(liveEnvelope, mapId);
