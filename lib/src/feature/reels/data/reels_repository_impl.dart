@@ -7,6 +7,7 @@ import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/feature/reels/data/datasource/remote_reels_data_source.dart';
 import 'package:klozy/src/feature/reels/data/reel_mapper.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel.dart';
+import 'package:klozy/src/feature/reels/domain/entity/reel_comment.dart';
 import 'package:klozy/src/feature/reels/domain/reels_repository.dart';
 
 @Injectable(as: ReelsRepository)
@@ -30,6 +31,41 @@ class ReelsRepositoryImpl extends ReelsRepository {
         ? data['data'] as Map<String, dynamic>
         : data;
     return mapReel(inner);
+  }
+
+  @override
+  Future<List<ReelComment>> comments(String id, {int page = 1}) async {
+    final data = await _remoteDataSource.comments(id, page: page);
+    final list = data is List
+        ? data
+        : (data is Map<String, dynamic>
+              ? (data['data'] is List
+                    ? data['data'] as List<dynamic>
+                    : (data['items'] is List
+                          ? data['items'] as List<dynamic>
+                          : const <dynamic>[]))
+              : const <dynamic>[]);
+    return list.map(mapReelComment).toList();
+  }
+
+  @override
+  Future<ReelComment> addComment(String id, String body) async {
+    final json = await _remoteDataSource.addComment(id, body);
+    final inner = json['data'] is Map<String, dynamic>
+        ? json['data'] as Map<String, dynamic>
+        : json;
+    return mapReelComment(inner);
+  }
+
+  @override
+  Future<void> deleteComment(String id, String commentId) =>
+      _remoteDataSource.deleteComment(id, commentId);
+
+  @override
+  Future<void> updateReel(String id, {String? caption}) {
+    return _remoteDataSource.update(id, <String, dynamic>{
+      if (caption != null) 'caption': caption,
+    });
   }
 
   @override

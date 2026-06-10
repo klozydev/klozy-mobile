@@ -8,6 +8,11 @@ abstract class CheckoutRepository {
   Future<CheckoutQuote> quote(String sellerId, {String? addressId});
 
   /// `POST /v1/checkout` — creates the order for [sellerId] (optionally at
-  /// [addressId]) and returns the order summary + Stripe PaymentSheet data.
-  Future<CheckoutResult> checkout(String sellerId, {String? addressId});
+  /// [addressId], with the chosen [shipmentType] tier) and returns the order
+  /// summary + Stripe PaymentSheet data.
+  Future<CheckoutResult> checkout(
+    String sellerId, {
+    String? addressId,
+    String? shipmentType,
+  });
 }

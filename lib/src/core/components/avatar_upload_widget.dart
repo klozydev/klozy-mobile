@@ -10,7 +10,10 @@ import 'package:klozy/src/domain/me/me_repository.dart';
 
 /// Picks an avatar from the gallery and uploads it to `/v1/me/avatar`.
 class AvatarUploadWidget extends StatefulWidget {
-  const AvatarUploadWidget({super.key});
+  /// Existing avatar URL shown until a new photo is picked.
+  final String? initialUrl;
+
+  const AvatarUploadWidget({super.key, this.initialUrl});
 
   @override
   State<AvatarUploadWidget> createState() => _AvatarUploadWidgetState();
@@ -47,7 +50,11 @@ class _AvatarUploadWidgetState extends State<AvatarUploadWidget> {
       children: <Widget>[
         DSAvatarUploader(
           onTap: _busy ? () {} : _pick,
-          image: _file == null ? null : FileImage(_file!),
+          image: _file != null
+              ? FileImage(_file!)
+              : (widget.initialUrl == null
+                    ? null
+                    : NetworkImage(widget.initialUrl!)),
         ),
         if (_busy)
           const SizedBox(

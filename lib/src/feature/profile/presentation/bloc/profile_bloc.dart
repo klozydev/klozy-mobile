@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
+import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/domain/social/social_repository.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_event.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_state.dart';
@@ -9,12 +10,15 @@ import 'package:klozy/src/feature/profile/presentation/bloc/profile_tab.dart';
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final SocialRepository _repository;
+  final MeRepository _meRepository;
 
-  ProfileBloc(this._repository) : super(const ProfileLoadingState()) {
+  ProfileBloc(this._repository, this._meRepository)
+    : super(const ProfileLoadingState()) {
     on<ProfileStarted>(_onStarted);
     on<ProfileTabChanged>(_onTabChanged);
     on<ProfileFollowToggled>(_onFollowToggled);
     on<ProfileReported>(_onReported);
+    on<ProfileBlocked>(_onBlocked);
   }
 
   Future<void> _onStarted(
@@ -55,7 +59,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     emit((state as ProfileLoadedState).copyWith(tabLoading: true));
     try {
       if (needsReels) {
-        final reels = await _repository.getUserReels(current.profile.id);
+        final reels = await _repository.getUserReels(
+          current.profile.id,
+          mine: current.profile.isMe,
+        );
         emit(
           (state as ProfileLoadedState).copyWith(
             reels: reels,
@@ -110,6 +117,17 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     if (current is! ProfileLoadedState) return;
     try {
       await _repository.reportUser(current.profile.id, 'Reported from app');
+    } catch (_) {}
+  }
+
+  Future<void> _onBlocked(
+    ProfileBlocked event,
+    Emitter<ProfileState> emit,
+  ) async {
+    final current = state;
+    if (current is! ProfileLoadedState || current.profile.isMe) return;
+    try {
+      await _meRepository.block(current.profile.id);
     } catch (_) {}
   }
 }

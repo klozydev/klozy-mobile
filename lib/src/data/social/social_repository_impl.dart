@@ -39,10 +39,16 @@ class SocialRepositoryImpl implements SocialRepository {
   }
 
   @override
-  Future<List<ProfileReel>> getUserReels(String userId) async {
+  Future<List<ProfileReel>> getUserReels(
+    String userId, {
+    bool mine = false,
+  }) async {
     final response = await _dio.get<dynamic>(
-      'v1/reels',
-      queryParameters: <String, dynamic>{'authorId': userId, 'limit': 30},
+      mine ? 'v1/reels/mine' : 'v1/reels',
+      queryParameters: <String, dynamic>{
+        if (!mine) 'authorId': userId,
+        'limit': 30,
+      },
     );
     return _list(response.data).map(mapProfileReel).toList();
   }

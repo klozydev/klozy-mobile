@@ -14,6 +14,7 @@ import 'package:klozy/src/feature/onboarding/presentation/screen/personalize_pag
 import 'package:klozy/src/feature/onboarding/presentation/screen/profile_completion_page.dart';
 import 'package:klozy/src/feature/onboarding/presentation/screen/seller_role_page.dart';
 import 'package:klozy/src/feature/onboarding/presentation/screen/success_page.dart';
+import 'package:klozy/src/feature/orders/presentation/screen/offers_page.dart';
 import 'package:klozy/src/feature/orders/presentation/screen/order_detail_page.dart';
 import 'package:klozy/src/feature/orders/presentation/screen/orders_page.dart';
 import 'package:klozy/src/feature/product/presentation/screen/edit_listing_page.dart';
@@ -32,7 +33,9 @@ import 'package:klozy/src/feature/settings/presentation/screen/edit_profile_page
 import 'package:klozy/src/feature/settings/presentation/screen/legal_doc_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/payout_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/payouts_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/preferences_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/seller_stats_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/seller_verification_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/settings_page.dart';
 import 'package:klozy/src/feature/shell/presentation/screen/shell_page.dart';
 import 'package:klozy/src/router/auth_guard.dart';
@@ -119,6 +122,7 @@ class AppRouter extends RootStackRouter {
       page: UserProfileRoute.page,
       guards: [_authGuard],
     ),
+    AutoRoute(path: '/offers', page: OffersRoute.page, guards: [_authGuard]),
     AutoRoute(path: '/orders', page: OrdersRoute.page, guards: [_authGuard]),
     AutoRoute(
       path: '/orders/:id',
@@ -161,6 +165,11 @@ class AppRouter extends RootStackRouter {
       guards: [_authGuard],
     ),
     AutoRoute(
+      path: '/settings/preferences',
+      page: PreferencesRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
       path: '/settings/payout',
       page: PayoutRoute.page,
       guards: [_authGuard],
@@ -168,6 +177,11 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       path: '/settings/seller-stats',
       page: SellerStatsRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/settings/seller-verification',
+      page: SellerVerificationRoute.page,
       guards: [_authGuard],
     ),
     AutoRoute(

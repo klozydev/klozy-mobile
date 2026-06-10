@@ -14,6 +14,8 @@ import 'package:klozy/src/feature/reels/domain/reels_repository.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reels_bloc.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reels_event.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reels_state.dart';
+import 'package:klozy/src/feature/reels/presentation/widget/reel_comments_sheet.dart';
+import 'package:klozy/src/feature/reels/presentation/widget/reel_edit_sheet.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_menu_sheet.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_page_widget.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_shop_sheet.dart';
@@ -67,12 +69,43 @@ class _ReelViewerWidgetState extends State<ReelViewerWidget> {
     );
   }
 
+  Future<void> _openComments(Reel reel) {
+    final isOwner = _myId != null && reel.author.id == _myId;
+    return DSBottomSheet.show<void>(
+      context,
+      title: context.l10N.reels_comments_title,
+      child: ReelCommentsSheet(reelId: reel.id, isReelOwner: isOwner),
+    );
+  }
+
+  Future<void> _editCaption(Reel reel) async {
+    final caption = await DSBottomSheet.show<String>(
+      context,
+      title: context.l10N.reels_edit_reel,
+      child: ReelEditSheet(caption: reel.caption),
+    );
+    if (caption == null || !mounted) return;
+    try {
+      await locator<ReelsRepository>().updateReel(reel.id, caption: caption);
+      if (mounted) {
+        context.showSnackBar(context.l10N.reels_caption_updated);
+        _bloc.add(const ReelsInitEvent());
+      }
+    } catch (_) {
+      if (mounted) context.showSnackBar(context.l10N.settings_save_failed);
+    }
+  }
+
   Future<void> _openMenu(Reel reel) {
     final isOwner = _myId != null && reel.author.id == _myId;
     return DSBottomSheet.show<void>(
       context,
       child: ReelMenuSheet(
         isOwner: isOwner,
+        onEdit: () {
+          Navigator.of(context).maybePop();
+          _editCaption(reel);
+        },
         onDelete: () {
           _bloc.add(ReelsDeletedEvent(reel.id));
           Navigator.of(context).maybePop();
@@ -146,6 +179,7 @@ class _ReelViewerWidgetState extends State<ReelViewerWidget> {
               onShop: () => _openShop(reel),
               onShare: () => AppShare.reel(reel.id, caption: reel.caption),
               onMenu: () => _openMenu(reel),
+              onComments: () => _openComments(reel),
             );
           },
         ),

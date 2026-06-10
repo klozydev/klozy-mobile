@@ -19,6 +19,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
   String _sellerId = '';
   List<Address> _addresses = const <Address>[];
   String? _selectedId;
+  String? _shipmentType;
   CheckoutQuote _quote = const CheckoutQuote();
   CheckoutResult? _result;
 
@@ -26,6 +27,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
     : super(const CheckoutLoadingState()) {
     on<CheckoutStarted>(_onStarted);
     on<CheckoutAddressSelected>(_onAddressSelected);
+    on<CheckoutShipmentSelected>(_onShipmentSelected);
     on<CheckoutPayRequested>(_onPayRequested);
     on<CheckoutPaid>(_onPaid);
     on<CheckoutPayCancelled>(_onPayCancelled);
@@ -34,6 +36,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
   CheckoutReadyState get _ready => CheckoutReadyState(
     addresses: _addresses,
     selectedAddressId: _selectedId,
+    selectedShipmentType: _shipmentType,
     quote: _quote,
   );
 
@@ -54,6 +57,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
         _sellerId,
         addressId: _selectedId,
       );
+      _shipmentType = _quote.shipmentType;
       emit(_ready);
     } catch (error) {
       emit(CheckoutErrorState(type: AppErrorType.fromException(error)));
@@ -79,7 +83,17 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
         _sellerId,
         addressId: _selectedId,
       );
+      // Tiers (and prices) are address-specific — reset to the new default.
+      _shipmentType = _quote.shipmentType;
     } catch (_) {}
+    emit(_ready);
+  }
+
+  void _onShipmentSelected(
+    CheckoutShipmentSelected event,
+    Emitter<CheckoutState> emit,
+  ) {
+    _shipmentType = event.shipmentType;
     emit(_ready);
   }
 
@@ -92,6 +106,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
       _result = await _checkoutRepository.checkout(
         _sellerId,
         addressId: _selectedId,
+        shipmentType: _shipmentType,
       );
       emit(CheckoutPaymentState(_result!));
     } catch (_) {

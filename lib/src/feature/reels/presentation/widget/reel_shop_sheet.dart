@@ -109,7 +109,7 @@ class _ReelShopSheetState extends State<ReelShopSheet> {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    '${product.price.toInt()} Dhs',
+                    context.l10N.cart_price_dhs(product.price.toInt()),
                     style: const TextStyle(
                       fontFamily: dsFontFamily,
                       fontSize: DSFontSize.bodyMedium,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/util/iban_validator.dart';
 import 'package:klozy/src/core/utils/upper_case_text_formatter.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
@@ -38,10 +39,10 @@ class _SellerRolePageState extends State<SellerRolePage> {
   final TextEditingController _iban = TextEditingController();
   SellerRole? _role;
 
-  String get _cleanIban => _iban.text.replaceAll(' ', '');
+  String get _cleanIban => normalizeIban(_iban.text);
   bool get _valid =>
       _role == SellerRole.vendor ||
-      (_role == SellerRole.particular && _cleanIban.length >= 10);
+      (_role == SellerRole.particular && isValidUaeIban(_iban.text));
 
   @override
   void dispose() {

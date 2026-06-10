@@ -50,6 +50,12 @@ class _ProfileScaffold extends StatelessWidget {
           bloc.add(const ProfileReported());
           context.showSnackBar(context.l10N.profile_reported);
         },
+        onBlock: () {
+          Navigator.of(context).maybePop();
+          bloc.add(const ProfileBlocked());
+          context.showSnackBar(context.l10N.profile_blocked);
+          context.router.maybePop();
+        },
       ),
     );
   }

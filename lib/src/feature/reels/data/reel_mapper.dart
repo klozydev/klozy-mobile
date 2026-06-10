@@ -1,5 +1,6 @@
 import 'package:klozy/src/feature/reels/domain/entity/reel.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel_author.dart';
+import 'package:klozy/src/feature/reels/domain/entity/reel_comment.dart';
 
 /// Defensive JSON → [Reel] mapping. Field names + the Mux URL shape
 /// (`stream.mux.com/{id}.m3u8`) are assumed pending a live `/v1/reels` response.
@@ -23,6 +24,26 @@ Reel mapReel(Object? raw) {
     isLiked: json['isLiked'] == true || json['liked'] == true,
     viewCount: _int(json, ['viewCount', 'views']),
     taggedCount: _taggedCount(json),
+  );
+}
+
+/// Defensive JSON → [ReelComment] mapping.
+ReelComment mapReelComment(Object? raw) {
+  final json = raw is Map<String, dynamic> ? raw : const <String, dynamic>{};
+  final author = json['author'] is Map<String, dynamic>
+      ? json['author'] as Map<String, dynamic>
+      : const <String, dynamic>{};
+  return ReelComment(
+    id: _str(json, ['id', '_id']) ?? '',
+    body: _str(json, ['body', 'text', 'comment']) ?? '',
+    authorId:
+        _str(author, ['id', '_id', 'uid']) ?? _str(json, ['authorId']) ?? '',
+    authorName:
+        _str(author, ['displayName', 'name']) ??
+        _str(author, ['handle', 'username']) ??
+        '',
+    authorAvatar: _str(author, ['avatarUrl', 'avatar', 'photoUrl']),
+    createdAt: DateTime.tryParse(_str(json, ['createdAt', 'created']) ?? ''),
   );
 }
 

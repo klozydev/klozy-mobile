@@ -32,6 +32,9 @@ abstract class ProductsRepository {
     ProductSort sort = ProductSort.popular,
     List<String> conditions = const <String>[],
     List<String> sizes = const <String>[],
+    List<String> brandIds = const <String>[],
+    num? minPrice,
+    num? maxPrice,
     int page = 1,
     int limit = 20,
   });

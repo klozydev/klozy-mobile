@@ -11,6 +11,10 @@ class SellDraft extends Equatable {
   final String? size;
   final String? conditionId;
 
+  /// Raw per-locale `{title, description}` drafts from the AI, passed through
+  /// to `POST /v1/products` so listings stay multilingual.
+  final Map<String, dynamic>? translations;
+
   const SellDraft({
     this.title,
     this.description,
@@ -19,6 +23,7 @@ class SellDraft extends Equatable {
     this.brandId,
     this.size,
     this.conditionId,
+    this.translations,
   });
 
   static const SellDraft empty = SellDraft();
@@ -32,5 +37,6 @@ class SellDraft extends Equatable {
     brandId,
     size,
     conditionId,
+    translations,
   ];
 }

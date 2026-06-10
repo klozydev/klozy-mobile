@@ -11,4 +11,10 @@ abstract class PublicConfigRepository {
 
   /// `GET /v1/app/contact`.
   Future<ContactInfo> getContact();
+
+  /// `GET /v1/me/legal/pending` — docs the user must (re-)accept.
+  Future<List<LegalDoc>> getPendingLegal();
+
+  /// `POST /v1/me/legal/{key}/accept`.
+  Future<void> acceptLegal(String key);
 }

@@ -270,6 +270,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i1010.MeRepository>(),
       ),
     );
+    gh.factory<_i1029.ProfileBloc>(
+      () => _i1029.ProfileBloc(
+        gh<_i931.SocialRepository>(),
+        gh<_i1010.MeRepository>(),
+      ),
+    );
     gh.factory<_i728.ReelComposerBloc>(
       () => _i728.ReelComposerBloc(gh<_i651.ReelsRepository>()),
     );
@@ -306,9 +312,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i496.FollowListBloc>(
       () => _i496.FollowListBloc(gh<_i931.SocialRepository>()),
-    );
-    gh.factory<_i1029.ProfileBloc>(
-      () => _i1029.ProfileBloc(gh<_i931.SocialRepository>()),
     );
     gh.factory<_i773.CartBloc>(
       () => _i773.CartBloc(

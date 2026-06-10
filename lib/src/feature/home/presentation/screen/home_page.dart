@@ -5,14 +5,17 @@ import 'package:klozy/src/app/cart/cart_cubit.dart';
 import 'package:klozy/src/app/notifications/notifications_cubit.dart';
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_cart_badge.dart';
 import 'package:klozy/src/design/components/ds_klozy_mark.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/cart/entity/cart.dart';
+import 'package:klozy/src/domain/config/public_config_repository.dart';
 import 'package:klozy/src/feature/home/presentation/bloc/feed_bloc.dart';
 import 'package:klozy/src/feature/home/presentation/bloc/feed_event.dart';
 import 'package:klozy/src/feature/home/presentation/widget/feed_tab_widget.dart';
+import 'package:klozy/src/feature/home/presentation/widget/legal_acceptance_sheet.dart';
 import 'package:klozy/src/feature/home/presentation/widget/notifications_bell_widget.dart';
 import 'package:klozy/src/feature/home/presentation/widget/shell_tabs_widget.dart';
 import 'package:klozy/src/feature/home/presentation/widget/wishlist_tab_widget.dart';
@@ -44,6 +47,21 @@ class _HomePageState extends State<HomePage> {
     context.read<WishlistCubit>().load();
     context.read<CartCubit>().load();
     context.read<NotificationsCubit>().load();
+    _checkPendingLegal();
+  }
+
+  Future<void> _checkPendingLegal() async {
+    try {
+      final docs = await locator<PublicConfigRepository>().getPendingLegal();
+      if (docs.isEmpty || !mounted) return;
+      await DSBottomSheet.show<void>(
+        context,
+        title: context.l10N.legal_pending_title,
+        child: LegalAcceptanceSheet(docs: docs),
+      );
+    } catch (_) {
+      // Best-effort — never block the home screen on this.
+    }
   }
 
   @override

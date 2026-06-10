@@ -273,6 +273,25 @@ class _SearchPageState extends State<SearchPage> {
         }),
       );
     }
+    if (_filters.brandIds.isNotEmpty) {
+      chips.add(
+        _clearChip(
+          context.l10N.search_brand_count(_filters.brandIds.length),
+          () => _applyFilters(_filters.copyWith(brandIds: <String>{})),
+        ),
+      );
+    }
+    if (_filters.hasPrice) {
+      chips.add(
+        _clearChip(
+          context.l10N.search_price_chip(
+            _filters.minPrice?.toInt() ?? 0,
+            _filters.maxPrice?.toInt() ?? 0,
+          ),
+          () => _applyFilters(_filters.copyWith(clearPrice: true)),
+        ),
+      );
+    }
     return SizedBox(
       height: 44,
       child: ListView(

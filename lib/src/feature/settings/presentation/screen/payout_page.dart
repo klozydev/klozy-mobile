@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/util/iban_validator.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_field_label.dart';
@@ -22,6 +23,15 @@ class _PayoutPageState extends State<PayoutPage> {
   final MeRepository _repo = locator<MeRepository>();
   final TextEditingController _iban = TextEditingController();
   bool _saving = false;
+  String? _currentMasked;
+
+  @override
+  void initState() {
+    super.initState();
+    _repo.getMe().then((me) {
+      if (mounted) setState(() => _currentMasked = me.payoutIbanMasked);
+    }).ignore();
+  }
 
   @override
   void dispose() {
@@ -29,15 +39,12 @@ class _PayoutPageState extends State<PayoutPage> {
     super.dispose();
   }
 
-  bool get _valid {
-    final v = _iban.text.trim().replaceAll(' ', '');
-    return v.length >= 15 && v.toUpperCase().startsWith('AE');
-  }
+  bool get _valid => isValidUaeIban(_iban.text);
 
   Future<void> _save() async {
     setState(() => _saving = true);
     try {
-      await _repo.setPayoutIban(_iban.text.trim().replaceAll(' ', ''));
+      await _repo.setPayoutIban(normalizeIban(_iban.text));
       if (mounted) {
         context.showSnackBar(context.l10N.settings_saved);
         context.router.maybePop();
@@ -72,6 +79,17 @@ class _PayoutPageState extends State<PayoutPage> {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
         children: <Widget>[
+          if (_currentMasked != null) ...<Widget>[
+            Text(
+              l.settings_iban_current(_currentMasked!),
+              style: const TextStyle(
+                fontFamily: dsFontFamily,
+                fontSize: DSFontSize.bodyMedium,
+                color: DSColor.onSurface60,
+              ),
+            ),
+            const SizedBox(height: 12),
+          ],
           DSFieldLabel(l.settings_iban_label, required: true),
           DSTextField(
             controller: _iban,

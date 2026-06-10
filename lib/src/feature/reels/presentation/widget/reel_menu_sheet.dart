@@ -3,9 +3,10 @@ import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 
-/// Reel overflow menu body — Delete (owner) or Report (others).
+/// Reel overflow menu body — Edit + Delete (owner) or Report (others).
 class ReelMenuSheet extends StatelessWidget {
   final bool isOwner;
+  final VoidCallback? onEdit;
   final VoidCallback onDelete;
   final VoidCallback onReport;
 
@@ -14,6 +15,7 @@ class ReelMenuSheet extends StatelessWidget {
     required this.isOwner,
     required this.onDelete,
     required this.onReport,
+    this.onEdit,
   });
 
   @override
@@ -21,16 +23,25 @@ class ReelMenuSheet extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        if (isOwner)
+        if (isOwner) ...<Widget>[
+          if (onEdit != null)
+            _row(
+              icon: Icons.edit_outlined,
+              label: context.l10N.reels_edit_reel,
+              color: DSColor.onSurface,
+              onTap: onEdit!,
+            ),
           _row(
             icon: Icons.delete_outline_rounded,
             label: context.l10N.reels_delete_reel,
+            color: DSColor.danger,
             onTap: onDelete,
-          )
-        else
+          ),
+        ] else
           _row(
             icon: Icons.flag_outlined,
             label: context.l10N.reels_report_reel,
+            color: DSColor.danger,
             onTap: onReport,
           ),
       ],
@@ -40,6 +51,7 @@ class ReelMenuSheet extends StatelessWidget {
   Widget _row({
     required IconData icon,
     required String label,
+    required Color color,
     required VoidCallback onTap,
   }) {
     return InkWell(
@@ -48,15 +60,15 @@ class ReelMenuSheet extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 14),
         child: Row(
           children: <Widget>[
-            Icon(icon, size: 20, color: DSColor.danger),
+            Icon(icon, size: 20, color: color),
             const SizedBox(width: 14),
             Text(
               label,
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: dsFontFamily,
                 fontSize: DSFontSize.bodyLarge,
                 fontWeight: DSFontWeight.medium,
-                color: DSColor.danger,
+                color: color,
               ),
             ),
           ],

@@ -15,8 +15,9 @@ abstract class SocialRepository {
   /// `GET /v1/users/{id}/products` — a user's active listings.
   Future<List<Product>> getUserProducts(String userId, {int page = 1});
 
-  /// `GET /v1/reels?authorId={id}` — a user's reels (thumbnails).
-  Future<List<ProfileReel>> getUserReels(String userId);
+  /// `GET /v1/reels?authorId={id}` — a user's reels (thumbnails). When [mine]
+  /// is true, uses `GET /v1/reels/mine` so non-READY reels are included.
+  Future<List<ProfileReel>> getUserReels(String userId, {bool mine = false});
 
   /// `GET /v1/users/{id}/reviews` — reviews for the user (best-effort).
   Future<List<UserReview>> getReviews(String userId);

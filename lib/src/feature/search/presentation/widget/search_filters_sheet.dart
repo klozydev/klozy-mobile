@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_selectable_chip.dart';
+import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
+import 'package:klozy/src/domain/catalog/entity/catalog_brand.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_condition.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_size_value.dart';
@@ -26,21 +29,47 @@ class SearchFiltersSheet extends StatefulWidget {
 
 class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
   final CatalogRepository _catalog = locator<CatalogRepository>();
+  final TextEditingController _brandQuery = TextEditingController();
+  late final TextEditingController _minPrice = TextEditingController(
+    text: widget.initial.minPrice?.toInt().toString() ?? '',
+  );
+  late final TextEditingController _maxPrice = TextEditingController(
+    text: widget.initial.maxPrice?.toInt().toString() ?? '',
+  );
 
   bool _loading = true;
   List<CatalogCondition> _allConditions = const <CatalogCondition>[];
   List<CatalogSizeValue> _allSizes = const <CatalogSizeValue>[];
+  List<CatalogBrand> _brands = const <CatalogBrand>[];
 
   final List<CatalogCategory> _path = <CatalogCategory>[];
   List<CatalogCategory> _children = const <CatalogCategory>[];
 
   late Set<String> _conditions = <String>{...widget.initial.conditions};
   late Set<String> _sizes = <String>{...widget.initial.sizes};
+  late Set<String> _brandIds = <String>{...widget.initial.brandIds};
 
   @override
   void initState() {
     super.initState();
     _load();
+  }
+
+  @override
+  void dispose() {
+    _brandQuery.dispose();
+    _minPrice.dispose();
+    _maxPrice.dispose();
+    super.dispose();
+  }
+
+  Future<void> _searchBrands(String query) async {
+    try {
+      final brands = await _catalog.searchBrands(
+        query: query.trim().isEmpty ? null : query.trim(),
+      );
+      if (mounted) setState(() => _brands = brands);
+    } catch (_) {}
   }
 
   Future<void> _load() async {
@@ -50,6 +79,9 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
     } catch (_) {}
     try {
       _allSizes = await _catalog.getSizes();
+    } catch (_) {}
+    try {
+      _brands = await _catalog.searchBrands();
     } catch (_) {}
     if (!mounted) return;
     setState(() {
@@ -81,6 +113,9 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
       _path.clear();
       _conditions = <String>{};
       _sizes = <String>{};
+      _brandIds = <String>{};
+      _minPrice.clear();
+      _maxPrice.clear();
     });
     _load();
   }
@@ -94,6 +129,9 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
             : _path.map((CatalogCategory c) => c.label).join(' › '),
         conditions: _conditions,
         sizes: _sizes,
+        brandIds: _brandIds,
+        minPrice: num.tryParse(_minPrice.text.trim()),
+        maxPrice: num.tryParse(_maxPrice.text.trim()),
       ),
     );
   }
@@ -165,6 +203,57 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
                         .toList(),
                   ),
                 ],
+                _label(context.l10N.search_filter_brand),
+                DSTextField(
+                  controller: _brandQuery,
+                  hintText: context.l10N.onboarding_brands_search_hint,
+                  prefixIcon: Icons.search_rounded,
+                  onChanged: _searchBrands,
+                ),
+                const SizedBox(height: 10),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: _brands
+                      .map(
+                        (CatalogBrand b) => DSSelectableChip(
+                          label: b.name,
+                          selected: _brandIds.contains(b.id),
+                          onTap: () => setState(
+                            () => _brandIds.contains(b.id)
+                                ? _brandIds.remove(b.id)
+                                : _brandIds.add(b.id),
+                          ),
+                        ),
+                      )
+                      .toList(),
+                ),
+                _label(context.l10N.search_filter_price),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: DSTextField(
+                        controller: _minPrice,
+                        hintText: context.l10N.search_price_min,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: DSTextField(
+                        controller: _maxPrice,
+                        hintText: context.l10N.search_price_max,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

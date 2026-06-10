@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:klozy/src/domain/me/entity/address.dart';
 import 'package:klozy/src/domain/me/entity/address_input.dart';
 import 'package:klozy/src/domain/me/entity/blocked_user.dart';
+import 'package:klozy/src/domain/me/entity/connect_status.dart';
 import 'package:klozy/src/domain/me/entity/me_profile.dart';
 import 'package:klozy/src/domain/me/entity/notification_settings.dart';
 import 'package:klozy/src/domain/me/entity/payout.dart';
@@ -157,6 +158,49 @@ class MeRepositoryImpl implements MeRepository {
   }
 
   @override
+  Future<ConnectStatus> getConnectStatus() async {
+    final response = await _dio.get<Map<String, dynamic>>(
+      'v1/me/seller-connect',
+    );
+    final json = _unwrap(response.data);
+    return ConnectStatus(
+      accountId: _str(json, ['accountId']),
+      onboarding: switch ((_str(json, ['onboardingStatus']) ?? '')
+          .toUpperCase()) {
+        'COMPLETE' => ConnectOnboarding.complete,
+        'PENDING' => ConnectOnboarding.pending,
+        _ => ConnectOnboarding.notStarted,
+      },
+      detailsSubmitted: json['detailsSubmitted'] == true,
+      chargesEnabled: json['chargesEnabled'] == true,
+      payoutsEnabled: json['payoutsEnabled'] == true,
+    );
+  }
+
+  @override
+  Future<String?> createKybLink() async {
+    final response = await _dio.post<Map<String, dynamic>>(
+      'v1/me/seller-connect/kyb-link',
+    );
+    return _str(_unwrap(response.data), ['url']);
+  }
+
+  @override
+  Future<PreferencesInput> getPreferences() async {
+    final response = await _dio.get<Map<String, dynamic>>('v1/me/preferences');
+    final json = _unwrap(response.data);
+    List<String> strings(String key) => json[key] is List
+        ? (json[key] as List<dynamic>).whereType<String>().toList()
+        : const <String>[];
+    return PreferencesInput(
+      sizeSystem: _str(json, ['sizeSystem']) ?? 'EU',
+      sizes: strings('sizes'),
+      categoryIds: strings('categoryIds'),
+      brandIds: strings('brandIds'),
+    );
+  }
+
+  @override
   Future<void> updatePreferences(PreferencesInput preferences) async {
     await _dio.put<dynamic>('v1/me/preferences', data: preferences.toJson());
   }
@@ -174,18 +218,17 @@ class MeRepositoryImpl implements MeRepository {
 
   @override
   Future<NotificationSettings> getNotificationSettings() async {
-    try {
-      final response = await _dio.get<Map<String, dynamic>>(
-        'v1/me/notification-settings',
-      );
-      final json = _unwrap(response.data);
-      return NotificationSettings(
-        push: json['push'] != false,
-        email: json['email'] != false,
-      );
-    } catch (_) {
-      return const NotificationSettings();
-    }
+    // There is no GET for notification-settings; the toggles live in the
+    // profile response (`notificationSettings: {push, email}`).
+    final response = await _dio.get<Map<String, dynamic>>('v1/me');
+    final json = _unwrap(response.data);
+    final settings = json['notificationSettings'] is Map<String, dynamic>
+        ? json['notificationSettings'] as Map<String, dynamic>
+        : const <String, dynamic>{};
+    return NotificationSettings(
+      push: settings['push'] != false,
+      email: settings['email'] != false,
+    );
   }
 
   @override
@@ -240,6 +283,11 @@ class MeRepositoryImpl implements MeRepository {
   }
 
   @override
+  Future<void> block(String userId) async {
+    await _dio.put<dynamic>('v1/me/blocked/$userId');
+  }
+
+  @override
   Future<void> unblock(String userId) async {
     await _dio.delete<dynamic>('v1/me/blocked/$userId');
   }
@@ -264,7 +312,11 @@ class MeRepositoryImpl implements MeRepository {
         json['hasAddress'] == true ||
         (address is Map && address.isNotEmpty) ||
         (address is String && address.isNotEmpty);
+    final payout = json['payout'] is Map<String, dynamic>
+        ? json['payout'] as Map<String, dynamic>
+        : const <String, dynamic>{};
     return MeProfile(
+      payoutIbanMasked: _str(payout, ['ibanMasked']),
       id: _str(json, ['id', 'uid', '_id']) ?? '',
       handle: _str(json, ['handle', 'username']),
       firstName: _str(json, ['firstName', 'first_name']),

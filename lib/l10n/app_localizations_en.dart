@@ -1359,4 +1359,144 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get payouts_status_pending => 'Pending';
+
+  @override
+  String get profile_block_user => 'Block user';
+
+  @override
+  String get profile_blocked => 'User blocked.';
+
+  @override
+  String get reels_edit_reel => 'Edit reel';
+
+  @override
+  String get reels_caption_updated => 'Caption updated.';
+
+  @override
+  String get reels_comments_title => 'Comments';
+
+  @override
+  String get reels_comments_label => 'Comment';
+
+  @override
+  String get reels_no_comments => 'No comments yet — be the first.';
+
+  @override
+  String get reels_comment_hint => 'Add a comment…';
+
+  @override
+  String get reels_comment_failed => 'Couldn\'t post your comment.';
+
+  @override
+  String get offers_title => 'Offers';
+
+  @override
+  String get offers_incoming => 'Incoming';
+
+  @override
+  String get offers_outgoing => 'Outgoing';
+
+  @override
+  String get offers_empty => 'No offers here yet.';
+
+  @override
+  String get offers_accept => 'Accept';
+
+  @override
+  String get offers_decline => 'Decline';
+
+  @override
+  String get offers_status_pending => 'Pending';
+
+  @override
+  String get offers_status_accepted => 'Accepted';
+
+  @override
+  String get offers_status_declined => 'Declined';
+
+  @override
+  String get offers_status_cancelled => 'Cancelled';
+
+  @override
+  String get legal_pending_title => 'Updated terms';
+
+  @override
+  String get legal_pending_message =>
+      'We\'ve updated our legal documents. Please review and accept to continue.';
+
+  @override
+  String get legal_accept_continue => 'Accept & continue';
+
+  @override
+  String get connect_title => 'Seller verification';
+
+  @override
+  String get connect_start => 'Start verification';
+
+  @override
+  String get connect_continue => 'Continue verification';
+
+  @override
+  String get connect_status_complete => 'Verified';
+
+  @override
+  String get connect_status_pending => 'Verification in progress';
+
+  @override
+  String get connect_status_not_started => 'Not verified yet';
+
+  @override
+  String get connect_explainer =>
+      'Professional vendors are verified and paid via Stripe. Complete the secure Stripe form to enable charges and payouts.';
+
+  @override
+  String get connect_details_submitted => 'Details submitted';
+
+  @override
+  String get connect_charges_enabled => 'Charges enabled';
+
+  @override
+  String get connect_payouts_enabled => 'Payouts enabled';
+
+  @override
+  String get settings_preferences => 'Feed preferences';
+
+  @override
+  String get search_filter_brand => 'Brand';
+
+  @override
+  String get search_filter_price => 'Price (Dhs)';
+
+  @override
+  String get search_price_min => 'Min';
+
+  @override
+  String get search_price_max => 'Max';
+
+  @override
+  String search_brand_count(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count brands',
+      one: '1 brand',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String search_price_chip(int min, int max) {
+    return '$min–$max Dhs';
+  }
+
+  @override
+  String settings_iban_current(String masked) {
+    return 'Current IBAN: $masked';
+  }
+
+  @override
+  String get auth_or_continue_with => 'or continue with';
+
+  @override
+  String get onboarding_address_search_hint => 'Search your address';
 }

@@ -16,6 +16,7 @@ class MeProfile extends Equatable {
   final String? avatarUrl;
   final bool hasAddress;
   final SellerRole? sellerRole;
+  final String? payoutIbanMasked;
 
   const MeProfile({
     required this.id,
@@ -28,6 +29,7 @@ class MeProfile extends Equatable {
     this.avatarUrl,
     this.hasAddress = false,
     this.sellerRole,
+    this.payoutIbanMasked,
   });
 
   /// First-run onboarding gate: a usable profile needs a name and a delivery
@@ -49,5 +51,6 @@ class MeProfile extends Equatable {
     avatarUrl,
     hasAddress,
     sellerRole,
+    payoutIbanMasked,
   ];
 }

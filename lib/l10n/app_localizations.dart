@@ -2547,6 +2547,258 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pending'**
   String get payouts_status_pending;
+
+  /// No description provided for @profile_block_user.
+  ///
+  /// In en, this message translates to:
+  /// **'Block user'**
+  String get profile_block_user;
+
+  /// No description provided for @profile_blocked.
+  ///
+  /// In en, this message translates to:
+  /// **'User blocked.'**
+  String get profile_blocked;
+
+  /// No description provided for @reels_edit_reel.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit reel'**
+  String get reels_edit_reel;
+
+  /// No description provided for @reels_caption_updated.
+  ///
+  /// In en, this message translates to:
+  /// **'Caption updated.'**
+  String get reels_caption_updated;
+
+  /// No description provided for @reels_comments_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Comments'**
+  String get reels_comments_title;
+
+  /// No description provided for @reels_comments_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Comment'**
+  String get reels_comments_label;
+
+  /// No description provided for @reels_no_comments.
+  ///
+  /// In en, this message translates to:
+  /// **'No comments yet — be the first.'**
+  String get reels_no_comments;
+
+  /// No description provided for @reels_comment_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a comment…'**
+  String get reels_comment_hint;
+
+  /// No description provided for @reels_comment_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t post your comment.'**
+  String get reels_comment_failed;
+
+  /// No description provided for @offers_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Offers'**
+  String get offers_title;
+
+  /// No description provided for @offers_incoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Incoming'**
+  String get offers_incoming;
+
+  /// No description provided for @offers_outgoing.
+  ///
+  /// In en, this message translates to:
+  /// **'Outgoing'**
+  String get offers_outgoing;
+
+  /// No description provided for @offers_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'No offers here yet.'**
+  String get offers_empty;
+
+  /// No description provided for @offers_accept.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get offers_accept;
+
+  /// No description provided for @offers_decline.
+  ///
+  /// In en, this message translates to:
+  /// **'Decline'**
+  String get offers_decline;
+
+  /// No description provided for @offers_status_pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get offers_status_pending;
+
+  /// No description provided for @offers_status_accepted.
+  ///
+  /// In en, this message translates to:
+  /// **'Accepted'**
+  String get offers_status_accepted;
+
+  /// No description provided for @offers_status_declined.
+  ///
+  /// In en, this message translates to:
+  /// **'Declined'**
+  String get offers_status_declined;
+
+  /// No description provided for @offers_status_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled'**
+  String get offers_status_cancelled;
+
+  /// No description provided for @legal_pending_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated terms'**
+  String get legal_pending_title;
+
+  /// No description provided for @legal_pending_message.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ve updated our legal documents. Please review and accept to continue.'**
+  String get legal_pending_message;
+
+  /// No description provided for @legal_accept_continue.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept & continue'**
+  String get legal_accept_continue;
+
+  /// No description provided for @connect_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Seller verification'**
+  String get connect_title;
+
+  /// No description provided for @connect_start.
+  ///
+  /// In en, this message translates to:
+  /// **'Start verification'**
+  String get connect_start;
+
+  /// No description provided for @connect_continue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue verification'**
+  String get connect_continue;
+
+  /// No description provided for @connect_status_complete.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get connect_status_complete;
+
+  /// No description provided for @connect_status_pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification in progress'**
+  String get connect_status_pending;
+
+  /// No description provided for @connect_status_not_started.
+  ///
+  /// In en, this message translates to:
+  /// **'Not verified yet'**
+  String get connect_status_not_started;
+
+  /// No description provided for @connect_explainer.
+  ///
+  /// In en, this message translates to:
+  /// **'Professional vendors are verified and paid via Stripe. Complete the secure Stripe form to enable charges and payouts.'**
+  String get connect_explainer;
+
+  /// No description provided for @connect_details_submitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Details submitted'**
+  String get connect_details_submitted;
+
+  /// No description provided for @connect_charges_enabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Charges enabled'**
+  String get connect_charges_enabled;
+
+  /// No description provided for @connect_payouts_enabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Payouts enabled'**
+  String get connect_payouts_enabled;
+
+  /// No description provided for @settings_preferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Feed preferences'**
+  String get settings_preferences;
+
+  /// No description provided for @search_filter_brand.
+  ///
+  /// In en, this message translates to:
+  /// **'Brand'**
+  String get search_filter_brand;
+
+  /// No description provided for @search_filter_price.
+  ///
+  /// In en, this message translates to:
+  /// **'Price (Dhs)'**
+  String get search_filter_price;
+
+  /// No description provided for @search_price_min.
+  ///
+  /// In en, this message translates to:
+  /// **'Min'**
+  String get search_price_min;
+
+  /// No description provided for @search_price_max.
+  ///
+  /// In en, this message translates to:
+  /// **'Max'**
+  String get search_price_max;
+
+  /// No description provided for @search_brand_count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 brand} other{{count} brands}}'**
+  String search_brand_count(int count);
+
+  /// No description provided for @search_price_chip.
+  ///
+  /// In en, this message translates to:
+  /// **'{min}–{max} Dhs'**
+  String search_price_chip(int min, int max);
+
+  /// No description provided for @settings_iban_current.
+  ///
+  /// In en, this message translates to:
+  /// **'Current IBAN: {masked}'**
+  String settings_iban_current(String masked);
+
+  /// No description provided for @auth_or_continue_with.
+  ///
+  /// In en, this message translates to:
+  /// **'or continue with'**
+  String get auth_or_continue_with;
+
+  /// No description provided for @onboarding_address_search_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search your address'**
+  String get onboarding_address_search_hint;
 }
 
 class _AppLocalizationsDelegate

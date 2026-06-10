@@ -13,9 +13,8 @@ import 'package:klozy/src/feature/settings/presentation/bloc/settings_state.dart
 import 'package:klozy/src/feature/settings/presentation/widget/settings_row_widget.dart';
 import 'package:klozy/src/feature/settings/presentation/widget/settings_section_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-const String _appVersion = '1.0.0';
 
 @RoutePage()
 class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
@@ -118,6 +117,11 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
               label: l.settings_delivery_address,
               onTap: () => context.router.push(const AddressBookRoute()),
             ),
+            SettingsRowWidget(
+              icon: Icons.tune_rounded,
+              label: l.settings_preferences,
+              onTap: () => context.router.push(const PreferencesRoute()),
+            ),
           ],
         ),
         SettingsSectionWidget(
@@ -137,6 +141,11 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
               icon: Icons.insights_outlined,
               label: l.settings_seller_stats,
               onTap: () => context.router.push(const SellerStatsRoute()),
+            ),
+            SettingsRowWidget(
+              icon: Icons.verified_outlined,
+              label: l.connect_title,
+              onTap: () => context.router.push(const SellerVerificationRoute()),
             ),
           ],
         ),
@@ -201,11 +210,7 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
               label: l.settings_support,
               onTap: () => _support(context, state),
             ),
-            SettingsRowWidget(
-              icon: Icons.info_outline_rounded,
-              label: l.settings_version,
-              value: _appVersion,
-            ),
+            const _VersionRow(),
           ],
         ),
         const SizedBox(height: 8),
@@ -283,5 +288,24 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
     } else {
       context.showSnackBar(context.l10N.settings_support_unavailable);
     }
+  }
+}
+
+class _VersionRow extends StatelessWidget {
+  const _VersionRow();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<PackageInfo>(
+      future: PackageInfo.fromPlatform(),
+      builder: (BuildContext context, AsyncSnapshot<PackageInfo> snapshot) {
+        final info = snapshot.data;
+        return SettingsRowWidget(
+          icon: Icons.info_outline_rounded,
+          label: context.l10N.settings_version,
+          value: info == null ? '' : '${info.version} (${info.buildNumber})',
+        );
+      },
+    );
   }
 }

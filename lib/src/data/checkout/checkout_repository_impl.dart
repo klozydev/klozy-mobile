@@ -15,12 +15,17 @@ class CheckoutRepositoryImpl implements CheckoutRepository {
   CheckoutRepositoryImpl(this._dio);
 
   @override
-  Future<CheckoutResult> checkout(String sellerId, {String? addressId}) async {
+  Future<CheckoutResult> checkout(
+    String sellerId, {
+    String? addressId,
+    String? shipmentType,
+  }) async {
     final response = await _dio.post<Map<String, dynamic>>(
       'v1/checkout',
       data: <String, dynamic>{
         'sellerId': sellerId,
         if (addressId != null) 'addressId': addressId,
+        if (shipmentType != null) 'shipmentType': shipmentType,
       },
     );
     final json = response.data ?? const <String, dynamic>{};
@@ -44,6 +49,9 @@ class CheckoutRepositoryImpl implements CheckoutRepository {
     final json = response.data ?? const <String, dynamic>{};
     // Fees come back in fils (1 AED = 100 fils).
     num aed(List<String> keys) => (_num(json, keys) ?? 0) / 100;
+    final rawOptions = json['shippingOptions'] is List
+        ? json['shippingOptions'] as List<dynamic>
+        : const <dynamic>[];
     return CheckoutQuote(
       addressId: _str(json, ['addressId']) ?? addressId,
       fees: OrderFees(
@@ -53,6 +61,17 @@ class CheckoutRepositoryImpl implements CheckoutRepository {
         vat: aed(['vatFils', 'vat']),
         total: aed(['totalFils', 'total']),
       ),
+      shipmentType: _str(json, ['shipmentType']),
+      shippingOptions: rawOptions
+          .whereType<Map<String, dynamic>>()
+          .map(
+            (Map<String, dynamic> o) => ShippingOption(
+              shipmentType: _str(o, ['shipmentType']) ?? '',
+              amount: (_num(o, ['amountFils']) ?? 0) / 100,
+            ),
+          )
+          .where((ShippingOption o) => o.shipmentType.isNotEmpty)
+          .toList(),
     );
   }
 

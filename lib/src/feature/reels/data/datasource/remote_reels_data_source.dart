@@ -25,6 +25,28 @@ class RemoteReelsDataSource {
     return response.data ?? const <String, dynamic>{};
   }
 
+  Future<void> update(String id, Map<String, dynamic> body) =>
+      _dio.patch<dynamic>('v1/reels/$id', data: body);
+
+  Future<Object?> comments(String id, {required int page}) async {
+    final response = await _dio.get<dynamic>(
+      'v1/reels/$id/comments',
+      queryParameters: <String, dynamic>{'page': page, 'limit': 50},
+    );
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> addComment(String id, String body) async {
+    final response = await _dio.post<Map<String, dynamic>>(
+      'v1/reels/$id/comments',
+      data: <String, dynamic>{'body': body},
+    );
+    return response.data ?? const <String, dynamic>{};
+  }
+
+  Future<void> deleteComment(String id, String commentId) =>
+      _dio.delete<dynamic>('v1/reels/$id/comments/$commentId');
+
   Future<void> like(String id) => _dio.put<dynamic>('v1/reels/$id/like');
 
   Future<void> unlike(String id) => _dio.delete<dynamic>('v1/reels/$id/like');

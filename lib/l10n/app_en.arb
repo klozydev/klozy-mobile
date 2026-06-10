@@ -598,5 +598,71 @@
   "payouts_empty": "No payouts yet.",
   "payouts_status_completed": "Completed",
   "payouts_status_reversal": "Reversed",
-  "payouts_status_pending": "Pending"
+  "payouts_status_pending": "Pending",
+  "profile_block_user": "Block user",
+  "profile_blocked": "User blocked.",
+  "reels_edit_reel": "Edit reel",
+  "reels_caption_updated": "Caption updated.",
+  "reels_comments_title": "Comments",
+  "reels_comments_label": "Comment",
+  "reels_no_comments": "No comments yet — be the first.",
+  "reels_comment_hint": "Add a comment…",
+  "reels_comment_failed": "Couldn't post your comment.",
+  "offers_title": "Offers",
+  "offers_incoming": "Incoming",
+  "offers_outgoing": "Outgoing",
+  "offers_empty": "No offers here yet.",
+  "offers_accept": "Accept",
+  "offers_decline": "Decline",
+  "offers_status_pending": "Pending",
+  "offers_status_accepted": "Accepted",
+  "offers_status_declined": "Declined",
+  "offers_status_cancelled": "Cancelled",
+  "legal_pending_title": "Updated terms",
+  "legal_pending_message": "We've updated our legal documents. Please review and accept to continue.",
+  "legal_accept_continue": "Accept & continue",
+  "connect_title": "Seller verification",
+  "connect_start": "Start verification",
+  "connect_continue": "Continue verification",
+  "connect_status_complete": "Verified",
+  "connect_status_pending": "Verification in progress",
+  "connect_status_not_started": "Not verified yet",
+  "connect_explainer": "Professional vendors are verified and paid via Stripe. Complete the secure Stripe form to enable charges and payouts.",
+  "connect_details_submitted": "Details submitted",
+  "connect_charges_enabled": "Charges enabled",
+  "connect_payouts_enabled": "Payouts enabled",
+  "settings_preferences": "Feed preferences",
+  "search_filter_brand": "Brand",
+  "search_filter_price": "Price (Dhs)",
+  "search_price_min": "Min",
+  "search_price_max": "Max",
+  "search_brand_count": "{count, plural, =1{1 brand} other{{count} brands}}",
+  "@search_brand_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_price_chip": "{min}–{max} Dhs",
+  "@search_price_chip": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "settings_iban_current": "Current IBAN: {masked}",
+  "@settings_iban_current": {
+    "placeholders": {
+      "masked": {
+        "type": "String"
+      }
+    }
+  },
+  "auth_or_continue_with": "or continue with",
+  "onboarding_address_search_hint": "Search your address"
 }

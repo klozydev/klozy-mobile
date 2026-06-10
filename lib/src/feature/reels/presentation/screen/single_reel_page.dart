@@ -11,6 +11,7 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel.dart';
 import 'package:klozy/src/feature/reels/domain/reels_repository.dart';
+import 'package:klozy/src/feature/reels/presentation/widget/reel_comments_sheet.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_menu_sheet.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_page_widget.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_shop_sheet.dart';
@@ -101,6 +102,11 @@ class _SingleReelPageState extends State<SingleReelPage> {
                 onShop: () => _openShop(reel),
                 onShare: () => AppShare.reel(reel.id, caption: reel.caption),
                 onMenu: () => _openMenu(reel),
+                onComments: () => DSBottomSheet.show<void>(
+                  context,
+                  title: context.l10N.reels_comments_title,
+                  child: ReelCommentsSheet(reelId: reel.id),
+                ),
               ),
             ),
           SafeArea(

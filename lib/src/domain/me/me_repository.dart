@@ -1,6 +1,7 @@
 import 'package:klozy/src/domain/me/entity/address.dart';
 import 'package:klozy/src/domain/me/entity/address_input.dart';
 import 'package:klozy/src/domain/me/entity/blocked_user.dart';
+import 'package:klozy/src/domain/me/entity/connect_status.dart';
 import 'package:klozy/src/domain/me/entity/me_profile.dart';
 import 'package:klozy/src/domain/me/entity/notification_settings.dart';
 import 'package:klozy/src/domain/me/entity/payout.dart';
@@ -41,6 +42,9 @@ abstract class MeRepository {
   /// `PUT /v1/me/addresses/{id}/default` — returns the full list.
   Future<List<Address>> setDefaultAddress(String id);
 
+  /// `GET /v1/me/preferences`.
+  Future<PreferencesInput> getPreferences();
+
   /// `PUT /v1/me/preferences`.
   Future<void> updatePreferences(PreferencesInput preferences);
 
@@ -62,8 +66,18 @@ abstract class MeRepository {
   /// `GET /v1/me/payouts` — payout history + pending/lifetime totals (fils).
   Future<PayoutSummary> getPayouts();
 
+  /// `GET /v1/me/seller-connect` — Stripe Connect onboarding status.
+  Future<ConnectStatus> getConnectStatus();
+
+  /// `POST /v1/me/seller-connect/kyb-link` — one-time Stripe KYB URL
+  /// (provisions the Connect account first if needed).
+  Future<String?> createKybLink();
+
   /// `GET /v1/me/blocked`.
   Future<List<BlockedUser>> getBlocked();
+
+  /// `PUT /v1/me/blocked/{userId}`.
+  Future<void> block(String userId);
 
   /// `DELETE /v1/me/blocked/{userId}`.
   Future<void> unblock(String userId);

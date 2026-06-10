@@ -36,3 +36,7 @@ final class ProfileFollowToggled extends ProfileEvent {
 final class ProfileReported extends ProfileEvent {
   const ProfileReported();
 }
+
+final class ProfileBlocked extends ProfileEvent {
+  const ProfileBlocked();
+}

@@ -13,6 +13,7 @@ import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/checkout/entity/checkout_quote.dart';
 import 'package:klozy/src/domain/checkout/entity/checkout_result.dart';
 import 'package:klozy/src/domain/me/entity/address.dart';
 import 'package:klozy/src/feature/checkout/presentation/bloc/checkout_bloc.dart';
@@ -173,7 +174,7 @@ class _Review extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final fees = state.quote.fees;
+    final fees = state.effectiveFees;
     final address = _selected;
     return Scaffold(
       backgroundColor: DSColor.surface,
@@ -209,6 +210,10 @@ class _Review extends StatelessWidget {
                 child: SizedBox(height: 18, child: DSLoader()),
               )
             else ...<Widget>[
+              if (state.quote.shippingOptions.length > 1) ...<Widget>[
+                _ShippingTierChips(state: state),
+                const SizedBox(height: 10),
+              ],
               _row(context, context.l10N.checkout_subtotal, fees.subtotal),
               _row(context, context.l10N.checkout_shipping_emx, fees.shipping),
               _row(
@@ -312,6 +317,52 @@ class _Review extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _ShippingTierChips extends StatelessWidget {
+  final CheckoutReadyState state;
+
+  const _ShippingTierChips({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    final String? selected =
+        state.selectedShipmentType ?? state.quote.shipmentType;
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: state.quote.shippingOptions.map((ShippingOption option) {
+        final bool active = option.shipmentType == selected;
+        return GestureDetector(
+          onTap: () => context.read<CheckoutBloc>().add(
+            CheckoutShipmentSelected(option.shipmentType),
+          ),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              color: active ? const Color(0x1FE0CE7D) : DSColor.onSurface07,
+              borderRadius: BorderRadius.circular(DSBorderRadius.chip),
+              border: Border.all(
+                color: active ? DSColor.primary : DSColor.onSurface15,
+                width: active ? 1 : 0.5,
+              ),
+            ),
+            child: Text(
+              '${option.shipmentType} · ${context.l10N.checkout_amount_dhs(option.amount.toInt())}',
+              style: TextStyle(
+                fontFamily: dsFontFamily,
+                fontSize: DSFontSize.bodyMedium,
+                fontWeight: active
+                    ? DSFontWeight.semiBold
+                    : DSFontWeight.regular,
+                color: active ? DSColor.primary : DSColor.onSurface75,
+              ),
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 }

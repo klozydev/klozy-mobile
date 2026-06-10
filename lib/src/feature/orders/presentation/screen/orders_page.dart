@@ -44,6 +44,13 @@ class OrdersPage extends StatelessWidget implements AutoRouteWrapper {
           onPressed: () => context.router.maybePop(),
         ),
         title: Text(context.l10N.orders_my_orders),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.local_offer_outlined, size: 22),
+            tooltip: context.l10N.offers_title,
+            onPressed: () => context.router.push(const OffersRoute()),
+          ),
+        ],
       ),
       body: BlocBuilder<OrdersBloc, OrdersState>(
         builder: (BuildContext context, OrdersState state) {

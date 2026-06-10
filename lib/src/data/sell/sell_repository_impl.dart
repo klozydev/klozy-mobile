@@ -35,6 +35,7 @@ class SellRepositoryImpl implements SellRepository {
       brandId: _str(brand, ['id']) ?? _str(inner, ['brandId']),
       size: _str(inner, ['size']),
       conditionId: _str(inner, ['condition', 'conditionId']),
+      translations: translations.isEmpty ? null : translations,
     );
   }
 

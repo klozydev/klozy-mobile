@@ -44,6 +44,25 @@ class PublicConfigRepositoryImpl implements PublicConfigRepository {
     );
   }
 
+  @override
+  Future<List<LegalDoc>> getPendingLegal() async {
+    final response = await _dio.get<dynamic>('v1/me/legal/pending');
+    return _list(response.data).whereType<Map<String, dynamic>>().map((
+      Map<String, dynamic> j,
+    ) {
+      return LegalDoc(
+        key: _str(j, ['key', 'slug', 'id']) ?? '',
+        name: _str(j, ['name', 'title']) ?? '',
+        version: _str(j, ['version']),
+      );
+    }).toList();
+  }
+
+  @override
+  Future<void> acceptLegal(String key) async {
+    await _dio.post<dynamic>('v1/me/legal/$key/accept');
+  }
+
   List<dynamic> _list(Object? data) {
     if (data is List) return data;
     if (data is Map<String, dynamic>) {

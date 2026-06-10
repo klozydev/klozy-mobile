@@ -180,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         const SizedBox(height: 24),
-                        const DSOrDivider(),
+                        DSOrDivider(label: context.l10N.auth_or_continue_with),
                         const SizedBox(height: 16),
                         DSSocialButton(
                           icon: const Icon(

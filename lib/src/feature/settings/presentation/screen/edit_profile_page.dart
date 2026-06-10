@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:klozy/src/core/components/avatar_upload_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
@@ -28,6 +29,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   bool _loading = true;
   bool _saving = false;
+  String? _avatarUrl;
 
   @override
   void initState() {
@@ -51,6 +53,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       _lastName.text = me.lastName ?? '';
       _handle.text = me.handle ?? '';
       _bio.text = me.bio ?? '';
+      _avatarUrl = me.avatarUrl;
     } catch (_) {}
     if (mounted) setState(() => _loading = false);
   }
@@ -101,6 +104,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
           : ListView(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
               children: <Widget>[
+                Center(child: AvatarUploadWidget(initialUrl: _avatarUrl)),
+                const SizedBox(height: 20),
                 DSFieldLabel(l.onboarding_first_name_label),
                 DSTextField(controller: _firstName),
                 const SizedBox(height: 12),

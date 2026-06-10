@@ -12,6 +12,9 @@ class CreateProductInput {
   final List<String> images;
   final String? location;
 
+  /// AI-generated per-locale `{title, description}` drafts.
+  final Map<String, dynamic>? translations;
+
   const CreateProductInput({
     required this.title,
     required this.price,
@@ -24,6 +27,7 @@ class CreateProductInput {
     this.weightGrams,
     this.images = const <String>[],
     this.location,
+    this.translations,
   });
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -39,5 +43,7 @@ class CreateProductInput {
     if (weightGrams != null && weightGrams! > 0) 'weightGrams': weightGrams,
     if (images.isNotEmpty) 'images': images,
     if (location != null && location!.isNotEmpty) 'location': location,
+    if (translations != null && translations!.isNotEmpty)
+      'translations': translations,
   };
 }

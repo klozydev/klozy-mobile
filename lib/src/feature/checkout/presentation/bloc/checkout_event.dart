@@ -27,6 +27,15 @@ final class CheckoutAddressSelected extends CheckoutEvent {
   List<Object?> get props => [addressId];
 }
 
+final class CheckoutShipmentSelected extends CheckoutEvent {
+  final String shipmentType;
+
+  const CheckoutShipmentSelected(this.shipmentType);
+
+  @override
+  List<Object?> get props => [shipmentType];
+}
+
 /// Create the order (→ a [CheckoutPaymentState] the screen presents Stripe on).
 final class CheckoutPayRequested extends CheckoutEvent {
   const CheckoutPayRequested();

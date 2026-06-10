@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/core/components/avatar_upload_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_address_field.dart';
 import 'package:klozy/src/design/components/ds_address_suggestion.dart';
@@ -15,7 +16,6 @@ import 'package:klozy/src/domain/me/entity/address_input.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/profile_completion_bloc.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/profile_completion_event.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/profile_completion_state.dart';
-import 'package:klozy/src/feature/onboarding/presentation/widget/avatar_upload_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
 
 const _allSuggestions = <DSAddressSuggestion>[
@@ -200,6 +200,7 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
                           required: true,
                         ),
                         DSAddressField(
+                          hintText: context.l10N.onboarding_address_search_hint,
                           controller: _address,
                           suggestions: _suggestions,
                           selected: _picked != null,

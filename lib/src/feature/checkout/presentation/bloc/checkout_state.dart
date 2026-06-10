@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/domain/checkout/entity/checkout_quote.dart';
 import 'package:klozy/src/domain/checkout/entity/checkout_result.dart';
+import 'package:klozy/src/domain/checkout/entity/order_fees.dart';
 import 'package:klozy/src/domain/me/entity/address.dart';
 
 @immutable
@@ -30,6 +31,7 @@ final class CheckoutReadyState extends CheckoutState {
   final List<Address> addresses;
   final String? selectedAddressId;
   final CheckoutQuote quote;
+  final String? selectedShipmentType;
   final bool isQuoting;
   final bool isCreating;
 
@@ -37,13 +39,25 @@ final class CheckoutReadyState extends CheckoutState {
     required this.addresses,
     required this.quote,
     this.selectedAddressId,
+    this.selectedShipmentType,
     this.isQuoting = false,
     this.isCreating = false,
   });
 
+  /// Fees for the selected shipping tier (the quote's default otherwise).
+  OrderFees get effectiveFees {
+    final type = selectedShipmentType;
+    if (type == null || type == quote.shipmentType) return quote.fees;
+    for (final ShippingOption option in quote.shippingOptions) {
+      if (option.shipmentType == type) return quote.feesFor(option);
+    }
+    return quote.fees;
+  }
+
   CheckoutReadyState copyWith({
     CheckoutQuote? quote,
     String? selectedAddressId,
+    String? selectedShipmentType,
     bool? isQuoting,
     bool? isCreating,
   }) {
@@ -51,6 +65,7 @@ final class CheckoutReadyState extends CheckoutState {
       addresses: addresses,
       quote: quote ?? this.quote,
       selectedAddressId: selectedAddressId ?? this.selectedAddressId,
+      selectedShipmentType: selectedShipmentType ?? this.selectedShipmentType,
       isQuoting: isQuoting ?? this.isQuoting,
       isCreating: isCreating ?? this.isCreating,
     );
@@ -61,6 +76,7 @@ final class CheckoutReadyState extends CheckoutState {
     addresses,
     selectedAddressId,
     quote,
+    selectedShipmentType,
     isQuoting,
     isCreating,
   ];

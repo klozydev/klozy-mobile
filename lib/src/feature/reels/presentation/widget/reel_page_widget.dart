@@ -17,6 +17,7 @@ class ReelPageWidget extends StatefulWidget {
   final VoidCallback onShop;
   final VoidCallback onShare;
   final VoidCallback onMenu;
+  final VoidCallback onComments;
 
   const ReelPageWidget({
     super.key,
@@ -27,6 +28,7 @@ class ReelPageWidget extends StatefulWidget {
     required this.onShop,
     required this.onShare,
     required this.onMenu,
+    required this.onComments,
   });
 
   @override
@@ -151,6 +153,12 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
             label: '${reel.likes}',
             color: reel.isLiked ? DSColor.danger : Colors.white,
             onTap: widget.onLike,
+          ),
+          const SizedBox(height: 22),
+          ReelActionWidget(
+            icon: Icons.mode_comment_outlined,
+            label: context.l10N.reels_comments_label,
+            onTap: widget.onComments,
           ),
           const SizedBox(height: 22),
           ReelActionWidget(

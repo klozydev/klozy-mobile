@@ -439,6 +439,22 @@ class NotificationsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [OffersPage]
+class OffersRoute extends PageRouteInfo<void> {
+  const OffersRoute({List<PageRouteInfo>? children})
+    : super(OffersRoute.name, initialChildren: children);
+
+  static const String name = 'OffersRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const OffersPage();
+    },
+  );
+}
+
+/// generated route for
 /// [OrderDetailPage]
 class OrderDetailRoute extends PageRouteInfo<OrderDetailRouteArgs> {
   OrderDetailRoute({
@@ -649,6 +665,22 @@ class PhoneRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PreferencesPage]
+class PreferencesRoute extends PageRouteInfo<void> {
+  const PreferencesRoute({List<PageRouteInfo>? children})
+    : super(PreferencesRoute.name, initialChildren: children);
+
+  static const String name = 'PreferencesRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const PreferencesPage();
+    },
+  );
+}
+
+/// generated route for
 /// [ProductPage]
 class ProductRoute extends PageRouteInfo<ProductRouteArgs> {
   ProductRoute({required String id, Key? key, List<PageRouteInfo>? children})
@@ -806,6 +838,22 @@ class SellerStatsRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const SellerStatsPage();
+    },
+  );
+}
+
+/// generated route for
+/// [SellerVerificationPage]
+class SellerVerificationRoute extends PageRouteInfo<void> {
+  const SellerVerificationRoute({List<PageRouteInfo>? children})
+    : super(SellerVerificationRoute.name, initialChildren: children);
+
+  static const String name = 'SellerVerificationRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SellerVerificationPage();
     },
   );
 }

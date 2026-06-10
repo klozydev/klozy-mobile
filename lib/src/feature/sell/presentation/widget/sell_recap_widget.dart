@@ -95,6 +95,19 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
   bool get _titleValid => _title.text.trim().length >= 2;
   bool get _priceValid => (_priceValue ?? 0) > 0;
 
+  /// The AI's per-locale drafts with `en` overridden by the user's final text.
+  Map<String, dynamic>? _translations() {
+    final ai = widget.state.draft.translations;
+    if (ai == null || ai.isEmpty) return null;
+    return <String, dynamic>{
+      ...ai,
+      'en': <String, dynamic>{
+        'title': _title.text.trim(),
+        'description': _desc.text.trim(),
+      },
+    };
+  }
+
   void _submit() {
     final valid =
         _titleValid &&
@@ -118,6 +131,7 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
           brandId: _brand?.id,
           brandName: _brand?.id == null ? _brand?.name : null,
           images: widget.state.imageUrls,
+          translations: _translations(),
         ),
       ),
     );
