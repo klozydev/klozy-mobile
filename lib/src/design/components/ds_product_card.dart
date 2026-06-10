@@ -78,8 +78,10 @@ class _DSProductCardState extends State<DSProductCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // ── Image area ──────────────────────────────────────────
-            AspectRatio(
-              aspectRatio: 3 / 4,
+            // The grid cell's height is fixed by its childAspectRatio, so the
+            // image flexes to absorb font-metric/text-scale variations that
+            // would otherwise overflow the column by a few pixels.
+            Expanded(
               child: Stack(
                 fit: StackFit.expand,
                 children: [

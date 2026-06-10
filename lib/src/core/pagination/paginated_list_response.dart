@@ -8,9 +8,18 @@ class PaginatedListResponse<T> {
     Map<String, dynamic> json,
     T Function(Object? json) fromJsonT,
   ) {
-    final rawData = json['data'] as List<dynamic>? ?? const [];
+    // The API wraps paginated lists as {items, page, limit, total};
+    // `data` is kept as a fallback envelope key.
+    final rawData =
+        (json['items'] ?? json['data']) as List<dynamic>? ?? const [];
+    final metadata =
+        json['metadata'] as Map<String, dynamic>? ??
+        <String, dynamic>{
+          for (final key in const <String>['page', 'limit', 'total'])
+            if (json[key] is num) key: json[key],
+        };
     return PaginatedListResponse(
-      metadata: json['metadata'] as Map<String, dynamic>?,
+      metadata: metadata.isEmpty ? null : metadata,
       data: rawData.map(fromJsonT).toList(),
     );
   }

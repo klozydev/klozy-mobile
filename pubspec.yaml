@@ -41,6 +41,8 @@ dependencies:
   firebase_messaging: ^16.2.0
 
 dev_dependencies:
+  flutter_test:
+    sdk: flutter
   auto_route_generator: 10.2.3
   build_runner: 2.4.15
   flutter_gen_runner: 5.10.0
