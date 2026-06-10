@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_event.dart';
 import 'package:klozy/src/core/components/avatar_upload_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_address_field.dart';
@@ -134,6 +136,11 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
 
   void _listener(BuildContext context, ProfileCompletionState state) {
     if (state is ProfileCompletionDone) {
+      // Re-bootstrap AccountBloc so it re-resolves to AccountStatus.valid now
+      // that the profile is complete. Without this, the singleton would hold
+      // AccountResolved(incompleteOnboarding) for the rest of the session,
+      // causing profile actions (edit, settings) to be incorrectly blocked.
+      context.read<AccountBloc>().add(const AccountBootstrapRequested());
       context.router.replaceAll(const <PageRouteInfo>[ShellRoute()]);
     } else if (state is ProfileCompletionFailure) {
       context.showSnackBar(state.message);
