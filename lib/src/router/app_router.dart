@@ -7,7 +7,9 @@ import 'package:klozy/src/feature/auth/presentation/screen/otp_page.dart';
 import 'package:klozy/src/feature/auth/presentation/screen/phone_page.dart';
 import 'package:klozy/src/feature/auth/presentation/screen/welcome_page.dart';
 import 'package:klozy/src/feature/cart/presentation/screen/cart_page.dart';
+import 'package:klozy/src/feature/chat/presentation/screen/chat_media_picker_page.dart';
 import 'package:klozy/src/feature/chat/presentation/screen/chat_page.dart';
+import 'package:klozy/src/feature/chat/presentation/screen/chat_thread_page.dart';
 import 'package:klozy/src/feature/checkout/presentation/screen/checkout_page.dart';
 import 'package:klozy/src/feature/home/presentation/screen/home_page.dart';
 import 'package:klozy/src/feature/notifications/presentation/screen/notifications_page.dart';
@@ -128,6 +130,16 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       path: '/orders/:id',
       page: OrderDetailRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/chat/:tchatId',
+      page: ChatThreadRoute.page,
+      guards: [_authGuard],
+    ),
+    AutoRoute(
+      path: '/chat/:tchatId/picker',
+      page: ChatMediaPickerRoute.page,
       guards: [_authGuard],
     ),
     AutoRoute(

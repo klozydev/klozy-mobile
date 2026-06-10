@@ -1,6 +1,11 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
+import 'package:klozy/src/core/events/products_changed_event.dart';
+import 'package:klozy/src/core/events/reels_changed_event.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/domain/social/social_repository.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_event.dart';
@@ -12,13 +17,35 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final SocialRepository _repository;
   final MeRepository _meRepository;
 
-  ProfileBloc(this._repository, this._meRepository)
+  final List<StreamSubscription<Object?>> _subscriptions =
+      <StreamSubscription<Object?>>[];
+
+  ProfileBloc(this._repository, this._meRepository, EventBus eventBus)
     : super(const ProfileLoadingState()) {
     on<ProfileStarted>(_onStarted);
     on<ProfileTabChanged>(_onTabChanged);
     on<ProfileFollowToggled>(_onFollowToggled);
     on<ProfileReported>(_onReported);
     on<ProfileBlocked>(_onBlocked);
+    on<ProfileRefreshed>(_onRefreshed);
+    _subscriptions.add(
+      eventBus.on<ProductsChangedEvent>().listen(
+        (_) => add(const ProfileRefreshed()),
+      ),
+    );
+    _subscriptions.add(
+      eventBus.on<ReelsChangedEvent>().listen(
+        (_) => add(const ProfileRefreshed()),
+      ),
+    );
+  }
+
+  @override
+  Future<void> close() {
+    for (final StreamSubscription<Object?> sub in _subscriptions) {
+      sub.cancel();
+    }
+    return super.close();
   }
 
   Future<void> _onStarted(
@@ -129,5 +156,33 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     try {
       await _meRepository.block(current.profile.id);
     } catch (_) {}
+  }
+
+  /// My listings/reels changed elsewhere — refetch the loaded sections
+  /// without flashing a loading state. Only meaningful on my own profile.
+  Future<void> _onRefreshed(
+    ProfileRefreshed event,
+    Emitter<ProfileState> emit,
+  ) async {
+    final current = state;
+    if (current is! ProfileLoadedState || !current.profile.isMe) return;
+    try {
+      final profile = await _repository.getMyProfile();
+      final products = await _repository.getUserProducts(profile.id);
+      final reels = current.reels == null
+          ? null
+          : await _repository.getUserReels(profile.id, mine: true);
+      final latest = state;
+      if (latest is! ProfileLoadedState) return;
+      emit(
+        latest.copyWith(
+          profile: profile,
+          products: products,
+          reels: reels ?? latest.reels,
+        ),
+      );
+    } catch (_) {
+      // Quiet refresh: keep showing what we have.
+    }
   }
 }

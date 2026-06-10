@@ -1,0 +1,65 @@
+name: core_kosmos
+description: A new Flutter package project.
+version: 2.0.1-pre
+homepage: none
+publish_to: http://51.77.211.49/kosmos-core
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Interne package
+  url_strategy:
+
+  local_auth:
+  firebase_core: ^4.7.0
+  cloud_firestore:
+  flutter_easyloading:
+  firebase_auth:
+  firebase_storage:
+  permission_handler:
+  firebase_messaging:
+  device_info_plus:
+  firebase_in_app_messaging:
+  firebase_analytics:
+  firebase_analytics_web:
+  flutter_stripe_web:
+  flutter_local_notifications: 
+  flutter_image_compress:
+  mime:
+  encrypt:
+  intl_phone_number_input:
+  shared_preferences:
+  flutter_screenutil:
+  responsive_framework: ^1.5.0
+  get_it:
+  easy_localization:
+  auto_route: ^10.1.0
+  hooks_riverpod:
+  get:
+  dartz:
+  share_plus:
+  freezed_annotation:
+  json_annotation:
+  photo_manager:
+  file_picker:
+  wechat_assets_picker:
+  wechat_camera_picker:
+  path_provider:
+  flutter_stripe:
+  image_picker:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints:
+
+  build_runner:
+  freezed:
+  auto_route_generator:
+  json_serializable:
+

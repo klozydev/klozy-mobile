@@ -1,0 +1,1334 @@
+{
+  "app": {
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "در حال تحلیل عکس‌های شما…",
+        "step-identify": "در حال شناسایی کالا…",
+        "step-generate": "در حال ساخت عنوان و قیمت…"
+      },
+      "photos": {
+        "empty-title": "در چند ثانیه بفروشید",
+        "empty-cta": "عکس‌های خود را اضافه کنید",
+        "empty-subtitle": "با یک عکس شروع کنید — هوش مصنوعی عنوان، توضیحات و قیمت را انجام می‌دهد.",
+        "grid-title": "عکس‌های شما",
+        "grid-subtitle": "تا {max} عکس اضافه کنید. هوش مصنوعی آگهی شما را پُر می‌کند.",
+        "min-one": "برای ادامه حداقل ۱ عکس اضافه کنید",
+        "continue": "ادامه",
+        "add": "افزودن",
+        "max-reached": "حداکثر {max} عکس",
+        "cover": "جلد",
+        "edit": "ویرایش"
+      },
+      "capture": {
+        "title": "افزودن عکس",
+        "camera-title": "گرفتن عکس",
+        "camera-subtitle": "دوربین را باز می‌کند",
+        "gallery-title": "انتخاب از گالری",
+        "gallery-subtitle": "امکان انتخاب چندتایی"
+      },
+      "entry": {
+        "reel-subtitle": "ویدیویی از قطعات خود به اشتراک بگذارید",
+        "sell-subtitle": "ابتدا عکس · هوش مصنوعی آگهی شما را پُر می‌کند"
+      },
+      "recap": {
+        "title": "آگهی شما",
+        "field-title": "عنوان",
+        "field-title-hint": "مثال: کت جین Levi's",
+        "field-price": "قیمت",
+        "field-price-hint": "0",
+        "field-description": "توضیحات",
+        "field-description-hint": "وضعیت، اندازه و جنس را توصیف کنید…",
+        "section-details": "جزئیات کالا",
+        "field-category": "دسته‌بندی",
+        "field-subcategory": "زیردسته",
+        "subcategory-placeholder": "یک زیردسته انتخاب کنید",
+        "field-brand": "برند",
+        "brand-placeholder": "اختیاری",
+        "field-condition": "وضعیت",
+        "field-size": "سایز",
+        "required-hint": "* فیلدهای الزامی",
+        "cta": "گذاشتن برای فروش"
+      },
+      "subcategory": {
+        "title": "زیردسته",
+        "choose": "انتخاب"
+      },
+      "brand": {
+        "title": "برند",
+        "search-hint": "جستجوی برند"
+      },
+      "success": {
+        "title": "آنلاین شد!",
+        "subtitle": "کالای شما اکنون برای خریداران قابل مشاهده است.",
+        "see-listing": "مشاهده آگهی",
+        "back-home": "بازگشت به خانه"
+      },
+      "ai-badge": "پیشنهادشده توسط هوش مصنوعی",
+      "publish-failed": "انتشار ناموفق بود، لطفاً دوباره تلاش کنید."
+    },
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": { "title": "رفع مسدودیت کاربر", "subtitle": "آیا مطمئنید که می‌خواهید مسدودیت این کاربر را رفع کنید؟" },
+          "title": "کاربران مسدودشده",
+          "empty": "هیچ کاربر مسدودشده‌ای نیست",
+          "unblock": "رفع مسدودیت کاربر",
+          "success": "مسدودیت کاربر با موفقیت رفع شد"
+        }
+      }
+    },
+    "notifications": "اعلان‌ها",
+    "notification": {
+      "redirect-error": "هنگام باز کردن این اعلان خطایی رخ داد."
+    },
+    "nothing": "اعلانی وجود ندارد",
+    "popup": {
+      "need-connect": {
+        "title": "باید وارد شوید",
+        "subtitle": "برای استفاده از این قابلیت باید به یک حساب Klozy وارد شده باشید.",
+        "confirm": "ورود",
+        "cancel": "ساخت حساب"
+      },
+      "finalise-data": {
+        "title": "تکمیل پروفایل شما",
+        "subtitle": "برای فروش یک کالا باید پروفایل فروشندگی خود را تکمیل کنید.",
+        "confirm": "تکمیل",
+        "cancel": "بعداً"
+      }
+    },
+    "intro": {
+      "title": "مد نسل جدید",
+      "subtitle": "قطعات دست‌دوم را در چند ثانیه بخرید و بفروشید. پرداخت امن، ارسال سریع و جامعه‌ای قابل اعتماد.",
+      "start": "بزن بریم!"
+    },
+    "duration": {
+      "now": "اکنون"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "برند",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "سایر"
+      },
+      "product-status": {
+        "on-hold": "در انتظار",
+        "in-progress": "در حال انجام",
+        "completed": "تکمیل‌شده",
+        "in-delivery": "در حال ارسال",
+        "waiting-for-expedition": "در انتظار ارسال",
+        "pending-acceptance": "در انتظار پذیرش",
+        "delivery-completed": "تحویل تکمیل شد",
+        "refused": "رد شد",
+        "canceled": "لغو شد",
+        "return-requested": "درخواست مرجوعی",
+        "return-accepted": "مرجوعی پذیرفته شد",
+        "return-refused": "مرجوعی رد شد",
+        "return-completed": "مرجوعی تکمیل شد"
+      },
+      "condition": {
+        "title": "وضعیت",
+        "new": "نو",
+        "very-good": "خیلی خوب",
+        "good": "خوب",
+        "normal": "معمولی",
+        "worn": "کارکرده"
+      },
+      "sort-by": {
+        "lower-price": "قیمت صعودی",
+        "higher-price": "قیمت نزولی",
+        "latest": "جدیدترین"
+      },
+      "product-category": {
+        "title": "دسته‌بندی",
+        "women": "زنانه",
+        "men": "مردانه",
+        "kids": "بچگانه"
+      },
+      "product-sub-category": {
+        "title": "زیردسته",
+        "tops": "بالاتنه",
+        "accessories": "اکسسوری",
+        "pants": "شلوار",
+        "jackets": "ژاکت و کاپشن",
+        "dresses": "پیراهن",
+        "bottoms": "پایین‌تنه",
+        "shoes": "کفش",
+        "underwear": "لباس زیر"
+      },
+      "accessory-type": {
+        "title": "نوع اکسسوری",
+        "glasses": "عینک",
+        "headwear": "کلاه و سربند",
+        "scarf": "شال و روسری",
+        "belt": "کمربند",
+        "jewelry": "جواهرات",
+        "watch": "ساعت",
+        "bag": "کیف",
+        "wallet": "کیف پول",
+        "sunglasses": "عینک آفتابی",
+        "tie": "کراوات",
+        "gloves": "دستکش",
+        "other": "سایر"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "۰ تا ۳ ماه",
+        "months_3_6": "۳ تا ۶ ماه",
+        "months_6_12": "۶ تا ۱۲ ماه",
+        "months_12_18": "۱۲ تا ۱۸ ماه",
+        "months_18_24": "۱۸ تا ۲۴ ماه",
+        "years_2_3": "۲ تا ۳ سال",
+        "years_3_4": "۳ تا ۴ سال",
+        "years_4_5": "۴ تا ۵ سال",
+        "years_5_6": "۵ تا ۶ سال",
+        "years_6_7": "۶ تا ۷ سال",
+        "years_7_8": "۷ تا ۸ سال",
+        "years_8_10": "۸ تا ۱۰ سال",
+        "years_10_12": "۱۰ تا ۱۲ سال",
+        "years_12_14": "۱۲ تا ۱۴ سال"
+      }
+    },
+    "profile-completion": {
+      "title": "پروفایل خود را تکمیل کنید",
+      "edit-title": "ویرایش پروفایل",
+      "favorite-article-sizes-title": "سایزهای موردعلاقه",
+      "favorite-article-sizes-subtitle": "سایزهای US و EU خود را انتخاب کنید.",
+      "preferred-brand-title": "برندهای موردعلاقه",
+      "preferred-brand-subtitle": "می‌توانید چند برند را انتخاب کنید.",
+      "lastname": "نام خانوادگی",
+      "lastname-hint": "نام خانوادگی خود را وارد کنید",
+      "lastname-required": "نام خانوادگی الزامی است",
+      "firstname": "نام",
+      "firstname-hint": "نام خود را وارد کنید",
+      "firstname-required": "نام الزامی است",
+      "address": "آدرس",
+      "address-for-delivery": "آدرس تحویل",
+      "address-for-delivery-hint": "جست‌وجوی آدرس",
+      "address-for-delivery-error": "لطفاً یک آدرس معتبر انتخاب کنید",
+      "description": "توضیحات",
+      "description-hint": "درباره خودتان بگویید",
+      "profile-picture": "عکس پروفایل",
+      "complete-registration": "تکمیل ثبت‌نام",
+      "submit": "تکمیل ثبت‌نام",
+      "exit-signup": {
+        "title": "لغو ثبت‌نام؟",
+        "subtitle": "پروفایل شما هنوز کامل نشده است. اگر اکنون خارج شوید، باید از ابتدا شروع کنید."
+      },
+      "eu-sizes": "سایزهای EU"
+    },
+    "order-summary": {
+      "title": "خلاصه",
+      "x-product-purchased": "محصولاتی از {} که قصد خرید آن‌ها را دارید",
+      "no-products-in-cart": "محصولی در سبد شما نیست",
+      "buyer-protection": "حمایت از خریدار",
+      "total": "مجموع",
+      "shipping": "ارسال",
+      "home-delivery": "تحویل درب منزل",
+      "choose-delivery-method": "یک روش ارسال انتخاب کنید",
+      "choose": "انتخاب",
+      "change-delivery-address": "تغییر آدرس تحویل",
+      "remove-product": "حذف محصول",
+      "remove-product-message": "آیا مطمئنید که می‌خواهید این محصول را از فهرست خود حذف کنید؟",
+      "remove-product-confirm": "حذف",
+      "remove-product-cancel": "لغو",
+      "order-placed": "سفارش ثبت شد"
+    },
+    "order-details": {
+      "title": "سفارش",
+      "product-purchased": "محصول خریداری‌شده",
+      "product-purchased-from": "محصول خریداری‌شده از {}",
+      "shipping-to": "ارسال به",
+      "total-paid": "مجموع پرداختی",
+      "cancel": "لغو سفارش",
+      "confirm-receipt": "تأیید دریافت",
+      "report-a-problem": "گزارش مشکل",
+      "leave-a-review": "ثبت نظر",
+      "review-already-sent": "شما قبلاً برای این سفارش نظر ثبت کرده‌اید.",
+      "refunded": "بازپرداخت‌شده",
+      "download-my-return-voucher": "دانلود برگه مرجوعی من",
+      "was-delivered-to": "تحویل شد به",
+      "was-to-be-delivered": "قرار بود تحویل شود",
+      "cancel-order": "لغو سفارش",
+      "tracking": "کد رهگیری",
+      "track": "رهگیری",
+      "open-shipping-label": "باز کردن برچسب",
+      "product-is-conform": "کالای من مطابق توضیحات است",
+      "product-confirmed": "محصول تأیید شد! مبلغ به فروشنده منتقل خواهد شد.",
+      "request-a-return": "درخواست مرجوعی",
+      "return-requested": "درخواست مرجوعی برای فروشنده ارسال شد",
+      "return-pending": "درخواست مرجوعی شما در انتظار تأیید فروشنده است",
+      "return-request-received": "یک خریدار برای این سفارش درخواست مرجوعی داده است",
+      "accept": "پذیرش",
+      "refuse": "رد",
+      "return-accepted": "مرجوعی پذیرفته شد، بازپرداخت در حال پردازش است",
+      "return-refused": "مرجوعی رد شد",
+      "return-accepted-message": "مرجوعی پذیرفته شد. برگه مرجوعی خود را دانلود کنید و محصول را بازگردانید.",
+      "return-refused-message": "مرجوعی توسط فروشنده رد شد. مبلغ منتقل شد.",
+      "return-in-transit": "در انتظار بازگرداندن محصول توسط خریدار.",
+      "return-completed-message": "مرجوعی دریافت شد. بازپرداخت انجام شد."
+    },
+    "report": {
+      "cancel": "لغو",
+      "report": "گزارش مشکل",
+      "problem": "مشکلی دارید؟ همین حالا گزارش دهید.",
+      "reason": "دلیل مشکل شما",
+      "reason-cancel": "دلیل لغو",
+      "text-area": "بیشتر توضیح دهید",
+      "file-picker": "افزودن فایل",
+      "send-report": "ارسال گزارش",
+      "confirm-cancel": "تأیید لغو"
+    },
+    "report_success": {
+      "title": "ارسال شد",
+      "subtitle": "گزارش شما ارسال شد! در اسرع وقت بررسی خواهد شد.",
+      "cancel": "درخواست لغو شما ارسال شد! در اسرع وقت بررسی خواهد شد.",
+      "buttonText": "پایان"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "خطا",
+        "content": "خطایی رخ داد، لطفاً بعداً دوباره تلاش کنید."
+      }
+    },
+    "preview-reel": {
+      "retake": "ضبط مجدد",
+      "continue": "ادامه"
+    },
+    "create-reel": {
+      "title": "ساخت ریل",
+      "subtitle": "با ساخت ریل می‌توانید یک یا چند محصول از مجموعه خود را برای فروش اضافه کنید تا آن‌ها را معرفی کنید",
+      "add-product": "افزودن محصول",
+      "create-product": "ساخت محصول",
+      "my-added-products": "محصولات اضافه‌شده من",
+      "my-products-to-sales": "محصولات من برای فروش",
+      "add": "افزودن",
+      "post": "انتشار ریل",
+      "update": "به‌روزرسانی ریل",
+      "success-title": "عالی شد!",
+      "success-subtitle": "ویدیوی شما اکنون آنلاین است.",
+      "error-title": "چیزی کم است",
+      "error-subtitle": "لطفاً حداقل یک محصول به ریل خود اضافه کنید."
+    },
+    "put-a-product-on-sale": {
+      "title": "گذاشتن محصول برای فروش",
+      "step": "مرحله",
+      "title-step2": "اطلاعات بیشتر درباره محصول شما",
+      "title-step3": "افزودن عکس",
+      "put-on-sale": "گذاشتن برای فروش",
+      "success-title": "عالی شد!",
+      "success-subtitle": "کالای شما اکنون برای فروش است.",
+      "edit-success-title": "عالی شد!",
+      "edit-success-subtitle": "کالای شما اکنون برای فروش است.",
+      "error-title": "بارگذاری ناموفق بود",
+      "error-subtitle": "هنگام ذخیره محصول شما مشکلی پیش آمد. لطفاً دوباره تلاش کنید.",
+      "forms": {
+        "title": "عنوان",
+        "title-hint": "مثال: پیراهن آبی گشاد",
+        "price": "قیمت",
+        "price-hint": "۰",
+        "price-max-error": "حداکثر قیمت {} است.",
+        "description": "توضیحات",
+        "description-hint": "توضیحی برای محصول خود وارد کنید",
+        "size": "سایز",
+        "brand": "برند",
+        "condition-error-title": "لطفاً یک وضعیت انتخاب کنید",
+        "condition-error-subtitle": "برای محصول خود یک وضعیت انتخاب کنید",
+        "image-error-title": "لطفاً حداقل یک تصویر انتخاب کنید",
+        "image-error-subtitle": "برای محصول خود حداقل یک تصویر انتخاب کنید"
+      }
+    },
+    "home": {
+      "feed": "فید",
+      "wishlist": "علاقه‌مندی‌ها",
+      "reels": "ریل‌ها",
+      "view-products": "نمایش محصولات",
+      "hide-products": "پنهان کردن محصولات"
+    },
+    "product": {
+      "buy": "خرید",
+      "already-sold": "فروخته شده",
+      "make-an-offer": "ثبت پیشنهاد",
+      "send-offer": "ارسال پیشنهاد",
+      "delete": "حذف",
+      "edit": "ویرایش",
+      "success-title": "پیشنهاد ارسال شد!",
+      "success-subtitle": "پیشنهاد شما با موفقیت ارسال شد.",
+      "popup-delete-title": "حذف محصول",
+      "popup-delete-subtitle": "آیا مطمئنید که می‌خواهید این محصول را حذف کنید؟",
+      "popup-delete-confirm": "حذف",
+      "popup-delete-cancel": "لغو",
+      "delete-success-title": "محصول حذف شد!",
+      "delete-success-subtitle": "محصول شما با موفقیت حذف شد.",
+      "forms": {
+        "actual-price": "قیمت فعلی",
+        "your-new-price": "قیمت جدید شما"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "حذف ریل",
+      "popup-delete-subtitle": "آیا مطمئنید که می‌خواهید این ریل را حذف کنید؟",
+      "popup-delete-confirm": "حذف",
+      "popup-delete-cancel": "لغو",
+      "delete-success-title": "ریل حذف شد!",
+      "delete-success-subtitle": "ریل شما با موفقیت حذف شد.",
+      "feed-error": "بارگذاری ریل‌ها ممکن نشد. لطفاً بعداً دوباره تلاش کنید.",
+      "report": "گزارش"
+    },
+    "profile": {
+      "buyer": "خریدار",
+      "my-order": "سفارش‌های من",
+      "seller": "فروشنده",
+      "my-sales": "فروش‌های من",
+      "products": "محصولات",
+      "reels": "ریل‌ها",
+      "reviews": "نظرات",
+      "followers": "دنبال‌کنندگان",
+      "following": "دنبال‌شده‌ها",
+      "follow": "دنبال کردن",
+      "unfollow": "لغو دنبال کردن",
+      "edit": "ویرایش پروفایل",
+      "cant-follow-blocked": "نمی‌توانید این کاربر را دنبال کنید."
+    },
+    "search": {
+      "popular-items": "موارد محبوب",
+      "categories": "دسته‌بندی‌ها",
+      "title": "جست‌وجو",
+      "filter-search": "فیلتر جست‌وجو",
+      "sort-by": "مرتب‌سازی بر اساس",
+      "in": "در",
+      "refine-the-category": "محدود کردن دسته‌بندی",
+      "apply": "اعمال",
+      "reset": "بازنشانی",
+      "results": "نتایج"
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "در حال باز کردن Stripe."
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "کالا مطابق توضیحات نیست",
+        "motif2": "کالای تقلبی یا ممنوع",
+        "motif3": "مشکل با فروشنده",
+        "motif4": "مشکل در ارسال",
+        "motif5": "مشکل در پرداخت یا سفارش",
+        "motif6": "سایر"
+      },
+      "filePicker": {
+        "title": "افزودن فایل"
+      },
+      "description": {
+        "title": "بیشتر توضیح دهید",
+        "title1": "لطفاً مشخص کنید"
+      },
+      "motif1": {
+        "precisez1": "سایز اشتباه / اندازه نامناسب",
+        "precisez2": "وضعیت با آگهی متفاوت است",
+        "precisez3": "اجزا / اکسسوری‌های ناقص",
+        "precisez4": "کالا آسیب‌دیده است"
+      },
+      "motif2": {
+        "precisez1": "کالای مشکوک به تقلبی",
+        "precisez2": "کالای ممنوع یا ناایمن",
+        "precisez3": "آگهی گمراه‌کننده یا متقلبانه",
+        "precisez4": "سایر موارد نقض قوانین"
+      },
+      "motif3": {
+        "precisez1": "فروشنده پاسخگو نیست",
+        "precisez2": "رفتار نامناسب یا آزار",
+        "precisez3": "درخواست پرداخت خارج از اپلیکیشن",
+        "precisez4": "سایر مشکلات فروشنده"
+      },
+      "motif4": {
+        "precisez1": "رهگیری به‌روزرسانی نمی‌شود",
+        "precisez2": "بسته دریافت نشد",
+        "precisez3": "بسته آسیب‌دیده رسید",
+        "precisez4": "ارسال با تأخیر است"
+      },
+      "motif5": {
+        "precisez1": "مبلغ اشتباه کسر شد",
+        "precisez2": "مشکل در بازپرداخت",
+        "precisez3": "مشکل سفارش (لغو شده / تکراری)",
+        "precisez4": "سایر مشکلات پرداخت یا سفارش"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "پیام جدید",
+          "body": "شما یک پیام جدید دریافت کردید."
+        }
+      },
+      "user-deleted": "کاربر ناشناس",
+      "online-today-at": "آنلاین امروز ساعت {}",
+      "online-yesterday-at": "آنلاین دیروز ساعت {}",
+      "online-at": "آنلاین در {}",
+      "change-name-confirm-button": "پایان",
+      "call-audio": "تماس صوتی",
+      "call-video": "تماس تصویری",
+      "call-start": "تماس در حال انجام...",
+      "video-call-end": "تماس پایان یافت",
+      "new-group": "نام گروه",
+      "cancel-audio": "لغو صدا",
+      "preview": {
+        "media": {
+          "zero": "بدون مورد",
+          "one": "۱ رسانه ارسال شد",
+          "other": "{} رسانه ارسال شد"
+        },
+        "audio": "صدا",
+        "reply-audio": "پاسخ صوتی"
+      },
+      "event": {
+        "report-and-block": "گزارش و مسدود کردن",
+        "delete-tchat": "حذف گفت‌وگو"
+      },
+      "status": {
+        "online": "آنلاین",
+        "online-today-at": "آنلاین امروز ساعت {time}",
+        "online-yesterday-at": "آنلاین دیروز ساعت {time}",
+        "offline": "آفلاین",
+        "multiple-online": "چند نفر آنلاین",
+        "typing": "در حال تایپ",
+        "audioRec": "در حال ضبط صدا"
+      },
+      "document": {
+        "camera": "دوربین",
+        "gallery": "گالری",
+        "document": "سند",
+        "localisation": "موقعیت مکانی",
+        "contact": "مخاطب",
+        "sondage": "نظرسنجی"
+      },
+      "list": {
+        "title": "گفت‌وگوها",
+        "title-face": "ترجمه",
+        "conversations": "گفت‌وگوها",
+        "no-tchat": "بدون گفت‌وگو",
+        "no-tchat-content": "هنوز هیچ گفت‌وگویی ندارید.",
+        "group-default-title": "گروه جدید",
+        "oto-default-title": "گفت‌وگوی جدید",
+        "new-conversation": "گفت‌وگوی جدید"
+      },
+      "message": {
+        "no-message": "بدون پیام",
+        "no-message-body": "هنوز هیچ پیامی ندارید.",
+        "input-hint": "پیام..",
+        "no-media": "بدون رسانه",
+        "date": "{weekday} {day} {month}",
+        "today": "امروز",
+        "yesterday": "دیروز",
+        "join-group": "{name} به گروه پیوست",
+        "leave-group": "{name} گروه را ترک کرد",
+        "add-to-group": "{name}، {user} را به گروه اضافه کرد",
+        "remove-from-group": "{name}، {user} را از گروه حذف کرد",
+        "change-group-title": "{name} نام گروه را به {title} تغییر داد",
+        "change-group-avatar": "{name} تصویر گروه را تغییر داد",
+        "blocked-by-you": "شما این مخاطب را مسدود کرده‌اید.\nدیگر نمی‌توانید به این مخاطب پیام ارسال کنید.",
+        "blocked-by-other": "این مخاطب شما را مسدود کرده است.\nدیگر نمی‌توانید به این مخاطب پیام ارسال کنید.",
+        "cant-send-message-blocked": "نمی‌توانید به این مخاطب پیام ارسال کنید.",
+        "order-requested": "پیشنهاد به خریدار برای «{product_name}»",
+        "order-accepted": "سفارش شماره {id} شما توسط فروشنده پذیرفته شد",
+        "order-rejected": "سفارش شماره {id} شما توسط فروشنده رد شد",
+        "order-purchased": "یک سفارش خریداری شد",
+        "view-order-details": "مشاهده جزئیات سفارش"
+      }
+    },
+    "commentary": {
+      "add-note-title": "امتیاز به فروشنده",
+      "add_note_title": "امتیاز به فروشنده",
+      "delete": "حذف",
+      "report": "گزارش",
+      "add-note": {
+        "validate": "تأیید",
+        "field": {
+          "note-title": "به این فروشنده امتیاز دهید",
+          "commentary-title": "نظر",
+          "placeholder": "نظری بنویسید",
+          "commentary-hint": "نظری بنویسید..",
+          "commentary_hint": "نظری بنویسید.."
+        },
+        "title": "به این فروشنده امتیاز دهید",
+        "comment": "نظر",
+        "placeholder": "نظری بنویسید",
+        "commentary-hint": "نظری بنویسید.."
+      },
+      "add_note": {
+        "validate": "تأیید",
+        "field": {
+          "title": "به این فروشنده امتیاز دهید",
+          "comment": "نظر",
+          "placeholder": "نظری بنویسید",
+          "commentary-hint": "نظری بنویسید..",
+          "commentary_hint": "نظری بنویسید.."
+        },
+        "title": "به این فروشنده امتیاز دهید",
+        "comment": "نظر",
+        "placeholder": "نظری بنویسید",
+        "commentary-hint": "نظری بنویسید..",
+        "commentary_hint": "نظری بنویسید.."
+      },
+      "sure-delete-commentary": {
+        "title": "حذف نظر",
+        "subtitle": "آیا مطمئنید که می‌خواهید این نظر را حذف کنید؟"
+      },
+      "sure_delete_commentary": {
+        "title": "حذف نظر",
+        "subtitle": "آیا مطمئنید که می‌خواهید این نظر را حذف کنید؟"
+      }
+    },
+    "validator": {
+      "must-have-value": "این فیلد الزامی است",
+      "email-invalid": "لطفاً یک ایمیل معتبر وارد کنید",
+      "password-invalid-length": "حداقل ۶ کاراکتر",
+      "password-invalid-maj": "حداقل ۱ حرف بزرگ",
+      "password-invalid-min": "حداقل ۱ حرف کوچک",
+      "password-invalid-number": "حداقل ۱ عدد",
+      "password-invalid-special-char": "حداقل ۱ کاراکتر خاص (&?!@#)",
+      "password-not-match": "رمزهای عبور مطابقت ندارند",
+      "number-invalid": "لطفاً یک عدد معتبر وارد کنید",
+      "number-out-of-range": "لطفاً عددی بین {min} و {max} وارد کنید",
+      "number-out-of-min": "لطفاً عددی بزرگ‌تر از {min} وارد کنید",
+      "number-out-of-max": "لطفاً عددی کوچک‌تر از {max} وارد کنید",
+      "date-invalid": "لطفاً یک تاریخ معتبر وارد کنید",
+      "date-out-of-range": "لطفاً تاریخی بین {min} و {max} وارد کنید",
+      "date-out-of-min": "لطفاً تاریخی بزرگ‌تر از {min} وارد کنید",
+      "date-out-of-max": "لطفاً تاریخی کوچک‌تر از {max} وارد کنید",
+      "alpha-invalid": "لطفاً یک مقدار معتبر وارد کنید",
+      "code-invalid": "لطفاً یک کد معتبر وارد کنید"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "یک عکس انتخاب کنید"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "بدون عکس",
+        "one": "۱ عکس",
+        "other": "{} عکس"
+      },
+      "write-message": "پیامی بنویسید..",
+      "camera": {
+        "shootingTips": "یک عکس بگیرید",
+        "confirm": "تأیید",
+        "saving": "در حال ذخیره...",
+        "shootingWithRecordingTips": "برای فیلم‌برداری نگه دارید."
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "جست‌وجوی کشور",
+          "error_message": "لطفاً یک شماره تلفن معتبر وارد کنید"
+        },
+        "input": {
+          "choose-media": "برای انتخاب عکس فشار دهید",
+          "choose-multiple-file": "برای انتخاب چند فایل فشار دهید",
+          "choose-image": "برای انتخاب عکس فشار دهید",
+          "choose-file": "برای انتخاب فایل فشار دهید",
+          "press-to-modify": "برای تغییر فایل فشار دهید"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "ایمیل",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "ایمیل",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "رمز عبور",
+          "hint": "رمز عبور",
+          "security-action": "چه کاری انجام دهم؟"
+        },
+        "actual-password": {
+          "title": "رمز عبور فعلی",
+          "hint": "رمز عبور فعلی"
+        },
+        "new-password": {
+          "title": "رمز عبور جدید",
+          "hint": "رمز عبور جدید"
+        },
+        "repeat-password": {
+          "title": "تأیید رمز عبور",
+          "hint": "تأیید رمز عبور"
+        },
+        "new-repeat-password": {
+          "title": "تأیید رمز عبور جدید",
+          "hint": "تأیید رمز عبور جدید"
+        },
+        "phone": {
+          "title": "شماره تلفن",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "کد دریافتی با پیامک",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "ناحیه متن",
+        "hint": "اینجا بنویسید.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "شماره تلفن شما با موفقیت اضافه شد.",
+      "invalid-email": "کاربری با اطلاعات واردشده یافت نشد.",
+      "user-not-found": "کاربری با اطلاعات واردشده یافت نشد.",
+      "user-disabled": "حساب شما توسط مدیر غیرفعال شده است.",
+      "wrong-password": "رمز عبور نادرست است.",
+      "email-already-in-use": "این آدرس ایمیل قبلاً استفاده شده است.",
+      "phone-already-in-use": "این شماره تلفن قبلاً استفاده شده است.",
+      "weak-password": "رمز عبور بسیار ضعیف است.",
+      "account-exists-with-different-credential": "حسابی با این آدرس ایمیل از قبل وجود دارد.",
+      "invalid-credential": "کاربری با اطلاعات واردشده یافت نشد.",
+      "invalid-verification-code": "کد تأیید نامعتبر است.",
+      "invalid-verification-id": "شناسه تأیید نامعتبر است.",
+      "requires-recent-login": "برای انجام این کار باید دوباره وارد شوید.",
+      "invalid-phone-number": "شماره تلفن نامعتبر است.",
+      "error-phone-not-exist": "این شماره تلفن وجود ندارد.",
+      "code-invalid": "لطفاً یک کد معتبر وارد کنید",
+      "code-is-required": "لطفاً کد دریافتی با پیامک را وارد کنید",
+      "email-must-be-verified": "برای ادامه باید آدرس ایمیل خود را تأیید کنید.",
+      "tiers-auth-valid-email": "حساب شخص ثالث شما باید یک ایمیل معتبر داشته باشد تا ادامه دهید.",
+      "send-reset-password-email": "ایمیل بازنشانی رمز عبور به آدرس واردشده ارسال شد.",
+      "error-internet": "مشکلی در اتصال رخ داد. لطفاً اتصال اینترنت خود را بررسی کنید.",
+      "error-default": "خطایی رخ داد، لطفاً دوباره تلاش کنید.",
+      "must-accept-cgu": "برای ادامه باید شرایط استفاده را بپذیرید.",
+      "password-security": "قالب رمز عبور",
+      "password-security-length": "حداقل ۶ کاراکتر",
+      "password-security-maj": "شامل حداقل ۱ حرف بزرگ",
+      "password-security-min": "شامل حداقل ۱ حرف کوچک",
+      "password-security-number": "شامل حداقل ۱ عدد",
+      "password-security-special": "شامل حداقل ۱ کاراکتر خاص (&?!@#)",
+      "success-change-password": "رمز عبور شما با موفقیت تغییر کرد.",
+      "phone-update-success": "شماره تلفن شما تغییر کرد!",
+      "cant-be-same-password": "رمز عبور جدید باید با رمز قبلی متفاوت باشد.",
+      "cant-be-same-email": "ایمیل جدید باید با ایمیل قبلی متفاوت باشد.",
+      "cant-be-same-phone": "شماره تلفن جدید باید با شماره قبلی متفاوت باشد.",
+      "code-is-expired": "کد تأیید منقضی شده است.",
+      "code-sent": "یک کد تأیید با پیامک برای شما ارسال شد.",
+      "too-many-requests": "تلاش‌های ورود بیش از حد. لطفاً بعداً دوباره تلاش کنید."
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "ورود",
+        "already-have-account": "حساب دارید؟",
+        "login-title": "به حساب خود وارد شوید یا یک حساب بسازید.",
+        "login-phone-title": "به حساب خود وارد شوید",
+        "verify-phone-title": "برای ورود، کد دریافتی با پیامک را وارد کنید",
+        "verify-phone-code-title": "شماره تلفن خود را تأیید کنید",
+        "code-expire-in": "کد تا {time} دقیقه دیگر منقضی می‌شود",
+        "no-code": "دریافت نکردید؟",
+        "resend-code": "ارسال مجدد",
+        "forgot-password": "رمز عبور را فراموش کرده‌اید؟",
+        "reset-password": "بازنشانی رمز عبور",
+        "no-account": "حساب ندارید؟",
+        "create-account": "همین حالا بسازید",
+        "login-with-phone": "ورود با شماره تلفن",
+        "login-with-email": "ورود با ایمیل",
+        "or-connect-with": "یا ورود با",
+        "or-signup-with": "یا ثبت‌نام با",
+        "verify-email": "ایمیل خود را تأیید کنید",
+        "verify-email-subtitle": "ایمیلی برای بازنشانی رمز عبور شما ارسال شده است.",
+        "create-account-verify-email": "ایمیل خود را تأیید کنید",
+        "create-account-title": "ساخت حساب",
+        "create-account-verify-email-subtitle": "یک ایمیل تأیید به این آدرس ارسال شد",
+        "reset-password-modal": {
+          "title": "بازنشانی رمز عبور",
+          "subtitle": "آدرس ایمیل مرتبط با حساب خود را وارد کنید. ما یک ایمیل بازنشانی به آن آدرس ارسال می‌کنیم."
+        },
+        "tiers-signin": {
+          "get-password-title": "رمز عبور خود را وارد کنید",
+          "get-password-subtitle": "حسابی با این آدرس ایمیل پیدا کردیم، لطفاً برای ورود رمز عبور خود را وارد کنید."
+        }
+      },
+      "profile": {
+        "delete-success": "حساب شما با موفقیت حذف شد.\nبه امید دیدار",
+        "logout": "خروج",
+        "delete-account": "حذف پروفایل من",
+        "delete-my-account": "حذف حساب من",
+        "delete-my-account-subtitle": "آیا واقعاً می‌خواهید حساب خود را حذف کنید؟",
+        "logout-success": "با موفقیت از حساب خارج شدید.\nبه امید دیدار"
+      },
+      "new-cgu-must-be-accepted": "برای ادامه باید شرایط جدید استفاده را بپذیرید."
+    },
+    "onboarding": {
+      "button_next": "بعدی",
+      "button_start": "پایان",
+      "skip": "رد کردن"
+    },
+    "permission": {
+      "notification": {
+        "title": "اعلان‌های Push",
+        "redirect-to-settings": "آیا می‌خواهید سرویس اعلان Push ما را فعال کنید؟ این کار به شما کمک می‌کند تا از اپلیکیشن ما به‌طور کامل بهره ببرید.",
+        "button": "فعال‌سازی اعلان‌ها"
+      },
+      "camera": {
+        "title": "دوربین",
+        "redirect-to-settings": "برای بهره‌مندی از این قابلیت باید دسترسی دوربین را بپذیرید.",
+        "button": "فعال‌سازی دوربین"
+      },
+      "microphone": {
+        "title": "میکروفون",
+        "redirect-to-settings": "برای بهره‌مندی از این قابلیت باید دسترسی میکروفون را بپذیرید.",
+        "button": "فعال‌سازی میکروفون"
+      },
+      "accessMediaLocation": {
+        "title": "دسترسی به موقعیت رسانه",
+        "redirect-to-settings": "برای بهره‌مندی از این قابلیت باید دسترسی به موقعیت رسانه را بپذیرید.",
+        "button": "فعال‌سازی دسترسی به موقعیت رسانه"
+      },
+      "mediaLibrary": {
+        "title": "کتابخانه رسانه",
+        "redirect-to-settings": " برای بهره‌مندی از این قابلیت باید دسترسی به کتابخانه رسانه را بپذیرید.",
+        "button": "فعال‌سازی دسترسی به کتابخانه رسانه"
+      },
+      "photos": {
+        "title": "عکس‌ها",
+        "redirect-to-settings": "برای بهره‌مندی از این قابلیت باید دسترسی به عکس‌ها را بپذیرید.",
+        "button": "فعال‌سازی دسترسی به عکس‌ها"
+      },
+      "storage": {
+        "title": "حافظه",
+        "redirect-to-settings": "برای بهره‌مندی از این قابلیت باید دسترسی به حافظه را بپذیرید.",
+        "button": "فعال‌سازی دسترسی به حافظه"
+      },
+      "mic": {
+        "redirect-to-settings": "لطفاً میکروفون را در تنظیمات گوشی خود مجاز کنید.",
+        "title": "میکروفون",
+        "button": "باز کردن تنظیمات"
+      },
+      "notif-push": {
+        "title": "اعلان‌های Push",
+        "desc": "آیا می‌خواهید سرویس اعلان Push ما را فعال کنید؟ این کار به شما کمک می‌کند تا از اپلیکیشن ما به‌طور کامل بهره ببرید.",
+        "button": "فعال‌سازی اعلان‌ها"
+      },
+      "location": {
+        "title": "موقعیت مکانی",
+        "desc": "برای استفاده کامل از اپلیکیشن موبایل ما باید موقعیت مکانی را بپذیرید.",
+        "button": "ادامه",
+        "redirect-to-settings": "لطفاً موقعیت مکانی را در تنظیمات گوشی خود مجاز کنید."
+      },
+      "background-location": {
+        "title": "موقعیت مکانی در پس‌زمینه",
+        "desc": "آیا می‌خواهید سرویس موقعیت مکانی در پس‌زمینه ما را فعال کنید؟ این برای عملکرد اپلیکیشن ضروری است.",
+        "button": "فعال‌سازی موقعیت مکانی در پس‌زمینه"
+      },
+      "skip": "رد کردن"
+    },
+    "image": {
+      "from-gallery": "گالری",
+      "from-camera": "دوربین"
+    },
+    "duration": {
+      "now": "اکنون",
+      "days-ago": "{} روز پیش",
+      "x-days": "{} روز پیش",
+      "hours-ago": "{} ساعت پیش",
+      "minutes-ago": "{} دقیقه پیش",
+      "seconds-ago": "{} ثانیه پیش",
+      "months-ago": "{} ماه پیش",
+      "years-ago": "{} سال پیش",
+      "moment-ago": "لحظه‌ای پیش"
+    },
+    "settings": {
+      "edited-by": "ویرایش‌شده توسط",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "ویرایش",
+        "personnal-data": "حساب من",
+        "settings": "تنظیمات",
+        "other": "سایر",
+        "link": "پیوندها",
+        "social": "شبکه اجتماعی",
+        "security": "امنیت"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "کاربران مسدودشده",
+          "subtitle": "فهرست کاربران مسدودشده"
+        },
+        "blocked-users": {
+          "unblock": "رفع مسدودیت کاربر",
+          "block": "مسدود کردن کاربر",
+          "unblock-success": "مسدودیت کاربر با موفقیت رفع شد",
+          "title": "کاربران مسدودشده",
+          "subtitle": "فهرست کاربران مسدودشده"
+        },
+        "change-personnal-content": {
+          "title": "اطلاعات شخصی",
+          "subtitle": "نام، نام خانوادگی، توضیحات"
+        },
+        "clothing-preference": {
+          "title": "ترجیحات پوشاک",
+          "subtitle": "شخصی‌سازی"
+        },
+        "preferred-article-size": {
+          "title": "سایزهای موردعلاقه",
+          "subtitle": "مدیریت"
+        },
+        "preferred-brand": {
+          "title": "برندهای موردعلاقه",
+          "subtitle": "مدیریت"
+        },
+        "security": {
+          "title": "امنیت",
+          "subtitle": "رمز عبور، تلفن، ایمیل..."
+        },
+        "payment": {
+          "title": "روش‌های پرداخت",
+          "subtitle": "کارت اعتباری / Apple Pay",
+          "credit-card": "کارت اعتباری",
+          "bank-details": "حساب بانکی",
+          "bank-details-empty": "پیکربندی نشده",
+          "handle-with-stripe": "مدیریت با Stripe"
+        },
+        "phone-number": {
+          "title": "شماره تلفن"
+        },
+        "change-email": {
+          "title": "آدرس ایمیل"
+        },
+        "change-password": {
+          "title": "رمز عبور",
+          "subtitle": "آخرین تغییر: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "اعلان‌های Push"
+        },
+        "email-notif": {
+          "title": "اعلان‌های ایمیلی"
+        },
+        "help": {
+          "title": "راهنما",
+          "subtitle": "از طریق ایمیل با ما تماس بگیرید"
+        },
+        "share": {
+          "title": "اشتراک‌گذاری اپلیکیشن",
+          "subtitle": "با اشتراک‌گذاری اپلیکیشن از ما حمایت کنید"
+        },
+        "link": {
+          "privacy-policy": "سیاست حفظ حریم خصوصی",
+          "legal-mention": "اطلاعات حقوقی",
+          "legal-notice": "اعلامیه حقوقی",
+          "cgvu": "شرایط فروش و استفاده",
+          "about": "درباره"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "خطای شبکه 😕",
+      "subtitle": "اتصال اینترنتی شناسایی نشد. لطفاً اتصال شبکه خود را بررسی کنید.",
+      "button": "تازه‌سازی"
+    },
+    "research": {
+      "hint": "جست‌وجوی کالا...",
+      "no-item-title": "چیزی یافت نشد",
+      "no-item-content": "محصولی برای این جست‌وجو یافت نشد"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "ژانویه",
+      "2": "فوریه",
+      "3": "مارس",
+      "4": "آوریل",
+      "5": "مه",
+      "6": "ژوئن",
+      "7": "ژوئیه",
+      "8": "اوت",
+      "9": "سپتامبر",
+      "10": "اکتبر",
+      "11": "نوامبر",
+      "12": "دسامبر"
+    },
+    "day-by-id": {
+      "1": "دوشنبه",
+      "2": "سه‌شنبه",
+      "3": "چهارشنبه",
+      "4": "پنجشنبه",
+      "5": "جمعه",
+      "6": "شنبه",
+      "7": "یکشنبه"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "دو",
+      "tu": "سه",
+      "we": "چه",
+      "th": "پن",
+      "fr": "جم",
+      "sa": "شن",
+      "su": "یک"
+    },
+    "month": {
+      "january": "ژانویه",
+      "february": "فوریه",
+      "march": "مارس",
+      "april": "آوریل",
+      "may": "مه",
+      "june": "ژوئن",
+      "july": "ژوئیه",
+      "august": "اوت",
+      "september": "سپتامبر",
+      "october": "اکتبر",
+      "november": "نوامبر",
+      "december": "دسامبر"
+    },
+    "event": {
+      "cancel": "لغو",
+      "validate": "تأیید"
+    },
+    "range": {
+      "no_date": "بدون تاریخ"
+    }
+  },
+  "utils": {
+    "done": "انجام شد",
+    "unlock": "رفع مسدودیت",
+    "mandatory": "اجباری",
+    "next": "بعدی",
+    "number_x": "شماره {}",
+    "mandatory-fields": "* فیلدهای علامت‌گذاری‌شده اجباری هستند",
+    "submit": "ارسال",
+    "choose": "انتخاب",
+    "validate-and-modify": "تأیید و ویرایش",
+    "modify": "ویرایش",
+    "by-default": "پیش‌فرض",
+    "deactivate": "غیرفعال‌سازی",
+    "activate": "فعال‌سازی",
+    "loading": "در حال بارگذاری..",
+    "close": "بستن",
+    "cancel": "لغو",
+    "continue": "ادامه",
+    "connexion": "ورود",
+    "validate": "تأیید",
+    "success": "موفقیت",
+    "yes": "بله",
+    "no": "خیر",
+    "error": "خطا",
+    "reinit": "بازنشانی",
+    "cgvu": "شرایط و قوانین",
+    "validate-and-continue": "تأیید و ادامه",
+    "confidentiality-policy": "سیاست حفظ حریم خصوصی",
+    "cgvu-and-confidentiality": "شرایط و قوانین و سیاست حفظ حریم خصوصی",
+    "accept-cgvu-and-confidentiality": "سیاست حفظ حریم خصوصی و شرایط و قوانین فروش و استفاده را می‌پذیرم.",
+    "what-do-you-want-to-do": "می‌خواهید چه کاری انجام دهید؟",
+    "error-default": "خطایی رخ داد، لطفاً دوباره تلاش کنید.",
+    "optional": "اختیاری",
+    "save": "ذخیره",
+    "accept": "پذیرش",
+    "refuse": "رد",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "size": "سایز",
+    "dirhams": "درهم",
+    "aed": "AED",
+    "followers": "دنبال‌کنندگان",
+    "following": "دنبال‌شده‌ها"
+  },
+  "empty-state": {
+    "no-wishlist": "بدون علاقه‌مندی",
+    "no-feed": "بدون فید",
+    "no-products": "بدون محصول",
+    "no-products-found": "محصولی یافت نشد",
+    "no-reels": "بدون ریل",
+    "no-reels-available": "در حال حاضر ریلی موجود نیست.",
+    "no-reviews": "بدون نظر",
+    "no-orders": "بدون سفارش",
+    "product-not-found": "محصول یافت نشد",
+    "no-connect-account": "هیچ حساب متصلی یافت نشد"
+  },
+  "error": {
+    "product-doesnt-exist": "این محصول دیگر وجود ندارد",
+    "please-try-again": "لطفاً بعداً دوباره تلاش کنید"
+  },
+  "stats": {
+    "title": "آمار من",
+    "consult-stripe": "آمار Stripe خود را مشاهده کنید",
+    "consult-stripe-desc": "برای باز کردن داشبورد Stripe و بررسی آمار فروش خود، دکمه زیر را فشار دهید.",
+    "open-dashboard": "باز کردن داشبورد"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "چگونه می‌خواهید بفروشید؟",
+      "subtitle": "گزینه‌ای را که با شما تطابق دارد انتخاب کنید. اگر بعداً نیاز به تغییر داشتید، همیشه می‌توانید با پشتیبانی تماس بگیرید.",
+      "vendor-title": "من یک کسب‌وکار هستم",
+      "vendor-subtitle": "به‌عنوان کسب‌وکار بفروشید. نیازمند احراز هویت و تأیید کسب‌وکار است.",
+      "particular-title": "من یک شخص حقیقی هستم",
+      "particular-subtitle": "کالاهای کمد خود را بفروشید. فقط یک IBAN برای دریافت پرداخت‌ها لازم است."
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "برای دریافت پرداخت، لطفاً حساب بانکی خود را اضافه کنید",
+      "after-sale-title": "پس از فروش",
+      "after-sale-body": "وجوه به‌صورت امن نگه داشته می‌شوند. انتقال زمانی انجام می‌شود که خریدار دریافت را تأیید کند.",
+      "transfer-title": "زمان انتقال",
+      "transfer-body": "پول شما ۴۸ تا ۷۲ ساعت پس از تأیید فروش به حساب بانکی‌تان واریز می‌شود.",
+      "privacy-title": "حریم خصوصی",
+      "privacy-body": "IBAN شما به‌صورت امن ذخیره می‌شود و بعداً می‌توان آن را از تنظیمات حساب به‌روزرسانی کرد.",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "شرایط و قوانین را خوانده‌ام و می‌پذیرم ",
+      "tnc-link": "شرایط و قوانین",
+      "cta-onboarding": "ذخیره و ادامه",
+      "cta-edit": "ذخیره",
+      "save-error": "نتوانستیم IBAN شما را ذخیره کنیم. لطفاً دوباره تلاش کنید."
+    },
+    "settings": {
+      "title": "حساب بانکی",
+      "updated-on": "به‌روزرسانی‌شده در {date}",
+      "edit-cta": "ویرایش IBAN",
+      "add-cta": "افزودن IBAN",
+      "empty-state": "هیچ حساب بانکی ثبت نشده است. یکی اضافه کنید تا بتوانیم درآمد شما را منتقل کنیم."
+    }
+  },
+  "preferences": {
+    "save": "ذخیره",
+    "clothing": {
+      "title": "ترجیحات پوشاک",
+      "subtitle": "دسته‌بندی‌ای که بیشتر برای آن خرید می‌کنید را انتخاب کنید. فید شما را بر همان اساس تنظیم می‌کنیم."
+    },
+    "sizes": {
+      "title": "سایزهای موردعلاقه"
+    },
+    "brands": {
+      "title": "برندهای موردعلاقه",
+      "subtitle": "برندهایی را که دوست دارید انتخاب کنید. هر تعداد که بخواهید می‌توانید انتخاب کنید."
+    }
+  },
+  "cart": {
+    "checkout": "تسویه‌حساب",
+    "currency": "AED",
+    "size": "سایز {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} نظر",
+    "rating_na": "نامشخص",
+    "encrypted_checkout": "تسویه‌حساب رمزگذاری‌شده",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "جمع جزء",
+    "shipping": "ارسال",
+    "shipping_standard": "استاندارد",
+    "shipping_standard_city": "استاندارد · {}",
+    "buyer_protection": "حمایت از خریدار",
+    "buyer_protection_subtitle": "بازپرداخت کامل در صورت عدم تحویل",
+    "summary": "خلاصه",
+    "delivery": "تحویل",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "حذف محصول",
+    "remove_product_message": "این محصول از سبد شما حذف شود؟",
+    "remove": "حذف",
+    "cancel": "لغو",
+    "cart_empty_title": "سبد · 0",
+    "empty_heading": "سبد شما خالی است",
+    "empty_body": "برای افزودن محصول، کالاهای {} را مرور کنید",
+    "this_seller": "این فروشنده"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "فهرست علاقه‌مندی‌های شما خالی است",
+    "saved-count": "{count} کالای ذخیره‌شده"
+  }
+}

@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart' show ProviderScope;
 import 'package:klozy/l10n/app_localizations.dart';
 import 'package:klozy/src/app/bloc/app_bloc.dart';
 import 'package:klozy/src/app/bloc/app_event.dart';
@@ -50,41 +52,60 @@ class _AppState extends State<App> {
 
   Widget _builder(BuildContext _, AppState state) {
     if (state is AppIdleState) {
-      return ChangeNotifierProvider(
-        create: (_) => _themeChangeNotifier,
-        child: Consumer<AppConfigChangeNotifier>(
-          builder: (_, AppConfigChangeNotifier themeNotifier, child) {
-            return MultiBlocProvider(
-              providers: <BlocProvider<dynamic>>[
-                BlocProvider<WishlistCubit>.value(
-                  value: locator<WishlistCubit>(),
-                ),
-                BlocProvider<CartCubit>.value(value: locator<CartCubit>()),
-                BlocProvider<NotificationsCubit>.value(
-                  value: locator<NotificationsCubit>(),
-                ),
-              ],
-              child: MaterialApp.router(
-                routerConfig: _appRouter.config(),
-                debugShowCheckedModeBanner: false,
-                onGenerateTitle: (BuildContext context) =>
-                    context.l10N.app_name,
-                localizationsDelegates: AppLocalizations.localizationsDelegates,
-                supportedLocales: AppLocalizations.supportedLocales,
-                locale: Locale(themeNotifier.locale),
-                theme: dsTheme(),
-                builder: (context, child) {
-                  final clamped = MediaQuery.textScalerOf(
-                    context,
-                  ).clamp(minScaleFactor: 1, maxScaleFactor: 1.2);
-                  return MediaQuery(
-                    data: MediaQuery.of(context).copyWith(textScaler: clamped),
-                    child: child ?? const SizedBox.shrink(),
+      // ProviderScope backs the chat island (Riverpod/hooks). Harmless to the
+      // existing BLoC/Cubit tree.
+      return ProviderScope(
+        child: ChangeNotifierProvider(
+          create: (_) => _themeChangeNotifier,
+          child: Consumer<AppConfigChangeNotifier>(
+            builder:
+                (
+                  BuildContext context,
+                  AppConfigChangeNotifier _,
+                  Widget? child,
+                ) {
+                  return MultiBlocProvider(
+                    providers: <BlocProvider<dynamic>>[
+                      BlocProvider<WishlistCubit>.value(
+                        value: locator<WishlistCubit>(),
+                      ),
+                      BlocProvider<CartCubit>.value(
+                        value: locator<CartCubit>(),
+                      ),
+                      BlocProvider<NotificationsCubit>.value(
+                        value: locator<NotificationsCubit>(),
+                      ),
+                    ],
+                    child: MaterialApp.router(
+                      routerConfig: _appRouter.config(),
+                      debugShowCheckedModeBanner: false,
+                      onGenerateTitle: (BuildContext context) =>
+                          context.l10N.app_name,
+                      // easy_localization (chat `.tr()`) + gen-l10n (`context.l10N`)
+                      // delegates coexist; locale/supportedLocales come from
+                      // EasyLocalization (root, in main.dart).
+                      localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+                        ...context.localizationDelegates,
+                        ...AppLocalizations.localizationsDelegates,
+                      ],
+                      supportedLocales: context.supportedLocales,
+                      locale: context.locale,
+                      theme: dsTheme(),
+                      builder: (context, child) {
+                        final clamped = MediaQuery.textScalerOf(
+                          context,
+                        ).clamp(minScaleFactor: 1, maxScaleFactor: 1.2);
+                        return MediaQuery(
+                          data: MediaQuery.of(
+                            context,
+                          ).copyWith(textScaler: clamped),
+                          child: child ?? const SizedBox.shrink(),
+                        );
+                      },
+                    ),
                   );
                 },
-              ),
-            );
-          },
+          ),
         ),
       );
     }

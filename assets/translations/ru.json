@@ -1,0 +1,1338 @@
+{
+  "app": {
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "Анализируем ваши фото…",
+        "step-identify": "Определяем товар…",
+        "step-generate": "Генерируем название и цену…"
+      },
+      "photos": {
+        "empty-title": "Продайте за секунды",
+        "empty-cta": "Добавьте свои фото",
+        "empty-subtitle": "Начните с фото — ИИ подберёт название, описание и цену.",
+        "grid-title": "Ваши фото",
+        "grid-subtitle": "Добавьте до {max} фото. ИИ заполнит ваше объявление.",
+        "min-one": "Добавьте хотя бы 1 фото, чтобы продолжить",
+        "continue": "Продолжить",
+        "add": "Добавить",
+        "max-reached": "Максимум {max} фото",
+        "cover": "Обложка",
+        "edit": "Изменить"
+      },
+      "capture": {
+        "title": "Добавить фото",
+        "camera-title": "Сделать фото",
+        "camera-subtitle": "Открывает камеру",
+        "gallery-title": "Выбрать из галереи",
+        "gallery-subtitle": "Возможен выбор нескольких"
+      },
+      "entry": {
+        "reel-subtitle": "Поделитесь видео своих вещей",
+        "sell-subtitle": "Сначала фото · ИИ заполнит объявление"
+      },
+      "recap": {
+        "title": "Ваше объявление",
+        "field-title": "Название",
+        "field-title-hint": "Напр. джинсовая куртка Levi's",
+        "field-price": "Цена",
+        "field-price-hint": "0",
+        "field-description": "Описание",
+        "field-description-hint": "Опишите состояние, посадку, материал…",
+        "section-details": "Сведения о товаре",
+        "field-category": "Категория",
+        "field-subcategory": "Подкатегория",
+        "subcategory-placeholder": "Выберите подкатегорию",
+        "field-brand": "Бренд",
+        "brand-placeholder": "Необязательно",
+        "field-condition": "Состояние",
+        "field-size": "Размер",
+        "required-hint": "* Обязательные поля",
+        "cta": "Выставить на продажу"
+      },
+      "subcategory": {
+        "title": "Подкатегория",
+        "choose": "Выбрать"
+      },
+      "brand": {
+        "title": "Бренд",
+        "search-hint": "Поиск бренда"
+      },
+      "success": {
+        "title": "Опубликовано!",
+        "subtitle": "Ваш товар теперь виден покупателям.",
+        "see-listing": "Посмотреть объявление",
+        "back-home": "На главную"
+      },
+      "ai-badge": "Предложено ИИ",
+      "publish-failed": "Не удалось опубликовать, попробуйте ещё раз."
+    },
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": { "title": "Разблокировать пользователя", "subtitle": "Вы уверены, что хотите разблокировать этого пользователя?" },
+          "title": "Заблокированные пользователи",
+          "empty": "Нет заблокированных пользователей",
+          "unblock": "Разблокировать пользователя",
+          "success": "Пользователь успешно разблокирован"
+        }
+      }
+    },
+    "notifications": "Уведомления",
+    "notification": {
+      "redirect-error": "Произошла ошибка при открытии этого уведомления."
+    },
+    "nothing": "Нет уведомлений",
+    "popup": {
+      "need-connect": {
+        "title": "Нужно войти в аккаунт",
+        "subtitle": "Чтобы пользоваться этой функцией, войдите в аккаунт Klozy.",
+        "confirm": "Войти",
+        "cancel": "Создать аккаунт"
+      },
+      "finalise-data": {
+        "title": "Завершите профиль",
+        "subtitle": "Чтобы продать вещь, завершите оформление профиля продавца.",
+        "confirm": "Завершить",
+        "cancel": "Позже"
+      }
+    },
+    "intro": {
+      "title": "Мода нового поколения",
+      "subtitle": "Покупайте и продавайте любимые вещи за пару секунд. Безопасная оплата, быстрая доставка и сообщество, которому можно доверять.",
+      "start": "Поехали!"
+    },
+    "duration": {
+      "now": "сейчас"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "Бренд",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "Другое"
+      },
+      "product-status": {
+        "on-hold": "Отложено",
+        "in-progress": "В процессе",
+        "completed": "Завершено",
+        "in-delivery": "В доставке",
+        "waiting-for-expedition": "Ожидает отправки",
+        "pending-acceptance": "Ожидает подтверждения",
+        "delivery-completed": "Доставка завершена",
+        "refused": "Отклонено",
+        "canceled": "Отменено",
+        "return-requested": "Запрошен возврат",
+        "return-accepted": "Возврат принят",
+        "return-refused": "Возврат отклонён",
+        "return-completed": "Возврат завершён"
+      },
+      "condition": {
+        "title": "Состояние",
+        "new": "Новое",
+        "very-good": "Очень хорошее",
+        "good": "Хорошее",
+        "normal": "Нормальное",
+        "worn": "Поношенное"
+      },
+      "sort-by": {
+        "lower-price": "Сначала дешёвые",
+        "higher-price": "Сначала дорогие",
+        "latest": "Новинки"
+      },
+      "product-category": {
+        "title": "Категория",
+        "women": "Женское",
+        "men": "Мужское",
+        "kids": "Детское"
+      },
+      "product-sub-category": {
+        "title": "Подкатегория",
+        "tops": "Топы",
+        "accessories": "Аксессуары",
+        "pants": "Брюки",
+        "jackets": "Куртки",
+        "dresses": "Платья",
+        "bottoms": "Низ",
+        "shoes": "Обувь",
+        "underwear": "Бельё"
+      },
+      "accessory-type": {
+        "title": "Тип аксессуара",
+        "glasses": "Очки",
+        "headwear": "Головные уборы",
+        "scarf": "Шарф",
+        "belt": "Ремень",
+        "jewelry": "Украшения",
+        "watch": "Часы",
+        "bag": "Сумка",
+        "wallet": "Кошелёк",
+        "sunglasses": "Солнцезащитные очки",
+        "tie": "Галстук",
+        "gloves": "Перчатки",
+        "other": "Другое"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "0–3 месяца",
+        "months_3_6": "3–6 месяцев",
+        "months_6_12": "6–12 месяцев",
+        "months_12_18": "12–18 месяцев",
+        "months_18_24": "18–24 месяца",
+        "years_2_3": "2–3 года",
+        "years_3_4": "3–4 года",
+        "years_4_5": "4–5 лет",
+        "years_5_6": "5–6 лет",
+        "years_6_7": "6–7 лет",
+        "years_7_8": "7–8 лет",
+        "years_8_10": "8–10 лет",
+        "years_10_12": "10–12 лет",
+        "years_12_14": "12–14 лет"
+      }
+    },
+    "profile-completion": {
+      "title": "Заполните профиль",
+      "edit-title": "Редактировать профиль",
+      "favorite-article-sizes-title": "Любимые размеры",
+      "favorite-article-sizes-subtitle": "Выберите свои размеры US и EU.",
+      "preferred-brand-title": "Любимые бренды",
+      "preferred-brand-subtitle": "Можно выбрать несколько брендов.",
+      "lastname": "Фамилия",
+      "lastname-hint": "Введите фамилию",
+      "lastname-required": "Укажите фамилию",
+      "firstname": "Имя",
+      "firstname-hint": "Введите имя",
+      "firstname-required": "Укажите имя",
+      "address": "Адрес",
+      "address-for-delivery": "Адрес доставки",
+      "address-for-delivery-hint": "Поиск адреса",
+      "address-for-delivery-error": "Выберите корректный адрес",
+      "description": "Описание",
+      "description-hint": "Расскажите о себе",
+      "profile-picture": "Фото профиля",
+      "complete-registration": "Завершить регистрацию",
+      "submit": "Завершить регистрацию",
+      "exit-signup": {
+        "title": "Отменить регистрацию?",
+        "subtitle": "Ваш профиль ещё не заполнен. Если выйти сейчас, придётся начать заново."
+      },
+      "eu-sizes": "Размеры EU"
+    },
+    "order-summary": {
+      "title": "Сводка",
+      "x-product-purchased": "Товары от {}, которые вы собираетесь купить",
+      "no-products-in-cart": "В корзине нет товаров",
+      "buyer-protection": "Защита покупателя",
+      "total": "Итого",
+      "shipping": "Доставка",
+      "home-delivery": "Доставка на дом",
+      "choose-delivery-method": "Выберите способ доставки",
+      "choose": "Выбрать",
+      "change-delivery-address": "Изменить адрес доставки",
+      "remove-product": "Удалить товар",
+      "remove-product-message": "Вы уверены, что хотите убрать этот товар из списка?",
+      "remove-product-confirm": "Удалить",
+      "remove-product-cancel": "Отмена",
+      "order-placed": "Заказ оформлен"
+    },
+    "order-details": {
+      "title": "Заказ",
+      "product-purchased": "Купленный товар",
+      "product-purchased-from": "Товар куплен у {}",
+      "shipping-to": "Доставка по адресу",
+      "total-paid": "Всего оплачено",
+      "cancel": "Отменить заказ",
+      "confirm-receipt": "Подтвердить получение",
+      "report-a-problem": "Сообщить о проблеме",
+      "leave-a-review": "Оставить отзыв",
+      "review-already-sent": "Вы уже оставили отзыв на этот заказ.",
+      "refunded": "Возвращено",
+      "download-my-return-voucher": "Скачать талон возврата",
+      "was-delivered-to": "Доставлено по адресу",
+      "was-to-be-delivered": "Должно было быть доставлено",
+      "cancel-order": "Отменить заказ",
+      "tracking": "Номер отслеживания",
+      "track": "Отследить",
+      "open-shipping-label": "Открыть этикетку",
+      "product-is-conform": "Товар соответствует описанию",
+      "product-confirmed": "Товар подтверждён! Оплата будет переведена продавцу.",
+      "request-a-return": "Запросить возврат",
+      "return-requested": "Запрос на возврат отправлен продавцу",
+      "return-pending": "Ваш запрос на возврат ожидает подтверждения продавца",
+      "return-request-received": "Покупатель запросил возврат по этому заказу",
+      "accept": "Принять",
+      "refuse": "Отклонить",
+      "return-accepted": "Возврат принят, возврат средств обрабатывается",
+      "return-refused": "Возврат отклонён",
+      "return-accepted-message": "Возврат принят. Скачайте талон возврата и отправьте товар обратно.",
+      "return-refused-message": "Продавец отклонил возврат. Оплата переведена.",
+      "return-in-transit": "Ожидаем, пока покупатель вернёт товар.",
+      "return-completed-message": "Товар получен. Возврат средств выполнен."
+    },
+    "report": {
+      "cancel": "Отмена",
+      "report": "Сообщить о проблеме",
+      "problem": "Возникли сложности? Сообщите нам прямо сейчас.",
+      "reason": "Причина проблемы",
+      "reason-cancel": "Причина отмены",
+      "text-area": "Расскажите подробнее",
+      "file-picker": "Добавить файлы",
+      "send-report": "Отправить жалобу",
+      "confirm-cancel": "Подтвердить отмену"
+    },
+    "report_success": {
+      "title": "Отправлено",
+      "subtitle": "Ваша жалоба отправлена! Мы рассмотрим её как можно скорее.",
+      "cancel": "Ваш запрос на отмену отправлен! Мы рассмотрим его как можно скорее.",
+      "buttonText": "Готово"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "Ошибка",
+        "content": "Произошла ошибка, попробуйте позже."
+      }
+    },
+    "preview-reel": {
+      "retake": "Переснять",
+      "continue": "Продолжить"
+    },
+    "create-reel": {
+      "title": "Создать рилс",
+      "subtitle": "Создавая рилс, вы можете добавить один или несколько товаров из своей коллекции на продажу, чтобы продвигать их",
+      "add-product": "Добавить товар",
+      "create-product": "Создать товар",
+      "my-added-products": "Мои добавленные товары",
+      "my-products-to-sales": "Мои товары на продажу",
+      "add": "Добавить",
+      "post": "Опубликовать рилс",
+      "update": "Обновить рилс",
+      "success-title": "Отлично!",
+      "success-subtitle": "Ваше видео опубликовано.",
+      "error-title": "Чего-то не хватает",
+      "error-subtitle": "Добавьте в рилс хотя бы один товар."
+    },
+    "put-a-product-on-sale": {
+      "title": "Выставить товар на продажу",
+      "step": "Шаг",
+      "title-step2": "Подробнее о товаре",
+      "title-step3": "Добавьте фото",
+      "put-on-sale": "Выставить на продажу",
+      "success-title": "Отлично!",
+      "success-subtitle": "Ваш товар выставлен на продажу.",
+      "edit-success-title": "Отлично!",
+      "edit-success-subtitle": "Ваш товар выставлен на продажу.",
+      "error-title": "Не удалось загрузить",
+      "error-subtitle": "При сохранении товара что-то пошло не так. Попробуйте ещё раз.",
+      "forms": {
+        "title": "Название",
+        "title-hint": "Напр. Синяя свободная рубашка",
+        "price": "Цена",
+        "price-hint": "0",
+        "price-max-error": "Максимальная цена — {}.",
+        "description": "Описание",
+        "description-hint": "Введите описание товара",
+        "size": "Размер",
+        "brand": "Бренд",
+        "condition-error-title": "Выберите состояние",
+        "condition-error-subtitle": "Выберите состояние товара",
+        "image-error-title": "Добавьте хотя бы одно фото",
+        "image-error-subtitle": "Выберите хотя бы одно фото товара"
+      }
+    },
+    "home": {
+      "feed": "Лента",
+      "wishlist": "Избранное",
+      "reels": "Рилсы",
+      "view-products": "Показать товары",
+      "hide-products": "Скрыть товары"
+    },
+    "product": {
+      "buy": "Купить",
+      "already-sold": "Уже продано",
+      "make-an-offer": "Предложить цену",
+      "send-offer": "Отправить предложение",
+      "delete": "Удалить",
+      "edit": "Редактировать",
+      "success-title": "Предложение отправлено!",
+      "success-subtitle": "Ваше предложение успешно отправлено.",
+      "popup-delete-title": "Удалить товар",
+      "popup-delete-subtitle": "Вы уверены, что хотите удалить этот товар?",
+      "popup-delete-confirm": "Удалить",
+      "popup-delete-cancel": "Отмена",
+      "delete-success-title": "Товар удалён!",
+      "delete-success-subtitle": "Ваш товар успешно удалён.",
+      "forms": {
+        "actual-price": "Текущая цена",
+        "your-new-price": "Ваша новая цена"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "Удалить рилс",
+      "popup-delete-subtitle": "Вы уверены, что хотите удалить этот рилс?",
+      "popup-delete-confirm": "Удалить",
+      "popup-delete-cancel": "Отмена",
+      "delete-success-title": "Рилс удалён!",
+      "delete-success-subtitle": "Ваш рилс успешно удалён.",
+      "feed-error": "Не удалось загрузить рилсы. Попробуйте позже.",
+      "report": "Пожаловаться"
+    },
+    "profile": {
+      "buyer": "Покупатель",
+      "my-order": "Мои заказы",
+      "seller": "Продавец",
+      "my-sales": "Мои продажи",
+      "products": "Товары",
+      "reels": "Рилсы",
+      "reviews": "Отзывы",
+      "followers": "Подписчики",
+      "following": "Подписки",
+      "follow": "Подписаться",
+      "unfollow": "Отписаться",
+      "edit": "Редактировать профиль",
+      "cant-follow-blocked": "Вы не можете подписаться на этого пользователя."
+    },
+    "search": {
+      "popular-items": "Популярное",
+      "categories": "Категории",
+      "title": "Поиск",
+      "filter-search": "Фильтр поиска",
+      "sort-by": "Сортировка",
+      "in": "В",
+      "refine-the-category": "Уточните категорию",
+      "apply": "Применить",
+      "reset": "Сбросить",
+      "results": "Результаты"
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "Открываем Stripe."
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "Товар не соответствует описанию",
+        "motif2": "Подделка или запрещённый товар",
+        "motif3": "Проблема с продавцом",
+        "motif4": "Проблема с доставкой",
+        "motif5": "Проблема с оплатой или заказом",
+        "motif6": "Другое"
+      },
+      "filePicker": {
+        "title": "Добавить файлы"
+      },
+      "description": {
+        "title": "Расскажите подробнее",
+        "title1": "Уточните, пожалуйста"
+      },
+      "motif1": {
+        "precisez1": "Неверный размер / не подходит по фигуре",
+        "precisez2": "Состояние отличается от описания",
+        "precisez3": "Отсутствуют детали / аксессуары",
+        "precisez4": "Товар повреждён"
+      },
+      "motif2": {
+        "precisez1": "Подозрение на подделку",
+        "precisez2": "Запрещённый или небезопасный товар",
+        "precisez3": "Вводящее в заблуждение или мошенническое объявление",
+        "precisez4": "Другое нарушение правил"
+      },
+      "motif3": {
+        "precisez1": "Продавец не отвечает",
+        "precisez2": "Неподобающее поведение или домогательства",
+        "precisez3": "Просьба оплатить вне приложения",
+        "precisez4": "Другая проблема с продавцом"
+      },
+      "motif4": {
+        "precisez1": "Отслеживание не обновляется",
+        "precisez2": "Посылка не получена",
+        "precisez3": "Посылка пришла повреждённой",
+        "precisez4": "Доставка задерживается"
+      },
+      "motif5": {
+        "precisez1": "Списана неверная сумма",
+        "precisez2": "Проблема с возвратом средств",
+        "precisez3": "Проблема с заказом (отменён / дублирован)",
+        "precisez4": "Другая проблема с оплатой или заказом"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "Новое сообщение",
+          "body": "Вам пришло новое сообщение."
+        }
+      },
+      "user-deleted": "Пользователь неизвестен",
+      "online-today-at": "Был(а) в сети сегодня в {}",
+      "online-yesterday-at": "Был(а) в сети вчера в {}",
+      "online-at": "Был(а) в сети в {}",
+      "change-name-confirm-button": "Готово",
+      "call-audio": "Аудиозвонок",
+      "call-video": "Видеозвонок",
+      "call-start": "Идёт звонок...",
+      "video-call-end": "Звонок завершён",
+      "new-group": "Название группы",
+      "cancel-audio": "Отменить аудио",
+      "preview": {
+        "media": {
+          "zero": "Нет элементов",
+          "one": "Отправлено 1 медиа",
+          "few": "Отправлено {} медиа",
+          "many": "Отправлено {} медиа",
+          "other": "Отправлено {} медиа"
+        },
+        "audio": "Аудио",
+        "reply-audio": "Ответ аудио"
+      },
+      "event": {
+        "report-and-block": "Пожаловаться и заблокировать",
+        "delete-tchat": "Удалить чат"
+      },
+      "status": {
+        "online": "В сети",
+        "online-today-at": "Был(а) в сети сегодня в {time}",
+        "online-yesterday-at": "Был(а) в сети вчера в {time}",
+        "offline": "Не в сети",
+        "multiple-online": "Несколько в сети",
+        "typing": "Печатает",
+        "audioRec": "Записывает аудио"
+      },
+      "document": {
+        "camera": "Камера",
+        "gallery": "Галерея",
+        "document": "Документ",
+        "localisation": "Геопозиция",
+        "contact": "Контакт",
+        "sondage": "Опрос"
+      },
+      "list": {
+        "title": "Чаты",
+        "title-face": "Перевод",
+        "conversations": "Чаты",
+        "no-tchat": "Нет чатов",
+        "no-tchat-content": "У вас пока нет ни одного чата.",
+        "group-default-title": "Новая группа",
+        "oto-default-title": "Новый чат",
+        "new-conversation": "Новый чат"
+      },
+      "message": {
+        "no-message": "Нет сообщений",
+        "no-message-body": "У вас пока нет ни одного сообщения.",
+        "input-hint": "Сообщение..",
+        "no-media": "Нет медиа",
+        "date": "{weekday} {day} {month}",
+        "today": "Сегодня",
+        "yesterday": "Вчера",
+        "join-group": "{name} присоединился(ась) к группе",
+        "leave-group": "{name} покинул(а) группу",
+        "add-to-group": "{name} добавил(а) {user} в группу",
+        "remove-from-group": "{name} удалил(а) {user} из группы",
+        "change-group-title": "{name} изменил(а) название группы на {title}",
+        "change-group-avatar": "{name} изменил(а) аватар группы",
+        "blocked-by-you": "Вы заблокировали этот контакт.\nВы больше не можете отправлять сообщения этому контакту.",
+        "blocked-by-other": "Этот контакт заблокировал вас.\nВы больше не можете отправлять сообщения этому контакту.",
+        "cant-send-message-blocked": "Вы не можете отправить сообщение этому контакту.",
+        "order-requested": "Предложение покупателю по «{product_name}»",
+        "order-accepted": "Ваш заказ №{id} принят продавцом",
+        "order-rejected": "Ваш заказ №{id} отклонён продавцом",
+        "order-purchased": "Заказ оформлен",
+        "view-order-details": "Посмотреть детали заказа"
+      }
+    },
+    "commentary": {
+      "add-note-title": "Оцените продавца",
+      "add_note_title": "Оцените продавца",
+      "delete": "Удалить",
+      "report": "Пожаловаться",
+      "add-note": {
+        "validate": "Подтвердить",
+        "field": {
+          "note-title": "Оцените этого продавца",
+          "commentary-title": "Комментарий",
+          "placeholder": "Напишите комментарий",
+          "commentary-hint": "Напишите комментарий..",
+          "commentary_hint": "Напишите комментарий.."
+        },
+        "title": "Оцените этого продавца",
+        "comment": "Комментарий",
+        "placeholder": "Напишите комментарий",
+        "commentary-hint": "Напишите комментарий.."
+      },
+      "add_note": {
+        "validate": "Подтвердить",
+        "field": {
+          "title": "Оцените этого продавца",
+          "comment": "Комментарий",
+          "placeholder": "Напишите комментарий",
+          "commentary-hint": "Напишите комментарий..",
+          "commentary_hint": "Напишите комментарий.."
+        },
+        "title": "Оцените этого продавца",
+        "comment": "Комментарий",
+        "placeholder": "Напишите комментарий",
+        "commentary-hint": "Напишите комментарий..",
+        "commentary_hint": "Напишите комментарий.."
+      },
+      "sure-delete-commentary": {
+        "title": "Удалить комментарий",
+        "subtitle": "Вы уверены, что хотите удалить этот комментарий?"
+      },
+      "sure_delete_commentary": {
+        "title": "Удалить комментарий",
+        "subtitle": "Вы уверены, что хотите удалить этот комментарий?"
+      }
+    },
+    "validator": {
+      "must-have-value": "Это поле обязательно",
+      "email-invalid": "Введите корректный email",
+      "password-invalid-length": "Минимум 6 символов",
+      "password-invalid-maj": "Минимум 1 заглавная буква",
+      "password-invalid-min": "Минимум 1 строчная буква",
+      "password-invalid-number": "Минимум 1 цифра",
+      "password-invalid-special-char": "Минимум 1 спецсимвол (&?!@#)",
+      "password-not-match": "Пароли не совпадают",
+      "number-invalid": "Введите корректное число",
+      "number-out-of-range": "Введите число от {min} до {max}",
+      "number-out-of-min": "Введите число больше {min}",
+      "number-out-of-max": "Введите число меньше {max}",
+      "date-invalid": "Введите корректную дату",
+      "date-out-of-range": "Введите дату между {min} и {max}",
+      "date-out-of-min": "Введите дату позже {min}",
+      "date-out-of-max": "Введите дату раньше {max}",
+      "alpha-invalid": "Введите корректное значение",
+      "code-invalid": "Введите корректный код"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "Выберите фото"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "Нет фото",
+        "one": "1 фото",
+        "few": "{} фото",
+        "many": "{} фото",
+        "other": "{} фото"
+      },
+      "write-message": "Напишите сообщение..",
+      "camera": {
+        "shootingTips": "Сделайте фото",
+        "confirm": "Подтвердить",
+        "saving": "Сохранение...",
+        "shootingWithRecordingTips": "Удерживайте, чтобы снять видео."
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "Поиск страны",
+          "error_message": "Введите корректный номер телефона"
+        },
+        "input": {
+          "choose-media": "Нажмите, чтобы выбрать фото",
+          "choose-multiple-file": "Нажмите, чтобы выбрать несколько файлов",
+          "choose-image": "Нажмите, чтобы выбрать фото",
+          "choose-file": "Нажмите, чтобы выбрать файл",
+          "press-to-modify": "Нажмите, чтобы изменить файл"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "Email",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "Email",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "Пароль",
+          "hint": "Пароль",
+          "security-action": "Что делать?"
+        },
+        "actual-password": {
+          "title": "Текущий пароль",
+          "hint": "Текущий пароль"
+        },
+        "new-password": {
+          "title": "Новый пароль",
+          "hint": "Новый пароль"
+        },
+        "repeat-password": {
+          "title": "Подтвердите пароль",
+          "hint": "Подтвердите пароль"
+        },
+        "new-repeat-password": {
+          "title": "Подтвердите новый пароль",
+          "hint": "Подтвердите новый пароль"
+        },
+        "phone": {
+          "title": "Номер телефона",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "Код из SMS",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "Текстовое поле",
+        "hint": "Пишите здесь.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "Ваш номер телефона успешно добавлен.",
+      "invalid-email": "Пользователь с указанными данными не найден.",
+      "user-not-found": "Пользователь с указанными данными не найден.",
+      "user-disabled": "Ваш аккаунт отключён администратором.",
+      "wrong-password": "Неверный пароль.",
+      "email-already-in-use": "Этот email уже используется.",
+      "phone-already-in-use": "Этот номер телефона уже используется.",
+      "weak-password": "Слишком простой пароль.",
+      "account-exists-with-different-credential": "Аккаунт с этим email уже существует.",
+      "invalid-credential": "Пользователь с указанными данными не найден.",
+      "invalid-verification-code": "Неверный код подтверждения.",
+      "invalid-verification-id": "Неверный идентификатор подтверждения.",
+      "requires-recent-login": "Для этого действия нужно войти заново.",
+      "invalid-phone-number": "Неверный номер телефона.",
+      "error-phone-not-exist": "Такого номера телефона не существует.",
+      "code-invalid": "Введите корректный код",
+      "code-is-required": "Введите код из SMS",
+      "email-must-be-verified": "Чтобы продолжить, подтвердите свой email.",
+      "tiers-auth-valid-email": "Чтобы продолжить, у вашего стороннего аккаунта должен быть действующий email.",
+      "send-reset-password-email": "Письмо для сброса пароля отправлено на указанный адрес.",
+      "error-internet": "Возникла проблема с подключением. Проверьте соединение с интернетом.",
+      "error-default": "Произошла ошибка, попробуйте ещё раз.",
+      "must-accept-cgu": "Чтобы продолжить, примите условия использования.",
+      "password-security": "Формат пароля",
+      "password-security-length": "Минимум 6 символов",
+      "password-security-maj": "Содержит минимум 1 заглавную букву",
+      "password-security-min": "Содержит минимум 1 строчную букву",
+      "password-security-number": "Содержит минимум 1 цифру",
+      "password-security-special": "Содержит минимум 1 спецсимвол (&?!@#)",
+      "success-change-password": "Ваш пароль успешно изменён.",
+      "phone-update-success": "Ваш номер телефона изменён!",
+      "cant-be-same-password": "Новый пароль должен отличаться от старого.",
+      "cant-be-same-email": "Новый email должен отличаться от старого.",
+      "cant-be-same-phone": "Новый номер телефона должен отличаться от старого.",
+      "code-is-expired": "Срок действия кода подтверждения истёк.",
+      "code-sent": "Код подтверждения отправлен вам по SMS.",
+      "too-many-requests": "Слишком много попыток входа. Попробуйте позже."
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "Войти",
+        "already-have-account": "У вас есть аккаунт?",
+        "login-title": "Войдите в аккаунт или создайте новый.",
+        "login-phone-title": "Войдите в аккаунт",
+        "verify-phone-title": "Введите код из SMS, чтобы войти",
+        "verify-phone-code-title": "Подтвердите номер телефона",
+        "code-expire-in": "Код истекает через {time} мин.",
+        "no-code": "Не пришёл?",
+        "resend-code": "Отправить снова",
+        "forgot-password": "Забыли пароль?",
+        "reset-password": "Сбросить пароль",
+        "no-account": "Нет аккаунта?",
+        "create-account": "Создать сейчас",
+        "login-with-phone": "Войти по телефону",
+        "login-with-email": "Войти по email",
+        "or-connect-with": "или войти через",
+        "or-signup-with": "или зарегистрироваться через",
+        "verify-email": "Подтвердите email",
+        "verify-email-subtitle": "Вам отправлено письмо для сброса пароля.",
+        "create-account-verify-email": "Подтвердите email",
+        "create-account-title": "Создать аккаунт",
+        "create-account-verify-email-subtitle": "Письмо для подтверждения отправлено на адрес",
+        "reset-password-modal": {
+          "title": "Сбросить пароль",
+          "subtitle": "Введите email, привязанный к вашему аккаунту. Мы отправим письмо для сброса на этот адрес."
+        },
+        "tiers-signin": {
+          "get-password-title": "Введите пароль",
+          "get-password-subtitle": "Мы нашли аккаунт с этим email. Введите пароль, чтобы войти."
+        }
+      },
+      "profile": {
+        "delete-success": "Ваш аккаунт успешно удалён.\nДо встречи",
+        "logout": "Выйти",
+        "delete-account": "Удалить профиль",
+        "delete-my-account": "Удалить аккаунт",
+        "delete-my-account-subtitle": "Вы действительно хотите удалить аккаунт?",
+        "logout-success": "Вы успешно вышли из аккаунта.\nДо встречи"
+      },
+      "new-cgu-must-be-accepted": "Чтобы продолжить, примите новые условия использования."
+    },
+    "onboarding": {
+      "button_next": "Далее",
+      "button_start": "Готово",
+      "skip": "Пропустить"
+    },
+    "permission": {
+      "notification": {
+        "title": "Push-уведомления",
+        "redirect-to-settings": "Хотите включить push-уведомления? Это поможет вам использовать все возможности приложения.",
+        "button": "Включить уведомления"
+      },
+      "camera": {
+        "title": "Камера",
+        "redirect-to-settings": "Чтобы пользоваться этой функцией, разрешите доступ к камере.",
+        "button": "Включить камеру"
+      },
+      "microphone": {
+        "title": "Микрофон",
+        "redirect-to-settings": "Чтобы пользоваться этой функцией, разрешите доступ к микрофону.",
+        "button": "Включить микрофон"
+      },
+      "accessMediaLocation": {
+        "title": "Доступ к геоданным медиа",
+        "redirect-to-settings": "Чтобы пользоваться этой функцией, разрешите доступ к геоданным медиа.",
+        "button": "Включить доступ к геоданным медиа"
+      },
+      "mediaLibrary": {
+        "title": "Медиатека",
+        "redirect-to-settings": " Чтобы пользоваться этой функцией, разрешите доступ к медиатеке.",
+        "button": "Включить доступ к медиатеке"
+      },
+      "photos": {
+        "title": "Фото",
+        "redirect-to-settings": "Чтобы пользоваться этой функцией, разрешите доступ к фото.",
+        "button": "Включить доступ к фото"
+      },
+      "storage": {
+        "title": "Хранилище",
+        "redirect-to-settings": "Чтобы пользоваться этой функцией, разрешите доступ к хранилищу.",
+        "button": "Включить доступ к хранилищу"
+      },
+      "mic": {
+        "redirect-to-settings": "Разрешите доступ к микрофону в настройках телефона.",
+        "title": "Микрофон",
+        "button": "Открыть настройки"
+      },
+      "notif-push": {
+        "title": "Push-уведомления",
+        "desc": "Хотите включить push-уведомления? Это поможет вам использовать все возможности приложения.",
+        "button": "Включить уведомления"
+      },
+      "location": {
+        "title": "Геолокация",
+        "desc": "Чтобы пользоваться приложением в полной мере, разрешите доступ к геолокации.",
+        "button": "Продолжить",
+        "redirect-to-settings": "Разрешите доступ к геолокации в настройках телефона."
+      },
+      "background-location": {
+        "title": "Геолокация в фоне",
+        "desc": "Хотите включить геолокацию в фоновом режиме? Это необходимо для работы приложения.",
+        "button": "Включить геолокацию в фоне"
+      },
+      "skip": "Пропустить"
+    },
+    "image": {
+      "from-gallery": "Галерея",
+      "from-camera": "Камера"
+    },
+    "duration": {
+      "now": "Сейчас",
+      "days-ago": "{} дн. назад",
+      "x-days": "{} дн. назад",
+      "hours-ago": "{} ч. назад",
+      "minutes-ago": "{} мин. назад",
+      "seconds-ago": "{} сек. назад",
+      "months-ago": "{} мес. назад",
+      "years-ago": "{} г. назад",
+      "moment-ago": "Только что"
+    },
+    "settings": {
+      "edited-by": "Разработано",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "Изменить",
+        "personnal-data": "Мой аккаунт",
+        "settings": "Настройки",
+        "other": "Другое",
+        "link": "Ссылки",
+        "social": "Соцсети",
+        "security": "Безопасность"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "Заблокированные пользователи",
+          "subtitle": "Список заблокированных пользователей"
+        },
+        "blocked-users": {
+          "unblock": "Разблокировать пользователя",
+          "block": "Заблокировать пользователя",
+          "unblock-success": "Пользователь успешно разблокирован",
+          "title": "Заблокированные пользователи",
+          "subtitle": "Список заблокированных пользователей"
+        },
+        "change-personnal-content": {
+          "title": "Личные данные",
+          "subtitle": "Фамилия, имя, описание"
+        },
+        "clothing-preference": {
+          "title": "Предпочтения в одежде",
+          "subtitle": "Персонализация"
+        },
+        "preferred-article-size": {
+          "title": "Любимые размеры",
+          "subtitle": "Управление"
+        },
+        "preferred-brand": {
+          "title": "Любимые бренды",
+          "subtitle": "Управление"
+        },
+        "security": {
+          "title": "Безопасность",
+          "subtitle": "Пароль, телефон, email..."
+        },
+        "payment": {
+          "title": "Способы оплаты",
+          "subtitle": "Банковская карта / Apple Pay",
+          "credit-card": "Банковская карта",
+          "bank-details": "Банковский счёт",
+          "bank-details-empty": "Не настроено",
+          "handle-with-stripe": "Управлять через Stripe"
+        },
+        "phone-number": {
+          "title": "Номер телефона"
+        },
+        "change-email": {
+          "title": "Email"
+        },
+        "change-password": {
+          "title": "Пароль",
+          "subtitle": "Изменён: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "Push-уведомления"
+        },
+        "email-notif": {
+          "title": "Email-уведомления"
+        },
+        "help": {
+          "title": "Помощь",
+          "subtitle": "Свяжитесь с нами по email"
+        },
+        "share": {
+          "title": "Поделиться приложением",
+          "subtitle": "Поддержите нас, поделившись приложением"
+        },
+        "link": {
+          "privacy-policy": "Политика конфиденциальности",
+          "legal-mention": "Правовая информация",
+          "legal-notice": "Правовое уведомление",
+          "cgvu": "Условия продажи и использования",
+          "about": "О приложении"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "Ошибка сети 😕",
+      "subtitle": "Нет подключения к интернету. Проверьте соединение с сетью.",
+      "button": "Обновить"
+    },
+    "research": {
+      "hint": "Поиск товара...",
+      "no-item-title": "Ничего не найдено",
+      "no-item-content": "По этому запросу товары не найдены"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "Январь",
+      "2": "Февраль",
+      "3": "Март",
+      "4": "Апрель",
+      "5": "Май",
+      "6": "Июнь",
+      "7": "Июль",
+      "8": "Август",
+      "9": "Сентябрь",
+      "10": "Октябрь",
+      "11": "Ноябрь",
+      "12": "Декабрь"
+    },
+    "day-by-id": {
+      "1": "Понедельник",
+      "2": "Вторник",
+      "3": "Среда",
+      "4": "Четверг",
+      "5": "Пятница",
+      "6": "Суббота",
+      "7": "Воскресенье"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "Пн",
+      "tu": "Вт",
+      "we": "Ср",
+      "th": "Чт",
+      "fr": "Пт",
+      "sa": "Сб",
+      "su": "Вс"
+    },
+    "month": {
+      "january": "Январь",
+      "february": "Февраль",
+      "march": "Март",
+      "april": "Апрель",
+      "may": "Май",
+      "june": "Июнь",
+      "july": "Июль",
+      "august": "Август",
+      "september": "Сентябрь",
+      "october": "Октябрь",
+      "november": "Ноябрь",
+      "december": "Декабрь"
+    },
+    "event": {
+      "cancel": "Отмена",
+      "validate": "Подтвердить"
+    },
+    "range": {
+      "no_date": "Нет даты"
+    }
+  },
+  "utils": {
+    "done": "Готово",
+    "unlock": "Разблокировать",
+    "mandatory": "Обязательно",
+    "next": "Далее",
+    "number_x": "№{}",
+    "mandatory-fields": "* Отмеченные поля обязательны",
+    "submit": "Отправить",
+    "choose": "Выбрать",
+    "validate-and-modify": "Подтвердить и изменить",
+    "modify": "Изменить",
+    "by-default": "По умолчанию",
+    "deactivate": "Отключить",
+    "activate": "Включить",
+    "loading": "Загрузка..",
+    "close": "Закрыть",
+    "cancel": "Отмена",
+    "continue": "Продолжить",
+    "connexion": "Вход",
+    "validate": "Подтвердить",
+    "success": "Успешно",
+    "yes": "Да",
+    "no": "Нет",
+    "error": "Ошибка",
+    "reinit": "Сбросить",
+    "cgvu": "Условия использования",
+    "validate-and-continue": "Подтвердить и продолжить",
+    "confidentiality-policy": "Политика конфиденциальности",
+    "cgvu-and-confidentiality": "Условия использования и политика конфиденциальности",
+    "accept-cgvu-and-confidentiality": "Я принимаю политику конфиденциальности, а также условия продажи и использования.",
+    "what-do-you-want-to-do": "Что вы хотите сделать?",
+    "error-default": "Произошла ошибка, попробуйте ещё раз.",
+    "optional": "Необязательно",
+    "save": "Сохранить",
+    "accept": "Принять",
+    "refuse": "Отклонить",
+    "edit": "Редактировать",
+    "delete": "Удалить",
+    "size": "Размер",
+    "dirhams": "Дирхамы",
+    "aed": "AED",
+    "followers": "Подписчики",
+    "following": "Подписки"
+  },
+  "empty-state": {
+    "no-wishlist": "Избранное пусто",
+    "no-feed": "Лента пуста",
+    "no-products": "Нет товаров",
+    "no-products-found": "Товары не найдены",
+    "no-reels": "Нет рилсов",
+    "no-reels-available": "Сейчас нет доступных рилсов.",
+    "no-reviews": "Нет отзывов",
+    "no-orders": "Нет заказов",
+    "product-not-found": "Товар не найден",
+    "no-connect-account": "Аккаунт Connect не найден"
+  },
+  "error": {
+    "product-doesnt-exist": "Этого товара больше нет",
+    "please-try-again": "Попробуйте позже"
+  },
+  "stats": {
+    "title": "Моя статистика",
+    "consult-stripe": "Посмотреть статистику в Stripe",
+    "consult-stripe-desc": "Нажмите кнопку ниже, чтобы открыть панель Stripe и проверить статистику продаж.",
+    "open-dashboard": "Открыть панель"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "Как вы хотите продавать?",
+      "subtitle": "Выберите подходящий вариант. Вы всегда можете обратиться в поддержку, если позже захотите его сменить.",
+      "vendor-title": "Я компания",
+      "vendor-subtitle": "Продажа от лица компании. Требуется проверка личности и бизнеса.",
+      "particular-title": "Я частное лицо",
+      "particular-subtitle": "Продавайте вещи из своего гардероба. Нужен только IBAN для получения выплат."
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "Чтобы получать выплаты, добавьте банковский счёт",
+      "after-sale-title": "После продажи",
+      "after-sale-body": "Средства хранятся в безопасности. Перевод запускается, когда покупатель подтверждает получение.",
+      "transfer-title": "Срок перевода",
+      "transfer-body": "Деньги поступят на ваш банковский счёт через 48–72 часа после подтверждения продажи.",
+      "privacy-title": "Конфиденциальность",
+      "privacy-body": "Ваш IBAN хранится в безопасности и может быть изменён позже в настройках аккаунта.",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "Я прочитал(а) и принимаю ",
+      "tnc-link": "Условия использования",
+      "cta-onboarding": "Сохранить и продолжить",
+      "cta-edit": "Сохранить",
+      "save-error": "Не удалось сохранить ваш IBAN. Попробуйте ещё раз."
+    },
+    "settings": {
+      "title": "Банковский счёт",
+      "updated-on": "Обновлено {date}",
+      "edit-cta": "Изменить IBAN",
+      "add-cta": "Добавить IBAN",
+      "empty-state": "Банковский счёт не указан. Добавьте его, чтобы мы могли перечислять ваш доход."
+    }
+  },
+  "preferences": {
+    "save": "Сохранить",
+    "clothing": {
+      "title": "Предпочтения в одежде",
+      "subtitle": "Выберите категорию, которую покупаете чаще всего. Мы настроим ленту под вас."
+    },
+    "sizes": {
+      "title": "Любимые размеры"
+    },
+    "brands": {
+      "title": "Любимые бренды",
+      "subtitle": "Выберите бренды, которые вам нравятся. Можно отметить сколько угодно."
+    }
+  },
+  "cart": {
+    "checkout": "Оформить заказ",
+    "currency": "AED",
+    "size": "Размер {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} отзывов",
+    "rating_na": "Н/Д",
+    "encrypted_checkout": "Защищённая оплата",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "Подытог",
+    "shipping": "Доставка",
+    "shipping_standard": "Стандартная",
+    "shipping_standard_city": "Стандартная · {}",
+    "buyer_protection": "Защита покупателя",
+    "buyer_protection_subtitle": "Полный возврат, если не доставлено",
+    "summary": "Сводка",
+    "delivery": "Доставка",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "Удалить товар",
+    "remove_product_message": "Убрать этот товар из корзины?",
+    "remove": "Удалить",
+    "cancel": "Отмена",
+    "cart_empty_title": "КОРЗИНА · 0",
+    "empty_heading": "Ваша корзина пуста",
+    "empty_body": "Посмотрите товары от {}, чтобы добавить их",
+    "this_seller": "этого продавца"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "Ваше избранное пусто",
+    "saved-count": "{count} сохранённых товаров"
+  }
+}

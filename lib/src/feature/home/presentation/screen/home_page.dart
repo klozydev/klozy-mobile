@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                 index: _tab,
                 children: <Widget>[
                   const FeedTabWidget(),
-                  const WishlistTabWidget(),
+                  WishlistTabWidget(active: _tab == 1),
                   ReelViewerWidget(active: _tab == 2),
                 ],
               ),

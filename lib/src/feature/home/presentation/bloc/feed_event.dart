@@ -26,3 +26,9 @@ final class FeedCategorySelected extends FeedEvent {
 final class FeedLoadMore extends FeedEvent {
   const FeedLoadMore();
 }
+
+/// Quiet reload (pull-to-refresh or a data-changed event) — keeps the current
+/// items on screen until the fresh first page arrives.
+final class FeedRefreshed extends FeedEvent {
+  const FeedRefreshed();
+}

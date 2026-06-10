@@ -11,6 +11,7 @@ import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/cart/entity/cart_item.dart';
 import 'package:klozy/src/domain/orders/entity/order_action.dart';
+import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/feature/orders/presentation/bloc/order_detail_bloc.dart';
 import 'package:klozy/src/feature/orders/presentation/bloc/order_detail_event.dart';
 import 'package:klozy/src/feature/orders/presentation/bloc/order_detail_state.dart';
@@ -243,8 +244,7 @@ class _OrderBody extends StatelessWidget {
         OrderCounterpartCardWidget(
           party: order.counterpart,
           roleLabel: order.counterpartRoleLabel,
-          onMessage: () =>
-              context.showSnackBar(context.l10N.orders_messaging_coming_soon),
+          onMessage: () => context.openChatWith(order.counterpart.id),
         ),
         if (order.deliveryAddress != null) ...<Widget>[
           const SizedBox(height: 16),

@@ -9,6 +9,7 @@ import 'package:klozy/src/design/components/ds_segmented_control.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/social/entity/profile_reel.dart';
+import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_bloc.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_event.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_state.dart';
@@ -125,8 +126,7 @@ class _Body extends StatelessWidget {
             profile: profile,
             onFollow: () =>
                 context.read<ProfileBloc>().add(const ProfileFollowToggled()),
-            onMessage: () =>
-                context.showSnackBar(context.l10N.profile_message_coming_soon),
+            onMessage: () => context.openChatWith(profile.id),
             onEdit: () => context.router.push(const EditProfileRoute()),
             onOrders: () => context.router.push(const OrdersRoute()),
             onNotifications: () =>

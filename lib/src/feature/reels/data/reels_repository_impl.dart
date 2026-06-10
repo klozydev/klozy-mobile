@@ -1,4 +1,6 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/events/reels_changed_event.dart';
 import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/core/pagination/paginated_list_response.dart';
 import 'package:klozy/src/data/product/product_mapper.dart';
@@ -14,8 +16,13 @@ import 'package:klozy/src/feature/reels/domain/reels_repository.dart';
 class ReelsRepositoryImpl extends ReelsRepository {
   final RemoteReelsDataSource _remoteDataSource;
   final MeRepository _meRepository;
+  final EventBus _eventBus;
 
-  ReelsRepositoryImpl(this._remoteDataSource, this._meRepository);
+  ReelsRepositoryImpl(
+    this._remoteDataSource,
+    this._meRepository,
+    this._eventBus,
+  );
 
   @override
   Future<PaginatedList<Reel>> feed({int page = 1, int limit = 10}) async {
@@ -62,10 +69,11 @@ class ReelsRepositoryImpl extends ReelsRepository {
       _remoteDataSource.deleteComment(id, commentId);
 
   @override
-  Future<void> updateReel(String id, {String? caption}) {
-    return _remoteDataSource.update(id, <String, dynamic>{
+  Future<void> updateReel(String id, {String? caption}) async {
+    await _remoteDataSource.update(id, <String, dynamic>{
       if (caption != null) 'caption': caption,
     });
+    _eventBus.fire(const ReelsChangedEvent());
   }
 
   @override
@@ -82,7 +90,10 @@ class ReelsRepositoryImpl extends ReelsRepository {
       _remoteDataSource.report(id, reason);
 
   @override
-  Future<void> delete(String id) => _remoteDataSource.delete(id);
+  Future<void> delete(String id) async {
+    await _remoteDataSource.delete(id);
+    _eventBus.fire(const ReelsChangedEvent());
+  }
 
   @override
   Future<List<Product>> shopTheLook(String id) async {
@@ -107,6 +118,7 @@ class ReelsRepositoryImpl extends ReelsRepository {
       caption: caption,
       taggedProductIds: taggedProductIds,
     );
+    _eventBus.fire(const ReelsChangedEvent());
     return (reelId: _reelId(json), uploadUrl: _uploadUrl(json));
   }
 

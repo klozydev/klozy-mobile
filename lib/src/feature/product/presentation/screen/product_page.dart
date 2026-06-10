@@ -15,6 +15,7 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
+import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_bloc.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_event.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_state.dart';
@@ -190,9 +191,7 @@ class _LoadedViewState extends State<_LoadedView> {
                       ProductSellerCardWidget(
                         seller: detail.seller,
                         isOwner: detail.isOwner,
-                        onMessage: () => context.showSnackBar(
-                          context.l10N.product_messaging_coming_soon,
-                        ),
+                        onMessage: () => context.openChatWith(detail.seller.id),
                         onTap: detail.isOwner
                             ? null
                             : () => context.router.push(

@@ -171,6 +171,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i264.WishlistRepository>(
       () => _i759.WishlistRepositoryImpl(gh<_i361.Dio>()),
     );
+    gh.lazySingleton<_i786.ProductsRepository>(
+      () =>
+          _i251.ProductsRepositoryImpl(gh<_i361.Dio>(), gh<_i1017.EventBus>()),
+    );
     gh.lazySingleton<_i755.NotificationsRepository>(
       () => _i175.NotificationsRepositoryImpl(gh<_i361.Dio>()),
     );
@@ -188,6 +192,13 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i774.AppRouter>(
       () => _i774.AppRouter(gh<_i480.AuthGuard>()),
+    );
+    gh.factory<_i266.FeedBloc>(
+      () => _i266.FeedBloc(
+        gh<_i786.ProductsRepository>(),
+        gh<_i204.CatalogRepository>(),
+        gh<_i1017.EventBus>(),
+      ),
     );
     gh.lazySingleton<_i276.NotificationsCubit>(
       () => _i276.NotificationsCubit(gh<_i755.NotificationsRepository>()),
@@ -210,11 +221,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i242.OrdersRepository>(
       () => _i339.OrdersRepositoryImpl(gh<_i361.Dio>()),
     );
+    gh.factory<_i345.SearchBloc>(
+      () => _i345.SearchBloc(
+        gh<_i786.ProductsRepository>(),
+        gh<_i204.CatalogRepository>(),
+      ),
+    );
     gh.lazySingleton<_i444.CartRepository>(
       () => _i358.CartRepositoryImpl(gh<_i361.Dio>()),
-    );
-    gh.lazySingleton<_i786.ProductsRepository>(
-      () => _i251.ProductsRepositoryImpl(gh<_i361.Dio>()),
     );
     gh.lazySingleton<_i27.PushService>(
       () => _i27.PushService(
@@ -254,6 +268,13 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i204.CatalogRepository>(),
       ),
     );
+    gh.factory<_i1029.ProfileBloc>(
+      () => _i1029.ProfileBloc(
+        gh<_i931.SocialRepository>(),
+        gh<_i1010.MeRepository>(),
+        gh<_i1017.EventBus>(),
+      ),
+    );
     gh.factory<_i762.SettingsBloc>(
       () => _i762.SettingsBloc(
         gh<_i1010.MeRepository>(),
@@ -276,17 +297,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i203.ReelsRepositoryImpl(
         gh<_i465.RemoteReelsDataSource>(),
         gh<_i1010.MeRepository>(),
+        gh<_i1017.EventBus>(),
       ),
     );
     gh.factory<_i1037.PersonalizeBloc>(
       () => _i1037.PersonalizeBloc(
         gh<_i204.CatalogRepository>(),
-        gh<_i1010.MeRepository>(),
-      ),
-    );
-    gh.factory<_i1029.ProfileBloc>(
-      () => _i1029.ProfileBloc(
-        gh<_i931.SocialRepository>(),
         gh<_i1010.MeRepository>(),
       ),
     );
@@ -304,18 +320,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i675.CartCubit>(
       () => _i675.CartCubit(gh<_i444.CartRepository>()),
-    );
-    gh.factory<_i266.FeedBloc>(
-      () => _i266.FeedBloc(
-        gh<_i786.ProductsRepository>(),
-        gh<_i204.CatalogRepository>(),
-      ),
-    );
-    gh.factory<_i345.SearchBloc>(
-      () => _i345.SearchBloc(
-        gh<_i786.ProductsRepository>(),
-        gh<_i204.CatalogRepository>(),
-      ),
     );
     gh.factory<_i351.CheckoutBloc>(
       () => _i351.CheckoutBloc(

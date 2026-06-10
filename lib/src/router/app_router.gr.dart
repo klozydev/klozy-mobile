@@ -105,6 +105,58 @@ class CartRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ChatMediaPickerPage]
+class ChatMediaPickerRoute extends PageRouteInfo<ChatMediaPickerRouteArgs> {
+  ChatMediaPickerRoute({
+    required String tchatId,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+         ChatMediaPickerRoute.name,
+         args: ChatMediaPickerRouteArgs(tchatId: tchatId, key: key),
+         rawPathParams: {'tchatId': tchatId},
+         initialChildren: children,
+       );
+
+  static const String name = 'ChatMediaPickerRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final pathParams = data.inheritedPathParams;
+      final args = data.argsAs<ChatMediaPickerRouteArgs>(
+        orElse: () =>
+            ChatMediaPickerRouteArgs(tchatId: pathParams.getString('tchatId')),
+      );
+      return ChatMediaPickerPage(tchatId: args.tchatId, key: args.key);
+    },
+  );
+}
+
+class ChatMediaPickerRouteArgs {
+  const ChatMediaPickerRouteArgs({required this.tchatId, this.key});
+
+  final String tchatId;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ChatMediaPickerRouteArgs{tchatId: $tchatId, key: $key}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ChatMediaPickerRouteArgs) return false;
+    return tchatId == other.tchatId && key == other.key;
+  }
+
+  @override
+  int get hashCode => tchatId.hashCode ^ key.hashCode;
+}
+
+/// generated route for
 /// [ChatPage]
 class ChatRoute extends PageRouteInfo<void> {
   const ChatRoute({List<PageRouteInfo>? children})
@@ -118,6 +170,58 @@ class ChatRoute extends PageRouteInfo<void> {
       return const ChatPage();
     },
   );
+}
+
+/// generated route for
+/// [ChatThreadPage]
+class ChatThreadRoute extends PageRouteInfo<ChatThreadRouteArgs> {
+  ChatThreadRoute({
+    required String tchatId,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+         ChatThreadRoute.name,
+         args: ChatThreadRouteArgs(tchatId: tchatId, key: key),
+         rawPathParams: {'tchatId': tchatId},
+         initialChildren: children,
+       );
+
+  static const String name = 'ChatThreadRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final pathParams = data.inheritedPathParams;
+      final args = data.argsAs<ChatThreadRouteArgs>(
+        orElse: () =>
+            ChatThreadRouteArgs(tchatId: pathParams.getString('tchatId')),
+      );
+      return ChatThreadPage(tchatId: args.tchatId, key: args.key);
+    },
+  );
+}
+
+class ChatThreadRouteArgs {
+  const ChatThreadRouteArgs({required this.tchatId, this.key});
+
+  final String tchatId;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ChatThreadRouteArgs{tchatId: $tchatId, key: $key}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ChatThreadRouteArgs) return false;
+    return tchatId == other.tchatId && key == other.key;
+  }
+
+  @override
+  int get hashCode => tchatId.hashCode ^ key.hashCode;
 }
 
 /// generated route for

@@ -40,6 +40,29 @@ dependencies:
   package_info_plus: ^9.0.1
   firebase_messaging: ^16.2.0
 
+  # Chat island (vendored, isolated — Riverpod + Firebase)
+  core_kosmos:
+    path: packages/core_kosmos
+  ui_kosmos_v4:
+    path: packages/ui_kosmos_v4
+  kosmos_chat:
+    path: packages/kosmos_chat
+  # Firebase plugins the chat island uses — declared directly (mobile bridge
+  # code imports cloud_functions; the rest back the chat data layer). Leave
+  # unversioned so pub picks the firebase_core 4.x-compatible line.
+  cloud_firestore:
+  firebase_database:
+  firebase_storage:
+  cloud_functions:
+  # Localization system the chat island uses (.tr()); coexists with gen-l10n.
+  easy_localization: ^3.0.0
+  # Riverpod (the chat island's state mgmt) — used directly by the root
+  # ProviderScope and the chat bridge.
+  flutter_riverpod: 2.6.1
+  hooks_riverpod: 2.6.1
+  # Used by the ported CustomTextMessage bubble (offer/purchase builders).
+  timeago_flutter: ^3.7.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -54,6 +77,8 @@ dev_dependencies:
 flutter:
   generate: true
   uses-material-design: true
+  assets:
+    - assets/translations/
 
 flutter_native_splash:
   color: "#f9f9ff"

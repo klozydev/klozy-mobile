@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
+import 'package:klozy/src/core/events/products_changed_event.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
@@ -18,11 +22,23 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
   String? _rootId;
   int _page = 1;
 
-  FeedBloc(this._productsRepository, this._catalogRepository)
+  late final StreamSubscription<ProductsChangedEvent> _productsChangedSub;
+
+  FeedBloc(this._productsRepository, this._catalogRepository, EventBus eventBus)
     : super(const FeedLoading()) {
     on<FeedStarted>(_onStarted);
     on<FeedCategorySelected>(_onCategorySelected);
     on<FeedLoadMore>(_onLoadMore);
+    on<FeedRefreshed>(_onRefreshed);
+    _productsChangedSub = eventBus.on<ProductsChangedEvent>().listen(
+      (_) => add(const FeedRefreshed()),
+    );
+  }
+
+  @override
+  Future<void> close() {
+    _productsChangedSub.cancel();
+    return super.close();
   }
 
   Future<void> _onStarted(FeedStarted event, Emitter<FeedState> emit) async {
@@ -109,6 +125,33 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
       );
     } catch (_) {
       emit(current.copyWith(isLoadingMore: false));
+    }
+  }
+
+  /// Refetch page 1 without flashing the shimmer — the stale grid stays
+  /// visible until the fresh data lands.
+  Future<void> _onRefreshed(
+    FeedRefreshed event,
+    Emitter<FeedState> emit,
+  ) async {
+    if (state is! FeedReady) return;
+    try {
+      _page = 1;
+      final page = await _productsRepository.feed(
+        rootCategoryId: _rootId,
+        page: _page,
+        limit: _limit,
+      );
+      emit(
+        FeedReady(
+          categories: _categories,
+          selectedRootId: _rootId,
+          items: page.data,
+          hasMore: page.data.length >= _limit,
+        ),
+      );
+    } catch (_) {
+      // Quiet refresh: keep showing what we have.
     }
   }
 }

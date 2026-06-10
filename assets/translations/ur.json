@@ -1,0 +1,1334 @@
+{
+  "app": {
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "آپ کی تصاویر کا تجزیہ ہو رہا ہے…",
+        "step-identify": "آئٹم کی شناخت ہو رہی ہے…",
+        "step-generate": "عنوان اور قیمت بنائی جا رہی ہے…"
+      },
+      "photos": {
+        "empty-title": "سیکنڈوں میں بیچیں",
+        "empty-cta": "اپنی تصاویر شامل کریں",
+        "empty-subtitle": "ایک تصویر سے شروع کریں — AI عنوان، تفصیل اور قیمت سنبھالتا ہے۔",
+        "grid-title": "آپ کی تصاویر",
+        "grid-subtitle": "زیادہ سے زیادہ {max} تصاویر شامل کریں۔ AI آپ کی فہرست پہلے سے بھر دے گا۔",
+        "min-one": "جاری رکھنے کے لیے کم از کم 1 تصویر شامل کریں",
+        "continue": "جاری رکھیں",
+        "add": "شامل کریں",
+        "max-reached": "زیادہ سے زیادہ {max} تصاویر",
+        "cover": "سرورق",
+        "edit": "ترمیم"
+      },
+      "capture": {
+        "title": "تصویر شامل کریں",
+        "camera-title": "تصویر لیں",
+        "camera-subtitle": "کیمرہ کھولتا ہے",
+        "gallery-title": "گیلری سے منتخب کریں",
+        "gallery-subtitle": "متعدد انتخاب ممکن ہے"
+      },
+      "entry": {
+        "reel-subtitle": "اپنے ملبوسات کی ویڈیو شیئر کریں",
+        "sell-subtitle": "پہلے تصویر · AI آپ کی فہرست بھرتا ہے"
+      },
+      "recap": {
+        "title": "آپ کی فہرست",
+        "field-title": "عنوان",
+        "field-title-hint": "مثلاً Levi's ڈینم جیکٹ",
+        "field-price": "قیمت",
+        "field-price-hint": "0",
+        "field-description": "تفصیل",
+        "field-description-hint": "حالت، فٹ، میٹیریل بیان کریں…",
+        "section-details": "پروڈکٹ کی تفصیلات",
+        "field-category": "زمرہ",
+        "field-subcategory": "ذیلی زمرہ",
+        "subcategory-placeholder": "ایک ذیلی زمرہ منتخب کریں",
+        "field-brand": "برانڈ",
+        "brand-placeholder": "اختیاری",
+        "field-condition": "حالت",
+        "field-size": "سائز",
+        "required-hint": "* لازمی خانے",
+        "cta": "فروخت کے لیے رکھیں"
+      },
+      "subcategory": {
+        "title": "ذیلی زمرہ",
+        "choose": "منتخب کریں"
+      },
+      "brand": {
+        "title": "برانڈ",
+        "search-hint": "برانڈ تلاش کریں"
+      },
+      "success": {
+        "title": "آن لائن!",
+        "subtitle": "آپ کی چیز اب خریداروں کو نظر آ رہی ہے۔",
+        "see-listing": "فہرست دیکھیں",
+        "back-home": "ہوم پر واپس"
+      },
+      "ai-badge": "AI کی تجویز کردہ",
+      "publish-failed": "فہرست سازی ناکام، براہ کرم دوبارہ کوشش کریں۔"
+    },
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": { "title": "صارف کو ان بلاک کریں", "subtitle": "کیا آپ واقعی اس صارف کو ان بلاک کرنا چاہتے ہیں؟" },
+          "title": "بلاک شدہ صارفین",
+          "empty": "کوئی بلاک شدہ صارف نہیں",
+          "unblock": "صارف کو ان بلاک کریں",
+          "success": "صارف کامیابی سے ان بلاک ہو گیا"
+        }
+      }
+    },
+    "notifications": "اطلاعات",
+    "notification": {
+      "redirect-error": "اس اطلاع کو کھولتے ہوئے ایک مسئلہ پیش آیا۔"
+    },
+    "nothing": "کوئی اطلاع نہیں",
+    "popup": {
+      "need-connect": {
+        "title": "آپ کا لاگ اِن ہونا ضروری ہے",
+        "subtitle": "اس خصوصیت کو استعمال کرنے کے لیے، آپ کا Klozy اکاؤنٹ سے لاگ اِن ہونا ضروری ہے۔",
+        "confirm": "لاگ اِن کریں",
+        "cancel": "اکاؤنٹ بنائیں"
+      },
+      "finalise-data": {
+        "title": "اپنا پروفائل مکمل کریں",
+        "subtitle": "کوئی چیز فروخت کرنے کے لیے، آپ کو اپنا بیچنے والے کا پروفائل مکمل کرنا ہوگا۔",
+        "confirm": "مکمل کریں",
+        "cancel": "بعد میں"
+      }
+    },
+    "intro": {
+      "title": "نئے دور کا فیشن",
+      "subtitle": "چند سیکنڈ میں پری لووڈ ملبوسات خریدیں اور بیچیں۔ محفوظ ادائیگیاں، تیز ترسیل اور ایک قابلِ بھروسا کمیونٹی۔",
+      "start": "چلیں شروع کریں!"
+    },
+    "duration": {
+      "now": "ابھی"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "برانڈ",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "دیگر"
+      },
+      "product-status": {
+        "on-hold": "روک رکھا گیا",
+        "in-progress": "جاری ہے",
+        "completed": "مکمل",
+        "in-delivery": "ترسیل میں",
+        "waiting-for-expedition": "روانگی کے منتظر",
+        "pending-acceptance": "منظوری زیرِ التوا",
+        "delivery-completed": "ترسیل مکمل",
+        "refused": "مسترد",
+        "canceled": "منسوخ",
+        "return-requested": "واپسی کی درخواست",
+        "return-accepted": "واپسی منظور",
+        "return-refused": "واپسی مسترد",
+        "return-completed": "واپسی مکمل"
+      },
+      "condition": {
+        "title": "حالت",
+        "new": "نیا",
+        "very-good": "بہت اچھی",
+        "good": "اچھی",
+        "normal": "عام",
+        "worn": "استعمال شدہ"
+      },
+      "sort-by": {
+        "lower-price": "قیمت کم سے زیادہ",
+        "higher-price": "قیمت زیادہ سے کم",
+        "latest": "تازہ ترین"
+      },
+      "product-category": {
+        "title": "زمرہ",
+        "women": "خواتین",
+        "men": "مرد",
+        "kids": "بچے"
+      },
+      "product-sub-category": {
+        "title": "ذیلی زمرہ",
+        "tops": "ٹاپس",
+        "accessories": "لوازمات",
+        "pants": "پتلونیں",
+        "jackets": "جیکٹس",
+        "dresses": "ڈریسز",
+        "bottoms": "نیچے پہننے والے",
+        "shoes": "جوتے",
+        "underwear": "زیر جامہ"
+      },
+      "accessory-type": {
+        "title": "لوازمات کی قسم",
+        "glasses": "عینک",
+        "headwear": "سر پوش",
+        "scarf": "اسکارف",
+        "belt": "بیلٹ",
+        "jewelry": "زیورات",
+        "watch": "گھڑی",
+        "bag": "بیگ",
+        "wallet": "بٹوہ",
+        "sunglasses": "دھوپ کی عینک",
+        "tie": "ٹائی",
+        "gloves": "دستانے",
+        "other": "دیگر"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "0-3 ماہ",
+        "months_3_6": "3-6 ماہ",
+        "months_6_12": "6-12 ماہ",
+        "months_12_18": "12-18 ماہ",
+        "months_18_24": "18-24 ماہ",
+        "years_2_3": "2-3 سال",
+        "years_3_4": "3-4 سال",
+        "years_4_5": "4-5 سال",
+        "years_5_6": "5-6 سال",
+        "years_6_7": "6-7 سال",
+        "years_7_8": "7-8 سال",
+        "years_8_10": "8-10 سال",
+        "years_10_12": "10-12 سال",
+        "years_12_14": "12-14 سال"
+      }
+    },
+    "profile-completion": {
+      "title": "اپنا پروفائل مکمل کریں",
+      "edit-title": "پروفائل میں ترمیم کریں",
+      "favorite-article-sizes-title": "پسندیدہ سائز",
+      "favorite-article-sizes-subtitle": "اپنے US اور EU سائز منتخب کریں۔",
+      "preferred-brand-title": "پسندیدہ برانڈز",
+      "preferred-brand-subtitle": "آپ ایک سے زیادہ برانڈز منتخب کر سکتے ہیں۔",
+      "lastname": "خاندانی نام",
+      "lastname-hint": "اپنا خاندانی نام درج کریں",
+      "lastname-required": "خاندانی نام ضروری ہے",
+      "firstname": "نام",
+      "firstname-hint": "اپنا نام درج کریں",
+      "firstname-required": "نام ضروری ہے",
+      "address": "پتہ",
+      "address-for-delivery": "ترسیل کا پتہ",
+      "address-for-delivery-hint": "پتہ تلاش کریں",
+      "address-for-delivery-error": "براہ کرم ایک درست پتہ منتخب کریں",
+      "description": "تفصیل",
+      "description-hint": "ہمیں اپنے بارے میں بتائیں",
+      "profile-picture": "پروفائل تصویر",
+      "complete-registration": "رجسٹریشن مکمل کریں",
+      "submit": "رجسٹریشن مکمل کریں",
+      "exit-signup": {
+        "title": "رجسٹریشن منسوخ کریں؟",
+        "subtitle": "آپ کا پروفائل ابھی مکمل نہیں ہوا۔ اگر آپ اب چھوڑ دیں گے تو آپ کو دوبارہ شروع کرنا ہوگا۔"
+      },
+      "eu-sizes": "EU سائز"
+    },
+    "order-summary": {
+      "title": "خلاصہ",
+      "x-product-purchased": "{} سے وہ مصنوعات جو آپ خریدنے والے ہیں",
+      "no-products-in-cart": "آپ کی کارٹ میں کوئی مصنوعات نہیں",
+      "buyer-protection": "خریدار کا تحفظ",
+      "total": "کل",
+      "shipping": "ترسیل",
+      "home-delivery": "گھر پر ترسیل",
+      "choose-delivery-method": "ترسیل کا طریقہ منتخب کریں",
+      "choose": "منتخب کریں",
+      "change-delivery-address": "اپنا ترسیلی پتہ تبدیل کریں",
+      "remove-product": "مصنوعات ہٹائیں",
+      "remove-product-message": "کیا آپ واقعی اس مصنوعات کو اپنی فہرست سے ہٹانا چاہتے ہیں؟",
+      "remove-product-confirm": "ہٹائیں",
+      "remove-product-cancel": "منسوخ کریں",
+      "order-placed": "آرڈر دے دیا گیا"
+    },
+    "order-details": {
+      "title": "آرڈر",
+      "product-purchased": "خریدی گئی مصنوعات",
+      "product-purchased-from": "{} سے خریدی گئی مصنوعات",
+      "shipping-to": "ترسیل بنام",
+      "total-paid": "کل ادا شدہ",
+      "cancel": "آرڈر منسوخ کریں",
+      "confirm-receipt": "وصولی کی تصدیق کریں",
+      "report-a-problem": "مسئلہ رپورٹ کریں",
+      "leave-a-review": "رائے دیں",
+      "review-already-sent": "آپ اس آرڈر کے لیے پہلے ہی رائے دے چکے ہیں۔",
+      "refunded": "رقم واپس",
+      "download-my-return-voucher": "اپنا واپسی واؤچر ڈاؤن لوڈ کریں",
+      "was-delivered-to": "یہاں پہنچایا گیا",
+      "was-to-be-delivered": "یہاں پہنچایا جانا تھا",
+      "cancel-order": "آرڈر منسوخ کریں",
+      "tracking": "ٹریکنگ نمبر",
+      "track": "ٹریک کریں",
+      "open-shipping-label": "لیبل کھولیں",
+      "product-is-conform": "میری چیز بیان کے مطابق ہے",
+      "product-confirmed": "مصنوعات کی تصدیق ہو گئی! ادائیگی بیچنے والے کو منتقل کر دی جائے گی۔",
+      "request-a-return": "واپسی کی درخواست کریں",
+      "return-requested": "واپسی کی درخواست بیچنے والے کو بھیج دی گئی",
+      "return-pending": "آپ کی واپسی کی درخواست بیچنے والے کی منظوری کے منتظر ہے",
+      "return-request-received": "ایک خریدار نے اس آرڈر کے لیے واپسی کی درخواست کی ہے",
+      "accept": "منظور کریں",
+      "refuse": "مسترد کریں",
+      "return-accepted": "واپسی منظور، رقم کی واپسی پر کارروائی جاری ہے",
+      "return-refused": "واپسی مسترد",
+      "return-accepted-message": "واپسی منظور ہو گئی۔ اپنا واپسی واؤچر ڈاؤن لوڈ کریں اور مصنوعات واپس بھیجیں۔",
+      "return-refused-message": "بیچنے والے نے واپسی مسترد کر دی۔ ادائیگی منتقل کر دی گئی ہے۔",
+      "return-in-transit": "خریدار کی جانب سے مصنوعات کی واپسی کے منتظر ہیں۔",
+      "return-completed-message": "واپسی موصول ہو گئی۔ رقم کی واپسی پر کارروائی مکمل ہو گئی۔"
+    },
+    "report": {
+      "cancel": "منسوخ کریں",
+      "report": "مسئلہ رپورٹ کریں",
+      "problem": "کیا آپ کو کوئی مسئلہ درپیش ہے؟ ابھی رپورٹ کریں۔",
+      "reason": "آپ کے مسئلے کی وجہ",
+      "reason-cancel": "منسوخی کی وجہ",
+      "text-area": "ہمیں مزید بتائیں",
+      "file-picker": "فائلیں شامل کریں",
+      "send-report": "رپورٹ بھیجیں",
+      "confirm-cancel": "منسوخی کی تصدیق کریں"
+    },
+    "report_success": {
+      "title": "بھیج دیا گیا",
+      "subtitle": "آپ کی رپورٹ بھیج دی گئی ہے! اس پر جلد از جلد کارروائی کی جائے گی۔",
+      "cancel": "آپ کی منسوخی کی درخواست بھیج دی گئی ہے! اس پر جلد از جلد کارروائی کی جائے گی۔",
+      "buttonText": "ختم کریں"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "خرابی",
+        "content": "ایک مسئلہ پیش آیا، براہ کرم بعد میں دوبارہ کوشش کریں۔"
+      }
+    },
+    "preview-reel": {
+      "retake": "دوبارہ لیں",
+      "continue": "جاری رکھیں"
+    },
+    "create-reel": {
+      "title": "ریل بنائیں",
+      "subtitle": "ریل بنا کر، آپ اپنے مجموعے سے فروخت کے لیے ایک یا زیادہ مصنوعات شامل کر سکتے ہیں تاکہ انہیں فروغ دیا جا سکے",
+      "add-product": "مصنوعات شامل کریں",
+      "create-product": "مصنوعات بنائیں",
+      "my-added-products": "میری شامل کردہ مصنوعات",
+      "my-products-to-sales": "فروخت کے لیے میری مصنوعات",
+      "add": "شامل کریں",
+      "post": "ریل پوسٹ کریں",
+      "update": "ریل اپ ڈیٹ کریں",
+      "success-title": "بہترین!",
+      "success-subtitle": "آپ کی ویڈیو اب آن لائن ہے۔",
+      "error-title": "کچھ کمی ہے",
+      "error-subtitle": "براہ کرم اپنی ریل میں کم از کم ایک مصنوعات شامل کریں۔"
+    },
+    "put-a-product-on-sale": {
+      "title": "مصنوعات فروخت کے لیے رکھیں",
+      "step": "مرحلہ",
+      "title-step2": "اپنی مصنوعات کے بارے میں مزید",
+      "title-step3": "تصاویر شامل کریں",
+      "put-on-sale": "فروخت کے لیے رکھیں",
+      "success-title": "بہترین!",
+      "success-subtitle": "آپ کی چیز اب فروخت کے لیے دستیاب ہے۔",
+      "edit-success-title": "بہترین!",
+      "edit-success-subtitle": "آپ کی چیز اب فروخت کے لیے دستیاب ہے۔",
+      "error-title": "اپ لوڈ ناکام",
+      "error-subtitle": "آپ کی مصنوعات محفوظ کرتے ہوئے کچھ غلط ہو گیا۔ براہ کرم دوبارہ کوشش کریں۔",
+      "forms": {
+        "title": "عنوان",
+        "title-hint": "مثلاً نیلی فلوٹنگ شرٹ",
+        "price": "قیمت",
+        "price-hint": "0",
+        "price-max-error": "زیادہ سے زیادہ قیمت {} ہے۔",
+        "description": "تفصیل",
+        "description-hint": "اپنی مصنوعات کی تفصیل درج کریں",
+        "size": "سائز",
+        "brand": "برانڈ",
+        "condition-error-title": "براہ کرم ایک حالت منتخب کریں",
+        "condition-error-subtitle": "اپنی مصنوعات کے لیے ایک حالت منتخب کریں",
+        "image-error-title": "براہ کرم کم از کم ایک تصویر منتخب کریں",
+        "image-error-subtitle": "اپنی مصنوعات کے لیے کم از کم ایک تصویر منتخب کریں"
+      }
+    },
+    "home": {
+      "feed": "فیڈ",
+      "wishlist": "خواہشات کی فہرست",
+      "reels": "ریلز",
+      "view-products": "مصنوعات دیکھیں",
+      "hide-products": "مصنوعات چھپائیں"
+    },
+    "product": {
+      "buy": "خریدیں",
+      "already-sold": "پہلے ہی فروخت ہو چکی",
+      "make-an-offer": "پیشکش کریں",
+      "send-offer": "پیشکش بھیجیں",
+      "delete": "حذف کریں",
+      "edit": "ترمیم کریں",
+      "success-title": "پیشکش بھیج دی گئی!",
+      "success-subtitle": "آپ کی پیشکش کامیابی سے بھیج دی گئی ہے۔",
+      "popup-delete-title": "مصنوعات حذف کریں",
+      "popup-delete-subtitle": "کیا آپ واقعی اس مصنوعات کو حذف کرنا چاہتے ہیں؟",
+      "popup-delete-confirm": "حذف کریں",
+      "popup-delete-cancel": "منسوخ کریں",
+      "delete-success-title": "مصنوعات حذف ہو گئی!",
+      "delete-success-subtitle": "آپ کی مصنوعات کامیابی سے حذف ہو گئی ہے۔",
+      "forms": {
+        "actual-price": "موجودہ قیمت",
+        "your-new-price": "آپ کی نئی قیمت"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "ریل حذف کریں",
+      "popup-delete-subtitle": "کیا آپ واقعی اس ریل کو حذف کرنا چاہتے ہیں؟",
+      "popup-delete-confirm": "حذف کریں",
+      "popup-delete-cancel": "منسوخ کریں",
+      "delete-success-title": "ریل حذف ہو گئی!",
+      "delete-success-subtitle": "آپ کی ریل کامیابی سے حذف ہو گئی ہے۔",
+      "feed-error": "ریلز لوڈ نہیں ہو سکیں۔ براہ کرم بعد میں دوبارہ کوشش کریں۔",
+      "report": "رپورٹ کریں"
+    },
+    "profile": {
+      "buyer": "خریدار",
+      "my-order": "میرے آرڈرز",
+      "seller": "بیچنے والا",
+      "my-sales": "میری فروخت",
+      "products": "مصنوعات",
+      "reels": "ریلز",
+      "reviews": "آراء",
+      "followers": "فالوورز",
+      "following": "فالوونگ",
+      "follow": "فالو کریں",
+      "unfollow": "ان فالو کریں",
+      "edit": "پروفائل میں ترمیم کریں",
+      "cant-follow-blocked": "آپ اس صارف کو فالو نہیں کر سکتے۔"
+    },
+    "search": {
+      "popular-items": "مقبول اشیاء",
+      "categories": "زمرہ جات",
+      "title": "تلاش کریں",
+      "filter-search": "تلاش کو فلٹر کریں",
+      "sort-by": "ترتیب دیں",
+      "in": "میں",
+      "refine-the-category": "زمرہ کو بہتر بنائیں",
+      "apply": "لاگو کریں",
+      "reset": "ری سیٹ کریں",
+      "results": "نتائج"
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "Stripe کھولا جا رہا ہے۔"
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "چیز بیان کے مطابق نہیں",
+        "motif2": "نقلی یا ممنوعہ چیز",
+        "motif3": "بیچنے والے سے متعلق مسئلہ",
+        "motif4": "ترسیل کا مسئلہ",
+        "motif5": "ادائیگی یا آرڈر کا مسئلہ",
+        "motif6": "دیگر"
+      },
+      "filePicker": {
+        "title": "فائلیں شامل کریں"
+      },
+      "description": {
+        "title": "ہمیں مزید بتائیں",
+        "title1": "براہ کرم وضاحت کریں"
+      },
+      "motif1": {
+        "precisez1": "غلط سائز / فٹ درست نہیں",
+        "precisez2": "حالت فہرست سے مختلف ہے",
+        "precisez3": "حصے / لوازمات غائب ہیں",
+        "precisez4": "چیز خراب ہے"
+      },
+      "motif2": {
+        "precisez1": "نقلی چیز کا شبہ",
+        "precisez2": "ممنوعہ یا غیر محفوظ چیز",
+        "precisez3": "گمراہ کن یا دھوکہ دہی پر مبنی فہرست",
+        "precisez4": "دیگر پالیسی مسئلہ"
+      },
+      "motif3": {
+        "precisez1": "بیچنے والا جواب نہیں دے رہا",
+        "precisez2": "نامناسب رویہ یا ہراسانی",
+        "precisez3": "ایپ سے باہر ادائیگی کا کہا گیا",
+        "precisez4": "بیچنے والے سے متعلق دیگر مسئلہ"
+      },
+      "motif4": {
+        "precisez1": "ٹریکنگ اپ ڈیٹ نہیں ہو رہی",
+        "precisez2": "پیکج موصول نہیں ہوا",
+        "precisez3": "پیکج خراب حالت میں پہنچا",
+        "precisez4": "ترسیل میں تاخیر ہے"
+      },
+      "motif5": {
+        "precisez1": "غلط رقم وصول کی گئی",
+        "precisez2": "رقم کی واپسی کا مسئلہ",
+        "precisez3": "آرڈر کا مسئلہ (منسوخ / دہرایا گیا)",
+        "precisez4": "ادائیگی یا آرڈر کا دیگر مسئلہ"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "نیا پیغام",
+          "body": "آپ کو ایک نیا پیغام موصول ہوا ہے۔"
+        }
+      },
+      "user-deleted": "نامعلوم صارف",
+      "online-today-at": "آج {} پر آن لائن",
+      "online-yesterday-at": "کل {} پر آن لائن",
+      "online-at": "{} پر آن لائن",
+      "change-name-confirm-button": "ختم کریں",
+      "call-audio": "آڈیو کال",
+      "call-video": "ویڈیو کال",
+      "call-start": "کال جاری ہے...",
+      "video-call-end": "کال ختم ہو گئی",
+      "new-group": "گروپ کا نام",
+      "cancel-audio": "آڈیو منسوخ کریں",
+      "preview": {
+        "media": {
+          "zero": "کوئی عناصر نہیں",
+          "one": "1 میڈیا بھیجا",
+          "other": "{} میڈیا بھیجے"
+        },
+        "audio": "آڈیو",
+        "reply-audio": "جوابی آڈیو"
+      },
+      "event": {
+        "report-and-block": "رپورٹ کریں اور بلاک کریں",
+        "delete-tchat": "چیٹ حذف کریں"
+      },
+      "status": {
+        "online": "آن لائن",
+        "online-today-at": "آج {time} پر آن لائن",
+        "online-yesterday-at": "کل {time} پر آن لائن",
+        "offline": "آف لائن",
+        "multiple-online": "متعدد آن لائن",
+        "typing": "ٹائپ کر رہا ہے",
+        "audioRec": "آڈیو ریکارڈنگ"
+      },
+      "document": {
+        "camera": "کیمرہ",
+        "gallery": "گیلری",
+        "document": "دستاویز",
+        "localisation": "مقام",
+        "contact": "رابطہ",
+        "sondage": "پول"
+      },
+      "list": {
+        "title": "گفتگو",
+        "title-face": "ترجمہ",
+        "conversations": "گفتگو",
+        "no-tchat": "کوئی چیٹ نہیں",
+        "no-tchat-content": "آپ کے پاس ابھی کوئی چیٹ نہیں ہے۔",
+        "group-default-title": "نیا گروپ",
+        "oto-default-title": "نئی چیٹ",
+        "new-conversation": "نئی گفتگو"
+      },
+      "message": {
+        "no-message": "کوئی پیغام نہیں",
+        "no-message-body": "آپ کے پاس ابھی کوئی پیغام نہیں ہے۔",
+        "input-hint": "پیغام..",
+        "no-media": "کوئی میڈیا نہیں",
+        "date": "{weekday} {day} {month}",
+        "today": "آج",
+        "yesterday": "کل",
+        "join-group": "{name} گروپ میں شامل ہوا",
+        "leave-group": "{name} گروپ سے نکل گیا",
+        "add-to-group": "{name} نے {user} کو گروپ میں شامل کیا",
+        "remove-from-group": "{name} نے {user} کو گروپ سے نکال دیا",
+        "change-group-title": "{name} نے گروپ کا نام بدل کر {title} رکھ دیا",
+        "change-group-avatar": "{name} نے گروپ کا اوتار تبدیل کیا",
+        "blocked-by-you": "آپ نے اس رابطے کو بلاک کر دیا ہے۔\nآپ اب اس رابطے کو پیغامات نہیں بھیج سکتے۔",
+        "blocked-by-other": "اس رابطے نے آپ کو بلاک کر دیا ہے۔\nآپ اب اس رابطے کو پیغامات نہیں بھیج سکتے۔",
+        "cant-send-message-blocked": "آپ اس رابطے کو پیغام نہیں بھیج سکتے۔",
+        "order-requested": "«{product_name}» کے لیے خریدار کو پیشکش کی گئی",
+        "order-accepted": "آپ کا آرڈر نمبر {id} بیچنے والے نے قبول کر لیا ہے",
+        "order-rejected": "آپ کا آرڈر نمبر {id} بیچنے والے نے مسترد کر دیا ہے",
+        "order-purchased": "ایک آرڈر خریدا گیا ہے",
+        "view-order-details": "آرڈر کی تفصیلات دیکھیں"
+      }
+    },
+    "commentary": {
+      "add-note-title": "بیچنے والے کو ریٹنگ دیں",
+      "add_note_title": "بیچنے والے کو ریٹنگ دیں",
+      "delete": "حذف کریں",
+      "report": "رپورٹ کریں",
+      "add-note": {
+        "validate": "تصدیق کریں",
+        "field": {
+          "note-title": "اس بیچنے والے کو ریٹنگ دیں",
+          "commentary-title": "تبصرہ",
+          "placeholder": "ایک تبصرہ لکھیں",
+          "commentary-hint": "ایک تبصرہ لکھیں..",
+          "commentary_hint": "ایک تبصرہ لکھیں.."
+        },
+        "title": "اس بیچنے والے کو ریٹنگ دیں",
+        "comment": "تبصرہ",
+        "placeholder": "ایک تبصرہ لکھیں",
+        "commentary-hint": "ایک تبصرہ لکھیں.."
+      },
+      "add_note": {
+        "validate": "تصدیق کریں",
+        "field": {
+          "title": "اس بیچنے والے کو ریٹنگ دیں",
+          "comment": "تبصرہ",
+          "placeholder": "ایک تبصرہ لکھیں",
+          "commentary-hint": "ایک تبصرہ لکھیں..",
+          "commentary_hint": "ایک تبصرہ لکھیں.."
+        },
+        "title": "اس بیچنے والے کو ریٹنگ دیں",
+        "comment": "تبصرہ",
+        "placeholder": "ایک تبصرہ لکھیں",
+        "commentary-hint": "ایک تبصرہ لکھیں..",
+        "commentary_hint": "ایک تبصرہ لکھیں.."
+      },
+      "sure-delete-commentary": {
+        "title": "تبصرہ حذف کریں",
+        "subtitle": "کیا آپ واقعی اس تبصرے کو حذف کرنا چاہتے ہیں؟"
+      },
+      "sure_delete_commentary": {
+        "title": "تبصرہ حذف کریں",
+        "subtitle": "کیا آپ واقعی اس تبصرے کو حذف کرنا چاہتے ہیں؟"
+      }
+    },
+    "validator": {
+      "must-have-value": "یہ خانہ ضروری ہے",
+      "email-invalid": "براہ کرم ایک درست ای میل درج کریں",
+      "password-invalid-length": "کم از کم 6 حروف",
+      "password-invalid-maj": "کم از کم 1 بڑا حرف",
+      "password-invalid-min": "کم از کم 1 چھوٹا حرف",
+      "password-invalid-number": "کم از کم 1 عدد",
+      "password-invalid-special-char": "کم از کم 1 خاص حرف (&?!@#)",
+      "password-not-match": "پاس ورڈ مماثل نہیں ہیں",
+      "number-invalid": "براہ کرم ایک درست عدد درج کریں",
+      "number-out-of-range": "براہ کرم {min} اور {max} کے درمیان ایک عدد درج کریں",
+      "number-out-of-min": "براہ کرم {min} سے بڑا عدد درج کریں",
+      "number-out-of-max": "براہ کرم {max} سے چھوٹا عدد درج کریں",
+      "date-invalid": "براہ کرم ایک درست تاریخ درج کریں",
+      "date-out-of-range": "براہ کرم {min} اور {max} کے درمیان ایک تاریخ درج کریں",
+      "date-out-of-min": "براہ کرم {min} سے بعد کی تاریخ درج کریں",
+      "date-out-of-max": "براہ کرم {max} سے پہلے کی تاریخ درج کریں",
+      "alpha-invalid": "براہ کرم ایک درست قدر درج کریں",
+      "code-invalid": "براہ کرم ایک درست کوڈ درج کریں"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "ایک تصویر منتخب کریں"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "کوئی تصویر نہیں",
+        "one": "1 تصویر",
+        "other": "{} تصاویر"
+      },
+      "write-message": "ایک پیغام لکھیں..",
+      "camera": {
+        "shootingTips": "ایک تصویر لیں",
+        "confirm": "تصدیق کریں",
+        "saving": "محفوظ کیا جا رہا ہے...",
+        "shootingWithRecordingTips": "فلمانے کے لیے دبائے رکھیں۔"
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "ملک تلاش کریں",
+          "error_message": "براہ کرم ایک درست فون نمبر درج کریں"
+        },
+        "input": {
+          "choose-media": "تصویر منتخب کرنے کے لیے دبائیں",
+          "choose-multiple-file": "متعدد فائلیں منتخب کرنے کے لیے دبائیں",
+          "choose-image": "تصویر منتخب کرنے کے لیے دبائیں",
+          "choose-file": "فائل منتخب کرنے کے لیے دبائیں",
+          "press-to-modify": "فائل میں ترمیم کے لیے دبائیں"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "ای میل",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "ای میل",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "پاس ورڈ",
+          "hint": "پاس ورڈ",
+          "security-action": "کیا کریں؟"
+        },
+        "actual-password": {
+          "title": "موجودہ پاس ورڈ",
+          "hint": "موجودہ پاس ورڈ"
+        },
+        "new-password": {
+          "title": "نیا پاس ورڈ",
+          "hint": "نیا پاس ورڈ"
+        },
+        "repeat-password": {
+          "title": "پاس ورڈ کی تصدیق کریں",
+          "hint": "پاس ورڈ کی تصدیق کریں"
+        },
+        "new-repeat-password": {
+          "title": "نئے پاس ورڈ کی تصدیق کریں",
+          "hint": "نئے پاس ورڈ کی تصدیق کریں"
+        },
+        "phone": {
+          "title": "فون نمبر",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "SMS سے موصول ہونے والا کوڈ",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "ٹیکسٹ ایریا",
+        "hint": "یہاں لکھیں.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "آپ کا فون نمبر کامیابی سے شامل ہو گیا ہے۔",
+      "invalid-email": "فراہم کردہ معلومات کے ساتھ کوئی صارف نہیں ملا۔",
+      "user-not-found": "فراہم کردہ معلومات کے ساتھ کوئی صارف نہیں ملا۔",
+      "user-disabled": "آپ کا اکاؤنٹ منتظم نے غیر فعال کر دیا ہے۔",
+      "wrong-password": "پاس ورڈ غلط ہے۔",
+      "email-already-in-use": "یہ ای میل پتہ پہلے سے زیرِ استعمال ہے۔",
+      "phone-already-in-use": "یہ فون نمبر پہلے سے زیرِ استعمال ہے۔",
+      "weak-password": "پاس ورڈ بہت کمزور ہے۔",
+      "account-exists-with-different-credential": "اس ای میل پتے کے ساتھ ایک اکاؤنٹ پہلے سے موجود ہے۔",
+      "invalid-credential": "فراہم کردہ معلومات کے ساتھ کوئی صارف نہیں ملا۔",
+      "invalid-verification-code": "تصدیقی کوڈ غلط ہے۔",
+      "invalid-verification-id": "تصدیقی ID غلط ہے۔",
+      "requires-recent-login": "یہ عمل انجام دینے کے لیے آپ کو دوبارہ لاگ اِن کرنا ہوگا۔",
+      "invalid-phone-number": "فون نمبر غلط ہے۔",
+      "error-phone-not-exist": "یہ فون نمبر موجود نہیں ہے۔",
+      "code-invalid": "براہ کرم ایک درست کوڈ درج کریں",
+      "code-is-required": "براہ کرم SMS سے موصول ہونے والا کوڈ درج کریں",
+      "email-must-be-verified": "جاری رکھنے کے لیے آپ کو اپنا ای میل پتہ تصدیق کرنا ہوگا۔",
+      "tiers-auth-valid-email": "جاری رکھنے کے لیے آپ کے فریقِ ثالث اکاؤنٹ کا ایک درست ای میل ہونا ضروری ہے۔",
+      "send-reset-password-email": "فراہم کردہ پتے پر پاس ورڈ ری سیٹ ای میل بھیج دی گئی ہے۔",
+      "error-internet": "ایک کنکشن مسئلہ پیش آیا۔ براہ کرم اپنا انٹرنیٹ کنکشن چیک کریں۔",
+      "error-default": "ایک خرابی پیش آئی، براہ کرم دوبارہ کوشش کریں۔",
+      "must-accept-cgu": "جاری رکھنے کے لیے آپ کو شرائطِ استعمال قبول کرنی ہوں گی۔",
+      "password-security": "پاس ورڈ کا فارمیٹ",
+      "password-security-length": "کم از کم 6 حروف",
+      "password-security-maj": "کم از کم 1 بڑا حرف شامل ہو",
+      "password-security-min": "کم از کم 1 چھوٹا حرف شامل ہو",
+      "password-security-number": "کم از کم 1 عدد شامل ہو",
+      "password-security-special": "کم از کم 1 خاص حرف شامل ہو (&?!@#)",
+      "success-change-password": "آپ کا پاس ورڈ کامیابی سے تبدیل ہو گیا ہے۔",
+      "phone-update-success": "آپ کا فون نمبر تبدیل ہو گیا ہے!",
+      "cant-be-same-password": "نیا پاس ورڈ پرانے سے مختلف ہونا چاہیے۔",
+      "cant-be-same-email": "نیا ای میل پرانے سے مختلف ہونا چاہیے۔",
+      "cant-be-same-phone": "نیا فون نمبر پرانے سے مختلف ہونا چاہیے۔",
+      "code-is-expired": "تصدیقی کوڈ کی میعاد ختم ہو گئی ہے۔",
+      "code-sent": "آپ کو SMS کے ذریعے ایک تصدیقی کوڈ بھیجا گیا ہے۔",
+      "too-many-requests": "بہت زیادہ لاگ اِن کوششیں۔ براہ کرم بعد میں دوبارہ کوشش کریں۔"
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "سائن اِن",
+        "already-have-account": "کیا آپ کا اکاؤنٹ ہے؟",
+        "login-title": "اپنے اکاؤنٹ سے لاگ اِن کریں یا نیا بنائیں۔",
+        "login-phone-title": "اپنے اکاؤنٹ سے لاگ اِن کریں",
+        "verify-phone-title": "لاگ اِن کرنے کے لیے SMS سے موصول ہونے والا کوڈ درج کریں",
+        "verify-phone-code-title": "اپنا فون نمبر تصدیق کریں",
+        "code-expire-in": "کوڈ {time} منٹ میں ختم ہو جائے گا",
+        "no-code": "موصول نہیں ہوا؟",
+        "resend-code": "دوبارہ بھیجیں",
+        "forgot-password": "پاس ورڈ بھول گئے؟",
+        "reset-password": "پاس ورڈ ری سیٹ کریں",
+        "no-account": "اکاؤنٹ نہیں ہے؟",
+        "create-account": "ابھی بنائیں",
+        "login-with-phone": "فون سے لاگ اِن کریں",
+        "login-with-email": "ای میل سے لاگ اِن کریں",
+        "or-connect-with": "یا اس سے لاگ اِن کریں",
+        "or-signup-with": "یا اس سے سائن اپ کریں",
+        "verify-email": "اپنا ای میل تصدیق کریں",
+        "verify-email-subtitle": "آپ کو اپنا پاس ورڈ ری سیٹ کرنے کے لیے ایک ای میل موصول ہوا ہے۔",
+        "create-account-verify-email": "اپنا ای میل تصدیق کریں",
+        "create-account-title": "اکاؤنٹ بنائیں",
+        "create-account-verify-email-subtitle": "اس پتے پر ای میل تصدیق بھیج دی گئی ہے",
+        "reset-password-modal": {
+          "title": "پاس ورڈ ری سیٹ کریں",
+          "subtitle": "اپنے اکاؤنٹ سے منسلک ای میل پتہ درج کریں۔ ہم اس پتے پر ری سیٹ ای میل بھیجیں گے۔"
+        },
+        "tiers-signin": {
+          "get-password-title": "اپنا پاس ورڈ درج کریں",
+          "get-password-subtitle": "ہمیں اس ای میل پتے کے ساتھ ایک اکاؤنٹ ملا ہے، لاگ اِن کرنے کے لیے براہ کرم اپنا پاس ورڈ درج کریں۔"
+        }
+      },
+      "profile": {
+        "delete-success": "آپ کا اکاؤنٹ کامیابی سے حذف ہو گیا ہے۔\nپھر ملیں گے",
+        "logout": "لاگ آؤٹ",
+        "delete-account": "میرا پروفائل حذف کریں",
+        "delete-my-account": "میرا اکاؤنٹ حذف کریں",
+        "delete-my-account-subtitle": "کیا آپ واقعی اپنا اکاؤنٹ حذف کرنا چاہتے ہیں؟",
+        "logout-success": "آپ کامیابی سے لاگ آؤٹ ہو گئے ہیں۔\nپھر ملیں گے"
+      },
+      "new-cgu-must-be-accepted": "جاری رکھنے کے لیے آپ کو نئی شرائطِ استعمال قبول کرنی ہوں گی۔"
+    },
+    "onboarding": {
+      "button_next": "اگلا",
+      "button_start": "ختم کریں",
+      "skip": "چھوڑیں"
+    },
+    "permission": {
+      "notification": {
+        "title": "پش اطلاعات",
+        "redirect-to-settings": "کیا آپ ہماری پش اطلاعات کی سروس کو فعال کرنا چاہتے ہیں؟ یہ آپ کو ہماری ایپلیکیشن کا بھرپور فائدہ اٹھانے میں مدد دے گی۔",
+        "button": "اطلاعات فعال کریں"
+      },
+      "camera": {
+        "title": "کیمرہ",
+        "redirect-to-settings": "اس خصوصیت سے فائدہ اٹھانے کے لیے، آپ کو کیمرے کی اجازت دینی ہوگی۔",
+        "button": "کیمرہ فعال کریں"
+      },
+      "microphone": {
+        "title": "مائیکروفون",
+        "redirect-to-settings": "اس خصوصیت سے فائدہ اٹھانے کے لیے، آپ کو مائیکروفون کی اجازت دینی ہوگی۔",
+        "button": "مائیکروفون فعال کریں"
+      },
+      "accessMediaLocation": {
+        "title": "میڈیا مقام تک رسائی",
+        "redirect-to-settings": "اس خصوصیت سے فائدہ اٹھانے کے لیے، آپ کو میڈیا مقام تک رسائی کی اجازت دینی ہوگی۔",
+        "button": "میڈیا مقام تک رسائی فعال کریں"
+      },
+      "mediaLibrary": {
+        "title": "میڈیا لائبریری",
+        "redirect-to-settings": " اس خصوصیت سے فائدہ اٹھانے کے لیے، آپ کو میڈیا لائبریری تک رسائی کی اجازت دینی ہوگی۔",
+        "button": "میڈیا لائبریری تک رسائی فعال کریں"
+      },
+      "photos": {
+        "title": "تصاویر",
+        "redirect-to-settings": "اس خصوصیت سے فائدہ اٹھانے کے لیے، آپ کو تصاویر تک رسائی کی اجازت دینی ہوگی۔",
+        "button": "تصاویر تک رسائی فعال کریں"
+      },
+      "storage": {
+        "title": "اسٹوریج",
+        "redirect-to-settings": "اس خصوصیت سے فائدہ اٹھانے کے لیے، آپ کو اسٹوریج تک رسائی کی اجازت دینی ہوگی۔",
+        "button": "اسٹوریج تک رسائی فعال کریں"
+      },
+      "mic": {
+        "redirect-to-settings": "براہ کرم اپنے فون کی ترتیبات میں مائیکروفون کی اجازت دیں۔",
+        "title": "مائیکروفون",
+        "button": "ترتیبات کھولیں"
+      },
+      "notif-push": {
+        "title": "پش اطلاعات",
+        "desc": "کیا آپ ہماری پش اطلاعات کی سروس کو فعال کرنا چاہتے ہیں؟ یہ آپ کو ہماری ایپلیکیشن کا بھرپور فائدہ اٹھانے میں مدد دے گی۔",
+        "button": "اطلاعات فعال کریں"
+      },
+      "location": {
+        "title": "مقام",
+        "desc": "ہماری موبائل ایپ کا بھرپور استعمال کرنے کے لیے، آپ کو مقام کی اجازت دینی ہوگی۔",
+        "button": "جاری رکھیں",
+        "redirect-to-settings": "براہ کرم اپنے فون کی ترتیبات میں مقام کی اجازت دیں۔"
+      },
+      "background-location": {
+        "title": "پس منظر کا مقام",
+        "desc": "کیا آپ ہماری پس منظر کے مقام کی سروس کو فعال کرنا چاہتے ہیں؟ یہ ایپلیکیشن کے عمل کے لیے ضروری ہوگی۔",
+        "button": "پس منظر کا مقام فعال کریں"
+      },
+      "skip": "چھوڑیں"
+    },
+    "image": {
+      "from-gallery": "گیلری",
+      "from-camera": "کیمرہ"
+    },
+    "duration": {
+      "now": "ابھی",
+      "days-ago": "{} دن پہلے",
+      "x-days": "{} دن پہلے",
+      "hours-ago": "{} گھنٹے پہلے",
+      "minutes-ago": "{} منٹ پہلے",
+      "seconds-ago": "{} سیکنڈ پہلے",
+      "months-ago": "{} ماہ پہلے",
+      "years-ago": "{} سال پہلے",
+      "moment-ago": "ابھی تھوڑی دیر پہلے"
+    },
+    "settings": {
+      "edited-by": "ترمیم بذریعہ",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "ترمیم کریں",
+        "personnal-data": "میرا اکاؤنٹ",
+        "settings": "ترتیبات",
+        "other": "دیگر",
+        "link": "روابط",
+        "social": "سوشل نیٹ ورک",
+        "security": "سیکیورٹی"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "بلاک شدہ صارفین",
+          "subtitle": "بلاک شدہ صارفین کی فہرست"
+        },
+        "blocked-users": {
+          "unblock": "صارف کو ان بلاک کریں",
+          "block": "صارف کو بلاک کریں",
+          "unblock-success": "صارف کامیابی سے ان بلاک ہو گیا",
+          "title": "بلاک شدہ صارفین",
+          "subtitle": "بلاک شدہ صارفین کی فہرست"
+        },
+        "change-personnal-content": {
+          "title": "ذاتی معلومات",
+          "subtitle": "نام، خاندانی نام، تفصیل"
+        },
+        "clothing-preference": {
+          "title": "ملبوسات کی ترجیحات",
+          "subtitle": "ذاتی بنائیں"
+        },
+        "preferred-article-size": {
+          "title": "پسندیدہ سائز",
+          "subtitle": "منظم کریں"
+        },
+        "preferred-brand": {
+          "title": "پسندیدہ برانڈز",
+          "subtitle": "منظم کریں"
+        },
+        "security": {
+          "title": "سیکیورٹی",
+          "subtitle": "پاس ورڈ، فون، ای میل..."
+        },
+        "payment": {
+          "title": "ادائیگی کے طریقے",
+          "subtitle": "کریڈٹ کارڈ / Apple Pay",
+          "credit-card": "کریڈٹ کارڈ",
+          "bank-details": "بینک اکاؤنٹ",
+          "bank-details-empty": "ترتیب نہیں دیا گیا",
+          "handle-with-stripe": "Stripe کے ساتھ سنبھالیں"
+        },
+        "phone-number": {
+          "title": "فون نمبر"
+        },
+        "change-email": {
+          "title": "ای میل پتہ"
+        },
+        "change-password": {
+          "title": "پاس ورڈ",
+          "subtitle": "آخری بار تبدیل کیا گیا: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "پش اطلاعات"
+        },
+        "email-notif": {
+          "title": "ای میل اطلاعات"
+        },
+        "help": {
+          "title": "مدد",
+          "subtitle": "ای میل کے ذریعے ہم سے رابطہ کریں"
+        },
+        "share": {
+          "title": "ایپ شیئر کریں",
+          "subtitle": "ایپ شیئر کر کے ہماری مدد کریں"
+        },
+        "link": {
+          "privacy-policy": "رازداری کی پالیسی",
+          "legal-mention": "قانونی اطلاع",
+          "legal-notice": "قانونی نوٹس",
+          "cgvu": "فروخت اور استعمال کی شرائط",
+          "about": "بارے میں"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "نیٹ ورک کی خرابی 😕",
+      "subtitle": "کوئی انٹرنیٹ کنکشن نہیں ملا۔ براہ کرم اپنا نیٹ ورک کنکشن چیک کریں۔",
+      "button": "ریفریش کریں"
+    },
+    "research": {
+      "hint": "آئٹم تلاش کریں...",
+      "no-item-title": "کچھ نہیں ملا",
+      "no-item-content": "اس تلاش کے لیے کوئی مصنوعات نہیں ملیں"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "جنوری",
+      "2": "فروری",
+      "3": "مارچ",
+      "4": "اپریل",
+      "5": "مئی",
+      "6": "جون",
+      "7": "جولائی",
+      "8": "اگست",
+      "9": "ستمبر",
+      "10": "اکتوبر",
+      "11": "نومبر",
+      "12": "دسمبر"
+    },
+    "day-by-id": {
+      "1": "پیر",
+      "2": "منگل",
+      "3": "بدھ",
+      "4": "جمعرات",
+      "5": "جمعہ",
+      "6": "ہفتہ",
+      "7": "اتوار"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "پیر",
+      "tu": "منگل",
+      "we": "بدھ",
+      "th": "جمعرات",
+      "fr": "جمعہ",
+      "sa": "ہفتہ",
+      "su": "اتوار"
+    },
+    "month": {
+      "january": "جنوری",
+      "february": "فروری",
+      "march": "مارچ",
+      "april": "اپریل",
+      "may": "مئی",
+      "june": "جون",
+      "july": "جولائی",
+      "august": "اگست",
+      "september": "ستمبر",
+      "october": "اکتوبر",
+      "november": "نومبر",
+      "december": "دسمبر"
+    },
+    "event": {
+      "cancel": "منسوخ کریں",
+      "validate": "تصدیق کریں"
+    },
+    "range": {
+      "no_date": "کوئی تاریخ نہیں"
+    }
+  },
+  "utils": {
+    "done": "ہو گیا",
+    "unlock": "ان بلاک کریں",
+    "mandatory": "لازمی",
+    "next": "اگلا",
+    "number_x": "نمبر {}",
+    "mandatory-fields": "* نشان زدہ خانے لازمی ہیں",
+    "submit": "جمع کرائیں",
+    "choose": "منتخب کریں",
+    "validate-and-modify": "تصدیق کریں اور ترمیم کریں",
+    "modify": "ترمیم کریں",
+    "by-default": "بطورِ ڈیفالٹ",
+    "deactivate": "غیر فعال کریں",
+    "activate": "فعال کریں",
+    "loading": "لوڈ ہو رہا ہے..",
+    "close": "بند کریں",
+    "cancel": "منسوخ کریں",
+    "continue": "جاری رکھیں",
+    "connexion": "کنکشن",
+    "validate": "تصدیق کریں",
+    "success": "کامیابی",
+    "yes": "ہاں",
+    "no": "نہیں",
+    "error": "خرابی",
+    "reinit": "ری سیٹ کریں",
+    "cgvu": "CGVU",
+    "validate-and-continue": "تصدیق کریں اور جاری رکھیں",
+    "confidentiality-policy": "رازداری کی پالیسی",
+    "cgvu-and-confidentiality": "CGVU اور رازداری کی پالیسی",
+    "accept-cgvu-and-confidentiality": "میں رازداری کی پالیسی اور فروخت و استعمال کی شرائط و ضوابط قبول کرتا ہوں۔",
+    "what-do-you-want-to-do": "آپ کیا کرنا چاہتے ہیں؟",
+    "error-default": "ایک خرابی پیش آئی، براہ کرم دوبارہ کوشش کریں۔",
+    "optional": "اختیاری",
+    "save": "محفوظ کریں",
+    "accept": "منظور کریں",
+    "refuse": "مسترد کریں",
+    "edit": "ترمیم کریں",
+    "delete": "حذف کریں",
+    "size": "سائز",
+    "dirhams": "درہم",
+    "aed": "AED",
+    "followers": "فالوورز",
+    "following": "فالوونگ"
+  },
+  "empty-state": {
+    "no-wishlist": "کوئی خواہشات کی فہرست نہیں",
+    "no-feed": "کوئی فیڈ نہیں",
+    "no-products": "کوئی مصنوعات نہیں",
+    "no-products-found": "کوئی مصنوعات نہیں ملیں",
+    "no-reels": "کوئی ریلز نہیں",
+    "no-reels-available": "اس وقت کوئی ریلز دستیاب نہیں۔",
+    "no-reviews": "کوئی آراء نہیں",
+    "no-orders": "کوئی آرڈرز نہیں",
+    "product-not-found": "مصنوعات نہیں ملی",
+    "no-connect-account": "کوئی کنیکٹ اکاؤنٹ نہیں ملا"
+  },
+  "error": {
+    "product-doesnt-exist": "یہ مصنوعات اب موجود نہیں ہے",
+    "please-try-again": "براہ کرم بعد میں دوبارہ کوشش کریں"
+  },
+  "stats": {
+    "title": "میرے اعدادوشمار",
+    "consult-stripe": "اپنے Stripe اعدادوشمار دیکھیں",
+    "consult-stripe-desc": "Stripe ڈیش بورڈ کھولنے اور اپنے فروخت کے اعدادوشمار دیکھنے کے لیے نیچے دیا گیا بٹن دبائیں۔",
+    "open-dashboard": "ڈیش بورڈ کھولیں"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "آپ کس طرح فروخت کرنا چاہتے ہیں؟",
+      "subtitle": "وہ آپشن منتخب کریں جو آپ سے مطابقت رکھتا ہو۔ اگر آپ کو بعد میں تبدیل کرنا ہو تو آپ ہمیشہ سپورٹ سے رابطہ کر سکتے ہیں۔",
+      "vendor-title": "میں ایک کاروبار ہوں",
+      "vendor-subtitle": "بطورِ کاروبار فروخت کریں۔ شناخت اور کاروباری تصدیق درکار ہے۔",
+      "particular-title": "میں ایک نجی فرد ہوں",
+      "particular-subtitle": "اپنی الماری کی چیزیں بیچیں۔ ادائیگیاں وصول کرنے کے لیے صرف ایک IBAN درکار ہے۔"
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "ادائیگی وصول کرنے کے لیے، براہ کرم اپنا بینک اکاؤنٹ شامل کریں",
+      "after-sale-title": "فروخت کے بعد",
+      "after-sale-body": "رقوم محفوظ طریقے سے رکھی جاتی ہیں۔ منتقلی اس وقت شروع ہوتی ہے جب خریدار وصولی کی تصدیق کرتا ہے۔",
+      "transfer-title": "منتقلی کا وقت",
+      "transfer-body": "فروخت کی تصدیق کے 48 سے 72 گھنٹے بعد آپ کی رقم آپ کے بینک اکاؤنٹ میں پہنچ جاتی ہے۔",
+      "privacy-title": "رازداری",
+      "privacy-body": "آپ کا IBAN محفوظ طریقے سے ذخیرہ کیا جاتا ہے اور بعد میں آپ کی اکاؤنٹ ترتیبات سے اپ ڈیٹ کیا جا سکتا ہے۔",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "میں نے پڑھ لیا ہے اور قبول کرتا ہوں ",
+      "tnc-link": "شرائط و ضوابط",
+      "cta-onboarding": "محفوظ کریں اور جاری رکھیں",
+      "cta-edit": "محفوظ کریں",
+      "save-error": "ہم آپ کا IBAN محفوظ نہیں کر سکے۔ براہ کرم دوبارہ کوشش کریں۔"
+    },
+    "settings": {
+      "title": "بینک اکاؤنٹ",
+      "updated-on": "اپ ڈیٹ کیا گیا {date}",
+      "edit-cta": "IBAN میں ترمیم کریں",
+      "add-cta": "IBAN شامل کریں",
+      "empty-state": "فائل میں کوئی بینک اکاؤنٹ نہیں۔ ایک شامل کریں تاکہ ہم آپ کی کمائی منتقل کر سکیں۔"
+    }
+  },
+  "preferences": {
+    "save": "محفوظ کریں",
+    "clothing": {
+      "title": "ملبوسات کی ترجیحات",
+      "subtitle": "وہ زمرہ منتخب کریں جس کی آپ سب سے زیادہ خریداری کرتے ہیں۔ ہم اس کے مطابق آپ کی فیڈ تیار کریں گے۔"
+    },
+    "sizes": {
+      "title": "پسندیدہ سائز"
+    },
+    "brands": {
+      "title": "پسندیدہ برانڈز",
+      "subtitle": "وہ برانڈز منتخب کریں جو آپ کو پسند ہیں۔ آپ جتنے چاہیں منتخب کر سکتے ہیں۔"
+    }
+  },
+  "cart": {
+    "checkout": "چیک آؤٹ",
+    "currency": "AED",
+    "size": "سائز {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} آراء",
+    "rating_na": "N/A",
+    "encrypted_checkout": "خفیہ کردہ چیک آؤٹ",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "ذیلی کل",
+    "shipping": "ترسیل",
+    "shipping_standard": "معیاری",
+    "shipping_standard_city": "معیاری · {}",
+    "buyer_protection": "خریدار کا تحفظ",
+    "buyer_protection_subtitle": "ترسیل نہ ہونے پر مکمل رقم کی واپسی",
+    "summary": "خلاصہ",
+    "delivery": "ترسیل",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "مصنوعات ہٹائیں",
+    "remove_product_message": "اس مصنوعات کو اپنی کارٹ سے ہٹائیں؟",
+    "remove": "ہٹائیں",
+    "cancel": "منسوخ کریں",
+    "cart_empty_title": "کارٹ · 0",
+    "empty_heading": "آپ کی کارٹ خالی ہے",
+    "empty_body": "مصنوعات شامل کرنے کے لیے {} کی اشیاء دیکھیں",
+    "this_seller": "اس بیچنے والے"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "آپ کی خواہشات کی فہرست خالی ہے",
+    "saved-count": "{count} محفوظ شدہ اشیاء"
+  }
+}

@@ -66,60 +66,69 @@ class _FeedTabWidgetState extends State<FeedTabWidget> {
   }
 
   Widget _ready(BuildContext context, FeedReady state) {
-    return CustomScrollView(
-      controller: _controller,
-      slivers: <Widget>[
-        SliverToBoxAdapter(child: _chips(context, state)),
-        if (state.items.isEmpty && state.isLoadingMore)
-          const SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            sliver: _ShimmerSliver(),
-          )
-        else if (state.items.isEmpty)
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 80),
-              child: Center(
-                child: Text(
-                  context.l10N.home_feed_empty,
-                  style: const TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.bodyLarge,
-                    color: DSColor.onSurface45,
+    return RefreshIndicator(
+      color: DSColor.primary,
+      backgroundColor: DSColor.card,
+      onRefresh: () async {
+        final bloc = context.read<FeedBloc>();
+        bloc.add(const FeedRefreshed());
+        await bloc.stream.first;
+      },
+      child: CustomScrollView(
+        controller: _controller,
+        slivers: <Widget>[
+          SliverToBoxAdapter(child: _chips(context, state)),
+          if (state.items.isEmpty && state.isLoadingMore)
+            const SliverPadding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              sliver: _ShimmerSliver(),
+            )
+          else if (state.items.isEmpty)
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 80),
+                child: Center(
+                  child: Text(
+                    context.l10N.home_feed_empty,
+                    style: const TextStyle(
+                      fontFamily: dsFontFamily,
+                      fontSize: DSFontSize.bodyLarge,
+                      color: DSColor.onSurface45,
+                    ),
+                  ),
+                ),
+              ),
+            )
+          else
+            SliverPadding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              sliver: SliverGrid.builder(
+                gridDelegate: _gridDelegate,
+                itemCount: state.items.length,
+                itemBuilder: (BuildContext context, int i) {
+                  final Product p = state.items[i];
+                  return ProductCardWidget(product: p);
+                },
+              ),
+            ),
+          if (state.isLoadingMore && state.items.isNotEmpty)
+            const SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 16),
+                child: Center(
+                  child: SizedBox(
+                    width: 22,
+                    height: 22,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2.5,
+                      color: DSColor.primary,
+                    ),
                   ),
                 ),
               ),
             ),
-          )
-        else
-          SliverPadding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-            sliver: SliverGrid.builder(
-              gridDelegate: _gridDelegate,
-              itemCount: state.items.length,
-              itemBuilder: (BuildContext context, int i) {
-                final Product p = state.items[i];
-                return ProductCardWidget(product: p);
-              },
-            ),
-          ),
-        if (state.isLoadingMore && state.items.isNotEmpty)
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 16),
-              child: Center(
-                child: SizedBox(
-                  width: 22,
-                  height: 22,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2.5,
-                    color: DSColor.primary,
-                  ),
-                ),
-              ),
-            ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 

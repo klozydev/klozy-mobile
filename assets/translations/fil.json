@@ -1,0 +1,1334 @@
+{
+  "app": {
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "Sinusuri ang iyong mga larawan…",
+        "step-identify": "Tinutukoy ang item…",
+        "step-generate": "Binubuo ang pamagat at presyo…"
+      },
+      "photos": {
+        "empty-title": "Magbenta sa ilang segundo",
+        "empty-cta": "Idagdag ang iyong mga larawan",
+        "empty-subtitle": "Magsimula sa larawan — ang AI ang bahala sa pamagat, paglalarawan at presyo.",
+        "grid-title": "Iyong mga larawan",
+        "grid-subtitle": "Magdagdag ng hanggang {max} larawan. Punan ng AI ang iyong listing.",
+        "min-one": "Magdagdag ng kahit 1 larawan para magpatuloy",
+        "continue": "Magpatuloy",
+        "add": "Idagdag",
+        "max-reached": "{max} larawan max",
+        "cover": "Pabalat",
+        "edit": "I-edit"
+      },
+      "capture": {
+        "title": "Magdagdag ng larawan",
+        "camera-title": "Kumuha ng larawan",
+        "camera-subtitle": "Binubuksan ang camera",
+        "gallery-title": "Pumili mula sa gallery",
+        "gallery-subtitle": "Maaaring pumili ng marami"
+      },
+      "entry": {
+        "reel-subtitle": "Magbahagi ng video ng iyong mga damit",
+        "sell-subtitle": "Larawan muna · pinupunan ng AI ang iyong listing"
+      },
+      "recap": {
+        "title": "Iyong listing",
+        "field-title": "Pamagat",
+        "field-title-hint": "Hal. Levi's denim jacket",
+        "field-price": "Presyo",
+        "field-price-hint": "0",
+        "field-description": "Paglalarawan",
+        "field-description-hint": "Ilarawan ang kondisyon, fit, materyal…",
+        "section-details": "Mga detalye ng produkto",
+        "field-category": "Kategorya",
+        "field-subcategory": "Subkategorya",
+        "subcategory-placeholder": "Pumili ng subkategorya",
+        "field-brand": "Brand",
+        "brand-placeholder": "Opsyonal",
+        "field-condition": "Kondisyon",
+        "field-size": "Sukat",
+        "required-hint": "* Mga kinakailangang field",
+        "cta": "Ilagay sa benta"
+      },
+      "subcategory": {
+        "title": "Subkategorya",
+        "choose": "Pumili"
+      },
+      "brand": {
+        "title": "Brand",
+        "search-hint": "Maghanap ng brand"
+      },
+      "success": {
+        "title": "Online na!",
+        "subtitle": "Nakikita na ng mga mamimili ang iyong item.",
+        "see-listing": "Tingnan ang listing",
+        "back-home": "Bumalik sa home"
+      },
+      "ai-badge": "Iminungkahi ng AI",
+      "publish-failed": "Nabigo ang paglilista, pakisubukang muli."
+    },
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": { "title": "I-unblock ang user", "subtitle": "Sigurado ka bang gusto mong i-unblock ang user na ito?" },
+          "title": "Mga na-block na user",
+          "empty": "Walang na-block na user",
+          "unblock": "I-unblock ang user",
+          "success": "Matagumpay na na-unblock ang user"
+        }
+      }
+    },
+    "notifications": "Mga Notification",
+    "notification": {
+      "redirect-error": "May naganap na error habang binubuksan ang notification na ito."
+    },
+    "nothing": "Walang notification",
+    "popup": {
+      "need-connect": {
+        "title": "Kailangan mong naka-connect",
+        "subtitle": "Para magamit ang feature na ito, kailangan mong naka-connect sa isang Klozy account.",
+        "confirm": "Mag-connect",
+        "cancel": "Gumawa ng account"
+      },
+      "finalise-data": {
+        "title": "Tapusin ang iyong profile",
+        "subtitle": "Para makapagbenta ng item, kailangan mong tapusin ang iyong seller profile.",
+        "confirm": "Tapusin",
+        "cancel": "Mamaya na"
+      }
+    },
+    "intro": {
+      "title": "Next-generation na fashion",
+      "subtitle": "Bumili at magbenta ng pre-loved na piraso sa ilang segundo. Secure na bayad, mabilis na shipping, at isang komunidad na mapagkakatiwalaan mo.",
+      "start": "Tara na!"
+    },
+    "duration": {
+      "now": "ngayon"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "Brand",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "Iba pa"
+      },
+      "product-status": {
+        "on-hold": "Naka-hold",
+        "in-progress": "Isinasagawa",
+        "completed": "Tapos na",
+        "in-delivery": "Padeliver na",
+        "waiting-for-expedition": "Hinihintay ang shipment",
+        "pending-acceptance": "Hinihintay na tanggapin",
+        "delivery-completed": "Tapos na ang delivery",
+        "refused": "Tinanggihan",
+        "canceled": "Na-cancel",
+        "return-requested": "Hiniling na isauli",
+        "return-accepted": "Tinanggap ang pagsauli",
+        "return-refused": "Tinanggihan ang pagsauli",
+        "return-completed": "Tapos na ang pagsauli"
+      },
+      "condition": {
+        "title": "Kondisyon",
+        "new": "Bago",
+        "very-good": "Napakaganda",
+        "good": "Maganda",
+        "normal": "Karaniwan",
+        "worn": "Gamit na"
+      },
+      "sort-by": {
+        "lower-price": "Pataas na presyo",
+        "higher-price": "Pababang presyo",
+        "latest": "Pinakabago"
+      },
+      "product-category": {
+        "title": "Kategorya",
+        "women": "Babae",
+        "men": "Lalaki",
+        "kids": "Bata"
+      },
+      "product-sub-category": {
+        "title": "Sub-kategorya",
+        "tops": "Pang-itaas",
+        "accessories": "Mga accessory",
+        "pants": "Pantalon",
+        "jackets": "Jacket",
+        "dresses": "Bestida",
+        "bottoms": "Pang-ibaba",
+        "shoes": "Sapatos",
+        "underwear": "Underwear"
+      },
+      "accessory-type": {
+        "title": "Uri ng accessory",
+        "glasses": "Salamin",
+        "headwear": "Pang-ulo",
+        "scarf": "Scarf",
+        "belt": "Sinturon",
+        "jewelry": "Alahas",
+        "watch": "Relo",
+        "bag": "Bag",
+        "wallet": "Pitaka",
+        "sunglasses": "Sunglasses",
+        "tie": "Kurbata",
+        "gloves": "Guwantes",
+        "other": "Iba pa"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "0-3 buwan",
+        "months_3_6": "3-6 buwan",
+        "months_6_12": "6-12 buwan",
+        "months_12_18": "12-18 buwan",
+        "months_18_24": "18-24 buwan",
+        "years_2_3": "2-3 taon",
+        "years_3_4": "3-4 taon",
+        "years_4_5": "4-5 taon",
+        "years_5_6": "5-6 taon",
+        "years_6_7": "6-7 taon",
+        "years_7_8": "7-8 taon",
+        "years_8_10": "8-10 taon",
+        "years_10_12": "10-12 taon",
+        "years_12_14": "12-14 taon"
+      }
+    },
+    "profile-completion": {
+      "title": "Kumpletuhin ang iyong profile",
+      "edit-title": "I-edit ang profile",
+      "favorite-article-sizes-title": "Mga paboritong size ng item",
+      "favorite-article-sizes-subtitle": "Piliin ang iyong US at EU na size.",
+      "preferred-brand-title": "Mga paboritong brand",
+      "preferred-brand-subtitle": "Pwede kang pumili ng maraming brand.",
+      "lastname": "Apelyido",
+      "lastname-hint": "Ilagay ang iyong apelyido",
+      "lastname-required": "Kailangan ang apelyido",
+      "firstname": "Pangalan",
+      "firstname-hint": "Ilagay ang iyong pangalan",
+      "firstname-required": "Kailangan ang pangalan",
+      "address": "Address",
+      "address-for-delivery": "Address para sa delivery",
+      "address-for-delivery-hint": "Maghanap ng address",
+      "address-for-delivery-error": "Pumili ng wastong address",
+      "description": "Deskripsyon",
+      "description-hint": "Ikwento mo ang tungkol sa iyo",
+      "profile-picture": "Profile picture",
+      "complete-registration": "Kumpletuhin ang rehistro",
+      "submit": "Kumpletuhin ang rehistro",
+      "exit-signup": {
+        "title": "Kanselahin ang rehistro?",
+        "subtitle": "Hindi pa kumpleto ang iyong profile. Kung aalis ka ngayon, kailangan mong magsimula ulit."
+      },
+      "eu-sizes": "EU na size"
+    },
+    "order-summary": {
+      "title": "Buod",
+      "x-product-purchased": "Mga produkto mula kay {} na bibilhin mo",
+      "no-products-in-cart": "Walang produkto sa iyong cart",
+      "buyer-protection": "Proteksyon sa mamimili",
+      "total": "Kabuuan",
+      "shipping": "Shipping",
+      "home-delivery": "Home delivery",
+      "choose-delivery-method": "Pumili ng paraan ng delivery",
+      "choose": "Pumili",
+      "change-delivery-address": "Palitan ang iyong delivery address",
+      "remove-product": "Alisin ang produkto",
+      "remove-product-message": "Sigurado ka bang gusto mong alisin ang produktong ito sa iyong bucket list?",
+      "remove-product-confirm": "Alisin",
+      "remove-product-cancel": "Kanselahin",
+      "order-placed": "Na-place na ang order"
+    },
+    "order-details": {
+      "title": "Order",
+      "product-purchased": "Nabiling produkto",
+      "product-purchased-from": "Produktong binili mula kay {}",
+      "shipping-to": "Ipapadala kay",
+      "total-paid": "Kabuuang binayad",
+      "cancel": "Kanselahin ang order",
+      "confirm-receipt": "Kumpirmahin ang pagtanggap",
+      "report-a-problem": "Mag-report ng problema",
+      "leave-a-review": "Mag-iwan ng review",
+      "review-already-sent": "Nag-iwan ka na ng review para sa order na ito.",
+      "refunded": "Na-refund",
+      "download-my-return-voucher": "I-download ang aking return voucher",
+      "was-delivered-to": "Naipadala kay",
+      "was-to-be-delivered": "Dapat sanang ipadala",
+      "cancel-order": "Kanselahin ang order",
+      "tracking": "Tracking number",
+      "track": "I-track",
+      "open-shipping-label": "Buksan ang label",
+      "product-is-conform": "Ang aking item ay tulad ng nasa deskripsyon",
+      "product-confirmed": "Nakumpirma ang produkto! Ililipat ang bayad sa nagbebenta.",
+      "request-a-return": "Humiling ng pagsauli",
+      "return-requested": "Naipadala ang kahilingan sa pagsauli sa nagbebenta",
+      "return-pending": "Hinihintay ng iyong kahilingan sa pagsauli ang pag-apruba ng nagbebenta",
+      "return-request-received": "May mamimiling humiling ng pagsauli para sa order na ito",
+      "accept": "Tanggapin",
+      "refuse": "Tanggihan",
+      "return-accepted": "Tinanggap ang pagsauli, pinoproseso na ang refund",
+      "return-refused": "Tinanggihan ang pagsauli",
+      "return-accepted-message": "Tinanggap ang pagsauli. I-download ang iyong return voucher at ipadala pabalik ang produkto.",
+      "return-refused-message": "Tinanggihan ng nagbebenta ang pagsauli. Nailipat na ang bayad.",
+      "return-in-transit": "Hinihintay na isauli ng mamimili ang produkto.",
+      "return-completed-message": "Natanggap ang pagsauli. Naproseso na ang refund."
+    },
+    "report": {
+      "cancel": "Kanselahin",
+      "report": "Mag-report ng problema",
+      "problem": "May problema ka ba? I-report mo na ngayon.",
+      "reason": "Dahilan ng iyong problema",
+      "reason-cancel": "Dahilan ng pagkansela",
+      "text-area": "Magkwento pa",
+      "file-picker": "Magdagdag ng file",
+      "send-report": "Ipadala ang report",
+      "confirm-cancel": "Kumpirmahin ang pagkansela"
+    },
+    "report_success": {
+      "title": "Naipadala",
+      "subtitle": "Naipadala na ang iyong report! Aasikasuhin ito sa lalong madaling panahon.",
+      "cancel": "Naipadala na ang iyong kahilingan sa pagkansela! Aasikasuhin ito sa lalong madaling panahon.",
+      "buttonText": "Tapusin"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "Error",
+        "content": "May naganap na error, pakisubukan ulit mamaya."
+      }
+    },
+    "preview-reel": {
+      "retake": "Ulitin",
+      "continue": "Magpatuloy"
+    },
+    "create-reel": {
+      "title": "Gumawa ng reel",
+      "subtitle": "Sa paggawa ng reel, pwede kang magdagdag ng isa o higit pang produkto mula sa iyong koleksyon para ibenta at i-promote ang mga ito",
+      "add-product": "Magdagdag ng produkto",
+      "create-product": "Gumawa ng produkto",
+      "my-added-products": "Mga naidagdag kong produkto",
+      "my-products-to-sales": "Mga produkto kong ibinebenta",
+      "add": "Idagdag",
+      "post": "I-post ang reel",
+      "update": "I-update ang reel",
+      "success-title": "Perpekto!",
+      "success-subtitle": "Online na ngayon ang iyong video.",
+      "error-title": "May kulang",
+      "error-subtitle": "Magdagdag ng kahit isang produkto sa iyong reel."
+    },
+    "put-a-product-on-sale": {
+      "title": "Magbenta ng produkto",
+      "step": "Hakbang",
+      "title-step2": "Higit pa tungkol sa iyong produkto",
+      "title-step3": "Magdagdag ng larawan",
+      "put-on-sale": "Ibenta",
+      "success-title": "Perpekto!",
+      "success-subtitle": "Ibinebenta na ngayon ang iyong item.",
+      "edit-success-title": "Perpekto!",
+      "edit-success-subtitle": "Ibinebenta na ngayon ang iyong item.",
+      "error-title": "Nabigo ang upload",
+      "error-subtitle": "May nangyaring mali habang sine-save ang iyong produkto. Pakisubukan ulit.",
+      "forms": {
+        "title": "Pamagat",
+        "title-hint": "Hal. Asul na floating na shirt",
+        "price": "Presyo",
+        "price-hint": "0",
+        "price-max-error": "Ang pinakamataas na presyo ay {}.",
+        "description": "Deskripsyon",
+        "description-hint": "Maglagay ng deskripsyon para sa iyong produkto",
+        "size": "Size",
+        "brand": "Brand",
+        "condition-error-title": "Pumili ng kondisyon",
+        "condition-error-subtitle": "Pumili ng kondisyon para sa iyong produkto",
+        "image-error-title": "Pumili ng kahit isang larawan",
+        "image-error-subtitle": "Pumili ng kahit isang larawan para sa iyong produkto"
+      }
+    },
+    "home": {
+      "feed": "Feed",
+      "wishlist": "Wishlist",
+      "reels": "Reels",
+      "view-products": "Tingnan ang mga produkto",
+      "hide-products": "Itago ang mga produkto"
+    },
+    "product": {
+      "buy": "Bilhin",
+      "already-sold": "Nabenta na",
+      "make-an-offer": "Mag-alok",
+      "send-offer": "Ipadala ang alok",
+      "delete": "Burahin",
+      "edit": "I-edit",
+      "success-title": "Naipadala ang alok!",
+      "success-subtitle": "Matagumpay na naipadala ang iyong alok.",
+      "popup-delete-title": "Burahin ang produkto",
+      "popup-delete-subtitle": "Sigurado ka bang gusto mong burahin ang produktong ito?",
+      "popup-delete-confirm": "Burahin",
+      "popup-delete-cancel": "Kanselahin",
+      "delete-success-title": "Nabura ang produkto!",
+      "delete-success-subtitle": "Matagumpay na nabura ang iyong produkto.",
+      "forms": {
+        "actual-price": "Kasalukuyang presyo",
+        "your-new-price": "Ang iyong bagong presyo"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "Burahin ang reel",
+      "popup-delete-subtitle": "Sigurado ka bang gusto mong burahin ang reel na ito?",
+      "popup-delete-confirm": "Burahin",
+      "popup-delete-cancel": "Kanselahin",
+      "delete-success-title": "Nabura ang reel!",
+      "delete-success-subtitle": "Matagumpay na nabura ang iyong reel.",
+      "feed-error": "Hindi ma-load ang mga reel. Pakisubukan ulit mamaya.",
+      "report": "I-report"
+    },
+    "profile": {
+      "buyer": "Mamimili",
+      "my-order": "Mga order ko",
+      "seller": "Nagbebenta",
+      "my-sales": "Mga benta ko",
+      "products": "Mga produkto",
+      "reels": "Reels",
+      "reviews": "Mga review",
+      "followers": "Followers",
+      "following": "Sinusundan",
+      "follow": "Sundan",
+      "unfollow": "I-unfollow",
+      "edit": "I-edit ang profile",
+      "cant-follow-blocked": "Hindi mo masusundan ang user na ito."
+    },
+    "search": {
+      "popular-items": "Mga sikat na item",
+      "categories": "Mga kategorya",
+      "title": "Maghanap",
+      "filter-search": "I-filter ang paghahanap",
+      "sort-by": "Pagsunud-sunurin ayon sa",
+      "in": "Sa",
+      "refine-the-category": "Pinuhin ang kategorya",
+      "apply": "I-apply",
+      "reset": "I-reset",
+      "results": "Mga resulta"
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "Binubuksan ang Stripe."
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "Ang item ay hindi tulad ng nasa deskripsyon",
+        "motif2": "Peke o ipinagbabawal na item",
+        "motif3": "Problema sa nagbebenta",
+        "motif4": "Problema sa delivery",
+        "motif5": "Problema sa bayad o order",
+        "motif6": "Iba pa"
+      },
+      "filePicker": {
+        "title": "Magdagdag ng file"
+      },
+      "description": {
+        "title": "Magkwento pa",
+        "title1": "Pakispecify"
+      },
+      "motif1": {
+        "precisez1": "Maling size / hindi tama ang fit",
+        "precisez2": "Iba ang kondisyon sa nakalista",
+        "precisez3": "May kulang na parte / accessory",
+        "precisez4": "Sira ang item"
+      },
+      "motif2": {
+        "precisez1": "Pinaghihinalaang pekeng item",
+        "precisez2": "Ipinagbabawal o hindi ligtas na item",
+        "precisez3": "Nakakalinlang o mapanlokong listing",
+        "precisez4": "Iba pang isyu sa patakaran"
+      },
+      "motif3": {
+        "precisez1": "Hindi tumutugon ang nagbebenta",
+        "precisez2": "Hindi naaangkop na pag-uugali o panghaharass",
+        "precisez3": "Pinapabayad sa labas ng app",
+        "precisez4": "Iba pang problema sa nagbebenta"
+      },
+      "motif4": {
+        "precisez1": "Hindi nag-a-update ang tracking",
+        "precisez2": "Hindi natanggap ang package",
+        "precisez3": "Sira nang dumating ang package",
+        "precisez4": "Huli ang delivery"
+      },
+      "motif5": {
+        "precisez1": "Maling halaga ang siningil",
+        "precisez2": "Problema sa refund",
+        "precisez3": "Problema sa order (kinansela / nadoble)",
+        "precisez4": "Iba pang problema sa bayad o order"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "Bagong mensahe",
+          "body": "May natanggap kang bagong mensahe."
+        }
+      },
+      "user-deleted": "Hindi kilalang user",
+      "online-today-at": "Online ngayong araw nang {}",
+      "online-yesterday-at": "Online kahapon nang {}",
+      "online-at": "Online nang {}",
+      "change-name-confirm-button": "Tapusin",
+      "call-audio": "Audio call",
+      "call-video": "Video call",
+      "call-start": "Tumatawag...",
+      "video-call-end": "Tapos na ang tawag",
+      "new-group": "Pangalan ng grupo",
+      "cancel-audio": "Kanselahin ang audio",
+      "preview": {
+        "media": {
+          "zero": "Walang elemento",
+          "one": "Nagpadala ng 1 media",
+          "other": "Nagpadala ng {} media"
+        },
+        "audio": "Audio",
+        "reply-audio": "Tugong audio"
+      },
+      "event": {
+        "report-and-block": "I-report at i-block",
+        "delete-tchat": "Burahin ang tchat"
+      },
+      "status": {
+        "online": "Online",
+        "online-today-at": "Online ngayong araw nang {time}",
+        "online-yesterday-at": "Online kahapon nang {time}",
+        "offline": "Offline",
+        "multiple-online": "Maraming online",
+        "typing": "Nagta-type",
+        "audioRec": "Nagre-record ng audio"
+      },
+      "document": {
+        "camera": "Camera",
+        "gallery": "Gallery",
+        "document": "Dokumento",
+        "localisation": "Lokasyon",
+        "contact": "Contact",
+        "sondage": "Poll"
+      },
+      "list": {
+        "title": "Mga usapan",
+        "title-face": "Pagsasalin",
+        "conversations": "Mga usapan",
+        "no-tchat": "Walang tchat",
+        "no-tchat-content": "Wala ka pang tchat.",
+        "group-default-title": "Bagong grupo",
+        "oto-default-title": "Bagong tchat",
+        "new-conversation": "Bagong usapan"
+      },
+      "message": {
+        "no-message": "Walang mensahe",
+        "no-message-body": "Wala ka pang mensahe.",
+        "input-hint": "Mensahe..",
+        "no-media": "Walang media",
+        "date": "{weekday} {day} {month}",
+        "today": "Ngayon",
+        "yesterday": "Kahapon",
+        "join-group": "Sumali si {name} sa grupo",
+        "leave-group": "Umalis si {name} sa grupo",
+        "add-to-group": "Idinagdag ni {name} si {user} sa grupo",
+        "remove-from-group": "Inalis ni {name} si {user} sa grupo",
+        "change-group-title": "Pinalitan ni {name} ang pangalan ng grupo sa {title}",
+        "change-group-avatar": "Pinalitan ni {name} ang avatar ng grupo",
+        "blocked-by-you": "Na-block mo ang contact na ito.\nHindi ka na makapagpadala ng mensahe sa contact na ito.",
+        "blocked-by-other": "Na-block ka ng contact na ito.\nHindi ka na makapagpadala ng mensahe sa contact na ito.",
+        "cant-send-message-blocked": "Hindi ka makakapagpadala ng mensahe sa contact na ito.",
+        "order-requested": "Nag-alok sa mamimili para sa «{product_name}»",
+        "order-accepted": "Ang iyong order n°{id} ay tinanggap ng nagbebenta",
+        "order-rejected": "Ang iyong order n°{id} ay tinanggihan ng nagbebenta",
+        "order-purchased": "May order na nabili",
+        "view-order-details": "Tingnan ang detalye ng order"
+      }
+    },
+    "commentary": {
+      "add-note-title": "I-rate ang nagbebenta",
+      "add_note_title": "I-rate ang nagbebenta",
+      "delete": "Burahin",
+      "report": "I-report",
+      "add-note": {
+        "validate": "Kumpirmahin",
+        "field": {
+          "note-title": "I-rate ang nagbebentang ito",
+          "commentary-title": "Komento",
+          "placeholder": "Magsulat ng komento",
+          "commentary-hint": "Magsulat ng komento..",
+          "commentary_hint": "Magsulat ng komento.."
+        },
+        "title": "I-rate ang nagbebentang ito",
+        "comment": "Komento",
+        "placeholder": "Magsulat ng komento",
+        "commentary-hint": "Magsulat ng komento.."
+      },
+      "add_note": {
+        "validate": "Kumpirmahin",
+        "field": {
+          "title": "I-rate ang nagbebentang ito",
+          "comment": "Komento",
+          "placeholder": "Magsulat ng komento",
+          "commentary-hint": "Magsulat ng komento..",
+          "commentary_hint": "Magsulat ng komento.."
+        },
+        "title": "I-rate ang nagbebentang ito",
+        "comment": "Komento",
+        "placeholder": "Magsulat ng komento",
+        "commentary-hint": "Magsulat ng komento..",
+        "commentary_hint": "Magsulat ng komento.."
+      },
+      "sure-delete-commentary": {
+        "title": "Burahin ang komento",
+        "subtitle": "Sigurado ka bang gusto mong burahin ang komentong ito?"
+      },
+      "sure_delete_commentary": {
+        "title": "Burahin ang komento",
+        "subtitle": "Sigurado ka bang gusto mong burahin ang komentong ito?"
+      }
+    },
+    "validator": {
+      "must-have-value": "Kailangan ang field na ito",
+      "email-invalid": "Maglagay ng wastong email",
+      "password-invalid-length": "Hindi bababa sa 6 na karakter",
+      "password-invalid-maj": "Hindi bababa sa 1 malaking letra",
+      "password-invalid-min": "Hindi bababa sa 1 maliit na letra",
+      "password-invalid-number": "Hindi bababa sa 1 numero",
+      "password-invalid-special-char": "Hindi bababa sa 1 espesyal na karakter (&?!@#)",
+      "password-not-match": "Hindi tugma ang mga password",
+      "number-invalid": "Maglagay ng wastong numero",
+      "number-out-of-range": "Maglagay ng numero sa pagitan ng {min} at {max}",
+      "number-out-of-min": "Maglagay ng numerong mas malaki sa {min}",
+      "number-out-of-max": "Maglagay ng numerong mas maliit sa {max}",
+      "date-invalid": "Maglagay ng wastong petsa",
+      "date-out-of-range": "Maglagay ng petsa sa pagitan ng {min} at {max}",
+      "date-out-of-min": "Maglagay ng petsang mas huli sa {min}",
+      "date-out-of-max": "Maglagay ng petsang mas maaga sa {max}",
+      "alpha-invalid": "Maglagay ng wastong halaga",
+      "code-invalid": "Maglagay ng wastong code"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "Pumili ng larawan"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "Walang larawan",
+        "one": "1 larawan",
+        "other": "{} larawan"
+      },
+      "write-message": "Magsulat ng mensahe..",
+      "camera": {
+        "shootingTips": "Kumuha ng larawan",
+        "confirm": "Kumpirmahin",
+        "saving": "Sine-save...",
+        "shootingWithRecordingTips": "Pindutin nang matagal para mag-film."
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "Maghanap ng bansa",
+          "error_message": "Maglagay ng wastong numero ng telepono"
+        },
+        "input": {
+          "choose-media": "Pindutin para pumili ng larawan",
+          "choose-multiple-file": "Pindutin para pumili ng maraming file",
+          "choose-image": "Pindutin para pumili ng larawan",
+          "choose-file": "Pindutin para pumili ng file",
+          "press-to-modify": "Pindutin para baguhin ang file"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "Email",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "Email",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "Password",
+          "hint": "Password",
+          "security-action": "Anong gagawin?"
+        },
+        "actual-password": {
+          "title": "Kasalukuyang password",
+          "hint": "Kasalukuyang password"
+        },
+        "new-password": {
+          "title": "Bagong password",
+          "hint": "Bagong password"
+        },
+        "repeat-password": {
+          "title": "Kumpirmahin ang password",
+          "hint": "Kumpirmahin ang password"
+        },
+        "new-repeat-password": {
+          "title": "Kumpirmahin ang bagong password",
+          "hint": "Kumpirmahin ang bagong password"
+        },
+        "phone": {
+          "title": "Numero ng telepono",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "Code na natanggap sa SMS",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "TextArea",
+        "hint": "Magsulat dito.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "Matagumpay na naidagdag ang iyong numero ng telepono.",
+      "invalid-email": "Walang user na nahanap sa ibinigay na impormasyon.",
+      "user-not-found": "Walang user na nahanap sa ibinigay na impormasyon.",
+      "user-disabled": "Na-disable ng administrator ang iyong account.",
+      "wrong-password": "Mali ang password.",
+      "email-already-in-use": "Ginagamit na ang email address na ito.",
+      "phone-already-in-use": "Ginagamit na ang numero ng teleponong ito.",
+      "weak-password": "Masyadong mahina ang password.",
+      "account-exists-with-different-credential": "May account nang umiiral sa email address na ito.",
+      "invalid-credential": "Walang user na nahanap sa ibinigay na impormasyon.",
+      "invalid-verification-code": "Hindi wasto ang verification code.",
+      "invalid-verification-id": "Hindi wasto ang verification ID.",
+      "requires-recent-login": "Kailangan mong mag-reconnect para magawa ang aksyong ito.",
+      "invalid-phone-number": "Hindi wasto ang numero ng telepono.",
+      "error-phone-not-exist": "Hindi umiiral ang numero ng teleponong ito.",
+      "code-invalid": "Maglagay ng wastong code",
+      "code-is-required": "Ilagay ang code na natanggap sa SMS",
+      "email-must-be-verified": "Kailangan mong i-verify ang iyong email address para magpatuloy.",
+      "tiers-auth-valid-email": "Kailangang may wastong email ang iyong third-party na account para magpatuloy.",
+      "send-reset-password-email": "Naipadala na ang email para i-reset ang password sa ibinigay na address.",
+      "error-internet": "May naganap na problema sa koneksyon. Pakitsek ang iyong internet connection.",
+      "error-default": "May naganap na error, pakisubukan ulit.",
+      "must-accept-cgu": "Kailangan mong tanggapin ang mga tuntunin ng paggamit para magpatuloy.",
+      "password-security": "Format ng password",
+      "password-security-length": "Hindi bababa sa 6 na karakter",
+      "password-security-maj": "Naglalaman ng kahit 1 malaking letra",
+      "password-security-min": "Naglalaman ng kahit 1 maliit na letra",
+      "password-security-number": "Naglalaman ng kahit 1 numero",
+      "password-security-special": "Naglalaman ng kahit 1 espesyal na karakter (&?!@#)",
+      "success-change-password": "Matagumpay na nabago ang iyong password.",
+      "phone-update-success": "Napalitan na ang iyong numero ng telepono!",
+      "cant-be-same-password": "Ang bagong password ay dapat iba sa luma.",
+      "cant-be-same-email": "Ang bagong email ay dapat iba sa luma.",
+      "cant-be-same-phone": "Ang bagong numero ng telepono ay dapat iba sa luma.",
+      "code-is-expired": "Nag-expire na ang verification code.",
+      "code-sent": "May verification code na naipadala sa iyo sa SMS.",
+      "too-many-requests": "Masyadong maraming pagsubok mag-login. Pakisubukan ulit mamaya."
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "Mag-sign in",
+        "already-have-account": "May account ka na ba?",
+        "login-title": "Mag-connect sa iyong account o gumawa ng bago.",
+        "login-phone-title": "Mag-connect sa iyong account",
+        "verify-phone-title": "Ilagay ang code na natanggap sa SMS para mag-connect",
+        "verify-phone-code-title": "I-validate ang iyong numero ng telepono",
+        "code-expire-in": "Mag-e-expire ang code sa loob ng {time} minuto",
+        "no-code": "Hindi natanggap?",
+        "resend-code": "Ipadala ulit",
+        "forgot-password": "Nakalimutan ang password?",
+        "reset-password": "I-reset ang password",
+        "no-account": "Walang account?",
+        "create-account": "Gumawa na ngayon",
+        "login-with-phone": "Mag-connect gamit ang telepono",
+        "login-with-email": "Mag-connect gamit ang email",
+        "or-connect-with": "o mag-connect gamit ang",
+        "or-signup-with": "o mag-sign up gamit ang",
+        "verify-email": "I-verify ang iyong email",
+        "verify-email-subtitle": "May natanggap kang email para i-reset ang iyong password.",
+        "create-account-verify-email": "I-verify ang iyong email",
+        "create-account-title": "Gumawa ng account",
+        "create-account-verify-email-subtitle": "May ipinadalang email verification sa address",
+        "reset-password-modal": {
+          "title": "I-reset ang password",
+          "subtitle": "Ilagay ang email address na nauugnay sa iyong account. Magpapadala kami ng reset email sa address na iyon."
+        },
+        "tiers-signin": {
+          "get-password-title": "Ilagay ang iyong password",
+          "get-password-subtitle": "May nahanap kaming account sa email address na ito, pakilagay ang iyong password para mag-connect."
+        }
+      },
+      "profile": {
+        "delete-success": "Matagumpay na nabura ang iyong account.\nSa muli",
+        "logout": "Mag-logout",
+        "delete-account": "Burahin ang aking profile",
+        "delete-my-account": "Burahin ang aking account",
+        "delete-my-account-subtitle": "Gusto mo ba talagang burahin ang iyong account?",
+        "logout-success": "Matagumpay kang naka-logout.\nSa muli"
+      },
+      "new-cgu-must-be-accepted": "Kailangan mong tanggapin ang mga bagong tuntunin ng paggamit para magpatuloy."
+    },
+    "onboarding": {
+      "button_next": "Susunod",
+      "button_start": "Tapusin",
+      "skip": "Laktawan"
+    },
+    "permission": {
+      "notification": {
+        "title": "Push Notifications",
+        "redirect-to-settings": "Gusto mo bang i-activate ang aming Push notification service? Makakatulong ito para magamit nang husto ang aming application.",
+        "button": "I-activate ang notifications"
+      },
+      "camera": {
+        "title": "Camera",
+        "redirect-to-settings": "Para magamit ang feature na ito, kailangan mong tanggapin ang permiso sa camera.",
+        "button": "I-activate ang camera"
+      },
+      "microphone": {
+        "title": "Mikropono",
+        "redirect-to-settings": "Para magamit ang feature na ito, kailangan mong tanggapin ang permiso sa mikropono.",
+        "button": "I-activate ang mikropono"
+      },
+      "accessMediaLocation": {
+        "title": "Access sa lokasyon ng media",
+        "redirect-to-settings": "Para magamit ang feature na ito, kailangan mong tanggapin ang permiso sa access sa lokasyon ng media.",
+        "button": "I-activate ang access sa lokasyon ng media"
+      },
+      "mediaLibrary": {
+        "title": "Media library",
+        "redirect-to-settings": " Para magamit ang feature na ito, kailangan mong tanggapin ang permiso sa access sa media library.",
+        "button": "I-activate ang access sa media library"
+      },
+      "photos": {
+        "title": "Mga larawan",
+        "redirect-to-settings": "Para magamit ang feature na ito, kailangan mong tanggapin ang permiso sa access sa mga larawan.",
+        "button": "I-activate ang access sa mga larawan"
+      },
+      "storage": {
+        "title": "Storage",
+        "redirect-to-settings": "Para magamit ang feature na ito, kailangan mong tanggapin ang permiso sa access sa storage.",
+        "button": "I-activate ang access sa storage"
+      },
+      "mic": {
+        "redirect-to-settings": "Pakipayagan ang mikropono sa settings ng iyong telepono.",
+        "title": "Mikropono",
+        "button": "Buksan ang settings"
+      },
+      "notif-push": {
+        "title": "Push Notifications",
+        "desc": "Gusto mo bang i-activate ang aming Push notification service? Makakatulong ito para magamit nang husto ang aming application.",
+        "button": "I-activate ang notifications"
+      },
+      "location": {
+        "title": "Lokasyon",
+        "desc": "Para magamit nang husto ang aming mobile app, kailangan mong tanggapin ang lokasyon.",
+        "button": "Magpatuloy",
+        "redirect-to-settings": "Pakipayagan ang lokasyon sa settings ng iyong telepono."
+      },
+      "background-location": {
+        "title": "Background na lokasyon",
+        "desc": "Gusto mo bang i-activate ang aming background location service? Mahalaga ito sa paggana ng application.",
+        "button": "I-activate ang background na lokasyon"
+      },
+      "skip": "Laktawan"
+    },
+    "image": {
+      "from-gallery": "Gallery",
+      "from-camera": "Camera"
+    },
+    "duration": {
+      "now": "Ngayon",
+      "days-ago": "{} araw na ang nakalipas",
+      "x-days": "{} araw na ang nakalipas",
+      "hours-ago": "{} oras na ang nakalipas",
+      "minutes-ago": "{} minuto na ang nakalipas",
+      "seconds-ago": "{} segundo na ang nakalipas",
+      "months-ago": "{} buwan na ang nakalipas",
+      "years-ago": "{} taon na ang nakalipas",
+      "moment-ago": "Kanina lang"
+    },
+    "settings": {
+      "edited-by": "Inedit ni",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "Baguhin",
+        "personnal-data": "Aking account",
+        "settings": "Settings",
+        "other": "Iba pa",
+        "link": "Mga link",
+        "social": "Social network",
+        "security": "Seguridad"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "Mga na-block na user",
+          "subtitle": "Listahan ng mga na-block na user"
+        },
+        "blocked-users": {
+          "unblock": "I-unblock ang user",
+          "block": "I-block ang user",
+          "unblock-success": "Matagumpay na na-unblock ang user",
+          "title": "Mga na-block na user",
+          "subtitle": "Listahan ng mga na-block na user"
+        },
+        "change-personnal-content": {
+          "title": "Personal na impormasyon",
+          "subtitle": "Apelyido, pangalan, deskripsyon"
+        },
+        "clothing-preference": {
+          "title": "Mga gusto sa damit",
+          "subtitle": "I-personalize"
+        },
+        "preferred-article-size": {
+          "title": "Mga paboritong size ng item",
+          "subtitle": "Pamahalaan"
+        },
+        "preferred-brand": {
+          "title": "Mga paboritong brand",
+          "subtitle": "Pamahalaan"
+        },
+        "security": {
+          "title": "Seguridad",
+          "subtitle": "Password, telepono, email..."
+        },
+        "payment": {
+          "title": "Mga paraan ng pagbabayad",
+          "subtitle": "Credit card / Apple Pay",
+          "credit-card": "Credit card",
+          "bank-details": "Bank account",
+          "bank-details-empty": "Hindi naka-configure",
+          "handle-with-stripe": "Asikasuhin gamit ang Stripe"
+        },
+        "phone-number": {
+          "title": "Numero ng telepono"
+        },
+        "change-email": {
+          "title": "Email address"
+        },
+        "change-password": {
+          "title": "Password",
+          "subtitle": "Huling binago: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "Push notifications"
+        },
+        "email-notif": {
+          "title": "Email notifications"
+        },
+        "help": {
+          "title": "Tulong",
+          "subtitle": "Makipag-ugnayan sa amin sa email"
+        },
+        "share": {
+          "title": "I-share ang app",
+          "subtitle": "Suportahan kami sa pag-share ng app"
+        },
+        "link": {
+          "privacy-policy": "Privacy policy",
+          "legal-mention": "Legal mention",
+          "legal-notice": "Legal notice",
+          "cgvu": "Mga kondisyon ng pagbebenta at paggamit",
+          "about": "Tungkol sa"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "Network error 😕",
+      "subtitle": "Walang nadetektang internet connection. Pakitsek ang iyong network connection.",
+      "button": "I-refresh"
+    },
+    "research": {
+      "hint": "Maghanap ng item...",
+      "no-item-title": "Walang nahanap",
+      "no-item-content": "Walang produktong nahanap para sa paghahanap na ito"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "Enero",
+      "2": "Pebrero",
+      "3": "Marso",
+      "4": "Abril",
+      "5": "Mayo",
+      "6": "Hunyo",
+      "7": "Hulyo",
+      "8": "Agosto",
+      "9": "Setyembre",
+      "10": "Oktubre",
+      "11": "Nobyembre",
+      "12": "Disyembre"
+    },
+    "day-by-id": {
+      "1": "Lunes",
+      "2": "Martes",
+      "3": "Miyerkules",
+      "4": "Huwebes",
+      "5": "Biyernes",
+      "6": "Sabado",
+      "7": "Linggo"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "Lu",
+      "tu": "Ma",
+      "we": "Mi",
+      "th": "Hu",
+      "fr": "Bi",
+      "sa": "Sa",
+      "su": "Li"
+    },
+    "month": {
+      "january": "Enero",
+      "february": "Pebrero",
+      "march": "Marso",
+      "april": "Abril",
+      "may": "Mayo",
+      "june": "Hunyo",
+      "july": "Hulyo",
+      "august": "Agosto",
+      "september": "Setyembre",
+      "october": "Oktubre",
+      "november": "Nobyembre",
+      "december": "Disyembre"
+    },
+    "event": {
+      "cancel": "Kanselahin",
+      "validate": "Kumpirmahin"
+    },
+    "range": {
+      "no_date": "Walang petsa"
+    }
+  },
+  "utils": {
+    "done": "Tapos na",
+    "unlock": "I-unblock",
+    "mandatory": "Kinakailangan",
+    "next": "Susunod",
+    "number_x": "n°{}",
+    "mandatory-fields": "* Ang mga markadong field ay kinakailangan",
+    "submit": "Isumite",
+    "choose": "Pumili",
+    "validate-and-modify": "Kumpirmahin at baguhin",
+    "modify": "Baguhin",
+    "by-default": "Bilang default",
+    "deactivate": "I-deactivate",
+    "activate": "I-activate",
+    "loading": "Naglo-load..",
+    "close": "Isara",
+    "cancel": "Kanselahin",
+    "continue": "Magpatuloy",
+    "connexion": "Koneksyon",
+    "validate": "Kumpirmahin",
+    "success": "Tagumpay",
+    "yes": "Oo",
+    "no": "Hindi",
+    "error": "Error",
+    "reinit": "I-reset",
+    "cgvu": "CGVU",
+    "validate-and-continue": "Kumpirmahin at magpatuloy",
+    "confidentiality-policy": "Patakaran sa pagkapribado",
+    "cgvu-and-confidentiality": "CGVU at patakaran sa pagkapribado",
+    "accept-cgvu-and-confidentiality": "Tinatanggap ko ang patakaran sa pagkapribado at ang mga tuntunin at kondisyon ng pagbebenta at paggamit.",
+    "what-do-you-want-to-do": "Ano ang gusto mong gawin?",
+    "error-default": "May naganap na error, pakisubukan ulit.",
+    "optional": "Opsyonal",
+    "save": "I-save",
+    "accept": "Tanggapin",
+    "refuse": "Tanggihan",
+    "edit": "I-edit",
+    "delete": "Burahin",
+    "size": "Size",
+    "dirhams": "Dirhams",
+    "aed": "AED",
+    "followers": "Followers",
+    "following": "Sinusundan"
+  },
+  "empty-state": {
+    "no-wishlist": "Walang wishlist",
+    "no-feed": "Walang feed",
+    "no-products": "Walang produkto",
+    "no-products-found": "Walang produktong nahanap",
+    "no-reels": "Walang reels",
+    "no-reels-available": "Walang reels na available sa ngayon.",
+    "no-reviews": "Walang review",
+    "no-orders": "Walang order",
+    "product-not-found": "Hindi nahanap ang produkto",
+    "no-connect-account": "Walang nahanap na connect account"
+  },
+  "error": {
+    "product-doesnt-exist": "Wala na ang produktong ito",
+    "please-try-again": "Pakisubukan ulit mamaya"
+  },
+  "stats": {
+    "title": "Aking stats",
+    "consult-stripe": "Tingnan ang iyong Stripe stats",
+    "consult-stripe-desc": "Pindutin ang button sa ibaba para buksan ang Stripe dashboard at tingnan ang iyong sales statistics.",
+    "open-dashboard": "Buksan ang dashboard"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "Paano mo gustong magbenta?",
+      "subtitle": "Piliin ang opsyong bagay sa iyo. Pwede kang laging makipag-ugnayan sa support kung kailangan mong magpalit mamaya.",
+      "vendor-title": "Negosyo ako",
+      "vendor-subtitle": "Magbenta bilang negosyo. Nangangailangan ng identity at business verification.",
+      "particular-title": "Indibidwal ako",
+      "particular-subtitle": "Magbenta ng mga item mula sa iyong closet. IBAN lang para makatanggap ng bayad."
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "Para mabayaran, pakidagdag ang iyong bank account",
+      "after-sale-title": "Pagkatapos ng benta",
+      "after-sale-body": "Ligtas na hawak ang pondo. Magsisimula ang transfer kapag kinumpirma ng mamimili ang pagtanggap.",
+      "transfer-title": "Oras ng transfer",
+      "transfer-body": "Mapupunta ang pera sa iyong bank account 48 hanggang 72 oras matapos makumpirma ang benta.",
+      "privacy-title": "Pagkapribado",
+      "privacy-body": "Ligtas na nakaimbak ang iyong IBAN at pwedeng i-update mamaya mula sa settings ng iyong account.",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "Nabasa at tinatanggap ko ang ",
+      "tnc-link": "Mga Tuntunin at Kondisyon",
+      "cta-onboarding": "I-save at magpatuloy",
+      "cta-edit": "I-save",
+      "save-error": "Hindi namin na-save ang iyong IBAN. Pakisubukan ulit."
+    },
+    "settings": {
+      "title": "Bank account",
+      "updated-on": "Na-update noong {date}",
+      "edit-cta": "I-edit ang IBAN",
+      "add-cta": "Magdagdag ng IBAN",
+      "empty-state": "Walang bank account na nakatala. Magdagdag ng isa para maililipat namin ang iyong kita."
+    }
+  },
+  "preferences": {
+    "save": "I-save",
+    "clothing": {
+      "title": "Mga gusto sa damit",
+      "subtitle": "Piliin ang kategoryang madalas mong bilhan. Iaakma namin ang iyong feed ayon dito."
+    },
+    "sizes": {
+      "title": "Mga paboritong size"
+    },
+    "brands": {
+      "title": "Mga paboritong brand",
+      "subtitle": "Piliin ang mga brand na gusto mo. Pwede kang pumili ng kahit ilan."
+    }
+  },
+  "cart": {
+    "checkout": "Checkout",
+    "currency": "AED",
+    "size": "Size {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} review",
+    "rating_na": "N/A",
+    "encrypted_checkout": "Encrypted na checkout",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "shipping_standard": "Standard",
+    "shipping_standard_city": "Standard · {}",
+    "buyer_protection": "Proteksyon sa mamimili",
+    "buyer_protection_subtitle": "Buong refund kung hindi naipadala",
+    "summary": "Buod",
+    "delivery": "Delivery",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "Alisin ang produkto",
+    "remove_product_message": "Alisin ang produktong ito sa iyong cart?",
+    "remove": "Alisin",
+    "cancel": "Kanselahin",
+    "cart_empty_title": "CART · 0",
+    "empty_heading": "Walang laman ang iyong cart",
+    "empty_body": "Tingnan ang mga item ni {} para magdagdag ng produkto",
+    "this_seller": "ang nagbebentang ito"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "Walang laman ang iyong wishlist",
+    "saved-count": "{count} na na-save na artikulo"
+  }
+}

@@ -1,0 +1,63 @@
+name: ui_kosmos_v4
+description: A new Flutter package project.
+version: 2.0.0-pre
+homepage: none
+publish_to: "none"
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_html:
+  device_info_plus:
+  datetime_picker_formfield:
+  intl:
+  flutter_hooks:
+  shimmer:
+  intl_phone_number_input:
+  flutter_svg:
+  iconsax:
+  fluttertoast: 8.2.12
+  auto_size_text:
+  cached_network_image:
+  hooks_riverpod:
+  file_picker:
+  image_picker:
+  pin_code_fields: ^8.0.1
+  cloud_firestore:
+  map_launcher:
+  url_launcher:
+  wechat_assets_picker:
+  wechat_camera_picker:
+  reorderables:
+  video_player:
+  chewie:
+  photo_manager:
+  photo_view:
+  permission_handler:
+
+
+  freezed_annotation:
+  json_annotation:
+  flutter_typeahead: ^5.2.0
+
+  core_kosmos:
+    path: ../core_kosmos
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints:
+  build_runner:
+  freezed:
+  json_serializable:
+
+flutter:
+  assets:
+    - assets/svg/
+    - assets/images/

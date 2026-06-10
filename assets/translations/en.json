@@ -1,0 +1,1337 @@
+{
+  "app": {
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": {
+            "title": "Unblock user",
+            "subtitle": "Are you sure you want to unblock this user?"
+          },
+          "title": "Blocked users",
+          "empty": "No blocked users",
+          "unblock": "Unblock user",
+          "success": "User unblocked successfully"
+        }
+      }
+    },
+    "notifications": "Notifications",
+    "notification": {
+      "redirect-error": "An error occurred while opening this notification."
+    },
+    "nothing": "No notifications",
+    "popup": {
+      "need-connect": {
+        "title": "You need to be connected",
+        "subtitle": "To use this feature, you must be connected to a Klozy account.",
+        "confirm": "Connect",
+        "cancel": "Create account"
+      },
+      "finalise-data": {
+        "title": "Finalize your profile",
+        "subtitle": "To sell an item, you must finalize your seller profile.",
+        "confirm": "Finalize",
+        "cancel": "Later"
+      }
+    },
+    "intro": {
+      "title": "Next-generation fashion",
+      "subtitle": "Buy and sell pre-loved pieces in seconds. Secure payments, fast shipping, and a community you can trust.",
+      "start": "Let's go!"
+    },
+    "duration": {
+      "now": "now"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "Brand",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "Other"
+      },
+      "product-status": {
+        "on-hold": "On hold",
+        "in-progress": "In progress",
+        "completed": "Completed",
+        "in-delivery": "In delivery",
+        "waiting-for-expedition": "Awaiting shipment",
+        "pending-acceptance": "Pending acceptance",
+        "delivery-completed": "Delivery completed",
+        "refused": "Refused",
+        "canceled": "Canceled",
+        "return-requested": "Return requested",
+        "return-accepted": "Return accepted",
+        "return-refused": "Return refused",
+        "return-completed": "Return completed"
+      },
+      "condition": {
+        "title": "Condition",
+        "new": "New",
+        "very-good": "Very good",
+        "good": "Good",
+        "normal": "Normal",
+        "worn": "Worn"
+      },
+      "sort-by": {
+        "lower-price": "Increasing price",
+        "higher-price": "Decreasing price",
+        "latest": "Latest"
+      },
+      "product-category": {
+        "title": "Category",
+        "women": "Women",
+        "men": "Men",
+        "kids": "Kids"
+      },
+      "product-sub-category": {
+        "title": "Sub category",
+        "tops": "Tops",
+        "accessories": "Accessories",
+        "pants": "Pants",
+        "jackets": "Jackets",
+        "dresses": "Dresses",
+        "bottoms": "Bottoms",
+        "shoes": "Shoes",
+        "underwear": "Underwear"
+      },
+      "accessory-type": {
+        "title": "Accessory type",
+        "glasses": "Glasses",
+        "headwear": "Headwear",
+        "scarf": "Scarf",
+        "belt": "Belt",
+        "jewelry": "Jewelry",
+        "watch": "Watch",
+        "bag": "Bag",
+        "wallet": "Wallet",
+        "sunglasses": "Sunglasses",
+        "tie": "Tie",
+        "gloves": "Gloves",
+        "other": "Other"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "0-3 months",
+        "months_3_6": "3-6 months",
+        "months_6_12": "6-12 months",
+        "months_12_18": "12-18 months",
+        "months_18_24": "18-24 months",
+        "years_2_3": "2-3 years",
+        "years_3_4": "3-4 years",
+        "years_4_5": "4-5 years",
+        "years_5_6": "5-6 years",
+        "years_6_7": "6-7 years",
+        "years_7_8": "7-8 years",
+        "years_8_10": "8-10 years",
+        "years_10_12": "10-12 years",
+        "years_12_14": "12-14 years"
+      }
+    },
+    "profile-completion": {
+      "title": "Complete your profile",
+      "edit-title": "Edit profile",
+      "favorite-article-sizes-title": "Favorite article sizes",
+      "favorite-article-sizes-subtitle": "Select your US and EU sizes.",
+      "preferred-brand-title": "Favorite brands",
+      "preferred-brand-subtitle": "You can select multiple brands.",
+      "lastname": "Last name",
+      "lastname-hint": "Enter your last name",
+      "lastname-required": "Last name is required",
+      "firstname": "First name",
+      "firstname-hint": "Enter your first name",
+      "firstname-required": "First name is required",
+      "address": "Address",
+      "address-for-delivery": "Address for delivery",
+      "address-for-delivery-hint": "Search an address",
+      "address-for-delivery-error": "Please select a valid address",
+      "description": "Description",
+      "description-hint": "Tell us about you",
+      "profile-picture": "Profile picture",
+      "complete-registration": "Complete registration",
+      "submit": "Complete registration",
+      "exit-signup": {
+        "title": "Cancel registration?",
+        "subtitle": "Your profile is not completed yet. If you leave now, you will need to start again."
+      },
+      "eu-sizes": "EU sizes"
+    },
+    "order-summary": {
+      "title": "Summary",
+      "x-product-purchased": "Products from {} you're about to buy",
+      "no-products-in-cart": "No products in your cart",
+      "buyer-protection": "Buyer protection",
+      "total": "Total",
+      "shipping": "Shipping",
+      "home-delivery": "Home delivery",
+      "choose-delivery-method": "Choose a delivery method",
+      "choose": "Choose",
+      "change-delivery-address": "Change your delivery address",
+      "remove-product": "Remove product",
+      "remove-product-message": "Are you sure you want to remove this product from your bucket list?",
+      "remove-product-confirm": "Remove",
+      "remove-product-cancel": "Cancel",
+      "order-placed": "Order placed"
+    },
+    "order-details": {
+      "title": "Order",
+      "product-purchased": "Product purchased",
+      "product-purchased-from": "Product purchased from {}",
+      "shipping-to": "Shipping to",
+      "total-paid": "Total paid",
+      "cancel": "Cancel order",
+      "confirm-receipt": "Confirm receipt",
+      "report-a-problem": "Report a problem",
+      "leave-a-review": "Leave a review",
+      "review-already-sent": "You have already left a review for this order.",
+      "refunded": "Refunded",
+      "download-my-return-voucher": "Download my return voucher",
+      "was-delivered-to": "Was delivered to",
+      "was-to-be-delivered": "Was to be delivered",
+      "cancel-order": "Cancel order",
+      "tracking": "Tracking number",
+      "track": "Track",
+      "open-shipping-label": "Open label",
+      "product-is-conform": "My item is as described",
+      "product-confirmed": "Product confirmed! Payment will be transferred to the seller.",
+      "request-a-return": "Request a return",
+      "return-requested": "Return request sent to the seller",
+      "return-pending": "Your return request is pending the seller's approval",
+      "return-request-received": "A buyer has requested a return for this order",
+      "accept": "Accept",
+      "refuse": "Decline",
+      "return-accepted": "Return accepted, refund is being processed",
+      "return-refused": "Return refused",
+      "return-accepted-message": "Return accepted. Download your return voucher and ship the product back.",
+      "return-refused-message": "Return was refused by the seller. Payment has been transferred.",
+      "return-in-transit": "Waiting for the buyer to return the product.",
+      "return-completed-message": "Return received. Refund has been processed."
+    },
+    "report": {
+      "cancel": "Cancel",
+      "report": "Report a problem",
+      "problem": "Are you experiencing an issue? Report it now.",
+      "reason": "Reason for your problem",
+      "reason-cancel": "Reason for cancellation",
+      "text-area": "Tell us more",
+      "file-picker": "Add files",
+      "send-report": "Send report",
+      "confirm-cancel": "Confirm cancellation"
+    },
+    "report_success": {
+      "title": "Sent",
+      "subtitle": "Your report has been sent! It will be handled as soon as possible.",
+      "cancel": "Your cancellation request has been sent! It will be handled as soon as possible.",
+      "buttonText": "Finish"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "Error",
+        "content": "An error occurred, please try again later."
+      }
+    },
+    "preview-reel": {
+      "retake": "Retake",
+      "continue": "Continue"
+    },
+    "create-reel": {
+      "title": "Create a reel",
+      "subtitle": "By creating a reel, you can add one or more products from your collection for sale in order to promote them",
+      "add-product": "Add product",
+      "create-product": "Create product",
+      "my-added-products": "My added products",
+      "my-products-to-sales": "My products for sale",
+      "add": "Add",
+      "post": "Post the reel",
+      "update": "Update the reel",
+      "success-title": "It’s perfect!",
+      "success-subtitle": "Your video is now online.",
+      "error-title": "Something is missing",
+      "error-subtitle": "Please add at least one product to your reel."
+    },
+    "put-a-product-on-sale": {
+      "title": "Put a product on sale",
+      "step": "Step",
+      "title-step2": "More about your product",
+      "title-step3": "Add photos",
+      "put-on-sale": "Put on sale",
+      "success-title": "It’s perfect!",
+      "success-subtitle": "Your item is now for sale.",
+      "edit-success-title": "It’s perfect!",
+      "edit-success-subtitle": "Your item is now for sale.",
+      "error-title": "Upload failed",
+      "error-subtitle": "Something went wrong while saving your product. Please try again.",
+      "forms": {
+        "title": "Title",
+        "title-hint": "Ex. Blue floating shirt",
+        "price": "Price",
+        "price-hint": "0",
+        "price-max-error": "Maximum price is {}.",
+        "description": "Description",
+        "description-hint": "Enter a description for your product",
+        "size": "Size",
+        "brand": "Brand",
+        "condition-error-title": "Please select a condition",
+        "condition-error-subtitle": "Select a condition for your product",
+        "image-error-title": "Please select at least one image",
+        "image-error-subtitle": "Select at least one image for your product"
+      }
+    },
+    "home": {
+      "feed": "Feed",
+      "wishlist": "Wishlist",
+      "reels": "Reels",
+      "view-products": "View products",
+      "hide-products": "Hide products"
+    },
+    "product": {
+      "buy": "Buy",
+      "already-sold": "Already sold",
+      "make-an-offer": "Make an offer",
+      "send-offer": "Send offer",
+      "delete": "Delete",
+      "edit": "Edit",
+      "success-title": "Offer sent!",
+      "success-subtitle": "Your offer has been sent successfully.",
+      "popup-delete-title": "Delete product",
+      "popup-delete-subtitle": "Are you sure you want to delete this product?",
+      "popup-delete-confirm": "Delete",
+      "popup-delete-cancel": "Cancel",
+      "delete-success-title": "Product deleted!",
+      "delete-success-subtitle": "Your product has been deleted successfully.",
+      "forms": {
+        "actual-price": "Actual price",
+        "your-new-price": "Your new price"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "Delete reel",
+      "popup-delete-subtitle": "Are you sure you want to delete this reel?",
+      "popup-delete-confirm": "Delete",
+      "popup-delete-cancel": "Cancel",
+      "delete-success-title": "Reel deleted!",
+      "delete-success-subtitle": "Your reel has been deleted successfully.",
+      "feed-error": "Unable to load reels. Please try again later.",
+      "report": "Report"
+    },
+    "profile": {
+      "buyer": "Buyer",
+      "my-order": "My orders",
+      "seller": "Seller",
+      "my-sales": "My sales",
+      "products": "Products",
+      "reels": "Reels",
+      "reviews": "Reviews",
+      "followers": "Followers",
+      "following": "Following",
+      "follow": "Follow",
+      "unfollow": "Unfollow",
+      "edit": "Edit profile",
+      "cant-follow-blocked": "You cannot follow this user."
+    },
+    "search": {
+      "popular-items": "Popular items",
+      "categories": "Categories",
+      "title": "Search",
+      "filter-search": "Filter search",
+      "sort-by": "Sort by",
+      "in": "In",
+      "refine-the-category": "Refine the category",
+      "apply": "Apply",
+      "reset": "Reset",
+      "results": "Results"
+    },
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "Analysing your photos…",
+        "step-identify": "Identifying the item…",
+        "step-generate": "Generating the title and price…"
+      },
+      "photos": {
+        "empty-title": "Sell in seconds",
+        "empty-cta": "Add your photos",
+        "empty-subtitle": "Start with a photo — AI handles the title, description and price.",
+        "grid-title": "Your photos",
+        "grid-subtitle": "Add up to {max} photos. AI will pre-fill your listing.",
+        "min-one": "Add at least 1 photo to continue",
+        "continue": "Continue",
+        "add": "Add",
+        "max-reached": "{max} photos max",
+        "cover": "Cover",
+        "edit": "Edit"
+      },
+      "capture": {
+        "title": "Add a photo",
+        "camera-title": "Take a photo",
+        "camera-subtitle": "Opens the camera",
+        "gallery-title": "Choose from gallery",
+        "gallery-subtitle": "Multiple selection possible"
+      },
+      "entry": {
+        "reel-subtitle": "Share a video of your pieces",
+        "sell-subtitle": "Photo-first · AI pre-fills your listing"
+      },
+      "recap": {
+        "title": "Your listing",
+        "field-title": "Title",
+        "field-title-hint": "E.g. Levi's denim jacket",
+        "field-price": "Price",
+        "field-price-hint": "0",
+        "field-description": "Description",
+        "field-description-hint": "Describe the condition, fit, material…",
+        "section-details": "Product details",
+        "field-category": "Category",
+        "field-subcategory": "Sub-category",
+        "subcategory-placeholder": "Choose a sub-category",
+        "field-brand": "Brand",
+        "brand-placeholder": "Optional",
+        "field-condition": "Condition",
+        "field-size": "Size",
+        "required-hint": "* Required fields",
+        "cta": "Put on sale"
+      },
+      "subcategory": {
+        "title": "Sub-category",
+        "choose": "Choose"
+      },
+      "brand": {
+        "title": "Brand",
+        "search-hint": "Search a brand"
+      },
+      "success": {
+        "title": "Online!",
+        "subtitle": "Your item is now visible to buyers.",
+        "see-listing": "View listing",
+        "back-home": "Back to home"
+      },
+      "ai-badge": "Suggested by AI",
+      "publish-failed": "Listing failed, please try again."
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "Opening Stripe in progress."
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "Item not as described",
+        "motif2": "Counterfeit or prohibited item",
+        "motif3": "Seller issue",
+        "motif4": "Delivery issue",
+        "motif5": "Payment or order issue",
+        "motif6": "Other"
+      },
+      "filePicker": {
+        "title": "Add files"
+      },
+      "description": {
+        "title": "Tell us more",
+        "title1": "Please specify"
+      },
+      "motif1": {
+        "precisez1": "Wrong size / incorrect fit",
+        "precisez2": "Condition differs from the listing",
+        "precisez3": "Missing parts / accessories",
+        "precisez4": "Item is damaged"
+      },
+      "motif2": {
+        "precisez1": "Suspected counterfeit item",
+        "precisez2": "Prohibited or unsafe item",
+        "precisez3": "Misleading or fraudulent listing",
+        "precisez4": "Other policy issue"
+      },
+      "motif3": {
+        "precisez1": "Seller is unresponsive",
+        "precisez2": "Inappropriate behavior or harassment",
+        "precisez3": "Asked to pay outside the app",
+        "precisez4": "Other seller issue"
+      },
+      "motif4": {
+        "precisez1": "Tracking is not updating",
+        "precisez2": "Package not received",
+        "precisez3": "Package arrived damaged",
+        "precisez4": "Delivery is late"
+      },
+      "motif5": {
+        "precisez1": "Incorrect amount charged",
+        "precisez2": "Refund issue",
+        "precisez3": "Order issue (cancelled / duplicated)",
+        "precisez4": "Other payment or order issue"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "New message",
+          "body": "You received a new message."
+        }
+      },
+      "user-deleted": "User unknown",
+      "online-today-at": "Online today at {}",
+      "online-yesterday-at": "Online yesterday at {}",
+      "online-at": "Online at {}",
+      "change-name-confirm-button": "Finish",
+      "call-audio": "Audio call",
+      "call-video": "Video call",
+      "call-start": "Call in progress...",
+      "video-call-end": "Call ended",
+      "new-group": "Group name",
+      "cancel-audio": "Cancel audio",
+      "preview": {
+        "media": {
+          "zero": "No elements",
+          "one": "Sent 1 media",
+          "other": "Sent {} medias"
+        },
+        "audio": "Audio",
+        "reply-audio": "Reply audio"
+      },
+      "event": {
+        "report-and-block": "Report and block",
+        "delete-tchat": "Delete tchat"
+      },
+      "status": {
+        "online": "Online",
+        "online-today-at": "Online today at {time}",
+        "online-yesterday-at": "Online yesterday at {time}",
+        "offline": "Offline",
+        "multiple-online": "Multiple online",
+        "typing": "Typing",
+        "audioRec": "Audio recording"
+      },
+      "document": {
+        "camera": "Camera",
+        "gallery": "Gallery",
+        "document": "Document",
+        "localisation": "Localisation",
+        "contact": "Contact",
+        "sondage": "Poll"
+      },
+      "list": {
+        "title": "Conversations",
+        "title-face": "Traduction",
+        "conversations": "Conversations",
+        "no-tchat": "No tchat",
+        "no-tchat-content": "You don't have any tchat yet.",
+        "group-default-title": "New group",
+        "oto-default-title": "New tchat",
+        "new-conversation": "New conversation"
+      },
+      "message": {
+        "no-message": "No message",
+        "no-message-body": "You don't have any message yet.",
+        "input-hint": "Message..",
+        "no-media": "No media",
+        "date": "{weekday} {day} {month}",
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "join-group": "{name} has joined the group",
+        "leave-group": "{name} has left the group",
+        "add-to-group": "{name} has added {user} to the group",
+        "remove-from-group": "{name} has removed {user} from the group",
+        "change-group-title": "{name} has changed the group name to {title}",
+        "change-group-avatar": "{name} has changed the group avatar",
+        "blocked-by-you": "You have blocked this contact.\nYou can no longer send messages to this contact.",
+        "blocked-by-other": "You have been blocked by this contact.\nYou can no longer send messages to this contact.",
+        "cant-send-message-blocked": "You cannot send a message to this contact.",
+        "order-requested": "Offer made to buyer for «{product_name}»",
+        "order-accepted": "Your order n°{id} has been acceped by the seller",
+        "order-rejected": "Your order n°{id} has been rejected by the seller",
+        "order-purchased": "An order has been purchased",
+        "view-order-details": "View order details"
+      }
+    },
+    "commentary": {
+      "add-note-title": "Rate the seller",
+      "add_note_title": "Rate the seller",
+      "delete": "Delete",
+      "report": "Report",
+      "add-note": {
+        "validate": "Validate",
+        "field": {
+          "note-title": "Rate this seller",
+          "commentary-title": "Comment",
+          "placeholder": "Write a comment",
+          "commentary-hint": "Write a comment..",
+          "commentary_hint": "Write a comment.."
+        },
+        "title": "Rate this seller",
+        "comment": "Comment",
+        "placeholder": "Write a comment",
+        "commentary-hint": "Write a comment.."
+      },
+      "add_note": {
+        "validate": "Validate",
+        "field": {
+          "title": "Rate this seller",
+          "comment": "Comment",
+          "placeholder": "Write a comment",
+          "commentary-hint": "Write a comment..",
+          "commentary_hint": "Write a comment.."
+        },
+        "title": "Rate this seller",
+        "comment": "Comment",
+        "placeholder": "Write a comment",
+        "commentary-hint": "Write a comment..",
+        "commentary_hint": "Write a comment.."
+      },
+      "sure-delete-commentary": {
+        "title": "Delete commentary",
+        "subtitle": "Are you sure you want to delete this commentary?"
+      },
+      "sure_delete_commentary": {
+        "title": "Delete commentary",
+        "subtitle": "Are you sure you want to delete this commentary?"
+      }
+    },
+    "validator": {
+      "must-have-value": "This field is required",
+      "email-invalid": "Please enter a valid email",
+      "password-invalid-length": "6 characters minimum",
+      "password-invalid-maj": "1 uppercase letter minimum",
+      "password-invalid-min": "1 lowercase letter minimum",
+      "password-invalid-number": "1 number minimum",
+      "password-invalid-special-char": "1 special character minimum (&?!@#)",
+      "password-not-match": "Passwords do not match",
+      "number-invalid": "Please enter a valid number",
+      "number-out-of-range": "Please enter a number between {min} and {max}",
+      "number-out-of-min": "Please enter a number greater than {min}",
+      "number-out-of-max": "Please enter a number less than {max}",
+      "date-invalid": "Please enter a valid date",
+      "date-out-of-range": "Please enter a date between {min} and {max}",
+      "date-out-of-min": "Please enter a date greater than {min}",
+      "date-out-of-max": "Please enter a date less than {max}",
+      "alpha-invalid": "Please enter a valid value",
+      "code-invalid": "Please enter a valid code"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "Select a photo"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "No photo",
+        "one": "1 photo",
+        "other": "{} photos"
+      },
+      "write-message": "Write a message..",
+      "camera": {
+        "shootingTips": "Take a photo",
+        "confirm": "Validate",
+        "saving": "Saving...",
+        "shootingWithRecordingTips": "Stay pressed to film."
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "Search a country",
+          "error_message": "Please enter a valid phone number"
+        },
+        "input": {
+          "choose-media": "Press to choose a photo",
+          "choose-multiple-file": "Press to choose multiple files",
+          "choose-image": "Press to choose a photo",
+          "choose-file": "Press to choose a file",
+          "press-to-modify": "Press to modify the file"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "Email",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "Email",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "Password",
+          "hint": "Password",
+          "security-action": "What to do?"
+        },
+        "actual-password": {
+          "title": "Current password",
+          "hint": "Current password"
+        },
+        "new-password": {
+          "title": "New password",
+          "hint": "New password"
+        },
+        "repeat-password": {
+          "title": "Confirm password",
+          "hint": "Confirm password"
+        },
+        "new-repeat-password": {
+          "title": "Confirm new password",
+          "hint": "Confirm new password"
+        },
+        "phone": {
+          "title": "Phone number",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "Code received by SMS",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "TextArea",
+        "hint": "Write here.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "Your phone number has been added successfully.",
+      "invalid-email": "No user was found with the provided information.",
+      "user-not-found": "No user was found with the provided information.",
+      "user-disabled": "Your account has been disabled by the administrator.",
+      "wrong-password": "The password is incorrect.",
+      "email-already-in-use": "This email address is already in use.",
+      "phone-already-in-use": "This phone number is already in use.",
+      "weak-password": "The password is too weak.",
+      "account-exists-with-different-credential": "An account already exists with this email address.",
+      "invalid-credential": "No user was found with the provided information.",
+      "invalid-verification-code": "The verification code is invalid.",
+      "invalid-verification-id": "The verification ID is invalid.",
+      "requires-recent-login": "You must reconnect to perform this action.",
+      "invalid-phone-number": "The phone number is invalid.",
+      "error-phone-not-exist": "This phone number does not exist.",
+      "code-invalid": "Please enter a valid code",
+      "code-is-required": "Please enter the code received by SMS",
+      "email-must-be-verified": "You must verify your email address to continue.",
+      "tiers-auth-valid-email": "Your third-party account must have a valid email to continue.",
+      "send-reset-password-email": "A password reset email has been sent to the address provided.",
+      "error-internet": "A connection problem has occurred. Please check your internet connection.",
+      "error-default": "An error has occurred, please try again.",
+      "must-accept-cgu": "You must accept the terms of use to continue.",
+      "password-security": "Password format",
+      "password-security-length": "6 characters minimum",
+      "password-security-maj": "Contains at least 1 uppercase letter",
+      "password-security-min": "Contains at least 1 lowercase letter",
+      "password-security-number": "Contains at least 1 number",
+      "password-security-special": "Contains at least 1 special character (&?!@#)",
+      "success-change-password": "Your password has been modified successfully.",
+      "phone-update-success": "Your phone number has been changed!",
+      "cant-be-same-password": "The new password must be different from the old one.",
+      "cant-be-same-email": "The new email must be different from the old one.",
+      "cant-be-same-phone": "The new phone number must be different from the old one.",
+      "code-is-expired": "The verification code has expired.",
+      "code-sent": "A verification code has been sent to you by SMS.",
+      "too-many-requests": "Too many login attempts. Please try again later."
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "Sign in",
+        "already-have-account": "Do you have an account?",
+        "login-title": "Connect to your account or create one.",
+        "login-phone-title": "Connect to your account",
+        "verify-phone-title": "Enter the code received by SMS to connect",
+        "verify-phone-code-title": "Validate your phone number",
+        "code-expire-in": "The code expires in {time} minutes",
+        "no-code": "Not received?",
+        "resend-code": "Resend",
+        "forgot-password": "Forgot password?",
+        "reset-password": "Reset password",
+        "no-account": "No account?",
+        "create-account": "Create now",
+        "login-with-phone": "Connect with phone",
+        "login-with-email": "Connect with email",
+        "or-connect-with": "or connect with",
+        "or-signup-with": "or sign up with",
+        "verify-email": "Verify your email",
+        "verify-email-subtitle": "You have received an email to reset your password.",
+        "create-account-verify-email": "Verify your email",
+        "create-account-title": "Create an account",
+        "create-account-verify-email-subtitle": "An email verification has been sent to the address",
+        "reset-password-modal": {
+          "title": "Reset password",
+          "subtitle": "Enter the email address associated with your account. We will send a reset email to that address."
+        },
+        "tiers-signin": {
+          "get-password-title": "Enter your password",
+          "get-password-subtitle": "We have found an account with this email address, please enter your password to connect."
+        }
+      },
+      "profile": {
+        "delete-success": "Your account has been deleted successfully.\nSee you soon",
+        "logout": "Logout",
+        "delete-account": "Delete my profile",
+        "delete-my-account": "Delete my account",
+        "delete-my-account-subtitle": "Do you really want to delete your account?",
+        "logout-success": "You have been logged out successfully.\nSee you soon"
+      },
+      "new-cgu-must-be-accepted": "You must accept the new terms of use to continue."
+    },
+    "onboarding": {
+      "button_next": "Next",
+      "button_start": "Finish",
+      "skip": "Skip"
+    },
+    "permission": {
+      "notification": {
+        "title": "Notifications Push",
+        "redirect-to-settings": "Do you want to activate our Push notification service? It will help you to fully exploit our application.",
+        "button": "Activate notifications"
+      },
+      "camera": {
+        "title": "Camera",
+        "redirect-to-settings": "To benefit from this feature, you must accept the camera permission.",
+        "button": "Activate camera"
+      },
+      "microphone": {
+        "title": "Microphone",
+        "redirect-to-settings": "To benefit from this feature, you must accept the microphone permission.",
+        "button": "Activate microphone"
+      },
+      "accessMediaLocation": {
+        "title": "Media location access",
+        "redirect-to-settings": "To benefit from this feature, you must accept the media location access permission.",
+        "button": "Activate media location access"
+      },
+      "mediaLibrary": {
+        "title": "Media library",
+        "redirect-to-settings": " To benefit from this feature, you must accept the media library access permission.",
+        "button": "Activate media library access"
+      },
+      "photos": {
+        "title": "Photos",
+        "redirect-to-settings": "To benefit from this feature, you must accept the photos access permission.",
+        "button": "Activate photos access"
+      },
+      "storage": {
+        "title": "Storage",
+        "redirect-to-settings": "To benefit from this feature, you must accept the storage access permission.",
+        "button": "Activate storage access"
+      },
+      "mic": {
+        "redirect-to-settings": "Please authorize the microphone in your phone settings.",
+        "title": "Microphone",
+        "button": "Open settings"
+      },
+      "notif-push": {
+        "title": "Notifications Push",
+        "desc": "Do you want to activate our Push notification service? It will help you to fully exploit our application.",
+        "button": "Activate notifications"
+      },
+      "location": {
+        "title": "Location",
+        "desc": "To use our mobile app to the fullest, you must accept the location.",
+        "button": "Continue",
+        "redirect-to-settings": "Please authorize location in your phone settings."
+      },
+      "background-location": {
+        "title": "Background location",
+        "desc": "Do you want to activate our background location service? It will be essential to the operation of the application.",
+        "button": "Activate background location"
+      },
+      "skip": "Skip"
+    },
+    "image": {
+      "from-gallery": "Gallery",
+      "from-camera": "Camera"
+    },
+    "duration": {
+      "now": "Now",
+      "days-ago": "{} days ago",
+      "x-days": "{} days ago",
+      "hours-ago": "{} hours ago",
+      "minutes-ago": "{} minutes ago",
+      "seconds-ago": "{} seconds ago",
+      "months-ago": "{} months ago",
+      "years-ago": "{} years ago",
+      "moment-ago": "A moment ago"
+    },
+    "settings": {
+      "edited-by": "Edited by",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "Modify",
+        "personnal-data": "My account",
+        "settings": "Settings",
+        "other": "Other",
+        "link": "Links",
+        "social": "Social network",
+        "security": "Security"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "Blocked users",
+          "subtitle": "List of blocked users"
+        },
+        "blocked-users": {
+          "unblock": "Unblock user",
+          "block": "Block user",
+          "unblock-success": "User unblocked successfully",
+          "title": "Blocked users",
+          "subtitle": "List of blocked users"
+        },
+        "change-personnal-content": {
+          "title": "Personal information",
+          "subtitle": "Name, firstname, description"
+        },
+        "clothing-preference": {
+          "title": "Clothing preferences",
+          "subtitle": "Personalize"
+        },
+        "preferred-article-size": {
+          "title": "Favorite article sizes",
+          "subtitle": "Manage"
+        },
+        "preferred-brand": {
+          "title": "Favorite brands",
+          "subtitle": "Manage"
+        },
+        "security": {
+          "title": "Security",
+          "subtitle": "Password, phone, email..."
+        },
+        "payment": {
+          "title": "Payment methods",
+          "subtitle": "Credit card / Apple Pay",
+          "credit-card": "Credit card",
+          "bank-details": "Bank account",
+          "bank-details-empty": "Not configured",
+          "handle-with-stripe": "Handle with Stripe"
+        },
+        "phone-number": {
+          "title": "Phone number"
+        },
+        "change-email": {
+          "title": "Email address"
+        },
+        "change-password": {
+          "title": "Password",
+          "subtitle": "Last modified: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "Push notifications"
+        },
+        "email-notif": {
+          "title": "Email notifications"
+        },
+        "help": {
+          "title": "Help",
+          "subtitle": "Contact us by email"
+        },
+        "share": {
+          "title": "Share app",
+          "subtitle": "Support us by sharing the app"
+        },
+        "link": {
+          "privacy-policy": "Privacy policy",
+          "legal-mention": "Legal mention",
+          "legal-notice": "Legal notice",
+          "cgvu": "Conditions of sale and use",
+          "about": "About"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "Network error 😕",
+      "subtitle": "No internet connection detected. Please check your network connection.",
+      "button": "Refresh"
+    },
+    "research": {
+      "hint": "Search item...",
+      "no-item-title": "Nothing found",
+      "no-item-content": "No products found for this search"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December"
+    },
+    "day-by-id": {
+      "1": "Monday",
+      "2": "Tuesday",
+      "3": "Wednesday",
+      "4": "Thursday",
+      "5": "Friday",
+      "6": "Saturday",
+      "7": "Sunday"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "Mo",
+      "tu": "Tu",
+      "we": "We",
+      "th": "Th",
+      "fr": "Fr",
+      "sa": "Sa",
+      "su": "Su"
+    },
+    "month": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    },
+    "event": {
+      "cancel": "Cancel",
+      "validate": "Validate"
+    },
+    "range": {
+      "no_date": "No date"
+    }
+  },
+  "utils": {
+    "done": "Done",
+    "unlock": "Unblock",
+    "mandatory": "Mandatory",
+    "next": "Next",
+    "number_x": "n°{}",
+    "mandatory-fields": "* The marked fields are mandatory",
+    "submit": "Submit",
+    "choose": "Choose",
+    "validate-and-modify": "Validate and modify",
+    "modify": "Modify",
+    "by-default": "By default",
+    "deactivate": "Deactivate",
+    "activate": "Activate",
+    "loading": "Loading..",
+    "close": "Close",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "connexion": "Connexion",
+    "validate": "Validate",
+    "success": "Success",
+    "yes": "Yes",
+    "no": "No",
+    "error": "Error",
+    "reinit": "Reset",
+    "cgvu": "CGVU",
+    "validate-and-continue": "Validate and continue",
+    "confidentiality-policy": "Confidentiality policy",
+    "cgvu-and-confidentiality": "CGVU and confidentiality policy",
+    "accept-cgvu-and-confidentiality": "I accept the confidentiality policy and the terms and conditions of sale and use.",
+    "what-do-you-want-to-do": "What do you want to do ?",
+    "error-default": "An error has occurred, please try again.",
+    "optional": "Optional",
+    "save": "Save",
+    "accept": "Accept",
+    "refuse": "Decline",
+    "edit": "Edit",
+    "delete": "Delete",
+    "size": "Size",
+    "dirhams": "Dirhams",
+    "aed": "AED",
+    "followers": "Followers",
+    "following": "Following"
+  },
+  "empty-state": {
+    "no-wishlist": "No wishlist",
+    "no-feed": "No feed",
+    "no-products": "No products",
+    "no-products-found": "No products found",
+    "no-reels": "No reels",
+    "no-reels-available": "No reels available for the moment.",
+    "no-reviews": "No reviews",
+    "no-orders": "No orders",
+    "product-not-found": "Product not found",
+    "no-connect-account": "No connect account found"
+  },
+  "error": {
+    "product-doesnt-exist": "This product doesn't exist anymore",
+    "please-try-again": "Please try again later"
+  },
+  "stats": {
+    "title": "My stats",
+    "consult-stripe": "Consult your Stripe stats",
+    "consult-stripe-desc": "Press the button below to open the Stripe dashboard and check your sales statistics.",
+    "open-dashboard": "Open dashboard"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "How do you want to sell?",
+      "subtitle": "Choose the option that matches you. You can always reach support if you need to switch later.",
+      "vendor-title": "I am a business",
+      "vendor-subtitle": "Sell as a business. Requires identity & business verification.",
+      "particular-title": "I am a particular",
+      "particular-subtitle": "Sell items from your closet. Just an IBAN to receive payments."
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "To get paid, please add your bank account",
+      "after-sale-title": "After a sale",
+      "after-sale-body": "Funds are held securely. The transfer triggers when the buyer confirms receipt.",
+      "transfer-title": "Transfer time",
+      "transfer-body": "Your money lands on your bank account 48 to 72 hours after the sale is confirmed.",
+      "privacy-title": "Privacy",
+      "privacy-body": "Your IBAN is stored securely and can be updated later from your account settings.",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "I have read and accept the ",
+      "tnc-link": "Terms & Conditions",
+      "cta-onboarding": "Save and continue",
+      "cta-edit": "Save",
+      "save-error": "We couldn't save your IBAN. Please try again."
+    },
+    "settings": {
+      "title": "Bank account",
+      "updated-on": "Updated on {date}",
+      "edit-cta": "Edit IBAN",
+      "add-cta": "Add IBAN",
+      "empty-state": "No bank account on file. Add one so we can transfer your earnings."
+    }
+  },
+  "preferences": {
+    "save": "Save",
+    "clothing": {
+      "title": "Clothing preferences",
+      "subtitle": "Choose the category you shop for the most. We'll tailor your feed accordingly."
+    },
+    "sizes": {
+      "title": "Favorite sizes"
+    },
+    "brands": {
+      "title": "Favorite brands",
+      "subtitle": "Select the brands you love. You can pick as many as you want."
+    }
+  },
+  "cart": {
+    "checkout": "Checkout",
+    "currency": "AED",
+    "size": "Size {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} reviews",
+    "rating_na": "N/A",
+    "encrypted_checkout": "Encrypted checkout",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "shipping_standard": "Standard",
+    "shipping_standard_city": "Standard · {}",
+    "buyer_protection": "Buyer protection",
+    "buyer_protection_subtitle": "Full refund if not delivered",
+    "summary": "Summary",
+    "delivery": "Delivery",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "Remove product",
+    "remove_product_message": "Remove this product from your cart?",
+    "remove": "Remove",
+    "cancel": "Cancel",
+    "cart_empty_title": "CART · 0",
+    "empty_heading": "Your cart is empty",
+    "empty_body": "Browse {}'s items to add products",
+    "this_seller": "this seller"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "Your wishlist is empty",
+    "saved-count": "{count} saved articles"
+  }
+}

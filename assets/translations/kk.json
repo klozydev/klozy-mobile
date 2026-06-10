@@ -1,0 +1,1334 @@
+{
+  "app": {
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "Фотоларыңыз талдануда…",
+        "step-identify": "Зат анықталуда…",
+        "step-generate": "Атауы мен бағасы жасалуда…"
+      },
+      "photos": {
+        "empty-title": "Бірнеше секундта сатыңыз",
+        "empty-cta": "Фотоларыңызды қосыңыз",
+        "empty-subtitle": "Фотодан бастаңыз — атауын, сипаттамасын және бағасын ЖИ жасайды.",
+        "grid-title": "Сіздің фотоларыңыз",
+        "grid-subtitle": "{max} фотоға дейін қосыңыз. ЖИ хабарландыруыңызды толтырады.",
+        "min-one": "Жалғастыру үшін кемінде 1 фото қосыңыз",
+        "continue": "Жалғастыру",
+        "add": "Қосу",
+        "max-reached": "Ең көбі {max} фото",
+        "cover": "Мұқаба",
+        "edit": "Өңдеу"
+      },
+      "capture": {
+        "title": "Фото қосу",
+        "camera-title": "Фото түсіру",
+        "camera-subtitle": "Камераны ашады",
+        "gallery-title": "Галереядан таңдау",
+        "gallery-subtitle": "Бірнешеуін таңдауға болады"
+      },
+      "entry": {
+        "reel-subtitle": "Заттарыңыздың бейнесін бөлісіңіз",
+        "sell-subtitle": "Алдымен фото · ЖИ хабарландыруыңызды толтырады"
+      },
+      "recap": {
+        "title": "Сіздің хабарландыруыңыз",
+        "field-title": "Атауы",
+        "field-title-hint": "Мыс. Levi's джинсі күрте",
+        "field-price": "Бағасы",
+        "field-price-hint": "0",
+        "field-description": "Сипаттама",
+        "field-description-hint": "Күйін, қонымын, материалын сипаттаңыз…",
+        "section-details": "Өнім туралы мәлімет",
+        "field-category": "Санат",
+        "field-subcategory": "Қосалқы санат",
+        "subcategory-placeholder": "Қосалқы санатты таңдаңыз",
+        "field-brand": "Бренд",
+        "brand-placeholder": "Міндетті емес",
+        "field-condition": "Күйі",
+        "field-size": "Өлшемі",
+        "required-hint": "* Міндетті өрістер",
+        "cta": "Сатуға қою"
+      },
+      "subcategory": {
+        "title": "Қосалқы санат",
+        "choose": "Таңдау"
+      },
+      "brand": {
+        "title": "Бренд",
+        "search-hint": "Бренд іздеу"
+      },
+      "success": {
+        "title": "Желіде!",
+        "subtitle": "Затыңыз енді сатып алушыларға көрінеді.",
+        "see-listing": "Хабарландыруды қарау",
+        "back-home": "Басты бетке оралу"
+      },
+      "ai-badge": "ЖИ ұсынған",
+      "publish-failed": "Жариялау сәтсіз аяқталды, қайталап көріңіз."
+    },
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": { "title": "Қолданушыны бұғаттан шығару", "subtitle": "Бұл қолданушыны бұғаттан шығарғыңыз келетініне сенімдісіз бе?" },
+          "title": "Бұғатталған қолданушылар",
+          "empty": "Бұғатталған қолданушылар жоқ",
+          "unblock": "Қолданушыны бұғаттан шығару",
+          "success": "Қолданушы сәтті бұғаттан шығарылды"
+        }
+      }
+    },
+    "notifications": "Хабарландырулар",
+    "notification": {
+      "redirect-error": "Бұл хабарландыруды ашу кезінде қате орын алды."
+    },
+    "nothing": "Хабарландырулар жоқ",
+    "popup": {
+      "need-connect": {
+        "title": "Жүйеге кіру қажет",
+        "subtitle": "Бұл функцияны пайдалану үшін Klozy тіркелгісіне кіруіңіз керек.",
+        "confirm": "Кіру",
+        "cancel": "Тіркелгі құру"
+      },
+      "finalise-data": {
+        "title": "Профиліңізді аяқтаңыз",
+        "subtitle": "Зат сату үшін сатушы профилін аяқтауыңыз керек.",
+        "confirm": "Аяқтау",
+        "cancel": "Кейінірек"
+      }
+    },
+    "intro": {
+      "title": "Жаңа буын сәні",
+      "subtitle": "Бұрын киілген заттарды бірнеше секундта сатып алыңыз және сатыңыз. Қауіпсіз төлемдер, жылдам жеткізу және сенімді қауымдастық.",
+      "start": "Кеттік!"
+    },
+    "duration": {
+      "now": "қазір"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "Бренд",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "Басқа"
+      },
+      "product-status": {
+        "on-hold": "Күтуде",
+        "in-progress": "Орындалуда",
+        "completed": "Аяқталды",
+        "in-delivery": "Жеткізілуде",
+        "waiting-for-expedition": "Жөнелту күтілуде",
+        "pending-acceptance": "Қабылдау күтілуде",
+        "delivery-completed": "Жеткізу аяқталды",
+        "refused": "Қабылданбады",
+        "canceled": "Бас тартылды",
+        "return-requested": "Қайтару сұралды",
+        "return-accepted": "Қайтару қабылданды",
+        "return-refused": "Қайтару қабылданбады",
+        "return-completed": "Қайтару аяқталды"
+      },
+      "condition": {
+        "title": "Күйі",
+        "new": "Жаңа",
+        "very-good": "Өте жақсы",
+        "good": "Жақсы",
+        "normal": "Қалыпты",
+        "worn": "Тозған"
+      },
+      "sort-by": {
+        "lower-price": "Бағасы өсу бойынша",
+        "higher-price": "Бағасы кему бойынша",
+        "latest": "Соңғылары"
+      },
+      "product-category": {
+        "title": "Санат",
+        "women": "Әйелдер",
+        "men": "Ерлер",
+        "kids": "Балалар"
+      },
+      "product-sub-category": {
+        "title": "Ішкі санат",
+        "tops": "Жоғарғы киім",
+        "accessories": "Аксессуарлар",
+        "pants": "Шалбарлар",
+        "jackets": "Күртешелер",
+        "dresses": "Көйлектер",
+        "bottoms": "Төменгі киім",
+        "shoes": "Аяқкиім",
+        "underwear": "Іш киім"
+      },
+      "accessory-type": {
+        "title": "Аксессуар түрі",
+        "glasses": "Көзілдірік",
+        "headwear": "Бас киім",
+        "scarf": "Шарф",
+        "belt": "Белбеу",
+        "jewelry": "Зергерлік бұйымдар",
+        "watch": "Сағат",
+        "bag": "Сөмке",
+        "wallet": "Әмиян",
+        "sunglasses": "Күннен қорғайтын көзілдірік",
+        "tie": "Галстук",
+        "gloves": "Қолғаптар",
+        "other": "Басқа"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "0-3 ай",
+        "months_3_6": "3-6 ай",
+        "months_6_12": "6-12 ай",
+        "months_12_18": "12-18 ай",
+        "months_18_24": "18-24 ай",
+        "years_2_3": "2-3 жас",
+        "years_3_4": "3-4 жас",
+        "years_4_5": "4-5 жас",
+        "years_5_6": "5-6 жас",
+        "years_6_7": "6-7 жас",
+        "years_7_8": "7-8 жас",
+        "years_8_10": "8-10 жас",
+        "years_10_12": "10-12 жас",
+        "years_12_14": "12-14 жас"
+      }
+    },
+    "profile-completion": {
+      "title": "Профиліңізді толтырыңыз",
+      "edit-title": "Профильді өңдеу",
+      "favorite-article-sizes-title": "Таңдаулы зат өлшемдері",
+      "favorite-article-sizes-subtitle": "US және EU өлшемдеріңізді таңдаңыз.",
+      "preferred-brand-title": "Таңдаулы бренділер",
+      "preferred-brand-subtitle": "Бірнеше бренд таңдай аласыз.",
+      "lastname": "Тегі",
+      "lastname-hint": "Тегіңізді енгізіңіз",
+      "lastname-required": "Тегі міндетті",
+      "firstname": "Аты",
+      "firstname-hint": "Атыңызды енгізіңіз",
+      "firstname-required": "Аты міндетті",
+      "address": "Мекенжай",
+      "address-for-delivery": "Жеткізу мекенжайы",
+      "address-for-delivery-hint": "Мекенжайды іздеу",
+      "address-for-delivery-error": "Жарамды мекенжайды таңдаңыз",
+      "description": "Сипаттама",
+      "description-hint": "Өзіңіз туралы айтыңыз",
+      "profile-picture": "Профиль суреті",
+      "complete-registration": "Тіркеуді аяқтау",
+      "submit": "Тіркеуді аяқтау",
+      "exit-signup": {
+        "title": "Тіркеуден бас тарту керек пе?",
+        "subtitle": "Профиліңіз әлі аяқталмаған. Қазір шықсаңыз, қайтадан бастауыңыз керек болады."
+      },
+      "eu-sizes": "EU өлшемдері"
+    },
+    "order-summary": {
+      "title": "Қорытынды",
+      "x-product-purchased": "{} сатушысынан сатып алғалы тұрған заттарыңыз",
+      "no-products-in-cart": "Себетіңізде заттар жоқ",
+      "buyer-protection": "Сатып алушыны қорғау",
+      "total": "Барлығы",
+      "shipping": "Жеткізу",
+      "home-delivery": "Үйге жеткізу",
+      "choose-delivery-method": "Жеткізу әдісін таңдаңыз",
+      "choose": "Таңдау",
+      "change-delivery-address": "Жеткізу мекенжайын өзгерту",
+      "remove-product": "Затты жою",
+      "remove-product-message": "Бұл затты тізіміңізден жойғыңыз келетініне сенімдісіз бе?",
+      "remove-product-confirm": "Жою",
+      "remove-product-cancel": "Бас тарту",
+      "order-placed": "Тапсырыс берілді"
+    },
+    "order-details": {
+      "title": "Тапсырыс",
+      "product-purchased": "Сатып алынған зат",
+      "product-purchased-from": "{} сатушысынан сатып алынған зат",
+      "shipping-to": "Жеткізу мекенжайы",
+      "total-paid": "Төленген сома",
+      "cancel": "Тапсырыстан бас тарту",
+      "confirm-receipt": "Алуды растау",
+      "report-a-problem": "Мәселе туралы хабарлау",
+      "leave-a-review": "Пікір қалдыру",
+      "review-already-sent": "Сіз бұл тапсырысқа пікір қалдырып қойдыңыз.",
+      "refunded": "Қайтарылды",
+      "download-my-return-voucher": "Қайтару құжатын жүктеп алу",
+      "was-delivered-to": "Жеткізілген мекенжай",
+      "was-to-be-delivered": "Жеткізілуі тиіс болған",
+      "cancel-order": "Тапсырыстан бас тарту",
+      "tracking": "Бақылау нөмірі",
+      "track": "Бақылау",
+      "open-shipping-label": "Жапсырманы ашу",
+      "product-is-conform": "Зат сипаттамаға сәйкес келеді",
+      "product-confirmed": "Зат расталды! Төлем сатушыға аударылады.",
+      "request-a-return": "Қайтаруды сұрау",
+      "return-requested": "Қайтару сұрауы сатушыға жіберілді",
+      "return-pending": "Қайтару сұрауыңыз сатушының мақұлдауын күтуде",
+      "return-request-received": "Сатып алушы бұл тапсырысты қайтаруды сұрады",
+      "accept": "Қабылдау",
+      "refuse": "Бас тарту",
+      "return-accepted": "Қайтару қабылданды, ақша қайтарылуда",
+      "return-refused": "Қайтару қабылданбады",
+      "return-accepted-message": "Қайтару қабылданды. Қайтару құжатын жүктеп, затты кері жіберіңіз.",
+      "return-refused-message": "Сатушы қайтарудан бас тартты. Төлем аударылды.",
+      "return-in-transit": "Сатып алушының затты қайтаруын күтуде.",
+      "return-completed-message": "Қайтару алынды. Ақша қайтарылды."
+    },
+    "report": {
+      "cancel": "Бас тарту",
+      "report": "Мәселе туралы хабарлау",
+      "problem": "Қиындыққа тап болдыңыз ба? Қазір хабарлаңыз.",
+      "reason": "Мәселеңіздің себебі",
+      "reason-cancel": "Бас тарту себебі",
+      "text-area": "Толығырақ айтыңыз",
+      "file-picker": "Файлдар қосу",
+      "send-report": "Хабарламаны жіберу",
+      "confirm-cancel": "Бас тартуды растау"
+    },
+    "report_success": {
+      "title": "Жіберілді",
+      "subtitle": "Хабарламаңыз жіберілді! Ол мүмкіндігінше тез қаралады.",
+      "cancel": "Бас тарту сұрауыңыз жіберілді! Ол мүмкіндігінше тез қаралады.",
+      "buttonText": "Аяқтау"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "Қате",
+        "content": "Қате орын алды, кейінірек қайталап көріңіз."
+      }
+    },
+    "preview-reel": {
+      "retake": "Қайта түсіру",
+      "continue": "Жалғастыру"
+    },
+    "create-reel": {
+      "title": "Reel жасау",
+      "subtitle": "Reel жасау арқылы оларды насихаттау үшін коллекцияңыздан бір немесе бірнеше затты сатуға қоса аласыз",
+      "add-product": "Зат қосу",
+      "create-product": "Зат жасау",
+      "my-added-products": "Қосылған заттарым",
+      "my-products-to-sales": "Сатуға арналған заттарым",
+      "add": "Қосу",
+      "post": "Reel жариялау",
+      "update": "Reel жаңарту",
+      "success-title": "Тамаша!",
+      "success-subtitle": "Видеоңыз енді желіде.",
+      "error-title": "Бірдеңе жетіспейді",
+      "error-subtitle": "Reel-ге кемінде бір зат қосыңыз."
+    },
+    "put-a-product-on-sale": {
+      "title": "Затты сатуға қою",
+      "step": "Қадам",
+      "title-step2": "Затыңыз туралы көбірек",
+      "title-step3": "Фото қосу",
+      "put-on-sale": "Сатуға қою",
+      "success-title": "Тамаша!",
+      "success-subtitle": "Затыңыз енді сатуда.",
+      "edit-success-title": "Тамаша!",
+      "edit-success-subtitle": "Затыңыз енді сатуда.",
+      "error-title": "Жүктеу сәтсіз аяқталды",
+      "error-subtitle": "Затыңызды сақтау кезінде бірдеңе дұрыс болмады. Қайталап көріңіз.",
+      "forms": {
+        "title": "Атауы",
+        "title-hint": "Мыс. Көк жеңіл көйлек",
+        "price": "Бағасы",
+        "price-hint": "0",
+        "price-max-error": "Ең жоғары баға {}.",
+        "description": "Сипаттама",
+        "description-hint": "Затыңыздың сипаттамасын енгізіңіз",
+        "size": "Өлшемі",
+        "brand": "Бренд",
+        "condition-error-title": "Күйін таңдаңыз",
+        "condition-error-subtitle": "Затыңыздың күйін таңдаңыз",
+        "image-error-title": "Кемінде бір сурет таңдаңыз",
+        "image-error-subtitle": "Затыңызға кемінде бір сурет таңдаңыз"
+      }
+    },
+    "home": {
+      "feed": "Лента",
+      "wishlist": "Қалаулар тізімі",
+      "reels": "Reels",
+      "view-products": "Заттарды көру",
+      "hide-products": "Заттарды жасыру"
+    },
+    "product": {
+      "buy": "Сатып алу",
+      "already-sold": "Сатылып кеткен",
+      "make-an-offer": "Ұсыныс жасау",
+      "send-offer": "Ұсыныс жіберу",
+      "delete": "Жою",
+      "edit": "Өңдеу",
+      "success-title": "Ұсыныс жіберілді!",
+      "success-subtitle": "Ұсынысыңыз сәтті жіберілді.",
+      "popup-delete-title": "Затты жою",
+      "popup-delete-subtitle": "Бұл затты жойғыңыз келетініне сенімдісіз бе?",
+      "popup-delete-confirm": "Жою",
+      "popup-delete-cancel": "Бас тарту",
+      "delete-success-title": "Зат жойылды!",
+      "delete-success-subtitle": "Затыңыз сәтті жойылды.",
+      "forms": {
+        "actual-price": "Қазіргі баға",
+        "your-new-price": "Сіздің жаңа бағаңыз"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "Reel жою",
+      "popup-delete-subtitle": "Бұл reel-ді жойғыңыз келетініне сенімдісіз бе?",
+      "popup-delete-confirm": "Жою",
+      "popup-delete-cancel": "Бас тарту",
+      "delete-success-title": "Reel жойылды!",
+      "delete-success-subtitle": "Reel-іңіз сәтті жойылды.",
+      "feed-error": "Reels-ті жүктеу мүмкін болмады. Кейінірек қайталап көріңіз.",
+      "report": "Шағымдану"
+    },
+    "profile": {
+      "buyer": "Сатып алушы",
+      "my-order": "Тапсырыстарым",
+      "seller": "Сатушы",
+      "my-sales": "Сатылымдарым",
+      "products": "Заттар",
+      "reels": "Reels",
+      "reviews": "Пікірлер",
+      "followers": "Жазылушылар",
+      "following": "Жазылғандар",
+      "follow": "Жазылу",
+      "unfollow": "Жазылудан бас тарту",
+      "edit": "Профильді өңдеу",
+      "cant-follow-blocked": "Бұл қолданушыға жазыла алмайсыз."
+    },
+    "search": {
+      "popular-items": "Танымал заттар",
+      "categories": "Санаттар",
+      "title": "Іздеу",
+      "filter-search": "Іздеуді сүзу",
+      "sort-by": "Сұрыптау",
+      "in": "Ішінде",
+      "refine-the-category": "Санатты нақтылау",
+      "apply": "Қолдану",
+      "reset": "Тазарту",
+      "results": "Нәтижелер"
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "Stripe ашылуда."
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "Зат сипаттамаға сәйкес емес",
+        "motif2": "Жалған немесе тыйым салынған зат",
+        "motif3": "Сатушымен мәселе",
+        "motif4": "Жеткізу мәселесі",
+        "motif5": "Төлем немесе тапсырыс мәселесі",
+        "motif6": "Басқа"
+      },
+      "filePicker": {
+        "title": "Файлдар қосу"
+      },
+      "description": {
+        "title": "Толығырақ айтыңыз",
+        "title1": "Нақтылаңыз"
+      },
+      "motif1": {
+        "precisez1": "Қате өлшем / сәйкес келмейтін отыру",
+        "precisez2": "Күйі жарияланымнан өзгеше",
+        "precisez3": "Бөлшектер / аксессуарлар жетіспейді",
+        "precisez4": "Зат зақымдалған"
+      },
+      "motif2": {
+        "precisez1": "Жалған зат деген күдік",
+        "precisez2": "Тыйым салынған немесе қауіпті зат",
+        "precisez3": "Жаңылыстыратын немесе алаяқтық жарияланым",
+        "precisez4": "Басқа ереже мәселесі"
+      },
+      "motif3": {
+        "precisez1": "Сатушы жауап бермейді",
+        "precisez2": "Орынсыз мінез-құлық немесе қудалау",
+        "precisez3": "Қолданбадан тыс төлеу сұралды",
+        "precisez4": "Басқа сатушы мәселесі"
+      },
+      "motif4": {
+        "precisez1": "Бақылау жаңартылмайды",
+        "precisez2": "Жөнелтілім алынбады",
+        "precisez3": "Жөнелтілім зақымдалып келді",
+        "precisez4": "Жеткізу кешігуде"
+      },
+      "motif5": {
+        "precisez1": "Қате сома алынды",
+        "precisez2": "Ақша қайтару мәселесі",
+        "precisez3": "Тапсырыс мәселесі (бас тартылған / қайталанған)",
+        "precisez4": "Басқа төлем немесе тапсырыс мәселесі"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "Жаңа хабарлама",
+          "body": "Сізге жаңа хабарлама келді."
+        }
+      },
+      "user-deleted": "Белгісіз қолданушы",
+      "online-today-at": "Бүгін {} желіде болды",
+      "online-yesterday-at": "Кеше {} желіде болды",
+      "online-at": "{} желіде болды",
+      "change-name-confirm-button": "Аяқтау",
+      "call-audio": "Аудио қоңырау",
+      "call-video": "Видео қоңырау",
+      "call-start": "Қоңырау жалғасуда...",
+      "video-call-end": "Қоңырау аяқталды",
+      "new-group": "Топ атауы",
+      "cancel-audio": "Аудиодан бас тарту",
+      "preview": {
+        "media": {
+          "zero": "Элементтер жоқ",
+          "one": "1 медиа жіберілді",
+          "other": "{} медиа жіберілді"
+        },
+        "audio": "Аудио",
+        "reply-audio": "Жауап аудио"
+      },
+      "event": {
+        "report-and-block": "Шағымдану және бұғаттау",
+        "delete-tchat": "Чатты жою"
+      },
+      "status": {
+        "online": "Желіде",
+        "online-today-at": "Бүгін {time} желіде болды",
+        "online-yesterday-at": "Кеше {time} желіде болды",
+        "offline": "Желіде емес",
+        "multiple-online": "Бірнешеуі желіде",
+        "typing": "Жазып жатыр",
+        "audioRec": "Аудио жазып жатыр"
+      },
+      "document": {
+        "camera": "Камера",
+        "gallery": "Галерея",
+        "document": "Құжат",
+        "localisation": "Орналасу",
+        "contact": "Контакт",
+        "sondage": "Сауалнама"
+      },
+      "list": {
+        "title": "Сөйлесулер",
+        "title-face": "Аударма",
+        "conversations": "Сөйлесулер",
+        "no-tchat": "Чат жоқ",
+        "no-tchat-content": "Сізде әлі чат жоқ.",
+        "group-default-title": "Жаңа топ",
+        "oto-default-title": "Жаңа чат",
+        "new-conversation": "Жаңа сөйлесу"
+      },
+      "message": {
+        "no-message": "Хабарлама жоқ",
+        "no-message-body": "Сізде әлі хабарлама жоқ.",
+        "input-hint": "Хабарлама..",
+        "no-media": "Медиа жоқ",
+        "date": "{weekday} {day} {month}",
+        "today": "Бүгін",
+        "yesterday": "Кеше",
+        "join-group": "{name} топқа қосылды",
+        "leave-group": "{name} топтан шықты",
+        "add-to-group": "{name} {user} қолданушысын топқа қосты",
+        "remove-from-group": "{name} {user} қолданушысын топтан шығарды",
+        "change-group-title": "{name} топ атауын {title} деп өзгертті",
+        "change-group-avatar": "{name} топ аватарын өзгертті",
+        "blocked-by-you": "Сіз бұл контактіні бұғаттадыңыз.\nБұл контактіге енді хабарлама жібере алмайсыз.",
+        "blocked-by-other": "Бұл контакт сізді бұғаттады.\nБұл контактіге енді хабарлама жібере алмайсыз.",
+        "cant-send-message-blocked": "Бұл контактіге хабарлама жібере алмайсыз.",
+        "order-requested": "«{product_name}» үшін сатып алушыға ұсыныс жасалды",
+        "order-accepted": "№{id} тапсырысыңызды сатушы қабылдады",
+        "order-rejected": "№{id} тапсырысыңызды сатушы қабылдамады",
+        "order-purchased": "Тапсырыс сатып алынды",
+        "view-order-details": "Тапсырыс мәліметтерін көру"
+      }
+    },
+    "commentary": {
+      "add-note-title": "Сатушыны бағалаңыз",
+      "add_note_title": "Сатушыны бағалаңыз",
+      "delete": "Жою",
+      "report": "Шағымдану",
+      "add-note": {
+        "validate": "Растау",
+        "field": {
+          "note-title": "Бұл сатушыны бағалаңыз",
+          "commentary-title": "Пікір",
+          "placeholder": "Пікір жазыңыз",
+          "commentary-hint": "Пікір жазыңыз..",
+          "commentary_hint": "Пікір жазыңыз.."
+        },
+        "title": "Бұл сатушыны бағалаңыз",
+        "comment": "Пікір",
+        "placeholder": "Пікір жазыңыз",
+        "commentary-hint": "Пікір жазыңыз.."
+      },
+      "add_note": {
+        "validate": "Растау",
+        "field": {
+          "title": "Бұл сатушыны бағалаңыз",
+          "comment": "Пікір",
+          "placeholder": "Пікір жазыңыз",
+          "commentary-hint": "Пікір жазыңыз..",
+          "commentary_hint": "Пікір жазыңыз.."
+        },
+        "title": "Бұл сатушыны бағалаңыз",
+        "comment": "Пікір",
+        "placeholder": "Пікір жазыңыз",
+        "commentary-hint": "Пікір жазыңыз..",
+        "commentary_hint": "Пікір жазыңыз.."
+      },
+      "sure-delete-commentary": {
+        "title": "Пікірді жою",
+        "subtitle": "Бұл пікірді жойғыңыз келетініне сенімдісіз бе?"
+      },
+      "sure_delete_commentary": {
+        "title": "Пікірді жою",
+        "subtitle": "Бұл пікірді жойғыңыз келетініне сенімдісіз бе?"
+      }
+    },
+    "validator": {
+      "must-have-value": "Бұл өріс міндетті",
+      "email-invalid": "Жарамды электрондық пошта енгізіңіз",
+      "password-invalid-length": "Кемінде 6 таңба",
+      "password-invalid-maj": "Кемінде 1 бас әріп",
+      "password-invalid-min": "Кемінде 1 кіші әріп",
+      "password-invalid-number": "Кемінде 1 сан",
+      "password-invalid-special-char": "Кемінде 1 арнайы таңба (&?!@#)",
+      "password-not-match": "Құпия сөздер сәйкес келмейді",
+      "number-invalid": "Жарамды сан енгізіңіз",
+      "number-out-of-range": "{min} мен {max} аралығындағы санды енгізіңіз",
+      "number-out-of-min": "{min} мәнінен үлкен санды енгізіңіз",
+      "number-out-of-max": "{max} мәнінен кіші санды енгізіңіз",
+      "date-invalid": "Жарамды күнді енгізіңіз",
+      "date-out-of-range": "{min} мен {max} аралығындағы күнді енгізіңіз",
+      "date-out-of-min": "{min} күнінен кейінгі күнді енгізіңіз",
+      "date-out-of-max": "{max} күнінен бұрынғы күнді енгізіңіз",
+      "alpha-invalid": "Жарамды мән енгізіңіз",
+      "code-invalid": "Жарамды кодты енгізіңіз"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "Фото таңдаңыз"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "Фото жоқ",
+        "one": "1 фото",
+        "other": "{} фото"
+      },
+      "write-message": "Хабарлама жазыңыз..",
+      "camera": {
+        "shootingTips": "Фото түсіріңіз",
+        "confirm": "Растау",
+        "saving": "Сақталуда...",
+        "shootingWithRecordingTips": "Түсіру үшін басып тұрыңыз."
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "Елді іздеу",
+          "error_message": "Жарамды телефон нөмірін енгізіңіз"
+        },
+        "input": {
+          "choose-media": "Фото таңдау үшін басыңыз",
+          "choose-multiple-file": "Бірнеше файл таңдау үшін басыңыз",
+          "choose-image": "Фото таңдау үшін басыңыз",
+          "choose-file": "Файл таңдау үшін басыңыз",
+          "press-to-modify": "Файлды өзгерту үшін басыңыз"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "Электрондық пошта",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "Электрондық пошта",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "Құпия сөз",
+          "hint": "Құпия сөз",
+          "security-action": "Не істеу керек?"
+        },
+        "actual-password": {
+          "title": "Ағымдағы құпия сөз",
+          "hint": "Ағымдағы құпия сөз"
+        },
+        "new-password": {
+          "title": "Жаңа құпия сөз",
+          "hint": "Жаңа құпия сөз"
+        },
+        "repeat-password": {
+          "title": "Құпия сөзді растау",
+          "hint": "Құпия сөзді растау"
+        },
+        "new-repeat-password": {
+          "title": "Жаңа құпия сөзді растау",
+          "hint": "Жаңа құпия сөзді растау"
+        },
+        "phone": {
+          "title": "Телефон нөмірі",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "SMS арқылы алынған код",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "Мәтін өрісі",
+        "hint": "Осында жазыңыз.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "Телефон нөміріңіз сәтті қосылды.",
+      "invalid-email": "Көрсетілген ақпарат бойынша қолданушы табылмады.",
+      "user-not-found": "Көрсетілген ақпарат бойынша қолданушы табылмады.",
+      "user-disabled": "Тіркелгіңізді әкімші өшірді.",
+      "wrong-password": "Құпия сөз қате.",
+      "email-already-in-use": "Бұл электрондық пошта мекенжайы қазірдің өзінде қолданылуда.",
+      "phone-already-in-use": "Бұл телефон нөмірі қазірдің өзінде қолданылуда.",
+      "weak-password": "Құпия сөз тым әлсіз.",
+      "account-exists-with-different-credential": "Бұл электрондық пошта мекенжайымен тіркелгі қазірдің өзінде бар.",
+      "invalid-credential": "Көрсетілген ақпарат бойынша қолданушы табылмады.",
+      "invalid-verification-code": "Растау коды жарамсыз.",
+      "invalid-verification-id": "Растау идентификаторы жарамсыз.",
+      "requires-recent-login": "Бұл әрекетті орындау үшін қайта кіруіңіз керек.",
+      "invalid-phone-number": "Телефон нөмірі жарамсыз.",
+      "error-phone-not-exist": "Бұл телефон нөмірі жоқ.",
+      "code-invalid": "Жарамды кодты енгізіңіз",
+      "code-is-required": "SMS арқылы алынған кодты енгізіңіз",
+      "email-must-be-verified": "Жалғастыру үшін электрондық пошта мекенжайыңызды растауыңыз керек.",
+      "tiers-auth-valid-email": "Жалғастыру үшін үшінші тарап тіркелгіңіздің жарамды электрондық поштасы болуы керек.",
+      "send-reset-password-email": "Көрсетілген мекенжайға құпия сөзді қалпына келтіру хаты жіберілді.",
+      "error-internet": "Байланыс мәселесі орын алды. Интернет байланысыңызды тексеріңіз.",
+      "error-default": "Қате орын алды, қайталап көріңіз.",
+      "must-accept-cgu": "Жалғастыру үшін пайдалану шарттарын қабылдауыңыз керек.",
+      "password-security": "Құпия сөз форматы",
+      "password-security-length": "Кемінде 6 таңба",
+      "password-security-maj": "Кемінде 1 бас әріптен тұрады",
+      "password-security-min": "Кемінде 1 кіші әріптен тұрады",
+      "password-security-number": "Кемінде 1 саннан тұрады",
+      "password-security-special": "Кемінде 1 арнайы таңбадан тұрады (&?!@#)",
+      "success-change-password": "Құпия сөзіңіз сәтті өзгертілді.",
+      "phone-update-success": "Телефон нөміріңіз өзгертілді!",
+      "cant-be-same-password": "Жаңа құпия сөз ескісінен өзгеше болуы керек.",
+      "cant-be-same-email": "Жаңа электрондық пошта ескісінен өзгеше болуы керек.",
+      "cant-be-same-phone": "Жаңа телефон нөмірі ескісінен өзгеше болуы керек.",
+      "code-is-expired": "Растау кодының мерзімі өтіп кетті.",
+      "code-sent": "Сізге SMS арқылы растау коды жіберілді.",
+      "too-many-requests": "Тым көп кіру әрекеті. Кейінірек қайталап көріңіз."
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "Кіру",
+        "already-have-account": "Тіркелгіңіз бар ма?",
+        "login-title": "Тіркелгіңізге кіріңіз немесе жаңасын құрыңыз.",
+        "login-phone-title": "Тіркелгіңізге кіріңіз",
+        "verify-phone-title": "Кіру үшін SMS арқылы алынған кодты енгізіңіз",
+        "verify-phone-code-title": "Телефон нөміріңізді растаңыз",
+        "code-expire-in": "Кодтың мерзімі {time} минуттан кейін өтеді",
+        "no-code": "Алмадыңыз ба?",
+        "resend-code": "Қайта жіберу",
+        "forgot-password": "Құпия сөзді ұмыттыңыз ба?",
+        "reset-password": "Құпия сөзді қалпына келтіру",
+        "no-account": "Тіркелгі жоқ па?",
+        "create-account": "Қазір құру",
+        "login-with-phone": "Телефонмен кіру",
+        "login-with-email": "Электрондық поштамен кіру",
+        "or-connect-with": "немесе мынамен кіру",
+        "or-signup-with": "немесе мынамен тіркелу",
+        "verify-email": "Электрондық поштаңызды растаңыз",
+        "verify-email-subtitle": "Құпия сөзіңізді қалпына келтіру үшін сізге хат жіберілді.",
+        "create-account-verify-email": "Электрондық поштаңызды растаңыз",
+        "create-account-title": "Тіркелгі құру",
+        "create-account-verify-email-subtitle": "Мекенжайға растау хаты жіберілді",
+        "reset-password-modal": {
+          "title": "Құпия сөзді қалпына келтіру",
+          "subtitle": "Тіркелгіңізге байланысты электрондық пошта мекенжайын енгізіңіз. Біз сол мекенжайға қалпына келтіру хатын жібереміз."
+        },
+        "tiers-signin": {
+          "get-password-title": "Құпия сөзіңізді енгізіңіз",
+          "get-password-subtitle": "Біз бұл электрондық пошта мекенжайымен тіркелгіні таптық, кіру үшін құпия сөзіңізді енгізіңіз."
+        }
+      },
+      "profile": {
+        "delete-success": "Тіркелгіңіз сәтті жойылды.\nКездескенше",
+        "logout": "Шығу",
+        "delete-account": "Профилімді жою",
+        "delete-my-account": "Тіркелгімді жою",
+        "delete-my-account-subtitle": "Тіркелгіңізді шынымен жойғыңыз келе ме?",
+        "logout-success": "Сіз сәтті шықтыңыз.\nКездескенше"
+      },
+      "new-cgu-must-be-accepted": "Жалғастыру үшін жаңа пайдалану шарттарын қабылдауыңыз керек."
+    },
+    "onboarding": {
+      "button_next": "Келесі",
+      "button_start": "Аяқтау",
+      "skip": "Өткізіп жіберу"
+    },
+    "permission": {
+      "notification": {
+        "title": "Push хабарландырулар",
+        "redirect-to-settings": "Push хабарландыру қызметін қосқыңыз келе ме? Бұл қолданбаны толық пайдалануға көмектеседі.",
+        "button": "Хабарландыруларды қосу"
+      },
+      "camera": {
+        "title": "Камера",
+        "redirect-to-settings": "Бұл функцияны пайдалану үшін камераға рұқсат беруіңіз керек.",
+        "button": "Камераны қосу"
+      },
+      "microphone": {
+        "title": "Микрофон",
+        "redirect-to-settings": "Бұл функцияны пайдалану үшін микрофонға рұқсат беруіңіз керек.",
+        "button": "Микрофонды қосу"
+      },
+      "accessMediaLocation": {
+        "title": "Медиа орналасуына қол жеткізу",
+        "redirect-to-settings": "Бұл функцияны пайдалану үшін медиа орналасуына қол жеткізуге рұқсат беруіңіз керек.",
+        "button": "Медиа орналасуына қол жеткізуді қосу"
+      },
+      "mediaLibrary": {
+        "title": "Медиатека",
+        "redirect-to-settings": " Бұл функцияны пайдалану үшін медиатекаға қол жеткізуге рұқсат беруіңіз керек.",
+        "button": "Медиатекаға қол жеткізуді қосу"
+      },
+      "photos": {
+        "title": "Фотолар",
+        "redirect-to-settings": "Бұл функцияны пайдалану үшін фотоларға қол жеткізуге рұқсат беруіңіз керек.",
+        "button": "Фотоларға қол жеткізуді қосу"
+      },
+      "storage": {
+        "title": "Жад",
+        "redirect-to-settings": "Бұл функцияны пайдалану үшін жадқа қол жеткізуге рұқсат беруіңіз керек.",
+        "button": "Жадқа қол жеткізуді қосу"
+      },
+      "mic": {
+        "redirect-to-settings": "Телефон параметрлерінде микрофонға рұқсат беріңіз.",
+        "title": "Микрофон",
+        "button": "Параметрлерді ашу"
+      },
+      "notif-push": {
+        "title": "Push хабарландырулар",
+        "desc": "Push хабарландыру қызметін қосқыңыз келе ме? Бұл қолданбаны толық пайдалануға көмектеседі.",
+        "button": "Хабарландыруларды қосу"
+      },
+      "location": {
+        "title": "Орналасу",
+        "desc": "Мобильді қолданбамызды толық пайдалану үшін орналасуға рұқсат беруіңіз керек.",
+        "button": "Жалғастыру",
+        "redirect-to-settings": "Телефон параметрлерінде орналасуға рұқсат беріңіз."
+      },
+      "background-location": {
+        "title": "Фондық орналасу",
+        "desc": "Фондық орналасу қызметін қосқыңыз келе ме? Бұл қолданбаның жұмысы үшін маңызды.",
+        "button": "Фондық орналасуды қосу"
+      },
+      "skip": "Өткізіп жіберу"
+    },
+    "image": {
+      "from-gallery": "Галерея",
+      "from-camera": "Камера"
+    },
+    "duration": {
+      "now": "Қазір",
+      "days-ago": "{} күн бұрын",
+      "x-days": "{} күн бұрын",
+      "hours-ago": "{} сағат бұрын",
+      "minutes-ago": "{} минут бұрын",
+      "seconds-ago": "{} секунд бұрын",
+      "months-ago": "{} ай бұрын",
+      "years-ago": "{} жыл бұрын",
+      "moment-ago": "Сәл бұрын"
+    },
+    "settings": {
+      "edited-by": "Өңдеген",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "Өзгерту",
+        "personnal-data": "Тіркелгім",
+        "settings": "Параметрлер",
+        "other": "Басқа",
+        "link": "Сілтемелер",
+        "social": "Әлеуметтік желі",
+        "security": "Қауіпсіздік"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "Бұғатталған қолданушылар",
+          "subtitle": "Бұғатталған қолданушылар тізімі"
+        },
+        "blocked-users": {
+          "unblock": "Қолданушыны бұғаттан шығару",
+          "block": "Қолданушыны бұғаттау",
+          "unblock-success": "Қолданушы сәтті бұғаттан шығарылды",
+          "title": "Бұғатталған қолданушылар",
+          "subtitle": "Бұғатталған қолданушылар тізімі"
+        },
+        "change-personnal-content": {
+          "title": "Жеке ақпарат",
+          "subtitle": "Тегі, аты, сипаттама"
+        },
+        "clothing-preference": {
+          "title": "Киім қалаулары",
+          "subtitle": "Жекелендіру"
+        },
+        "preferred-article-size": {
+          "title": "Таңдаулы зат өлшемдері",
+          "subtitle": "Басқару"
+        },
+        "preferred-brand": {
+          "title": "Таңдаулы бренділер",
+          "subtitle": "Басқару"
+        },
+        "security": {
+          "title": "Қауіпсіздік",
+          "subtitle": "Құпия сөз, телефон, электрондық пошта..."
+        },
+        "payment": {
+          "title": "Төлем әдістері",
+          "subtitle": "Несие картасы / Apple Pay",
+          "credit-card": "Несие картасы",
+          "bank-details": "Банк шоты",
+          "bank-details-empty": "Бапталмаған",
+          "handle-with-stripe": "Stripe арқылы басқару"
+        },
+        "phone-number": {
+          "title": "Телефон нөмірі"
+        },
+        "change-email": {
+          "title": "Электрондық пошта мекенжайы"
+        },
+        "change-password": {
+          "title": "Құпия сөз",
+          "subtitle": "Соңғы өзгертілген: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "Push хабарландырулар"
+        },
+        "email-notif": {
+          "title": "Электрондық пошта хабарландырулары"
+        },
+        "help": {
+          "title": "Көмек",
+          "subtitle": "Бізбен электрондық пошта арқылы байланысыңыз"
+        },
+        "share": {
+          "title": "Қолданбаны бөлісу",
+          "subtitle": "Қолданбаны бөлісу арқылы бізді қолдаңыз"
+        },
+        "link": {
+          "privacy-policy": "Құпиялылық саясаты",
+          "legal-mention": "Құқықтық ескерту",
+          "legal-notice": "Құқықтық хабарлама",
+          "cgvu": "Сату және пайдалану шарттары",
+          "about": "Біз туралы"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "Желі қатесі 😕",
+      "subtitle": "Интернет байланысы анықталмады. Желі байланысыңызды тексеріңіз.",
+      "button": "Жаңарту"
+    },
+    "research": {
+      "hint": "Зат іздеу...",
+      "no-item-title": "Ештеңе табылмады",
+      "no-item-content": "Бұл іздеу бойынша заттар табылмады"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "Қаңтар",
+      "2": "Ақпан",
+      "3": "Наурыз",
+      "4": "Сәуір",
+      "5": "Мамыр",
+      "6": "Маусым",
+      "7": "Шілде",
+      "8": "Тамыз",
+      "9": "Қыркүйек",
+      "10": "Қазан",
+      "11": "Қараша",
+      "12": "Желтоқсан"
+    },
+    "day-by-id": {
+      "1": "Дүйсенбі",
+      "2": "Сейсенбі",
+      "3": "Сәрсенбі",
+      "4": "Бейсенбі",
+      "5": "Жұма",
+      "6": "Сенбі",
+      "7": "Жексенбі"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "Дс",
+      "tu": "Сс",
+      "we": "Ср",
+      "th": "Бс",
+      "fr": "Жм",
+      "sa": "Сб",
+      "su": "Жс"
+    },
+    "month": {
+      "january": "Қаңтар",
+      "february": "Ақпан",
+      "march": "Наурыз",
+      "april": "Сәуір",
+      "may": "Мамыр",
+      "june": "Маусым",
+      "july": "Шілде",
+      "august": "Тамыз",
+      "september": "Қыркүйек",
+      "october": "Қазан",
+      "november": "Қараша",
+      "december": "Желтоқсан"
+    },
+    "event": {
+      "cancel": "Бас тарту",
+      "validate": "Растау"
+    },
+    "range": {
+      "no_date": "Күн жоқ"
+    }
+  },
+  "utils": {
+    "done": "Дайын",
+    "unlock": "Бұғаттан шығару",
+    "mandatory": "Міндетті",
+    "next": "Келесі",
+    "number_x": "№{}",
+    "mandatory-fields": "* Белгіленген өрістер міндетті",
+    "submit": "Жіберу",
+    "choose": "Таңдау",
+    "validate-and-modify": "Растау және өзгерту",
+    "modify": "Өзгерту",
+    "by-default": "Әдепкі бойынша",
+    "deactivate": "Өшіру",
+    "activate": "Қосу",
+    "loading": "Жүктелуде..",
+    "close": "Жабу",
+    "cancel": "Бас тарту",
+    "continue": "Жалғастыру",
+    "connexion": "Кіру",
+    "validate": "Растау",
+    "success": "Сәтті",
+    "yes": "Иә",
+    "no": "Жоқ",
+    "error": "Қате",
+    "reinit": "Тазарту",
+    "cgvu": "СПШ",
+    "validate-and-continue": "Растау және жалғастыру",
+    "confidentiality-policy": "Құпиялылық саясаты",
+    "cgvu-and-confidentiality": "СПШ және құпиялылық саясаты",
+    "accept-cgvu-and-confidentiality": "Мен құпиялылық саясатын және сату мен пайдалану шарттарын қабылдаймын.",
+    "what-do-you-want-to-do": "Не істегіңіз келеді?",
+    "error-default": "Қате орын алды, қайталап көріңіз.",
+    "optional": "Міндетті емес",
+    "save": "Сақтау",
+    "accept": "Қабылдау",
+    "refuse": "Бас тарту",
+    "edit": "Өңдеу",
+    "delete": "Жою",
+    "size": "Өлшемі",
+    "dirhams": "Дирхам",
+    "aed": "AED",
+    "followers": "Жазылушылар",
+    "following": "Жазылғандар"
+  },
+  "empty-state": {
+    "no-wishlist": "Қалаулар тізімі жоқ",
+    "no-feed": "Лента жоқ",
+    "no-products": "Заттар жоқ",
+    "no-products-found": "Заттар табылмады",
+    "no-reels": "Reels жоқ",
+    "no-reels-available": "Әзірге қолжетімді reels жоқ.",
+    "no-reviews": "Пікірлер жоқ",
+    "no-orders": "Тапсырыстар жоқ",
+    "product-not-found": "Зат табылмады",
+    "no-connect-account": "Connect тіркелгісі табылмады"
+  },
+  "error": {
+    "product-doesnt-exist": "Бұл зат енді жоқ",
+    "please-try-again": "Кейінірек қайталап көріңіз"
+  },
+  "stats": {
+    "title": "Менің статистикам",
+    "consult-stripe": "Stripe статистикаңызды қараңыз",
+    "consult-stripe-desc": "Stripe бақылау тақтасын ашып, сатылым статистикаңызды тексеру үшін төмендегі түймені басыңыз.",
+    "open-dashboard": "Бақылау тақтасын ашу"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "Қалай сатқыңыз келеді?",
+      "subtitle": "Сізге сәйкес келетін опцияны таңдаңыз. Кейінірек ауысу қажет болса, әрқашан қолдау қызметіне хабарласа аласыз.",
+      "vendor-title": "Мен бизнеспін",
+      "vendor-subtitle": "Бизнес ретінде сатыңыз. Жеке басты және бизнесті растау қажет.",
+      "particular-title": "Мен жеке тұлғамын",
+      "particular-subtitle": "Гардеробыңыздан заттарды сатыңыз. Төлемдерді алу үшін тек IBAN қажет."
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "Төлем алу үшін банк шотыңызды қосыңыз",
+      "after-sale-title": "Сатылымнан кейін",
+      "after-sale-body": "Қаражат қауіпсіз сақталады. Сатып алушы алуды растағанда аударым іске қосылады.",
+      "transfer-title": "Аударым уақыты",
+      "transfer-body": "Сатылым расталғаннан кейін 48-72 сағат ішінде ақшаңыз банк шотыңызға түседі.",
+      "privacy-title": "Құпиялылық",
+      "privacy-body": "IBAN қауіпсіз сақталады және кейінірек тіркелгі параметрлерінен жаңартуға болады.",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "Мен оқыдым және қабылдаймын ",
+      "tnc-link": "Шарттар мен ережелер",
+      "cta-onboarding": "Сақтау және жалғастыру",
+      "cta-edit": "Сақтау",
+      "save-error": "IBAN сақтай алмадық. Қайталап көріңіз."
+    },
+    "settings": {
+      "title": "Банк шоты",
+      "updated-on": "{date} жаңартылды",
+      "edit-cta": "IBAN өңдеу",
+      "add-cta": "IBAN қосу",
+      "empty-state": "Тіркелген банк шоты жоқ. Табысыңызды аудара алуымыз үшін біреуін қосыңыз."
+    }
+  },
+  "preferences": {
+    "save": "Сақтау",
+    "clothing": {
+      "title": "Киім қалаулары",
+      "subtitle": "Жиі сатып алатын санатыңызды таңдаңыз. Біз лентаңызды соған сай бейімдейміз."
+    },
+    "sizes": {
+      "title": "Таңдаулы өлшемдер"
+    },
+    "brands": {
+      "title": "Таңдаулы бренділер",
+      "subtitle": "Ұнататын бренділеріңізді таңдаңыз. Қалағаныңызша таңдай аласыз."
+    }
+  },
+  "cart": {
+    "checkout": "Төлем",
+    "currency": "AED",
+    "size": "Өлшемі {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} пікір",
+    "rating_na": "Қолжетімсіз",
+    "encrypted_checkout": "Шифрланған төлем",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "Аралық қорытынды",
+    "shipping": "Жеткізу",
+    "shipping_standard": "Стандартты",
+    "shipping_standard_city": "Стандартты · {}",
+    "buyer_protection": "Сатып алушыны қорғау",
+    "buyer_protection_subtitle": "Жеткізілмесе толық қайтару",
+    "summary": "Қорытынды",
+    "delivery": "Жеткізу",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "Затты жою",
+    "remove_product_message": "Бұл затты себеттен жою керек пе?",
+    "remove": "Жою",
+    "cancel": "Бас тарту",
+    "cart_empty_title": "СЕБЕТ · 0",
+    "empty_heading": "Себетіңіз бос",
+    "empty_body": "Зат қосу үшін {} заттарын қараңыз",
+    "this_seller": "бұл сатушы"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "Қалаулар тізіміңіз бос",
+    "saved-count": "{count} сақталған зат"
+  }
+}

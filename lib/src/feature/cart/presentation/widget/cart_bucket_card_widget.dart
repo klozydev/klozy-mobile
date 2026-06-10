@@ -14,6 +14,7 @@ class CartBucketCardWidget extends StatelessWidget {
   final VoidCallback onMakeOffer;
   final VoidCallback onCancelOffer;
   final VoidCallback onCheckout;
+  final VoidCallback? onMessageSeller;
 
   const CartBucketCardWidget({
     super.key,
@@ -22,6 +23,7 @@ class CartBucketCardWidget extends StatelessWidget {
     required this.onMakeOffer,
     required this.onCancelOffer,
     required this.onCheckout,
+    this.onMessageSeller,
   });
 
   @override
@@ -146,6 +148,20 @@ class CartBucketCardWidget extends StatelessWidget {
             color: DSColor.onSurface45,
           ),
         ),
+        if (onMessageSeller != null) ...<Widget>[
+          const SizedBox(width: 8),
+          GestureDetector(
+            onTap: onMessageSeller,
+            child: const Padding(
+              padding: EdgeInsets.all(2),
+              child: Icon(
+                Icons.chat_bubble_outline_rounded,
+                size: 18,
+                color: DSColor.onSurface60,
+              ),
+            ),
+          ),
+        ],
       ],
     );
   }

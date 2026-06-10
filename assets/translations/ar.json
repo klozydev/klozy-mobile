@@ -1,0 +1,1340 @@
+{
+  "app": {
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "جارٍ تحليل صورك…",
+        "step-identify": "جارٍ التعرّف على المنتج…",
+        "step-generate": "جارٍ إنشاء العنوان والسعر…"
+      },
+      "photos": {
+        "empty-title": "بِع في ثوانٍ",
+        "empty-cta": "أضف صورك",
+        "empty-subtitle": "ابدأ بصورة — الذكاء الاصطناعي يتكفّل بالعنوان والوصف والسعر.",
+        "grid-title": "صورك",
+        "grid-subtitle": "أضف حتى {max} صور. سيملأ الذكاء الاصطناعي إعلانك.",
+        "min-one": "أضف صورة واحدة على الأقل للمتابعة",
+        "continue": "متابعة",
+        "add": "إضافة",
+        "max-reached": "{max} صور كحد أقصى",
+        "cover": "الغلاف",
+        "edit": "تعديل"
+      },
+      "capture": {
+        "title": "إضافة صورة",
+        "camera-title": "التقاط صورة",
+        "camera-subtitle": "يفتح الكاميرا",
+        "gallery-title": "الاختيار من المعرض",
+        "gallery-subtitle": "يمكن تحديد عدة صور"
+      },
+      "entry": {
+        "reel-subtitle": "شارك فيديو لقطعك",
+        "sell-subtitle": "الصورة أولاً · الذكاء الاصطناعي يملأ إعلانك"
+      },
+      "recap": {
+        "title": "إعلانك",
+        "field-title": "العنوان",
+        "field-title-hint": "مثال: جاكيت جينز Levi's",
+        "field-price": "السعر",
+        "field-price-hint": "0",
+        "field-description": "الوصف",
+        "field-description-hint": "صِف الحالة والمقاس والخامة…",
+        "section-details": "تفاصيل المنتج",
+        "field-category": "الفئة",
+        "field-subcategory": "الفئة الفرعية",
+        "subcategory-placeholder": "اختر فئة فرعية",
+        "field-brand": "العلامة التجارية",
+        "brand-placeholder": "اختياري",
+        "field-condition": "الحالة",
+        "field-size": "المقاس",
+        "required-hint": "* الحقول المطلوبة",
+        "cta": "اعرض للبيع"
+      },
+      "subcategory": {
+        "title": "الفئة الفرعية",
+        "choose": "اختيار"
+      },
+      "brand": {
+        "title": "العلامة التجارية",
+        "search-hint": "ابحث عن علامة تجارية"
+      },
+      "success": {
+        "title": "أصبح متاحًا!",
+        "subtitle": "أصبح منتجك الآن مرئيًا للمشترين.",
+        "see-listing": "عرض الإعلان",
+        "back-home": "العودة إلى الرئيسية"
+      },
+      "ai-badge": "مقترَح بواسطة الذكاء الاصطناعي",
+      "publish-failed": "فشل النشر، يُرجى المحاولة مرة أخرى."
+    },
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": { "title": "إلغاء حظر المستخدم", "subtitle": "هل أنت متأكد من رغبتك في إلغاء حظر هذا المستخدم؟" },
+          "title": "المستخدمون المحظورون",
+          "empty": "لا يوجد مستخدمون محظورون",
+          "unblock": "إلغاء حظر المستخدم",
+          "success": "تم إلغاء حظر المستخدم بنجاح"
+        }
+      }
+    },
+    "notifications": "الإشعارات",
+    "notification": {
+      "redirect-error": "حدث خطأ أثناء فتح هذا الإشعار."
+    },
+    "nothing": "لا توجد إشعارات",
+    "popup": {
+      "need-connect": {
+        "title": "يجب تسجيل الدخول",
+        "subtitle": "لاستخدام هذه الميزة، يجب أن تكون مسجّلاً الدخول إلى حساب Klozy.",
+        "confirm": "تسجيل الدخول",
+        "cancel": "إنشاء حساب"
+      },
+      "finalise-data": {
+        "title": "أكمل ملفك الشخصي",
+        "subtitle": "لبيع منتج، يجب عليك إكمال ملفك الشخصي كبائع.",
+        "confirm": "إكمال",
+        "cancel": "لاحقاً"
+      }
+    },
+    "intro": {
+      "title": "أزياء الجيل القادم",
+      "subtitle": "اشترِ وبِع القطع المستعملة في ثوانٍ. مدفوعات آمنة، وشحن سريع، ومجتمع يمكنك الوثوق به.",
+      "start": "هيا بنا!"
+    },
+    "duration": {
+      "now": "الآن"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "العلامة التجارية",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "أخرى"
+      },
+      "product-status": {
+        "on-hold": "قيد الانتظار",
+        "in-progress": "قيد التنفيذ",
+        "completed": "مكتمل",
+        "in-delivery": "قيد التوصيل",
+        "waiting-for-expedition": "في انتظار الشحن",
+        "pending-acceptance": "في انتظار القبول",
+        "delivery-completed": "اكتمل التوصيل",
+        "refused": "مرفوض",
+        "canceled": "ملغى",
+        "return-requested": "تم طلب الإرجاع",
+        "return-accepted": "تم قبول الإرجاع",
+        "return-refused": "تم رفض الإرجاع",
+        "return-completed": "اكتمل الإرجاع"
+      },
+      "condition": {
+        "title": "الحالة",
+        "new": "جديد",
+        "very-good": "جيد جداً",
+        "good": "جيد",
+        "normal": "عادي",
+        "worn": "مستعمل"
+      },
+      "sort-by": {
+        "lower-price": "السعر تصاعدياً",
+        "higher-price": "السعر تنازلياً",
+        "latest": "الأحدث"
+      },
+      "product-category": {
+        "title": "الفئة",
+        "women": "نساء",
+        "men": "رجال",
+        "kids": "أطفال"
+      },
+      "product-sub-category": {
+        "title": "الفئة الفرعية",
+        "tops": "بلايز",
+        "accessories": "إكسسوارات",
+        "pants": "بناطيل",
+        "jackets": "جاكيتات",
+        "dresses": "فساتين",
+        "bottoms": "ملابس سفلية",
+        "shoes": "أحذية",
+        "underwear": "ملابس داخلية"
+      },
+      "accessory-type": {
+        "title": "نوع الإكسسوار",
+        "glasses": "نظارات",
+        "headwear": "أغطية الرأس",
+        "scarf": "وشاح",
+        "belt": "حزام",
+        "jewelry": "مجوهرات",
+        "watch": "ساعة",
+        "bag": "حقيبة",
+        "wallet": "محفظة",
+        "sunglasses": "نظارات شمسية",
+        "tie": "ربطة عنق",
+        "gloves": "قفازات",
+        "other": "أخرى"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "0-3 أشهر",
+        "months_3_6": "3-6 أشهر",
+        "months_6_12": "6-12 شهراً",
+        "months_12_18": "12-18 شهراً",
+        "months_18_24": "18-24 شهراً",
+        "years_2_3": "2-3 سنوات",
+        "years_3_4": "3-4 سنوات",
+        "years_4_5": "4-5 سنوات",
+        "years_5_6": "5-6 سنوات",
+        "years_6_7": "6-7 سنوات",
+        "years_7_8": "7-8 سنوات",
+        "years_8_10": "8-10 سنوات",
+        "years_10_12": "10-12 سنة",
+        "years_12_14": "12-14 سنة"
+      }
+    },
+    "profile-completion": {
+      "title": "أكمل ملفك الشخصي",
+      "edit-title": "تعديل الملف الشخصي",
+      "favorite-article-sizes-title": "مقاسات المنتجات المفضلة",
+      "favorite-article-sizes-subtitle": "اختر مقاساتك الأمريكية والأوروبية.",
+      "preferred-brand-title": "العلامات التجارية المفضلة",
+      "preferred-brand-subtitle": "يمكنك اختيار عدة علامات تجارية.",
+      "lastname": "اسم العائلة",
+      "lastname-hint": "أدخل اسم عائلتك",
+      "lastname-required": "اسم العائلة مطلوب",
+      "firstname": "الاسم الأول",
+      "firstname-hint": "أدخل اسمك الأول",
+      "firstname-required": "الاسم الأول مطلوب",
+      "address": "العنوان",
+      "address-for-delivery": "عنوان التوصيل",
+      "address-for-delivery-hint": "ابحث عن عنوان",
+      "address-for-delivery-error": "يرجى اختيار عنوان صالح",
+      "description": "الوصف",
+      "description-hint": "أخبرنا عن نفسك",
+      "profile-picture": "صورة الملف الشخصي",
+      "complete-registration": "إكمال التسجيل",
+      "submit": "إكمال التسجيل",
+      "exit-signup": {
+        "title": "إلغاء التسجيل؟",
+        "subtitle": "لم يكتمل ملفك الشخصي بعد. إذا غادرت الآن، فستحتاج إلى البدء من جديد."
+      },
+      "eu-sizes": "المقاسات الأوروبية"
+    },
+    "order-summary": {
+      "title": "الملخص",
+      "x-product-purchased": "منتجات من {} على وشك شرائها",
+      "no-products-in-cart": "لا توجد منتجات في سلتك",
+      "buyer-protection": "حماية المشتري",
+      "total": "الإجمالي",
+      "shipping": "الشحن",
+      "home-delivery": "التوصيل إلى المنزل",
+      "choose-delivery-method": "اختر طريقة التوصيل",
+      "choose": "اختر",
+      "change-delivery-address": "تغيير عنوان التوصيل",
+      "remove-product": "إزالة المنتج",
+      "remove-product-message": "هل أنت متأكد من رغبتك في إزالة هذا المنتج من قائمتك؟",
+      "remove-product-confirm": "إزالة",
+      "remove-product-cancel": "إلغاء",
+      "order-placed": "تم تقديم الطلب"
+    },
+    "order-details": {
+      "title": "الطلب",
+      "product-purchased": "المنتج المشترى",
+      "product-purchased-from": "تم شراء المنتج من {}",
+      "shipping-to": "الشحن إلى",
+      "total-paid": "إجمالي المدفوع",
+      "cancel": "إلغاء الطلب",
+      "confirm-receipt": "تأكيد الاستلام",
+      "report-a-problem": "الإبلاغ عن مشكلة",
+      "leave-a-review": "اترك تقييماً",
+      "review-already-sent": "لقد تركت بالفعل تقييماً لهذا الطلب.",
+      "refunded": "تم استرداد المبلغ",
+      "download-my-return-voucher": "تنزيل قسيمة الإرجاع",
+      "was-delivered-to": "تم التوصيل إلى",
+      "was-to-be-delivered": "كان من المقرر توصيله",
+      "cancel-order": "إلغاء الطلب",
+      "tracking": "رقم التتبع",
+      "track": "تتبع",
+      "open-shipping-label": "فتح الملصق",
+      "product-is-conform": "منتجي مطابق للوصف",
+      "product-confirmed": "تم تأكيد المنتج! سيتم تحويل الدفع إلى البائع.",
+      "request-a-return": "طلب إرجاع",
+      "return-requested": "تم إرسال طلب الإرجاع إلى البائع",
+      "return-pending": "طلب الإرجاع الخاص بك في انتظار موافقة البائع",
+      "return-request-received": "طلب أحد المشترين إرجاع هذا الطلب",
+      "accept": "قبول",
+      "refuse": "رفض",
+      "return-accepted": "تم قبول الإرجاع، جارٍ معالجة استرداد المبلغ",
+      "return-refused": "تم رفض الإرجاع",
+      "return-accepted-message": "تم قبول الإرجاع. نزّل قسيمة الإرجاع وأعد شحن المنتج.",
+      "return-refused-message": "تم رفض الإرجاع من قبل البائع. وتم تحويل الدفع.",
+      "return-in-transit": "في انتظار إرجاع المشتري للمنتج.",
+      "return-completed-message": "تم استلام الإرجاع. وتمت معالجة استرداد المبلغ."
+    },
+    "report": {
+      "cancel": "إلغاء",
+      "report": "الإبلاغ عن مشكلة",
+      "problem": "هل تواجه مشكلة؟ أبلغ عنها الآن.",
+      "reason": "سبب مشكلتك",
+      "reason-cancel": "سبب الإلغاء",
+      "text-area": "أخبرنا المزيد",
+      "file-picker": "إضافة ملفات",
+      "send-report": "إرسال البلاغ",
+      "confirm-cancel": "تأكيد الإلغاء"
+    },
+    "report_success": {
+      "title": "تم الإرسال",
+      "subtitle": "تم إرسال بلاغك! سيتم التعامل معه في أقرب وقت ممكن.",
+      "cancel": "تم إرسال طلب الإلغاء! سيتم التعامل معه في أقرب وقت ممكن.",
+      "buttonText": "إنهاء"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "خطأ",
+        "content": "حدث خطأ، يرجى المحاولة مرة أخرى لاحقاً."
+      }
+    },
+    "preview-reel": {
+      "retake": "إعادة التصوير",
+      "continue": "متابعة"
+    },
+    "create-reel": {
+      "title": "إنشاء ريل",
+      "subtitle": "بإنشاء ريل، يمكنك إضافة منتج واحد أو أكثر من مجموعتك للبيع بهدف الترويج لها",
+      "add-product": "إضافة منتج",
+      "create-product": "إنشاء منتج",
+      "my-added-products": "منتجاتي المضافة",
+      "my-products-to-sales": "منتجاتي المعروضة للبيع",
+      "add": "إضافة",
+      "post": "نشر الريل",
+      "update": "تحديث الريل",
+      "success-title": "رائع!",
+      "success-subtitle": "أصبح الفيديو الخاص بك متاحاً الآن.",
+      "error-title": "هناك شيء ناقص",
+      "error-subtitle": "يرجى إضافة منتج واحد على الأقل إلى الريل الخاص بك."
+    },
+    "put-a-product-on-sale": {
+      "title": "عرض منتج للبيع",
+      "step": "الخطوة",
+      "title-step2": "المزيد عن منتجك",
+      "title-step3": "إضافة صور",
+      "put-on-sale": "عرض للبيع",
+      "success-title": "رائع!",
+      "success-subtitle": "أصبح منتجك معروضاً للبيع الآن.",
+      "edit-success-title": "رائع!",
+      "edit-success-subtitle": "أصبح منتجك معروضاً للبيع الآن.",
+      "error-title": "فشل الرفع",
+      "error-subtitle": "حدث خطأ ما أثناء حفظ منتجك. يرجى المحاولة مرة أخرى.",
+      "forms": {
+        "title": "العنوان",
+        "title-hint": "مثال: قميص أزرق فضفاض",
+        "price": "السعر",
+        "price-hint": "0",
+        "price-max-error": "الحد الأقصى للسعر هو {}.",
+        "description": "الوصف",
+        "description-hint": "أدخل وصفاً لمنتجك",
+        "size": "المقاس",
+        "brand": "العلامة التجارية",
+        "condition-error-title": "يرجى اختيار الحالة",
+        "condition-error-subtitle": "اختر حالة لمنتجك",
+        "image-error-title": "يرجى اختيار صورة واحدة على الأقل",
+        "image-error-subtitle": "اختر صورة واحدة على الأقل لمنتجك"
+      }
+    },
+    "home": {
+      "feed": "الرئيسية",
+      "wishlist": "المفضلة",
+      "reels": "الريلز",
+      "view-products": "عرض المنتجات",
+      "hide-products": "إخفاء المنتجات"
+    },
+    "product": {
+      "buy": "شراء",
+      "already-sold": "تم البيع",
+      "make-an-offer": "تقديم عرض",
+      "send-offer": "إرسال العرض",
+      "delete": "حذف",
+      "edit": "تعديل",
+      "success-title": "تم إرسال العرض!",
+      "success-subtitle": "تم إرسال عرضك بنجاح.",
+      "popup-delete-title": "حذف المنتج",
+      "popup-delete-subtitle": "هل أنت متأكد من رغبتك في حذف هذا المنتج؟",
+      "popup-delete-confirm": "حذف",
+      "popup-delete-cancel": "إلغاء",
+      "delete-success-title": "تم حذف المنتج!",
+      "delete-success-subtitle": "تم حذف منتجك بنجاح.",
+      "forms": {
+        "actual-price": "السعر الحالي",
+        "your-new-price": "سعرك الجديد"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "حذف الريل",
+      "popup-delete-subtitle": "هل أنت متأكد من رغبتك في حذف هذا الريل؟",
+      "popup-delete-confirm": "حذف",
+      "popup-delete-cancel": "إلغاء",
+      "delete-success-title": "تم حذف الريل!",
+      "delete-success-subtitle": "تم حذف الريل الخاص بك بنجاح.",
+      "feed-error": "تعذّر تحميل الريلز. يرجى المحاولة مرة أخرى لاحقاً.",
+      "report": "إبلاغ"
+    },
+    "profile": {
+      "buyer": "المشتري",
+      "my-order": "طلباتي",
+      "seller": "البائع",
+      "my-sales": "مبيعاتي",
+      "products": "المنتجات",
+      "reels": "الريلز",
+      "reviews": "التقييمات",
+      "followers": "المتابِعون",
+      "following": "يتابِع",
+      "follow": "متابعة",
+      "unfollow": "إلغاء المتابعة",
+      "edit": "تعديل الملف الشخصي",
+      "cant-follow-blocked": "لا يمكنك متابعة هذا المستخدم."
+    },
+    "search": {
+      "popular-items": "العناصر الرائجة",
+      "categories": "الفئات",
+      "title": "بحث",
+      "filter-search": "تصفية البحث",
+      "sort-by": "ترتيب حسب",
+      "in": "في",
+      "refine-the-category": "تحسين الفئة",
+      "apply": "تطبيق",
+      "reset": "إعادة تعيين",
+      "results": "النتائج"
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "جارٍ فتح Stripe."
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "المنتج لا يطابق الوصف",
+        "motif2": "منتج مقلّد أو محظور",
+        "motif3": "مشكلة مع البائع",
+        "motif4": "مشكلة في التوصيل",
+        "motif5": "مشكلة في الدفع أو الطلب",
+        "motif6": "أخرى"
+      },
+      "filePicker": {
+        "title": "إضافة ملفات"
+      },
+      "description": {
+        "title": "أخبرنا المزيد",
+        "title1": "يرجى التحديد"
+      },
+      "motif1": {
+        "precisez1": "مقاس خاطئ / لا يناسب",
+        "precisez2": "الحالة تختلف عن الإعلان",
+        "precisez3": "أجزاء / إكسسوارات مفقودة",
+        "precisez4": "المنتج تالف"
+      },
+      "motif2": {
+        "precisez1": "يُشتبه في أنه منتج مقلّد",
+        "precisez2": "منتج محظور أو غير آمن",
+        "precisez3": "إعلان مضلّل أو احتيالي",
+        "precisez4": "مشكلة أخرى تتعلق بالسياسة"
+      },
+      "motif3": {
+        "precisez1": "البائع لا يستجيب",
+        "precisez2": "سلوك غير لائق أو مضايقة",
+        "precisez3": "طُلب مني الدفع خارج التطبيق",
+        "precisez4": "مشكلة أخرى مع البائع"
+      },
+      "motif4": {
+        "precisez1": "التتبع لا يتحدّث",
+        "precisez2": "لم يتم استلام الطرد",
+        "precisez3": "وصل الطرد تالفاً",
+        "precisez4": "التوصيل متأخر"
+      },
+      "motif5": {
+        "precisez1": "تم خصم مبلغ غير صحيح",
+        "precisez2": "مشكلة في استرداد المبلغ",
+        "precisez3": "مشكلة في الطلب (ملغى / مكرّر)",
+        "precisez4": "مشكلة أخرى في الدفع أو الطلب"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "رسالة جديدة",
+          "body": "لقد تلقّيت رسالة جديدة."
+        }
+      },
+      "user-deleted": "مستخدم غير معروف",
+      "online-today-at": "متصل اليوم في {}",
+      "online-yesterday-at": "متصل أمس في {}",
+      "online-at": "متصل في {}",
+      "change-name-confirm-button": "إنهاء",
+      "call-audio": "مكالمة صوتية",
+      "call-video": "مكالمة فيديو",
+      "call-start": "المكالمة جارية...",
+      "video-call-end": "انتهت المكالمة",
+      "new-group": "اسم المجموعة",
+      "cancel-audio": "إلغاء الصوت",
+      "preview": {
+        "media": {
+          "zero": "لا توجد عناصر",
+          "one": "تم إرسال وسائط واحدة",
+          "two": "تم إرسال وسائطين",
+          "few": "تم إرسال {} وسائط",
+          "many": "تم إرسال {} وسائط",
+          "other": "تم إرسال {} وسائط"
+        },
+        "audio": "صوت",
+        "reply-audio": "رد صوتي"
+      },
+      "event": {
+        "report-and-block": "إبلاغ وحظر",
+        "delete-tchat": "حذف المحادثة"
+      },
+      "status": {
+        "online": "متصل",
+        "online-today-at": "متصل اليوم في {time}",
+        "online-yesterday-at": "متصل أمس في {time}",
+        "offline": "غير متصل",
+        "multiple-online": "عدة متصلين",
+        "typing": "يكتب",
+        "audioRec": "تسجيل صوتي"
+      },
+      "document": {
+        "camera": "الكاميرا",
+        "gallery": "المعرض",
+        "document": "مستند",
+        "localisation": "الموقع",
+        "contact": "جهة اتصال",
+        "sondage": "استطلاع"
+      },
+      "list": {
+        "title": "المحادثات",
+        "title-face": "ترجمة",
+        "conversations": "المحادثات",
+        "no-tchat": "لا توجد محادثات",
+        "no-tchat-content": "ليس لديك أي محادثة بعد.",
+        "group-default-title": "مجموعة جديدة",
+        "oto-default-title": "محادثة جديدة",
+        "new-conversation": "محادثة جديدة"
+      },
+      "message": {
+        "no-message": "لا توجد رسائل",
+        "no-message-body": "ليس لديك أي رسالة بعد.",
+        "input-hint": "رسالة..",
+        "no-media": "لا توجد وسائط",
+        "date": "{weekday} {day} {month}",
+        "today": "اليوم",
+        "yesterday": "أمس",
+        "join-group": "انضم {name} إلى المجموعة",
+        "leave-group": "غادر {name} المجموعة",
+        "add-to-group": "أضاف {name} المستخدم {user} إلى المجموعة",
+        "remove-from-group": "أزال {name} المستخدم {user} من المجموعة",
+        "change-group-title": "غيّر {name} اسم المجموعة إلى {title}",
+        "change-group-avatar": "غيّر {name} صورة المجموعة",
+        "blocked-by-you": "لقد حظرت جهة الاتصال هذه.\nلم يعد بإمكانك إرسال رسائل إلى جهة الاتصال هذه.",
+        "blocked-by-other": "لقد تم حظرك من قبل جهة الاتصال هذه.\nلم يعد بإمكانك إرسال رسائل إلى جهة الاتصال هذه.",
+        "cant-send-message-blocked": "لا يمكنك إرسال رسالة إلى جهة الاتصال هذه.",
+        "order-requested": "تم تقديم عرض إلى المشتري لـ «{product_name}»",
+        "order-accepted": "تم قبول طلبك رقم {id} من قبل البائع",
+        "order-rejected": "تم رفض طلبك رقم {id} من قبل البائع",
+        "order-purchased": "تم شراء طلب",
+        "view-order-details": "عرض تفاصيل الطلب"
+      }
+    },
+    "commentary": {
+      "add-note-title": "قيّم البائع",
+      "add_note_title": "قيّم البائع",
+      "delete": "حذف",
+      "report": "إبلاغ",
+      "add-note": {
+        "validate": "تأكيد",
+        "field": {
+          "note-title": "قيّم هذا البائع",
+          "commentary-title": "تعليق",
+          "placeholder": "اكتب تعليقاً",
+          "commentary-hint": "اكتب تعليقاً..",
+          "commentary_hint": "اكتب تعليقاً.."
+        },
+        "title": "قيّم هذا البائع",
+        "comment": "تعليق",
+        "placeholder": "اكتب تعليقاً",
+        "commentary-hint": "اكتب تعليقاً.."
+      },
+      "add_note": {
+        "validate": "تأكيد",
+        "field": {
+          "title": "قيّم هذا البائع",
+          "comment": "تعليق",
+          "placeholder": "اكتب تعليقاً",
+          "commentary-hint": "اكتب تعليقاً..",
+          "commentary_hint": "اكتب تعليقاً.."
+        },
+        "title": "قيّم هذا البائع",
+        "comment": "تعليق",
+        "placeholder": "اكتب تعليقاً",
+        "commentary-hint": "اكتب تعليقاً..",
+        "commentary_hint": "اكتب تعليقاً.."
+      },
+      "sure-delete-commentary": {
+        "title": "حذف التعليق",
+        "subtitle": "هل أنت متأكد من رغبتك في حذف هذا التعليق؟"
+      },
+      "sure_delete_commentary": {
+        "title": "حذف التعليق",
+        "subtitle": "هل أنت متأكد من رغبتك في حذف هذا التعليق؟"
+      }
+    },
+    "validator": {
+      "must-have-value": "هذا الحقل مطلوب",
+      "email-invalid": "يرجى إدخال بريد إلكتروني صالح",
+      "password-invalid-length": "6 أحرف كحد أدنى",
+      "password-invalid-maj": "حرف كبير واحد كحد أدنى",
+      "password-invalid-min": "حرف صغير واحد كحد أدنى",
+      "password-invalid-number": "رقم واحد كحد أدنى",
+      "password-invalid-special-char": "رمز خاص واحد كحد أدنى (&?!@#)",
+      "password-not-match": "كلمتا المرور غير متطابقتين",
+      "number-invalid": "يرجى إدخال رقم صالح",
+      "number-out-of-range": "يرجى إدخال رقم بين {min} و {max}",
+      "number-out-of-min": "يرجى إدخال رقم أكبر من {min}",
+      "number-out-of-max": "يرجى إدخال رقم أصغر من {max}",
+      "date-invalid": "يرجى إدخال تاريخ صالح",
+      "date-out-of-range": "يرجى إدخال تاريخ بين {min} و {max}",
+      "date-out-of-min": "يرجى إدخال تاريخ بعد {min}",
+      "date-out-of-max": "يرجى إدخال تاريخ قبل {max}",
+      "alpha-invalid": "يرجى إدخال قيمة صالحة",
+      "code-invalid": "يرجى إدخال رمز صالح"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "اختر صورة"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "لا توجد صور",
+        "one": "صورة واحدة",
+        "two": "صورتان",
+        "few": "{} صور",
+        "many": "{} صورة",
+        "other": "{} صورة"
+      },
+      "write-message": "اكتب رسالة..",
+      "camera": {
+        "shootingTips": "التقط صورة",
+        "confirm": "تأكيد",
+        "saving": "جارٍ الحفظ...",
+        "shootingWithRecordingTips": "استمر بالضغط للتصوير."
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "ابحث عن دولة",
+          "error_message": "يرجى إدخال رقم هاتف صالح"
+        },
+        "input": {
+          "choose-media": "اضغط لاختيار صورة",
+          "choose-multiple-file": "اضغط لاختيار عدة ملفات",
+          "choose-image": "اضغط لاختيار صورة",
+          "choose-file": "اضغط لاختيار ملف",
+          "press-to-modify": "اضغط لتعديل الملف"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "البريد الإلكتروني",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "البريد الإلكتروني",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "كلمة المرور",
+          "hint": "كلمة المرور",
+          "security-action": "ماذا تريد أن تفعل؟"
+        },
+        "actual-password": {
+          "title": "كلمة المرور الحالية",
+          "hint": "كلمة المرور الحالية"
+        },
+        "new-password": {
+          "title": "كلمة المرور الجديدة",
+          "hint": "كلمة المرور الجديدة"
+        },
+        "repeat-password": {
+          "title": "تأكيد كلمة المرور",
+          "hint": "تأكيد كلمة المرور"
+        },
+        "new-repeat-password": {
+          "title": "تأكيد كلمة المرور الجديدة",
+          "hint": "تأكيد كلمة المرور الجديدة"
+        },
+        "phone": {
+          "title": "رقم الهاتف",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "الرمز المستلم عبر الرسائل القصيرة",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "منطقة النص",
+        "hint": "اكتب هنا.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "تمت إضافة رقم هاتفك بنجاح.",
+      "invalid-email": "لم يتم العثور على أي مستخدم بالمعلومات المقدّمة.",
+      "user-not-found": "لم يتم العثور على أي مستخدم بالمعلومات المقدّمة.",
+      "user-disabled": "تم تعطيل حسابك من قبل المسؤول.",
+      "wrong-password": "كلمة المرور غير صحيحة.",
+      "email-already-in-use": "عنوان البريد الإلكتروني هذا مستخدم بالفعل.",
+      "phone-already-in-use": "رقم الهاتف هذا مستخدم بالفعل.",
+      "weak-password": "كلمة المرور ضعيفة جداً.",
+      "account-exists-with-different-credential": "يوجد حساب بالفعل بعنوان البريد الإلكتروني هذا.",
+      "invalid-credential": "لم يتم العثور على أي مستخدم بالمعلومات المقدّمة.",
+      "invalid-verification-code": "رمز التحقق غير صالح.",
+      "invalid-verification-id": "معرّف التحقق غير صالح.",
+      "requires-recent-login": "يجب عليك إعادة تسجيل الدخول لتنفيذ هذا الإجراء.",
+      "invalid-phone-number": "رقم الهاتف غير صالح.",
+      "error-phone-not-exist": "رقم الهاتف هذا غير موجود.",
+      "code-invalid": "يرجى إدخال رمز صالح",
+      "code-is-required": "يرجى إدخال الرمز المستلم عبر الرسائل القصيرة",
+      "email-must-be-verified": "يجب عليك التحقق من عنوان بريدك الإلكتروني للمتابعة.",
+      "tiers-auth-valid-email": "يجب أن يحتوي حسابك الخارجي على بريد إلكتروني صالح للمتابعة.",
+      "send-reset-password-email": "تم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور إلى العنوان المقدّم.",
+      "error-internet": "حدثت مشكلة في الاتصال. يرجى التحقق من اتصالك بالإنترنت.",
+      "error-default": "حدث خطأ، يرجى المحاولة مرة أخرى.",
+      "must-accept-cgu": "يجب عليك قبول شروط الاستخدام للمتابعة.",
+      "password-security": "تنسيق كلمة المرور",
+      "password-security-length": "6 أحرف كحد أدنى",
+      "password-security-maj": "يحتوي على حرف كبير واحد على الأقل",
+      "password-security-min": "يحتوي على حرف صغير واحد على الأقل",
+      "password-security-number": "يحتوي على رقم واحد على الأقل",
+      "password-security-special": "يحتوي على رمز خاص واحد على الأقل (&?!@#)",
+      "success-change-password": "تم تعديل كلمة مرورك بنجاح.",
+      "phone-update-success": "تم تغيير رقم هاتفك!",
+      "cant-be-same-password": "يجب أن تكون كلمة المرور الجديدة مختلفة عن القديمة.",
+      "cant-be-same-email": "يجب أن يكون البريد الإلكتروني الجديد مختلفاً عن القديم.",
+      "cant-be-same-phone": "يجب أن يكون رقم الهاتف الجديد مختلفاً عن القديم.",
+      "code-is-expired": "انتهت صلاحية رمز التحقق.",
+      "code-sent": "تم إرسال رمز التحقق إليك عبر الرسائل القصيرة.",
+      "too-many-requests": "عدد كبير جداً من محاولات تسجيل الدخول. يرجى المحاولة مرة أخرى لاحقاً."
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "تسجيل الدخول",
+        "already-have-account": "هل لديك حساب؟",
+        "login-title": "سجّل الدخول إلى حسابك أو أنشئ حساباً.",
+        "login-phone-title": "سجّل الدخول إلى حسابك",
+        "verify-phone-title": "أدخل الرمز المستلم عبر الرسائل القصيرة لتسجيل الدخول",
+        "verify-phone-code-title": "تأكيد رقم هاتفك",
+        "code-expire-in": "تنتهي صلاحية الرمز خلال {time} دقائق",
+        "no-code": "لم تستلمه؟",
+        "resend-code": "إعادة الإرسال",
+        "forgot-password": "نسيت كلمة المرور؟",
+        "reset-password": "إعادة تعيين كلمة المرور",
+        "no-account": "ليس لديك حساب؟",
+        "create-account": "أنشئ الآن",
+        "login-with-phone": "تسجيل الدخول بالهاتف",
+        "login-with-email": "تسجيل الدخول بالبريد الإلكتروني",
+        "or-connect-with": "أو سجّل الدخول باستخدام",
+        "or-signup-with": "أو أنشئ حساباً باستخدام",
+        "verify-email": "تحقق من بريدك الإلكتروني",
+        "verify-email-subtitle": "لقد تلقّيت بريداً إلكترونياً لإعادة تعيين كلمة مرورك.",
+        "create-account-verify-email": "تحقق من بريدك الإلكتروني",
+        "create-account-title": "إنشاء حساب",
+        "create-account-verify-email-subtitle": "تم إرسال بريد إلكتروني للتحقق إلى العنوان",
+        "reset-password-modal": {
+          "title": "إعادة تعيين كلمة المرور",
+          "subtitle": "أدخل عنوان البريد الإلكتروني المرتبط بحسابك. سنرسل بريد إعادة تعيين إلى ذلك العنوان."
+        },
+        "tiers-signin": {
+          "get-password-title": "أدخل كلمة مرورك",
+          "get-password-subtitle": "لقد وجدنا حساباً بعنوان البريد الإلكتروني هذا، يرجى إدخال كلمة مرورك لتسجيل الدخول."
+        }
+      },
+      "profile": {
+        "delete-success": "تم حذف حسابك بنجاح.\nنراك قريباً",
+        "logout": "تسجيل الخروج",
+        "delete-account": "حذف ملفي الشخصي",
+        "delete-my-account": "حذف حسابي",
+        "delete-my-account-subtitle": "هل تريد حقاً حذف حسابك؟",
+        "logout-success": "تم تسجيل خروجك بنجاح.\nنراك قريباً"
+      },
+      "new-cgu-must-be-accepted": "يجب عليك قبول شروط الاستخدام الجديدة للمتابعة."
+    },
+    "onboarding": {
+      "button_next": "التالي",
+      "button_start": "إنهاء",
+      "skip": "تخطّي"
+    },
+    "permission": {
+      "notification": {
+        "title": "إشعارات Push",
+        "redirect-to-settings": "هل تريد تفعيل خدمة إشعارات Push؟ ستساعدك على الاستفادة الكاملة من تطبيقنا.",
+        "button": "تفعيل الإشعارات"
+      },
+      "camera": {
+        "title": "الكاميرا",
+        "redirect-to-settings": "للاستفادة من هذه الميزة، يجب عليك قبول إذن الكاميرا.",
+        "button": "تفعيل الكاميرا"
+      },
+      "microphone": {
+        "title": "الميكروفون",
+        "redirect-to-settings": "للاستفادة من هذه الميزة، يجب عليك قبول إذن الميكروفون.",
+        "button": "تفعيل الميكروفون"
+      },
+      "accessMediaLocation": {
+        "title": "الوصول إلى موقع الوسائط",
+        "redirect-to-settings": "للاستفادة من هذه الميزة، يجب عليك قبول إذن الوصول إلى موقع الوسائط.",
+        "button": "تفعيل الوصول إلى موقع الوسائط"
+      },
+      "mediaLibrary": {
+        "title": "مكتبة الوسائط",
+        "redirect-to-settings": " للاستفادة من هذه الميزة، يجب عليك قبول إذن الوصول إلى مكتبة الوسائط.",
+        "button": "تفعيل الوصول إلى مكتبة الوسائط"
+      },
+      "photos": {
+        "title": "الصور",
+        "redirect-to-settings": "للاستفادة من هذه الميزة، يجب عليك قبول إذن الوصول إلى الصور.",
+        "button": "تفعيل الوصول إلى الصور"
+      },
+      "storage": {
+        "title": "التخزين",
+        "redirect-to-settings": "للاستفادة من هذه الميزة، يجب عليك قبول إذن الوصول إلى التخزين.",
+        "button": "تفعيل الوصول إلى التخزين"
+      },
+      "mic": {
+        "redirect-to-settings": "يرجى السماح بالوصول إلى الميكروفون في إعدادات هاتفك.",
+        "title": "الميكروفون",
+        "button": "فتح الإعدادات"
+      },
+      "notif-push": {
+        "title": "إشعارات Push",
+        "desc": "هل تريد تفعيل خدمة إشعارات Push؟ ستساعدك على الاستفادة الكاملة من تطبيقنا.",
+        "button": "تفعيل الإشعارات"
+      },
+      "location": {
+        "title": "الموقع",
+        "desc": "لاستخدام تطبيقنا بالكامل، يجب عليك قبول الوصول إلى الموقع.",
+        "button": "متابعة",
+        "redirect-to-settings": "يرجى السماح بالوصول إلى الموقع في إعدادات هاتفك."
+      },
+      "background-location": {
+        "title": "الموقع في الخلفية",
+        "desc": "هل تريد تفعيل خدمة الموقع في الخلفية؟ ستكون أساسية لعمل التطبيق.",
+        "button": "تفعيل الموقع في الخلفية"
+      },
+      "skip": "تخطّي"
+    },
+    "image": {
+      "from-gallery": "المعرض",
+      "from-camera": "الكاميرا"
+    },
+    "duration": {
+      "now": "الآن",
+      "days-ago": "منذ {} أيام",
+      "x-days": "منذ {} أيام",
+      "hours-ago": "منذ {} ساعات",
+      "minutes-ago": "منذ {} دقائق",
+      "seconds-ago": "منذ {} ثوانٍ",
+      "months-ago": "منذ {} أشهر",
+      "years-ago": "منذ {} سنوات",
+      "moment-ago": "منذ لحظات"
+    },
+    "settings": {
+      "edited-by": "تم التحرير بواسطة",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "تعديل",
+        "personnal-data": "حسابي",
+        "settings": "الإعدادات",
+        "other": "أخرى",
+        "link": "روابط",
+        "social": "شبكات التواصل الاجتماعي",
+        "security": "الأمان"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "المستخدمون المحظورون",
+          "subtitle": "قائمة المستخدمين المحظورين"
+        },
+        "blocked-users": {
+          "unblock": "إلغاء حظر المستخدم",
+          "block": "حظر المستخدم",
+          "unblock-success": "تم إلغاء حظر المستخدم بنجاح",
+          "title": "المستخدمون المحظورون",
+          "subtitle": "قائمة المستخدمين المحظورين"
+        },
+        "change-personnal-content": {
+          "title": "المعلومات الشخصية",
+          "subtitle": "الاسم، الاسم الأول، الوصف"
+        },
+        "clothing-preference": {
+          "title": "تفضيلات الملابس",
+          "subtitle": "التخصيص"
+        },
+        "preferred-article-size": {
+          "title": "مقاسات المنتجات المفضلة",
+          "subtitle": "إدارة"
+        },
+        "preferred-brand": {
+          "title": "العلامات التجارية المفضلة",
+          "subtitle": "إدارة"
+        },
+        "security": {
+          "title": "الأمان",
+          "subtitle": "كلمة المرور، الهاتف، البريد الإلكتروني..."
+        },
+        "payment": {
+          "title": "طرق الدفع",
+          "subtitle": "بطاقة ائتمان / Apple Pay",
+          "credit-card": "بطاقة ائتمان",
+          "bank-details": "الحساب البنكي",
+          "bank-details-empty": "غير مهيّأ",
+          "handle-with-stripe": "الإدارة عبر Stripe"
+        },
+        "phone-number": {
+          "title": "رقم الهاتف"
+        },
+        "change-email": {
+          "title": "عنوان البريد الإلكتروني"
+        },
+        "change-password": {
+          "title": "كلمة المرور",
+          "subtitle": "آخر تعديل: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "إشعارات Push"
+        },
+        "email-notif": {
+          "title": "إشعارات البريد الإلكتروني"
+        },
+        "help": {
+          "title": "المساعدة",
+          "subtitle": "تواصل معنا عبر البريد الإلكتروني"
+        },
+        "share": {
+          "title": "مشاركة التطبيق",
+          "subtitle": "ادعمنا بمشاركة التطبيق"
+        },
+        "link": {
+          "privacy-policy": "سياسة الخصوصية",
+          "legal-mention": "الإشعار القانوني",
+          "legal-notice": "الإشعار القانوني",
+          "cgvu": "شروط البيع والاستخدام",
+          "about": "حول"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "خطأ في الشبكة 😕",
+      "subtitle": "لم يتم اكتشاف اتصال بالإنترنت. يرجى التحقق من اتصالك بالشبكة.",
+      "button": "تحديث"
+    },
+    "research": {
+      "hint": "ابحث عن منتج...",
+      "no-item-title": "لم يتم العثور على شيء",
+      "no-item-content": "لم يتم العثور على منتجات لهذا البحث"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "يناير",
+      "2": "فبراير",
+      "3": "مارس",
+      "4": "أبريل",
+      "5": "مايو",
+      "6": "يونيو",
+      "7": "يوليو",
+      "8": "أغسطس",
+      "9": "سبتمبر",
+      "10": "أكتوبر",
+      "11": "نوفمبر",
+      "12": "ديسمبر"
+    },
+    "day-by-id": {
+      "1": "الإثنين",
+      "2": "الثلاثاء",
+      "3": "الأربعاء",
+      "4": "الخميس",
+      "5": "الجمعة",
+      "6": "السبت",
+      "7": "الأحد"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "إث",
+      "tu": "ثل",
+      "we": "أر",
+      "th": "خم",
+      "fr": "جم",
+      "sa": "سب",
+      "su": "أح"
+    },
+    "month": {
+      "january": "يناير",
+      "february": "فبراير",
+      "march": "مارس",
+      "april": "أبريل",
+      "may": "مايو",
+      "june": "يونيو",
+      "july": "يوليو",
+      "august": "أغسطس",
+      "september": "سبتمبر",
+      "october": "أكتوبر",
+      "november": "نوفمبر",
+      "december": "ديسمبر"
+    },
+    "event": {
+      "cancel": "إلغاء",
+      "validate": "تأكيد"
+    },
+    "range": {
+      "no_date": "لا يوجد تاريخ"
+    }
+  },
+  "utils": {
+    "done": "تم",
+    "unlock": "إلغاء الحظر",
+    "mandatory": "إلزامي",
+    "next": "التالي",
+    "number_x": "رقم {}",
+    "mandatory-fields": "* الحقول المميّزة إلزامية",
+    "submit": "إرسال",
+    "choose": "اختر",
+    "validate-and-modify": "تأكيد وتعديل",
+    "modify": "تعديل",
+    "by-default": "افتراضياً",
+    "deactivate": "إلغاء التفعيل",
+    "activate": "تفعيل",
+    "loading": "جارٍ التحميل..",
+    "close": "إغلاق",
+    "cancel": "إلغاء",
+    "continue": "متابعة",
+    "connexion": "تسجيل الدخول",
+    "validate": "تأكيد",
+    "success": "نجاح",
+    "yes": "نعم",
+    "no": "لا",
+    "error": "خطأ",
+    "reinit": "إعادة تعيين",
+    "cgvu": "شروط البيع والاستخدام",
+    "validate-and-continue": "تأكيد ومتابعة",
+    "confidentiality-policy": "سياسة الخصوصية",
+    "cgvu-and-confidentiality": "شروط البيع والاستخدام وسياسة الخصوصية",
+    "accept-cgvu-and-confidentiality": "أوافق على سياسة الخصوصية وشروط وأحكام البيع والاستخدام.",
+    "what-do-you-want-to-do": "ماذا تريد أن تفعل؟",
+    "error-default": "حدث خطأ، يرجى المحاولة مرة أخرى.",
+    "optional": "اختياري",
+    "save": "حفظ",
+    "accept": "قبول",
+    "refuse": "رفض",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "size": "المقاس",
+    "dirhams": "درهم",
+    "aed": "AED",
+    "followers": "المتابِعون",
+    "following": "يتابِع"
+  },
+  "empty-state": {
+    "no-wishlist": "لا توجد مفضلة",
+    "no-feed": "لا يوجد محتوى",
+    "no-products": "لا توجد منتجات",
+    "no-products-found": "لم يتم العثور على منتجات",
+    "no-reels": "لا توجد ريلز",
+    "no-reels-available": "لا توجد ريلز متاحة في الوقت الحالي.",
+    "no-reviews": "لا توجد تقييمات",
+    "no-orders": "لا توجد طلبات",
+    "product-not-found": "لم يتم العثور على المنتج",
+    "no-connect-account": "لم يتم العثور على حساب مرتبط"
+  },
+  "error": {
+    "product-doesnt-exist": "لم يعد هذا المنتج موجوداً",
+    "please-try-again": "يرجى المحاولة مرة أخرى لاحقاً"
+  },
+  "stats": {
+    "title": "إحصائياتي",
+    "consult-stripe": "اطّلع على إحصائيات Stripe الخاصة بك",
+    "consult-stripe-desc": "اضغط على الزر أدناه لفتح لوحة تحكم Stripe والاطلاع على إحصائيات مبيعاتك.",
+    "open-dashboard": "فتح لوحة التحكم"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "كيف تريد البيع؟",
+      "subtitle": "اختر الخيار الذي يناسبك. يمكنك دائماً التواصل مع الدعم إذا احتجت إلى التبديل لاحقاً.",
+      "vendor-title": "أنا شركة",
+      "vendor-subtitle": "بِع كشركة. يتطلب التحقق من الهوية ومن النشاط التجاري.",
+      "particular-title": "أنا فرد",
+      "particular-subtitle": "بِع منتجات من خزانتك. كل ما تحتاجه هو رقم IBAN لاستلام المدفوعات."
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "لتحصل على أموالك، يرجى إضافة حسابك البنكي",
+      "after-sale-title": "بعد البيع",
+      "after-sale-body": "تُحتجز الأموال بشكل آمن. ويتم تحويلها عندما يؤكد المشتري الاستلام.",
+      "transfer-title": "مدة التحويل",
+      "transfer-body": "تصل أموالك إلى حسابك البنكي خلال 48 إلى 72 ساعة بعد تأكيد البيع.",
+      "privacy-title": "الخصوصية",
+      "privacy-body": "يُخزّن رقم IBAN الخاص بك بشكل آمن ويمكن تحديثه لاحقاً من إعدادات حسابك.",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "لقد قرأت وأوافق على ",
+      "tnc-link": "الشروط والأحكام",
+      "cta-onboarding": "حفظ ومتابعة",
+      "cta-edit": "حفظ",
+      "save-error": "تعذّر علينا حفظ رقم IBAN الخاص بك. يرجى المحاولة مرة أخرى."
+    },
+    "settings": {
+      "title": "الحساب البنكي",
+      "updated-on": "تم التحديث في {date}",
+      "edit-cta": "تعديل IBAN",
+      "add-cta": "إضافة IBAN",
+      "empty-state": "لا يوجد حساب بنكي مسجّل. أضف واحداً حتى نتمكن من تحويل أرباحك."
+    }
+  },
+  "preferences": {
+    "save": "حفظ",
+    "clothing": {
+      "title": "تفضيلات الملابس",
+      "subtitle": "اختر الفئة التي تتسوق منها أكثر. سنخصّص لك المحتوى وفقاً لذلك."
+    },
+    "sizes": {
+      "title": "المقاسات المفضلة"
+    },
+    "brands": {
+      "title": "العلامات التجارية المفضلة",
+      "subtitle": "اختر العلامات التجارية التي تحبها. يمكنك اختيار العدد الذي تريده."
+    }
+  },
+  "cart": {
+    "checkout": "إتمام الشراء",
+    "currency": "AED",
+    "size": "المقاس {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} تقييم",
+    "rating_na": "غير متوفر",
+    "encrypted_checkout": "دفع مشفّر",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "المجموع الفرعي",
+    "shipping": "الشحن",
+    "shipping_standard": "عادي",
+    "shipping_standard_city": "عادي · {}",
+    "buyer_protection": "حماية المشتري",
+    "buyer_protection_subtitle": "استرداد كامل في حال عدم التوصيل",
+    "summary": "الملخص",
+    "delivery": "التوصيل",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "إزالة المنتج",
+    "remove_product_message": "هل تريد إزالة هذا المنتج من سلتك؟",
+    "remove": "إزالة",
+    "cancel": "إلغاء",
+    "cart_empty_title": "السلة · 0",
+    "empty_heading": "سلتك فارغة",
+    "empty_body": "تصفّح منتجات {} لإضافة منتجات",
+    "this_seller": "هذا البائع"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "قائمة مفضلتك فارغة",
+    "saved-count": "{count} منتجات محفوظة"
+  }
+}

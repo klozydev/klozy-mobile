@@ -14,6 +14,7 @@ import 'package:klozy/src/feature/cart/presentation/bloc/cart_event.dart';
 import 'package:klozy/src/feature/cart/presentation/bloc/cart_state.dart';
 import 'package:klozy/src/feature/cart/presentation/widget/cart_bucket_card_widget.dart';
 import 'package:klozy/src/feature/cart/presentation/widget/offer_sheet.dart';
+import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/router/app_router.dart';
 
 @RoutePage()
@@ -99,6 +100,8 @@ class CartPage extends StatelessWidget implements AutoRouteWrapper {
                             onCheckout: () => context.router.push(
                               CheckoutRoute(sellerId: b.sellerId),
                             ),
+                            onMessageSeller: () =>
+                                context.openChatWith(b.sellerId),
                           ),
                         ),
                       ],

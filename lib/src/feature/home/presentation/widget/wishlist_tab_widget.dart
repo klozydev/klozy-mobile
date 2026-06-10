@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
@@ -9,8 +11,13 @@ import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/domain/wishlist/wishlist_repository.dart';
 import 'package:klozy/src/feature/home/presentation/widget/product_card_widget.dart';
 
+/// Wishlist tab. Refetches every time the tab becomes [active] (so items
+/// wished elsewhere appear), and filters the fetched list against the live
+/// [WishlistCubit] set (so unwished items disappear instantly).
 class WishlistTabWidget extends StatefulWidget {
-  const WishlistTabWidget({super.key});
+  final bool active;
+
+  const WishlistTabWidget({super.key, required this.active});
 
   @override
   State<WishlistTabWidget> createState() => _WishlistTabWidgetState();
@@ -26,7 +33,18 @@ class _WishlistTabWidgetState extends State<WishlistTabWidget> {
   }
 
   @override
+  void didUpdateWidget(WishlistTabWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.active && !oldWidget.active) {
+      setState(() {
+        _future = locator<WishlistRepository>().getWishlistProducts();
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final Set<String> wishedIds = context.watch<WishlistCubit>().state;
     return FutureBuilder<PaginatedList<Product>>(
       future: _future,
       builder:
@@ -37,7 +55,9 @@ class _WishlistTabWidgetState extends State<WishlistTabWidget> {
             if (snapshot.connectionState != ConnectionState.done) {
               return const DSLoader();
             }
-            final items = snapshot.data?.data ?? const <Product>[];
+            final items = (snapshot.data?.data ?? const <Product>[])
+                .where((Product p) => wishedIds.contains(p.id))
+                .toList();
             if (items.isEmpty) {
               return const _Empty();
             }

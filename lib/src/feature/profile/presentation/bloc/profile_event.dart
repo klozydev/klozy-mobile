@@ -40,3 +40,8 @@ final class ProfileReported extends ProfileEvent {
 final class ProfileBlocked extends ProfileEvent {
   const ProfileBlocked();
 }
+
+/// Quiet refetch after my listings/reels changed elsewhere in the app.
+final class ProfileRefreshed extends ProfileEvent {
+  const ProfileRefreshed();
+}

@@ -1,0 +1,1334 @@
+{
+  "app": {
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "Analisando as suas fotos…",
+        "step-identify": "Identificando o artigo…",
+        "step-generate": "Gerando o título e o preço…"
+      },
+      "photos": {
+        "empty-title": "Venda em segundos",
+        "empty-cta": "Adicione as suas fotos",
+        "empty-subtitle": "Comece com uma foto — a IA trata do título, da descrição e do preço.",
+        "grid-title": "As suas fotos",
+        "grid-subtitle": "Adicione até {max} fotos. A IA vai preencher o seu anúncio.",
+        "min-one": "Adicione pelo menos 1 foto para continuar",
+        "continue": "Continuar",
+        "add": "Adicionar",
+        "max-reached": "{max} fotos no máx.",
+        "cover": "Capa",
+        "edit": "Editar"
+      },
+      "capture": {
+        "title": "Adicionar uma foto",
+        "camera-title": "Tirar uma foto",
+        "camera-subtitle": "Abre a câmara",
+        "gallery-title": "Escolher da galeria",
+        "gallery-subtitle": "Seleção múltipla possível"
+      },
+      "entry": {
+        "reel-subtitle": "Partilhe um vídeo das suas peças",
+        "sell-subtitle": "Foto primeiro · a IA preenche o seu anúncio"
+      },
+      "recap": {
+        "title": "O seu anúncio",
+        "field-title": "Título",
+        "field-title-hint": "Ex. Casaco de ganga Levi's",
+        "field-price": "Preço",
+        "field-price-hint": "0",
+        "field-description": "Descrição",
+        "field-description-hint": "Descreva o estado, o corte, o material…",
+        "section-details": "Detalhes do produto",
+        "field-category": "Categoria",
+        "field-subcategory": "Subcategoria",
+        "subcategory-placeholder": "Escolha uma subcategoria",
+        "field-brand": "Marca",
+        "brand-placeholder": "Opcional",
+        "field-condition": "Estado",
+        "field-size": "Tamanho",
+        "required-hint": "* Campos obrigatórios",
+        "cta": "Pôr à venda"
+      },
+      "subcategory": {
+        "title": "Subcategoria",
+        "choose": "Escolher"
+      },
+      "brand": {
+        "title": "Marca",
+        "search-hint": "Procurar uma marca"
+      },
+      "success": {
+        "title": "Online!",
+        "subtitle": "O seu artigo já está visível para os compradores.",
+        "see-listing": "Ver anúncio",
+        "back-home": "Voltar ao início"
+      },
+      "ai-badge": "Sugerido pela IA",
+      "publish-failed": "Falha ao publicar, tente novamente."
+    },
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": { "title": "Desbloquear utilizador", "subtitle": "Tem a certeza de que pretende desbloquear este utilizador?" },
+          "title": "Utilizadores bloqueados",
+          "empty": "Nenhum utilizador bloqueado",
+          "unblock": "Desbloquear utilizador",
+          "success": "Utilizador desbloqueado com sucesso"
+        }
+      }
+    },
+    "notifications": "Notificações",
+    "notification": {
+      "redirect-error": "Ocorreu um erro ao abrir esta notificação."
+    },
+    "nothing": "Sem notificações",
+    "popup": {
+      "need-connect": {
+        "title": "Precisa de iniciar sessão",
+        "subtitle": "Para usar esta funcionalidade, precisa de iniciar sessão numa conta Klozy.",
+        "confirm": "Iniciar sessão",
+        "cancel": "Criar conta"
+      },
+      "finalise-data": {
+        "title": "Finalize o seu perfil",
+        "subtitle": "Para vender um artigo, tem de finalizar o seu perfil de vendedor.",
+        "confirm": "Finalizar",
+        "cancel": "Mais tarde"
+      }
+    },
+    "intro": {
+      "title": "Moda de nova geração",
+      "subtitle": "Compre e venda peças em segunda mão em segundos. Pagamentos seguros, envios rápidos e uma comunidade de confiança.",
+      "start": "Vamos lá!"
+    },
+    "duration": {
+      "now": "agora"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "Marca",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "Outra"
+      },
+      "product-status": {
+        "on-hold": "Em espera",
+        "in-progress": "Em curso",
+        "completed": "Concluído",
+        "in-delivery": "Em entrega",
+        "waiting-for-expedition": "A aguardar envio",
+        "pending-acceptance": "A aguardar aceitação",
+        "delivery-completed": "Entrega concluída",
+        "refused": "Recusado",
+        "canceled": "Cancelado",
+        "return-requested": "Devolução solicitada",
+        "return-accepted": "Devolução aceite",
+        "return-refused": "Devolução recusada",
+        "return-completed": "Devolução concluída"
+      },
+      "condition": {
+        "title": "Estado",
+        "new": "Novo",
+        "very-good": "Muito bom",
+        "good": "Bom",
+        "normal": "Normal",
+        "worn": "Usado"
+      },
+      "sort-by": {
+        "lower-price": "Preço crescente",
+        "higher-price": "Preço decrescente",
+        "latest": "Mais recentes"
+      },
+      "product-category": {
+        "title": "Categoria",
+        "women": "Mulher",
+        "men": "Homem",
+        "kids": "Criança"
+      },
+      "product-sub-category": {
+        "title": "Subcategoria",
+        "tops": "Tops",
+        "accessories": "Acessórios",
+        "pants": "Calças",
+        "jackets": "Casacos",
+        "dresses": "Vestidos",
+        "bottoms": "Parte de baixo",
+        "shoes": "Sapatos",
+        "underwear": "Roupa interior"
+      },
+      "accessory-type": {
+        "title": "Tipo de acessório",
+        "glasses": "Óculos",
+        "headwear": "Chapéus",
+        "scarf": "Cachecol",
+        "belt": "Cinto",
+        "jewelry": "Joias",
+        "watch": "Relógio",
+        "bag": "Mala",
+        "wallet": "Carteira",
+        "sunglasses": "Óculos de sol",
+        "tie": "Gravata",
+        "gloves": "Luvas",
+        "other": "Outro"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "0-3 meses",
+        "months_3_6": "3-6 meses",
+        "months_6_12": "6-12 meses",
+        "months_12_18": "12-18 meses",
+        "months_18_24": "18-24 meses",
+        "years_2_3": "2-3 anos",
+        "years_3_4": "3-4 anos",
+        "years_4_5": "4-5 anos",
+        "years_5_6": "5-6 anos",
+        "years_6_7": "6-7 anos",
+        "years_7_8": "7-8 anos",
+        "years_8_10": "8-10 anos",
+        "years_10_12": "10-12 anos",
+        "years_12_14": "12-14 anos"
+      }
+    },
+    "profile-completion": {
+      "title": "Complete o seu perfil",
+      "edit-title": "Editar perfil",
+      "favorite-article-sizes-title": "Tamanhos de artigos favoritos",
+      "favorite-article-sizes-subtitle": "Selecione os seus tamanhos US e EU.",
+      "preferred-brand-title": "Marcas favoritas",
+      "preferred-brand-subtitle": "Pode selecionar várias marcas.",
+      "lastname": "Apelido",
+      "lastname-hint": "Introduza o seu apelido",
+      "lastname-required": "O apelido é obrigatório",
+      "firstname": "Nome",
+      "firstname-hint": "Introduza o seu nome",
+      "firstname-required": "O nome é obrigatório",
+      "address": "Morada",
+      "address-for-delivery": "Morada de entrega",
+      "address-for-delivery-hint": "Procurar uma morada",
+      "address-for-delivery-error": "Selecione uma morada válida",
+      "description": "Descrição",
+      "description-hint": "Fale-nos sobre si",
+      "profile-picture": "Foto de perfil",
+      "complete-registration": "Concluir registo",
+      "submit": "Concluir registo",
+      "exit-signup": {
+        "title": "Cancelar registo?",
+        "subtitle": "O seu perfil ainda não está concluído. Se sair agora, terá de começar de novo."
+      },
+      "eu-sizes": "Tamanhos EU"
+    },
+    "order-summary": {
+      "title": "Resumo",
+      "x-product-purchased": "Produtos de {} que está prestes a comprar",
+      "no-products-in-cart": "Não há produtos no seu carrinho",
+      "buyer-protection": "Proteção do comprador",
+      "total": "Total",
+      "shipping": "Envio",
+      "home-delivery": "Entrega ao domicílio",
+      "choose-delivery-method": "Escolha um método de entrega",
+      "choose": "Escolher",
+      "change-delivery-address": "Alterar a sua morada de entrega",
+      "remove-product": "Remover produto",
+      "remove-product-message": "Tem a certeza de que pretende remover este produto da sua lista?",
+      "remove-product-confirm": "Remover",
+      "remove-product-cancel": "Cancelar",
+      "order-placed": "Encomenda efetuada"
+    },
+    "order-details": {
+      "title": "Encomenda",
+      "product-purchased": "Produto comprado",
+      "product-purchased-from": "Produto comprado de {}",
+      "shipping-to": "Enviar para",
+      "total-paid": "Total pago",
+      "cancel": "Cancelar encomenda",
+      "confirm-receipt": "Confirmar receção",
+      "report-a-problem": "Reportar um problema",
+      "leave-a-review": "Deixar uma avaliação",
+      "review-already-sent": "Já deixou uma avaliação para esta encomenda.",
+      "refunded": "Reembolsado",
+      "download-my-return-voucher": "Descarregar o meu comprovativo de devolução",
+      "was-delivered-to": "Foi entregue a",
+      "was-to-be-delivered": "Estava previsto ser entregue",
+      "cancel-order": "Cancelar encomenda",
+      "tracking": "Número de rastreio",
+      "track": "Rastrear",
+      "open-shipping-label": "Abrir etiqueta",
+      "product-is-conform": "O meu artigo corresponde à descrição",
+      "product-confirmed": "Produto confirmado! O pagamento será transferido para o vendedor.",
+      "request-a-return": "Solicitar uma devolução",
+      "return-requested": "Pedido de devolução enviado ao vendedor",
+      "return-pending": "O seu pedido de devolução aguarda a aprovação do vendedor",
+      "return-request-received": "Um comprador solicitou uma devolução para esta encomenda",
+      "accept": "Aceitar",
+      "refuse": "Recusar",
+      "return-accepted": "Devolução aceite, o reembolso está a ser processado",
+      "return-refused": "Devolução recusada",
+      "return-accepted-message": "Devolução aceite. Descarregue o seu comprovativo de devolução e envie o produto de volta.",
+      "return-refused-message": "A devolução foi recusada pelo vendedor. O pagamento foi transferido.",
+      "return-in-transit": "A aguardar que o comprador devolva o produto.",
+      "return-completed-message": "Devolução recebida. O reembolso foi processado."
+    },
+    "report": {
+      "cancel": "Cancelar",
+      "report": "Reportar um problema",
+      "problem": "Está a ter algum problema? Reporte-o agora.",
+      "reason": "Motivo do seu problema",
+      "reason-cancel": "Motivo do cancelamento",
+      "text-area": "Conte-nos mais",
+      "file-picker": "Adicionar ficheiros",
+      "send-report": "Enviar relatório",
+      "confirm-cancel": "Confirmar cancelamento"
+    },
+    "report_success": {
+      "title": "Enviado",
+      "subtitle": "O seu relatório foi enviado! Será tratado o mais rapidamente possível.",
+      "cancel": "O seu pedido de cancelamento foi enviado! Será tratado o mais rapidamente possível.",
+      "buttonText": "Concluir"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "Erro",
+        "content": "Ocorreu um erro, tente novamente mais tarde."
+      }
+    },
+    "preview-reel": {
+      "retake": "Repetir",
+      "continue": "Continuar"
+    },
+    "create-reel": {
+      "title": "Criar um reel",
+      "subtitle": "Ao criar um reel, pode adicionar um ou mais produtos da sua coleção à venda para os promover",
+      "add-product": "Adicionar produto",
+      "create-product": "Criar produto",
+      "my-added-products": "Os meus produtos adicionados",
+      "my-products-to-sales": "Os meus produtos à venda",
+      "add": "Adicionar",
+      "post": "Publicar o reel",
+      "update": "Atualizar o reel",
+      "success-title": "Está perfeito!",
+      "success-subtitle": "O seu vídeo já está online.",
+      "error-title": "Falta algo",
+      "error-subtitle": "Adicione pelo menos um produto ao seu reel."
+    },
+    "put-a-product-on-sale": {
+      "title": "Pôr um produto à venda",
+      "step": "Passo",
+      "title-step2": "Mais sobre o seu produto",
+      "title-step3": "Adicionar fotos",
+      "put-on-sale": "Pôr à venda",
+      "success-title": "Está perfeito!",
+      "success-subtitle": "O seu artigo já está à venda.",
+      "edit-success-title": "Está perfeito!",
+      "edit-success-subtitle": "O seu artigo já está à venda.",
+      "error-title": "Falha no carregamento",
+      "error-subtitle": "Algo correu mal ao guardar o seu produto. Tente novamente.",
+      "forms": {
+        "title": "Título",
+        "title-hint": "Ex. Camisa azul fluida",
+        "price": "Preço",
+        "price-hint": "0",
+        "price-max-error": "O preço máximo é {}.",
+        "description": "Descrição",
+        "description-hint": "Introduza uma descrição para o seu produto",
+        "size": "Tamanho",
+        "brand": "Marca",
+        "condition-error-title": "Selecione um estado",
+        "condition-error-subtitle": "Selecione um estado para o seu produto",
+        "image-error-title": "Selecione pelo menos uma imagem",
+        "image-error-subtitle": "Selecione pelo menos uma imagem para o seu produto"
+      }
+    },
+    "home": {
+      "feed": "Feed",
+      "wishlist": "Lista de desejos",
+      "reels": "Reels",
+      "view-products": "Ver produtos",
+      "hide-products": "Ocultar produtos"
+    },
+    "product": {
+      "buy": "Comprar",
+      "already-sold": "Já vendido",
+      "make-an-offer": "Fazer uma oferta",
+      "send-offer": "Enviar oferta",
+      "delete": "Eliminar",
+      "edit": "Editar",
+      "success-title": "Oferta enviada!",
+      "success-subtitle": "A sua oferta foi enviada com sucesso.",
+      "popup-delete-title": "Eliminar produto",
+      "popup-delete-subtitle": "Tem a certeza de que pretende eliminar este produto?",
+      "popup-delete-confirm": "Eliminar",
+      "popup-delete-cancel": "Cancelar",
+      "delete-success-title": "Produto eliminado!",
+      "delete-success-subtitle": "O seu produto foi eliminado com sucesso.",
+      "forms": {
+        "actual-price": "Preço atual",
+        "your-new-price": "O seu novo preço"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "Eliminar reel",
+      "popup-delete-subtitle": "Tem a certeza de que pretende eliminar este reel?",
+      "popup-delete-confirm": "Eliminar",
+      "popup-delete-cancel": "Cancelar",
+      "delete-success-title": "Reel eliminado!",
+      "delete-success-subtitle": "O seu reel foi eliminado com sucesso.",
+      "feed-error": "Não foi possível carregar os reels. Tente novamente mais tarde.",
+      "report": "Reportar"
+    },
+    "profile": {
+      "buyer": "Comprador",
+      "my-order": "As minhas encomendas",
+      "seller": "Vendedor",
+      "my-sales": "As minhas vendas",
+      "products": "Produtos",
+      "reels": "Reels",
+      "reviews": "Avaliações",
+      "followers": "Seguidores",
+      "following": "A seguir",
+      "follow": "Seguir",
+      "unfollow": "Deixar de seguir",
+      "edit": "Editar perfil",
+      "cant-follow-blocked": "Não pode seguir este utilizador."
+    },
+    "search": {
+      "popular-items": "Artigos populares",
+      "categories": "Categorias",
+      "title": "Pesquisar",
+      "filter-search": "Filtrar pesquisa",
+      "sort-by": "Ordenar por",
+      "in": "Em",
+      "refine-the-category": "Refinar a categoria",
+      "apply": "Aplicar",
+      "reset": "Repor",
+      "results": "Resultados"
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "A abrir o Stripe."
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "Artigo não corresponde à descrição",
+        "motif2": "Artigo contrafeito ou proibido",
+        "motif3": "Problema com o vendedor",
+        "motif4": "Problema de entrega",
+        "motif5": "Problema de pagamento ou de encomenda",
+        "motif6": "Outro"
+      },
+      "filePicker": {
+        "title": "Adicionar ficheiros"
+      },
+      "description": {
+        "title": "Conte-nos mais",
+        "title1": "Especifique"
+      },
+      "motif1": {
+        "precisez1": "Tamanho errado / não serve",
+        "precisez2": "O estado difere do anúncio",
+        "precisez3": "Faltam peças / acessórios",
+        "precisez4": "O artigo está danificado"
+      },
+      "motif2": {
+        "precisez1": "Suspeita de artigo contrafeito",
+        "precisez2": "Artigo proibido ou perigoso",
+        "precisez3": "Anúncio enganoso ou fraudulento",
+        "precisez4": "Outro problema de política"
+      },
+      "motif3": {
+        "precisez1": "O vendedor não responde",
+        "precisez2": "Comportamento inadequado ou assédio",
+        "precisez3": "Pediu para pagar fora da aplicação",
+        "precisez4": "Outro problema com o vendedor"
+      },
+      "motif4": {
+        "precisez1": "O rastreio não está a atualizar",
+        "precisez2": "Encomenda não recebida",
+        "precisez3": "Encomenda chegou danificada",
+        "precisez4": "A entrega está atrasada"
+      },
+      "motif5": {
+        "precisez1": "Valor cobrado incorreto",
+        "precisez2": "Problema de reembolso",
+        "precisez3": "Problema na encomenda (cancelada / duplicada)",
+        "precisez4": "Outro problema de pagamento ou de encomenda"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "Nova mensagem",
+          "body": "Recebeu uma nova mensagem."
+        }
+      },
+      "user-deleted": "Utilizador desconhecido",
+      "online-today-at": "Online hoje às {}",
+      "online-yesterday-at": "Online ontem às {}",
+      "online-at": "Online às {}",
+      "change-name-confirm-button": "Concluir",
+      "call-audio": "Chamada de áudio",
+      "call-video": "Videochamada",
+      "call-start": "Chamada em curso...",
+      "video-call-end": "Chamada terminada",
+      "new-group": "Nome do grupo",
+      "cancel-audio": "Cancelar áudio",
+      "preview": {
+        "media": {
+          "zero": "Sem elementos",
+          "one": "Enviou 1 multimédia",
+          "other": "Enviou {} multimédia"
+        },
+        "audio": "Áudio",
+        "reply-audio": "Responder com áudio"
+      },
+      "event": {
+        "report-and-block": "Reportar e bloquear",
+        "delete-tchat": "Eliminar conversa"
+      },
+      "status": {
+        "online": "Online",
+        "online-today-at": "Online hoje às {time}",
+        "online-yesterday-at": "Online ontem às {time}",
+        "offline": "Offline",
+        "multiple-online": "Vários online",
+        "typing": "A escrever",
+        "audioRec": "A gravar áudio"
+      },
+      "document": {
+        "camera": "Câmara",
+        "gallery": "Galeria",
+        "document": "Documento",
+        "localisation": "Localização",
+        "contact": "Contacto",
+        "sondage": "Sondagem"
+      },
+      "list": {
+        "title": "Conversas",
+        "title-face": "Tradução",
+        "conversations": "Conversas",
+        "no-tchat": "Sem conversas",
+        "no-tchat-content": "Ainda não tem nenhuma conversa.",
+        "group-default-title": "Novo grupo",
+        "oto-default-title": "Nova conversa",
+        "new-conversation": "Nova conversa"
+      },
+      "message": {
+        "no-message": "Sem mensagens",
+        "no-message-body": "Ainda não tem nenhuma mensagem.",
+        "input-hint": "Mensagem..",
+        "no-media": "Sem multimédia",
+        "date": "{weekday} {day} {month}",
+        "today": "Hoje",
+        "yesterday": "Ontem",
+        "join-group": "{name} entrou no grupo",
+        "leave-group": "{name} saiu do grupo",
+        "add-to-group": "{name} adicionou {user} ao grupo",
+        "remove-from-group": "{name} removeu {user} do grupo",
+        "change-group-title": "{name} alterou o nome do grupo para {title}",
+        "change-group-avatar": "{name} alterou o avatar do grupo",
+        "blocked-by-you": "Bloqueou este contacto.\nJá não pode enviar mensagens a este contacto.",
+        "blocked-by-other": "Foi bloqueado por este contacto.\nJá não pode enviar mensagens a este contacto.",
+        "cant-send-message-blocked": "Não pode enviar uma mensagem a este contacto.",
+        "order-requested": "Oferta feita ao comprador por «{product_name}»",
+        "order-accepted": "A sua encomenda n.º {id} foi aceite pelo vendedor",
+        "order-rejected": "A sua encomenda n.º {id} foi rejeitada pelo vendedor",
+        "order-purchased": "Uma encomenda foi efetuada",
+        "view-order-details": "Ver detalhes da encomenda"
+      }
+    },
+    "commentary": {
+      "add-note-title": "Avaliar o vendedor",
+      "add_note_title": "Avaliar o vendedor",
+      "delete": "Eliminar",
+      "report": "Reportar",
+      "add-note": {
+        "validate": "Validar",
+        "field": {
+          "note-title": "Avaliar este vendedor",
+          "commentary-title": "Comentário",
+          "placeholder": "Escreva um comentário",
+          "commentary-hint": "Escreva um comentário..",
+          "commentary_hint": "Escreva um comentário.."
+        },
+        "title": "Avaliar este vendedor",
+        "comment": "Comentário",
+        "placeholder": "Escreva um comentário",
+        "commentary-hint": "Escreva um comentário.."
+      },
+      "add_note": {
+        "validate": "Validar",
+        "field": {
+          "title": "Avaliar este vendedor",
+          "comment": "Comentário",
+          "placeholder": "Escreva um comentário",
+          "commentary-hint": "Escreva um comentário..",
+          "commentary_hint": "Escreva um comentário.."
+        },
+        "title": "Avaliar este vendedor",
+        "comment": "Comentário",
+        "placeholder": "Escreva um comentário",
+        "commentary-hint": "Escreva um comentário..",
+        "commentary_hint": "Escreva um comentário.."
+      },
+      "sure-delete-commentary": {
+        "title": "Eliminar comentário",
+        "subtitle": "Tem a certeza de que pretende eliminar este comentário?"
+      },
+      "sure_delete_commentary": {
+        "title": "Eliminar comentário",
+        "subtitle": "Tem a certeza de que pretende eliminar este comentário?"
+      }
+    },
+    "validator": {
+      "must-have-value": "Este campo é obrigatório",
+      "email-invalid": "Introduza um email válido",
+      "password-invalid-length": "Mínimo de 6 caracteres",
+      "password-invalid-maj": "Mínimo de 1 letra maiúscula",
+      "password-invalid-min": "Mínimo de 1 letra minúscula",
+      "password-invalid-number": "Mínimo de 1 número",
+      "password-invalid-special-char": "Mínimo de 1 caractere especial (&?!@#)",
+      "password-not-match": "As palavras-passe não coincidem",
+      "number-invalid": "Introduza um número válido",
+      "number-out-of-range": "Introduza um número entre {min} e {max}",
+      "number-out-of-min": "Introduza um número maior que {min}",
+      "number-out-of-max": "Introduza um número menor que {max}",
+      "date-invalid": "Introduza uma data válida",
+      "date-out-of-range": "Introduza uma data entre {min} e {max}",
+      "date-out-of-min": "Introduza uma data posterior a {min}",
+      "date-out-of-max": "Introduza uma data anterior a {max}",
+      "alpha-invalid": "Introduza um valor válido",
+      "code-invalid": "Introduza um código válido"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "Selecione uma foto"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "Sem fotos",
+        "one": "1 foto",
+        "other": "{} fotos"
+      },
+      "write-message": "Escreva uma mensagem..",
+      "camera": {
+        "shootingTips": "Tire uma foto",
+        "confirm": "Validar",
+        "saving": "A guardar...",
+        "shootingWithRecordingTips": "Mantenha premido para filmar."
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "Procurar um país",
+          "error_message": "Introduza um número de telefone válido"
+        },
+        "input": {
+          "choose-media": "Prima para escolher uma foto",
+          "choose-multiple-file": "Prima para escolher vários ficheiros",
+          "choose-image": "Prima para escolher uma foto",
+          "choose-file": "Prima para escolher um ficheiro",
+          "press-to-modify": "Prima para modificar o ficheiro"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "Email",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "Email",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "Palavra-passe",
+          "hint": "Palavra-passe",
+          "security-action": "O que fazer?"
+        },
+        "actual-password": {
+          "title": "Palavra-passe atual",
+          "hint": "Palavra-passe atual"
+        },
+        "new-password": {
+          "title": "Nova palavra-passe",
+          "hint": "Nova palavra-passe"
+        },
+        "repeat-password": {
+          "title": "Confirmar palavra-passe",
+          "hint": "Confirmar palavra-passe"
+        },
+        "new-repeat-password": {
+          "title": "Confirmar nova palavra-passe",
+          "hint": "Confirmar nova palavra-passe"
+        },
+        "phone": {
+          "title": "Número de telefone",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "Código recebido por SMS",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "Área de texto",
+        "hint": "Escreva aqui.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "O seu número de telefone foi adicionado com sucesso.",
+      "invalid-email": "Não foi encontrado nenhum utilizador com as informações fornecidas.",
+      "user-not-found": "Não foi encontrado nenhum utilizador com as informações fornecidas.",
+      "user-disabled": "A sua conta foi desativada pelo administrador.",
+      "wrong-password": "A palavra-passe está incorreta.",
+      "email-already-in-use": "Este endereço de email já está a ser utilizado.",
+      "phone-already-in-use": "Este número de telefone já está a ser utilizado.",
+      "weak-password": "A palavra-passe é demasiado fraca.",
+      "account-exists-with-different-credential": "Já existe uma conta com este endereço de email.",
+      "invalid-credential": "Não foi encontrado nenhum utilizador com as informações fornecidas.",
+      "invalid-verification-code": "O código de verificação é inválido.",
+      "invalid-verification-id": "O ID de verificação é inválido.",
+      "requires-recent-login": "Tem de reiniciar sessão para realizar esta ação.",
+      "invalid-phone-number": "O número de telefone é inválido.",
+      "error-phone-not-exist": "Este número de telefone não existe.",
+      "code-invalid": "Introduza um código válido",
+      "code-is-required": "Introduza o código recebido por SMS",
+      "email-must-be-verified": "Tem de verificar o seu endereço de email para continuar.",
+      "tiers-auth-valid-email": "A sua conta de terceiros tem de ter um email válido para continuar.",
+      "send-reset-password-email": "Foi enviado um email de redefinição de palavra-passe para o endereço fornecido.",
+      "error-internet": "Ocorreu um problema de ligação. Verifique a sua ligação à internet.",
+      "error-default": "Ocorreu um erro, tente novamente.",
+      "must-accept-cgu": "Tem de aceitar os termos de utilização para continuar.",
+      "password-security": "Formato da palavra-passe",
+      "password-security-length": "Mínimo de 6 caracteres",
+      "password-security-maj": "Contém pelo menos 1 letra maiúscula",
+      "password-security-min": "Contém pelo menos 1 letra minúscula",
+      "password-security-number": "Contém pelo menos 1 número",
+      "password-security-special": "Contém pelo menos 1 caractere especial (&?!@#)",
+      "success-change-password": "A sua palavra-passe foi alterada com sucesso.",
+      "phone-update-success": "O seu número de telefone foi alterado!",
+      "cant-be-same-password": "A nova palavra-passe tem de ser diferente da anterior.",
+      "cant-be-same-email": "O novo email tem de ser diferente do anterior.",
+      "cant-be-same-phone": "O novo número de telefone tem de ser diferente do anterior.",
+      "code-is-expired": "O código de verificação expirou.",
+      "code-sent": "Foi-lhe enviado um código de verificação por SMS.",
+      "too-many-requests": "Demasiadas tentativas de início de sessão. Tente novamente mais tarde."
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "Iniciar sessão",
+        "already-have-account": "Já tem uma conta?",
+        "login-title": "Inicie sessão na sua conta ou crie uma.",
+        "login-phone-title": "Inicie sessão na sua conta",
+        "verify-phone-title": "Introduza o código recebido por SMS para iniciar sessão",
+        "verify-phone-code-title": "Valide o seu número de telefone",
+        "code-expire-in": "O código expira em {time} minutos",
+        "no-code": "Não recebeu?",
+        "resend-code": "Reenviar",
+        "forgot-password": "Esqueceu-se da palavra-passe?",
+        "reset-password": "Redefinir palavra-passe",
+        "no-account": "Sem conta?",
+        "create-account": "Criar agora",
+        "login-with-phone": "Iniciar sessão com telefone",
+        "login-with-email": "Iniciar sessão com email",
+        "or-connect-with": "ou inicie sessão com",
+        "or-signup-with": "ou registe-se com",
+        "verify-email": "Verifique o seu email",
+        "verify-email-subtitle": "Recebeu um email para redefinir a sua palavra-passe.",
+        "create-account-verify-email": "Verifique o seu email",
+        "create-account-title": "Criar uma conta",
+        "create-account-verify-email-subtitle": "Foi enviada uma verificação de email para o endereço",
+        "reset-password-modal": {
+          "title": "Redefinir palavra-passe",
+          "subtitle": "Introduza o endereço de email associado à sua conta. Enviaremos um email de redefinição para esse endereço."
+        },
+        "tiers-signin": {
+          "get-password-title": "Introduza a sua palavra-passe",
+          "get-password-subtitle": "Encontrámos uma conta com este endereço de email, introduza a sua palavra-passe para iniciar sessão."
+        }
+      },
+      "profile": {
+        "delete-success": "A sua conta foi eliminada com sucesso.\nAté breve",
+        "logout": "Terminar sessão",
+        "delete-account": "Eliminar o meu perfil",
+        "delete-my-account": "Eliminar a minha conta",
+        "delete-my-account-subtitle": "Quer mesmo eliminar a sua conta?",
+        "logout-success": "Terminou a sessão com sucesso.\nAté breve"
+      },
+      "new-cgu-must-be-accepted": "Tem de aceitar os novos termos de utilização para continuar."
+    },
+    "onboarding": {
+      "button_next": "Seguinte",
+      "button_start": "Concluir",
+      "skip": "Ignorar"
+    },
+    "permission": {
+      "notification": {
+        "title": "Notificações Push",
+        "redirect-to-settings": "Pretende ativar o nosso serviço de notificações Push? Vai ajudá-lo a tirar o máximo partido da nossa aplicação.",
+        "button": "Ativar notificações"
+      },
+      "camera": {
+        "title": "Câmara",
+        "redirect-to-settings": "Para usufruir desta funcionalidade, tem de aceitar a permissão da câmara.",
+        "button": "Ativar câmara"
+      },
+      "microphone": {
+        "title": "Microfone",
+        "redirect-to-settings": "Para usufruir desta funcionalidade, tem de aceitar a permissão do microfone.",
+        "button": "Ativar microfone"
+      },
+      "accessMediaLocation": {
+        "title": "Acesso à localização de multimédia",
+        "redirect-to-settings": "Para usufruir desta funcionalidade, tem de aceitar a permissão de acesso à localização de multimédia.",
+        "button": "Ativar acesso à localização de multimédia"
+      },
+      "mediaLibrary": {
+        "title": "Biblioteca de multimédia",
+        "redirect-to-settings": " Para usufruir desta funcionalidade, tem de aceitar a permissão de acesso à biblioteca de multimédia.",
+        "button": "Ativar acesso à biblioteca de multimédia"
+      },
+      "photos": {
+        "title": "Fotos",
+        "redirect-to-settings": "Para usufruir desta funcionalidade, tem de aceitar a permissão de acesso às fotos.",
+        "button": "Ativar acesso às fotos"
+      },
+      "storage": {
+        "title": "Armazenamento",
+        "redirect-to-settings": "Para usufruir desta funcionalidade, tem de aceitar a permissão de acesso ao armazenamento.",
+        "button": "Ativar acesso ao armazenamento"
+      },
+      "mic": {
+        "redirect-to-settings": "Autorize o microfone nas definições do seu telefone.",
+        "title": "Microfone",
+        "button": "Abrir definições"
+      },
+      "notif-push": {
+        "title": "Notificações Push",
+        "desc": "Pretende ativar o nosso serviço de notificações Push? Vai ajudá-lo a tirar o máximo partido da nossa aplicação.",
+        "button": "Ativar notificações"
+      },
+      "location": {
+        "title": "Localização",
+        "desc": "Para tirar o máximo partido da nossa aplicação móvel, tem de aceitar a localização.",
+        "button": "Continuar",
+        "redirect-to-settings": "Autorize a localização nas definições do seu telefone."
+      },
+      "background-location": {
+        "title": "Localização em segundo plano",
+        "desc": "Pretende ativar o nosso serviço de localização em segundo plano? Será essencial para o funcionamento da aplicação.",
+        "button": "Ativar localização em segundo plano"
+      },
+      "skip": "Ignorar"
+    },
+    "image": {
+      "from-gallery": "Galeria",
+      "from-camera": "Câmara"
+    },
+    "duration": {
+      "now": "Agora",
+      "days-ago": "há {} dias",
+      "x-days": "há {} dias",
+      "hours-ago": "há {} horas",
+      "minutes-ago": "há {} minutos",
+      "seconds-ago": "há {} segundos",
+      "months-ago": "há {} meses",
+      "years-ago": "há {} anos",
+      "moment-ago": "Há um momento"
+    },
+    "settings": {
+      "edited-by": "Editado por",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "Modificar",
+        "personnal-data": "A minha conta",
+        "settings": "Definições",
+        "other": "Outro",
+        "link": "Ligações",
+        "social": "Redes sociais",
+        "security": "Segurança"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "Utilizadores bloqueados",
+          "subtitle": "Lista de utilizadores bloqueados"
+        },
+        "blocked-users": {
+          "unblock": "Desbloquear utilizador",
+          "block": "Bloquear utilizador",
+          "unblock-success": "Utilizador desbloqueado com sucesso",
+          "title": "Utilizadores bloqueados",
+          "subtitle": "Lista de utilizadores bloqueados"
+        },
+        "change-personnal-content": {
+          "title": "Informações pessoais",
+          "subtitle": "Nome, apelido, descrição"
+        },
+        "clothing-preference": {
+          "title": "Preferências de vestuário",
+          "subtitle": "Personalizar"
+        },
+        "preferred-article-size": {
+          "title": "Tamanhos de artigos favoritos",
+          "subtitle": "Gerir"
+        },
+        "preferred-brand": {
+          "title": "Marcas favoritas",
+          "subtitle": "Gerir"
+        },
+        "security": {
+          "title": "Segurança",
+          "subtitle": "Palavra-passe, telefone, email..."
+        },
+        "payment": {
+          "title": "Métodos de pagamento",
+          "subtitle": "Cartão de crédito / Apple Pay",
+          "credit-card": "Cartão de crédito",
+          "bank-details": "Conta bancária",
+          "bank-details-empty": "Não configurado",
+          "handle-with-stripe": "Gerir com Stripe"
+        },
+        "phone-number": {
+          "title": "Número de telefone"
+        },
+        "change-email": {
+          "title": "Endereço de email"
+        },
+        "change-password": {
+          "title": "Palavra-passe",
+          "subtitle": "Última modificação: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "Notificações push"
+        },
+        "email-notif": {
+          "title": "Notificações por email"
+        },
+        "help": {
+          "title": "Ajuda",
+          "subtitle": "Contacte-nos por email"
+        },
+        "share": {
+          "title": "Partilhar aplicação",
+          "subtitle": "Apoie-nos partilhando a aplicação"
+        },
+        "link": {
+          "privacy-policy": "Política de privacidade",
+          "legal-mention": "Menções legais",
+          "legal-notice": "Aviso legal",
+          "cgvu": "Condições de venda e de utilização",
+          "about": "Acerca de"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "Erro de rede 😕",
+      "subtitle": "Não foi detetada ligação à internet. Verifique a sua ligação de rede.",
+      "button": "Atualizar"
+    },
+    "research": {
+      "hint": "Pesquisar artigo...",
+      "no-item-title": "Nada encontrado",
+      "no-item-content": "Não foram encontrados produtos para esta pesquisa"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "Janeiro",
+      "2": "Fevereiro",
+      "3": "Março",
+      "4": "Abril",
+      "5": "Maio",
+      "6": "Junho",
+      "7": "Julho",
+      "8": "Agosto",
+      "9": "Setembro",
+      "10": "Outubro",
+      "11": "Novembro",
+      "12": "Dezembro"
+    },
+    "day-by-id": {
+      "1": "Segunda-feira",
+      "2": "Terça-feira",
+      "3": "Quarta-feira",
+      "4": "Quinta-feira",
+      "5": "Sexta-feira",
+      "6": "Sábado",
+      "7": "Domingo"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "Se",
+      "tu": "Te",
+      "we": "Qa",
+      "th": "Qi",
+      "fr": "Sx",
+      "sa": "Sá",
+      "su": "Do"
+    },
+    "month": {
+      "january": "Janeiro",
+      "february": "Fevereiro",
+      "march": "Março",
+      "april": "Abril",
+      "may": "Maio",
+      "june": "Junho",
+      "july": "Julho",
+      "august": "Agosto",
+      "september": "Setembro",
+      "october": "Outubro",
+      "november": "Novembro",
+      "december": "Dezembro"
+    },
+    "event": {
+      "cancel": "Cancelar",
+      "validate": "Validar"
+    },
+    "range": {
+      "no_date": "Sem data"
+    }
+  },
+  "utils": {
+    "done": "Concluído",
+    "unlock": "Desbloquear",
+    "mandatory": "Obrigatório",
+    "next": "Seguinte",
+    "number_x": "n.º{}",
+    "mandatory-fields": "* Os campos assinalados são obrigatórios",
+    "submit": "Submeter",
+    "choose": "Escolher",
+    "validate-and-modify": "Validar e modificar",
+    "modify": "Modificar",
+    "by-default": "Por predefinição",
+    "deactivate": "Desativar",
+    "activate": "Ativar",
+    "loading": "A carregar..",
+    "close": "Fechar",
+    "cancel": "Cancelar",
+    "continue": "Continuar",
+    "connexion": "Início de sessão",
+    "validate": "Validar",
+    "success": "Sucesso",
+    "yes": "Sim",
+    "no": "Não",
+    "error": "Erro",
+    "reinit": "Repor",
+    "cgvu": "CGVU",
+    "validate-and-continue": "Validar e continuar",
+    "confidentiality-policy": "Política de confidencialidade",
+    "cgvu-and-confidentiality": "CGVU e política de confidencialidade",
+    "accept-cgvu-and-confidentiality": "Aceito a política de confidencialidade e as condições de venda e de utilização.",
+    "what-do-you-want-to-do": "O que pretende fazer?",
+    "error-default": "Ocorreu um erro, tente novamente.",
+    "optional": "Opcional",
+    "save": "Guardar",
+    "accept": "Aceitar",
+    "refuse": "Recusar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "size": "Tamanho",
+    "dirhams": "Dirhams",
+    "aed": "AED",
+    "followers": "Seguidores",
+    "following": "A seguir"
+  },
+  "empty-state": {
+    "no-wishlist": "Sem lista de desejos",
+    "no-feed": "Sem feed",
+    "no-products": "Sem produtos",
+    "no-products-found": "Nenhum produto encontrado",
+    "no-reels": "Sem reels",
+    "no-reels-available": "Não há reels disponíveis de momento.",
+    "no-reviews": "Sem avaliações",
+    "no-orders": "Sem encomendas",
+    "product-not-found": "Produto não encontrado",
+    "no-connect-account": "Nenhuma conta de pagamento encontrada"
+  },
+  "error": {
+    "product-doesnt-exist": "Este produto já não existe",
+    "please-try-again": "Tente novamente mais tarde"
+  },
+  "stats": {
+    "title": "As minhas estatísticas",
+    "consult-stripe": "Consulte as suas estatísticas Stripe",
+    "consult-stripe-desc": "Prima o botão abaixo para abrir o painel da Stripe e consultar as suas estatísticas de vendas.",
+    "open-dashboard": "Abrir painel"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "Como pretende vender?",
+      "subtitle": "Escolha a opção que se adequa a si. Pode sempre contactar o suporte se precisar de mudar mais tarde.",
+      "vendor-title": "Sou uma empresa",
+      "vendor-subtitle": "Venda como empresa. Requer verificação de identidade e de empresa.",
+      "particular-title": "Sou um particular",
+      "particular-subtitle": "Venda peças do seu armário. Basta um IBAN para receber pagamentos."
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "Para receber pagamentos, adicione a sua conta bancária",
+      "after-sale-title": "Após uma venda",
+      "after-sale-body": "Os fundos são retidos em segurança. A transferência é acionada quando o comprador confirma a receção.",
+      "transfer-title": "Prazo de transferência",
+      "transfer-body": "O seu dinheiro chega à sua conta bancária 48 a 72 horas após a confirmação da venda.",
+      "privacy-title": "Privacidade",
+      "privacy-body": "O seu IBAN é armazenado em segurança e pode ser atualizado mais tarde nas definições da sua conta.",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "Li e aceito os ",
+      "tnc-link": "Termos e Condições",
+      "cta-onboarding": "Guardar e continuar",
+      "cta-edit": "Guardar",
+      "save-error": "Não foi possível guardar o seu IBAN. Tente novamente."
+    },
+    "settings": {
+      "title": "Conta bancária",
+      "updated-on": "Atualizado a {date}",
+      "edit-cta": "Editar IBAN",
+      "add-cta": "Adicionar IBAN",
+      "empty-state": "Não há nenhuma conta bancária registada. Adicione uma para podermos transferir os seus ganhos."
+    }
+  },
+  "preferences": {
+    "save": "Guardar",
+    "clothing": {
+      "title": "Preferências de vestuário",
+      "subtitle": "Escolha a categoria onde mais compra. Vamos personalizar o seu feed em conformidade."
+    },
+    "sizes": {
+      "title": "Tamanhos favoritos"
+    },
+    "brands": {
+      "title": "Marcas favoritas",
+      "subtitle": "Selecione as marcas que adora. Pode escolher quantas quiser."
+    }
+  },
+  "cart": {
+    "checkout": "Finalizar compra",
+    "currency": "AED",
+    "size": "Tamanho {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} avaliações",
+    "rating_na": "N/D",
+    "encrypted_checkout": "Pagamento encriptado",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "Subtotal",
+    "shipping": "Envio",
+    "shipping_standard": "Padrão",
+    "shipping_standard_city": "Padrão · {}",
+    "buyer_protection": "Proteção do comprador",
+    "buyer_protection_subtitle": "Reembolso total se não for entregue",
+    "summary": "Resumo",
+    "delivery": "Entrega",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "Remover produto",
+    "remove_product_message": "Remover este produto do seu carrinho?",
+    "remove": "Remover",
+    "cancel": "Cancelar",
+    "cart_empty_title": "CARRINHO · 0",
+    "empty_heading": "O seu carrinho está vazio",
+    "empty_body": "Explore os artigos de {} para adicionar produtos",
+    "this_seller": "este vendedor"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "A sua lista de desejos está vazia",
+    "saved-count": "{count} artigos guardados"
+  }
+}

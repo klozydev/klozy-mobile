@@ -1,0 +1,1334 @@
+{
+  "app": {
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "आपकी तस्वीरों का विश्लेषण हो रहा है…",
+        "step-identify": "आइटम की पहचान हो रही है…",
+        "step-generate": "शीर्षक और कीमत बनाई जा रही है…"
+      },
+      "photos": {
+        "empty-title": "सेकंडों में बेचें",
+        "empty-cta": "अपनी तस्वीरें जोड़ें",
+        "empty-subtitle": "एक तस्वीर से शुरू करें — AI शीर्षक, विवरण और कीमत संभालता है।",
+        "grid-title": "आपकी तस्वीरें",
+        "grid-subtitle": "{max} तक तस्वीरें जोड़ें। AI आपकी लिस्टिंग पहले से भर देगा।",
+        "min-one": "जारी रखने के लिए कम से कम 1 तस्वीर जोड़ें",
+        "continue": "जारी रखें",
+        "add": "जोड़ें",
+        "max-reached": "अधिकतम {max} तस्वीरें",
+        "cover": "कवर",
+        "edit": "संपादित करें"
+      },
+      "capture": {
+        "title": "तस्वीर जोड़ें",
+        "camera-title": "तस्वीर लें",
+        "camera-subtitle": "कैमरा खोलता है",
+        "gallery-title": "गैलरी से चुनें",
+        "gallery-subtitle": "एकाधिक चयन संभव है"
+      },
+      "entry": {
+        "reel-subtitle": "अपने परिधानों का वीडियो साझा करें",
+        "sell-subtitle": "पहले तस्वीर · AI आपकी लिस्टिंग भरता है"
+      },
+      "recap": {
+        "title": "आपकी लिस्टिंग",
+        "field-title": "शीर्षक",
+        "field-title-hint": "उदा. Levi's डेनिम जैकेट",
+        "field-price": "कीमत",
+        "field-price-hint": "0",
+        "field-description": "विवरण",
+        "field-description-hint": "स्थिति, फ़िट, सामग्री का वर्णन करें…",
+        "section-details": "उत्पाद विवरण",
+        "field-category": "श्रेणी",
+        "field-subcategory": "उपश्रेणी",
+        "subcategory-placeholder": "एक उपश्रेणी चुनें",
+        "field-brand": "ब्रांड",
+        "brand-placeholder": "वैकल्पिक",
+        "field-condition": "स्थिति",
+        "field-size": "साइज़",
+        "required-hint": "* आवश्यक फ़ील्ड",
+        "cta": "बिक्री के लिए रखें"
+      },
+      "subcategory": {
+        "title": "उपश्रेणी",
+        "choose": "चुनें"
+      },
+      "brand": {
+        "title": "ब्रांड",
+        "search-hint": "ब्रांड खोजें"
+      },
+      "success": {
+        "title": "ऑनलाइन!",
+        "subtitle": "आपका आइटम अब खरीदारों को दिख रहा है।",
+        "see-listing": "लिस्टिंग देखें",
+        "back-home": "होम पर वापस"
+      },
+      "ai-badge": "AI द्वारा सुझाया गया",
+      "publish-failed": "लिस्टिंग विफल, कृपया पुनः प्रयास करें।"
+    },
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": { "title": "यूज़र को अनब्लॉक करें", "subtitle": "क्या आप वाकई इस यूज़र को अनब्लॉक करना चाहते हैं?" },
+          "title": "ब्लॉक किए गए यूज़र",
+          "empty": "कोई ब्लॉक किया गया यूज़र नहीं",
+          "unblock": "यूज़र को अनब्लॉक करें",
+          "success": "यूज़र सफलतापूर्वक अनब्लॉक हो गया"
+        }
+      }
+    },
+    "notifications": "नोटिफ़िकेशन",
+    "notification": {
+      "redirect-error": "इस नोटिफ़िकेशन को खोलते समय एक एरर हुई।"
+    },
+    "nothing": "कोई नोटिफ़िकेशन नहीं",
+    "popup": {
+      "need-connect": {
+        "title": "आपको लॉगिन करना होगा",
+        "subtitle": "इस फ़ीचर का उपयोग करने के लिए, आपको एक Klozy अकाउंट से लॉगिन होना ज़रूरी है।",
+        "confirm": "लॉगिन करें",
+        "cancel": "अकाउंट बनाएँ"
+      },
+      "finalise-data": {
+        "title": "अपनी प्रोफ़ाइल पूरी करें",
+        "subtitle": "कोई आइटम बेचने के लिए, आपको अपनी सेलर प्रोफ़ाइल पूरी करनी होगी।",
+        "confirm": "पूरा करें",
+        "cancel": "बाद में"
+      }
+    },
+    "intro": {
+      "title": "नई पीढ़ी का फ़ैशन",
+      "subtitle": "सेकंडों में पुराने पसंदीदा कपड़े खरीदें और बेचें। सुरक्षित पेमेंट, तेज़ शिपिंग, और एक भरोसेमंद कम्युनिटी।",
+      "start": "चलिए शुरू करें!"
+    },
+    "duration": {
+      "now": "अभी"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "ब्रांड",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "अन्य"
+      },
+      "product-status": {
+        "on-hold": "होल्ड पर",
+        "in-progress": "प्रोसेस में",
+        "completed": "पूरा हुआ",
+        "in-delivery": "डिलीवरी में",
+        "waiting-for-expedition": "शिपमेंट का इंतज़ार",
+        "pending-acceptance": "स्वीकृति बाकी",
+        "delivery-completed": "डिलीवरी पूरी हुई",
+        "refused": "अस्वीकृत",
+        "canceled": "रद्द किया गया",
+        "return-requested": "रिटर्न का अनुरोध किया गया",
+        "return-accepted": "रिटर्न स्वीकार किया गया",
+        "return-refused": "रिटर्न अस्वीकृत",
+        "return-completed": "रिटर्न पूरा हुआ"
+      },
+      "condition": {
+        "title": "हालत",
+        "new": "नया",
+        "very-good": "बहुत बढ़िया",
+        "good": "बढ़िया",
+        "normal": "सामान्य",
+        "worn": "इस्तेमाल किया हुआ"
+      },
+      "sort-by": {
+        "lower-price": "बढ़ती कीमत",
+        "higher-price": "घटती कीमत",
+        "latest": "सबसे नए"
+      },
+      "product-category": {
+        "title": "कैटेगरी",
+        "women": "महिलाएँ",
+        "men": "पुरुष",
+        "kids": "बच्चे"
+      },
+      "product-sub-category": {
+        "title": "सब-कैटेगरी",
+        "tops": "टॉप्स",
+        "accessories": "एक्सेसरीज़",
+        "pants": "पैंट",
+        "jackets": "जैकेट",
+        "dresses": "ड्रेस",
+        "bottoms": "बॉटम्स",
+        "shoes": "जूते",
+        "underwear": "अंडरवियर"
+      },
+      "accessory-type": {
+        "title": "एक्सेसरी का प्रकार",
+        "glasses": "चश्मा",
+        "headwear": "हेडवियर",
+        "scarf": "स्कार्फ़",
+        "belt": "बेल्ट",
+        "jewelry": "ज्वेलरी",
+        "watch": "घड़ी",
+        "bag": "बैग",
+        "wallet": "वॉलेट",
+        "sunglasses": "सनग्लासेज़",
+        "tie": "टाई",
+        "gloves": "दस्ताने",
+        "other": "अन्य"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "0-3 महीने",
+        "months_3_6": "3-6 महीने",
+        "months_6_12": "6-12 महीने",
+        "months_12_18": "12-18 महीने",
+        "months_18_24": "18-24 महीने",
+        "years_2_3": "2-3 साल",
+        "years_3_4": "3-4 साल",
+        "years_4_5": "4-5 साल",
+        "years_5_6": "5-6 साल",
+        "years_6_7": "6-7 साल",
+        "years_7_8": "7-8 साल",
+        "years_8_10": "8-10 साल",
+        "years_10_12": "10-12 साल",
+        "years_12_14": "12-14 साल"
+      }
+    },
+    "profile-completion": {
+      "title": "अपनी प्रोफ़ाइल पूरी करें",
+      "edit-title": "प्रोफ़ाइल एडिट करें",
+      "favorite-article-sizes-title": "पसंदीदा आइटम साइज़",
+      "favorite-article-sizes-subtitle": "अपने US और EU साइज़ चुनें।",
+      "preferred-brand-title": "पसंदीदा ब्रांड",
+      "preferred-brand-subtitle": "आप कई ब्रांड चुन सकते हैं।",
+      "lastname": "उपनाम",
+      "lastname-hint": "अपना उपनाम डालें",
+      "lastname-required": "उपनाम ज़रूरी है",
+      "firstname": "नाम",
+      "firstname-hint": "अपना नाम डालें",
+      "firstname-required": "नाम ज़रूरी है",
+      "address": "पता",
+      "address-for-delivery": "डिलीवरी का पता",
+      "address-for-delivery-hint": "पता खोजें",
+      "address-for-delivery-error": "कृपया एक मान्य पता चुनें",
+      "description": "विवरण",
+      "description-hint": "हमें अपने बारे में बताएँ",
+      "profile-picture": "प्रोफ़ाइल पिक्चर",
+      "complete-registration": "रजिस्ट्रेशन पूरा करें",
+      "submit": "रजिस्ट्रेशन पूरा करें",
+      "exit-signup": {
+        "title": "रजिस्ट्रेशन रद्द करें?",
+        "subtitle": "आपकी प्रोफ़ाइल अभी पूरी नहीं हुई है। अगर आप अभी छोड़ देते हैं, तो आपको दोबारा शुरू करना होगा।"
+      },
+      "eu-sizes": "EU साइज़"
+    },
+    "order-summary": {
+      "title": "सारांश",
+      "x-product-purchased": "{} के वे प्रोडक्ट जिन्हें आप खरीदने वाले हैं",
+      "no-products-in-cart": "आपके कार्ट में कोई प्रोडक्ट नहीं है",
+      "buyer-protection": "बायर प्रोटेक्शन",
+      "total": "कुल",
+      "shipping": "शिपिंग",
+      "home-delivery": "होम डिलीवरी",
+      "choose-delivery-method": "एक डिलीवरी तरीका चुनें",
+      "choose": "चुनें",
+      "change-delivery-address": "अपना डिलीवरी पता बदलें",
+      "remove-product": "प्रोडक्ट हटाएँ",
+      "remove-product-message": "क्या आप वाकई इस प्रोडक्ट को अपनी बकेट लिस्ट से हटाना चाहते हैं?",
+      "remove-product-confirm": "हटाएँ",
+      "remove-product-cancel": "रद्द करें",
+      "order-placed": "ऑर्डर हो गया"
+    },
+    "order-details": {
+      "title": "ऑर्डर",
+      "product-purchased": "खरीदा गया प्रोडक्ट",
+      "product-purchased-from": "{} से खरीदा गया प्रोडक्ट",
+      "shipping-to": "शिपिंग पता",
+      "total-paid": "कुल भुगतान",
+      "cancel": "ऑर्डर रद्द करें",
+      "confirm-receipt": "रसीद की पुष्टि करें",
+      "report-a-problem": "समस्या की रिपोर्ट करें",
+      "leave-a-review": "रिव्यू दें",
+      "review-already-sent": "आप इस ऑर्डर के लिए पहले ही रिव्यू दे चुके हैं।",
+      "refunded": "रिफंड किया गया",
+      "download-my-return-voucher": "मेरा रिटर्न वाउचर डाउनलोड करें",
+      "was-delivered-to": "इन्हें डिलीवर किया गया था",
+      "was-to-be-delivered": "इन्हें डिलीवर किया जाना था",
+      "cancel-order": "ऑर्डर रद्द करें",
+      "tracking": "ट्रैकिंग नंबर",
+      "track": "ट्रैक करें",
+      "open-shipping-label": "लेबल खोलें",
+      "product-is-conform": "मेरा आइटम बताए अनुसार है",
+      "product-confirmed": "प्रोडक्ट की पुष्टि हो गई! भुगतान सेलर को ट्रांसफर किया जाएगा।",
+      "request-a-return": "रिटर्न का अनुरोध करें",
+      "return-requested": "रिटर्न का अनुरोध सेलर को भेजा गया",
+      "return-pending": "आपका रिटर्न अनुरोध सेलर की मंज़ूरी का इंतज़ार कर रहा है",
+      "return-request-received": "एक बायर ने इस ऑर्डर के लिए रिटर्न का अनुरोध किया है",
+      "accept": "स्वीकार करें",
+      "refuse": "अस्वीकार करें",
+      "return-accepted": "रिटर्न स्वीकार किया गया, रिफंड प्रोसेस हो रहा है",
+      "return-refused": "रिटर्न अस्वीकृत",
+      "return-accepted-message": "रिटर्न स्वीकार किया गया। अपना रिटर्न वाउचर डाउनलोड करें और प्रोडक्ट वापस भेजें।",
+      "return-refused-message": "सेलर ने रिटर्न अस्वीकार कर दिया। भुगतान ट्रांसफर कर दिया गया है।",
+      "return-in-transit": "बायर द्वारा प्रोडक्ट वापस करने का इंतज़ार।",
+      "return-completed-message": "रिटर्न मिल गया। रिफंड प्रोसेस हो गया है।"
+    },
+    "report": {
+      "cancel": "रद्द करें",
+      "report": "समस्या की रिपोर्ट करें",
+      "problem": "कोई समस्या आ रही है? अभी रिपोर्ट करें।",
+      "reason": "आपकी समस्या का कारण",
+      "reason-cancel": "रद्द करने का कारण",
+      "text-area": "हमें और बताएँ",
+      "file-picker": "फ़ाइलें जोड़ें",
+      "send-report": "रिपोर्ट भेजें",
+      "confirm-cancel": "रद्द करने की पुष्टि करें"
+    },
+    "report_success": {
+      "title": "भेज दिया गया",
+      "subtitle": "आपकी रिपोर्ट भेज दी गई है! इसे जल्द से जल्द संभाला जाएगा।",
+      "cancel": "आपका रद्द करने का अनुरोध भेज दिया गया है! इसे जल्द से जल्द संभाला जाएगा।",
+      "buttonText": "पूरा करें"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "एरर",
+        "content": "एक एरर हुई, कृपया बाद में फिर से कोशिश करें।"
+      }
+    },
+    "preview-reel": {
+      "retake": "फिर से लें",
+      "continue": "जारी रखें"
+    },
+    "create-reel": {
+      "title": "एक रील बनाएँ",
+      "subtitle": "रील बनाकर, आप अपने कलेक्शन से बिक्री के लिए एक या ज़्यादा प्रोडक्ट जोड़ सकते हैं ताकि उन्हें प्रमोट कर सकें",
+      "add-product": "प्रोडक्ट जोड़ें",
+      "create-product": "प्रोडक्ट बनाएँ",
+      "my-added-products": "मेरे जोड़े गए प्रोडक्ट",
+      "my-products-to-sales": "बिक्री के लिए मेरे प्रोडक्ट",
+      "add": "जोड़ें",
+      "post": "रील पोस्ट करें",
+      "update": "रील अपडेट करें",
+      "success-title": "बढ़िया!",
+      "success-subtitle": "आपका वीडियो अब ऑनलाइन है।",
+      "error-title": "कुछ छूट रहा है",
+      "error-subtitle": "कृपया अपनी रील में कम से कम एक प्रोडक्ट जोड़ें।"
+    },
+    "put-a-product-on-sale": {
+      "title": "एक प्रोडक्ट बिक्री पर रखें",
+      "step": "स्टेप",
+      "title-step2": "अपने प्रोडक्ट के बारे में और",
+      "title-step3": "फ़ोटो जोड़ें",
+      "put-on-sale": "बिक्री पर रखें",
+      "success-title": "बढ़िया!",
+      "success-subtitle": "आपका आइटम अब बिक्री के लिए है।",
+      "edit-success-title": "बढ़िया!",
+      "edit-success-subtitle": "आपका आइटम अब बिक्री के लिए है।",
+      "error-title": "अपलोड विफल हुआ",
+      "error-subtitle": "आपके प्रोडक्ट को सेव करते समय कुछ गड़बड़ हो गई। कृपया फिर से कोशिश करें।",
+      "forms": {
+        "title": "टाइटल",
+        "title-hint": "जैसे, ब्लू फ़्लोटिंग शर्ट",
+        "price": "कीमत",
+        "price-hint": "0",
+        "price-max-error": "अधिकतम कीमत {} है।",
+        "description": "विवरण",
+        "description-hint": "अपने प्रोडक्ट के लिए एक विवरण डालें",
+        "size": "साइज़",
+        "brand": "ब्रांड",
+        "condition-error-title": "कृपया एक हालत चुनें",
+        "condition-error-subtitle": "अपने प्रोडक्ट के लिए एक हालत चुनें",
+        "image-error-title": "कृपया कम से कम एक इमेज चुनें",
+        "image-error-subtitle": "अपने प्रोडक्ट के लिए कम से कम एक इमेज चुनें"
+      }
+    },
+    "home": {
+      "feed": "फ़ीड",
+      "wishlist": "विशलिस्ट",
+      "reels": "रील्स",
+      "view-products": "प्रोडक्ट देखें",
+      "hide-products": "प्रोडक्ट छिपाएँ"
+    },
+    "product": {
+      "buy": "खरीदें",
+      "already-sold": "पहले ही बिक चुका",
+      "make-an-offer": "ऑफ़र दें",
+      "send-offer": "ऑफ़र भेजें",
+      "delete": "डिलीट करें",
+      "edit": "एडिट करें",
+      "success-title": "ऑफ़र भेजा गया!",
+      "success-subtitle": "आपका ऑफ़र सफलतापूर्वक भेज दिया गया है।",
+      "popup-delete-title": "प्रोडक्ट डिलीट करें",
+      "popup-delete-subtitle": "क्या आप वाकई इस प्रोडक्ट को डिलीट करना चाहते हैं?",
+      "popup-delete-confirm": "डिलीट करें",
+      "popup-delete-cancel": "रद्द करें",
+      "delete-success-title": "प्रोडक्ट डिलीट हो गया!",
+      "delete-success-subtitle": "आपका प्रोडक्ट सफलतापूर्वक डिलीट हो गया है।",
+      "forms": {
+        "actual-price": "मौजूदा कीमत",
+        "your-new-price": "आपकी नई कीमत"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "रील डिलीट करें",
+      "popup-delete-subtitle": "क्या आप वाकई इस रील को डिलीट करना चाहते हैं?",
+      "popup-delete-confirm": "डिलीट करें",
+      "popup-delete-cancel": "रद्द करें",
+      "delete-success-title": "रील डिलीट हो गई!",
+      "delete-success-subtitle": "आपकी रील सफलतापूर्वक डिलीट हो गई है।",
+      "feed-error": "रील्स लोड नहीं हो सकीं। कृपया बाद में फिर से कोशिश करें।",
+      "report": "रिपोर्ट करें"
+    },
+    "profile": {
+      "buyer": "बायर",
+      "my-order": "मेरे ऑर्डर",
+      "seller": "सेलर",
+      "my-sales": "मेरी बिक्री",
+      "products": "प्रोडक्ट",
+      "reels": "रील्स",
+      "reviews": "रिव्यू",
+      "followers": "फ़ॉलोअर्स",
+      "following": "फ़ॉलोइंग",
+      "follow": "फ़ॉलो करें",
+      "unfollow": "अनफ़ॉलो करें",
+      "edit": "प्रोफ़ाइल एडिट करें",
+      "cant-follow-blocked": "आप इस यूज़र को फ़ॉलो नहीं कर सकते।"
+    },
+    "search": {
+      "popular-items": "लोकप्रिय आइटम",
+      "categories": "कैटेगरी",
+      "title": "खोजें",
+      "filter-search": "खोज फ़िल्टर करें",
+      "sort-by": "इसके अनुसार क्रमबद्ध करें",
+      "in": "में",
+      "refine-the-category": "कैटेगरी को सटीक करें",
+      "apply": "लागू करें",
+      "reset": "रीसेट करें",
+      "results": "नतीजे"
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "Stripe खुल रहा है।"
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "आइटम बताए अनुसार नहीं है",
+        "motif2": "नकली या प्रतिबंधित आइटम",
+        "motif3": "सेलर से जुड़ी समस्या",
+        "motif4": "डिलीवरी से जुड़ी समस्या",
+        "motif5": "पेमेंट या ऑर्डर से जुड़ी समस्या",
+        "motif6": "अन्य"
+      },
+      "filePicker": {
+        "title": "फ़ाइलें जोड़ें"
+      },
+      "description": {
+        "title": "हमें और बताएँ",
+        "title1": "कृपया बताएँ"
+      },
+      "motif1": {
+        "precisez1": "गलत साइज़ / गलत फ़िट",
+        "precisez2": "हालत लिस्टिंग से अलग है",
+        "precisez3": "पुर्ज़े / एक्सेसरीज़ गायब हैं",
+        "precisez4": "आइटम खराब है"
+      },
+      "motif2": {
+        "precisez1": "नकली आइटम होने का शक",
+        "precisez2": "प्रतिबंधित या असुरक्षित आइटम",
+        "precisez3": "भ्रामक या धोखाधड़ी वाली लिस्टिंग",
+        "precisez4": "अन्य पॉलिसी समस्या"
+      },
+      "motif3": {
+        "precisez1": "सेलर जवाब नहीं दे रहा",
+        "precisez2": "अनुचित व्यवहार या उत्पीड़न",
+        "precisez3": "ऐप के बाहर पेमेंट करने को कहा गया",
+        "precisez4": "अन्य सेलर समस्या"
+      },
+      "motif4": {
+        "precisez1": "ट्रैकिंग अपडेट नहीं हो रही",
+        "precisez2": "पैकेज नहीं मिला",
+        "precisez3": "पैकेज खराब हालत में पहुँचा",
+        "precisez4": "डिलीवरी में देरी है"
+      },
+      "motif5": {
+        "precisez1": "गलत रकम चार्ज की गई",
+        "precisez2": "रिफंड से जुड़ी समस्या",
+        "precisez3": "ऑर्डर समस्या (रद्द / डुप्लिकेट)",
+        "precisez4": "अन्य पेमेंट या ऑर्डर समस्या"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "नया मैसेज",
+          "body": "आपको एक नया मैसेज मिला है।"
+        }
+      },
+      "user-deleted": "अज्ञात यूज़र",
+      "online-today-at": "आज {} बजे ऑनलाइन",
+      "online-yesterday-at": "कल {} बजे ऑनलाइन",
+      "online-at": "{} बजे ऑनलाइन",
+      "change-name-confirm-button": "पूरा करें",
+      "call-audio": "ऑडियो कॉल",
+      "call-video": "वीडियो कॉल",
+      "call-start": "कॉल जारी है...",
+      "video-call-end": "कॉल समाप्त",
+      "new-group": "ग्रुप का नाम",
+      "cancel-audio": "ऑडियो रद्द करें",
+      "preview": {
+        "media": {
+          "zero": "कोई एलिमेंट नहीं",
+          "one": "1 मीडिया भेजा",
+          "other": "{} मीडिया भेजे"
+        },
+        "audio": "ऑडियो",
+        "reply-audio": "रिप्लाई ऑडियो"
+      },
+      "event": {
+        "report-and-block": "रिपोर्ट करें और ब्लॉक करें",
+        "delete-tchat": "चैट डिलीट करें"
+      },
+      "status": {
+        "online": "ऑनलाइन",
+        "online-today-at": "आज {time} बजे ऑनलाइन",
+        "online-yesterday-at": "कल {time} बजे ऑनलाइन",
+        "offline": "ऑफ़लाइन",
+        "multiple-online": "कई ऑनलाइन",
+        "typing": "टाइप कर रहा है",
+        "audioRec": "ऑडियो रिकॉर्डिंग"
+      },
+      "document": {
+        "camera": "कैमरा",
+        "gallery": "गैलरी",
+        "document": "डॉक्यूमेंट",
+        "localisation": "लोकेशन",
+        "contact": "कॉन्टैक्ट",
+        "sondage": "पोल"
+      },
+      "list": {
+        "title": "बातचीत",
+        "title-face": "अनुवाद",
+        "conversations": "बातचीत",
+        "no-tchat": "कोई चैट नहीं",
+        "no-tchat-content": "आपके पास अभी कोई चैट नहीं है।",
+        "group-default-title": "नया ग्रुप",
+        "oto-default-title": "नई चैट",
+        "new-conversation": "नई बातचीत"
+      },
+      "message": {
+        "no-message": "कोई मैसेज नहीं",
+        "no-message-body": "आपके पास अभी कोई मैसेज नहीं है।",
+        "input-hint": "मैसेज..",
+        "no-media": "कोई मीडिया नहीं",
+        "date": "{weekday} {day} {month}",
+        "today": "आज",
+        "yesterday": "कल",
+        "join-group": "{name} ग्रुप में शामिल हुआ",
+        "leave-group": "{name} ने ग्रुप छोड़ दिया",
+        "add-to-group": "{name} ने {user} को ग्रुप में जोड़ा",
+        "remove-from-group": "{name} ने {user} को ग्रुप से हटाया",
+        "change-group-title": "{name} ने ग्रुप का नाम बदलकर {title} कर दिया",
+        "change-group-avatar": "{name} ने ग्रुप का अवतार बदला",
+        "blocked-by-you": "आपने इस कॉन्टैक्ट को ब्लॉक कर दिया है।\nआप अब इस कॉन्टैक्ट को मैसेज नहीं भेज सकते।",
+        "blocked-by-other": "इस कॉन्टैक्ट ने आपको ब्लॉक कर दिया है।\nआप अब इस कॉन्टैक्ट को मैसेज नहीं भेज सकते।",
+        "cant-send-message-blocked": "आप इस कॉन्टैक्ट को मैसेज नहीं भेज सकते।",
+        "order-requested": "«{product_name}» के लिए बायर को ऑफ़र दिया गया",
+        "order-accepted": "आपका ऑर्डर n°{id} सेलर द्वारा स्वीकार कर लिया गया है",
+        "order-rejected": "आपका ऑर्डर n°{id} सेलर द्वारा अस्वीकार कर दिया गया है",
+        "order-purchased": "एक ऑर्डर खरीदा गया है",
+        "view-order-details": "ऑर्डर का विवरण देखें"
+      }
+    },
+    "commentary": {
+      "add-note-title": "सेलर को रेट करें",
+      "add_note_title": "सेलर को रेट करें",
+      "delete": "डिलीट करें",
+      "report": "रिपोर्ट करें",
+      "add-note": {
+        "validate": "पुष्टि करें",
+        "field": {
+          "note-title": "इस सेलर को रेट करें",
+          "commentary-title": "कमेंट",
+          "placeholder": "एक कमेंट लिखें",
+          "commentary-hint": "एक कमेंट लिखें..",
+          "commentary_hint": "एक कमेंट लिखें.."
+        },
+        "title": "इस सेलर को रेट करें",
+        "comment": "कमेंट",
+        "placeholder": "एक कमेंट लिखें",
+        "commentary-hint": "एक कमेंट लिखें.."
+      },
+      "add_note": {
+        "validate": "पुष्टि करें",
+        "field": {
+          "title": "इस सेलर को रेट करें",
+          "comment": "कमेंट",
+          "placeholder": "एक कमेंट लिखें",
+          "commentary-hint": "एक कमेंट लिखें..",
+          "commentary_hint": "एक कमेंट लिखें.."
+        },
+        "title": "इस सेलर को रेट करें",
+        "comment": "कमेंट",
+        "placeholder": "एक कमेंट लिखें",
+        "commentary-hint": "एक कमेंट लिखें..",
+        "commentary_hint": "एक कमेंट लिखें.."
+      },
+      "sure-delete-commentary": {
+        "title": "कमेंट डिलीट करें",
+        "subtitle": "क्या आप वाकई इस कमेंट को डिलीट करना चाहते हैं?"
+      },
+      "sure_delete_commentary": {
+        "title": "कमेंट डिलीट करें",
+        "subtitle": "क्या आप वाकई इस कमेंट को डिलीट करना चाहते हैं?"
+      }
+    },
+    "validator": {
+      "must-have-value": "यह फ़ील्ड ज़रूरी है",
+      "email-invalid": "कृपया एक मान्य ईमेल डालें",
+      "password-invalid-length": "कम से कम 6 अक्षर",
+      "password-invalid-maj": "कम से कम 1 बड़ा अक्षर",
+      "password-invalid-min": "कम से कम 1 छोटा अक्षर",
+      "password-invalid-number": "कम से कम 1 अंक",
+      "password-invalid-special-char": "कम से कम 1 विशेष अक्षर (&?!@#)",
+      "password-not-match": "पासवर्ड मेल नहीं खाते",
+      "number-invalid": "कृपया एक मान्य नंबर डालें",
+      "number-out-of-range": "कृपया {min} और {max} के बीच एक नंबर डालें",
+      "number-out-of-min": "कृपया {min} से बड़ा नंबर डालें",
+      "number-out-of-max": "कृपया {max} से छोटा नंबर डालें",
+      "date-invalid": "कृपया एक मान्य तारीख डालें",
+      "date-out-of-range": "कृपया {min} और {max} के बीच एक तारीख डालें",
+      "date-out-of-min": "कृपया {min} से बाद की तारीख डालें",
+      "date-out-of-max": "कृपया {max} से पहले की तारीख डालें",
+      "alpha-invalid": "कृपया एक मान्य वैल्यू डालें",
+      "code-invalid": "कृपया एक मान्य कोड डालें"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "एक फ़ोटो चुनें"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "कोई फ़ोटो नहीं",
+        "one": "1 फ़ोटो",
+        "other": "{} फ़ोटो"
+      },
+      "write-message": "एक मैसेज लिखें..",
+      "camera": {
+        "shootingTips": "एक फ़ोटो लें",
+        "confirm": "पुष्टि करें",
+        "saving": "सेव हो रहा है...",
+        "shootingWithRecordingTips": "फ़िल्म करने के लिए दबाए रखें।"
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "एक देश खोजें",
+          "error_message": "कृपया एक मान्य फ़ोन नंबर डालें"
+        },
+        "input": {
+          "choose-media": "फ़ोटो चुनने के लिए दबाएँ",
+          "choose-multiple-file": "कई फ़ाइलें चुनने के लिए दबाएँ",
+          "choose-image": "फ़ोटो चुनने के लिए दबाएँ",
+          "choose-file": "एक फ़ाइल चुनने के लिए दबाएँ",
+          "press-to-modify": "फ़ाइल बदलने के लिए दबाएँ"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "ईमेल",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "ईमेल",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "पासवर्ड",
+          "hint": "पासवर्ड",
+          "security-action": "क्या करें?"
+        },
+        "actual-password": {
+          "title": "मौजूदा पासवर्ड",
+          "hint": "मौजूदा पासवर्ड"
+        },
+        "new-password": {
+          "title": "नया पासवर्ड",
+          "hint": "नया पासवर्ड"
+        },
+        "repeat-password": {
+          "title": "पासवर्ड की पुष्टि करें",
+          "hint": "पासवर्ड की पुष्टि करें"
+        },
+        "new-repeat-password": {
+          "title": "नए पासवर्ड की पुष्टि करें",
+          "hint": "नए पासवर्ड की पुष्टि करें"
+        },
+        "phone": {
+          "title": "फ़ोन नंबर",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "SMS से मिला कोड",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "टेक्स्टएरिया",
+        "hint": "यहाँ लिखें.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "आपका फ़ोन नंबर सफलतापूर्वक जोड़ दिया गया है।",
+      "invalid-email": "दी गई जानकारी से कोई यूज़र नहीं मिला।",
+      "user-not-found": "दी गई जानकारी से कोई यूज़र नहीं मिला।",
+      "user-disabled": "आपका अकाउंट एडमिनिस्ट्रेटर द्वारा बंद कर दिया गया है।",
+      "wrong-password": "पासवर्ड गलत है।",
+      "email-already-in-use": "यह ईमेल पता पहले से इस्तेमाल में है।",
+      "phone-already-in-use": "यह फ़ोन नंबर पहले से इस्तेमाल में है।",
+      "weak-password": "पासवर्ड बहुत कमज़ोर है।",
+      "account-exists-with-different-credential": "इस ईमेल पते के साथ पहले से एक अकाउंट मौजूद है।",
+      "invalid-credential": "दी गई जानकारी से कोई यूज़र नहीं मिला।",
+      "invalid-verification-code": "वेरिफ़िकेशन कोड अमान्य है।",
+      "invalid-verification-id": "वेरिफ़िकेशन ID अमान्य है।",
+      "requires-recent-login": "यह कार्य करने के लिए आपको दोबारा लॉगिन करना होगा।",
+      "invalid-phone-number": "फ़ोन नंबर अमान्य है।",
+      "error-phone-not-exist": "यह फ़ोन नंबर मौजूद नहीं है।",
+      "code-invalid": "कृपया एक मान्य कोड डालें",
+      "code-is-required": "कृपया SMS से मिला कोड डालें",
+      "email-must-be-verified": "जारी रखने के लिए आपको अपना ईमेल पता वेरिफ़ाई करना होगा।",
+      "tiers-auth-valid-email": "जारी रखने के लिए आपके थर्ड-पार्टी अकाउंट में एक मान्य ईमेल होना चाहिए।",
+      "send-reset-password-email": "दिए गए पते पर एक पासवर्ड रीसेट ईमेल भेज दिया गया है।",
+      "error-internet": "एक कनेक्शन समस्या हुई है। कृपया अपना इंटरनेट कनेक्शन चेक करें।",
+      "error-default": "एक एरर हुई है, कृपया फिर से कोशिश करें।",
+      "must-accept-cgu": "जारी रखने के लिए आपको इस्तेमाल की शर्तें स्वीकार करनी होंगी।",
+      "password-security": "पासवर्ड फ़ॉर्मेट",
+      "password-security-length": "कम से कम 6 अक्षर",
+      "password-security-maj": "कम से कम 1 बड़ा अक्षर हो",
+      "password-security-min": "कम से कम 1 छोटा अक्षर हो",
+      "password-security-number": "कम से कम 1 अंक हो",
+      "password-security-special": "कम से कम 1 विशेष अक्षर हो (&?!@#)",
+      "success-change-password": "आपका पासवर्ड सफलतापूर्वक बदल दिया गया है।",
+      "phone-update-success": "आपका फ़ोन नंबर बदल दिया गया है!",
+      "cant-be-same-password": "नया पासवर्ड पुराने से अलग होना चाहिए।",
+      "cant-be-same-email": "नया ईमेल पुराने से अलग होना चाहिए।",
+      "cant-be-same-phone": "नया फ़ोन नंबर पुराने से अलग होना चाहिए।",
+      "code-is-expired": "वेरिफ़िकेशन कोड की समय-सीमा खत्म हो गई है।",
+      "code-sent": "आपको SMS के ज़रिए एक वेरिफ़िकेशन कोड भेजा गया है।",
+      "too-many-requests": "बहुत ज़्यादा लॉगिन कोशिशें। कृपया बाद में फिर से कोशिश करें।"
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "साइन इन करें",
+        "already-have-account": "क्या आपके पास अकाउंट है?",
+        "login-title": "अपने अकाउंट में लॉगिन करें या एक बनाएँ।",
+        "login-phone-title": "अपने अकाउंट में लॉगिन करें",
+        "verify-phone-title": "लॉगिन करने के लिए SMS से मिला कोड डालें",
+        "verify-phone-code-title": "अपना फ़ोन नंबर वेरिफ़ाई करें",
+        "code-expire-in": "कोड {time} मिनट में खत्म हो जाएगा",
+        "no-code": "नहीं मिला?",
+        "resend-code": "दोबारा भेजें",
+        "forgot-password": "पासवर्ड भूल गए?",
+        "reset-password": "पासवर्ड रीसेट करें",
+        "no-account": "कोई अकाउंट नहीं?",
+        "create-account": "अभी बनाएँ",
+        "login-with-phone": "फ़ोन से लॉगिन करें",
+        "login-with-email": "ईमेल से लॉगिन करें",
+        "or-connect-with": "या इससे लॉगिन करें",
+        "or-signup-with": "या इससे साइन अप करें",
+        "verify-email": "अपना ईमेल वेरिफ़ाई करें",
+        "verify-email-subtitle": "आपको अपना पासवर्ड रीसेट करने के लिए एक ईमेल मिला है।",
+        "create-account-verify-email": "अपना ईमेल वेरिफ़ाई करें",
+        "create-account-title": "एक अकाउंट बनाएँ",
+        "create-account-verify-email-subtitle": "इस पते पर एक ईमेल वेरिफ़िकेशन भेजा गया है",
+        "reset-password-modal": {
+          "title": "पासवर्ड रीसेट करें",
+          "subtitle": "अपने अकाउंट से जुड़ा ईमेल पता डालें। हम उस पते पर एक रीसेट ईमेल भेजेंगे।"
+        },
+        "tiers-signin": {
+          "get-password-title": "अपना पासवर्ड डालें",
+          "get-password-subtitle": "हमें इस ईमेल पते के साथ एक अकाउंट मिला है, लॉगिन करने के लिए कृपया अपना पासवर्ड डालें।"
+        }
+      },
+      "profile": {
+        "delete-success": "आपका अकाउंट सफलतापूर्वक डिलीट कर दिया गया है।\nफिर मिलेंगे",
+        "logout": "लॉगआउट",
+        "delete-account": "मेरी प्रोफ़ाइल डिलीट करें",
+        "delete-my-account": "मेरा अकाउंट डिलीट करें",
+        "delete-my-account-subtitle": "क्या आप वाकई अपना अकाउंट डिलीट करना चाहते हैं?",
+        "logout-success": "आप सफलतापूर्वक लॉगआउट हो गए हैं।\nफिर मिलेंगे"
+      },
+      "new-cgu-must-be-accepted": "जारी रखने के लिए आपको नई इस्तेमाल की शर्तें स्वीकार करनी होंगी।"
+    },
+    "onboarding": {
+      "button_next": "अगला",
+      "button_start": "पूरा करें",
+      "skip": "स्किप करें"
+    },
+    "permission": {
+      "notification": {
+        "title": "पुश नोटिफ़िकेशन",
+        "redirect-to-settings": "क्या आप हमारी पुश नोटिफ़िकेशन सेवा चालू करना चाहते हैं? यह आपको हमारे ऐप का पूरा फ़ायदा उठाने में मदद करेगी।",
+        "button": "नोटिफ़िकेशन चालू करें"
+      },
+      "camera": {
+        "title": "कैमरा",
+        "redirect-to-settings": "इस फ़ीचर का फ़ायदा उठाने के लिए, आपको कैमरा परमिशन स्वीकार करनी होगी।",
+        "button": "कैमरा चालू करें"
+      },
+      "microphone": {
+        "title": "माइक्रोफ़ोन",
+        "redirect-to-settings": "इस फ़ीचर का फ़ायदा उठाने के लिए, आपको माइक्रोफ़ोन परमिशन स्वीकार करनी होगी।",
+        "button": "माइक्रोफ़ोन चालू करें"
+      },
+      "accessMediaLocation": {
+        "title": "मीडिया लोकेशन एक्सेस",
+        "redirect-to-settings": "इस फ़ीचर का फ़ायदा उठाने के लिए, आपको मीडिया लोकेशन एक्सेस परमिशन स्वीकार करनी होगी।",
+        "button": "मीडिया लोकेशन एक्सेस चालू करें"
+      },
+      "mediaLibrary": {
+        "title": "मीडिया लाइब्रेरी",
+        "redirect-to-settings": " इस फ़ीचर का फ़ायदा उठाने के लिए, आपको मीडिया लाइब्रेरी एक्सेस परमिशन स्वीकार करनी होगी।",
+        "button": "मीडिया लाइब्रेरी एक्सेस चालू करें"
+      },
+      "photos": {
+        "title": "फ़ोटो",
+        "redirect-to-settings": "इस फ़ीचर का फ़ायदा उठाने के लिए, आपको फ़ोटो एक्सेस परमिशन स्वीकार करनी होगी।",
+        "button": "फ़ोटो एक्सेस चालू करें"
+      },
+      "storage": {
+        "title": "स्टोरेज",
+        "redirect-to-settings": "इस फ़ीचर का फ़ायदा उठाने के लिए, आपको स्टोरेज एक्सेस परमिशन स्वीकार करनी होगी।",
+        "button": "स्टोरेज एक्सेस चालू करें"
+      },
+      "mic": {
+        "redirect-to-settings": "कृपया अपने फ़ोन की सेटिंग्स में माइक्रोफ़ोन को अनुमति दें।",
+        "title": "माइक्रोफ़ोन",
+        "button": "सेटिंग्स खोलें"
+      },
+      "notif-push": {
+        "title": "पुश नोटिफ़िकेशन",
+        "desc": "क्या आप हमारी पुश नोटिफ़िकेशन सेवा चालू करना चाहते हैं? यह आपको हमारे ऐप का पूरा फ़ायदा उठाने में मदद करेगी।",
+        "button": "नोटिफ़िकेशन चालू करें"
+      },
+      "location": {
+        "title": "लोकेशन",
+        "desc": "हमारे मोबाइल ऐप का पूरा इस्तेमाल करने के लिए, आपको लोकेशन स्वीकार करनी होगी।",
+        "button": "जारी रखें",
+        "redirect-to-settings": "कृपया अपने फ़ोन की सेटिंग्स में लोकेशन को अनुमति दें।"
+      },
+      "background-location": {
+        "title": "बैकग्राउंड लोकेशन",
+        "desc": "क्या आप हमारी बैकग्राउंड लोकेशन सेवा चालू करना चाहते हैं? यह ऐप के काम करने के लिए ज़रूरी होगी।",
+        "button": "बैकग्राउंड लोकेशन चालू करें"
+      },
+      "skip": "स्किप करें"
+    },
+    "image": {
+      "from-gallery": "गैलरी",
+      "from-camera": "कैमरा"
+    },
+    "duration": {
+      "now": "अभी",
+      "days-ago": "{} दिन पहले",
+      "x-days": "{} दिन पहले",
+      "hours-ago": "{} घंटे पहले",
+      "minutes-ago": "{} मिनट पहले",
+      "seconds-ago": "{} सेकंड पहले",
+      "months-ago": "{} महीने पहले",
+      "years-ago": "{} साल पहले",
+      "moment-ago": "अभी कुछ पल पहले"
+    },
+    "settings": {
+      "edited-by": "द्वारा संपादित",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "बदलें",
+        "personnal-data": "मेरा अकाउंट",
+        "settings": "सेटिंग्स",
+        "other": "अन्य",
+        "link": "लिंक",
+        "social": "सोशल नेटवर्क",
+        "security": "सुरक्षा"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "ब्लॉक किए गए यूज़र",
+          "subtitle": "ब्लॉक किए गए यूज़र की सूची"
+        },
+        "blocked-users": {
+          "unblock": "यूज़र को अनब्लॉक करें",
+          "block": "यूज़र को ब्लॉक करें",
+          "unblock-success": "यूज़र सफलतापूर्वक अनब्लॉक हो गया",
+          "title": "ब्लॉक किए गए यूज़र",
+          "subtitle": "ब्लॉक किए गए यूज़र की सूची"
+        },
+        "change-personnal-content": {
+          "title": "निजी जानकारी",
+          "subtitle": "नाम, उपनाम, विवरण"
+        },
+        "clothing-preference": {
+          "title": "कपड़ों की पसंद",
+          "subtitle": "पर्सनलाइज़ करें"
+        },
+        "preferred-article-size": {
+          "title": "पसंदीदा आइटम साइज़",
+          "subtitle": "मैनेज करें"
+        },
+        "preferred-brand": {
+          "title": "पसंदीदा ब्रांड",
+          "subtitle": "मैनेज करें"
+        },
+        "security": {
+          "title": "सुरक्षा",
+          "subtitle": "पासवर्ड, फ़ोन, ईमेल..."
+        },
+        "payment": {
+          "title": "पेमेंट के तरीके",
+          "subtitle": "क्रेडिट कार्ड / Apple Pay",
+          "credit-card": "क्रेडिट कार्ड",
+          "bank-details": "बैंक अकाउंट",
+          "bank-details-empty": "कॉन्फ़िगर नहीं किया गया",
+          "handle-with-stripe": "Stripe के साथ संभालें"
+        },
+        "phone-number": {
+          "title": "फ़ोन नंबर"
+        },
+        "change-email": {
+          "title": "ईमेल पता"
+        },
+        "change-password": {
+          "title": "पासवर्ड",
+          "subtitle": "आखिरी बार बदला गया: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "पुश नोटिफ़िकेशन"
+        },
+        "email-notif": {
+          "title": "ईमेल नोटिफ़िकेशन"
+        },
+        "help": {
+          "title": "मदद",
+          "subtitle": "ईमेल से हमसे संपर्क करें"
+        },
+        "share": {
+          "title": "ऐप शेयर करें",
+          "subtitle": "ऐप शेयर करके हमारा साथ दें"
+        },
+        "link": {
+          "privacy-policy": "प्राइवेसी पॉलिसी",
+          "legal-mention": "कानूनी सूचना",
+          "legal-notice": "कानूनी नोटिस",
+          "cgvu": "बिक्री और इस्तेमाल की शर्तें",
+          "about": "हमारे बारे में"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "नेटवर्क एरर 😕",
+      "subtitle": "कोई इंटरनेट कनेक्शन नहीं मिला। कृपया अपना नेटवर्क कनेक्शन चेक करें।",
+      "button": "रिफ़्रेश करें"
+    },
+    "research": {
+      "hint": "आइटम खोजें...",
+      "no-item-title": "कुछ नहीं मिला",
+      "no-item-content": "इस खोज के लिए कोई प्रोडक्ट नहीं मिला"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "जनवरी",
+      "2": "फ़रवरी",
+      "3": "मार्च",
+      "4": "अप्रैल",
+      "5": "मई",
+      "6": "जून",
+      "7": "जुलाई",
+      "8": "अगस्त",
+      "9": "सितंबर",
+      "10": "अक्तूबर",
+      "11": "नवंबर",
+      "12": "दिसंबर"
+    },
+    "day-by-id": {
+      "1": "सोमवार",
+      "2": "मंगलवार",
+      "3": "बुधवार",
+      "4": "गुरुवार",
+      "5": "शुक्रवार",
+      "6": "शनिवार",
+      "7": "रविवार"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "सोम",
+      "tu": "मंगल",
+      "we": "बुध",
+      "th": "गुरु",
+      "fr": "शुक्र",
+      "sa": "शनि",
+      "su": "रवि"
+    },
+    "month": {
+      "january": "जनवरी",
+      "february": "फ़रवरी",
+      "march": "मार्च",
+      "april": "अप्रैल",
+      "may": "मई",
+      "june": "जून",
+      "july": "जुलाई",
+      "august": "अगस्त",
+      "september": "सितंबर",
+      "october": "अक्तूबर",
+      "november": "नवंबर",
+      "december": "दिसंबर"
+    },
+    "event": {
+      "cancel": "रद्द करें",
+      "validate": "पुष्टि करें"
+    },
+    "range": {
+      "no_date": "कोई तारीख नहीं"
+    }
+  },
+  "utils": {
+    "done": "हो गया",
+    "unlock": "अनब्लॉक करें",
+    "mandatory": "ज़रूरी",
+    "next": "अगला",
+    "number_x": "n°{}",
+    "mandatory-fields": "* चिह्नित फ़ील्ड ज़रूरी हैं",
+    "submit": "सबमिट करें",
+    "choose": "चुनें",
+    "validate-and-modify": "पुष्टि करें और बदलें",
+    "modify": "बदलें",
+    "by-default": "डिफ़ॉल्ट रूप से",
+    "deactivate": "बंद करें",
+    "activate": "चालू करें",
+    "loading": "लोड हो रहा है..",
+    "close": "बंद करें",
+    "cancel": "रद्द करें",
+    "continue": "जारी रखें",
+    "connexion": "लॉगिन",
+    "validate": "पुष्टि करें",
+    "success": "सफल",
+    "yes": "हाँ",
+    "no": "नहीं",
+    "error": "एरर",
+    "reinit": "रीसेट करें",
+    "cgvu": "CGVU",
+    "validate-and-continue": "पुष्टि करें और जारी रखें",
+    "confidentiality-policy": "गोपनीयता नीति",
+    "cgvu-and-confidentiality": "CGVU और गोपनीयता नीति",
+    "accept-cgvu-and-confidentiality": "मैं गोपनीयता नीति और बिक्री व इस्तेमाल की शर्तों को स्वीकार करता हूँ।",
+    "what-do-you-want-to-do": "आप क्या करना चाहते हैं?",
+    "error-default": "एक एरर हुई है, कृपया फिर से कोशिश करें।",
+    "optional": "वैकल्पिक",
+    "save": "सेव करें",
+    "accept": "स्वीकार करें",
+    "refuse": "अस्वीकार करें",
+    "edit": "एडिट करें",
+    "delete": "डिलीट करें",
+    "size": "साइज़",
+    "dirhams": "दिरहम",
+    "aed": "AED",
+    "followers": "फ़ॉलोअर्स",
+    "following": "फ़ॉलोइंग"
+  },
+  "empty-state": {
+    "no-wishlist": "कोई विशलिस्ट नहीं",
+    "no-feed": "कोई फ़ीड नहीं",
+    "no-products": "कोई प्रोडक्ट नहीं",
+    "no-products-found": "कोई प्रोडक्ट नहीं मिला",
+    "no-reels": "कोई रील नहीं",
+    "no-reels-available": "फ़िलहाल कोई रील उपलब्ध नहीं है।",
+    "no-reviews": "कोई रिव्यू नहीं",
+    "no-orders": "कोई ऑर्डर नहीं",
+    "product-not-found": "प्रोडक्ट नहीं मिला",
+    "no-connect-account": "कोई कनेक्ट अकाउंट नहीं मिला"
+  },
+  "error": {
+    "product-doesnt-exist": "यह प्रोडक्ट अब मौजूद नहीं है",
+    "please-try-again": "कृपया बाद में फिर से कोशिश करें"
+  },
+  "stats": {
+    "title": "मेरे आँकड़े",
+    "consult-stripe": "अपने Stripe आँकड़े देखें",
+    "consult-stripe-desc": "Stripe डैशबोर्ड खोलने और अपनी बिक्री के आँकड़े देखने के लिए नीचे दिए बटन को दबाएँ।",
+    "open-dashboard": "डैशबोर्ड खोलें"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "आप कैसे बेचना चाहते हैं?",
+      "subtitle": "वह विकल्प चुनें जो आप पर लागू हो। अगर बाद में बदलना हो तो आप हमेशा सपोर्ट से संपर्क कर सकते हैं।",
+      "vendor-title": "मैं एक बिज़नेस हूँ",
+      "vendor-subtitle": "एक बिज़नेस के रूप में बेचें। इसके लिए पहचान और बिज़नेस वेरिफ़िकेशन ज़रूरी है।",
+      "particular-title": "मैं एक व्यक्ति हूँ",
+      "particular-subtitle": "अपनी अलमारी के आइटम बेचें। पेमेंट पाने के लिए बस एक IBAN चाहिए।"
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "पेमेंट पाने के लिए, कृपया अपना बैंक अकाउंट जोड़ें",
+      "after-sale-title": "बिक्री के बाद",
+      "after-sale-body": "रकम सुरक्षित रूप से रखी जाती है। बायर के रसीद की पुष्टि करने पर ट्रांसफर शुरू होता है।",
+      "transfer-title": "ट्रांसफर का समय",
+      "transfer-body": "बिक्री की पुष्टि होने के 48 से 72 घंटे बाद आपका पैसा आपके बैंक अकाउंट में पहुँच जाता है।",
+      "privacy-title": "गोपनीयता",
+      "privacy-body": "आपका IBAN सुरक्षित रूप से स्टोर किया जाता है और बाद में अपनी अकाउंट सेटिंग्स से अपडेट किया जा सकता है।",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "मैंने पढ़ लिया है और स्वीकार करता हूँ ",
+      "tnc-link": "नियम और शर्तें",
+      "cta-onboarding": "सेव करें और जारी रखें",
+      "cta-edit": "सेव करें",
+      "save-error": "हम आपका IBAN सेव नहीं कर सके। कृपया फिर से कोशिश करें।"
+    },
+    "settings": {
+      "title": "बैंक अकाउंट",
+      "updated-on": "{date} को अपडेट किया गया",
+      "edit-cta": "IBAN एडिट करें",
+      "add-cta": "IBAN जोड़ें",
+      "empty-state": "फ़ाइल में कोई बैंक अकाउंट नहीं है। एक जोड़ें ताकि हम आपकी कमाई ट्रांसफर कर सकें।"
+    }
+  },
+  "preferences": {
+    "save": "सेव करें",
+    "clothing": {
+      "title": "कपड़ों की पसंद",
+      "subtitle": "वह कैटेगरी चुनें जिसके लिए आप सबसे ज़्यादा शॉपिंग करते हैं। हम उसी हिसाब से आपका फ़ीड तैयार करेंगे।"
+    },
+    "sizes": {
+      "title": "पसंदीदा साइज़"
+    },
+    "brands": {
+      "title": "पसंदीदा ब्रांड",
+      "subtitle": "अपने पसंदीदा ब्रांड चुनें। आप जितने चाहें उतने चुन सकते हैं।"
+    }
+  },
+  "cart": {
+    "checkout": "चेकआउट",
+    "currency": "AED",
+    "size": "साइज़ {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} रिव्यू",
+    "rating_na": "लागू नहीं",
+    "encrypted_checkout": "एन्क्रिप्टेड चेकआउट",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "सब-टोटल",
+    "shipping": "शिपिंग",
+    "shipping_standard": "स्टैंडर्ड",
+    "shipping_standard_city": "स्टैंडर्ड · {}",
+    "buyer_protection": "बायर प्रोटेक्शन",
+    "buyer_protection_subtitle": "डिलीवर न होने पर पूरा रिफंड",
+    "summary": "सारांश",
+    "delivery": "डिलीवरी",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "प्रोडक्ट हटाएँ",
+    "remove_product_message": "इस प्रोडक्ट को अपने कार्ट से हटाएँ?",
+    "remove": "हटाएँ",
+    "cancel": "रद्द करें",
+    "cart_empty_title": "कार्ट · 0",
+    "empty_heading": "आपका कार्ट खाली है",
+    "empty_body": "प्रोडक्ट जोड़ने के लिए {} के आइटम ब्राउज़ करें",
+    "this_seller": "इस सेलर"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "आपकी विशलिस्ट खाली है",
+    "saved-count": "{count} सेव किए गए आइटम"
+  }
+}

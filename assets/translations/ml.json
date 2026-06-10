@@ -1,0 +1,1334 @@
+{
+  "app": {
+    "sell-product": {
+      "analyzing": {
+        "step-photos": "നിങ്ങളുടെ ഫോട്ടോകൾ വിശകലനം ചെയ്യുന്നു…",
+        "step-identify": "ഇനം തിരിച്ചറിയുന്നു…",
+        "step-generate": "ശീർഷകവും വിലയും സൃഷ്ടിക്കുന്നു…"
+      },
+      "photos": {
+        "empty-title": "നിമിഷങ്ങൾക്കുള്ളിൽ വിൽക്കൂ",
+        "empty-cta": "നിങ്ങളുടെ ഫോട്ടോകൾ ചേർക്കൂ",
+        "empty-subtitle": "ഒരു ഫോട്ടോയിൽ തുടങ്ങൂ — ശീർഷകം, വിവരണം, വില എന്നിവ AI കൈകാര്യം ചെയ്യും.",
+        "grid-title": "നിങ്ങളുടെ ഫോട്ടോകൾ",
+        "grid-subtitle": "{max} വരെ ഫോട്ടോകൾ ചേർക്കൂ. AI നിങ്ങളുടെ ലിസ്റ്റിംഗ് മുൻകൂട്ടി പൂരിപ്പിക്കും.",
+        "min-one": "തുടരാൻ കുറഞ്ഞത് 1 ഫോട്ടോ ചേർക്കൂ",
+        "continue": "തുടരുക",
+        "add": "ചേർക്കുക",
+        "max-reached": "പരമാവധി {max} ഫോട്ടോകൾ",
+        "cover": "കവർ",
+        "edit": "എഡിറ്റ് ചെയ്യുക"
+      },
+      "capture": {
+        "title": "ഫോട്ടോ ചേർക്കുക",
+        "camera-title": "ഫോട്ടോ എടുക്കുക",
+        "camera-subtitle": "ക്യാമറ തുറക്കുന്നു",
+        "gallery-title": "ഗാലറിയിൽ നിന്ന് തിരഞ്ഞെടുക്കുക",
+        "gallery-subtitle": "ഒന്നിലധികം തിരഞ്ഞെടുപ്പ് സാധ്യമാണ്"
+      },
+      "entry": {
+        "reel-subtitle": "നിങ്ങളുടെ വസ്ത്രങ്ങളുടെ വീഡിയോ പങ്കിടൂ",
+        "sell-subtitle": "ആദ്യം ഫോട്ടോ · AI നിങ്ങളുടെ ലിസ്റ്റിംഗ് പൂരിപ്പിക്കും"
+      },
+      "recap": {
+        "title": "നിങ്ങളുടെ ലിസ്റ്റിംഗ്",
+        "field-title": "ശീർഷകം",
+        "field-title-hint": "ഉദാ. Levi's ഡെനിം ജാക്കറ്റ്",
+        "field-price": "വില",
+        "field-price-hint": "0",
+        "field-description": "വിവരണം",
+        "field-description-hint": "അവസ്ഥ, ഫിറ്റ്, മെറ്റീരിയൽ വിവരിക്കൂ…",
+        "section-details": "ഉൽപ്പന്ന വിശദാംശങ്ങൾ",
+        "field-category": "വിഭാഗം",
+        "field-subcategory": "ഉപവിഭാഗം",
+        "subcategory-placeholder": "ഒരു ഉപവിഭാഗം തിരഞ്ഞെടുക്കുക",
+        "field-brand": "ബ്രാൻഡ്",
+        "brand-placeholder": "ഓപ്ഷണൽ",
+        "field-condition": "അവസ്ഥ",
+        "field-size": "സൈസ്",
+        "required-hint": "* നിർബന്ധിത ഫീൽഡുകൾ",
+        "cta": "വിൽപ്പനയ്ക്ക് വയ്ക്കുക"
+      },
+      "subcategory": {
+        "title": "ഉപവിഭാഗം",
+        "choose": "തിരഞ്ഞെടുക്കുക"
+      },
+      "brand": {
+        "title": "ബ്രാൻഡ്",
+        "search-hint": "ഒരു ബ്രാൻഡ് തിരയുക"
+      },
+      "success": {
+        "title": "ഓൺലൈൻ!",
+        "subtitle": "നിങ്ങളുടെ ഇനം ഇപ്പോൾ വാങ്ങുന്നവർക്ക് കാണാം.",
+        "see-listing": "ലിസ്റ്റിംഗ് കാണുക",
+        "back-home": "ഹോമിലേക്ക് മടങ്ങുക"
+      },
+      "ai-badge": "AI നിർദ്ദേശിച്ചത്",
+      "publish-failed": "ലിസ്റ്റിംഗ് പരാജയപ്പെട്ടു, വീണ്ടും ശ്രമിക്കൂ."
+    },
+    "settings": {
+      "node": {
+        "bloqued-users": {
+          "confirmation-unblock": { "title": "ഉപയോക്താവിനെ അൺബ്ലോക്ക് ചെയ്യുക", "subtitle": "ഈ ഉപയോക്താവിനെ അൺബ്ലോക്ക് ചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?" },
+          "title": "ബ്ലോക്ക് ചെയ്ത ഉപയോക്താക്കൾ",
+          "empty": "ബ്ലോക്ക് ചെയ്ത ഉപയോക്താക്കൾ ഇല്ല",
+          "unblock": "ഉപയോക്താവിനെ അൺബ്ലോക്ക് ചെയ്യുക",
+          "success": "ഉപയോക്താവിനെ വിജയകരമായി അൺബ്ലോക്ക് ചെയ്തു"
+        }
+      }
+    },
+    "notifications": "അറിയിപ്പുകൾ",
+    "notification": {
+      "redirect-error": "ഈ അറിയിപ്പ് തുറക്കുമ്പോൾ ഒരു പിശക് സംഭവിച്ചു."
+    },
+    "nothing": "അറിയിപ്പുകൾ ഇല്ല",
+    "popup": {
+      "need-connect": {
+        "title": "നിങ്ങൾ കണക്റ്റ് ചെയ്തിരിക്കണം",
+        "subtitle": "ഈ ഫീച്ചർ ഉപയോഗിക്കാൻ, നിങ്ങൾ ഒരു Klozy അക്കൗണ്ടിലേക്ക് കണക്റ്റ് ചെയ്തിരിക്കണം.",
+        "confirm": "കണക്റ്റ് ചെയ്യുക",
+        "cancel": "അക്കൗണ്ട് സൃഷ്ടിക്കുക"
+      },
+      "finalise-data": {
+        "title": "നിങ്ങളുടെ പ്രൊഫൈൽ പൂർത്തിയാക്കുക",
+        "subtitle": "ഒരു ഇനം വിൽക്കാൻ, നിങ്ങൾ നിങ്ങളുടെ വിൽപ്പനക്കാരന്റെ പ്രൊഫൈൽ പൂർത്തിയാക്കണം.",
+        "confirm": "പൂർത്തിയാക്കുക",
+        "cancel": "പിന്നീട്"
+      }
+    },
+    "intro": {
+      "title": "അടുത്ത തലമുറയുടെ ഫാഷൻ",
+      "subtitle": "ഇഷ്ടപ്പെട്ട പഴയ വസ്ത്രങ്ങൾ നിമിഷങ്ങൾക്കുള്ളിൽ വാങ്ങുകയും വിൽക്കുകയും ചെയ്യൂ. സുരക്ഷിതമായ പേയ്‌മെന്റുകൾ, വേഗത്തിലുള്ള ഷിപ്പിംഗ്, വിശ്വസിക്കാവുന്ന ഒരു കമ്മ്യൂണിറ്റി.",
+      "start": "നമുക്ക് തുടങ്ങാം!"
+    },
+    "duration": {
+      "now": "ഇപ്പോൾ"
+    },
+    "enum": {
+      "product-brand": {
+        "reebok": "Reebok",
+        "title": "ബ്രാൻഡ്",
+        "nike": "Nike",
+        "adidas": "Adidas",
+        "puma": "Puma",
+        "new-balance": "New Balance",
+        "converse": "Converse",
+        "vans": "Vans",
+        "under-armour": "Under Armour",
+        "asics": "Asics",
+        "fila": "Fila",
+        "ray-ban": "Ray Ban",
+        "oakley": "Oakley",
+        "levis": "Levis",
+        "hm": "H&M",
+        "zara": "Zara",
+        "uniqlo": "Uniqlo",
+        "bershka": "Bershka",
+        "louis-vuitton": "Louis Vuitton",
+        "dior": "Dior",
+        "gucci": "Gucci",
+        "chanel": "Chanel",
+        "balenciaga": "Balenciaga",
+        "prada": "Prada",
+        "new-era": "New Era",
+        "champion": "Champion",
+        "lacoste": "Lacoste",
+        "carhartt": "Carhartt",
+        "the-north-face": "The North Face",
+        "timberland": "Timberland",
+        "skechers": "Skechers",
+        "lotto": "Lotto",
+        "columbia": "Columbia",
+        "salomon": "Salomon",
+        "mizuno": "Mizuno",
+        "brooks": "Brooks",
+        "hoka": "Hoka",
+        "on-running": "On Running",
+        "patagonia": "Patagonia",
+        "arcteryx": "Arc'teryx",
+        "lecoq-sportif": "Le Coq Sportif",
+        "ellesse": "Ellesse",
+        "kappa": "Kappa",
+        "diesel": "Diesel",
+        "calvin-klein": "Calvin Klein",
+        "tommy-hilfiger": "Tommy Hilfiger",
+        "gap": "Gap",
+        "mango": "Mango",
+        "guess": "Guess",
+        "swatch": "Swatch",
+        "napapijri": "Napapijri",
+        "ralph-lauren": "Ralph Lauren",
+        "abercrombie-and-fitch": "Abercrombie & Fitch",
+        "michael-kors": "Michael Kors",
+        "coach-new-york": "Coach",
+        "tory-burch": "Tory Burch",
+        "versace": "Versace",
+        "burberry": "Burberry",
+        "givenchy": "Givenchy",
+        "saint-laurent": "Saint Laurent",
+        "valentino": "Valentino",
+        "hermes": "Hermès",
+        "fendi": "Fendi",
+        "massimo-dutti": "Massimo Dutti",
+        "pull-and-bear": "Pull & Bear",
+        "stradivarius": "Stradivarius",
+        "charlotte-and-keith": "Charles & Keith",
+        "hugo-boss": "Hugo Boss",
+        "ted-baker": "Ted Baker",
+        "aldo": "Aldo",
+        "armani-exchange": "Armani Exchange",
+        "dkny": "DKNY",
+        "kate-spade": "Kate Spade",
+        "fossil": "Fossil",
+        "furla": "Furla",
+        "jordan": "Jordan",
+        "crocs": "Crocs",
+        "birkenstock": "Birkenstock",
+        "dr-martens": "Dr. Martens",
+        "bottega-veneta": "Bottega Veneta",
+        "dolce-and-gabbana": "Dolce & Gabbana",
+        "moncler": "Moncler",
+        "alexander-mc-queen": "Alexander McQueen",
+        "balmain": "Balmain",
+        "off-white": "Off-White",
+        "stone-island": "Stone Island",
+        "celine": "Celine",
+        "loewe": "Loewe",
+        "tom-ford": "Tom Ford",
+        "diadora": "Diadora",
+        "umbro": "Umbro",
+        "saucony": "Saucony",
+        "merrell": "Merrell",
+        "joma": "Joma",
+        "hummel": "Hummel",
+        "jack-wolfskin": "Jack Wolfskin",
+        "mammut": "Mammut",
+        "marmot": "Marmot",
+        "ugg": "UGG",
+        "clarks": "Clarks",
+        "geox": "Geox",
+        "ecco": "Ecco",
+        "steve-madden": "Steve Madden",
+        "supreme": "Supreme",
+        "stussy": "Stüssy",
+        "bape": "BAPE",
+        "palace": "Palace",
+        "fear-of-god": "Fear of God",
+        "trapstar": "Trapstar",
+        "amiri": "Amiri",
+        "represent": "Represent",
+        "superdry": "Superdry",
+        "jack-and-jones": "Jack & Jones",
+        "g-star-raw": "G-Star Raw",
+        "pepe-jeans": "Pepe Jeans",
+        "wrangler": "Wrangler",
+        "lee": "Lee",
+        "replay": "Replay",
+        "scotch-and-soda": "Scotch & Soda",
+        "desigual": "Desigual",
+        "cos": "COS",
+        "primark": "Primark",
+        "kiabi": "Kiabi",
+        "celio": "Celio",
+        "jules": "Jules",
+        "promod": "Promod",
+        "cache-cache": "Cache Cache",
+        "camaieu": "Camaïeu",
+        "jennyfer": "Jennyfer",
+        "pimkie": "Pimkie",
+        "naf-naf": "Naf Naf",
+        "comptoir-des-cotonniers": "Comptoir des Cotonniers",
+        "sandro": "Sandro",
+        "maje": "Maje",
+        "claudie-pierlot": "Claudie Pierlot",
+        "the-kooples": "The Kooples",
+        "iro": "IRO",
+        "american-vintage": "American Vintage",
+        "petit-bateau": "Petit Bateau",
+        "aigle": "Aigle",
+        "sebago": "Sebago",
+        "gant": "Gant",
+        "hackett": "Hackett",
+        "fred-perry": "Fred Perry",
+        "ben-sherman": "Ben Sherman",
+        "paul-smith": "Paul Smith",
+        "casio": "Casio",
+        "seiko": "Seiko",
+        "daniel-wellington": "Daniel Wellington",
+        "emporio-armani": "Emporio Armani",
+        "marc-jacobs": "Marc Jacobs",
+        "tissot": "Tissot",
+        "tag-heuer": "TAG Heuer",
+        "cartier": "Cartier",
+        "rolex": "Rolex",
+        "omega": "Omega",
+        "tiffany-and-co": "Tiffany & Co.",
+        "jimmy-choo": "Jimmy Choo",
+        "christian-louboutin": "Christian Louboutin",
+        "salvatore-ferragamo": "Salvatore Ferragamo",
+        "maison-margiela": "Maison Margiela",
+        "acne-studios": "Acne Studios",
+        "jacquemus": "Jacquemus",
+        "ami-paris": "AMI Paris",
+        "miumiu": "Miu Miu",
+        "loro-piana": "Loro Piana",
+        "zegna": "Zegna",
+        "brunello-cucinelli": "Brunello Cucinelli",
+        "isabel-marant": "Isabel Marant",
+        "rick-owens": "Rick Owens",
+        "philipp-plein": "Philipp Plein",
+        "moschino": "Moschino",
+        "roberto-cavalli": "Roberto Cavalli",
+        "etro": "Etro",
+        "max-mara": "Max Mara",
+        "berluti": "Berluti",
+        "goyard": "Goyard",
+        "rimowa": "Rimowa",
+        "chopard": "Chopard",
+        "other": "മറ്റുള്ളവ"
+      },
+      "product-status": {
+        "on-hold": "ഹോൾഡിൽ",
+        "in-progress": "പുരോഗമിക്കുന്നു",
+        "completed": "പൂർത്തിയായി",
+        "in-delivery": "ഡെലിവറിയിൽ",
+        "waiting-for-expedition": "ഷിപ്പ്‌മെന്റിനായി കാത്തിരിക്കുന്നു",
+        "pending-acceptance": "സ്വീകരണത്തിനായി കാത്തിരിക്കുന്നു",
+        "delivery-completed": "ഡെലിവറി പൂർത്തിയായി",
+        "refused": "നിരസിച്ചു",
+        "canceled": "റദ്ദാക്കി",
+        "return-requested": "റിട്ടേൺ അഭ്യർത്ഥിച്ചു",
+        "return-accepted": "റിട്ടേൺ സ്വീകരിച്ചു",
+        "return-refused": "റിട്ടേൺ നിരസിച്ചു",
+        "return-completed": "റിട്ടേൺ പൂർത്തിയായി"
+      },
+      "condition": {
+        "title": "അവസ്ഥ",
+        "new": "പുതിയത്",
+        "very-good": "വളരെ നല്ലത്",
+        "good": "നല്ലത്",
+        "normal": "സാധാരണം",
+        "worn": "ഉപയോഗിച്ചത്"
+      },
+      "sort-by": {
+        "lower-price": "വില കൂടുന്ന ക്രമത്തിൽ",
+        "higher-price": "വില കുറയുന്ന ക്രമത്തിൽ",
+        "latest": "ഏറ്റവും പുതിയത്"
+      },
+      "product-category": {
+        "title": "വിഭാഗം",
+        "women": "സ്ത്രീകൾ",
+        "men": "പുരുഷന്മാർ",
+        "kids": "കുട്ടികൾ"
+      },
+      "product-sub-category": {
+        "title": "ഉപവിഭാഗം",
+        "tops": "ടോപ്പുകൾ",
+        "accessories": "ആക്സസറികൾ",
+        "pants": "പാന്റ്സ്",
+        "jackets": "ജാക്കറ്റുകൾ",
+        "dresses": "ഡ്രസ്സുകൾ",
+        "bottoms": "ബോട്ടംസ്",
+        "shoes": "ഷൂസ്",
+        "underwear": "അടിവസ്ത്രം"
+      },
+      "accessory-type": {
+        "title": "ആക്സസറി തരം",
+        "glasses": "കണ്ണടകൾ",
+        "headwear": "തലയിൽ ധരിക്കുന്നവ",
+        "scarf": "സ്കാർഫ്",
+        "belt": "ബെൽറ്റ്",
+        "jewelry": "ആഭരണങ്ങൾ",
+        "watch": "വാച്ച്",
+        "bag": "ബാഗ്",
+        "wallet": "വാലറ്റ്",
+        "sunglasses": "സൺഗ്ലാസുകൾ",
+        "tie": "ടൈ",
+        "gloves": "ഗ്ലൗസുകൾ",
+        "other": "മറ്റുള്ളവ"
+      },
+      "product-size": {
+        "XS": "XS",
+        "S": "S",
+        "M": "M",
+        "L": "L",
+        "XL": "XL",
+        "XXL": "XXL",
+        "months_0_3": "0-3 മാസം",
+        "months_3_6": "3-6 മാസം",
+        "months_6_12": "6-12 മാസം",
+        "months_12_18": "12-18 മാസം",
+        "months_18_24": "18-24 മാസം",
+        "years_2_3": "2-3 വയസ്സ്",
+        "years_3_4": "3-4 വയസ്സ്",
+        "years_4_5": "4-5 വയസ്സ്",
+        "years_5_6": "5-6 വയസ്സ്",
+        "years_6_7": "6-7 വയസ്സ്",
+        "years_7_8": "7-8 വയസ്സ്",
+        "years_8_10": "8-10 വയസ്സ്",
+        "years_10_12": "10-12 വയസ്സ്",
+        "years_12_14": "12-14 വയസ്സ്"
+      }
+    },
+    "profile-completion": {
+      "title": "നിങ്ങളുടെ പ്രൊഫൈൽ പൂർത്തിയാക്കുക",
+      "edit-title": "പ്രൊഫൈൽ എഡിറ്റ് ചെയ്യുക",
+      "favorite-article-sizes-title": "പ്രിയപ്പെട്ട ഇനത്തിന്റെ സൈസുകൾ",
+      "favorite-article-sizes-subtitle": "നിങ്ങളുടെ US, EU സൈസുകൾ തിരഞ്ഞെടുക്കുക.",
+      "preferred-brand-title": "പ്രിയപ്പെട്ട ബ്രാൻഡുകൾ",
+      "preferred-brand-subtitle": "നിങ്ങൾക്ക് ഒന്നിലധികം ബ്രാൻഡുകൾ തിരഞ്ഞെടുക്കാം.",
+      "lastname": "പേരിന്റെ അവസാന ഭാഗം",
+      "lastname-hint": "നിങ്ങളുടെ പേരിന്റെ അവസാന ഭാഗം നൽകുക",
+      "lastname-required": "പേരിന്റെ അവസാന ഭാഗം ആവശ്യമാണ്",
+      "firstname": "പേരിന്റെ ആദ്യ ഭാഗം",
+      "firstname-hint": "നിങ്ങളുടെ പേരിന്റെ ആദ്യ ഭാഗം നൽകുക",
+      "firstname-required": "പേരിന്റെ ആദ്യ ഭാഗം ആവശ്യമാണ്",
+      "address": "വിലാസം",
+      "address-for-delivery": "ഡെലിവറിക്കുള്ള വിലാസം",
+      "address-for-delivery-hint": "ഒരു വിലാസം തിരയുക",
+      "address-for-delivery-error": "ദയവായി ഒരു സാധുവായ വിലാസം തിരഞ്ഞെടുക്കുക",
+      "description": "വിവരണം",
+      "description-hint": "നിങ്ങളെക്കുറിച്ച് ഞങ്ങളോട് പറയൂ",
+      "profile-picture": "പ്രൊഫൈൽ ചിത്രം",
+      "complete-registration": "രജിസ്ട്രേഷൻ പൂർത്തിയാക്കുക",
+      "submit": "രജിസ്ട്രേഷൻ പൂർത്തിയാക്കുക",
+      "exit-signup": {
+        "title": "രജിസ്ട്രേഷൻ റദ്ദാക്കണോ?",
+        "subtitle": "നിങ്ങളുടെ പ്രൊഫൈൽ ഇതുവരെ പൂർത്തിയായിട്ടില്ല. ഇപ്പോൾ പുറത്തുപോയാൽ, നിങ്ങൾക്ക് വീണ്ടും തുടങ്ങേണ്ടി വരും."
+      },
+      "eu-sizes": "EU സൈസുകൾ"
+    },
+    "order-summary": {
+      "title": "സംഗ്രഹം",
+      "x-product-purchased": "{} ൽ നിന്ന് നിങ്ങൾ വാങ്ങാൻ പോകുന്ന ഉൽപ്പന്നങ്ങൾ",
+      "no-products-in-cart": "നിങ്ങളുടെ കാർട്ടിൽ ഉൽപ്പന്നങ്ങൾ ഇല്ല",
+      "buyer-protection": "വാങ്ങുന്നയാളുടെ സംരക്ഷണം",
+      "total": "ആകെ",
+      "shipping": "ഷിപ്പിംഗ്",
+      "home-delivery": "ഹോം ഡെലിവറി",
+      "choose-delivery-method": "ഒരു ഡെലിവറി രീതി തിരഞ്ഞെടുക്കുക",
+      "choose": "തിരഞ്ഞെടുക്കുക",
+      "change-delivery-address": "നിങ്ങളുടെ ഡെലിവറി വിലാസം മാറ്റുക",
+      "remove-product": "ഉൽപ്പന്നം നീക്കം ചെയ്യുക",
+      "remove-product-message": "ഈ ഉൽപ്പന്നം നിങ്ങളുടെ ബക്കറ്റ് ലിസ്റ്റിൽ നിന്ന് നീക്കം ചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?",
+      "remove-product-confirm": "നീക്കം ചെയ്യുക",
+      "remove-product-cancel": "റദ്ദാക്കുക",
+      "order-placed": "ഓർഡർ ചെയ്തു"
+    },
+    "order-details": {
+      "title": "ഓർഡർ",
+      "product-purchased": "വാങ്ങിയ ഉൽപ്പന്നം",
+      "product-purchased-from": "{} ൽ നിന്ന് വാങ്ങിയ ഉൽപ്പന്നം",
+      "shipping-to": "ഇങ്ങോട്ട് ഷിപ്പ് ചെയ്യുന്നു",
+      "total-paid": "ആകെ അടച്ചത്",
+      "cancel": "ഓർഡർ റദ്ദാക്കുക",
+      "confirm-receipt": "ലഭിച്ചതായി സ്ഥിരീകരിക്കുക",
+      "report-a-problem": "ഒരു പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക",
+      "leave-a-review": "ഒരു റിവ്യൂ നൽകുക",
+      "review-already-sent": "ഈ ഓർഡറിന് നിങ്ങൾ ഇതിനകം ഒരു റിവ്യൂ നൽകിയിട്ടുണ്ട്.",
+      "refunded": "റീഫണ്ട് ചെയ്തു",
+      "download-my-return-voucher": "എന്റെ റിട്ടേൺ വൗച്ചർ ഡൗൺലോഡ് ചെയ്യുക",
+      "was-delivered-to": "ഇങ്ങോട്ട് ഡെലിവർ ചെയ്തു",
+      "was-to-be-delivered": "ഇങ്ങോട്ട് ഡെലിവർ ചെയ്യാനുള്ളതായിരുന്നു",
+      "cancel-order": "ഓർഡർ റദ്ദാക്കുക",
+      "tracking": "ട്രാക്കിംഗ് നമ്പർ",
+      "track": "ട്രാക്ക് ചെയ്യുക",
+      "open-shipping-label": "ലേബൽ തുറക്കുക",
+      "product-is-conform": "എന്റെ ഇനം വിവരിച്ചതുപോലെയാണ്",
+      "product-confirmed": "ഉൽപ്പന്നം സ്ഥിരീകരിച്ചു! പേയ്‌മെന്റ് വിൽപ്പനക്കാരന് കൈമാറും.",
+      "request-a-return": "ഒരു റിട്ടേൺ അഭ്യർത്ഥിക്കുക",
+      "return-requested": "വിൽപ്പനക്കാരന് റിട്ടേൺ അഭ്യർത്ഥന അയച്ചു",
+      "return-pending": "നിങ്ങളുടെ റിട്ടേൺ അഭ്യർത്ഥന വിൽപ്പനക്കാരന്റെ അംഗീകാരത്തിനായി കാത്തിരിക്കുന്നു",
+      "return-request-received": "ഒരു വാങ്ങുന്നയാൾ ഈ ഓർഡറിന് ഒരു റിട്ടേൺ അഭ്യർത്ഥിച്ചിട്ടുണ്ട്",
+      "accept": "സ്വീകരിക്കുക",
+      "refuse": "നിരസിക്കുക",
+      "return-accepted": "റിട്ടേൺ സ്വീകരിച്ചു, റീഫണ്ട് പ്രോസസ് ചെയ്യുന്നു",
+      "return-refused": "റിട്ടേൺ നിരസിച്ചു",
+      "return-accepted-message": "റിട്ടേൺ സ്വീകരിച്ചു. നിങ്ങളുടെ റിട്ടേൺ വൗച്ചർ ഡൗൺലോഡ് ചെയ്ത് ഉൽപ്പന്നം തിരികെ അയയ്ക്കുക.",
+      "return-refused-message": "വിൽപ്പനക്കാരൻ റിട്ടേൺ നിരസിച്ചു. പേയ്‌മെന്റ് കൈമാറി.",
+      "return-in-transit": "വാങ്ങുന്നയാൾ ഉൽപ്പന്നം തിരികെ അയയ്ക്കുന്നതിനായി കാത്തിരിക്കുന്നു.",
+      "return-completed-message": "റിട്ടേൺ ലഭിച്ചു. റീഫണ്ട് പ്രോസസ് ചെയ്തു."
+    },
+    "report": {
+      "cancel": "റദ്ദാക്കുക",
+      "report": "ഒരു പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക",
+      "problem": "ഏതെങ്കിലും പ്രശ്നം നേരിടുന്നുണ്ടോ? ഇപ്പോൾ റിപ്പോർട്ട് ചെയ്യൂ.",
+      "reason": "നിങ്ങളുടെ പ്രശ്നത്തിന്റെ കാരണം",
+      "reason-cancel": "റദ്ദാക്കാനുള്ള കാരണം",
+      "text-area": "കൂടുതൽ പറയൂ",
+      "file-picker": "ഫയലുകൾ ചേർക്കുക",
+      "send-report": "റിപ്പോർട്ട് അയയ്ക്കുക",
+      "confirm-cancel": "റദ്ദാക്കൽ സ്ഥിരീകരിക്കുക"
+    },
+    "report_success": {
+      "title": "അയച്ചു",
+      "subtitle": "നിങ്ങളുടെ റിപ്പോർട്ട് അയച്ചു! കഴിയുന്നത്ര വേഗം അത് കൈകാര്യം ചെയ്യും.",
+      "cancel": "നിങ്ങളുടെ റദ്ദാക്കൽ അഭ്യർത്ഥന അയച്ചു! കഴിയുന്നത്ര വേഗം അത് കൈകാര്യം ചെയ്യും.",
+      "buttonText": "പൂർത്തിയാക്കുക"
+    },
+    "form-activity": {
+      "error-later": {
+        "title": "പിശക്",
+        "content": "ഒരു പിശക് സംഭവിച്ചു, ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക."
+      }
+    },
+    "preview-reel": {
+      "retake": "വീണ്ടും എടുക്കുക",
+      "continue": "തുടരുക"
+    },
+    "create-reel": {
+      "title": "ഒരു റീൽ സൃഷ്ടിക്കുക",
+      "subtitle": "ഒരു റീൽ സൃഷ്ടിക്കുന്നതിലൂടെ, നിങ്ങളുടെ കളക്ഷനിൽ നിന്ന് വിൽപ്പനയ്ക്കുള്ള ഒന്നോ അതിലധികമോ ഉൽപ്പന്നങ്ങൾ പ്രമോട്ട് ചെയ്യാൻ ചേർക്കാം",
+      "add-product": "ഉൽപ്പന്നം ചേർക്കുക",
+      "create-product": "ഉൽപ്പന്നം സൃഷ്ടിക്കുക",
+      "my-added-products": "ഞാൻ ചേർത്ത ഉൽപ്പന്നങ്ങൾ",
+      "my-products-to-sales": "വിൽപ്പനയ്ക്കുള്ള എന്റെ ഉൽപ്പന്നങ്ങൾ",
+      "add": "ചേർക്കുക",
+      "post": "റീൽ പോസ്റ്റ് ചെയ്യുക",
+      "update": "റീൽ അപ്ഡേറ്റ് ചെയ്യുക",
+      "success-title": "ഇത് കിടിലൻ!",
+      "success-subtitle": "നിങ്ങളുടെ വീഡിയോ ഇപ്പോൾ ഓൺലൈനിലാണ്.",
+      "error-title": "എന്തോ വിട്ടുപോയിരിക്കുന്നു",
+      "error-subtitle": "ദയവായി നിങ്ങളുടെ റീലിലേക്ക് കുറഞ്ഞത് ഒരു ഉൽപ്പന്നമെങ്കിലും ചേർക്കുക."
+    },
+    "put-a-product-on-sale": {
+      "title": "ഒരു ഉൽപ്പന്നം വിൽപ്പനയ്ക്ക് വയ്ക്കുക",
+      "step": "ഘട്ടം",
+      "title-step2": "നിങ്ങളുടെ ഉൽപ്പന്നത്തെക്കുറിച്ച് കൂടുതൽ",
+      "title-step3": "ഫോട്ടോകൾ ചേർക്കുക",
+      "put-on-sale": "വിൽപ്പനയ്ക്ക് വയ്ക്കുക",
+      "success-title": "ഇത് കിടിലൻ!",
+      "success-subtitle": "നിങ്ങളുടെ ഇനം ഇപ്പോൾ വിൽപ്പനയ്ക്കാണ്.",
+      "edit-success-title": "ഇത് കിടിലൻ!",
+      "edit-success-subtitle": "നിങ്ങളുടെ ഇനം ഇപ്പോൾ വിൽപ്പനയ്ക്കാണ്.",
+      "error-title": "അപ്‌ലോഡ് പരാജയപ്പെട്ടു",
+      "error-subtitle": "നിങ്ങളുടെ ഉൽപ്പന്നം സേവ് ചെയ്യുമ്പോൾ എന്തോ കുഴപ്പം സംഭവിച്ചു. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+      "forms": {
+        "title": "ശീർഷകം",
+        "title-hint": "ഉദാ. നീല ഫ്ലോട്ടിംഗ് ഷർട്ട്",
+        "price": "വില",
+        "price-hint": "0",
+        "price-max-error": "പരമാവധി വില {} ആണ്.",
+        "description": "വിവരണം",
+        "description-hint": "നിങ്ങളുടെ ഉൽപ്പന്നത്തിന് ഒരു വിവരണം നൽകുക",
+        "size": "സൈസ്",
+        "brand": "ബ്രാൻഡ്",
+        "condition-error-title": "ദയവായി ഒരു അവസ്ഥ തിരഞ്ഞെടുക്കുക",
+        "condition-error-subtitle": "നിങ്ങളുടെ ഉൽപ്പന്നത്തിന് ഒരു അവസ്ഥ തിരഞ്ഞെടുക്കുക",
+        "image-error-title": "ദയവായി കുറഞ്ഞത് ഒരു ചിത്രമെങ്കിലും തിരഞ്ഞെടുക്കുക",
+        "image-error-subtitle": "നിങ്ങളുടെ ഉൽപ്പന്നത്തിന് കുറഞ്ഞത് ഒരു ചിത്രമെങ്കിലും തിരഞ്ഞെടുക്കുക"
+      }
+    },
+    "home": {
+      "feed": "ഫീഡ്",
+      "wishlist": "വിഷ്‌ലിസ്റ്റ്",
+      "reels": "റീലുകൾ",
+      "view-products": "ഉൽപ്പന്നങ്ങൾ കാണുക",
+      "hide-products": "ഉൽപ്പന്നങ്ങൾ മറയ്ക്കുക"
+    },
+    "product": {
+      "buy": "വാങ്ങുക",
+      "already-sold": "ഇതിനകം വിറ്റു",
+      "make-an-offer": "ഒരു ഓഫർ നൽകുക",
+      "send-offer": "ഓഫർ അയയ്ക്കുക",
+      "delete": "ഇല്ലാതാക്കുക",
+      "edit": "എഡിറ്റ് ചെയ്യുക",
+      "success-title": "ഓഫർ അയച്ചു!",
+      "success-subtitle": "നിങ്ങളുടെ ഓഫർ വിജയകരമായി അയച്ചു.",
+      "popup-delete-title": "ഉൽപ്പന്നം ഇല്ലാതാക്കുക",
+      "popup-delete-subtitle": "ഈ ഉൽപ്പന്നം ഇല്ലാതാക്കണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?",
+      "popup-delete-confirm": "ഇല്ലാതാക്കുക",
+      "popup-delete-cancel": "റദ്ദാക്കുക",
+      "delete-success-title": "ഉൽപ്പന്നം ഇല്ലാതാക്കി!",
+      "delete-success-subtitle": "നിങ്ങളുടെ ഉൽപ്പന്നം വിജയകരമായി ഇല്ലാതാക്കി.",
+      "forms": {
+        "actual-price": "നിലവിലെ വില",
+        "your-new-price": "നിങ്ങളുടെ പുതിയ വില"
+      }
+    },
+    "reel": {
+      "popup-delete-title": "റീൽ ഇല്ലാതാക്കുക",
+      "popup-delete-subtitle": "ഈ റീൽ ഇല്ലാതാക്കണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?",
+      "popup-delete-confirm": "ഇല്ലാതാക്കുക",
+      "popup-delete-cancel": "റദ്ദാക്കുക",
+      "delete-success-title": "റീൽ ഇല്ലാതാക്കി!",
+      "delete-success-subtitle": "നിങ്ങളുടെ റീൽ വിജയകരമായി ഇല്ലാതാക്കി.",
+      "feed-error": "റീലുകൾ ലോഡ് ചെയ്യാൻ കഴിയുന്നില്ല. ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.",
+      "report": "റിപ്പോർട്ട് ചെയ്യുക"
+    },
+    "profile": {
+      "buyer": "വാങ്ങുന്നയാൾ",
+      "my-order": "എന്റെ ഓർഡറുകൾ",
+      "seller": "വിൽപ്പനക്കാരൻ",
+      "my-sales": "എന്റെ വിൽപ്പനകൾ",
+      "products": "ഉൽപ്പന്നങ്ങൾ",
+      "reels": "റീലുകൾ",
+      "reviews": "റിവ്യൂകൾ",
+      "followers": "ഫോളോവേഴ്സ്",
+      "following": "ഫോളോ ചെയ്യുന്നു",
+      "follow": "ഫോളോ ചെയ്യുക",
+      "unfollow": "അൺഫോളോ ചെയ്യുക",
+      "edit": "പ്രൊഫൈൽ എഡിറ്റ് ചെയ്യുക",
+      "cant-follow-blocked": "ഈ ഉപയോക്താവിനെ ഫോളോ ചെയ്യാൻ നിങ്ങൾക്ക് കഴിയില്ല."
+    },
+    "search": {
+      "popular-items": "ജനപ്രിയ ഇനങ്ങൾ",
+      "categories": "വിഭാഗങ്ങൾ",
+      "title": "തിരയുക",
+      "filter-search": "തിരയൽ ഫിൽട്ടർ ചെയ്യുക",
+      "sort-by": "ഇതനുസരിച്ച് ക്രമീകരിക്കുക",
+      "in": "ഇതിൽ",
+      "refine-the-category": "വിഭാഗം പരിഷ്കരിക്കുക",
+      "apply": "പ്രയോഗിക്കുക",
+      "reset": "റീസെറ്റ് ചെയ്യുക",
+      "results": "ഫലങ്ങൾ"
+    }
+  },
+  "package": {
+    "payment": {
+      "open-kyb": "Stripe തുറക്കുന്നു."
+    },
+    "signalement": {
+      "motif": {
+        "motif1": "ഇനം വിവരിച്ചതുപോലെ അല്ല",
+        "motif2": "വ്യാജമോ നിരോധിതമോ ആയ ഇനം",
+        "motif3": "വിൽപ്പനക്കാരന്റെ പ്രശ്നം",
+        "motif4": "ഡെലിവറി പ്രശ്നം",
+        "motif5": "പേയ്‌മെന്റ് അല്ലെങ്കിൽ ഓർഡർ പ്രശ്നം",
+        "motif6": "മറ്റുള്ളവ"
+      },
+      "filePicker": {
+        "title": "ഫയലുകൾ ചേർക്കുക"
+      },
+      "description": {
+        "title": "കൂടുതൽ പറയൂ",
+        "title1": "ദയവായി വ്യക്തമാക്കുക"
+      },
+      "motif1": {
+        "precisez1": "തെറ്റായ സൈസ് / ശരിയല്ലാത്ത ഫിറ്റ്",
+        "precisez2": "അവസ്ഥ ലിസ്റ്റിംഗിൽ നിന്ന് വ്യത്യസ്തമാണ്",
+        "precisez3": "ഭാഗങ്ങൾ / ആക്സസറികൾ കാണാനില്ല",
+        "precisez4": "ഇനം കേടായിരിക്കുന്നു"
+      },
+      "motif2": {
+        "precisez1": "വ്യാജമെന്ന് സംശയിക്കുന്ന ഇനം",
+        "precisez2": "നിരോധിതമോ സുരക്ഷിതമല്ലാത്തതോ ആയ ഇനം",
+        "precisez3": "തെറ്റിദ്ധരിപ്പിക്കുന്ന അല്ലെങ്കിൽ വഞ്ചനാപരമായ ലിസ്റ്റിംഗ്",
+        "precisez4": "മറ്റ് നയ പ്രശ്നം"
+      },
+      "motif3": {
+        "precisez1": "വിൽപ്പനക്കാരൻ പ്രതികരിക്കുന്നില്ല",
+        "precisez2": "അനുചിതമായ പെരുമാറ്റം അല്ലെങ്കിൽ ഉപദ്രവം",
+        "precisez3": "ആപ്പിന് പുറത്ത് പണം നൽകാൻ ആവശ്യപ്പെട്ടു",
+        "precisez4": "മറ്റ് വിൽപ്പനക്കാരന്റെ പ്രശ്നം"
+      },
+      "motif4": {
+        "precisez1": "ട്രാക്കിംഗ് അപ്ഡേറ്റ് ആകുന്നില്ല",
+        "precisez2": "പാക്കേജ് ലഭിച്ചില്ല",
+        "precisez3": "പാക്കേജ് കേടായ നിലയിൽ എത്തി",
+        "precisez4": "ഡെലിവറി വൈകി"
+      },
+      "motif5": {
+        "precisez1": "തെറ്റായ തുക ഈടാക്കി",
+        "precisez2": "റീഫണ്ട് പ്രശ്നം",
+        "precisez3": "ഓർഡർ പ്രശ്നം (റദ്ദാക്കി / ഡ്യൂപ്ലിക്കേറ്റ്)",
+        "precisez4": "മറ്റ് പേയ്‌മെന്റ് അല്ലെങ്കിൽ ഓർഡർ പ്രശ്നം"
+      }
+    },
+    "tchat": {
+      "notification": {
+        "new_message": {
+          "title": "പുതിയ സന്ദേശം",
+          "body": "നിങ്ങൾക്ക് ഒരു പുതിയ സന്ദേശം ലഭിച്ചു."
+        }
+      },
+      "user-deleted": "അജ്ഞാത ഉപയോക്താവ്",
+      "online-today-at": "ഇന്ന് {} ന് ഓൺലൈൻ",
+      "online-yesterday-at": "ഇന്നലെ {} ന് ഓൺലൈൻ",
+      "online-at": "{} ന് ഓൺലൈൻ",
+      "change-name-confirm-button": "പൂർത്തിയാക്കുക",
+      "call-audio": "ഓഡിയോ കോൾ",
+      "call-video": "വീഡിയോ കോൾ",
+      "call-start": "കോൾ പുരോഗമിക്കുന്നു...",
+      "video-call-end": "കോൾ അവസാനിച്ചു",
+      "new-group": "ഗ്രൂപ്പിന്റെ പേര്",
+      "cancel-audio": "ഓഡിയോ റദ്ദാക്കുക",
+      "preview": {
+        "media": {
+          "zero": "ഘടകങ്ങൾ ഇല്ല",
+          "one": "1 മീഡിയ അയച്ചു",
+          "other": "{} മീഡിയകൾ അയച്ചു"
+        },
+        "audio": "ഓഡിയോ",
+        "reply-audio": "ഓഡിയോ മറുപടി"
+      },
+      "event": {
+        "report-and-block": "റിപ്പോർട്ട് ചെയ്ത് ബ്ലോക്ക് ചെയ്യുക",
+        "delete-tchat": "ചാറ്റ് ഇല്ലാതാക്കുക"
+      },
+      "status": {
+        "online": "ഓൺലൈൻ",
+        "online-today-at": "ഇന്ന് {time} ന് ഓൺലൈൻ",
+        "online-yesterday-at": "ഇന്നലെ {time} ന് ഓൺലൈൻ",
+        "offline": "ഓഫ്‌ലൈൻ",
+        "multiple-online": "ഒന്നിലധികം പേർ ഓൺലൈൻ",
+        "typing": "ടൈപ്പ് ചെയ്യുന്നു",
+        "audioRec": "ഓഡിയോ റെക്കോർഡിംഗ്"
+      },
+      "document": {
+        "camera": "ക്യാമറ",
+        "gallery": "ഗാലറി",
+        "document": "ഡോക്യുമെന്റ്",
+        "localisation": "ലൊക്കേഷൻ",
+        "contact": "കോൺടാക്റ്റ്",
+        "sondage": "പോൾ"
+      },
+      "list": {
+        "title": "സംഭാഷണങ്ങൾ",
+        "title-face": "വിവർത്തനം",
+        "conversations": "സംഭാഷണങ്ങൾ",
+        "no-tchat": "ചാറ്റ് ഇല്ല",
+        "no-tchat-content": "നിങ്ങൾക്ക് ഇതുവരെ ഒരു ചാറ്റും ഇല്ല.",
+        "group-default-title": "പുതിയ ഗ്രൂപ്പ്",
+        "oto-default-title": "പുതിയ ചാറ്റ്",
+        "new-conversation": "പുതിയ സംഭാഷണം"
+      },
+      "message": {
+        "no-message": "സന്ദേശം ഇല്ല",
+        "no-message-body": "നിങ്ങൾക്ക് ഇതുവരെ ഒരു സന്ദേശവും ഇല്ല.",
+        "input-hint": "സന്ദേശം..",
+        "no-media": "മീഡിയ ഇല്ല",
+        "date": "{weekday} {day} {month}",
+        "today": "ഇന്ന്",
+        "yesterday": "ഇന്നലെ",
+        "join-group": "{name} ഗ്രൂപ്പിൽ ചേർന്നു",
+        "leave-group": "{name} ഗ്രൂപ്പിൽ നിന്ന് പുറത്തുപോയി",
+        "add-to-group": "{name} {user} നെ ഗ്രൂപ്പിലേക്ക് ചേർത്തു",
+        "remove-from-group": "{name} {user} നെ ഗ്രൂപ്പിൽ നിന്ന് നീക്കം ചെയ്തു",
+        "change-group-title": "{name} ഗ്രൂപ്പിന്റെ പേര് {title} എന്നാക്കി മാറ്റി",
+        "change-group-avatar": "{name} ഗ്രൂപ്പ് അവതാർ മാറ്റി",
+        "blocked-by-you": "നിങ്ങൾ ഈ കോൺടാക്റ്റിനെ ബ്ലോക്ക് ചെയ്തിരിക്കുന്നു.\nഈ കോൺടാക്റ്റിന് നിങ്ങൾക്ക് ഇനി സന്ദേശങ്ങൾ അയയ്ക്കാൻ കഴിയില്ല.",
+        "blocked-by-other": "ഈ കോൺടാക്റ്റ് നിങ്ങളെ ബ്ലോക്ക് ചെയ്തിരിക്കുന്നു.\nഈ കോൺടാക്റ്റിന് നിങ്ങൾക്ക് ഇനി സന്ദേശങ്ങൾ അയയ്ക്കാൻ കഴിയില്ല.",
+        "cant-send-message-blocked": "ഈ കോൺടാക്റ്റിന് നിങ്ങൾക്ക് ഒരു സന്ദേശം അയയ്ക്കാൻ കഴിയില്ല.",
+        "order-requested": "«{product_name}» ന് വാങ്ങുന്നയാൾക്ക് ഓഫർ നൽകി",
+        "order-accepted": "നിങ്ങളുടെ ഓർഡർ n°{id} വിൽപ്പനക്കാരൻ സ്വീകരിച്ചു",
+        "order-rejected": "നിങ്ങളുടെ ഓർഡർ n°{id} വിൽപ്പനക്കാരൻ നിരസിച്ചു",
+        "order-purchased": "ഒരു ഓർഡർ വാങ്ങി",
+        "view-order-details": "ഓർഡർ വിശദാംശങ്ങൾ കാണുക"
+      }
+    },
+    "commentary": {
+      "add-note-title": "വിൽപ്പനക്കാരനെ റേറ്റ് ചെയ്യുക",
+      "add_note_title": "വിൽപ്പനക്കാരനെ റേറ്റ് ചെയ്യുക",
+      "delete": "ഇല്ലാതാക്കുക",
+      "report": "റിപ്പോർട്ട് ചെയ്യുക",
+      "add-note": {
+        "validate": "സ്ഥിരീകരിക്കുക",
+        "field": {
+          "note-title": "ഈ വിൽപ്പനക്കാരനെ റേറ്റ് ചെയ്യുക",
+          "commentary-title": "അഭിപ്രായം",
+          "placeholder": "ഒരു അഭിപ്രായം എഴുതുക",
+          "commentary-hint": "ഒരു അഭിപ്രായം എഴുതുക..",
+          "commentary_hint": "ഒരു അഭിപ്രായം എഴുതുക.."
+        },
+        "title": "ഈ വിൽപ്പനക്കാരനെ റേറ്റ് ചെയ്യുക",
+        "comment": "അഭിപ്രായം",
+        "placeholder": "ഒരു അഭിപ്രായം എഴുതുക",
+        "commentary-hint": "ഒരു അഭിപ്രായം എഴുതുക.."
+      },
+      "add_note": {
+        "validate": "സ്ഥിരീകരിക്കുക",
+        "field": {
+          "title": "ഈ വിൽപ്പനക്കാരനെ റേറ്റ് ചെയ്യുക",
+          "comment": "അഭിപ്രായം",
+          "placeholder": "ഒരു അഭിപ്രായം എഴുതുക",
+          "commentary-hint": "ഒരു അഭിപ്രായം എഴുതുക..",
+          "commentary_hint": "ഒരു അഭിപ്രായം എഴുതുക.."
+        },
+        "title": "ഈ വിൽപ്പനക്കാരനെ റേറ്റ് ചെയ്യുക",
+        "comment": "അഭിപ്രായം",
+        "placeholder": "ഒരു അഭിപ്രായം എഴുതുക",
+        "commentary-hint": "ഒരു അഭിപ്രായം എഴുതുക..",
+        "commentary_hint": "ഒരു അഭിപ്രായം എഴുതുക.."
+      },
+      "sure-delete-commentary": {
+        "title": "അഭിപ്രായം ഇല്ലാതാക്കുക",
+        "subtitle": "ഈ അഭിപ്രായം ഇല്ലാതാക്കണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?"
+      },
+      "sure_delete_commentary": {
+        "title": "അഭിപ്രായം ഇല്ലാതാക്കുക",
+        "subtitle": "ഈ അഭിപ്രായം ഇല്ലാതാക്കണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?"
+      }
+    },
+    "validator": {
+      "must-have-value": "ഈ ഫീൽഡ് ആവശ്യമാണ്",
+      "email-invalid": "ദയവായി ഒരു സാധുവായ ഇമെയിൽ നൽകുക",
+      "password-invalid-length": "കുറഞ്ഞത് 6 പ്രതീകങ്ങൾ",
+      "password-invalid-maj": "കുറഞ്ഞത് 1 വലിയക്ഷരം",
+      "password-invalid-min": "കുറഞ്ഞത് 1 ചെറിയക്ഷരം",
+      "password-invalid-number": "കുറഞ്ഞത് 1 അക്കം",
+      "password-invalid-special-char": "കുറഞ്ഞത് 1 പ്രത്യേക പ്രതീകം (&?!@#)",
+      "password-not-match": "പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല",
+      "number-invalid": "ദയവായി ഒരു സാധുവായ നമ്പർ നൽകുക",
+      "number-out-of-range": "ദയവായി {min} നും {max} നും ഇടയിലുള്ള ഒരു നമ്പർ നൽകുക",
+      "number-out-of-min": "ദയവായി {min} നേക്കാൾ വലിയ ഒരു നമ്പർ നൽകുക",
+      "number-out-of-max": "ദയവായി {max} നേക്കാൾ ചെറിയ ഒരു നമ്പർ നൽകുക",
+      "date-invalid": "ദയവായി ഒരു സാധുവായ തീയതി നൽകുക",
+      "date-out-of-range": "ദയവായി {min} നും {max} നും ഇടയിലുള്ള ഒരു തീയതി നൽകുക",
+      "date-out-of-min": "ദയവായി {min} നേക്കാൾ ശേഷമുള്ള ഒരു തീയതി നൽകുക",
+      "date-out-of-max": "ദയവായി {max} നേക്കാൾ മുമ്പുള്ള ഒരു തീയതി നൽകുക",
+      "alpha-invalid": "ദയവായി ഒരു സാധുവായ മൂല്യം നൽകുക",
+      "code-invalid": "ദയവായി ഒരു സാധുവായ കോഡ് നൽകുക"
+    },
+    "core": {
+      "popup": {
+        "select-picture-from": "ഒരു ഫോട്ടോ തിരഞ്ഞെടുക്കുക"
+      }
+    },
+    "picker": {
+      "number-picture": {
+        "zero": "ഫോട്ടോ ഇല്ല",
+        "one": "1 ഫോട്ടോ",
+        "other": "{} ഫോട്ടോകൾ"
+      },
+      "write-message": "ഒരു സന്ദേശം എഴുതുക..",
+      "camera": {
+        "shootingTips": "ഒരു ഫോട്ടോ എടുക്കുക",
+        "confirm": "സ്ഥിരീകരിക്കുക",
+        "saving": "സേവ് ചെയ്യുന്നു...",
+        "shootingWithRecordingTips": "ഷൂട്ട് ചെയ്യാൻ അമർത്തിപ്പിടിക്കുക."
+      }
+    },
+    "ui-kosmos_v4": {
+      "field": {
+        "phone_number_field": {
+          "search-label": "ഒരു രാജ്യം തിരയുക",
+          "error_message": "ദയവായി ഒരു സാധുവായ ഫോൺ നമ്പർ നൽകുക"
+        },
+        "input": {
+          "choose-media": "ഒരു ഫോട്ടോ തിരഞ്ഞെടുക്കാൻ അമർത്തുക",
+          "choose-multiple-file": "ഒന്നിലധികം ഫയലുകൾ തിരഞ്ഞെടുക്കാൻ അമർത്തുക",
+          "choose-image": "ഒരു ഫോട്ടോ തിരഞ്ഞെടുക്കാൻ അമർത്തുക",
+          "choose-file": "ഒരു ഫയൽ തിരഞ്ഞെടുക്കാൻ അമർത്തുക",
+          "press-to-modify": "ഫയൽ പരിഷ്കരിക്കാൻ അമർത്തുക"
+        }
+      }
+    },
+    "field": {
+      "auth": {
+        "email-or-id": {
+          "title": "ഇമെയിൽ",
+          "hint": "john.doe@gmail.com"
+        },
+        "email": {
+          "title": "ഇമെയിൽ",
+          "hint": "john.doe@gmail.com"
+        },
+        "password": {
+          "title": "പാസ്‌വേഡ്",
+          "hint": "പാസ്‌വേഡ്",
+          "security-action": "എന്ത് ചെയ്യണം?"
+        },
+        "actual-password": {
+          "title": "നിലവിലെ പാസ്‌വേഡ്",
+          "hint": "നിലവിലെ പാസ്‌വേഡ്"
+        },
+        "new-password": {
+          "title": "പുതിയ പാസ്‌വേഡ്",
+          "hint": "പുതിയ പാസ്‌വേഡ്"
+        },
+        "repeat-password": {
+          "title": "പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക",
+          "hint": "പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക"
+        },
+        "new-repeat-password": {
+          "title": "പുതിയ പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക",
+          "hint": "പുതിയ പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക"
+        },
+        "phone": {
+          "title": "ഫോൺ നമ്പർ",
+          "hint": "06 58 65 83 14"
+        },
+        "code": {
+          "title": "SMS വഴി ലഭിച്ച കോഡ്",
+          "hint": ""
+        }
+      },
+      "textarea": {
+        "title": "ടെക്സ്റ്റ്ഏരിയ",
+        "hint": "ഇവിടെ എഴുതുക.."
+      }
+    },
+    "kosmos-auth": {
+      "phone-added-success": "നിങ്ങളുടെ ഫോൺ നമ്പർ വിജയകരമായി ചേർത്തു.",
+      "invalid-email": "നൽകിയ വിവരങ്ങൾ ഉപയോഗിച്ച് ഒരു ഉപയോക്താവിനെയും കണ്ടെത്തിയില്ല.",
+      "user-not-found": "നൽകിയ വിവരങ്ങൾ ഉപയോഗിച്ച് ഒരു ഉപയോക്താവിനെയും കണ്ടെത്തിയില്ല.",
+      "user-disabled": "നിങ്ങളുടെ അക്കൗണ്ട് അഡ്മിനിസ്ട്രേറ്റർ പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു.",
+      "wrong-password": "പാസ്‌വേഡ് തെറ്റാണ്.",
+      "email-already-in-use": "ഈ ഇമെയിൽ വിലാസം ഇതിനകം ഉപയോഗത്തിലുണ്ട്.",
+      "phone-already-in-use": "ഈ ഫോൺ നമ്പർ ഇതിനകം ഉപയോഗത്തിലുണ്ട്.",
+      "weak-password": "പാസ്‌വേഡ് വളരെ ദുർബലമാണ്.",
+      "account-exists-with-different-credential": "ഈ ഇമെയിൽ വിലാസത്തിൽ ഇതിനകം ഒരു അക്കൗണ്ട് നിലവിലുണ്ട്.",
+      "invalid-credential": "നൽകിയ വിവരങ്ങൾ ഉപയോഗിച്ച് ഒരു ഉപയോക്താവിനെയും കണ്ടെത്തിയില്ല.",
+      "invalid-verification-code": "സ്ഥിരീകരണ കോഡ് അസാധുവാണ്.",
+      "invalid-verification-id": "സ്ഥിരീകരണ ID അസാധുവാണ്.",
+      "requires-recent-login": "ഈ പ്രവർത്തനം നടത്താൻ നിങ്ങൾ വീണ്ടും കണക്റ്റ് ചെയ്യണം.",
+      "invalid-phone-number": "ഫോൺ നമ്പർ അസാധുവാണ്.",
+      "error-phone-not-exist": "ഈ ഫോൺ നമ്പർ നിലവിലില്ല.",
+      "code-invalid": "ദയവായി ഒരു സാധുവായ കോഡ് നൽകുക",
+      "code-is-required": "SMS വഴി ലഭിച്ച കോഡ് ദയവായി നൽകുക",
+      "email-must-be-verified": "തുടരാൻ നിങ്ങളുടെ ഇമെയിൽ വിലാസം പരിശോധിച്ച് ഉറപ്പാക്കണം.",
+      "tiers-auth-valid-email": "തുടരാൻ നിങ്ങളുടെ മൂന്നാം കക്ഷി അക്കൗണ്ടിന് ഒരു സാധുവായ ഇമെയിൽ ഉണ്ടായിരിക്കണം.",
+      "send-reset-password-email": "നൽകിയ വിലാസത്തിലേക്ക് ഒരു പാസ്‌വേഡ് റീസെറ്റ് ഇമെയിൽ അയച്ചു.",
+      "error-internet": "ഒരു കണക്ഷൻ പ്രശ്നം സംഭവിച്ചു. ദയവായി നിങ്ങളുടെ ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിക്കുക.",
+      "error-default": "ഒരു പിശക് സംഭവിച്ചു, ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+      "must-accept-cgu": "തുടരാൻ നിങ്ങൾ ഉപയോഗ നിബന്ധനകൾ അംഗീകരിക്കണം.",
+      "password-security": "പാസ്‌വേഡ് ഫോർമാറ്റ്",
+      "password-security-length": "കുറഞ്ഞത് 6 പ്രതീകങ്ങൾ",
+      "password-security-maj": "കുറഞ്ഞത് 1 വലിയക്ഷരം അടങ്ങിയിരിക്കുന്നു",
+      "password-security-min": "കുറഞ്ഞത് 1 ചെറിയക്ഷരം അടങ്ങിയിരിക്കുന്നു",
+      "password-security-number": "കുറഞ്ഞത് 1 അക്കം അടങ്ങിയിരിക്കുന്നു",
+      "password-security-special": "കുറഞ്ഞത് 1 പ്രത്യേക പ്രതീകം അടങ്ങിയിരിക്കുന്നു (&?!@#)",
+      "success-change-password": "നിങ്ങളുടെ പാസ്‌വേഡ് വിജയകരമായി മാറ്റി.",
+      "phone-update-success": "നിങ്ങളുടെ ഫോൺ നമ്പർ മാറ്റി!",
+      "cant-be-same-password": "പുതിയ പാസ്‌വേഡ് പഴയതിൽ നിന്ന് വ്യത്യസ്തമായിരിക്കണം.",
+      "cant-be-same-email": "പുതിയ ഇമെയിൽ പഴയതിൽ നിന്ന് വ്യത്യസ്തമായിരിക്കണം.",
+      "cant-be-same-phone": "പുതിയ ഫോൺ നമ്പർ പഴയതിൽ നിന്ന് വ്യത്യസ്തമായിരിക്കണം.",
+      "code-is-expired": "സ്ഥിരീകരണ കോഡ് കാലഹരണപ്പെട്ടു.",
+      "code-sent": "ഒരു സ്ഥിരീകരണ കോഡ് SMS വഴി നിങ്ങൾക്ക് അയച്ചു.",
+      "too-many-requests": "ലോഗിൻ ശ്രമങ്ങൾ വളരെ കൂടുതലാണ്. ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക."
+    },
+    "skeleton": {
+      "auth": {
+        "signin": "സൈൻ ഇൻ ചെയ്യുക",
+        "already-have-account": "നിങ്ങൾക്ക് ഒരു അക്കൗണ്ട് ഉണ്ടോ?",
+        "login-title": "നിങ്ങളുടെ അക്കൗണ്ടിലേക്ക് കണക്റ്റ് ചെയ്യുക അല്ലെങ്കിൽ ഒന്ന് സൃഷ്ടിക്കുക.",
+        "login-phone-title": "നിങ്ങളുടെ അക്കൗണ്ടിലേക്ക് കണക്റ്റ് ചെയ്യുക",
+        "verify-phone-title": "കണക്റ്റ് ചെയ്യാൻ SMS വഴി ലഭിച്ച കോഡ് നൽകുക",
+        "verify-phone-code-title": "നിങ്ങളുടെ ഫോൺ നമ്പർ സ്ഥിരീകരിക്കുക",
+        "code-expire-in": "കോഡ് {time} മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും",
+        "no-code": "ലഭിച്ചില്ലേ?",
+        "resend-code": "വീണ്ടും അയയ്ക്കുക",
+        "forgot-password": "പാസ്‌വേഡ് മറന്നോ?",
+        "reset-password": "പാസ്‌വേഡ് റീസെറ്റ് ചെയ്യുക",
+        "no-account": "അക്കൗണ്ട് ഇല്ലേ?",
+        "create-account": "ഇപ്പോൾ സൃഷ്ടിക്കുക",
+        "login-with-phone": "ഫോൺ ഉപയോഗിച്ച് കണക്റ്റ് ചെയ്യുക",
+        "login-with-email": "ഇമെയിൽ ഉപയോഗിച്ച് കണക്റ്റ് ചെയ്യുക",
+        "or-connect-with": "അല്ലെങ്കിൽ ഇതുപയോഗിച്ച് കണക്റ്റ് ചെയ്യുക",
+        "or-signup-with": "അല്ലെങ്കിൽ ഇതുപയോഗിച്ച് സൈൻ അപ്പ് ചെയ്യുക",
+        "verify-email": "നിങ്ങളുടെ ഇമെയിൽ പരിശോധിക്കുക",
+        "verify-email-subtitle": "നിങ്ങളുടെ പാസ്‌വേഡ് റീസെറ്റ് ചെയ്യാൻ ഒരു ഇമെയിൽ നിങ്ങൾക്ക് ലഭിച്ചിട്ടുണ്ട്.",
+        "create-account-verify-email": "നിങ്ങളുടെ ഇമെയിൽ പരിശോധിക്കുക",
+        "create-account-title": "ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുക",
+        "create-account-verify-email-subtitle": "വിലാസത്തിലേക്ക് ഒരു ഇമെയിൽ സ്ഥിരീകരണം അയച്ചു",
+        "reset-password-modal": {
+          "title": "പാസ്‌വേഡ് റീസെറ്റ് ചെയ്യുക",
+          "subtitle": "നിങ്ങളുടെ അക്കൗണ്ടുമായി ബന്ധപ്പെട്ട ഇമെയിൽ വിലാസം നൽകുക. ആ വിലാസത്തിലേക്ക് ഞങ്ങൾ ഒരു റീസെറ്റ് ഇമെയിൽ അയയ്ക്കും."
+        },
+        "tiers-signin": {
+          "get-password-title": "നിങ്ങളുടെ പാസ്‌വേഡ് നൽകുക",
+          "get-password-subtitle": "ഈ ഇമെയിൽ വിലാസത്തിൽ ഞങ്ങൾ ഒരു അക്കൗണ്ട് കണ്ടെത്തി, കണക്റ്റ് ചെയ്യാൻ ദയവായി നിങ്ങളുടെ പാസ്‌വേഡ് നൽകുക."
+        }
+      },
+      "profile": {
+        "delete-success": "നിങ്ങളുടെ അക്കൗണ്ട് വിജയകരമായി ഇല്ലാതാക്കി.\nവീണ്ടും കാണാം",
+        "logout": "ലോഗ് ഔട്ട്",
+        "delete-account": "എന്റെ പ്രൊഫൈൽ ഇല്ലാതാക്കുക",
+        "delete-my-account": "എന്റെ അക്കൗണ്ട് ഇല്ലാതാക്കുക",
+        "delete-my-account-subtitle": "നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കണമെന്ന് നിങ്ങൾക്ക് ശരിക്കും ഉറപ്പാണോ?",
+        "logout-success": "നിങ്ങൾ വിജയകരമായി ലോഗ് ഔട്ട് ചെയ്തു.\nവീണ്ടും കാണാം"
+      },
+      "new-cgu-must-be-accepted": "തുടരാൻ നിങ്ങൾ പുതിയ ഉപയോഗ നിബന്ധനകൾ അംഗീകരിക്കണം."
+    },
+    "onboarding": {
+      "button_next": "അടുത്തത്",
+      "button_start": "പൂർത്തിയാക്കുക",
+      "skip": "ഒഴിവാക്കുക"
+    },
+    "permission": {
+      "notification": {
+        "title": "പുഷ് അറിയിപ്പുകൾ",
+        "redirect-to-settings": "ഞങ്ങളുടെ പുഷ് അറിയിപ്പ് സേവനം സജീവമാക്കണോ? ഞങ്ങളുടെ ആപ്ലിക്കേഷൻ പൂർണ്ണമായി പ്രയോജനപ്പെടുത്താൻ ഇത് നിങ്ങളെ സഹായിക്കും.",
+        "button": "അറിയിപ്പുകൾ സജീവമാക്കുക"
+      },
+      "camera": {
+        "title": "ക്യാമറ",
+        "redirect-to-settings": "ഈ ഫീച്ചർ പ്രയോജനപ്പെടുത്താൻ, നിങ്ങൾ ക്യാമറ അനുമതി സ്വീകരിക്കണം.",
+        "button": "ക്യാമറ സജീവമാക്കുക"
+      },
+      "microphone": {
+        "title": "മൈക്രോഫോൺ",
+        "redirect-to-settings": "ഈ ഫീച്ചർ പ്രയോജനപ്പെടുത്താൻ, നിങ്ങൾ മൈക്രോഫോൺ അനുമതി സ്വീകരിക്കണം.",
+        "button": "മൈക്രോഫോൺ സജീവമാക്കുക"
+      },
+      "accessMediaLocation": {
+        "title": "മീഡിയ ലൊക്കേഷൻ ആക്സസ്",
+        "redirect-to-settings": "ഈ ഫീച്ചർ പ്രയോജനപ്പെടുത്താൻ, നിങ്ങൾ മീഡിയ ലൊക്കേഷൻ ആക്സസ് അനുമതി സ്വീകരിക്കണം.",
+        "button": "മീഡിയ ലൊക്കേഷൻ ആക്സസ് സജീവമാക്കുക"
+      },
+      "mediaLibrary": {
+        "title": "മീഡിയ ലൈബ്രറി",
+        "redirect-to-settings": " ഈ ഫീച്ചർ പ്രയോജനപ്പെടുത്താൻ, നിങ്ങൾ മീഡിയ ലൈബ്രറി ആക്സസ് അനുമതി സ്വീകരിക്കണം.",
+        "button": "മീഡിയ ലൈബ്രറി ആക്സസ് സജീവമാക്കുക"
+      },
+      "photos": {
+        "title": "ഫോട്ടോകൾ",
+        "redirect-to-settings": "ഈ ഫീച്ചർ പ്രയോജനപ്പെടുത്താൻ, നിങ്ങൾ ഫോട്ടോകൾ ആക്സസ് അനുമതി സ്വീകരിക്കണം.",
+        "button": "ഫോട്ടോകൾ ആക്സസ് സജീവമാക്കുക"
+      },
+      "storage": {
+        "title": "സ്റ്റോറേജ്",
+        "redirect-to-settings": "ഈ ഫീച്ചർ പ്രയോജനപ്പെടുത്താൻ, നിങ്ങൾ സ്റ്റോറേജ് ആക്സസ് അനുമതി സ്വീകരിക്കണം.",
+        "button": "സ്റ്റോറേജ് ആക്സസ് സജീവമാക്കുക"
+      },
+      "mic": {
+        "redirect-to-settings": "ദയവായി നിങ്ങളുടെ ഫോൺ ക്രമീകരണങ്ങളിൽ മൈക്രോഫോൺ അനുവദിക്കുക.",
+        "title": "മൈക്രോഫോൺ",
+        "button": "ക്രമീകരണങ്ങൾ തുറക്കുക"
+      },
+      "notif-push": {
+        "title": "പുഷ് അറിയിപ്പുകൾ",
+        "desc": "ഞങ്ങളുടെ പുഷ് അറിയിപ്പ് സേവനം സജീവമാക്കണോ? ഞങ്ങളുടെ ആപ്ലിക്കേഷൻ പൂർണ്ണമായി പ്രയോജനപ്പെടുത്താൻ ഇത് നിങ്ങളെ സഹായിക്കും.",
+        "button": "അറിയിപ്പുകൾ സജീവമാക്കുക"
+      },
+      "location": {
+        "title": "ലൊക്കേഷൻ",
+        "desc": "ഞങ്ങളുടെ മൊബൈൽ ആപ്പ് പൂർണ്ണമായി ഉപയോഗിക്കാൻ, നിങ്ങൾ ലൊക്കേഷൻ സ്വീകരിക്കണം.",
+        "button": "തുടരുക",
+        "redirect-to-settings": "ദയവായി നിങ്ങളുടെ ഫോൺ ക്രമീകരണങ്ങളിൽ ലൊക്കേഷൻ അനുവദിക്കുക."
+      },
+      "background-location": {
+        "title": "പശ്ചാത്തല ലൊക്കേഷൻ",
+        "desc": "ഞങ്ങളുടെ പശ്ചാത്തല ലൊക്കേഷൻ സേവനം സജീവമാക്കണോ? ആപ്ലിക്കേഷന്റെ പ്രവർത്തനത്തിന് ഇത് അത്യാവശ്യമാണ്.",
+        "button": "പശ്ചാത്തല ലൊക്കേഷൻ സജീവമാക്കുക"
+      },
+      "skip": "ഒഴിവാക്കുക"
+    },
+    "image": {
+      "from-gallery": "ഗാലറി",
+      "from-camera": "ക്യാമറ"
+    },
+    "duration": {
+      "now": "ഇപ്പോൾ",
+      "days-ago": "{} ദിവസം മുമ്പ്",
+      "x-days": "{} ദിവസം മുമ്പ്",
+      "hours-ago": "{} മണിക്കൂർ മുമ്പ്",
+      "minutes-ago": "{} മിനിറ്റ് മുമ്പ്",
+      "seconds-ago": "{} സെക്കൻഡ് മുമ്പ്",
+      "months-ago": "{} മാസം മുമ്പ്",
+      "years-ago": "{} വർഷം മുമ്പ്",
+      "moment-ago": "അൽപ്പം മുമ്പ്"
+    },
+    "settings": {
+      "edited-by": "എഡിറ്റ് ചെയ്തത്",
+      "kosmos-digital": "kosmos-digital.com",
+      "section-title": {
+        "modify": "പരിഷ്കരിക്കുക",
+        "personnal-data": "എന്റെ അക്കൗണ്ട്",
+        "settings": "ക്രമീകരണങ്ങൾ",
+        "other": "മറ്റുള്ളവ",
+        "link": "ലിങ്കുകൾ",
+        "social": "സോഷ്യൽ നെറ്റ്‌വർക്ക്",
+        "security": "സുരക്ഷ"
+      },
+      "node": {
+        "bloqued-users": {
+          "title": "ബ്ലോക്ക് ചെയ്ത ഉപയോക്താക്കൾ",
+          "subtitle": "ബ്ലോക്ക് ചെയ്ത ഉപയോക്താക്കളുടെ ലിസ്റ്റ്"
+        },
+        "blocked-users": {
+          "unblock": "ഉപയോക്താവിനെ അൺബ്ലോക്ക് ചെയ്യുക",
+          "block": "ഉപയോക്താവിനെ ബ്ലോക്ക് ചെയ്യുക",
+          "unblock-success": "ഉപയോക്താവിനെ വിജയകരമായി അൺബ്ലോക്ക് ചെയ്തു",
+          "title": "ബ്ലോക്ക് ചെയ്ത ഉപയോക്താക്കൾ",
+          "subtitle": "ബ്ലോക്ക് ചെയ്ത ഉപയോക്താക്കളുടെ ലിസ്റ്റ്"
+        },
+        "change-personnal-content": {
+          "title": "വ്യക്തിഗത വിവരങ്ങൾ",
+          "subtitle": "പേര്, പേരിന്റെ ആദ്യ ഭാഗം, വിവരണം"
+        },
+        "clothing-preference": {
+          "title": "വസ്ത്ര മുൻഗണനകൾ",
+          "subtitle": "വ്യക്തിഗതമാക്കുക"
+        },
+        "preferred-article-size": {
+          "title": "പ്രിയപ്പെട്ട ഇനത്തിന്റെ സൈസുകൾ",
+          "subtitle": "നിയന്ത്രിക്കുക"
+        },
+        "preferred-brand": {
+          "title": "പ്രിയപ്പെട്ട ബ്രാൻഡുകൾ",
+          "subtitle": "നിയന്ത്രിക്കുക"
+        },
+        "security": {
+          "title": "സുരക്ഷ",
+          "subtitle": "പാസ്‌വേഡ്, ഫോൺ, ഇമെയിൽ..."
+        },
+        "payment": {
+          "title": "പേയ്‌മെന്റ് രീതികൾ",
+          "subtitle": "ക്രെഡിറ്റ് കാർഡ് / Apple Pay",
+          "credit-card": "ക്രെഡിറ്റ് കാർഡ്",
+          "bank-details": "ബാങ്ക് അക്കൗണ്ട്",
+          "bank-details-empty": "കോൺഫിഗർ ചെയ്തിട്ടില്ല",
+          "handle-with-stripe": "Stripe ഉപയോഗിച്ച് കൈകാര്യം ചെയ്യുക"
+        },
+        "phone-number": {
+          "title": "ഫോൺ നമ്പർ"
+        },
+        "change-email": {
+          "title": "ഇമെയിൽ വിലാസം"
+        },
+        "change-password": {
+          "title": "പാസ്‌വേഡ്",
+          "subtitle": "അവസാനം മാറ്റിയത്: {timeAgo}"
+        },
+        "push-notif": {
+          "title": "പുഷ് അറിയിപ്പുകൾ"
+        },
+        "email-notif": {
+          "title": "ഇമെയിൽ അറിയിപ്പുകൾ"
+        },
+        "help": {
+          "title": "സഹായം",
+          "subtitle": "ഇമെയിൽ വഴി ഞങ്ങളെ ബന്ധപ്പെടുക"
+        },
+        "share": {
+          "title": "ആപ്പ് ഷെയർ ചെയ്യുക",
+          "subtitle": "ആപ്പ് ഷെയർ ചെയ്ത് ഞങ്ങളെ പിന്തുണയ്ക്കുക"
+        },
+        "link": {
+          "privacy-policy": "സ്വകാര്യതാ നയം",
+          "legal-mention": "നിയമപരമായ പരാമർശം",
+          "legal-notice": "നിയമപരമായ അറിയിപ്പ്",
+          "cgvu": "വിൽപ്പന, ഉപയോഗ നിബന്ധനകൾ",
+          "about": "കുറിച്ച്"
+        },
+        "social": {
+          "facebook": "Facebook",
+          "instagram": "Instagram",
+          "twitter": "Twitter",
+          "linkedin": "Linkedin",
+          "snapchat": "Snapchat"
+        }
+      }
+    },
+    "network-error": {
+      "title": "നെറ്റ്‌വർക്ക് പിശക് 😕",
+      "subtitle": "ഇന്റർനെറ്റ് കണക്ഷൻ കണ്ടെത്തിയില്ല. ദയവായി നിങ്ങളുടെ നെറ്റ്‌വർക്ക് കണക്ഷൻ പരിശോധിക്കുക.",
+      "button": "പുതുക്കുക"
+    },
+    "research": {
+      "hint": "ഇനം തിരയുക...",
+      "no-item-title": "ഒന്നും കണ്ടെത്തിയില്ല",
+      "no-item-content": "ഈ തിരയലിന് ഉൽപ്പന്നങ്ങളൊന്നും കണ്ടെത്തിയില്ല"
+    }
+  },
+  "date": {
+    "month-by-id": {
+      "1": "ജനുവരി",
+      "2": "ഫെബ്രുവരി",
+      "3": "മാർച്ച്",
+      "4": "ഏപ്രിൽ",
+      "5": "മേയ്",
+      "6": "ജൂൺ",
+      "7": "ജൂലൈ",
+      "8": "ഓഗസ്റ്റ്",
+      "9": "സെപ്റ്റംബർ",
+      "10": "ഒക്ടോബർ",
+      "11": "നവംബർ",
+      "12": "ഡിസംബർ"
+    },
+    "day-by-id": {
+      "1": "തിങ്കൾ",
+      "2": "ചൊവ്വ",
+      "3": "ബുധൻ",
+      "4": "വ്യാഴം",
+      "5": "വെള്ളി",
+      "6": "ശനി",
+      "7": "ഞായർ"
+    },
+    "locale-format": "{day}/{month}/{year}",
+    "day": {
+      "mo": "തി",
+      "tu": "ചൊ",
+      "we": "ബു",
+      "th": "വ്യാ",
+      "fr": "വെ",
+      "sa": "ശ",
+      "su": "ഞാ"
+    },
+    "month": {
+      "january": "ജനുവരി",
+      "february": "ഫെബ്രുവരി",
+      "march": "മാർച്ച്",
+      "april": "ഏപ്രിൽ",
+      "may": "മേയ്",
+      "june": "ജൂൺ",
+      "july": "ജൂലൈ",
+      "august": "ഓഗസ്റ്റ്",
+      "september": "സെപ്റ്റംബർ",
+      "october": "ഒക്ടോബർ",
+      "november": "നവംബർ",
+      "december": "ഡിസംബർ"
+    },
+    "event": {
+      "cancel": "റദ്ദാക്കുക",
+      "validate": "സ്ഥിരീകരിക്കുക"
+    },
+    "range": {
+      "no_date": "തീയതി ഇല്ല"
+    }
+  },
+  "utils": {
+    "done": "പൂർത്തിയായി",
+    "unlock": "അൺബ്ലോക്ക് ചെയ്യുക",
+    "mandatory": "നിർബന്ധം",
+    "next": "അടുത്തത്",
+    "number_x": "n°{}",
+    "mandatory-fields": "* അടയാളപ്പെടുത്തിയ ഫീൽഡുകൾ നിർബന്ധമാണ്",
+    "submit": "സമർപ്പിക്കുക",
+    "choose": "തിരഞ്ഞെടുക്കുക",
+    "validate-and-modify": "സ്ഥിരീകരിച്ച് പരിഷ്കരിക്കുക",
+    "modify": "പരിഷ്കരിക്കുക",
+    "by-default": "സ്ഥിരസ്ഥിതിയായി",
+    "deactivate": "നിർജ്ജീവമാക്കുക",
+    "activate": "സജീവമാക്കുക",
+    "loading": "ലോഡ് ചെയ്യുന്നു..",
+    "close": "അടയ്ക്കുക",
+    "cancel": "റദ്ദാക്കുക",
+    "continue": "തുടരുക",
+    "connexion": "കണക്ഷൻ",
+    "validate": "സ്ഥിരീകരിക്കുക",
+    "success": "വിജയം",
+    "yes": "അതെ",
+    "no": "അല്ല",
+    "error": "പിശക്",
+    "reinit": "റീസെറ്റ് ചെയ്യുക",
+    "cgvu": "CGVU",
+    "validate-and-continue": "സ്ഥിരീകരിച്ച് തുടരുക",
+    "confidentiality-policy": "സ്വകാര്യതാ നയം",
+    "cgvu-and-confidentiality": "CGVU ഉം സ്വകാര്യതാ നയവും",
+    "accept-cgvu-and-confidentiality": "സ്വകാര്യതാ നയവും വിൽപ്പന, ഉപയോഗ നിബന്ധനകളും ഞാൻ അംഗീകരിക്കുന്നു.",
+    "what-do-you-want-to-do": "നിങ്ങൾ എന്ത് ചെയ്യാൻ ആഗ്രഹിക്കുന്നു?",
+    "error-default": "ഒരു പിശക് സംഭവിച്ചു, ദയവായി വീണ്ടും ശ്രമിക്കുക.",
+    "optional": "ഓപ്ഷണൽ",
+    "save": "സേവ് ചെയ്യുക",
+    "accept": "സ്വീകരിക്കുക",
+    "refuse": "നിരസിക്കുക",
+    "edit": "എഡിറ്റ് ചെയ്യുക",
+    "delete": "ഇല്ലാതാക്കുക",
+    "size": "സൈസ്",
+    "dirhams": "ദിർഹം",
+    "aed": "AED",
+    "followers": "ഫോളോവേഴ്സ്",
+    "following": "ഫോളോ ചെയ്യുന്നു"
+  },
+  "empty-state": {
+    "no-wishlist": "വിഷ്‌ലിസ്റ്റ് ഇല്ല",
+    "no-feed": "ഫീഡ് ഇല്ല",
+    "no-products": "ഉൽപ്പന്നങ്ങൾ ഇല്ല",
+    "no-products-found": "ഉൽപ്പന്നങ്ങളൊന്നും കണ്ടെത്തിയില്ല",
+    "no-reels": "റീലുകൾ ഇല്ല",
+    "no-reels-available": "ഇപ്പോൾ റീലുകളൊന്നും ലഭ്യമല്ല.",
+    "no-reviews": "റിവ്യൂകൾ ഇല്ല",
+    "no-orders": "ഓർഡറുകൾ ഇല്ല",
+    "product-not-found": "ഉൽപ്പന്നം കണ്ടെത്തിയില്ല",
+    "no-connect-account": "കണക്റ്റ് അക്കൗണ്ട് കണ്ടെത്തിയില്ല"
+  },
+  "error": {
+    "product-doesnt-exist": "ഈ ഉൽപ്പന്നം ഇനി നിലവിലില്ല",
+    "please-try-again": "ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക"
+  },
+  "stats": {
+    "title": "എന്റെ സ്ഥിതിവിവരക്കണക്കുകൾ",
+    "consult-stripe": "നിങ്ങളുടെ Stripe സ്ഥിതിവിവരക്കണക്കുകൾ പരിശോധിക്കുക",
+    "consult-stripe-desc": "നിങ്ങളുടെ വിൽപ്പന സ്ഥിതിവിവരക്കണക്കുകൾ പരിശോധിക്കാൻ Stripe ഡാഷ്‌ബോർഡ് തുറക്കാൻ താഴെയുള്ള ബട്ടൺ അമർത്തുക.",
+    "open-dashboard": "ഡാഷ്‌ബോർഡ് തുറക്കുക"
+  },
+  "seller-onboarding": {
+    "fork": {
+      "title": "നിങ്ങൾ എങ്ങനെ വിൽക്കാൻ ആഗ്രഹിക്കുന്നു?",
+      "subtitle": "നിങ്ങൾക്ക് യോജിക്കുന്ന ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക. പിന്നീട് മാറ്റേണ്ടി വന്നാൽ നിങ്ങൾക്ക് എപ്പോഴും സപ്പോർട്ടിനെ ബന്ധപ്പെടാം.",
+      "vendor-title": "ഞാൻ ഒരു ബിസിനസാണ്",
+      "vendor-subtitle": "ഒരു ബിസിനസായി വിൽക്കുക. ഐഡന്റിറ്റി, ബിസിനസ് സ്ഥിരീകരണം ആവശ്യമാണ്.",
+      "particular-title": "ഞാൻ ഒരു വ്യക്തിയാണ്",
+      "particular-subtitle": "നിങ്ങളുടെ വാർഡ്രോബിൽ നിന്നുള്ള ഇനങ്ങൾ വിൽക്കുക. പേയ്‌മെന്റ് ലഭിക്കാൻ ഒരു IBAN മാത്രം മതി."
+    }
+  },
+  "iban": {
+    "onboarding": {
+      "title": "പണം ലഭിക്കാൻ, ദയവായി നിങ്ങളുടെ ബാങ്ക് അക്കൗണ്ട് ചേർക്കുക",
+      "after-sale-title": "ഒരു വിൽപ്പനയ്ക്ക് ശേഷം",
+      "after-sale-body": "ഫണ്ടുകൾ സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു. വാങ്ങുന്നയാൾ ലഭിച്ചതായി സ്ഥിരീകരിക്കുമ്പോൾ ട്രാൻസ്ഫർ ആരംഭിക്കും.",
+      "transfer-title": "ട്രാൻസ്ഫർ സമയം",
+      "transfer-body": "വിൽപ്പന സ്ഥിരീകരിച്ച് 48 മുതൽ 72 മണിക്കൂറിനുള്ളിൽ നിങ്ങളുടെ പണം നിങ്ങളുടെ ബാങ്ക് അക്കൗണ്ടിൽ എത്തും.",
+      "privacy-title": "സ്വകാര്യത",
+      "privacy-body": "നിങ്ങളുടെ IBAN സുരക്ഷിതമായി സൂക്ഷിക്കുന്നു, പിന്നീട് നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങളിൽ നിന്ന് അപ്ഡേറ്റ് ചെയ്യാം.",
+      "field-label": "IBAN",
+      "field-hint": "AE07 0331 2345 6789 0123 456",
+      "tnc-prefix": "ഞാൻ ഇത് വായിച്ച് അംഗീകരിക്കുന്നു ",
+      "tnc-link": "നിബന്ധനകളും വ്യവസ്ഥകളും",
+      "cta-onboarding": "സേവ് ചെയ്ത് തുടരുക",
+      "cta-edit": "സേവ് ചെയ്യുക",
+      "save-error": "നിങ്ങളുടെ IBAN സേവ് ചെയ്യാൻ ഞങ്ങൾക്ക് കഴിഞ്ഞില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക."
+    },
+    "settings": {
+      "title": "ബാങ്ക് അക്കൗണ്ട്",
+      "updated-on": "{date} ന് അപ്ഡേറ്റ് ചെയ്തു",
+      "edit-cta": "IBAN എഡിറ്റ് ചെയ്യുക",
+      "add-cta": "IBAN ചേർക്കുക",
+      "empty-state": "ഫയലിൽ ബാങ്ക് അക്കൗണ്ട് ഇല്ല. നിങ്ങളുടെ വരുമാനം ട്രാൻസ്ഫർ ചെയ്യാൻ ഒന്ന് ചേർക്കുക."
+    }
+  },
+  "preferences": {
+    "save": "സേവ് ചെയ്യുക",
+    "clothing": {
+      "title": "വസ്ത്ര മുൻഗണനകൾ",
+      "subtitle": "നിങ്ങൾ ഏറ്റവും കൂടുതൽ ഷോപ്പിംഗ് ചെയ്യുന്ന വിഭാഗം തിരഞ്ഞെടുക്കുക. അതനുസരിച്ച് ഞങ്ങൾ നിങ്ങളുടെ ഫീഡ് ക്രമീകരിക്കും."
+    },
+    "sizes": {
+      "title": "പ്രിയപ്പെട്ട സൈസുകൾ"
+    },
+    "brands": {
+      "title": "പ്രിയപ്പെട്ട ബ്രാൻഡുകൾ",
+      "subtitle": "നിങ്ങൾ ഇഷ്ടപ്പെടുന്ന ബ്രാൻഡുകൾ തിരഞ്ഞെടുക്കുക. നിങ്ങൾക്ക് ആവശ്യമുള്ളത്ര തിരഞ്ഞെടുക്കാം."
+    }
+  },
+  "cart": {
+    "checkout": "ചെക്ക്ഔട്ട്",
+    "currency": "AED",
+    "size": "സൈസ് {}",
+    "price_with_currency": "{} AED",
+    "price_format": "{}{} AED",
+    "seller_rating": "{} · {} റിവ്യൂകൾ",
+    "rating_na": "N/A",
+    "encrypted_checkout": "എൻക്രിപ്റ്റഡ് ചെക്ക്ഔട്ട്",
+    "payment_card": "CARD",
+    "payment_pay": "PAY",
+    "payment_wallet": "WALLET",
+    "subtotal": "ഉപആകെ",
+    "shipping": "ഷിപ്പിംഗ്",
+    "shipping_standard": "സ്റ്റാൻഡേർഡ്",
+    "shipping_standard_city": "സ്റ്റാൻഡേർഡ് · {}",
+    "buyer_protection": "വാങ്ങുന്നയാളുടെ സംരക്ഷണം",
+    "buyer_protection_subtitle": "ഡെലിവർ ചെയ്തില്ലെങ്കിൽ പൂർണ്ണ റീഫണ്ട്",
+    "summary": "സംഗ്രഹം",
+    "delivery": "ഡെലിവറി",
+    "shipping_fee": "+ {} AED",
+    "remove_product_title": "ഉൽപ്പന്നം നീക്കം ചെയ്യുക",
+    "remove_product_message": "ഈ ഉൽപ്പന്നം നിങ്ങളുടെ കാർട്ടിൽ നിന്ന് നീക്കം ചെയ്യണോ?",
+    "remove": "നീക്കം ചെയ്യുക",
+    "cancel": "റദ്ദാക്കുക",
+    "cart_empty_title": "കാർട്ട് · 0",
+    "empty_heading": "നിങ്ങളുടെ കാർട്ട് ശൂന്യമാണ്",
+    "empty_body": "ഉൽപ്പന്നങ്ങൾ ചേർക്കാൻ {} ന്റെ ഇനങ്ങൾ ബ്രൗസ് ചെയ്യുക",
+    "this_seller": "ഈ വിൽപ്പനക്കാരൻ"
+  },
+  "feed": {
+    "price": "{price} AED"
+  },
+  "wishlist": {
+    "empty": "നിങ്ങളുടെ വിഷ്‌ലിസ്റ്റ് ശൂന്യമാണ്",
+    "saved-count": "{count} സേവ് ചെയ്ത ഇനങ്ങൾ"
+  }
+}
