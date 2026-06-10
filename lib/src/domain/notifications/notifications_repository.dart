@@ -15,4 +15,13 @@ abstract class NotificationsRepository {
   Future<void> markAllRead();
 
   Future<void> remove(String id);
+
+  /// `POST /v1/me/device-tokens` — register an FCM token for push.
+  Future<void> registerDeviceToken({
+    required String token,
+    required String platform,
+  });
+
+  /// `DELETE /v1/me/device-tokens/{token}` — e.g. on logout.
+  Future<void> removeDeviceToken(String token);
 }

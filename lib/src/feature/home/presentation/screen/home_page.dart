@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/cart/cart_cubit.dart';
 import 'package:klozy/src/app/notifications/notifications_cubit.dart';
+import 'package:klozy/src/app/push/push_service.dart';
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
@@ -47,6 +48,7 @@ class _HomePageState extends State<HomePage> {
     context.read<WishlistCubit>().load();
     context.read<CartCubit>().load();
     context.read<NotificationsCubit>().load();
+    locator<PushService>().init().ignore();
     _checkPendingLegal();
   }
 

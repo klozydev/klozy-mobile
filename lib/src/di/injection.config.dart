@@ -12,6 +12,7 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:event_bus/event_bus.dart' as _i1017;
 import 'package:firebase_auth/firebase_auth.dart' as _i59;
+import 'package:firebase_messaging/firebase_messaging.dart' as _i892;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:google_sign_in/google_sign_in.dart' as _i116;
@@ -19,6 +20,7 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:klozy/src/app/bloc/app_bloc.dart' as _i432;
 import 'package:klozy/src/app/cart/cart_cubit.dart' as _i675;
 import 'package:klozy/src/app/notifications/notifications_cubit.dart' as _i276;
+import 'package:klozy/src/app/push/push_service.dart' as _i27;
 import 'package:klozy/src/app/theme/app_config_change_notifier.dart' as _i616;
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart' as _i956;
 import 'package:klozy/src/core/network/base_url/base_url.dart' as _i402;
@@ -133,6 +135,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i432.AppBloc>(() => _i432.AppBloc());
     gh.lazySingleton<_i59.FirebaseAuth>(() => firebaseModule.firebaseAuth);
     gh.lazySingleton<_i116.GoogleSignIn>(() => firebaseModule.googleSignIn);
+    gh.lazySingleton<_i892.FirebaseMessaging>(
+      () => firebaseModule.firebaseMessaging,
+    );
     gh.lazySingleton<_i1017.EventBus>(() => appModule.getEventBus());
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => appModule.getFlutterSecureStorage(),
@@ -211,6 +216,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i786.ProductsRepository>(
       () => _i251.ProductsRepositoryImpl(gh<_i361.Dio>()),
     );
+    gh.lazySingleton<_i27.PushService>(
+      () => _i27.PushService(
+        gh<_i892.FirebaseMessaging>(),
+        gh<_i755.NotificationsRepository>(),
+        gh<_i276.NotificationsCubit>(),
+        gh<_i774.AppRouter>(),
+      ),
+    );
     gh.lazySingleton<_i264.PublicConfigRepository>(
       () => _i441.PublicConfigRepositoryImpl(gh<_i361.Dio>()),
     );
@@ -241,6 +254,14 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i204.CatalogRepository>(),
       ),
     );
+    gh.factory<_i762.SettingsBloc>(
+      () => _i762.SettingsBloc(
+        gh<_i1010.MeRepository>(),
+        gh<_i176.AuthRepository>(),
+        gh<_i264.PublicConfigRepository>(),
+        gh<_i27.PushService>(),
+      ),
+    );
     gh.factory<_i1007.OrdersBloc>(
       () => _i1007.OrdersBloc(gh<_i242.OrdersRepository>()),
     );
@@ -250,13 +271,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i692.AuthBloc>(
       () =>
           _i692.AuthBloc(gh<_i176.AuthRepository>(), gh<_i1010.MeRepository>()),
-    );
-    gh.factory<_i762.SettingsBloc>(
-      () => _i762.SettingsBloc(
-        gh<_i1010.MeRepository>(),
-        gh<_i176.AuthRepository>(),
-        gh<_i264.PublicConfigRepository>(),
-      ),
     );
     gh.factory<_i651.ReelsRepository>(
       () => _i203.ReelsRepositoryImpl(

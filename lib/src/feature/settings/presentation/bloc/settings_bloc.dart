@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/app/push/push_service.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/config/entity/contact_info.dart';
@@ -14,8 +15,14 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   final AuthRepository _authRepository;
   final PublicConfigRepository _configRepository;
 
-  SettingsBloc(this._meRepository, this._authRepository, this._configRepository)
-    : super(const SettingsLoadingState()) {
+  final PushService _pushService;
+
+  SettingsBloc(
+    this._meRepository,
+    this._authRepository,
+    this._configRepository,
+    this._pushService,
+  ) : super(const SettingsLoadingState()) {
     on<SettingsStarted>(_onStarted);
     on<SettingsToggleNotification>(_onToggle);
     on<SettingsLoggedOut>(_onLoggedOut);
@@ -69,6 +76,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   ) async {
     final current = state;
     if (current is SettingsLoadedState) emit(current.copyWith(isBusy: true));
+    await _pushService.unregister();
     try {
       await _authRepository.signOut();
     } catch (_) {}
@@ -81,6 +89,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   ) async {
     final current = state;
     if (current is SettingsLoadedState) emit(current.copyWith(isBusy: true));
+    await _pushService.unregister();
     try {
       await _meRepository.deleteAccount();
     } catch (_) {}

@@ -58,6 +58,24 @@ class NotificationsRepositoryImpl implements NotificationsRepository {
     await _dio.delete<dynamic>('v1/me/notifications/$id');
   }
 
+  @override
+  Future<void> registerDeviceToken({
+    required String token,
+    required String platform,
+  }) async {
+    await _dio.post<dynamic>(
+      'v1/me/device-tokens',
+      data: <String, dynamic>{'token': token, 'platform': platform},
+    );
+  }
+
+  @override
+  Future<void> removeDeviceToken(String token) async {
+    await _dio.delete<dynamic>(
+      'v1/me/device-tokens/${Uri.encodeComponent(token)}',
+    );
+  }
+
   List<dynamic> _list(Object? data) {
     if (data is List) return data;
     if (data is Map<String, dynamic>) {
