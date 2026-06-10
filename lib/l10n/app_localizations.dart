@@ -1132,6 +1132,12 @@ abstract class AppLocalizations {
   /// **'Add to cart'**
   String get product_add_to_cart;
 
+  /// No description provided for @product_buy.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy'**
+  String get product_buy;
+
   /// No description provided for @product_in_cart_view_cart.
   ///
   /// In en, this message translates to:

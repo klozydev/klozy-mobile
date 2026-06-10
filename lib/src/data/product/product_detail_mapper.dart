@@ -25,6 +25,7 @@ ProductDetail mapProductDetail(Object? raw) {
     },
     seller: _seller(json),
     isOwner: json['isOwner'] == true || json['isMine'] == true,
+    categoryLabel: _str(json, ['categoryLabel', 'categorySlug', 'category']),
   );
 }
 

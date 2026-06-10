@@ -83,7 +83,13 @@ class ProductsRepositoryImpl implements ProductsRepository {
   @override
   Future<ProductDetail> getProduct(String id) async {
     final response = await _dio.get<Map<String, dynamic>>('v1/products/$id');
-    return mapProductDetail(response.data);
+    final json = response.data ?? const <String, dynamic>{};
+    // The API wraps single-resource responses as {data: {...product...}};
+    // unwrap before mapping, with a passthrough fallback for bare objects.
+    final inner = json['data'] is Map<String, dynamic>
+        ? json['data'] as Map<String, dynamic>
+        : json;
+    return mapProductDetail(inner);
   }
 
   @override

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
-import 'package:klozy/src/design/tokens/ds_color.dart';
 
 class ProductPageDotsWidget extends StatelessWidget {
-  final int count;
-  final int current;
-
   const ProductPageDotsWidget({
     super.key,
     required this.count,
     required this.current,
   });
+
+  final int count;
+  final int current;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,7 @@ class ProductPageDotsWidget extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 3),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(DSBorderRadius.chip),
-            color: active ? DSColor.primary : Colors.white.withOpacity(0.4),
+            color: active ? Colors.white : Colors.white.withValues(alpha: 0.4),
           ),
         );
       }),

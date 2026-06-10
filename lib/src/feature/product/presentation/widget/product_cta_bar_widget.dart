@@ -91,7 +91,7 @@ class ProductCtaBarWidget extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: DSButtonElevated(
-            text: context.l10N.product_add_to_cart,
+            text: context.l10N.product_buy,
             onPressed: onAddToCart,
           ),
         ),

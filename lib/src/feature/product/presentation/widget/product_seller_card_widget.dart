@@ -103,10 +103,6 @@ class ProductSellerCardWidget extends StatelessWidget {
               ),
             ),
             if (!isOwner) ...<Widget>[
-              if (detail != null) ...<Widget>[
-                ProductHeartButtonWidget(detail: detail!),
-                const SizedBox(width: 8),
-              ],
               GestureDetector(
                 onTap: onMessage,
                 child: Container(
@@ -124,6 +120,10 @@ class ProductSellerCardWidget extends StatelessWidget {
                   ),
                 ),
               ),
+              if (detail != null) ...<Widget>[
+                const SizedBox(width: 8),
+                ProductHeartButtonWidget(detail: detail!),
+              ],
             ],
           ],
         ),

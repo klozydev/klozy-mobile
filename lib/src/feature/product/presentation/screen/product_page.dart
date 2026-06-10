@@ -141,21 +141,24 @@ class _LoadedViewState extends State<_LoadedView> {
                           right: 0,
                           child: ProductBottomScrimWidget(),
                         ),
-                        if (imageCount > 1)
-                          Positioned(
-                            bottom: DSSpacing.l,
-                            left: 0,
-                            right: 0,
-                            child: ProductPageDotsWidget(
-                              count: imageCount,
-                              current: _currentPage,
-                            ),
-                          ),
                         Positioned(
-                          bottom: DSSpacing.xxl,
+                          bottom: DSSpacing.l,
                           left: 0,
                           right: 0,
-                          child: ProductTitleBlockWidget(product: detail),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              if (imageCount > 1) ...<Widget>[
+                                ProductPageDotsWidget(
+                                  count: imageCount,
+                                  current: _currentPage,
+                                ),
+                                const SizedBox(height: DSSpacing.s),
+                              ],
+                              ProductTitleBlockWidget(product: detail),
+                            ],
+                          ),
                         ),
                       ],
                     ),
