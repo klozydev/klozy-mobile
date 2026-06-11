@@ -911,6 +911,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get checkout_payment_failed => 'Payment failed. Please try again.';
 
   @override
+  String get checkout_quote_failed =>
+      'Couldn\'t update delivery for that address. Please try again.';
+
+  @override
   String get orders_my_orders => 'My orders';
 
   @override
@@ -1040,6 +1044,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get orders_status_unknown => '—';
+
+  @override
+  String get orders_action_failed =>
+      'Couldn\'t complete that action. Please try again.';
+
+  @override
+  String get offers_action_failed =>
+      'Couldn\'t update the offer. Please try again.';
 
   @override
   String get profile_title => 'Profile';
