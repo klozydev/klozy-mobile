@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
@@ -69,10 +71,13 @@ class _FeedTabWidgetState extends State<FeedTabWidget> {
     return RefreshIndicator(
       color: DSColor.primary,
       backgroundColor: DSColor.card,
-      onRefresh: () async {
-        final bloc = context.read<FeedBloc>();
-        bloc.add(const FeedRefreshed());
-        await bloc.stream.first;
+      onRefresh: () {
+        // The completer settles on success AND on quiet failure — awaiting
+        // `bloc.stream.first` would spin forever when a failed refresh emits
+        // nothing.
+        final completer = Completer<void>();
+        context.read<FeedBloc>().add(FeedRefreshed(completer: completer));
+        return completer.future;
       },
       child: CustomScrollView(
         controller: _controller,

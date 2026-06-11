@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
+import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
@@ -121,7 +122,13 @@ class _ReelShopSheetState extends State<ReelShopSheet> {
               ),
             ),
             IconButton(
-              onPressed: () => context.read<WishlistCubit>().toggle(product.id),
+              // Same gate as every other heart: guests get the sign-up sheet
+              // instead of a doomed 401 API call.
+              onPressed: () => locator<AccountGate>().guard(
+                context,
+                onAllowed: () =>
+                    context.read<WishlistCubit>().toggle(product.id),
+              ),
               icon: Icon(
                 liked ? Icons.favorite : Icons.favorite_border,
                 size: 22,

@@ -26,6 +26,15 @@ class WishlistCubit extends Cubit<Set<String>> {
     }
   }
 
+  /// Merges server-confirmed wishlisted ids into the set — used by screens
+  /// that fetch wishlist pages themselves, so a failed startup [load] doesn't
+  /// make their items render as un-wished.
+  void seed(Iterable<String> ids) => emit(<String>{...state, ...ids});
+
+  /// Wipes the set (logout/account deletion) so the next session doesn't
+  /// inherit the previous account's hearts.
+  void clear() => emit(const <String>{});
+
   Future<void> toggle(String id) async {
     final wasWished = state.contains(id);
     final optimistic = Set<String>.from(state);

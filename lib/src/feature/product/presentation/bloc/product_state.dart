@@ -44,3 +44,21 @@ final class ProductLoadedState extends ProductState {
 final class ProductDeletedState extends ProductState {
   const ProductDeletedState();
 }
+
+/// Transient one-shot outcome of an add-to-cart attempt — consumed by the
+/// page listener (snackbar + cart badge refresh), filtered out of the
+/// builder. The bloc re-emits the loaded state right after it.
+final class ProductCartResultState extends ProductState {
+  final bool success;
+
+  const ProductCartResultState({required this.success});
+
+  @override
+  List<Object?> get props => [success];
+}
+
+/// Transient one-shot signal that deleting the listing failed — consumed by
+/// the page listener (snackbar), filtered out of the builder.
+final class ProductDeleteFailedState extends ProductState {
+  const ProductDeleteFailedState();
+}

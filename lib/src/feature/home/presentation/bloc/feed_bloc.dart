@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
@@ -26,9 +27,13 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
 
   FeedBloc(this._productsRepository, this._catalogRepository, EventBus eventBus)
     : super(const FeedLoading()) {
-    on<FeedStarted>(_onStarted);
-    on<FeedCategorySelected>(_onCategorySelected);
-    on<FeedLoadMore>(_onLoadMore);
+    on<FeedStarted>(_onStarted, transformer: restartable());
+    // restartable: a late first-page response of the previous category must
+    // not overwrite the newly selected one.
+    on<FeedCategorySelected>(_onCategorySelected, transformer: restartable());
+    // droppable: scroll spam queues no duplicate page fetches (the default
+    // concurrent transformer would interleave them and desync _page).
+    on<FeedLoadMore>(_onLoadMore, transformer: droppable());
     on<FeedRefreshed>(_onRefreshed);
     _productsChangedSub = eventBus.on<ProductsChangedEvent>().listen(
       (_) => add(const FeedRefreshed()),
@@ -108,23 +113,36 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
     if (current is! FeedReady || current.isLoadingMore || !current.hasMore) {
       return;
     }
+    final requestedRootId = _rootId;
     emit(current.copyWith(isLoadingMore: true));
     try {
       final page = await _productsRepository.feed(
-        rootCategoryId: _rootId,
+        rootCategoryId: requestedRootId,
         page: _page + 1,
         limit: _limit,
       );
+      // A category switch or refresh may have replaced the list while this
+      // page was in flight — appending would mix categories and desync _page.
+      final latest = state;
+      if (emit.isDone ||
+          latest is! FeedReady ||
+          latest.selectedRootId != requestedRootId ||
+          !latest.isLoadingMore) {
+        return;
+      }
       _page += 1;
       emit(
-        current.copyWith(
-          items: <Product>[...current.items, ...page.data],
+        latest.copyWith(
+          items: <Product>[...latest.items, ...page.data],
           isLoadingMore: false,
           hasMore: page.data.length >= _limit,
         ),
       );
     } catch (_) {
-      emit(current.copyWith(isLoadingMore: false));
+      final latest = state;
+      if (!emit.isDone && latest is FeedReady && latest.isLoadingMore) {
+        emit(latest.copyWith(isLoadingMore: false));
+      }
     }
   }
 
@@ -134,24 +152,34 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
     FeedRefreshed event,
     Emitter<FeedState> emit,
   ) async {
-    if (state is! FeedReady) return;
     try {
-      _page = 1;
+      if (state is! FeedReady) return;
+      final requestedRootId = _rootId;
       final page = await _productsRepository.feed(
-        rootCategoryId: _rootId,
-        page: _page,
+        rootCategoryId: requestedRootId,
+        page: 1,
         limit: _limit,
       );
+      // Drop the result if a category switch landed while refreshing.
+      if (emit.isDone || _rootId != requestedRootId || state is! FeedReady) {
+        return;
+      }
+      // Commit the page counter only on success: resetting it before the
+      // request leaves a failed refresh with multi-page items but _page == 1,
+      // making the next load-more append duplicates of page 2.
+      _page = 1;
       emit(
         FeedReady(
           categories: _categories,
-          selectedRootId: _rootId,
+          selectedRootId: requestedRootId,
           items: page.data,
           hasMore: page.data.length >= _limit,
         ),
       );
     } catch (_) {
       // Quiet refresh: keep showing what we have.
+    } finally {
+      event.completer?.complete();
     }
   }
 }

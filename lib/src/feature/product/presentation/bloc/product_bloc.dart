@@ -59,8 +59,15 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     if (current is! ProductLoadedState) return;
     try {
       await _cartRepository.addItem(current.detail.id);
+      emit(const ProductCartResultState(success: true));
       emit(current.copyWith(inCart: true));
-    } catch (_) {}
+    } catch (_) {
+      // Surface the failure — swallowing it while the page showed an
+      // unconditional success snackbar told the user the item was added
+      // when it wasn't.
+      emit(const ProductCartResultState(success: false));
+      emit(current);
+    }
   }
 
   Future<void> _onMarkStatus(
@@ -86,7 +93,10 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     try {
       await _productsRepository.deleteProduct(current.detail.id);
       emit(const ProductDeletedState());
-    } catch (_) {}
+    } catch (_) {
+      emit(const ProductDeleteFailedState());
+      emit(current);
+    }
   }
 
   Future<void> _onReported(

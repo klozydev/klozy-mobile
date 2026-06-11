@@ -40,27 +40,57 @@ class ProductPage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductBloc, ProductState>(
-      builder: (BuildContext context, ProductState state) {
-        return switch (state) {
-          ProductLoadingState() => const Scaffold(
-            backgroundColor: DSColor.surface,
-            body: DSLoader(),
-          ),
-          ProductErrorState(:final type) => Scaffold(
-            backgroundColor: DSColor.surface,
-            appBar: AppBar(),
-            body: AppErrorWidget(
-              type: type,
-              onRetry: () =>
-                  context.read<ProductBloc>().add(ProductStarted(id)),
-            ),
-          ),
-          ProductDeletedState() => _DeletedView(),
-          ProductLoadedState() => _LoadedView(state: state),
-        };
-      },
+    return BlocConsumer<ProductBloc, ProductState>(
+      listenWhen: _listenWhen,
+      listener: _listener,
+      buildWhen: _buildWhen,
+      builder: _builder,
     );
+  }
+
+  bool _listenWhen(ProductState previous, ProductState current) =>
+      current is ProductCartResultState || current is ProductDeleteFailedState;
+
+  void _listener(BuildContext context, ProductState state) {
+    if (state is ProductCartResultState) {
+      if (state.success) {
+        // Refresh the badge only once the POST succeeded — refreshing
+        // beforehand raced the add and fetched the stale count.
+        context.read<CartCubit>().refresh();
+        context.showSnackBar(context.l10N.product_added_to_cart);
+      } else {
+        context.showSnackBar(context.l10N.error_scenario_generic_title);
+      }
+    } else if (state is ProductDeleteFailedState) {
+      context.showSnackBar(context.l10N.error_scenario_generic_title);
+    }
+  }
+
+  bool _buildWhen(ProductState previous, ProductState current) =>
+      current is! ProductCartResultState &&
+      current is! ProductDeleteFailedState;
+
+  Widget _builder(BuildContext context, ProductState state) {
+    return switch (state) {
+      ProductLoadingState() => const Scaffold(
+        backgroundColor: DSColor.surface,
+        body: DSLoader(),
+      ),
+      ProductErrorState(:final type) => Scaffold(
+        backgroundColor: DSColor.surface,
+        appBar: AppBar(),
+        body: AppErrorWidget(
+          type: type,
+          onRetry: () => context.read<ProductBloc>().add(ProductStarted(id)),
+        ),
+      ),
+      ProductDeletedState() => _DeletedView(),
+      ProductLoadedState() => _LoadedView(state: state),
+      // Transient one-shot states are filtered by _buildWhen; these cases
+      // only keep the switch exhaustive.
+      ProductCartResultState() ||
+      ProductDeleteFailedState() => const SizedBox.shrink(),
+    };
   }
 }
 
@@ -176,11 +206,8 @@ class _LoadedViewState extends State<_LoadedView> {
             child: ProductCtaBarWidget(
               detail: detail,
               inCart: state.inCart,
-              onAddToCart: () {
-                context.read<ProductBloc>().add(const ProductAddToCart());
-                context.read<CartCubit>().refresh();
-                context.showSnackBar(context.l10N.product_added_to_cart);
-              },
+              onAddToCart: () =>
+                  context.read<ProductBloc>().add(const ProductAddToCart()),
               onViewCart: () => context.router.push(const CartRoute()),
               onEdit: () =>
                   context.router.push(EditListingRoute(productId: detail.id)),

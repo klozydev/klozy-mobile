@@ -42,7 +42,19 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
   List<CatalogSizeValue> _allSizes = const <CatalogSizeValue>[];
   List<CatalogBrand> _brands = const <CatalogBrand>[];
 
-  PickedCategory? _selectedCategory;
+  // Seeded from the active filters: reopening the sheet must show (and
+  // re-apply) the current category, otherwise tapping "Show results" to merely
+  // add a price filter silently wipes it.
+  late PickedCategory? _selectedCategory = widget.initial.categoryId == null
+      ? null
+      : PickedCategory(
+          id: widget.initial.categoryId!,
+          path: widget.initial.categoryPath ?? '',
+        );
+
+  // Root-category scope picked from the browse cards — carried over unless the
+  // user explicitly picks (or clears) a category here.
+  late String? _rootCategoryId = widget.initial.rootCategoryId;
 
   late Set<String> _conditions = <String>{...widget.initial.conditions};
   late Set<String> _sizes = <String>{...widget.initial.sizes};
@@ -90,6 +102,7 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
   void _reset() {
     setState(() {
       _selectedCategory = null;
+      _rootCategoryId = null;
       _conditions = <String>{};
       _sizes = <String>{};
       _brandIds = <String>{};
@@ -102,6 +115,7 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
   void _apply() {
     Navigator.of(context).pop(
       SearchFilters(
+        rootCategoryId: _rootCategoryId,
         categoryId: _selectedCategory?.id,
         categoryPath: _selectedCategory?.path,
         conditions: _conditions,
@@ -138,7 +152,11 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
                     repo: _catalog,
                     showBreadcrumb: true,
                     onLeafSelected: (PickedCategory picked) {
-                      setState(() => _selectedCategory = picked);
+                      setState(() {
+                        _selectedCategory = picked;
+                        // An explicit pick replaces the browse-card scope.
+                        _rootCategoryId = null;
+                      });
                     },
                   ),
                 if (_allConditions.isNotEmpty) ...<Widget>[

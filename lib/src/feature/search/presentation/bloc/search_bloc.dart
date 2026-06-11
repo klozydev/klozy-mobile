@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
@@ -24,11 +25,13 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
   SearchBloc(this._productsRepository, this._catalogRepository)
     : super(const SearchLoadingState()) {
-    on<SearchInitEvent>(_onInit);
-    on<SearchQueryChanged>(_onQueryChanged);
-    on<SearchSortChanged>(_onSortChanged);
-    on<SearchFiltersChanged>(_onFiltersChanged);
-    on<SearchLoadMore>(_onLoadMore);
+    on<SearchInitEvent>(_onInit, transformer: restartable());
+    // restartable per event type + the stale-criteria guard in _decide: a
+    // late response for "a" must never overwrite the results for "ab".
+    on<SearchQueryChanged>(_onQueryChanged, transformer: restartable());
+    on<SearchSortChanged>(_onSortChanged, transformer: restartable());
+    on<SearchFiltersChanged>(_onFiltersChanged, transformer: restartable());
+    on<SearchLoadMore>(_onLoadMore, transformer: droppable());
   }
 
   bool get _isBrowse =>
@@ -78,9 +81,22 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       return;
     }
     emit(const SearchLoadingState());
+    // The three criteria events are restartable within their own type, but a
+    // query change does not cancel an in-flight filters change (different
+    // handlers): capture the criteria and drop the response if any of them
+    // moved while the request was in flight.
+    final query = _query;
+    final sort = _sort;
+    final filters = _filters;
     try {
       _page = 1;
       final page = await _search(_page);
+      if (emit.isDone ||
+          query != _query ||
+          sort != _sort ||
+          filters != _filters) {
+        return;
+      }
       emit(
         SearchResultsState(
           results: page,
@@ -91,6 +107,12 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         ),
       );
     } catch (error) {
+      if (emit.isDone ||
+          query != _query ||
+          sort != _sort ||
+          filters != _filters) {
+        return;
+      }
       emit(SearchErrorState(type: AppErrorType.fromException(error)));
     }
   }
@@ -108,16 +130,29 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     emit(current.copyWith(isLoadingMore: true));
     try {
       final page = await _search(_page + 1);
+      // A criteria change may have replaced the results while this page was
+      // in flight — appending would mix result sets and desync _page.
+      final latest = state;
+      if (emit.isDone ||
+          latest is! SearchResultsState ||
+          !latest.isLoadingMore) {
+        return;
+      }
       _page += 1;
       emit(
-        current.copyWith(
-          results: <Product>[...current.results, ...page],
+        latest.copyWith(
+          results: <Product>[...latest.results, ...page],
           isLoadingMore: false,
           hasMore: page.length >= _limit,
         ),
       );
     } catch (_) {
-      emit(current.copyWith(isLoadingMore: false));
+      final latest = state;
+      if (!emit.isDone &&
+          latest is SearchResultsState &&
+          latest.isLoadingMore) {
+        emit(latest.copyWith(isLoadingMore: false));
+      }
     }
   }
 

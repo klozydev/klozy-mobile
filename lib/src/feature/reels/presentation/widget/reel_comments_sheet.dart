@@ -60,6 +60,7 @@ class _ReelCommentsSheetState extends State<ReelCommentsSheet> {
     setState(() => _sending = true);
     try {
       final comment = await _repo.addComment(widget.reelId, body);
+      if (!mounted) return;
       _input.clear();
       setState(() => _comments = <ReelComment>[..._comments, comment]);
     } catch (_) {
