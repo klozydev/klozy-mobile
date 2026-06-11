@@ -36,12 +36,20 @@ class _BlockedUsersPageState extends State<BlockedUsersPage> {
   }
 
   Future<void> _unblock(BlockedUser user) async {
+    final previous = _users;
     setState(
       () => _users = _users.where((BlockedUser u) => u.id != user.id).toList(),
     );
     try {
       await _repo.unblock(user.id);
-    } catch (_) {}
+    } catch (_) {
+      // Roll back: the user is still blocked server-side, so silently
+      // removing the row would lie about it.
+      if (mounted) {
+        setState(() => _users = previous);
+        context.showSnackBar(context.l10N.settings_save_failed);
+      }
+    }
   }
 
   @override

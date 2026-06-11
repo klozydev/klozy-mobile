@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/app/notifications/notifications_cubit.dart';
@@ -13,6 +14,7 @@ import 'package:klozy/src/router/app_router.dart';
 @lazySingleton
 class PushService {
   final FirebaseMessaging _messaging;
+  final FirebaseAuth _firebaseAuth;
   final NotificationsRepository _repository;
   final NotificationsCubit _notificationsCubit;
   final AppRouter _router;
@@ -25,6 +27,7 @@ class PushService {
 
   PushService(
     this._messaging,
+    this._firebaseAuth,
     this._repository,
     this._notificationsCubit,
     this._router,
@@ -35,6 +38,11 @@ class PushService {
   /// Call once after sign-in (idempotent). Requests permission, registers the
   /// device token, and hooks refresh/foreground/tap handlers.
   Future<void> init() async {
+    // Never latch for guests: token registration needs an authenticated user
+    // (`POST /v1/me/device-tokens` 401s otherwise), and latching here used to
+    // permanently skip registration for sessions that started signed-out.
+    // Skipping also avoids prompting guests for the OS push permission.
+    if (_firebaseAuth.currentUser == null) return;
     if (_initialized) return;
     _initialized = true;
     try {

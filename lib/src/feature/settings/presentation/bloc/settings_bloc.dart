@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/app/notifications/notifications_cubit.dart';
 import 'package:klozy/src/app/push/push_service.dart';
+import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/config/entity/contact_info.dart';
@@ -16,12 +18,16 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   final PublicConfigRepository _configRepository;
 
   final PushService _pushService;
+  final WishlistCubit _wishlistCubit;
+  final NotificationsCubit _notificationsCubit;
 
   SettingsBloc(
     this._meRepository,
     this._authRepository,
     this._configRepository,
     this._pushService,
+    this._wishlistCubit,
+    this._notificationsCubit,
   ) : super(const SettingsLoadingState()) {
     on<SettingsStarted>(_onStarted);
     on<SettingsToggleNotification>(_onToggle);
@@ -80,6 +86,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     try {
       await _authRepository.signOut();
     } catch (_) {}
+    _clearSessionState();
     emit(const SettingsSignedOutState());
   }
 
@@ -96,6 +103,15 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     try {
       await _authRepository.signOut();
     } catch (_) {}
+    _clearSessionState();
     emit(const SettingsSignedOutState());
+  }
+
+  /// The lazy-singleton cubits outlive the session — without this a guest
+  /// browsing after logout still sees the previous account's wishlist hearts
+  /// and unread-notification badge.
+  void _clearSessionState() {
+    _wishlistCubit.clear();
+    _notificationsCubit.clear();
   }
 }

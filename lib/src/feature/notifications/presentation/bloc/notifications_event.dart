@@ -13,6 +13,11 @@ final class NotificationsStarted extends NotificationsEvent {
   const NotificationsStarted();
 }
 
+/// Loads the next page of notifications (infinite scroll).
+final class NotificationsLoadMore extends NotificationsEvent {
+  const NotificationsLoadMore();
+}
+
 final class NotificationsReadAll extends NotificationsEvent {
   const NotificationsReadAll();
 }
