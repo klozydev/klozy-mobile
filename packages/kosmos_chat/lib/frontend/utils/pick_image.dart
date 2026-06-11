@@ -139,7 +139,9 @@ abstract class PickImageController {
         if (isFileImage == null) return [];
 
         if (!isFileImage) {
-          thumbnailData = (await _getVideoThumbnail(asset))!;
+          // May be null (the video_thumbnail plugin was dropped during the
+          // port); MultiPickedAsset.thumbnail is nullable.
+          thumbnailData = await _getVideoThumbnail(asset);
         }
 
         MultiPickedAsset newMedia = MultiPickedAsset(
@@ -508,7 +510,8 @@ abstract class PickImageController {
   }
 
   static String _getExtension(String filePath) {
-    return '.${filePath.split('.').last.toLowerCase()}';
+    // No leading dot — callers compare against bare extensions ("png", "mp4").
+    return filePath.split('.').last.toLowerCase();
   }
 
  static  Future<Uint8List?> _getVideoThumbnail(XFile videoFile) async {

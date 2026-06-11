@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core_kosmos/core_kosmos.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kosmos_chat/backend/kosmos_chat_backend.dart';
 import 'package:kosmos_chat/backend/provider/tchat_user_data.dart';
@@ -39,8 +40,11 @@ class MessageBox extends StatefulHookConsumerWidget {
 class _MessageBoxState extends ConsumerState<MessageBox> {
    
 
+  // Identity comes from FirebaseAuth directly — the core_kosmos userProvider
+  // is never initialized in this app, so `userProvider.user` is always null
+  // and would mark every message (including our own) as from the other user.
   late final bool fromMe =
-      widget.message.senderId == ref.read(userProvider).user?.id;
+      widget.message.senderId == FirebaseAuth.instance.currentUser?.uid;
   late final bool isFirstMessage = widget.previousMessage == null ||
       widget.previousMessage?.senderId != widget.message.senderId;
   late final bool isLastMessage = widget.nextMessage == null ||

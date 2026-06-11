@@ -52,8 +52,10 @@ class TchatListProvider with ChangeNotifier {
 
     _authStateChanges =
         FirebaseAuth.instance.authStateChanges().listen((event) {
-      if (event != null && !isInit) {
-        init();
+      if (event != null) {
+        // Only clear on sign-out: a duplicate auth emission for an
+        // already-initialized session must not wipe the list.
+        if (!isInit) init();
       } else {
         clear();
       }
@@ -62,6 +64,7 @@ class TchatListProvider with ChangeNotifier {
 
   Future<void> init() async {
     if (FirebaseAuth.instance.currentUser == null) return;
+    isInit = true;
 
     _subscription?.cancel();
 
@@ -113,6 +116,8 @@ class TchatListProvider with ChangeNotifier {
   void dispose() {
     _authStateChanges?.cancel();
     _authStateChanges = null;
+    _subscription?.cancel();
+    _subscription = null;
     super.dispose();
   }
 

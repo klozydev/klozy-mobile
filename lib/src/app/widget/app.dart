@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' show ProviderScope;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:klozy/l10n/app_localizations.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_event.dart';
@@ -82,32 +83,41 @@ class _AppState extends State<App> {
                         value: locator<NotificationsCubit>(),
                       ),
                     ],
-                    child: MaterialApp.router(
-                      routerConfig: _appRouter.config(),
-                      debugShowCheckedModeBanner: false,
-                      onGenerateTitle: (BuildContext context) =>
-                          context.l10N.app_name,
-                      // easy_localization (chat `.tr()`) + gen-l10n (`context.l10N`)
-                      // delegates coexist; locale/supportedLocales come from
-                      // EasyLocalization (root, in main.dart).
-                      localizationsDelegates: <LocalizationsDelegate<dynamic>>[
-                        ...context.localizationDelegates,
-                        ...AppLocalizations.localizationsDelegates,
-                      ],
-                      supportedLocales: context.supportedLocales,
-                      locale: context.locale,
-                      theme: dsTheme(),
-                      builder: (context, child) {
-                        final clamped = MediaQuery.textScalerOf(
-                          context,
-                        ).clamp(minScaleFactor: 1, maxScaleFactor: 1.2);
-                        return MediaQuery(
-                          data: MediaQuery.of(
+                    // ScreenUtilInit backs the chat island: core_kosmos
+                    // responsive helpers call .w/.h, which throw a
+                    // LateInitializationError unless ScreenUtil is initialized
+                    // before any chat surface renders. Design size matches
+                    // core_kosmos AppModel.size's default.
+                    child: ScreenUtilInit(
+                      designSize: const Size(375, 812),
+                      builder: (BuildContext _, Widget? _) => MaterialApp.router(
+                        routerConfig: _appRouter.config(),
+                        debugShowCheckedModeBanner: false,
+                        onGenerateTitle: (BuildContext context) =>
+                            context.l10N.app_name,
+                        // easy_localization (chat `.tr()`) + gen-l10n (`context.l10N`)
+                        // delegates coexist; locale/supportedLocales come from
+                        // EasyLocalization (root, in main.dart).
+                        localizationsDelegates:
+                            <LocalizationsDelegate<dynamic>>[
+                              ...context.localizationDelegates,
+                              ...AppLocalizations.localizationsDelegates,
+                            ],
+                        supportedLocales: context.supportedLocales,
+                        locale: context.locale,
+                        theme: dsTheme(),
+                        builder: (context, child) {
+                          final clamped = MediaQuery.textScalerOf(
                             context,
-                          ).copyWith(textScaler: clamped),
-                          child: child ?? const SizedBox.shrink(),
-                        );
-                      },
+                          ).clamp(minScaleFactor: 1, maxScaleFactor: 1.2);
+                          return MediaQuery(
+                            data: MediaQuery.of(
+                              context,
+                            ).copyWith(textScaler: clamped),
+                            child: child ?? const SizedBox.shrink(),
+                          );
+                        },
+                      ),
                     ),
                   );
                 },

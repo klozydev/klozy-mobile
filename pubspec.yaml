@@ -65,6 +65,10 @@ dependencies:
   hooks_riverpod: 2.6.1
   # Used by the ported CustomTextMessage bubble (offer/purchase builders).
   timeago_flutter: ^3.7.0
+  # Required at the root for the chat island: core_kosmos responsive helpers
+  # call .w/.h, which throw unless ScreenUtil is initialized (ScreenUtilInit
+  # wraps the app in app.dart).
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:

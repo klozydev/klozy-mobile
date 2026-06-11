@@ -852,7 +852,7 @@ class _BottomMessageBarState extends ConsumerState<BottomMessageBar> {
                           height: formatHeight(26)),
                     sw(8),
                     Text(
-                      "${recDuration?.inMinutes.autoPadLeft(2) ?? "00"}:${(recDuration?.inSeconds ?? 0 - ((recDuration?.inMinutes ?? 0) * 60)).autoPadLeft(2)}",
+                      "${recDuration?.inMinutes.autoPadLeft(2) ?? "00"}:${((recDuration?.inSeconds ?? 0) - ((recDuration?.inMinutes ?? 0) * 60)).autoPadLeft(2)}",
                       style: DefaultAppStyle.grey(22, FontWeight.w500),
                     ),
                     sw(3),

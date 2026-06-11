@@ -169,14 +169,16 @@ class MessageController extends MessageInterface {
       });
     }
 // Blocage des utilisateurs
+    // set + merge: le doc metadata peut ne pas exister (apps sans collection
+    // users provisionnée) — update() échouerait en not-found.
     await FirebaseFirestore.instance
         .collection("users")
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection("metadata")
         .doc("metadata")
-        .update({
+        .set({
       "bloquedUsers": FieldValue.arrayUnion(usersInChat),
-    });
+    }, SetOptions(merge: true));
   }
 
   @override
@@ -199,8 +201,8 @@ class MessageController extends MessageInterface {
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection("metadata")
         .doc("metadata")
-        .update({
+        .set({
       "bloquedUsers": FieldValue.arrayRemove(usersInChat),
-    });
+    }, SetOptions(merge: true));
   }
 }
