@@ -48,7 +48,13 @@ class OrderDetailBloc extends Bloc<OrderDetailEvent, OrderDetailState> {
             body: event.body,
           );
       }
-    } catch (_) {}
+    } catch (_) {
+      // Surface the failure and clear the acting spinner — if the reload
+      // below also failed, isActing:true would otherwise stick forever.
+      emit(const OrderActionFailedState());
+      emit(OrderDetailLoadedState(current.order));
+      return;
+    }
     await _load(id, emit);
   }
 
@@ -56,7 +62,13 @@ class OrderDetailBloc extends Bloc<OrderDetailEvent, OrderDetailState> {
     try {
       emit(OrderDetailLoadedState(await _repository.getOrder(id)));
     } catch (error) {
-      if (state is! OrderDetailLoadedState) {
+      final current = state;
+      if (current is OrderDetailLoadedState) {
+        // Keep showing what we have, but never leave the spinner stuck.
+        if (current.isActing) {
+          emit(OrderDetailLoadedState(current.order));
+        }
+      } else {
         emit(OrderDetailErrorState(type: AppErrorType.fromException(error)));
       }
     }

@@ -7,7 +7,14 @@ class SellDraft extends Equatable {
   final String? description;
   final num? price;
   final String? categoryId;
+
+  /// Display label for [categoryId] (the form shows it without re-resolving
+  /// the category tree).
+  final String? categoryName;
   final String? brandId;
+
+  /// Display label for [brandId].
+  final String? brandName;
   final String? size;
   final String? conditionId;
 
@@ -20,7 +27,9 @@ class SellDraft extends Equatable {
     this.description,
     this.price,
     this.categoryId,
+    this.categoryName,
     this.brandId,
+    this.brandName,
     this.size,
     this.conditionId,
     this.translations,
@@ -34,7 +43,9 @@ class SellDraft extends Equatable {
     description,
     price,
     categoryId,
+    categoryName,
     brandId,
+    brandName,
     size,
     conditionId,
     translations,

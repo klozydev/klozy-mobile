@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:klozy/src/core/components/app_error_type.dart';
+import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_segmented_control.dart';
@@ -23,6 +25,7 @@ class _OffersPageState extends State<OffersPage> {
   final OffersRepository _repo = locator<OffersRepository>();
   int _index = 0;
   bool _loading = true;
+  AppErrorType? _error;
   List<Offer> _incoming = const <Offer>[];
   List<Offer> _outgoing = const <Offer>[];
 
@@ -40,7 +43,12 @@ class _OffersPageState extends State<OffersPage> {
       ]);
       _incoming = results[0];
       _outgoing = results[1];
-    } catch (_) {}
+      _error = null;
+    } catch (error) {
+      // A load failure must not render as "No offers" — keep a retryable
+      // error state instead.
+      _error = AppErrorType.fromException(error);
+    }
     if (mounted) setState(() => _loading = false);
   }
 
@@ -48,12 +56,20 @@ class _OffersPageState extends State<OffersPage> {
     try {
       await action();
     } catch (_) {
-      if (mounted) context.showSnackBar(context.l10N.settings_save_failed);
+      if (mounted) context.showSnackBar(context.l10N.offers_action_failed);
     }
     if (mounted) {
       setState(() => _loading = true);
       await _load();
     }
+  }
+
+  void _retry() {
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    _load();
   }
 
   @override
@@ -84,6 +100,8 @@ class _OffersPageState extends State<OffersPage> {
           Expanded(
             child: _loading
                 ? const DSLoader()
+                : _error != null
+                ? AppErrorWidget(type: _error!, onRetry: _retry)
                 : offers.isEmpty
                 ? Center(
                     child: Text(

@@ -41,12 +41,18 @@ class SellPhotoStripWidget extends StatelessWidget {
             );
           }
           final path = photoPaths[index - 1];
+          // Defensive: callers normally pass local file paths, but fall back
+          // to a network render when only uploaded URLs are available.
+          final bool isRemote =
+              path.startsWith('http://') || path.startsWith('https://');
           return Container(
             width: 72,
             margin: const EdgeInsets.only(left: DSSpacing.xxs),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(DSBorderRadius.image),
-              child: Image.file(File(path), fit: BoxFit.cover),
+              child: isRemote
+                  ? Image.network(path, fit: BoxFit.cover)
+                  : Image.file(File(path), fit: BoxFit.cover),
             ),
           );
         },

@@ -47,19 +47,27 @@ class CheckoutRepositoryImpl implements CheckoutRepository {
       },
     );
     final json = response.data ?? const <String, dynamic>{};
-    // Fees come back in fils (1 AED = 100 fils).
-    num aed(List<String> keys) => (_num(json, keys) ?? 0) / 100;
+    // `*Fils` keys come back in fils (1 AED = 100 fils) and are scaled; the
+    // plain-key fallbacks are read unscaled, consistent with _orderSummary
+    // and the orders mapper. NOTE: the API's unit convention for the plain
+    // keys still needs backend confirmation.
+    num aed(String filsKey, String plainKey) {
+      final fils = _num(json, <String>[filsKey]);
+      if (fils != null) return fils / 100;
+      return _num(json, <String>[plainKey]) ?? 0;
+    }
+
     final rawOptions = json['shippingOptions'] is List
         ? json['shippingOptions'] as List<dynamic>
         : const <dynamic>[];
     return CheckoutQuote(
       addressId: _str(json, ['addressId']) ?? addressId,
       fees: OrderFees(
-        subtotal: aed(['subtotalFils', 'subtotal']),
-        shipping: aed(['shippingFils', 'shipping']),
-        protection: aed(['protectionFils', 'protection']),
-        vat: aed(['vatFils', 'vat']),
-        total: aed(['totalFils', 'total']),
+        subtotal: aed('subtotalFils', 'subtotal'),
+        shipping: aed('shippingFils', 'shipping'),
+        protection: aed('protectionFils', 'protection'),
+        vat: aed('vatFils', 'vat'),
+        total: aed('totalFils', 'total'),
       ),
       shipmentType: _str(json, ['shipmentType']),
       shippingOptions: rawOptions

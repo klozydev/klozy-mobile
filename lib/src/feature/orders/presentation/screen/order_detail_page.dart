@@ -121,7 +121,13 @@ class OrderDetailPage extends StatelessWidget implements AutoRouteWrapper {
         ),
         title: Text(context.l10N.orders_order_details),
       ),
-      body: BlocBuilder<OrderDetailBloc, OrderDetailState>(
+      body: BlocConsumer<OrderDetailBloc, OrderDetailState>(
+        listenWhen: (OrderDetailState previous, OrderDetailState current) =>
+            current is OrderActionFailedState,
+        listener: (BuildContext context, OrderDetailState state) =>
+            context.showSnackBar(context.l10N.orders_action_failed),
+        buildWhen: (OrderDetailState previous, OrderDetailState current) =>
+            current is! OrderActionFailedState,
         builder: (BuildContext context, OrderDetailState state) {
           return switch (state) {
             OrderDetailLoadingState() => const DSLoader(),
@@ -131,10 +137,14 @@ class OrderDetailPage extends StatelessWidget implements AutoRouteWrapper {
                   context.read<OrderDetailBloc>().add(OrderDetailStarted(id)),
             ),
             OrderDetailLoadedState() => _OrderBody(state: state),
+            // Filtered by buildWhen; case kept for switch exhaustiveness.
+            OrderActionFailedState() => const SizedBox.shrink(),
           };
         },
       ),
       bottomNavigationBar: BlocBuilder<OrderDetailBloc, OrderDetailState>(
+        buildWhen: (OrderDetailState previous, OrderDetailState current) =>
+            current is! OrderActionFailedState,
         builder: (BuildContext context, OrderDetailState state) {
           if (state is! OrderDetailLoadedState) return const SizedBox.shrink();
           final order = state.order;

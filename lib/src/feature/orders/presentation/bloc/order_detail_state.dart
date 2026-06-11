@@ -24,6 +24,12 @@ final class OrderDetailErrorState extends OrderDetailState {
   List<Object?> get props => [type];
 }
 
+/// Transient one-shot signal that an order action failed — consumed by the
+/// page listener (snackbar); the bloc re-emits the loaded state right after.
+final class OrderActionFailedState extends OrderDetailState {
+  const OrderActionFailedState();
+}
+
 final class OrderDetailLoadedState extends OrderDetailState {
   final Order order;
   final bool isActing;

@@ -75,8 +75,17 @@ class CheckoutPage extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return BlocConsumer<CheckoutBloc, CheckoutState>(
       listener: (BuildContext context, CheckoutState state) {
-        if (state is CheckoutPaymentState) _present(context, state.result);
+        if (state is CheckoutPaymentState) {
+          _present(context, state.result);
+        } else if (state is CheckoutPayFailedState) {
+          context.showSnackBar(context.l10N.checkout_payment_failed);
+        } else if (state is CheckoutQuoteFailedState) {
+          context.showSnackBar(context.l10N.checkout_quote_failed);
+        }
       },
+      buildWhen: (CheckoutState previous, CheckoutState current) =>
+          current is! CheckoutPayFailedState &&
+          current is! CheckoutQuoteFailedState,
       builder: (BuildContext context, CheckoutState state) {
         return switch (state) {
           CheckoutLoadingState() || CheckoutPaymentState() => const Scaffold(
@@ -94,6 +103,10 @@ class CheckoutPage extends StatelessWidget implements AutoRouteWrapper {
           ),
           CheckoutReadyState() => _Review(state: state),
           CheckoutDoneState() => const _OrderPlaced(),
+          // Transient one-shot states are filtered by buildWhen; these cases
+          // only keep the switch exhaustive.
+          CheckoutPayFailedState() ||
+          CheckoutQuoteFailedState() => const SizedBox.shrink(),
         };
       },
     );
@@ -201,7 +214,17 @@ class _Review extends StatelessWidget {
             address: address,
             canChange: state.addresses.length > 1,
             onChange: () => _pickAddress(context),
-            onAdd: () => context.router.push(const AddressBookRoute()),
+            onAdd: () {
+              final bloc = context.read<CheckoutBloc>();
+              // Refresh on return — addresses created in the address book
+              // must show up (and enable Pay) without leaving checkout.
+              context.router
+                  .push(const AddressBookRoute())
+                  .then(
+                    (_) => bloc.add(const CheckoutAddressesRefreshRequested()),
+                  )
+                  .ignore();
+            },
           ),
           _card(context.l10N.checkout_summary, <Widget>[
             if (state.isQuoting)

@@ -18,6 +18,14 @@ final class CheckoutStarted extends CheckoutEvent {
   List<Object?> get props => [sellerId];
 }
 
+/// Quietly reloads the address book (e.g. after returning from the address
+/// book screen) and re-quotes if the selection changed — without this a
+/// first-time buyer who adds an address comes back to a dead "Add address"
+/// card and a disabled Pay button.
+final class CheckoutAddressesRefreshRequested extends CheckoutEvent {
+  const CheckoutAddressesRefreshRequested();
+}
+
 final class CheckoutAddressSelected extends CheckoutEvent {
   final String addressId;
 

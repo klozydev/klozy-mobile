@@ -77,11 +77,16 @@ class DSBottomSheet extends StatelessWidget {
             ),
           Flexible(
             child: Padding(
+              // viewInsets: showModalBottomSheet content does not avoid the
+              // keyboard by itself — without it the sheet's submit button is
+              // covered as soon as a field focuses (offer, report).
               padding: EdgeInsets.fromLTRB(
                 16,
                 4,
                 16,
-                28 + MediaQuery.viewPaddingOf(context).bottom,
+                28 +
+                    MediaQuery.viewPaddingOf(context).bottom +
+                    MediaQuery.viewInsetsOf(context).bottom,
               ),
               child: child,
             ),

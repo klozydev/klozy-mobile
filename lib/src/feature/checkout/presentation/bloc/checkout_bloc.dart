@@ -26,6 +26,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
   CheckoutBloc(this._checkoutRepository, this._meRepository, this._cartCubit)
     : super(const CheckoutLoadingState()) {
     on<CheckoutStarted>(_onStarted);
+    on<CheckoutAddressesRefreshRequested>(_onAddressesRefreshRequested);
     on<CheckoutAddressSelected>(_onAddressSelected);
     on<CheckoutShipmentSelected>(_onShipmentSelected);
     on<CheckoutPayRequested>(_onPayRequested);
@@ -64,6 +65,36 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
     }
   }
 
+  Future<void> _onAddressesRefreshRequested(
+    CheckoutAddressesRefreshRequested event,
+    Emitter<CheckoutState> emit,
+  ) async {
+    if (state is! CheckoutReadyState) return;
+    try {
+      _addresses = await _meRepository.getAddresses();
+    } catch (_) {
+      emit(_ready);
+      return;
+    }
+    final bool selectionGone =
+        _selectedId == null ||
+        !_addresses.any((Address a) => a.id == _selectedId);
+    if (!selectionGone) {
+      emit(_ready);
+      return;
+    }
+    _selectedId = _defaultAddressId();
+    emit(_ready.copyWith(isQuoting: true));
+    try {
+      _quote = await _checkoutRepository.quote(
+        _sellerId,
+        addressId: _selectedId,
+      );
+      _shipmentType = _quote.shipmentType;
+    } catch (_) {}
+    emit(_ready);
+  }
+
   String? _defaultAddressId() {
     if (_addresses.isEmpty) return null;
     for (final Address a in _addresses) {
@@ -76,6 +107,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
     CheckoutAddressSelected event,
     Emitter<CheckoutState> emit,
   ) async {
+    final previousId = _selectedId;
     _selectedId = event.addressId;
     emit(_ready.copyWith(isQuoting: true));
     try {
@@ -85,7 +117,13 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
       );
       // Tiers (and prices) are address-specific — reset to the new default.
       _shipmentType = _quote.shipmentType;
-    } catch (_) {}
+    } catch (_) {
+      // Keeping the new address with the OLD quote would display totals that
+      // belong to a different address — revert the selection and tell the
+      // user instead.
+      _selectedId = previousId;
+      emit(const CheckoutQuoteFailedState());
+    }
     emit(_ready);
   }
 
@@ -110,6 +148,9 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
       );
       emit(CheckoutPaymentState(_result!));
     } catch (_) {
+      // Surface the failure — silently re-emitting ready made the Pay tap
+      // look like a no-op.
+      emit(const CheckoutPayFailedState());
       emit(_ready);
     }
   }

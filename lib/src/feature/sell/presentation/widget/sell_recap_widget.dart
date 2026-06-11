@@ -63,6 +63,51 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
   bool _showErrors = false;
 
   @override
+  void initState() {
+    super.initState();
+    // Seed the pickers from the AI draft — without this the suggested
+    // category/brand/size/condition were silently discarded and the user had
+    // to re-pick fields the analysis already filled.
+    final draft = widget.state.draft;
+    final conditionId = draft.conditionId;
+    if (conditionId != null &&
+        widget.state.conditions.any(
+          (CatalogCondition c) => c.slug == conditionId,
+        )) {
+      _conditionSlug = conditionId;
+    }
+    final categoryId = draft.categoryId;
+    if (categoryId != null && categoryId.isNotEmpty) {
+      _category = PickedCategory(
+        id: categoryId,
+        path: draft.categoryName ?? '',
+      );
+      _loadSizes(categoryId, preferredSize: draft.size);
+    }
+    final brandId = draft.brandId;
+    final brandName = draft.brandName;
+    if (brandId != null && brandName != null && brandName.isNotEmpty) {
+      _brand = (id: brandId, name: brandName);
+    }
+  }
+
+  Future<void> _loadSizes(String categoryId, {String? preferredSize}) async {
+    try {
+      final sizes = await locator<CatalogRepository>().getSizeConfig(
+        categoryId,
+      );
+      if (!mounted) return;
+      setState(() {
+        _sizes = sizes;
+        if (preferredSize != null &&
+            sizes.any((CatalogSizeValue s) => s.token == preferredSize)) {
+          _size = preferredSize;
+        }
+      });
+    } catch (_) {}
+  }
+
+  @override
   void dispose() {
     _title.dispose();
     _price.dispose();
@@ -80,10 +125,10 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
       _size = null;
       _sizes = const <CatalogSizeValue>[];
     });
-    try {
-      final sizes = await locator<CatalogRepository>().getSizeConfig(result.id);
-      if (mounted) setState(() => _sizes = sizes);
-    } catch (_) {}
+    context.read<SellBloc>().add(
+      const SellDraftFieldEdited(SellDraftField.category),
+    );
+    await _loadSizes(result.id);
   }
 
   Future<void> _pickBrand() async {
@@ -92,7 +137,12 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
       title: context.l10N.sell_brand,
       child: const SellBrandPicker(),
     );
-    if (picked != null) setState(() => _brand = picked);
+    if (picked != null && mounted) {
+      setState(() => _brand = picked);
+      context.read<SellBloc>().add(
+        const SellDraftFieldEdited(SellDraftField.brand),
+      );
+    }
   }
 
   num? get _priceValue => num.tryParse(_price.text.trim());
@@ -158,8 +208,17 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SellPhotoStripWidget(
-                  photoPaths: state.imageUrls,
-                  onEditTapped: () => context.router.maybePop(),
+                  // Local paths, not the uploaded URLs — the strip renders
+                  // files from disk.
+                  photoPaths: state.photoPaths.isNotEmpty
+                      ? state.photoPaths
+                      : state.imageUrls,
+                  // Back to the photos step with the current selection —
+                  // popping here closed the whole sell flow and lost the
+                  // draft.
+                  onEditTapped: () => context.read<SellBloc>().add(
+                    SellPhotosUpdated(state.photoPaths),
+                  ),
                 ),
                 const SizedBox(height: DSSpacing.s),
                 DSFieldLabel(
@@ -258,22 +317,42 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                   ],
                 ),
                 const SizedBox(height: DSSpacing.m),
-                _sectionLabel(context.l10N.sell_category, required: true),
+                _sectionLabel(
+                  context.l10N.sell_category,
+                  required: true,
+                  suffix: state.aiFilled.contains(SellDraftField.category)
+                      ? const SellFieldAiBadgeWidget()
+                      : null,
+                ),
                 _trigger(
-                  _category?.path ?? context.l10N.sell_optional,
+                  _category == null
+                      ? context.l10N.sell_optional
+                      : (_category!.path.isNotEmpty
+                            ? _category!.path
+                            : context.l10N.sell_suggested_by_ai),
                   _pickCategory,
                 ),
                 if (_showErrors && _category == null)
                   _errorLine(context.l10N.sell_category_error),
                 const SizedBox(height: DSSpacing.s),
-                _sectionLabel(context.l10N.sell_brand),
+                _sectionLabel(
+                  context.l10N.sell_brand,
+                  suffix: state.aiFilled.contains(SellDraftField.brand)
+                      ? const SellFieldAiBadgeWidget()
+                      : null,
+                ),
                 _trigger(
                   _brand?.name ?? context.l10N.sell_optional,
                   _pickBrand,
                 ),
                 if (_sizes.isNotEmpty) ...<Widget>[
                   const SizedBox(height: DSSpacing.s),
-                  _sectionLabel(context.l10N.sell_size),
+                  _sectionLabel(
+                    context.l10N.sell_size,
+                    suffix: state.aiFilled.contains(SellDraftField.size)
+                        ? const SellFieldAiBadgeWidget()
+                        : null,
+                  ),
                   Wrap(
                     spacing: DSSpacing.xxs,
                     runSpacing: DSSpacing.xxs,
@@ -282,7 +361,12 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                           (CatalogSizeValue s) => DSSelectableChip(
                             label: s.label,
                             selected: _size == s.token,
-                            onTap: () => setState(() => _size = s.token),
+                            onTap: () {
+                              setState(() => _size = s.token);
+                              context.read<SellBloc>().add(
+                                const SellDraftFieldEdited(SellDraftField.size),
+                              );
+                            },
                           ),
                         )
                         .toList(),
@@ -296,7 +380,13 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                   ),
                 ],
                 const SizedBox(height: DSSpacing.s),
-                _sectionLabel(context.l10N.sell_condition, required: true),
+                _sectionLabel(
+                  context.l10N.sell_condition,
+                  required: true,
+                  suffix: state.aiFilled.contains(SellDraftField.condition)
+                      ? const SellFieldAiBadgeWidget()
+                      : null,
+                ),
                 Wrap(
                   spacing: DSSpacing.xxs,
                   runSpacing: DSSpacing.xxs,
@@ -305,7 +395,14 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                         (CatalogCondition c) => DSSelectableChip(
                           label: c.label,
                           selected: _conditionSlug == c.slug,
-                          onTap: () => setState(() => _conditionSlug = c.slug),
+                          onTap: () {
+                            setState(() => _conditionSlug = c.slug);
+                            context.read<SellBloc>().add(
+                              const SellDraftFieldEdited(
+                                SellDraftField.condition,
+                              ),
+                            );
+                          },
                         ),
                       )
                       .toList(),
@@ -366,10 +463,10 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
     );
   }
 
-  Widget _sectionLabel(String text, {bool required = false}) {
+  Widget _sectionLabel(String text, {bool required = false, Widget? suffix}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
-      child: DSFieldLabel(text, required: required),
+      child: DSFieldLabel(text, required: required, suffix: suffix),
     );
   }
 
