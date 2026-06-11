@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -182,18 +184,22 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(height: 24),
                         DSOrDivider(label: context.l10N.auth_or_continue_with),
                         const SizedBox(height: 16),
-                        DSSocialButton(
-                          icon: const Icon(
-                            Icons.apple,
-                            size: 21,
-                            color: DSColor.onSurface,
+                        // Apple sign-in requires webAuthenticationOptions on
+                        // Android (not configured) — iOS only.
+                        if (Platform.isIOS) ...<Widget>[
+                          DSSocialButton(
+                            icon: const Icon(
+                              Icons.apple,
+                              size: 21,
+                              color: DSColor.onSurface,
+                            ),
+                            label: context.l10N.auth_continue_apple,
+                            onPressed: () => context.read<AuthBloc>().add(
+                              const AuthApplePressed(),
+                            ),
                           ),
-                          label: context.l10N.auth_continue_apple,
-                          onPressed: () => context.read<AuthBloc>().add(
-                            const AuthApplePressed(),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
+                          const SizedBox(height: 10),
+                        ],
                         DSSocialButton(
                           icon: const DSGoogleGlyph(),
                           label: context.l10N.auth_continue_google,

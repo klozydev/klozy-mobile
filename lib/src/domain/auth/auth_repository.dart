@@ -6,7 +6,16 @@ class PhoneVerification {
   final String verificationId;
   final int? resendToken;
 
-  const PhoneVerification({required this.verificationId, this.resendToken});
+  /// Set when the platform auto-verified the number (Android instant
+  /// verification / SMS auto-retrieval): the user is already signed in and no
+  /// OTP entry is needed. [verificationId] is empty in that case.
+  final AuthUser? autoSignedInUser;
+
+  const PhoneVerification({
+    required this.verificationId,
+    this.resendToken,
+    this.autoSignedInUser,
+  });
 }
 
 /// Firebase-backed authentication. Implementations live in the data layer.
@@ -42,8 +51,14 @@ abstract class AuthRepository {
   Future<AuthUser> signInWithApple();
 
   /// Starts phone verification; the SMS code is then confirmed via
-  /// [confirmPhoneCode]. On Android the code may auto-resolve.
-  Future<PhoneVerification> startPhoneVerification(String phoneNumber);
+  /// [confirmPhoneCode]. On Android the code may auto-resolve (see
+  /// [PhoneVerification.autoSignedInUser]). Pass the previous attempt's
+  /// [resendToken] when resending so Firebase uses the resend fast-path
+  /// instead of starting a brand-new verification.
+  Future<PhoneVerification> startPhoneVerification(
+    String phoneNumber, {
+    int? resendToken,
+  });
 
   Future<AuthUser> confirmPhoneCode({
     required String verificationId,

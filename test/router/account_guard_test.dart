@@ -18,6 +18,8 @@ class _MockAuthRepository extends Mock implements AuthRepository {}
 
 class _MockNavigationResolver extends Mock implements NavigationResolver {}
 
+class _MockRouteMatch extends Mock implements RouteMatch {}
+
 class _MockStackRouter extends Mock implements StackRouter {}
 
 // ---------------------------------------------------------------------------
@@ -62,6 +64,11 @@ void main() {
 
     // Default: signOut succeeds.
     when(() => mockAuthRepo.signOut()).thenAnswer((_) async {});
+
+    // Default navigation target: a private (non-onboarding) route.
+    final routeMatch = _MockRouteMatch();
+    when(() => routeMatch.name).thenReturn(CartRoute.name);
+    when(() => mockResolver.route).thenReturn(routeMatch);
   });
 
   // ── valid ─────────────────────────────────────────────────────────────────
@@ -91,6 +98,38 @@ void main() {
     expect(captured.single, isA<PersonalizeRoute>());
     verifyNever(() => mockResolver.next(any()));
   });
+
+  test('incompleteOnboarding → next(true) when the TARGET is an onboarding '
+      'route (no redirect loop)', () async {
+    when(
+      () => mockGetStatus(),
+    ).thenAnswer((_) async => AccountStatus.incompleteOnboarding);
+    final routeMatch = _MockRouteMatch();
+    when(() => routeMatch.name).thenReturn(PersonalizeRoute.name);
+    when(() => mockResolver.route).thenReturn(routeMatch);
+
+    await _guardNavigate(guard, mockResolver, mockRouter);
+
+    verify(() => mockResolver.next(true)).called(1);
+    verifyNever(() => mockResolver.redirectUntil(any()));
+  });
+
+  test(
+    'incompleteOnboarding → next(true) for ProfileCompletionRoute',
+    () async {
+      when(
+        () => mockGetStatus(),
+      ).thenAnswer((_) async => AccountStatus.incompleteOnboarding);
+      final routeMatch = _MockRouteMatch();
+      when(() => routeMatch.name).thenReturn(ProfileCompletionRoute.name);
+      when(() => mockResolver.route).thenReturn(routeMatch);
+
+      await _guardNavigate(guard, mockResolver, mockRouter);
+
+      verify(() => mockResolver.next(true)).called(1);
+      verifyNever(() => mockResolver.redirectUntil(any()));
+    },
+  );
 
   // ── guest ─────────────────────────────────────────────────────────────────
 

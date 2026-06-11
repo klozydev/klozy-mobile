@@ -162,9 +162,15 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
     ProfileCompletionState previous,
     ProfileCompletionState current,
   ) =>
+      // The terminal states of the resolving/submitting spinners MUST rebuild,
+      // otherwise the builder's cached state stays AddressResolving/Submitting
+      // and the Continue button is stuck in its loading state forever.
       current is ProfileCompletionIdle ||
       current is ProfileCompletionSubmitting ||
-      current is ProfileCompletionAddressResolving;
+      current is ProfileCompletionAddressResolving ||
+      current is ProfileCompletionAddressResolved ||
+      current is ProfileCompletionAddressError ||
+      current is ProfileCompletionFailure;
 
   Widget _builder(BuildContext context, ProfileCompletionState state) {
     return Scaffold(

@@ -67,7 +67,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     return _guard(emit, () async {
       final verification = await _authRepository.startPhoneVerification(
         event.phoneNumber,
+        resendToken: event.resendToken,
       );
+      final autoUser = verification.autoSignedInUser;
+      if (autoUser != null) {
+        // Android instant verification: already signed in — no OTP entry.
+        await _finishAuth(autoUser, emit);
+        return;
+      }
       emit(
         AuthCodeSent(
           verification: verification,

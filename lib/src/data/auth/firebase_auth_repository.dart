@@ -131,11 +131,44 @@ class FirebaseAuthRepository implements AuthRepository {
   }
 
   @override
-  Future<PhoneVerification> startPhoneVerification(String phoneNumber) async {
+  Future<PhoneVerification> startPhoneVerification(
+    String phoneNumber, {
+    int? resendToken,
+  }) async {
     final completer = Completer<PhoneVerification>();
     await _firebaseAuth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
-      verificationCompleted: (_) {},
+      forceResendingToken: resendToken,
+      verificationCompleted: (credential) async {
+        // Android instant verification / SMS auto-retrieval: codeSent may
+        // never fire, so the completer MUST be settled here too — otherwise
+        // the returned future hangs forever. Sign in with the ready
+        // credential and report the auto sign-in to the caller.
+        if (completer.isCompleted) return;
+        try {
+          final cred = await _firebaseAuth.signInWithCredential(credential);
+          if (!completer.isCompleted) {
+            completer.complete(
+              PhoneVerification(
+                verificationId: '',
+                autoSignedInUser: _map(cred.user!),
+              ),
+            );
+          }
+        } on FirebaseAuthException catch (e) {
+          if (!completer.isCompleted) {
+            completer.completeError(AuthException(_phoneMessage(e)));
+          }
+        } catch (_) {
+          if (!completer.isCompleted) {
+            completer.completeError(
+              const AuthException(
+                'Phone verification failed. Please try again.',
+              ),
+            );
+          }
+        }
+      },
       verificationFailed: (e) {
         if (!completer.isCompleted) {
           completer.completeError(AuthException(_phoneMessage(e)));

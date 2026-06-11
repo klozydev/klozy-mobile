@@ -16,11 +16,12 @@ import 'package:klozy/src/domain/me/me_repository.dart';
 ///
 /// `getMe()` errors are never re-thrown — session resolution cannot hard-fail:
 /// - 404 → legacy (no backend profile).
-/// - Transient network/server errors → incompleteOnboarding. Rationale: a
-///   Firebase user is confirmed to exist, but we cannot determine their profile
-///   state. Routing them to onboarding is the least-destructive safe fallback
-///   (they can retry and progress); forcing legacy would sign them out
-///   unexpectedly on a mere connectivity blip.
+/// - Transient network/server errors → valid. Rationale: a Firebase user is
+///   confirmed to exist, but we cannot determine their profile state. Treating
+///   them as valid is the least-destructive fallback: the actual operation they
+///   attempt will surface its own network error, whereas classifying them as
+///   incompleteOnboarding would eject a fully-onboarded user into the
+///   onboarding flow on a mere connectivity blip.
 @injectable
 class GetAccountStatusUseCase {
   final AuthRepository _authRepository;
@@ -52,12 +53,13 @@ class GetAccountStatusUseCase {
         return AccountStatus.legacy;
       }
       // Transient network/server error: Firebase user confirmed but profile
-      // state unknown. Return incompleteOnboarding as a safe non-destructive
-      // fallback rather than signing the user out on a connectivity blip.
-      return AccountStatus.incompleteOnboarding;
+      // state unknown. Treat as valid so a connectivity blip never ejects an
+      // onboarded user into the onboarding flow; the attempted operation will
+      // surface its own network error.
+      return AccountStatus.valid;
     } catch (_) {
       // Any other unexpected error: same safe fallback as transient network.
-      return AccountStatus.incompleteOnboarding;
+      return AccountStatus.valid;
     }
   }
 }
