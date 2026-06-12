@@ -45,14 +45,16 @@ class _CustomTextMessageState extends ConsumerState<CustomTextMessage> {
     unicode: true,
   );
 
+  // Offer/purchase messages carry their payload in `metadata`; `content` is
+  // commonly null for them, so it must never be force-unwrapped here.
   late final lowStringSize =
-      widget.message.content!.isNotEmpty &&
-      widget.message.content!.length < 12 &&
+      (widget.message.content ?? '').isNotEmpty &&
+      (widget.message.content ?? '').length < 12 &&
       widget.message.replyTo == null;
 
   @override
   void initState() {
-    isOnlyEmojis = emojiRegex.hasMatch(widget.message.content!);
+    isOnlyEmojis = emojiRegex.hasMatch(widget.message.content ?? '');
     super.initState();
   }
 

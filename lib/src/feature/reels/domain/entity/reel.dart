@@ -24,13 +24,13 @@ class Reel extends Equatable {
     this.taggedCount = 0,
   });
 
-  Reel copyWith({int? likes, bool? isLiked}) {
+  Reel copyWith({int? likes, bool? isLiked, String? caption}) {
     return Reel(
       id: id,
       author: author,
       playbackUrl: playbackUrl,
       posterUrl: posterUrl,
-      caption: caption,
+      caption: caption ?? this.caption,
       likes: likes ?? this.likes,
       isLiked: isLiked ?? this.isLiked,
       viewCount: viewCount,

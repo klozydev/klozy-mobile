@@ -44,10 +44,14 @@ final class AuthPasswordResetRequested extends AuthEvent {
 final class AuthPhoneStarted extends AuthEvent {
   final String phoneNumber;
 
-  const AuthPhoneStarted(this.phoneNumber);
+  /// Previous attempt's Firebase resend token — set when resending so the
+  /// resend fast-path is used instead of a brand-new verification.
+  final int? resendToken;
+
+  const AuthPhoneStarted(this.phoneNumber, {this.resendToken});
 
   @override
-  List<Object?> get props => [phoneNumber];
+  List<Object?> get props => [phoneNumber, resendToken];
 }
 
 final class AuthPhoneCodeSubmitted extends AuthEvent {

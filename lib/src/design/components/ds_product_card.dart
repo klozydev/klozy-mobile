@@ -27,7 +27,7 @@ import 'package:klozy/src/design/tokens/ds_spacing.dart';
 /// - card bg     : [DSColor.card]
 /// - radius      : [DSBorderRadius.card] (18)
 /// - info padding: [DSSpacing.xxs+2] h · [DSSpacing.xxs+1] top · [DSSpacing.xs-1] bottom
-class DSProductCard extends StatefulWidget {
+class DSProductCard extends StatelessWidget {
   final String title;
   final String meta;
   final String price;
@@ -51,23 +51,14 @@ class DSProductCard extends StatefulWidget {
     this.onLikeChanged,
   });
 
-  @override
-  State<DSProductCard> createState() => _DSProductCardState();
-}
-
-class _DSProductCardState extends State<DSProductCard> {
-  late bool _liked;
-
-  @override
-  void initState() {
-    super.initState();
-    _liked = widget.isLiked;
-  }
-
+  // [isLiked] is the single source of truth for the heart (the caller binds it
+  // to WishlistCubit): no local copy, so optimistic rollbacks render, guests'
+  // blocked toggles don't stick, and grid element recycling can't leak the
+  // liked state from one product to another.
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onTap,
+      onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
           color: DSColor.card,
@@ -85,26 +76,23 @@ class _DSProductCardState extends State<DSProductCard> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  if (widget.image != null)
-                    Image(image: widget.image!, fit: BoxFit.cover)
+                  if (image != null)
+                    Image(image: image!, fit: BoxFit.cover)
                   else
                     const ColoredBox(color: DSColor.lowBlack),
-                  if (widget.badge != null)
+                  if (badge != null)
                     Positioned(
                       top: DSSpacing.xxs,
                       left: DSSpacing.xxs,
-                      child: _Badge(label: widget.badge!),
+                      child: _Badge(label: badge!),
                     ),
                   Positioned(
                     bottom: DSSpacing.xxs,
                     right: DSSpacing.xxs,
                     child: _LikeButton(
-                      liked: _liked,
-                      count: widget.likes + (_liked && !widget.isLiked ? 1 : 0),
-                      onTap: () {
-                        setState(() => _liked = !_liked);
-                        widget.onLikeChanged?.call(_liked);
-                      },
+                      liked: isLiked,
+                      count: likes,
+                      onTap: () => onLikeChanged?.call(!isLiked),
                     ),
                   ),
                 ],
@@ -118,7 +106,7 @@ class _DSProductCardState extends State<DSProductCard> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    widget.title,
+                    title,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -131,7 +119,7 @@ class _DSProductCardState extends State<DSProductCard> {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    widget.meta,
+                    meta,
                     style: const TextStyle(
                       fontFamily: dsFontFamily,
                       fontSize: DSFontSize.bodySmall,
@@ -141,7 +129,7 @@ class _DSProductCardState extends State<DSProductCard> {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    widget.price,
+                    price,
                     style: const TextStyle(
                       fontFamily: dsFontFamily,
                       fontSize: DSFontSize.bodyLarge,

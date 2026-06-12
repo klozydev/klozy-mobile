@@ -82,6 +82,18 @@ final class CheckoutReadyState extends CheckoutState {
   ];
 }
 
+/// Transient one-shot signal that creating the order failed — consumed by the
+/// page listener (snackbar); the bloc re-emits the ready state right after.
+final class CheckoutPayFailedState extends CheckoutState {
+  const CheckoutPayFailedState();
+}
+
+/// Transient one-shot signal that re-quoting for a newly selected address
+/// failed (the selection was reverted) — consumed by the page listener.
+final class CheckoutQuoteFailedState extends CheckoutState {
+  const CheckoutQuoteFailedState();
+}
+
 /// Order created — the screen presents the Stripe PaymentSheet from [result].
 final class CheckoutPaymentState extends CheckoutState {
   final CheckoutResult result;

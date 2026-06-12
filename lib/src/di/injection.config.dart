@@ -134,20 +134,23 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) async {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
-    final appModule = _$AppModule();
     final networkModule = _$NetworkModule();
+    final appModule = _$AppModule();
     final firebaseModule = _$FirebaseModule();
     final observabilityModule = _$ObservabilityModule();
+    gh.factory<_i432.AppBloc>(() => _i432.AppBloc());
+    gh.factory<_i915.PlacesMapper>(() => const _i915.PlacesMapper());
+    gh.factory<_i402.BaseUrl>(() => networkModule.getBaseUrl());
     await gh.factoryAsync<_i460.SharedPreferences>(
       () => appModule.getSharedPreferences(),
       preResolve: true,
     );
-    gh.factory<_i402.BaseUrl>(() => networkModule.getBaseUrl());
     gh.factory<_i793.DefaultInterceptor>(
       () => const _i793.DefaultInterceptor(),
     );
-    gh.factory<_i432.AppBloc>(() => _i432.AppBloc());
-    gh.factory<_i915.PlacesMapper>(() => const _i915.PlacesMapper());
+    gh.lazySingleton<_i541.PlacesRemoteDatasource>(
+      () => _i541.PlacesRemoteDatasource(),
+    );
     gh.lazySingleton<_i59.FirebaseAuth>(() => firebaseModule.firebaseAuth);
     gh.lazySingleton<_i116.GoogleSignIn>(() => firebaseModule.googleSignIn);
     gh.lazySingleton<_i892.FirebaseMessaging>(
@@ -158,9 +161,6 @@ extension GetItInjectableX on _i174.GetIt {
       () => appModule.getFlutterSecureStorage(),
     );
     gh.lazySingleton<_i370.AppLogger>(() => observabilityModule.getAppLogger());
-    gh.lazySingleton<_i541.PlacesRemoteDatasource>(
-      () => _i541.PlacesRemoteDatasource(),
-    );
     gh.lazySingleton<_i904.PlacesRepository>(
       () => _i902.PlacesRepositoryImpl(
         gh<_i541.PlacesRemoteDatasource>(),
@@ -330,9 +330,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i728.ReelComposerBloc>(
       () => _i728.ReelComposerBloc(gh<_i651.ReelsRepository>()),
     );
-    gh.factory<_i194.ReelsBloc>(
-      () => _i194.ReelsBloc(gh<_i651.ReelsRepository>()),
-    );
     gh.factory<_i918.SellerRoleBloc>(
       () => _i918.SellerRoleBloc(gh<_i1010.MeRepository>()),
     );
@@ -378,12 +375,16 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i675.CartCubit>(),
       ),
     );
+    gh.factory<_i194.ReelsBloc>(
+      () => _i194.ReelsBloc(gh<_i651.ReelsRepository>(), gh<_i1017.EventBus>()),
+    );
     gh.lazySingleton<_i774.AppRouter>(
       () => _i774.AppRouter(gh<_i672.AccountGuard>()),
     );
     gh.lazySingleton<_i27.PushService>(
       () => _i27.PushService(
         gh<_i892.FirebaseMessaging>(),
+        gh<_i59.FirebaseAuth>(),
         gh<_i755.NotificationsRepository>(),
         gh<_i276.NotificationsCubit>(),
         gh<_i774.AppRouter>(),
@@ -395,15 +396,17 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i176.AuthRepository>(),
         gh<_i264.PublicConfigRepository>(),
         gh<_i27.PushService>(),
+        gh<_i956.WishlistCubit>(),
+        gh<_i276.NotificationsCubit>(),
       ),
     );
     return this;
   }
 }
 
-class _$AppModule extends _i816.AppModule {}
-
 class _$NetworkModule extends _i1011.NetworkModule {}
+
+class _$AppModule extends _i816.AppModule {}
 
 class _$FirebaseModule extends _i910.FirebaseModule {}
 

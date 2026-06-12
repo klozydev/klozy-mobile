@@ -12,6 +12,7 @@ import 'package:klozy/src/design/tokens/ds_theme.dart';
 import 'package:klozy/src/domain/account/entity/account_status.dart';
 import 'package:klozy/src/domain/account/usecase/get_account_status_usecase.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
+import 'package:klozy/src/domain/auth/entity/auth_user.dart';
 import 'package:klozy/src/feature/chat/presentation/screen/chat_page.dart';
 import 'package:klozy/src/router/app_router.dart';
 import 'package:mocktail/mocktail.dart';
@@ -19,7 +20,12 @@ import 'package:mocktail/mocktail.dart';
 class _MockGetAccountStatusUseCase extends Mock
     implements GetAccountStatusUseCase {}
 
-class _MockAuthRepository extends Mock implements AuthRepository {}
+class _MockAuthRepository extends Mock implements AuthRepository {
+  // AccountBloc subscribes on construction; an empty stream keeps the fake
+  // bloc inert.
+  @override
+  Stream<AuthUser?> authStateChanges() => const Stream.empty();
+}
 
 class _MockStackRouter extends Mock implements StackRouter {}
 

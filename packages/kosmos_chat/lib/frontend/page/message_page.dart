@@ -88,7 +88,11 @@ class _TchatMessagePageState extends ConsumerState<TchatMessagePage> {
     final tchatThemeData = loadThemeData(
       null, "tchat_theme", () => kDefaultTchatTheme,
       isDark: ref.watch(isDarkModeProvider).isDarkMode,       );
-    final subscription = ref.read(messageListProvider).subscription;
+    // Capture the provider (not the subscription): `init()` assigns the
+    // subscription only after async work, so a subscription captured during
+    // the first build is null and the live stream would never be cancelled —
+    // leaving the last-opened thread auto-acking incoming messages as read.
+    final messageList = ref.read(messageListProvider);
     _tchat = ref
             .watch(tchatListProvider(FirebaseAuth.instance.currentUser!.uid))
             .tchatList
@@ -99,8 +103,8 @@ class _TchatMessagePageState extends ConsumerState<TchatMessagePage> {
       // This effect runs once when the widget is built.
       // Return a function that will be executed on dispose.
       return () {
-        // Cleanup logic with ref
-        subscription?.cancel();
+        // Cancels whatever subscription is current at dispose time.
+        messageList.cancelStream();
       };
     }, const []);
 

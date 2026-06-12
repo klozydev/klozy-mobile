@@ -28,19 +28,29 @@ class MeRepositoryImpl implements MeRepository {
   @override
   Future<MeProfile> getMe() {
     if (_cached != null) return Future<MeProfile>.value(_cached);
-    _inFlight ??= _fetchMe().then(
+    if (_inFlight != null) return _inFlight!;
+    late final Future<MeProfile> fetch;
+    fetch = _fetchMe().then(
       (profile) {
-        _cached = profile;
-        _inFlight = null;
+        // Only commit if this fetch is still the current one — invalidate()
+        // (e.g. sign-out) may have run while it was in flight, and committing
+        // would resurrect the previous user's profile.
+        if (identical(_inFlight, fetch)) {
+          _cached = profile;
+          _inFlight = null;
+        }
         return profile;
       },
       onError: (Object e) {
         // Don't cache errors; allow the next caller to retry.
-        _inFlight = null;
+        if (identical(_inFlight, fetch)) {
+          _inFlight = null;
+        }
         throw e;
       },
     );
-    return _inFlight!;
+    _inFlight = fetch;
+    return fetch;
   }
 
   Future<MeProfile> _fetchMe() async {

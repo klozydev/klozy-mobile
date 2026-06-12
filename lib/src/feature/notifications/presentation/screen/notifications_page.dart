@@ -34,12 +34,29 @@ class NotificationsPage extends StatefulWidget implements AutoRouteWrapper {
 }
 
 class _NotificationsPageState extends State<NotificationsPage> {
+  final ScrollController _scrollController = ScrollController();
   Timer? _autoRead;
+  bool _autoReadArmed = false;
 
   @override
   void initState() {
     super.initState();
-    // Mirrors the prototype: clear unread shortly after opening.
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 400) {
+      context.read<NotificationsBloc>().add(const NotificationsLoadMore());
+    }
+  }
+
+  // Mirrors the prototype: clear unread shortly after the list has LOADED —
+  // arming the timer on page open silently no-oped whenever loading took
+  // longer than the delay (the bloc drops ReadAll while not loaded).
+  void _armAutoRead() {
+    if (_autoReadArmed) return;
+    _autoReadArmed = true;
     _autoRead = Timer(const Duration(milliseconds: 1500), () {
       if (mounted) {
         context.read<NotificationsBloc>().add(const NotificationsReadAll());
@@ -50,6 +67,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
   @override
   void dispose() {
     _autoRead?.cancel();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -91,7 +109,11 @@ class _NotificationsPageState extends State<NotificationsPage> {
           ),
         ],
       ),
-      body: BlocBuilder<NotificationsBloc, NotificationsState>(
+      body: BlocConsumer<NotificationsBloc, NotificationsState>(
+        listenWhen: (NotificationsState previous, NotificationsState current) =>
+            current is NotificationsLoadedState,
+        listener: (BuildContext context, NotificationsState state) =>
+            _armAutoRead(),
         builder: (BuildContext context, NotificationsState state) {
           return switch (state) {
             NotificationsLoadingState() => const NotificationSkeletonWidget(),
@@ -119,6 +141,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
     final today = items.where((AppNotification n) => isToday(n.createdAt));
     final earlier = items.where((AppNotification n) => !isToday(n.createdAt));
     return ListView(
+      controller: _scrollController,
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
       children: <Widget>[
         if (today.isNotEmpty) _header(context.l10N.notifications_group_today),

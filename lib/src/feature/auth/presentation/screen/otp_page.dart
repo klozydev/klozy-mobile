@@ -21,12 +21,14 @@ class OtpPage extends StatefulWidget implements AutoRouteWrapper {
   final String verificationId;
   final String destination;
   final bool isEmail;
+  final int? resendToken;
 
   const OtpPage({
     super.key,
     required this.verificationId,
     required this.destination,
     this.isEmail = false,
+    this.resendToken,
   });
 
   @override
@@ -43,6 +45,7 @@ class OtpPage extends StatefulWidget implements AutoRouteWrapper {
 
 class _OtpPageState extends State<OtpPage> {
   late String _verificationId = widget.verificationId;
+  late int? _resendToken = widget.resendToken;
   String _code = '';
   int _seconds = 30;
   Timer? _timer;
@@ -178,7 +181,10 @@ class _OtpPageState extends State<OtpPage> {
                                 )
                               : TextButton(
                                   onPressed: () => context.read<AuthBloc>().add(
-                                    AuthPhoneStarted(widget.destination),
+                                    AuthPhoneStarted(
+                                      widget.destination,
+                                      resendToken: _resendToken,
+                                    ),
                                   ),
                                   child: Text(
                                     context.l10N.auth_resend_code,
@@ -234,7 +240,10 @@ class _OtpPageState extends State<OtpPage> {
           const PersonalizeRoute(),
       ]);
     } else if (state is AuthCodeSent) {
-      setState(() => _verificationId = state.verification.verificationId);
+      setState(() {
+        _verificationId = state.verification.verificationId;
+        _resendToken = state.verification.resendToken;
+      });
       _startCountdown();
       context.showSnackBar(context.l10N.auth_new_code_sent);
     } else if (state is AuthFailure) {

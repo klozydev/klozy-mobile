@@ -63,6 +63,8 @@ class ProfileHeaderWidget extends StatelessWidget {
         ProfileStatsRowWidget(
           followersCount: profile.followers,
           followingCount: profile.following,
+          onFollowers: onFollowers,
+          onFollowing: onFollowing,
         ),
         const SizedBox(height: DSSpacing.l),
       ],

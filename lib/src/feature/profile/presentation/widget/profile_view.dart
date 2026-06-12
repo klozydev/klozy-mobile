@@ -37,13 +37,16 @@ class ProfileView extends StatelessWidget {
     return BlocProvider<ProfileBloc>(
       create: (_) =>
           locator<ProfileBloc>()..add(ProfileStarted(userId: userId)),
-      child: const _ProfileScaffold(),
+      child: _ProfileScaffold(userId: userId),
     );
   }
 }
 
 class _ProfileScaffold extends StatelessWidget {
-  const _ProfileScaffold();
+  /// Null for the signed-in user's own profile tab; set on /users/:id.
+  final String? userId;
+
+  const _ProfileScaffold({this.userId});
 
   void _openMenu(BuildContext context) {
     final ProfileBloc bloc = context.read<ProfileBloc>();
@@ -99,8 +102,11 @@ class _ProfileScaffold extends StatelessWidget {
             ProfileLoadingState() => const DSLoader(),
             ProfileErrorState(:final type) => AppErrorWidget(
               type: type,
-              onRetry: () =>
-                  context.read<ProfileBloc>().add(const ProfileStarted()),
+              // Keep the userId: a bare ProfileStarted() loads MY profile,
+              // which on another user's page (or as a guest) is wrong.
+              onRetry: () => context.read<ProfileBloc>().add(
+                ProfileStarted(userId: userId),
+              ),
             ),
             ProfileLoadedState() => _ProfileBody(initialState: state),
           };

@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_state.dart';
 import 'package:klozy/src/app/cart/cart_cubit.dart';
 import 'package:klozy/src/app/notifications/notifications_cubit.dart';
 import 'package:klozy/src/app/push/push_service.dart';
@@ -11,6 +13,7 @@ import 'package:klozy/src/design/components/ds_cart_badge.dart';
 import 'package:klozy/src/design/components/ds_klozy_mark.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/account/entity/account_status.dart';
 import 'package:klozy/src/domain/cart/entity/cart.dart';
 import 'package:klozy/src/domain/config/public_config_repository.dart';
 import 'package:klozy/src/feature/home/presentation/bloc/feed_bloc.dart';
@@ -48,7 +51,14 @@ class _HomePageState extends State<HomePage> {
     context.read<WishlistCubit>().load();
     context.read<CartCubit>().load();
     context.read<NotificationsCubit>().load();
-    locator<PushService>().init().ignore();
+    // Push init only makes sense with an authenticated user (init() itself
+    // no-ops for guests); the BlocListener in build covers in-session
+    // sign-in, this call covers the already-signed-in cold start.
+    if (context.read<AccountBloc>().state case AccountResolved(
+      status: AccountStatus.valid,
+    )) {
+      locator<PushService>().init().ignore();
+    }
     _checkPendingLegal();
   }
 
@@ -66,64 +76,75 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void _accountListener(BuildContext context, AccountState state) {
+    locator<PushService>().init().ignore();
+  }
+
+  bool _accountListenWhen(AccountState previous, AccountState current) =>
+      current is AccountResolved && current.status == AccountStatus.valid;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: DSColor.surface,
-      body: SafeArea(
-        bottom: false,
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 14, 4),
-              child: Row(
-                children: <Widget>[
-                  const DSKlozyMark(size: 22),
-                  const Spacer(),
-                  BlocBuilder<NotificationsCubit, int>(
-                    builder: (BuildContext context, int unread) =>
-                        NotificationsBellWidget(
-                          count: unread,
-                          onTap: () =>
-                              context.router.push(const NotificationsRoute()),
-                        ),
-                  ),
-                  const SizedBox(width: 4),
-                  BlocBuilder<CartCubit, Cart>(
-                    builder: (BuildContext context, Cart cart) => DSCartBadge(
-                      count: cart.itemCount,
-                      onTap: () => context.router.push(const CartRoute()),
+    return BlocListener<AccountBloc, AccountState>(
+      listenWhen: _accountListenWhen,
+      listener: _accountListener,
+      child: Scaffold(
+        backgroundColor: DSColor.surface,
+        body: SafeArea(
+          bottom: false,
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 14, 4),
+                child: Row(
+                  children: <Widget>[
+                    const DSKlozyMark(size: 22),
+                    const Spacer(),
+                    BlocBuilder<NotificationsCubit, int>(
+                      builder: (BuildContext context, int unread) =>
+                          NotificationsBellWidget(
+                            count: unread,
+                            onTap: () =>
+                                context.router.push(const NotificationsRoute()),
+                          ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: ShellTabsWidget(
-                  tabs: <String>[
-                    context.l10N.home_tab_feed,
-                    context.l10N.home_tab_wishlist,
-                    context.l10N.home_tab_reels,
+                    const SizedBox(width: 4),
+                    BlocBuilder<CartCubit, Cart>(
+                      builder: (BuildContext context, Cart cart) => DSCartBadge(
+                        count: cart.itemCount,
+                        onTap: () => context.router.push(const CartRoute()),
+                      ),
+                    ),
                   ],
-                  selectedIndex: _tab,
-                  onChanged: (int i) => setState(() => _tab = i),
                 ),
               ),
-            ),
-            Expanded(
-              child: IndexedStack(
-                index: _tab,
-                children: <Widget>[
-                  const FeedTabWidget(),
-                  WishlistTabWidget(active: _tab == 1),
-                  ReelViewerWidget(active: _tab == 2),
-                ],
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: ShellTabsWidget(
+                    tabs: <String>[
+                      context.l10N.home_tab_feed,
+                      context.l10N.home_tab_wishlist,
+                      context.l10N.home_tab_reels,
+                    ],
+                    selectedIndex: _tab,
+                    onChanged: (int i) => setState(() => _tab = i),
+                  ),
+                ),
               ),
-            ),
-          ],
+              Expanded(
+                child: IndexedStack(
+                  index: _tab,
+                  children: <Widget>[
+                    const FeedTabWidget(),
+                    WishlistTabWidget(active: _tab == 1),
+                    ReelViewerWidget(active: _tab == 2),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

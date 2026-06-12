@@ -26,11 +26,29 @@ final class NotificationsErrorState extends NotificationsState {
 
 final class NotificationsLoadedState extends NotificationsState {
   final List<AppNotification> items;
+  final bool hasMore;
+  final bool isLoadingMore;
 
-  const NotificationsLoadedState(this.items);
+  const NotificationsLoadedState(
+    this.items, {
+    this.hasMore = false,
+    this.isLoadingMore = false,
+  });
 
   bool get isEmpty => items.isEmpty;
 
+  NotificationsLoadedState copyWith({
+    List<AppNotification>? items,
+    bool? hasMore,
+    bool? isLoadingMore,
+  }) {
+    return NotificationsLoadedState(
+      items ?? this.items,
+      hasMore: hasMore ?? this.hasMore,
+      isLoadingMore: isLoadingMore ?? this.isLoadingMore,
+    );
+  }
+
   @override
-  List<Object?> get props => [items];
+  List<Object?> get props => [items, hasMore, isLoadingMore];
 }

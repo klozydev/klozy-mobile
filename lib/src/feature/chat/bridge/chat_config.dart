@@ -1,8 +1,10 @@
 import 'package:core_kosmos/core_kosmos.dart';
+import 'package:klozy/src/feature/chat/bridge/chat_theme.dart';
 import 'package:klozy/src/feature/chat/bridge/mobile_message_controller.dart';
 import 'package:klozy/src/feature/chat/bridge/mobile_tchat_controller.dart';
 import 'package:klozy/src/feature/chat/bridge/offer_message_builder.dart';
 import 'package:klozy/src/feature/chat/bridge/purchase_message_builder.dart';
+import 'package:kosmos_chat/backend/controller/cache/hive_controller.dart';
 import 'package:kosmos_chat/frontend/widget/components/message_builder.dart';
 import 'package:kosmos_chat/kosmos_chat.dart';
 
@@ -12,6 +14,7 @@ import 'package:kosmos_chat/kosmos_chat.dart';
 /// Called once at startup (see AppInitializer) before any chat surface builds.
 /// Offer/purchase message builders are added in a later phase.
 void registerChatConfig() {
+  registerChatTheme();
   if (GetIt.instance.isRegistered<AppModel<Object?>>()) return;
   GetIt.instance.registerSingleton<AppModel<Object?>>(
     AppModel<Object?>(
@@ -27,6 +30,18 @@ void registerChatConfig() {
       ),
     ),
   );
+  // Best-effort: the chat providers read these Hive boxes for offline/cold
+  // start; without init() every cache call is a silent no-op (shimmer instead
+  // of cached conversations). Chat still works from the live streams if this
+  // fails, hence fire-and-forget.
+  _initChatCache().ignore();
+}
+
+Future<void> _initChatCache() async {
+  // Sequential: each init() resets and re-registers the Hive adapters.
+  await backendCacheControllerTchat.init('klozy_chat_tchats');
+  await backendCacheControllerUser.init('klozy_chat_users');
+  await backendCacheControllerMessage.init('klozy_chat_messages');
 }
 
 TchatBackEndConfig _backendConfig() {

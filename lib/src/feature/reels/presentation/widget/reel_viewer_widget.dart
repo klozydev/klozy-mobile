@@ -34,8 +34,12 @@ class ReelViewerWidget extends StatefulWidget {
 
 class _ReelViewerWidgetState extends State<ReelViewerWidget> {
   final ReelsBloc _bloc = locator<ReelsBloc>()..add(const ReelsInitEvent());
-  final PageController _pageController = PageController();
+  // keepPage: false — the PageView is torn down during ReelsLoadingState
+  // (reload); restoring the previous page on reattach would desync it from
+  // the freshly reset [_index].
+  final PageController _pageController = PageController(keepPage: false);
   int _index = 0;
+  bool _pendingInitialView = true;
   String? _myId;
 
   @override
@@ -120,11 +124,27 @@ class _ReelViewerWidgetState extends State<ReelViewerWidget> {
     );
   }
 
+  void _listener(BuildContext context, ReelsState state) {
+    if (state is ReelsLoadingState) {
+      // Full reload: the rebuilt PageView starts back at the first reel.
+      _index = 0;
+      _pendingInitialView = true;
+    } else if (state is ReelsReadyState &&
+        _pendingInitialView &&
+        state.reels.isNotEmpty) {
+      // onPageChanged never fires for the initially visible page, so its
+      // view must be registered here.
+      _pendingInitialView = false;
+      _bloc.add(ReelsViewedEvent(state.reels.first.id));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ReelsBloc>.value(
       value: _bloc,
-      child: BlocBuilder<ReelsBloc, ReelsState>(
+      child: BlocConsumer<ReelsBloc, ReelsState>(
+        listener: _listener,
         builder: (BuildContext context, ReelsState state) {
           return switch (state) {
             ReelsLoadingState() => const ColoredBox(
@@ -172,6 +192,10 @@ class _ReelViewerWidgetState extends State<ReelViewerWidget> {
           itemBuilder: (BuildContext context, int i) {
             final reel = state.reels[i];
             return ReelPageWidget(
+              // Keyed by reel id: without it, element recycling after a
+              // deletion keeps playing the removed reel's video under the
+              // next reel's overlay.
+              key: ValueKey<String>(reel.id),
               reel: reel,
               isActive: widget.active && i == _index,
               isOwner: _myId != null && reel.author.id == _myId,

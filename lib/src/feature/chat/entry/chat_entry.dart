@@ -16,11 +16,14 @@ class ChatEntry {
   static Future<void> open(
     BuildContext context, {
     required String otherUserId,
-    Map<String, dynamic>? metadata,
   }) async {
     final me = FirebaseAuth.instance.currentUser?.uid;
     if (me == null || _busy) return;
     _busy = true;
+    final String? tchatId;
+    // _busy only guards the find-or-create section: router.push resolves when
+    // the pushed thread is POPPED, so holding the flag across it would
+    // silently swallow every openChatWith from screens stacked on a thread.
     try {
       const controller = TchatController();
       final existing = await controller.tchatExist(
@@ -28,23 +31,23 @@ class ChatEntry {
         userId: me,
         otherUserId: otherUserId,
       );
-      final tchatId =
+      tchatId =
           existing?.id ??
           await controller.createTchat(
             TchatType.oneToOne,
             userId1: me,
             userId2: otherUserId,
           );
-      if (tchatId == null || !context.mounted) return;
-      // Prime the message provider from the root ProviderScope container.
-      ProviderScope.containerOf(
-        context,
-        listen: false,
-      ).read(messageListProvider).init(tchatId);
-      if (!context.mounted) return;
-      await context.router.push(ChatThreadRoute(tchatId: tchatId));
     } finally {
       _busy = false;
     }
+    if (tchatId == null || !context.mounted) return;
+    // Prime the message provider from the root ProviderScope container.
+    ProviderScope.containerOf(
+      context,
+      listen: false,
+    ).read(messageListProvider).init(tchatId);
+    if (!context.mounted) return;
+    await context.router.push(ChatThreadRoute(tchatId: tchatId));
   }
 }

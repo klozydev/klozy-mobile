@@ -667,7 +667,12 @@
       },
       "event": {
         "report-and-block": "Report and block",
-        "delete-tchat": "Delete tchat"
+        "delete-tchat": "Delete tchat",
+        "delete-message": "Delete message",
+        "delete-message-for-everyone": "Delete for everyone",
+        "delete-tchat-sure": "Are you sure you want to delete this conversation?",
+        "see-group": "See group",
+        "unlock": "Unblock"
       },
       "status": {
         "online": "Online",
@@ -694,7 +699,8 @@
         "no-tchat-content": "You don't have any tchat yet.",
         "group-default-title": "New group",
         "oto-default-title": "New tchat",
-        "new-conversation": "New conversation"
+        "new-conversation": "New conversation",
+        "closed-conversation": "Conversation closed"
       },
       "message": {
         "no-message": "No message",
@@ -718,7 +724,40 @@
         "order-rejected": "Your order n°{id} has been rejected by the seller",
         "order-purchased": "An order has been purchased",
         "view-order-details": "View order details"
-      }
+      },
+      "add-participants": "Add participants",
+      "block-user": "Block user",
+      "closed": {
+        "subtitle": "You can no longer reply to this conversation.",
+        "title": "Conversation closed"
+      },
+      "delete-conversation": "Delete conversation",
+      "delete-group": "Delete group",
+      "deleted-message-row-info": "Message deleted",
+      "image": "Image",
+      "info": {
+        "conversation-deleted-success": "Conversation deleted",
+        "delete-group": "Delete group",
+        "delete-my-group-confirm": "Are you sure you want to delete this group?",
+        "delete-user-confirm": "Are you sure you want to remove this participant?",
+        "last-leave-group-confirm": "You are the last participant. Leaving will delete this group. Continue?",
+        "leave-group": "Leave group",
+        "leave-group-confirm": "Are you sure you want to leave this group?",
+        "remove-user": "Remove participant"
+      },
+      "leave-group": "Leave group",
+      "mute-user": "Mute notifications",
+      "other-actions": "Other actions",
+      "participants": "Participants",
+      "remove-user": "Remove participant",
+      "reply-to": {
+        "image": "Image",
+        "video": "Video"
+      },
+      "report-user": "Report user",
+      "unblock-user": "Unblock user",
+      "unmute-user": "Unmute notifications",
+      "video": "Video"
     },
     "commentary": {
       "add-note-title": "Rate the seller",
@@ -1021,7 +1060,8 @@
       "seconds-ago": "{} seconds ago",
       "months-ago": "{} months ago",
       "years-ago": "{} years ago",
-      "moment-ago": "A moment ago"
+      "moment-ago": "A moment ago",
+      "yesterday": "yesterday"
     },
     "settings": {
       "edited-by": "Edited by",
@@ -1224,7 +1264,22 @@
     "dirhams": "Dirhams",
     "aed": "AED",
     "followers": "Followers",
-    "following": "Following"
+    "following": "Following",
+    "arrow": "Arrow",
+    "change-brush-size": "Brush size",
+    "change-color": "Color",
+    "change-mode": "Mode",
+    "circle": "Circle",
+    "clear-all-progress": "Clear all",
+    "confirm": "Confirm",
+    "dash-line": "Dashed line",
+    "drawing": "Drawing",
+    "line": "Line",
+    "none-zoom": "No zoom",
+    "rectangle": "Rectangle",
+    "select": "Select",
+    "text": "Text",
+    "undo": "Undo"
   },
   "empty-state": {
     "no-wishlist": "No wishlist",

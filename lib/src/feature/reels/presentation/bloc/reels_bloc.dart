@@ -1,8 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
+import 'package:klozy/src/core/events/reels_changed_event.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel.dart';
 import 'package:klozy/src/feature/reels/domain/reels_repository.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reels_event.dart';
@@ -15,12 +18,27 @@ class ReelsBloc extends Bloc<ReelsEvent, ReelsState> {
   static const int _limit = 10;
   int _page = 1;
 
-  ReelsBloc(this._reelsRepository) : super(const ReelsLoadingState()) {
-    on<ReelsInitEvent>(_onInit);
-    on<ReelsLoadMoreEvent>(_onLoadMore);
+  late final StreamSubscription<ReelsChangedEvent> _reelsChangedSub;
+
+  ReelsBloc(this._reelsRepository, EventBus eventBus)
+    : super(const ReelsLoadingState()) {
+    on<ReelsInitEvent>(_onInit, transformer: restartable());
+    // droppable: swipe spam must not queue duplicate page fetches.
+    on<ReelsLoadMoreEvent>(_onLoadMore, transformer: droppable());
     on<ReelsLikeToggledEvent>(_onLikeToggled);
     on<ReelsViewedEvent>(_onViewed);
     on<ReelsDeletedEvent>(_onDeleted);
+    // Refresh when a reel is created/edited/deleted elsewhere (composer,
+    // profile) — mirrors FeedBloc's ProductsChangedEvent subscription.
+    _reelsChangedSub = eventBus.on<ReelsChangedEvent>().listen(
+      (_) => add(const ReelsInitEvent()),
+    );
+  }
+
+  @override
+  Future<void> close() {
+    _reelsChangedSub.cancel();
+    return super.close();
   }
 
   Future<void> _onInit(ReelsInitEvent event, Emitter<ReelsState> emit) async {
@@ -49,16 +67,25 @@ class ReelsBloc extends Bloc<ReelsEvent, ReelsState> {
     emit(current.copyWith(isLoadingMore: true));
     try {
       final page = await _reelsRepository.feed(page: _page + 1, limit: _limit);
+      // A reload (ReelsInitEvent) may have replaced the list while this page
+      // was in flight — appending would mix the old list with the new one.
+      final latest = state;
+      if (emit.isDone || latest is! ReelsReadyState || !latest.isLoadingMore) {
+        return;
+      }
       _page += 1;
       emit(
-        current.copyWith(
-          reels: <Reel>[...current.reels, ...page.data],
+        latest.copyWith(
+          reels: <Reel>[...latest.reels, ...page.data],
           isLoadingMore: false,
           hasMore: page.data.length >= _limit,
         ),
       );
     } catch (_) {
-      emit(current.copyWith(isLoadingMore: false));
+      final latest = state;
+      if (!emit.isDone && latest is ReelsReadyState && latest.isLoadingMore) {
+        emit(latest.copyWith(isLoadingMore: false));
+      }
     }
   }
 
@@ -88,7 +115,9 @@ class ReelsBloc extends Bloc<ReelsEvent, ReelsState> {
   }
 
   void _onViewed(ReelsViewedEvent event, Emitter<ReelsState> emit) {
-    unawaited(_reelsRepository.view(event.reelId));
+    // ignore(): unawaited() only silences the lint — a failed view ping
+    // (routine offline) would surface as an unhandled async error.
+    _reelsRepository.view(event.reelId).ignore();
   }
 
   Future<void> _onDeleted(

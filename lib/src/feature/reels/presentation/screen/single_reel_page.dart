@@ -9,9 +9,11 @@ import 'package:klozy/src/design/components/ds_glass_button.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel.dart';
 import 'package:klozy/src/feature/reels/domain/reels_repository.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_comments_sheet.dart';
+import 'package:klozy/src/feature/reels/presentation/widget/reel_edit_sheet.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_menu_sheet.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_page_widget.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_shop_sheet.dart';
@@ -32,11 +34,65 @@ class _SingleReelPageState extends State<SingleReelPage> {
   Reel? _reel;
   AppErrorType? _error;
   bool _loading = true;
+  String? _myId;
 
   @override
   void initState() {
     super.initState();
     _load();
+    locator<MeRepository>().getMe().then((me) {
+      if (mounted) setState(() => _myId = me.id);
+    }).ignore();
+  }
+
+  bool get _isOwner {
+    final reel = _reel;
+    return reel != null && _myId != null && reel.author.id == _myId;
+  }
+
+  Future<void> _toggleLike(Reel reel) async {
+    final nowLiked = !reel.isLiked;
+    final updated = reel.copyWith(
+      isLiked: nowLiked,
+      likes: reel.likes + (nowLiked ? 1 : -1),
+    );
+    setState(() => _reel = updated);
+    try {
+      nowLiked ? await _repo.like(reel.id) : await _repo.unlike(reel.id);
+    } catch (_) {
+      // Roll the optimistic toggle back.
+      if (mounted) setState(() => _reel = reel);
+    }
+  }
+
+  Future<void> _editCaption(Reel reel) async {
+    final caption = await DSBottomSheet.show<String>(
+      context,
+      title: context.l10N.reels_edit_reel,
+      child: ReelEditSheet(caption: reel.caption),
+    );
+    if (caption == null || !mounted) return;
+    try {
+      await _repo.updateReel(reel.id, caption: caption);
+      if (mounted) {
+        context.showSnackBar(context.l10N.reels_caption_updated);
+        setState(() => _reel = reel.copyWith(caption: caption));
+      }
+    } catch (_) {
+      if (mounted) context.showSnackBar(context.l10N.settings_save_failed);
+    }
+  }
+
+  Future<void> _delete(Reel reel) async {
+    try {
+      await _repo.delete(reel.id);
+      if (mounted) {
+        context.showSnackBar(context.l10N.reels_deleted_snackbar);
+        await context.router.maybePop();
+      }
+    } catch (_) {
+      if (mounted) context.showSnackBar(context.l10N.settings_save_failed);
+    }
   }
 
   Future<void> _load() async {
@@ -70,8 +126,15 @@ class _SingleReelPageState extends State<SingleReelPage> {
     return DSBottomSheet.show<void>(
       context,
       child: ReelMenuSheet(
-        isOwner: false,
-        onDelete: () => Navigator.of(context).maybePop(),
+        isOwner: _isOwner,
+        onEdit: () {
+          Navigator.of(context).maybePop();
+          _editCaption(reel);
+        },
+        onDelete: () {
+          Navigator.of(context).maybePop();
+          _delete(reel);
+        },
         onReport: () {
           Navigator.of(context).maybePop();
           _repo.report(reel.id, 'Reported from app').ignore();
@@ -95,10 +158,11 @@ class _SingleReelPageState extends State<SingleReelPage> {
           else if (reel != null)
             Positioned.fill(
               child: ReelPageWidget(
+                key: ValueKey<String>(reel.id),
                 reel: reel,
                 isActive: true,
-                isOwner: false,
-                onLike: () => _repo.like(reel.id).ignore(),
+                isOwner: _isOwner,
+                onLike: () => _toggleLike(reel),
                 onShop: () => _openShop(reel),
                 onShare: () => AppShare.reel(reel.id, caption: reel.caption),
                 onMenu: () => _openMenu(reel),

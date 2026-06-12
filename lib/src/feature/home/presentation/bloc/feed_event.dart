@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
@@ -30,5 +32,10 @@ final class FeedLoadMore extends FeedEvent {
 /// Quiet reload (pull-to-refresh or a data-changed event) — keeps the current
 /// items on screen until the fresh first page arrives.
 final class FeedRefreshed extends FeedEvent {
-  const FeedRefreshed();
+  /// Completed when the refresh settles (success OR failure), so the
+  /// RefreshIndicator can stop spinning deterministically — a quiet failure
+  /// emits no state, which would otherwise hang `bloc.stream.first` forever.
+  final Completer<void>? completer;
+
+  const FeedRefreshed({this.completer});
 }

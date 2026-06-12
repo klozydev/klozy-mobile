@@ -175,8 +175,17 @@ class _PhonePageState extends State<PhonePage> {
           verificationId: state.verification.verificationId,
           destination: state.destination,
           isEmail: false,
+          resendToken: state.verification.resendToken,
         ),
       );
+    } else if (state is AuthSuccess) {
+      // Android instant verification: signed in without OTP entry.
+      context.router.replaceAll(<PageRouteInfo>[
+        if (state.onboardingComplete)
+          const ShellRoute()
+        else
+          const PersonalizeRoute(),
+      ]);
     } else if (state is AuthFailure) {
       context.showSnackBar(state.message);
     }

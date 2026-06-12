@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/app/notifications/notifications_cubit.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
@@ -12,9 +13,13 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   final NotificationsRepository _repository;
   final NotificationsCubit _cubit;
 
+  static const int _limit = 30;
+  int _page = 1;
+
   NotificationsBloc(this._repository, this._cubit)
     : super(const NotificationsLoadingState()) {
     on<NotificationsStarted>(_onStarted);
+    on<NotificationsLoadMore>(_onLoadMore, transformer: droppable());
     on<NotificationsReadAll>(_onReadAll);
     on<NotificationMarkedRead>(_onMarkedRead);
     on<NotificationRemoved>(_onRemoved);
@@ -26,9 +31,47 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   ) async {
     emit(const NotificationsLoadingState());
     try {
-      emit(NotificationsLoadedState(await _repository.getNotifications()));
+      _page = 1;
+      final items = await _repository.getNotifications(
+        page: _page,
+        limit: _limit,
+      );
+      emit(NotificationsLoadedState(items, hasMore: items.length >= _limit));
     } catch (error) {
       emit(NotificationsErrorState(type: AppErrorType.fromException(error)));
+    }
+  }
+
+  Future<void> _onLoadMore(
+    NotificationsLoadMore event,
+    Emitter<NotificationsState> emit,
+  ) async {
+    final current = state;
+    if (current is! NotificationsLoadedState ||
+        current.isLoadingMore ||
+        !current.hasMore) {
+      return;
+    }
+    emit(current.copyWith(isLoadingMore: true));
+    try {
+      final items = await _repository.getNotifications(
+        page: _page + 1,
+        limit: _limit,
+      );
+      final latest = state;
+      if (emit.isDone || latest is! NotificationsLoadedState) return;
+      _page += 1;
+      emit(
+        NotificationsLoadedState(<AppNotification>[
+          ...latest.items,
+          ...items,
+        ], hasMore: items.length >= _limit),
+      );
+    } catch (_) {
+      final latest = state;
+      if (!emit.isDone && latest is NotificationsLoadedState) {
+        emit(latest.copyWith(isLoadingMore: false));
+      }
     }
   }
 

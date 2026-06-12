@@ -635,6 +635,7 @@ class OtpRoute extends PageRouteInfo<OtpRouteArgs> {
     required String verificationId,
     required String destination,
     bool isEmail = false,
+    int? resendToken,
     List<PageRouteInfo>? children,
   }) : super(
          OtpRoute.name,
@@ -643,6 +644,7 @@ class OtpRoute extends PageRouteInfo<OtpRouteArgs> {
            verificationId: verificationId,
            destination: destination,
            isEmail: isEmail,
+           resendToken: resendToken,
          ),
          initialChildren: children,
        );
@@ -659,6 +661,7 @@ class OtpRoute extends PageRouteInfo<OtpRouteArgs> {
           verificationId: args.verificationId,
           destination: args.destination,
           isEmail: args.isEmail,
+          resendToken: args.resendToken,
         ),
       );
     },
@@ -671,6 +674,7 @@ class OtpRouteArgs {
     required this.verificationId,
     required this.destination,
     this.isEmail = false,
+    this.resendToken,
   });
 
   final Key? key;
@@ -681,9 +685,11 @@ class OtpRouteArgs {
 
   final bool isEmail;
 
+  final int? resendToken;
+
   @override
   String toString() {
-    return 'OtpRouteArgs{key: $key, verificationId: $verificationId, destination: $destination, isEmail: $isEmail}';
+    return 'OtpRouteArgs{key: $key, verificationId: $verificationId, destination: $destination, isEmail: $isEmail, resendToken: $resendToken}';
   }
 
   @override
@@ -693,7 +699,8 @@ class OtpRouteArgs {
     return key == other.key &&
         verificationId == other.verificationId &&
         destination == other.destination &&
-        isEmail == other.isEmail;
+        isEmail == other.isEmail &&
+        resendToken == other.resendToken;
   }
 
   @override
@@ -701,7 +708,8 @@ class OtpRouteArgs {
       key.hashCode ^
       verificationId.hashCode ^
       destination.hashCode ^
-      isEmail.hashCode;
+      isEmail.hashCode ^
+      resendToken.hashCode;
 }
 
 /// generated route for

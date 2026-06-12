@@ -191,7 +191,10 @@ class MessageListProvider with ChangeNotifier {
         String? thumbnailPath;
 
         /// Set relative path for thumbnail if asset is a video
-        if (asset.type == AssetType.video) {
+        // PickedAssetType (not photo_manager's AssetType): comparing against
+        // the wrong enum was always false, so the local thumbnail was never
+        // written.
+        if (asset.type == PickedAssetType.video) {
           try {
             Uint8List? thumbData = await asset.thumbnail;
             if (thumbData != null) {

@@ -73,11 +73,16 @@ class SellBloc extends Bloc<SellEvent, SellState> {
     };
   }
 
+  /// Last locally picked photo paths — survives error/retry round-trips so
+  /// "Retry" never dumps the user back on an empty photo grid.
+  List<String> _lastPaths = const <String>[];
+
   void _onStarted(SellStarted event, Emitter<SellState> emit) {
-    emit(const SellPhotosState(<String>[]));
+    emit(SellPhotosState(_lastPaths));
   }
 
   void _onPhotosUpdated(SellPhotosUpdated event, Emitter<SellState> emit) {
+    _lastPaths = event.paths;
     emit(SellPhotosState(event.paths));
   }
 
@@ -86,11 +91,14 @@ class SellBloc extends Bloc<SellEvent, SellState> {
     Emitter<SellState> emit,
   ) async {
     if (event.paths.isEmpty) return;
+    _lastPaths = event.paths;
     emit(const SellAnalyzingState());
     try {
       final urls = await _uploadsRepository.uploadImages(event.paths);
       if (urls.isEmpty) {
-        emit(const SellErrorState(type: AppErrorType.unknown));
+        emit(
+          SellErrorState(type: AppErrorType.unknown, photoPaths: event.paths),
+        );
         return;
       }
       // AI analysis is best-effort — a failure leaves the draft empty.
@@ -118,11 +126,17 @@ class SellBloc extends Bloc<SellEvent, SellState> {
           rootCategories: categories,
           conditions: conditions,
           imageUrls: urls,
+          photoPaths: event.paths,
           aiFilled: _aiFilledFields(draft),
         ),
       );
     } catch (error) {
-      emit(SellErrorState(type: AppErrorType.fromException(error)));
+      emit(
+        SellErrorState(
+          type: AppErrorType.fromException(error),
+          photoPaths: event.paths,
+        ),
+      );
     }
   }
 

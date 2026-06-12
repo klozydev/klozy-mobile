@@ -383,10 +383,7 @@ class _TchatListWidgetState extends ConsumerState<TchatListWidget> {
             child: Text('utils.cancel'.tr()),
           ),
           actions: [
-            if (!ref
-                .read(userProvider)
-                .metadata!
-                .bloquedUsers
+            if (!(ref.read(userProvider).metadata?.bloquedUsers ?? const [])
                 .contains(otherId))
               CupertinoActionSheetAction(
                 onPressed: () async {
@@ -396,10 +393,8 @@ class _TchatListWidgetState extends ConsumerState<TchatListWidget> {
                 isDestructiveAction: true,
                 child: Text('package.tchat.event.report-and-block'.tr()),
               )
-            else if (ref
-                .read(userProvider)
-                .metadata!
-                .bloquedUsers
+            else if ((ref.read(userProvider).metadata?.bloquedUsers ??
+                    const [])
                 .contains(otherId))
               CupertinoActionSheetAction(
                 onPressed: () async {

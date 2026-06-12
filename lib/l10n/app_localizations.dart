@@ -1702,6 +1702,12 @@ abstract class AppLocalizations {
   /// **'Payment failed. Please try again.'**
   String get checkout_payment_failed;
 
+  /// No description provided for @checkout_quote_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t update delivery for that address. Please try again.'**
+  String get checkout_quote_failed;
+
   /// No description provided for @orders_my_orders.
   ///
   /// In en, this message translates to:
@@ -1941,6 +1947,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'—'**
   String get orders_status_unknown;
+
+  /// No description provided for @orders_action_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t complete that action. Please try again.'**
+  String get orders_action_failed;
+
+  /// No description provided for @offers_action_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t update the offer. Please try again.'**
+  String get offers_action_failed;
 
   /// No description provided for @profile_title.
   ///

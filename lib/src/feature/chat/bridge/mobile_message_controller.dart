@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:core_kosmos/core_kosmos.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:kosmos_chat/backend/controller/message_controller.dart';
 import 'package:kosmos_chat/kosmos_chat.dart';
 
@@ -48,5 +48,15 @@ class MobileMessageController extends MessageController {
     );
 
     // Push-on-new-message intentionally omitted (no-op) for now.
+  }
+
+  @override
+  void onTchatNameClick(
+    BuildContext context,
+    TchatModel tchat, [
+    List<SocialUser>? tchatUsers,
+  ]) {
+    // No-op: the package navigates to a group-settings route that does not
+    // exist in this app's router (group chats are not a mobile feature).
   }
 }

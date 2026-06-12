@@ -31,10 +31,17 @@ final class SellAnalyzingState extends SellState {
 final class SellErrorState extends SellState {
   final AppErrorType type;
 
-  const SellErrorState({required this.type});
+  /// The locally picked photo paths at the time of the failure — preserved so
+  /// the retry path doesn't dump the user back on an empty photo grid.
+  final List<String> photoPaths;
+
+  const SellErrorState({
+    required this.type,
+    this.photoPaths = const <String>[],
+  });
 
   @override
-  List<Object?> get props => [type];
+  List<Object?> get props => [type, photoPaths];
 }
 
 final class SellRecapState extends SellState {
@@ -42,6 +49,10 @@ final class SellRecapState extends SellState {
   final List<CatalogCategory> rootCategories;
   final List<CatalogCondition> conditions;
   final List<String> imageUrls;
+
+  /// The locally picked photo paths backing [imageUrls] — used for the recap
+  /// thumbnails (local files) and to return to the photos step.
+  final List<String> photoPaths;
 
   /// Fields populated by the AI analysis — drive the sparkle badge.
   final Set<SellDraftField> aiFilled;
@@ -56,6 +67,7 @@ final class SellRecapState extends SellState {
     required this.rootCategories,
     required this.conditions,
     required this.imageUrls,
+    this.photoPaths = const <String>[],
     this.aiFilled = const <SellDraftField>{},
     this.sizeSystem = SizeSystem.eu,
     this.isCreating = false,
@@ -74,6 +86,7 @@ final class SellRecapState extends SellState {
       rootCategories: rootCategories,
       conditions: conditions,
       imageUrls: imageUrls,
+      photoPaths: photoPaths,
       aiFilled: aiFilled ?? this.aiFilled,
       sizeSystem: sizeSystem ?? this.sizeSystem,
       isCreating: isCreating ?? this.isCreating,
@@ -87,6 +100,7 @@ final class SellRecapState extends SellState {
     rootCategories,
     conditions,
     imageUrls,
+    photoPaths,
     aiFilled,
     sizeSystem,
     isCreating,

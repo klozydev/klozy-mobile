@@ -36,6 +36,11 @@ void main() {
     mockAuthRepository = _MockAuthRepository();
     // signOut is a no-op in most tests unless overridden.
     when(() => mockAuthRepository.signOut()).thenAnswer((_) async {});
+    // The bloc subscribes to auth changes on construction to re-bootstrap
+    // after sign-in/out; an empty stream keeps these tests single-shot.
+    when(
+      () => mockAuthRepository.authStateChanges(),
+    ).thenAnswer((_) => const Stream.empty());
     bloc = AccountBloc(mockUseCase, mockAuthRepository);
   });
 

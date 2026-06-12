@@ -248,7 +248,10 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget _activeChips() {
     final chips = <Widget>[];
-    if (_filters.categoryId != null) {
+    // Covers both the sheet's leaf category and the browse cards'
+    // root-category scope — the latter previously counted in "Filters (n)"
+    // but rendered no clearable chip.
+    if (_filters.categoryId != null || _filters.rootCategoryId != null) {
       chips.add(
         _clearChip(
           _filters.categoryPath ?? context.l10N.search_filter_category,

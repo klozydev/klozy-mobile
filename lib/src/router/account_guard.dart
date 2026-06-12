@@ -41,7 +41,15 @@ class AccountGuard extends AutoRouteGuard {
             case AccountStatus.valid:
               settle(() => resolver.next(true));
             case AccountStatus.incompleteOnboarding:
-              settle(() => resolver.redirectUntil(const PersonalizeRoute()));
+              // The onboarding-resume routes are themselves guarded by this
+              // guard: they must resolve to next(true) here, otherwise the
+              // redirect below re-triggers the guard on its own target and
+              // navigation loops forever.
+              if (_isOnboardingRoute(resolver.route.name)) {
+                settle(() => resolver.next(true));
+              } else {
+                settle(() => resolver.redirectUntil(const PersonalizeRoute()));
+              }
             case AccountStatus.legacy:
               // Settle the resolver FIRST so navigation is never left hanging,
               // then clean up the stale session fire-and-forget. If signOut
@@ -58,5 +66,10 @@ class AccountGuard extends AutoRouteGuard {
           // still settle the resolver, otherwise navigation hangs silently.
           settle(() => resolver.next(false));
         });
+  }
+
+  bool _isOnboardingRoute(String routeName) {
+    return routeName == PersonalizeRoute.name ||
+        routeName == ProfileCompletionRoute.name;
   }
 }
