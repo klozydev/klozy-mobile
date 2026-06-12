@@ -42,23 +42,35 @@ class _ProductCarouselWidgetState extends State<ProductCarouselWidget> {
         if (images.isEmpty)
           const ColoredBox(color: DSColor.lowBlack)
         else
-          PageView.builder(
-            controller: _controller,
-            itemCount: images.length,
-            onPageChanged: widget.onPageChanged,
-            itemBuilder: (BuildContext context, int i) => CachedNetworkImage(
-              imageUrl: images[i],
-              fit: BoxFit.cover,
-              placeholder: (BuildContext context, String url) =>
-                  const ColoredBox(color: DSColor.card),
-              errorWidget: (BuildContext context, String url, Object error) =>
-                  const ColoredBox(
-                    color: DSColor.card,
-                    child: Icon(
-                      Icons.broken_image_outlined,
-                      color: DSColor.onSurface45,
+          // ExcludeSemantics prevents off-screen PageView pages from leaving
+          // dirty semantics nodes in PipelineOwner.flushSemantics. When a
+          // BackdropFilter (DSGlassButton in ProductTopBarWidget) coexists with
+          // a nested viewport (PageView inside SingleChildScrollView), the
+          // framework's debugCheckForParentData assert fires every frame because
+          // RenderViewport.visitChildrenForSemantics excludes non-visible pages
+          // while the surrounding BackdropFilter forces a semantics pass each
+          // frame. Excluding the carousel from the semantics tree stops those
+          // nodes from ever becoming dirty. Semantic context for the images is
+          // provided by ProductTitleBlockWidget and ProductPageDotsWidget.
+          ExcludeSemantics(
+            child: PageView.builder(
+              controller: _controller,
+              itemCount: images.length,
+              onPageChanged: widget.onPageChanged,
+              itemBuilder: (BuildContext context, int i) => CachedNetworkImage(
+                imageUrl: images[i],
+                fit: BoxFit.cover,
+                placeholder: (BuildContext context, String url) =>
+                    const ColoredBox(color: DSColor.card),
+                errorWidget: (BuildContext context, String url, Object error) =>
+                    const ColoredBox(
+                      color: DSColor.card,
+                      child: Icon(
+                        Icons.broken_image_outlined,
+                        color: DSColor.onSurface45,
+                      ),
                     ),
-                  ),
+              ),
             ),
           ),
         if (blocked)
