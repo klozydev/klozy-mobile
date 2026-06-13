@@ -206,8 +206,7 @@ Widget offerBuilder(
                   if (context.mounted) {
                     const ChatOfferController().handleOffer(
                       false,
-                      tchat.id!,
-                      message.id!,
+                      '${message.metadata['offerId'] ?? ''}',
                     );
                   }
                 },
@@ -226,8 +225,7 @@ Widget offerBuilder(
                   if (context.mounted) {
                     await const ChatOfferController().handleOffer(
                       true,
-                      tchat.id!,
-                      message.id!,
+                      '${message.metadata['offerId'] ?? ''}',
                     );
                   }
                 },

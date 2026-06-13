@@ -1,35 +1,28 @@
-import 'package:cloud_functions/cloud_functions.dart';
+import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/offers/offers_repository.dart';
 
-/// Chat-offer backend = the shared Firebase project's cloud functions, keyed by
-/// (tchatId, messageId). This is NOT mobile's REST `/v1/offers/{id}` — different
-/// IDs/backends — so accept/refuse stays on the Firebase callable to keep the
-/// copied offer bubbles behaving identically.
+/// Drives the offer bubble's Accept / Refuse / Cancel actions through the
+/// NestJS backend (`/v1/offers/{id}`), which is the single source of truth for
+/// offer state. The backend mirrors the new status back into the Firestore
+/// chat message, so the bubble updates itself — no client-side Firestore write.
+///
+/// Keyed by the backend `offerId` carried in the offer message metadata (NOT
+/// the old Firebase callable, which forked order state into Firestore).
 class ChatOfferController {
   const ChatOfferController();
 
-  Future<void> handleOffer(
-    bool accepted,
-    String tchatId,
-    String messageId,
-  ) async {
-    final callable = FirebaseFunctions.instance.httpsCallable('handleOffer');
-    await callable.call(<String, dynamic>{
-      'tchatId': tchatId,
-      'messageId': messageId,
-      'accepted': accepted,
-    });
+  Future<void> handleOffer(bool accepted, String offerId) async {
+    if (offerId.isEmpty) return;
+    final OffersRepository repo = locator<OffersRepository>();
+    if (accepted) {
+      await repo.acceptOffer(offerId);
+    } else {
+      await repo.declineOffer(offerId);
+    }
   }
 
-  Future<void> cancelOffer({
-    required String tchatId,
-    required String messageId,
-    String? orderId,
-  }) async {
-    final callable = FirebaseFunctions.instance.httpsCallable('cancelOffer');
-    await callable.call(<String, dynamic>{
-      'tchatId': tchatId,
-      'messageId': messageId,
-      if (orderId != null) 'orderId': orderId,
-    });
+  Future<void> cancelOffer(String offerId) async {
+    if (offerId.isEmpty) return;
+    await locator<OffersRepository>().cancelOffer(offerId);
   }
 }
