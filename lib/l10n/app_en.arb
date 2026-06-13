@@ -693,5 +693,6 @@
   "sellPhotosCounter": "photos",
   "sellRecapPhotoStripEdit": "Edit",
   "sellRequiredHint": "* Required fields",
-  "sellSizeSystem": "Size system"
+  "sellSizeSystem": "Size system",
+  "settings_language": "Language"
 }

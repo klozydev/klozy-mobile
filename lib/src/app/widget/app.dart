@@ -66,7 +66,7 @@ class _AppState extends State<App> {
             builder:
                 (
                   BuildContext context,
-                  AppConfigChangeNotifier _,
+                  AppConfigChangeNotifier appConfig,
                   Widget? child,
                 ) {
                   return MultiBlocProvider(
@@ -87,15 +87,18 @@ class _AppState extends State<App> {
                       debugShowCheckedModeBanner: false,
                       onGenerateTitle: (BuildContext context) =>
                           context.l10N.app_name,
-                      // easy_localization (chat `.tr()`) + gen-l10n (`context.l10N`)
-                      // delegates coexist; locale/supportedLocales come from
-                      // EasyLocalization (root, in main.dart).
+                      // App strings + locale are driven by gen-l10n
+                      // (`context.l10N`) and AppConfigChangeNotifier. The
+                      // easy_localization delegates are kept ONLY so the chat
+                      // island's `.tr()` keeps working; the chat island's own
+                      // locale stays managed by EasyLocalization (main.dart) and
+                      // is intentionally left untouched.
                       localizationsDelegates: <LocalizationsDelegate<dynamic>>[
                         ...context.localizationDelegates,
                         ...AppLocalizations.localizationsDelegates,
                       ],
-                      supportedLocales: context.supportedLocales,
-                      locale: context.locale,
+                      supportedLocales: AppLocalizations.supportedLocales,
+                      locale: Locale(appConfig.locale),
                       theme: dsTheme(),
                       builder: (context, child) {
                         final clamped = MediaQuery.textScalerOf(

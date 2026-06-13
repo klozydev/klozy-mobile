@@ -1,0 +1,694 @@
+{
+  "app_name": "Klozy",
+  "@_error_page": {},
+  "error_page_show_details": "ТОЛЫҒЫРАҚ КӨРСЕТУ",
+  "error_page_hide_details": "ТОЛЫҒЫРАҚ ЖАСЫРУ",
+  "error_page_copy_for_support": "ҚОЛДАУ ҮШІН КӨШІРУ",
+  "error_page_need_help": "КӨМЕК КЕРЕК ПЕ?",
+  "error_page_support_email_label": "support@klozy.app",
+  "error_page_source_label": "ДЕРЕККӨЗ",
+  "error_page_stage_label": "КЕЗЕҢ",
+  "error_page_request_label": "СҰРАУ",
+  "error_page_message_label": "ХАБАРЛАМА",
+  "@_error_scenario": {},
+  "error_scenario_network_title": "Сіз желіден тыс сияқтысыз",
+  "error_scenario_network_body": "Синхрондау үшін бізге байланыс қажет. Wi-Fi немесе мобильді деректеріңізді тексеріп, қайталап көріңіз.",
+  "error_scenario_network_primary": "Байланысты қайталау",
+  "error_scenario_network_secondary": "Желіден тыс жұмыс істеу",
+  "error_scenario_server_title": "Біздің жақтан бірдеңе дұрыс болмады",
+  "error_scenario_server_body": "Серверде күтпеген қате орын алды. Біздің команда хабардар етілді. Сәл уақыттан кейін қайталай аласыз.",
+  "error_scenario_server_primary": "Қайталап көру",
+  "error_scenario_server_secondary": "Қолдауға хабарласу",
+  "error_scenario_session_title": "Қайтадан кіріңіз",
+  "error_scenario_session_body": "Қауіпсіздік үшін сеансыңыздың мерзімі бітті. Жалғастыру үшін қайта кіріңіз.",
+  "error_scenario_session_primary": "Кіру",
+  "error_scenario_session_secondary": "Бас тарту",
+  "error_scenario_permission_title": "Сізде мұнда рұқсат жоқ",
+  "error_scenario_permission_body": "Бұл ресурс шектеулі. Рұқсат беруді менеджеріңізден сұраңыз.",
+  "error_scenario_permission_primary": "Артқа қайту",
+  "error_scenario_permission_secondary": "Рұқсат сұрау",
+  "error_scenario_notfound_title": "Мұны таба алмадық",
+  "error_scenario_notfound_body": "Ол жойылған немесе жылжытылған болуы мүмкін.",
+  "error_scenario_notfound_primary": "Артқа қайту",
+  "error_scenario_notfound_secondary": "Жаңарту",
+  "error_scenario_rate_limit_title": "Сәл бәсеңдетіңіз",
+  "error_scenario_rate_limit_body": "Сіз қысқа уақыт ішінде тым көп сұрау жасадыңыз. Сәл демалыңыз — 30 секундтан кейін қайталай аласыз.",
+  "error_scenario_rate_limit_primary": "30 секундтан кейін қайталау",
+  "error_scenario_rate_limit_secondary": "Бас тарту",
+  "error_scenario_maintenance_title": "Жақын арада ораламыз",
+  "error_scenario_maintenance_body": "Қызмет жоспарлы техникалық қызмет көрсетуден өтуде. Ол 15 минут ішінде қайта жұмыс істейді.",
+  "error_scenario_maintenance_primary": "Күйін тексеру",
+  "error_scenario_maintenance_secondary": "Маған хабарлау",
+  "error_scenario_generic_title": "Бірдеңе дұрыс болмады",
+  "error_scenario_generic_body": "Күтпеген қате орын алды. Сәл уақыттан кейін қайталап көріңіз.",
+  "error_scenario_generic_primary": "Қайталап көру",
+  "error_scenario_generic_secondary": "Бас тарту",
+  "error_scenario_server_http_label": "Сервердің ішкі қатесі",
+  "error_scenario_session_http_label": "Сеанс мерзімі бітті",
+  "error_scenario_permission_http_label": "Тыйым салынған",
+  "error_scenario_notfound_http_label": "Табылмады",
+  "error_scenario_rate_limit_http_label": "Тым көп сұрау",
+  "error_scenario_maintenance_http_label": "Техникалық қызмет",
+  "@_auth": {},
+  "auth_country_uae": "БІРІККЕН АРАБ ӘМІРЛІКТЕРІ",
+  "auth_welcome_title": "Ұнайтын қолданылған\nкиімді сатып ал және сат.",
+  "auth_get_started": "Бастау",
+  "auth_already_have_account": "Менде аккаунт бар · ",
+  "auth_log_in": "Кіру",
+  "auth_create_account_title": "Аккаунтыңызды жасаңыз",
+  "auth_welcome_back_title": "Қайта келуіңізбен",
+  "auth_create_account_subtitle": "БАӘ бойынша киім сатып алатын және сататын мыңдаған адамға қосылыңыз.",
+  "auth_welcome_back_subtitle": "Тоқтаған жеріңізден жалғастыру үшін кіріңіз.",
+  "auth_sign_up": "Тіркелу",
+  "auth_email_hint": "Электрондық пошта",
+  "auth_email_invalid": "Жарамды электрондық пошта енгізіңіз",
+  "auth_password_hint": "Құпия сөз",
+  "auth_forgot_password": "Құпия сөзді ұмыттыңыз ба?",
+  "auth_continue_apple": "Apple арқылы жалғастыру",
+  "auth_continue_google": "Google арқылы жалғастыру",
+  "auth_continue_phone": "Телефон арқылы жалғастыру",
+  "auth_terms_prefix": "Жалғастыру арқылы сіз Klozy ",
+  "auth_terms": "Шарттарымен",
+  "auth_terms_and": " және ",
+  "auth_privacy_policy": "Құпиялылық саясатымен",
+  "auth_create_account_button": "Аккаунт жасау",
+  "auth_password_reset_sent": "Құпия сөзді қалпына келтіру сілтемесі жіберілді. Поштаңызды тексеріңіз.",
+  "auth_phone_title": "Нөміріңіз қандай?",
+  "auth_phone_subtitle": "Шынымен сіз екеніңізді растау үшін 6 таңбалы кодты SMS-пен жібереміз.",
+  "auth_phone_number_hint": "50 123 4567",
+  "auth_phone_disclaimer": "Стандартты хабарлама тарифтері қолданылуы мүмкін. Нөміріңіз ешқашан жария көрсетілмейді.",
+  "auth_send_code": "Кодты жіберу",
+  "auth_enter_code_title": "Кодты енгізіңіз",
+  "auth_code_sent_to": "Кімге жіберілді: ",
+  "auth_resend_code_in": "Кодты қайта жіберу {time}",
+  "@auth_resend_code_in": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "auth_resend_code": "Кодты қайта жіберу",
+  "auth_code_spam_hint": "Алмадыңыз ба? Спам бумасын тексеріңіз. Күту мерзімінен кейін жаңа кодты сұрауға болады.",
+  "auth_verify": "Растау",
+  "auth_new_code_sent": "Жаңа код жіберілді.",
+  "@_onboarding": {},
+  "onboarding_all_set": "Барлығы дайын!",
+  "onboarding_all_set_named": "Барлығы дайын, {name}!",
+  "@onboarding_all_set_named": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboarding_feed_ready_subtitle": "Klozy таспаңыз дайын. Бір жерден ашыңыз, сатыңыз және ұнаған киімді сатып алыңыз.",
+  "onboarding_start_exploring": "Шолуды бастау",
+  "onboarding_complete_profile_title": "Профиліңізді толтырыңыз",
+  "onboarding_complete_profile_subtitle": "Klozy-де басқа мүшелер сізді осылай көреді.",
+  "onboarding_photo_upload_coming_soon": "Фото жүктеу жақында қолжетімді болады.",
+  "onboarding_first_name_label": "Аты",
+  "onboarding_first_name_hint": "Амира",
+  "onboarding_last_name_label": "Тегі",
+  "onboarding_last_name_hint": "Хасан",
+  "onboarding_address_label": "Мекенжай",
+  "onboarding_bio_label": "Өзіңіз туралы",
+  "onboarding_bio_char_count": "{count}/{max}",
+  "@onboarding_bio_char_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "onboarding_bio_hint": "Сатып алушыларға стиліңіз туралы аздап айтыңыз…",
+  "onboarding_continue": "Жалғастыру",
+  "onboarding_skip": "Өткізіп жіберу",
+  "onboarding_personalize_title": "Таспаңызды баптаңыз",
+  "onboarding_personalize_subtitle": "Таспаңызды дұрыс заттармен толтыруымыз үшін ұнайтын бірнеше нәрсені таңдаңыз. Бұларды кез келген уақытта өзгерте аласыз.",
+  "onboarding_categories_title": "Санаттар",
+  "onboarding_categories_hint": "Кез келгенін таңдаңыз",
+  "onboarding_sizes_title": "Өлшемдер",
+  "onboarding_clothing_label": "Киім",
+  "onboarding_shoes_label": "Аяқ киім · {system}",
+  "@onboarding_shoes_label": {
+    "placeholders": {
+      "system": {
+        "type": "String"
+      }
+    }
+  },
+  "onboarding_brands_title": "Брендтер",
+  "onboarding_brands_hint": "Сүйікті брендтеріңізге жазылыңыз",
+  "onboarding_brands_search_hint": "Брендтерді іздеу",
+  "onboarding_no_brand_matches": "Сәйкес бренд жоқ.",
+  "onboarding_show_feed": "Таспамды көрсету",
+  "onboarding_show_feed_count": "Таспамды көрсету · {count} таңдалды",
+  "@onboarding_show_feed_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "onboarding_seller_account_set_up": "Сатушы аккаунты орнатылды.",
+  "onboarding_seller_role_title": "Қалай сатасыз?",
+  "onboarding_seller_role_subtitle": "Сізге сай аккаунтты таңдаңыз. Параметрлерде кез келген уақытта ауыстыруға немесе жаңартуға болады.",
+  "onboarding_private_seller_title": "Жеке сатушы",
+  "onboarding_private_seller_badge": "Ең танымал",
+  "onboarding_private_seller_description": "Өз гардеробыңызды тазалап жатырсыз. Ақыны IBAN арқылы тікелей банк шотыңызға аласыз — қағазбастылықсыз.",
+  "onboarding_payout_iban_label": "Төлем IBAN",
+  "onboarding_iban_shield_note": "Шифрланған және тек сату төлемдеріңізді босату үшін қолданылады. Кейінірек Параметрлер → Төлемдер бөлімінде өзгерте аласыз.",
+  "onboarding_pro_vendor_title": "Кәсіби сатушы",
+  "onboarding_pro_vendor_badge": "Pro",
+  "onboarding_pro_vendor_description": "Қайта сату бизнесін жүргізіп жатырсыз. Жаппай тізімдер, брендтелген дүкен және аналитика. Stripe (KYB) арқылы расталады және төленеді.",
+  "onboarding_buyer_protection_note": "Әрбір сату Klozy сатып алушыны қорғаумен қамтылған. Төлем эскроуда сақталады және жеткізу расталғаннан кейін сізге босатылады.",
+  "@_home": {},
+  "home_tab_feed": "Таспа",
+  "home_tab_wishlist": "Қалаулар",
+  "home_tab_reels": "Reels",
+  "home_feed_empty": "Әзірге мұнда ештеңе жоқ.",
+  "home_category_all": "Барлығы",
+  "home_product_badge_new": "Жаңа",
+  "home_wishlist_empty": "Қалаулар тізіміңіз бос",
+  "@_reels": {},
+  "reels_composer_title": "Жаңа reel",
+  "reels_pick_title": "Reel жасау",
+  "reels_pick_subtitle": "Заттарыңызды көрсететін қысқа видео жазыңыз немесе галереядан таңдаңыз.",
+  "reels_record_video": "Видео жазу",
+  "reels_choose_from_gallery": "Галереядан таңдау",
+  "reels_caption_hint": "Көрінісіңіз туралы бірдеңе айтыңыз…",
+  "reels_tag_items_title": "Дүкеніңізден заттарды белгілеу",
+  "reels_no_listings_to_tag": "Сізде белгілейтін белсенді тізімдер әлі жоқ.",
+  "reels_post_reel": "Reel жариялау",
+  "reels_posted_title": "Reel жарияланды!",
+  "reels_posted_subtitle": "Өңдеу аяқталғаннан кейін ол Reels-те пайда болады.",
+  "reels_done": "Дайын",
+  "reels_delete_reel": "Reel-ді жою",
+  "reels_report_reel": "Reel туралы шағымдану",
+  "reels_share": "Бөлісу",
+  "reels_shop_the_look_count": "Көріністі сатып алу · {count}",
+  "@reels_shop_the_look_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reels_no_tagged_items": "Белгіленген заттар жоқ.",
+  "reels_shop_the_look": "Көріністі сатып алу",
+  "reels_deleted_snackbar": "Reel жойылды.",
+  "reels_report_received_snackbar": "Рақмет — шағым қабылданды.",
+  "reels_empty": "Әзірге reels жоқ",
+  "reels_link_copied_snackbar": "Сілтеме буферге көшірілді.",
+  "@_search": {},
+  "search_hint": "Заттарды, брендтерді іздеу…",
+  "search_sort_popular": "Танымал",
+  "search_sort_latest": "Соңғы",
+  "search_sort_price_asc": "Баға ↑",
+  "search_sort_price_desc": "Баға ↓",
+  "search_filters": "Сүзгілер",
+  "search_filters_with_count": "Сүзгілер · {count}",
+  "@search_filters_with_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_browse_categories": "Санаттарды шолу",
+  "search_popular_now": "Қазір танымал",
+  "search_no_results": "Нәтиже жоқ",
+  "search_result_count": "{count, plural, =1{1 нәтиже} other{{count} нәтиже}}",
+  "@search_result_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_condition_count": "{count, plural, =1{1 күй} other{{count} күй}}",
+  "@search_condition_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_size_count": "{count, plural, =1{1 өлшем} other{{count} өлшем}}",
+  "@search_size_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_filter_category": "Санат",
+  "search_filter_condition": "Күй",
+  "search_filter_size": "Өлшем",
+  "search_filter_reset": "Тазалау",
+  "search_filter_show_results": "Нәтижелерді көрсету",
+  "@_product": {},
+  "product_add_to_cart": "Себетке қосу",
+  "product_in_cart_view_cart": "Себетте · Себетті көру",
+  "product_edit_listing": "Тізімді өңдеу",
+  "product_status_sold": "Сатылды",
+  "product_status_reserved": "Брондалды",
+  "product_mark_as_sold": "Сатылды деп белгілеу",
+  "product_mark_as_available": "Қолжетімді деп белгілеу",
+  "product_delete_listing": "Тізімді жою",
+  "product_report_listing": "Тізімге шағымдану",
+  "product_report_this_listing": "Осы тізімге шағымдану",
+  "product_listing_deleted": "Тізім жойылды",
+  "product_back_to_feed": "Таспаға оралу",
+  "product_added_to_cart": "Себетке қосылды.",
+  "product_edit_coming_soon": "Тізімді өңдеу жақында қолжетімді болады.",
+  "product_messaging_coming_soon": "Хабар алмасу жақында қолжетімді болады.",
+  "product_report_received": "Рақмет — шағым қабылданды.",
+  "product_link_copied": "Сілтеме буферге көшірілді.",
+  "product_stat_views": "Қаралымдар",
+  "product_stat_likes": "Ұнатулар",
+  "product_stat_posted": "Жарияланды",
+  "product_stamp_sold": "САТЫЛДЫ",
+  "product_stamp_reserved": "БРОНДАЛДЫ",
+  "product_currency_dhs": "Dhs",
+  "product_price_amount": "{amount} ",
+  "@product_price_amount": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@_sell": {},
+  "sell_sell_in_seconds": "Бірнеше секундта сатыңыз",
+  "sell_your_photos": "Фотоларыңыз",
+  "sell_add_photos_hint": "8 фотоға дейін қосыңыз. AI тізіміңізді алдын ала толтырады.",
+  "sell_continue": "Жалғастыру",
+  "sell_cover": "Мұқаба",
+  "sell_add_a_photo": "Фото қосу",
+  "sell_take_a_photo": "Фото түсіру",
+  "sell_choose_from_gallery": "Галереядан таңдау",
+  "sell_analysing_your_photos": "Фотоларыңыз талданып жатыр…",
+  "sell_identifying_the_item": "Зат анықталып жатыр…",
+  "sell_generating_title_and_price": "Тақырып пен баға жасалып жатыр…",
+  "sell_title": "Тақырып",
+  "sell_price": "Баға",
+  "sell_description": "Сипаттама",
+  "sell_category": "Санат",
+  "sell_brand": "Бренд",
+  "sell_size": "Өлшем",
+  "sell_condition": "Күй",
+  "sell_suggested_by_ai": "AI ұсынған",
+  "sell_list_item": "Затты тізімге қосу",
+  "sell_optional": "Міндетті емес",
+  "sell_title_hint": "мыс. Былғары мотокуртка",
+  "sell_price_hint": "AED",
+  "sell_description_hint": "Күйі, отырысы, материалы туралы мәлімет қосыңыз…",
+  "sell_search_brands": "Брендтерді іздеу",
+  "sell_use_quoted": "\"{value}\" қолдану",
+  "@sell_use_quoted": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "sell_title_error": "Тақырып қосыңыз (кемінде 2 таңба)",
+  "sell_price_error": "Баға енгізіңіз",
+  "sell_category_error": "Санат таңдаңыз",
+  "sell_condition_error": "Күйін таңдаңыз",
+  "sell_youre_live": "Сіз эфирдесіз!",
+  "sell_item_visible_to_buyers": "Затыңыз енді сатып алушыларға көрінеді.",
+  "sell_view_listing": "Тізімді көру",
+  "sell_back_to_home": "Басты бетке оралу",
+  "@_cart": {},
+  "cart_title": "Себет",
+  "cart_make_an_offer": "Ұсыныс жасау",
+  "cart_cancel_offer": "Ұсынысты болдырмау",
+  "cart_check_out": "Тапсырысты рәсімдеу",
+  "cart_subtotal": "Аралық сома",
+  "cart_offer_pending": "Ұсыныс күтілуде",
+  "cart_offer_accepted": "Ұсыныс қабылданды",
+  "cart_pro_badge": "PRO",
+  "cart_empty_title": "Себетіңіз бос",
+  "cart_empty_subtitle": "Заттарды қосыңыз, олар мұнда сатушы бойынша топталады.",
+  "cart_offer_send": "Ұсыныс жіберу",
+  "cart_offer_hint_single": "Сіздің ұсынысыңыз",
+  "cart_offer_hint_multi": "Барлық {count} зат үшін ұсынысыңыз",
+  "@cart_offer_hint_multi": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cart_offer_error_below_total": "Ұсыныс жалпы бағадан төмен болуы керек",
+  "cart_offer_chat_note": "Бір ұсыныс осы сатушыдан барлығын қамтиды. Ол чатта жеке жіберіледі — сатушы қабылдайды немесе бас тартады.",
+  "cart_currency_dhs": "Dhs",
+  "cart_price_dhs": "{amount} Dhs",
+  "@cart_price_dhs": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "cart_item_count": "{count, plural, =1{1 зат} other{{count} зат}}",
+  "@cart_item_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cart_sellers_summary": "{count, plural, =1{1 сатушы · әр сатушыға бір ұсыныс және тапсырыс} other{{count} сатушы · әр сатушыға бір ұсыныс және тапсырыс}}",
+  "@cart_sellers_summary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@_checkout": {},
+  "checkout_title": "Тапсырысты рәсімдеу",
+  "checkout_delivery": "Жеткізу",
+  "checkout_summary": "Қорытынды",
+  "checkout_subtotal": "Аралық сома",
+  "checkout_shipping_emx": "Жеткізу (EMX)",
+  "checkout_buyer_protection": "Сатып алушыны қорғау",
+  "checkout_vat": "VAT",
+  "checkout_total": "Жалпы",
+  "checkout_pay_amount": "{amount} Dhs төлеу",
+  "@checkout_pay_amount": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "checkout_amount_dhs": "{amount} Dhs",
+  "@checkout_amount_dhs": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "checkout_encrypted_escrow_note": "Шифрланған тапсырыс · төлем эскроуда сақталады",
+  "checkout_order_placed_title": "Тапсырыс берілді!",
+  "checkout_order_placed_escrow_message": "Төлеміңіз жеткізуді растағаныңызға дейін эскроуда сақталады.",
+  "checkout_track_order": "Тапсырысты қадағалау",
+  "checkout_continue_shopping": "Сатып алуды жалғастыру",
+  "checkout_payment_unavailable": "Бұл тапсырыс үшін төлем қолжетімді емес.",
+  "checkout_payment_failed": "Төлем сәтсіз аяқталды. Қайталап көріңіз.",
+  "@_orders": {},
+  "orders_my_orders": "Менің тапсырыстарым",
+  "orders_buying": "Сатып алу",
+  "orders_selling": "Сату",
+  "orders_in_progress": "Орындалуда",
+  "orders_completed": "Аяқталды",
+  "orders_no_orders_yet": "Әзірге тапсырыс жоқ",
+  "orders_prefix_from": "кімнен",
+  "orders_prefix_to": "кімге",
+  "orders_price_dhs": "{amount} Dhs",
+  "@orders_price_dhs": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "orders_counterpart_meta": "{prefix} {name}",
+  "@orders_counterpart_meta": {
+    "placeholders": {
+      "prefix": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orders_order_details": "Тапсырыс мәліметтері",
+  "orders_tracking": "Қадағалау",
+  "orders_tracking_updates_empty": "Қадағалау жаңартулары мұнда пайда болады.",
+  "orders_emx_door_to_door": "EMX есіктен есікке · БАӘ ішкі",
+  "orders_carrier_prefix": "{carrier} · ",
+  "@orders_carrier_prefix": {
+    "placeholders": {
+      "carrier": {
+        "type": "String"
+      }
+    }
+  },
+  "orders_mark_as_shipped": "Жіберілді деп белгілеу",
+  "orders_download_emx_label": "EMX жапсырмасын жүктеу",
+  "orders_confirm_receipt": "Қабылдауды растау",
+  "orders_leave_a_review": "Пікір қалдыру",
+  "orders_view_live_tracking": "Тікелей қадағалауды көру",
+  "orders_report_a_problem": "Мәселе туралы хабарлау",
+  "orders_cancel_order": "Тапсырысты болдырмау",
+  "orders_confirm_receipt_message": "Бұл тапсырысты алғаныңызды растайсыз ба? Бұл сатушыға төлемді босатады.",
+  "orders_cancel_order_message": "Бұл тапсырысты болдырмайсыз ба? Төлем қайтарылады.",
+  "orders_dialog_cancel": "Бас тарту",
+  "orders_dialog_confirm": "Растау",
+  "orders_submit_report": "Шағым жіберу",
+  "orders_report_problem_hint": "Тапсырысыңызда не қате екенін сипаттаңыз",
+  "orders_submit_review": "Пікір жіберу",
+  "orders_review_hint": "Тәжірибеңіз туралы мәлімет бөлісіңіз (міндетті емес)",
+  "orders_messaging_coming_soon": "Хабар алмасу жақында қолжетімді болады.",
+  "orders_couldnt_open_link": "Сілтемені ашу мүмкін болмады.",
+  "orders_status_pending": "Күтілуде",
+  "orders_status_awaiting_shipment": "Жіберуді күтуде",
+  "orders_status_in_delivery": "Жеткізілуде",
+  "orders_status_out_for_delivery": "Жеткізуге шықты",
+  "orders_status_completed": "Аяқталды",
+  "orders_status_return_requested": "Қайтару сұралды",
+  "orders_status_canceled": "Болдырылмады",
+  "orders_status_unknown": "—",
+  "@_misc": {},
+  "profile_title": "Профиль",
+  "chat_title": "Чат",
+  "@_ds": {},
+  "ds_password_strength_weak": "Әлсіз",
+  "ds_password_strength_fair": "Орташа",
+  "ds_password_strength_good": "Жақсы",
+  "ds_password_strength_strong": "Күшті",
+  "@_notifications": {},
+  "notifications_title": "Хабарландырулар",
+  "notifications_read_all": "Барлығын оқу",
+  "notifications_empty": "Барлығын қарап шықтыңыз.",
+  "notifications_profile_coming_soon": "Профильдер жақында қолжетімді болады.",
+  "notifications_time_just_now": "Дәл қазір",
+  "notifications_time_minutes": "{count} мин бұрын",
+  "@notifications_time_minutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifications_time_hours": "{count} сағ бұрын",
+  "@notifications_time_hours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifications_time_days": "{count} күн бұрын",
+  "@notifications_time_days": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@_profile_feature": {},
+  "profile_edit": "Профильді өңдеу",
+  "profile_follow": "Жазылу",
+  "profile_following": "Жазылған",
+  "profile_report_user": "Пайдаланушыға шағымдану",
+  "profile_reported": "Рақмет — шағым қабылданды.",
+  "profile_message_coming_soon": "Хабар алмасу жақында қолжетімді болады.",
+  "profile_edit_coming_soon": "Профиліңізді өңдеу жақында қолжетімді болады.",
+  "profile_settings_coming_soon": "Параметрлер жақында қолжетімді болады.",
+  "profile_reel_coming_soon": "Reel ойнату жақында қолжетімді болады.",
+  "profile_tab_products": "Тауарлар",
+  "profile_tab_reels": "Reels",
+  "profile_tab_reviews": "Пікірлер",
+  "profile_stat_listings": "Тізімдер",
+  "profile_stat_followers": "Жазылушылар",
+  "profile_stat_following": "Жазылғандар",
+  "profile_no_listings": "Әзірге тізім жоқ",
+  "profile_no_reels": "Әзірге reels жоқ",
+  "profile_no_reviews": "Әзірге пікір жоқ",
+  "profile_no_followers": "Әзірге жазылушы жоқ",
+  "profile_no_following": "Әзірге ешкімге жазылмаған",
+  "profile_connections_title": "Байланыстар",
+  "@_settings": {},
+  "settings_title": "Параметрлер",
+  "settings_cancel": "Бас тарту",
+  "settings_save": "Сақтау",
+  "settings_saved": "Сақталды.",
+  "settings_save_failed": "Сақтау мүмкін болмады. Қайталап көріңіз.",
+  "settings_link_failed": "Сілтемені ашу мүмкін болмады.",
+  "settings_section_profile": "Профиль",
+  "settings_section_seller": "Сатушы",
+  "settings_section_notifications": "Хабарландырулар",
+  "settings_section_privacy": "Құпиялылық және қауіпсіздік",
+  "settings_section_legal": "Құқықтық және қолдау",
+  "settings_section_account": "Аккаунт",
+  "settings_edit_profile": "Профильді өңдеу",
+  "settings_delivery_address": "Жеткізу мекенжайы",
+  "settings_payout_iban": "Төлем IBAN",
+  "settings_seller_stats": "Сатушы статистикасы",
+  "settings_push_notifications": "Push хабарландырулар",
+  "settings_email_notifications": "Электрондық пошта хабарландырулары",
+  "settings_blocked_users": "Бұғатталған пайдаланушылар",
+  "settings_change_password": "Құпия сөзді өзгерту",
+  "settings_terms": "Қызмет көрсету шарттары",
+  "settings_privacy": "Құпиялылық саясаты",
+  "settings_support": "Көмек және қолдау",
+  "settings_version": "Нұсқа",
+  "settings_logout": "Шығу",
+  "settings_logout_confirm": "Аккаунтыңыздан шығасыз ба?",
+  "settings_delete_account": "Аккаунтты жою",
+  "settings_delete_confirm": "Аккаунтыңызды біржола жоясыз ба? Мұны қайтару мүмкін емес.",
+  "settings_change_password_no_email": "Бұл аккаунтқа электрондық пошта байланыстырылмаған.",
+  "settings_password_reset_sent": "Құпия сөзді қалпына келтіру сілтемесі жіберілді. Поштаңызды тексеріңіз.",
+  "settings_support_unavailable": "Қолдау қазір қолжетімді емес.",
+  "settings_handle": "Лақап ат",
+  "settings_address_line1": "Мекенжай жолы",
+  "settings_address_area": "Аудан",
+  "settings_address_city": "Қала",
+  "settings_address_emirate": "Әмірлік",
+  "settings_iban_label": "IBAN",
+  "settings_iban_invalid": "Жарамды БАӘ IBAN енгізіңіз (AE-мен басталады)",
+  "settings_iban_note": "Шифрланған және тек сату төлемдеріңізді босату үшін қолданылады.",
+  "settings_no_stats": "Әзірге статистика жоқ.",
+  "settings_doc_unavailable": "Бұл құжат қазір қолжетімді емес.",
+  "settings_no_blocked": "Сіз ешкімді бұғаттаған жоқсыз.",
+  "settings_unblock": "Бұғаттан шығару",
+  "onboarding_avatar_failed": "Фотоңызды жүктеу мүмкін болмады. Қайталап көріңіз.",
+  "sell_weight": "Салмағы (грамм)",
+  "sell_weight_hint": "мыс. 800",
+  "notifications_group_today": "Бүгін",
+  "notifications_group_earlier": "Бұрын",
+  "checkout_add_address": "Жеткізу мекенжайын қосу",
+  "checkout_add": "Қосу",
+  "checkout_change": "Өзгерту",
+  "address_add_title": "Мекенжай қосу",
+  "address_edit_title": "Мекенжайды өңдеу",
+  "address_label": "Белгі",
+  "address_recipient": "Алушының аты",
+  "address_phone": "Телефон",
+  "address_empty": "Әзірге сақталған мекенжайлар жоқ.",
+  "address_default": "ӘДЕПКІ",
+  "address_action_edit": "Өңдеу",
+  "address_action_default": "Әдепкі етіп орнату",
+  "address_action_delete": "Жою",
+  "settings_payouts": "Төлемдер",
+  "payouts_pending": "Күтілуде",
+  "payouts_lifetime": "Барлық уақытта төленген",
+  "payouts_empty": "Әзірге төлем жоқ.",
+  "payouts_status_completed": "Аяқталды",
+  "payouts_status_reversal": "Қайтарылды",
+  "payouts_status_pending": "Күтілуде",
+  "profile_block_user": "Пайдаланушыны бұғаттау",
+  "profile_blocked": "Пайдаланушы бұғатталды.",
+  "reels_edit_reel": "Reel-ді өңдеу",
+  "reels_caption_updated": "Жазба жаңартылды.",
+  "reels_comments_title": "Пікірлер",
+  "reels_comments_label": "Пікір",
+  "reels_no_comments": "Әзірге пікір жоқ — бірінші болыңыз.",
+  "reels_comment_hint": "Пікір қосу…",
+  "reels_comment_failed": "Пікіріңізді жариялау мүмкін болмады.",
+  "offers_title": "Ұсыныстар",
+  "offers_incoming": "Кіріс",
+  "offers_outgoing": "Шығыс",
+  "offers_empty": "Әзірге мұнда ұсыныс жоқ.",
+  "offers_accept": "Қабылдау",
+  "offers_decline": "Бас тарту",
+  "offers_status_pending": "Күтілуде",
+  "offers_status_accepted": "Қабылданды",
+  "offers_status_declined": "Қабылданбады",
+  "offers_status_cancelled": "Болдырылмады",
+  "legal_pending_title": "Жаңартылған шарттар",
+  "legal_pending_message": "Біз құқықтық құжаттарымызды жаңарттық. Жалғастыру үшін қарап шығып, қабылдаңыз.",
+  "legal_accept_continue": "Қабылдау және жалғастыру",
+  "connect_title": "Сатушыны растау",
+  "connect_start": "Растауды бастау",
+  "connect_continue": "Растауды жалғастыру",
+  "connect_status_complete": "Расталды",
+  "connect_status_pending": "Растау орындалуда",
+  "connect_status_not_started": "Әлі расталмаған",
+  "connect_explainer": "Кәсіби сатушылар Stripe арқылы расталады және төленеді. Төлемдер мен төлемдерді қосу үшін қауіпсіз Stripe формасын толтырыңыз.",
+  "connect_details_submitted": "Мәліметтер жіберілді",
+  "connect_charges_enabled": "Төлемдер қосылды",
+  "connect_payouts_enabled": "Төлемдер қосылды",
+  "settings_preferences": "Таспа параметрлері",
+  "search_filter_brand": "Бренд",
+  "search_filter_price": "Баға (Dhs)",
+  "search_price_min": "Мин",
+  "search_price_max": "Макс",
+  "search_brand_count": "{count, plural, =1{1 бренд} other{{count} бренд}}",
+  "@search_brand_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_price_chip": "{min}–{max} Dhs",
+  "@search_price_chip": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "settings_iban_current": "Ағымдағы IBAN: {masked}",
+  "@settings_iban_current": {
+    "placeholders": {
+      "masked": {
+        "type": "String"
+      }
+    }
+  },
+  "auth_or_continue_with": "немесе мынамен жалғастырыңыз",
+  "onboarding_address_search_hint": "Мекенжайыңызды іздеу",
+  "settings_language": "Тіл",
+  "account_gate_guest_title": "Жалғастыру үшін аккаунт жасаңыз немесе кіріңіз",
+  "account_gate_guest_subtitle": "Тауарларды қалаулар тізіміне қосу, сатушыларға жазылу және бұрын киілген сәнді сатып алу үшін Klozy-ге қосылыңыз.",
+  "account_gate_create_account": "Аккаунт жасау",
+  "account_gate_log_in": "Кіру",
+  "account_gate_incomplete_title": "Профиліңізді баптауды аяқтаңыз",
+  "account_gate_incomplete_subtitle": "Klozy-дің барлық мүмкіндіктерін ашу үшін профиліңізді толтырыңыз.",
+  "account_gate_finish_setup": "Баптауды аяқтау",
+  "guest_tab_title": "Klozy-ге кіру",
+  "guest_tab_subtitle": "Осы бөлімге кіру үшін аккаунт жасаңыз немесе кіріңіз.",
+  "guest_tab_cta": "Аккаунт жасау",
+  "guest_tab_log_in": "Кіру",
+  "categoryPickerTitle": "Санатты таңдаңыз",
+  "categoryPickerBreadcrumbRoot": "Барлық санаттар",
+  "categoryPickerLoading": "Жүктелуде...",
+  "categoryPickerRetry": "Қайталау",
+  "categoryPickerAddCategories": "Санаттар қосу",
+  "categoryPickerPreferred": "Таңдаулы санаттар",
+  "sellPhotosEmptyTitle": "Фото қосу",
+  "sellPhotosEmptySubtitle": "Тауарыңыздың фотосуреттерін түсіріңіз немесе жүктеңіз",
+  "sellPhotosCounter": "фото",
+  "sellRecapPhotoStripEdit": "Өңдеу",
+  "sellRequiredHint": "* Міндетті өрістер",
+  "sellSizeSystem": "Өлшем жүйесі",
+  "product_buy": "Сатып алу",
+  "product_make_offer": "Ұсыныс жасау"
+}

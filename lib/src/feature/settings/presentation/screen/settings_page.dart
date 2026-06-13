@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/app/theme/app_config_change_notifier.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/l10n/app_language.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
@@ -10,6 +12,7 @@ import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/feature/settings/presentation/bloc/settings_bloc.dart';
 import 'package:klozy/src/feature/settings/presentation/bloc/settings_event.dart';
 import 'package:klozy/src/feature/settings/presentation/bloc/settings_state.dart';
+import 'package:klozy/src/feature/settings/presentation/widget/language_picker_sheet.dart';
 import 'package:klozy/src/feature/settings/presentation/widget/settings_row_widget.dart';
 import 'package:klozy/src/feature/settings/presentation/widget/settings_section_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
@@ -54,6 +57,16 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
       ),
     );
     return ok ?? false;
+  }
+
+  String _currentLanguageName() {
+    final String code = locator<AppConfigChangeNotifier>().locale;
+    return kAppLanguages
+        .firstWhere(
+          (AppLanguage l) => l.code == code,
+          orElse: () => kAppLanguages.first,
+        )
+        .name;
   }
 
   Future<void> _launch(BuildContext context, String url) async {
@@ -121,6 +134,16 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
               icon: Icons.tune_rounded,
               label: l.settings_preferences,
               onTap: () => context.router.push(const PreferencesRoute()),
+            ),
+            SettingsRowWidget(
+              icon: Icons.language_rounded,
+              label: l.settings_language,
+              value: _currentLanguageName(),
+              onTap: () => LanguagePickerSheet.show(
+                context,
+                l.settings_language,
+                locator<AppConfigChangeNotifier>().locale,
+              ),
             ),
           ],
         ),

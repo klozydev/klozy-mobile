@@ -18,4 +18,8 @@ class Prefs {
   String getLocale() {
     return _sharedPreferences.getString('locale') ?? 'en';
   }
+
+  Future<void> setLocale(String languageCode) {
+    return _sharedPreferences.setString('locale', languageCode);
+  }
 }

@@ -1578,4 +1578,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sellSizeSystem => 'Size system';
+
+  @override
+  String get settings_language => 'Language';
 }

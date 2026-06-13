@@ -30,4 +30,13 @@ class AppConfigChangeNotifier extends ChangeNotifier {
     _locale = _prefs.getLocale();
     notifyListeners();
   }
+
+  Future<void> setLocale(String languageCode) async {
+    if (_locale == languageCode) {
+      return;
+    }
+    await _prefs.setLocale(languageCode);
+    _locale = languageCode;
+    notifyListeners();
+  }
 }

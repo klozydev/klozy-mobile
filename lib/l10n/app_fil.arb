@@ -1,0 +1,694 @@
+{
+  "app_name": "Klozy",
+  "@_error_page": {},
+  "error_page_show_details": "IPAKITA ANG DETALYE",
+  "error_page_hide_details": "ITAGO ANG DETALYE",
+  "error_page_copy_for_support": "KOPYAHIN PARA SA SUPORTA",
+  "error_page_need_help": "KAILANGAN NG TULONG?",
+  "error_page_support_email_label": "support@klozy.app",
+  "error_page_source_label": "PINAGMULAN",
+  "error_page_stage_label": "YUGTO",
+  "error_page_request_label": "KAHILINGAN",
+  "error_page_message_label": "MENSAHE",
+  "@_error_scenario": {},
+  "error_scenario_network_title": "Mukhang offline ka",
+  "error_scenario_network_body": "Kailangan namin ng koneksyon para mag-sync. Tingnan ang iyong Wi-Fi o mobile data at subukang muli.",
+  "error_scenario_network_primary": "Subukang muli ang koneksyon",
+  "error_scenario_network_secondary": "Mag-trabaho offline",
+  "error_scenario_server_title": "May nangyaring mali sa aming panig",
+  "error_scenario_server_body": "Nagkaroon ng hindi inaasahang error ang server. Naabisuhan na ang aming team. Maaari kang subukang muli sandali.",
+  "error_scenario_server_primary": "Subukang muli",
+  "error_scenario_server_secondary": "Makipag-ugnayan sa suporta",
+  "error_scenario_session_title": "Mangyaring mag-sign in muli",
+  "error_scenario_session_body": "Nag-expire na ang iyong session para sa seguridad. Mag-sign in muli para magpatuloy.",
+  "error_scenario_session_primary": "Mag-sign in",
+  "error_scenario_session_secondary": "Kanselahin",
+  "error_scenario_permission_title": "Wala kang access dito",
+  "error_scenario_permission_body": "Limitado ang resource na ito. Hilingin sa iyong manager na bigyan ka ng access.",
+  "error_scenario_permission_primary": "Bumalik",
+  "error_scenario_permission_secondary": "Humiling ng access",
+  "error_scenario_notfound_title": "Hindi namin ito mahanap",
+  "error_scenario_notfound_body": "Maaaring natanggal o nailipat na ito.",
+  "error_scenario_notfound_primary": "Bumalik",
+  "error_scenario_notfound_secondary": "I-refresh",
+  "error_scenario_rate_limit_title": "Dahan-dahan lang sandali",
+  "error_scenario_rate_limit_body": "Masyado kang maraming kahilingan sa maikling panahon. Magpahinga muna sandali — maaari kang subukang muli sa loob ng 30 segundo.",
+  "error_scenario_rate_limit_primary": "Subukang muli sa 30s",
+  "error_scenario_rate_limit_secondary": "Kanselahin",
+  "error_scenario_maintenance_title": "Babalik kami agad",
+  "error_scenario_maintenance_body": "Ang serbisyo ay sumasailalim sa nakaiskedyul na maintenance. Dapat itong magpatuloy sa loob ng 15 minuto.",
+  "error_scenario_maintenance_primary": "Tingnan ang status",
+  "error_scenario_maintenance_secondary": "Abisuhan ako",
+  "error_scenario_generic_title": "May nangyaring mali",
+  "error_scenario_generic_body": "Nagkaroon ng hindi inaasahang error. Mangyaring subukang muli sandali.",
+  "error_scenario_generic_primary": "Subukang muli",
+  "error_scenario_generic_secondary": "Kanselahin",
+  "error_scenario_server_http_label": "Internal Server Error",
+  "error_scenario_session_http_label": "Nag-expire ang Session",
+  "error_scenario_permission_http_label": "Ipinagbabawal",
+  "error_scenario_notfound_http_label": "Hindi Nahanap",
+  "error_scenario_rate_limit_http_label": "Masyadong Maraming Kahilingan",
+  "error_scenario_maintenance_http_label": "Maintenance",
+  "@_auth": {},
+  "auth_country_uae": "UNITED ARAB EMIRATES",
+  "auth_welcome_title": "Bumili at magbenta ng\npre-loved fashion na magugustuhan mo.",
+  "auth_get_started": "Magsimula",
+  "auth_already_have_account": "May account na ako · ",
+  "auth_log_in": "Mag-log in",
+  "auth_create_account_title": "Gawin ang iyong account",
+  "auth_welcome_back_title": "Maligayang pagbabalik",
+  "auth_create_account_subtitle": "Sumali sa libu-libong bumibili at nagbebenta ng fashion sa buong UAE.",
+  "auth_welcome_back_subtitle": "Mag-log in para magpatuloy kung saan ka tumigil.",
+  "auth_sign_up": "Mag-sign up",
+  "auth_email_hint": "Email address",
+  "auth_email_invalid": "Maglagay ng wastong email address",
+  "auth_password_hint": "Password",
+  "auth_forgot_password": "Nakalimutan ang password?",
+  "auth_continue_apple": "Magpatuloy gamit ang Apple",
+  "auth_continue_google": "Magpatuloy gamit ang Google",
+  "auth_continue_phone": "Magpatuloy gamit ang telepono",
+  "auth_terms_prefix": "Sa pagpapatuloy ay sumasang-ayon ka sa ",
+  "auth_terms": "Mga Tuntunin",
+  "auth_terms_and": " at ",
+  "auth_privacy_policy": "Patakaran sa Privacy",
+  "auth_create_account_button": "Gumawa ng account",
+  "auth_password_reset_sent": "Naipadala na ang link para i-reset ang password. Tingnan ang iyong email.",
+  "auth_phone_title": "Ano ang iyong numero?",
+  "auth_phone_subtitle": "Magpapadala kami sa iyo ng 6-digit na code para kumpirmahin na ikaw talaga ito.",
+  "auth_phone_number_hint": "50 123 4567",
+  "auth_phone_disclaimer": "Maaaring magkaroon ng karaniwang singil sa mensahe. Hindi kailanman ipinapakita sa publiko ang iyong numero.",
+  "auth_send_code": "Magpadala ng code",
+  "auth_enter_code_title": "Ilagay ang code",
+  "auth_code_sent_to": "Ipinadala sa ",
+  "auth_resend_code_in": "Ipadala muli ang code sa {time}",
+  "@auth_resend_code_in": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "auth_resend_code": "Ipadala muli ang code",
+  "auth_code_spam_hint": "Hindi natanggap? Tingnan ang spam. Maaaring humiling ng bagong code pagkatapos ng cooldown.",
+  "auth_verify": "I-verify",
+  "auth_new_code_sent": "Naipadala na ang bagong code.",
+  "@_onboarding": {},
+  "onboarding_all_set": "Handa ka na!",
+  "onboarding_all_set_named": "Handa ka na, {name}!",
+  "@onboarding_all_set_named": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "onboarding_feed_ready_subtitle": "Handa na ang iyong Klozy feed. Tumuklas, magbenta at mag-shop ng look — lahat sa iisang lugar.",
+  "onboarding_start_exploring": "Simulan ang pag-explore",
+  "onboarding_complete_profile_title": "Kumpletuhin ang iyong profile",
+  "onboarding_complete_profile_subtitle": "Ganito ka makikita ng ibang miyembro sa Klozy.",
+  "onboarding_photo_upload_coming_soon": "Paparating na ang pag-upload ng larawan.",
+  "onboarding_first_name_label": "Pangalan",
+  "onboarding_first_name_hint": "Amira",
+  "onboarding_last_name_label": "Apelyido",
+  "onboarding_last_name_hint": "Hassan",
+  "onboarding_address_label": "Address",
+  "onboarding_bio_label": "Bio",
+  "onboarding_bio_char_count": "{count}/{max}",
+  "@onboarding_bio_char_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "onboarding_bio_hint": "Magkwento sa mga mamimili tungkol sa iyong istilo…",
+  "onboarding_continue": "Magpatuloy",
+  "onboarding_skip": "Laktawan",
+  "onboarding_personalize_title": "I-personalize ang iyong feed",
+  "onboarding_personalize_subtitle": "Pumili ng ilang bagay na gusto mo para mapuno namin ang iyong feed ng tamang mga natuklasan. Maaari mo itong baguhin anumang oras.",
+  "onboarding_categories_title": "Mga Kategorya",
+  "onboarding_categories_hint": "Pumili ng kahit ano",
+  "onboarding_sizes_title": "Mga Sukat",
+  "onboarding_clothing_label": "Damit",
+  "onboarding_shoes_label": "Sapatos · {system}",
+  "@onboarding_shoes_label": {
+    "placeholders": {
+      "system": {
+        "type": "String"
+      }
+    }
+  },
+  "onboarding_brands_title": "Mga Brand",
+  "onboarding_brands_hint": "I-follow ang iyong mga paborito",
+  "onboarding_brands_search_hint": "Maghanap ng mga brand",
+  "onboarding_no_brand_matches": "Walang tumugmang brand.",
+  "onboarding_show_feed": "Ipakita ang aking feed",
+  "onboarding_show_feed_count": "Ipakita ang aking feed · {count} ang napili",
+  "@onboarding_show_feed_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "onboarding_seller_account_set_up": "Na-set up na ang seller account.",
+  "onboarding_seller_role_title": "Paano ka magbebenta?",
+  "onboarding_seller_role_subtitle": "Piliin ang account na bagay sa iyo. Maaari kang lumipat o mag-upgrade anumang oras sa Settings.",
+  "onboarding_private_seller_title": "Pribadong nagbebenta",
+  "onboarding_private_seller_badge": "Pinakasikat",
+  "onboarding_private_seller_description": "Nililinis ang sarili mong aparador. Makakatanggap ng bayad diretso sa iyong bank account sa pamamagitan ng IBAN — walang papeles.",
+  "onboarding_payout_iban_label": "Payout IBAN",
+  "onboarding_iban_shield_note": "Naka-encrypt at ginagamit lamang para i-release ang iyong mga payout sa benta. Maaari mo itong baguhin mamaya sa Settings → Payouts.",
+  "onboarding_pro_vendor_title": "Propesyonal na vendor",
+  "onboarding_pro_vendor_badge": "Pro",
+  "onboarding_pro_vendor_description": "Nagpapatakbo ng negosyong resale. Maramihang listing, branded na tindahan at analytics. Na-verify at binabayaran sa pamamagitan ng Stripe (KYB).",
+  "onboarding_buyer_protection_note": "Bawat benta ay protektado ng Klozy buyer protection. Ang bayad ay hawak sa escrow at ire-release sa iyo kapag nakumpirma na ang delivery.",
+  "@_home": {},
+  "home_tab_feed": "Feed",
+  "home_tab_wishlist": "Wishlist",
+  "home_tab_reels": "Reels",
+  "home_feed_empty": "Wala pang laman dito.",
+  "home_category_all": "Lahat",
+  "home_product_badge_new": "Bago",
+  "home_wishlist_empty": "Walang laman ang iyong wishlist",
+  "@_reels": {},
+  "reels_composer_title": "Bagong reel",
+  "reels_pick_title": "Gumawa ng reel",
+  "reels_pick_subtitle": "Mag-record ng maikling video na nagpapakita ng iyong mga piyesa, o pumili ng isa mula sa iyong gallery.",
+  "reels_record_video": "Mag-record ng video",
+  "reels_choose_from_gallery": "Pumili mula sa gallery",
+  "reels_caption_hint": "Magsabi ng tungkol sa iyong look…",
+  "reels_tag_items_title": "I-tag ang mga item mula sa iyong tindahan",
+  "reels_no_listings_to_tag": "Wala ka pang aktibong listing na mai-tag.",
+  "reels_post_reel": "I-post ang reel",
+  "reels_posted_title": "Na-post na ang reel!",
+  "reels_posted_subtitle": "Lalabas ito sa Reels kapag tapos na ang pagproseso.",
+  "reels_done": "Tapos na",
+  "reels_delete_reel": "Tanggalin ang reel",
+  "reels_report_reel": "Iulat ang reel",
+  "reels_share": "Ibahagi",
+  "reels_shop_the_look_count": "I-shop ang look · {count}",
+  "@reels_shop_the_look_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reels_no_tagged_items": "Walang naka-tag na item.",
+  "reels_shop_the_look": "I-shop ang look",
+  "reels_deleted_snackbar": "Natanggal na ang reel.",
+  "reels_report_received_snackbar": "Salamat — natanggap ang ulat.",
+  "reels_empty": "Wala pang reels",
+  "reels_link_copied_snackbar": "Nakopya na ang link sa clipboard.",
+  "@_search": {},
+  "search_hint": "Maghanap ng mga item, brand…",
+  "search_sort_popular": "Sikat",
+  "search_sort_latest": "Pinakabago",
+  "search_sort_price_asc": "Presyo ↑",
+  "search_sort_price_desc": "Presyo ↓",
+  "search_filters": "Mga Filter",
+  "search_filters_with_count": "Mga Filter · {count}",
+  "@search_filters_with_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_browse_categories": "Mag-browse ng mga kategorya",
+  "search_popular_now": "Sikat ngayon",
+  "search_no_results": "Walang resulta",
+  "search_result_count": "{count, plural, =1{1 resulta} other{{count} resulta}}",
+  "@search_result_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_condition_count": "{count, plural, =1{1 kondisyon} other{{count} kondisyon}}",
+  "@search_condition_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_size_count": "{count, plural, =1{1 sukat} other{{count} sukat}}",
+  "@search_size_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_filter_category": "Kategorya",
+  "search_filter_condition": "Kondisyon",
+  "search_filter_size": "Sukat",
+  "search_filter_reset": "I-reset",
+  "search_filter_show_results": "Ipakita ang mga resulta",
+  "@_product": {},
+  "product_add_to_cart": "Idagdag sa cart",
+  "product_in_cart_view_cart": "Nasa cart · Tingnan ang cart",
+  "product_edit_listing": "I-edit ang listing",
+  "product_status_sold": "Nabenta",
+  "product_status_reserved": "Nakareserba",
+  "product_mark_as_sold": "Markahan bilang nabenta",
+  "product_mark_as_available": "Markahan bilang available",
+  "product_delete_listing": "Tanggalin ang listing",
+  "product_report_listing": "Iulat ang listing",
+  "product_report_this_listing": "Iulat ang listing na ito",
+  "product_listing_deleted": "Natanggal ang listing",
+  "product_back_to_feed": "Bumalik sa feed",
+  "product_added_to_cart": "Naidagdag sa cart.",
+  "product_edit_coming_soon": "Paparating na ang pag-edit ng listing.",
+  "product_messaging_coming_soon": "Paparating na ang messaging.",
+  "product_report_received": "Salamat — natanggap ang ulat.",
+  "product_link_copied": "Nakopya na ang link sa clipboard.",
+  "product_stat_views": "Views",
+  "product_stat_likes": "Likes",
+  "product_stat_posted": "Na-post",
+  "product_stamp_sold": "NABENTA",
+  "product_stamp_reserved": "NAKARESERBA",
+  "product_currency_dhs": "Dhs",
+  "product_price_amount": "{amount} ",
+  "@product_price_amount": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "@_sell": {},
+  "sell_sell_in_seconds": "Magbenta sa ilang segundo",
+  "sell_your_photos": "Iyong mga larawan",
+  "sell_add_photos_hint": "Magdagdag ng hanggang 8 larawan. Awtomatikong pupunan ng AI ang iyong listing.",
+  "sell_continue": "Magpatuloy",
+  "sell_cover": "Cover",
+  "sell_add_a_photo": "Magdagdag ng larawan",
+  "sell_take_a_photo": "Kumuha ng larawan",
+  "sell_choose_from_gallery": "Pumili mula sa gallery",
+  "sell_analysing_your_photos": "Sinusuri ang iyong mga larawan…",
+  "sell_identifying_the_item": "Kinikilala ang item…",
+  "sell_generating_title_and_price": "Gumagawa ng titulo at presyo…",
+  "sell_title": "Titulo",
+  "sell_price": "Presyo",
+  "sell_description": "Paglalarawan",
+  "sell_category": "Kategorya",
+  "sell_brand": "Brand",
+  "sell_size": "Sukat",
+  "sell_condition": "Kondisyon",
+  "sell_suggested_by_ai": "Iminumungkahi ng AI",
+  "sell_list_item": "Ilista ang item",
+  "sell_optional": "Opsyonal",
+  "sell_title_hint": "hal. Leather biker jacket",
+  "sell_price_hint": "AED",
+  "sell_description_hint": "Magdagdag ng detalye tungkol sa kondisyon, fit, materyal…",
+  "sell_search_brands": "Maghanap ng mga brand",
+  "sell_use_quoted": "Gamitin ang \"{value}\"",
+  "@sell_use_quoted": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "sell_title_error": "Magdagdag ng titulo (hindi bababa sa 2 karakter)",
+  "sell_price_error": "Maglagay ng presyo",
+  "sell_category_error": "Pumili ng kategorya",
+  "sell_condition_error": "Pumili ng kondisyon",
+  "sell_youre_live": "Live ka na!",
+  "sell_item_visible_to_buyers": "Nakikita na ng mga mamimili ang iyong item.",
+  "sell_view_listing": "Tingnan ang listing",
+  "sell_back_to_home": "Bumalik sa home",
+  "@_cart": {},
+  "cart_title": "Cart",
+  "cart_make_an_offer": "Mag-alok",
+  "cart_cancel_offer": "Kanselahin ang alok",
+  "cart_check_out": "Mag-checkout",
+  "cart_subtotal": "Subtotal",
+  "cart_offer_pending": "Nakabinbin ang alok",
+  "cart_offer_accepted": "Tinanggap ang alok",
+  "cart_pro_badge": "PRO",
+  "cart_empty_title": "Walang laman ang iyong cart",
+  "cart_empty_subtitle": "Magdagdag ng mga item at magkakagrupo sila ayon sa nagbebenta dito.",
+  "cart_offer_send": "Ipadala ang alok",
+  "cart_offer_hint_single": "Iyong alok",
+  "cart_offer_hint_multi": "Iyong alok para sa lahat ng {count} item",
+  "@cart_offer_hint_multi": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cart_offer_error_below_total": "Ang alok ay dapat mas mababa sa kabuuang presyo",
+  "cart_offer_chat_note": "Isang alok ang sumasaklaw sa lahat mula sa nagbebentang ito. Ipinapadala ito nang pribado sa chat — tatanggapin o tatanggihan ng nagbebenta.",
+  "cart_currency_dhs": "Dhs",
+  "cart_price_dhs": "{amount} Dhs",
+  "@cart_price_dhs": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "cart_item_count": "{count, plural, =1{1 item} other{{count} item}}",
+  "@cart_item_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cart_sellers_summary": "{count, plural, =1{1 nagbebenta · isang alok at checkout bawat nagbebenta} other{{count} nagbebenta · isang alok at checkout bawat nagbebenta}}",
+  "@cart_sellers_summary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@_checkout": {},
+  "checkout_title": "Checkout",
+  "checkout_delivery": "Delivery",
+  "checkout_summary": "Buod",
+  "checkout_subtotal": "Subtotal",
+  "checkout_shipping_emx": "Pagpapadala (EMX)",
+  "checkout_buyer_protection": "Proteksyon ng mamimili",
+  "checkout_vat": "VAT",
+  "checkout_total": "Kabuuan",
+  "checkout_pay_amount": "Bayaran ang {amount} Dhs",
+  "@checkout_pay_amount": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "checkout_amount_dhs": "{amount} Dhs",
+  "@checkout_amount_dhs": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "checkout_encrypted_escrow_note": "Naka-encrypt na checkout · bayad na hawak sa escrow",
+  "checkout_order_placed_title": "Nailagay na ang order!",
+  "checkout_order_placed_escrow_message": "Ang iyong bayad ay hawak sa escrow hanggang sa kumpirmahin mo ang delivery.",
+  "checkout_track_order": "I-track ang order",
+  "checkout_continue_shopping": "Magpatuloy sa pamimili",
+  "checkout_payment_unavailable": "Hindi available ang pagbabayad para sa order na ito.",
+  "checkout_payment_failed": "Nabigo ang pagbabayad. Mangyaring subukang muli.",
+  "@_orders": {},
+  "orders_my_orders": "Aking mga order",
+  "orders_buying": "Bumibili",
+  "orders_selling": "Nagbebenta",
+  "orders_in_progress": "Kasalukuyang ginagawa",
+  "orders_completed": "Nakumpleto",
+  "orders_no_orders_yet": "Wala pang order",
+  "orders_prefix_from": "mula kay",
+  "orders_prefix_to": "para kay",
+  "orders_price_dhs": "{amount} Dhs",
+  "@orders_price_dhs": {
+    "placeholders": {
+      "amount": {
+        "type": "int"
+      }
+    }
+  },
+  "orders_counterpart_meta": "{prefix} {name}",
+  "@orders_counterpart_meta": {
+    "placeholders": {
+      "prefix": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orders_order_details": "Detalye ng order",
+  "orders_tracking": "Pagsubaybay",
+  "orders_tracking_updates_empty": "Lalabas dito ang mga update sa pagsubaybay.",
+  "orders_emx_door_to_door": "EMX door-to-door · UAE domestic",
+  "orders_carrier_prefix": "{carrier} · ",
+  "@orders_carrier_prefix": {
+    "placeholders": {
+      "carrier": {
+        "type": "String"
+      }
+    }
+  },
+  "orders_mark_as_shipped": "Markahan bilang naipadala",
+  "orders_download_emx_label": "I-download ang EMX label",
+  "orders_confirm_receipt": "Kumpirmahin ang resibo",
+  "orders_leave_a_review": "Mag-iwan ng review",
+  "orders_view_live_tracking": "Tingnan ang live na pagsubaybay",
+  "orders_report_a_problem": "Iulat ang problema",
+  "orders_cancel_order": "Kanselahin ang order",
+  "orders_confirm_receipt_message": "Kumpirmahin na natanggap mo ang order na ito? Ire-release nito ang bayad sa nagbebenta.",
+  "orders_cancel_order_message": "Kanselahin ang order na ito? Ire-refund ang bayad.",
+  "orders_dialog_cancel": "Kanselahin",
+  "orders_dialog_confirm": "Kumpirmahin",
+  "orders_submit_report": "Isumite ang ulat",
+  "orders_report_problem_hint": "Ilarawan kung ano ang mali sa iyong order",
+  "orders_submit_review": "Isumite ang review",
+  "orders_review_hint": "Magbahagi ng detalye tungkol sa iyong karanasan (opsyonal)",
+  "orders_messaging_coming_soon": "Paparating na ang messaging.",
+  "orders_couldnt_open_link": "Hindi mabuksan ang link.",
+  "orders_status_pending": "Nakabinbin",
+  "orders_status_awaiting_shipment": "Naghihintay ng padala",
+  "orders_status_in_delivery": "Inihahatid",
+  "orders_status_out_for_delivery": "Palabas para ihatid",
+  "orders_status_completed": "Nakumpleto",
+  "orders_status_return_requested": "Hiniling ang pagsasauli",
+  "orders_status_canceled": "Kinansela",
+  "orders_status_unknown": "—",
+  "@_misc": {},
+  "profile_title": "Profile",
+  "chat_title": "Chat",
+  "@_ds": {},
+  "ds_password_strength_weak": "Mahina",
+  "ds_password_strength_fair": "Katamtaman",
+  "ds_password_strength_good": "Maganda",
+  "ds_password_strength_strong": "Malakas",
+  "@_notifications": {},
+  "notifications_title": "Mga Abiso",
+  "notifications_read_all": "Basahin lahat",
+  "notifications_empty": "Wala ka nang naiwang basahin.",
+  "notifications_profile_coming_soon": "Paparating na ang mga profile.",
+  "notifications_time_just_now": "Ngayon lang",
+  "notifications_time_minutes": "{count}m nakalipas",
+  "@notifications_time_minutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifications_time_hours": "{count}h nakalipas",
+  "@notifications_time_hours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifications_time_days": "{count}d nakalipas",
+  "@notifications_time_days": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@_profile_feature": {},
+  "profile_edit": "I-edit ang profile",
+  "profile_follow": "I-follow",
+  "profile_following": "Sinusundan",
+  "profile_report_user": "Iulat ang user",
+  "profile_reported": "Salamat — natanggap ang ulat.",
+  "profile_message_coming_soon": "Paparating na ang messaging.",
+  "profile_edit_coming_soon": "Paparating na ang pag-edit ng iyong profile.",
+  "profile_settings_coming_soon": "Paparating na ang mga setting.",
+  "profile_reel_coming_soon": "Paparating na ang pag-playback ng reel.",
+  "profile_tab_products": "Mga Produkto",
+  "profile_tab_reels": "Reels",
+  "profile_tab_reviews": "Mga Review",
+  "profile_stat_listings": "Mga Listing",
+  "profile_stat_followers": "Mga Tagasunod",
+  "profile_stat_following": "Sinusundan",
+  "profile_no_listings": "Wala pang listing",
+  "profile_no_reels": "Wala pang reels",
+  "profile_no_reviews": "Wala pang review",
+  "profile_no_followers": "Wala pang tagasunod",
+  "profile_no_following": "Wala pang sinusundan",
+  "profile_connections_title": "Mga Koneksyon",
+  "@_settings": {},
+  "settings_title": "Mga Setting",
+  "settings_cancel": "Kanselahin",
+  "settings_save": "I-save",
+  "settings_saved": "Na-save na.",
+  "settings_save_failed": "Hindi ma-save. Mangyaring subukang muli.",
+  "settings_link_failed": "Hindi mabuksan ang link.",
+  "settings_section_profile": "Profile",
+  "settings_section_seller": "Nagbebenta",
+  "settings_section_notifications": "Mga Abiso",
+  "settings_section_privacy": "Privacy at seguridad",
+  "settings_section_legal": "Legal at suporta",
+  "settings_section_account": "Account",
+  "settings_edit_profile": "I-edit ang profile",
+  "settings_delivery_address": "Delivery address",
+  "settings_payout_iban": "Payout IBAN",
+  "settings_seller_stats": "Stats ng nagbebenta",
+  "settings_push_notifications": "Push notifications",
+  "settings_email_notifications": "Email notifications",
+  "settings_blocked_users": "Mga naka-block na user",
+  "settings_change_password": "Palitan ang password",
+  "settings_terms": "Mga Tuntunin ng Serbisyo",
+  "settings_privacy": "Patakaran sa Privacy",
+  "settings_support": "Tulong at suporta",
+  "settings_version": "Bersyon",
+  "settings_logout": "Mag-log out",
+  "settings_logout_confirm": "Mag-log out sa iyong account?",
+  "settings_delete_account": "Tanggalin ang account",
+  "settings_delete_confirm": "Permanenteng tanggalin ang iyong account? Hindi na ito maibabalik.",
+  "settings_change_password_no_email": "Walang email na naka-link sa account na ito.",
+  "settings_password_reset_sent": "Naipadala na ang link para i-reset ang password. Tingnan ang iyong email.",
+  "settings_support_unavailable": "Hindi available ang suporta sa ngayon.",
+  "settings_handle": "Handle",
+  "settings_address_line1": "Linya ng address",
+  "settings_address_area": "Lugar",
+  "settings_address_city": "Lungsod",
+  "settings_address_emirate": "Emirate",
+  "settings_iban_label": "IBAN",
+  "settings_iban_invalid": "Maglagay ng wastong UAE IBAN (nagsisimula sa AE)",
+  "settings_iban_note": "Naka-encrypt at ginagamit lamang para i-release ang iyong mga payout sa benta.",
+  "settings_no_stats": "Wala pang stats.",
+  "settings_doc_unavailable": "Hindi available ang dokumentong ito sa ngayon.",
+  "settings_no_blocked": "Wala kang na-block na sinuman.",
+  "settings_unblock": "I-unblock",
+  "onboarding_avatar_failed": "Hindi ma-upload ang iyong larawan. Mangyaring subukang muli.",
+  "sell_weight": "Timbang (gramo)",
+  "sell_weight_hint": "hal. 800",
+  "notifications_group_today": "Ngayon",
+  "notifications_group_earlier": "Mas Maaga",
+  "checkout_add_address": "Magdagdag ng delivery address",
+  "checkout_add": "Magdagdag",
+  "checkout_change": "Palitan",
+  "address_add_title": "Magdagdag ng address",
+  "address_edit_title": "I-edit ang address",
+  "address_label": "Label",
+  "address_recipient": "Pangalan ng tatanggap",
+  "address_phone": "Telepono",
+  "address_empty": "Wala pang naka-save na address.",
+  "address_default": "DEFAULT",
+  "address_action_edit": "I-edit",
+  "address_action_default": "Itakda bilang default",
+  "address_action_delete": "Tanggalin",
+  "settings_payouts": "Mga Payout",
+  "payouts_pending": "Nakabinbin",
+  "payouts_lifetime": "Kabuuang nabayaran",
+  "payouts_empty": "Wala pang payout.",
+  "payouts_status_completed": "Nakumpleto",
+  "payouts_status_reversal": "Binawi",
+  "payouts_status_pending": "Nakabinbin",
+  "profile_block_user": "I-block ang user",
+  "profile_blocked": "Na-block ang user.",
+  "reels_edit_reel": "I-edit ang reel",
+  "reels_caption_updated": "Na-update ang caption.",
+  "reels_comments_title": "Mga Komento",
+  "reels_comments_label": "Komento",
+  "reels_no_comments": "Wala pang komento — maging una.",
+  "reels_comment_hint": "Magdagdag ng komento…",
+  "reels_comment_failed": "Hindi ma-post ang iyong komento.",
+  "offers_title": "Mga Alok",
+  "offers_incoming": "Papasok",
+  "offers_outgoing": "Palabas",
+  "offers_empty": "Wala pang alok dito.",
+  "offers_accept": "Tanggapin",
+  "offers_decline": "Tanggihan",
+  "offers_status_pending": "Nakabinbin",
+  "offers_status_accepted": "Tinanggap",
+  "offers_status_declined": "Tinanggihan",
+  "offers_status_cancelled": "Kinansela",
+  "legal_pending_title": "Na-update na mga tuntunin",
+  "legal_pending_message": "Na-update namin ang aming mga legal na dokumento. Mangyaring suriin at tanggapin para magpatuloy.",
+  "legal_accept_continue": "Tanggapin at magpatuloy",
+  "connect_title": "Pag-verify ng nagbebenta",
+  "connect_start": "Simulan ang pag-verify",
+  "connect_continue": "Ipagpatuloy ang pag-verify",
+  "connect_status_complete": "Na-verify",
+  "connect_status_pending": "Isinasagawa ang pag-verify",
+  "connect_status_not_started": "Hindi pa na-verify",
+  "connect_explainer": "Ang mga propesyonal na vendor ay na-verify at binabayaran sa pamamagitan ng Stripe. Kumpletuhin ang secure na Stripe form para paganahin ang mga singil at payout.",
+  "connect_details_submitted": "Naisumite ang detalye",
+  "connect_charges_enabled": "Pinagana ang mga singil",
+  "connect_payouts_enabled": "Pinagana ang mga payout",
+  "settings_preferences": "Mga kagustuhan sa feed",
+  "search_filter_brand": "Brand",
+  "search_filter_price": "Presyo (Dhs)",
+  "search_price_min": "Min",
+  "search_price_max": "Max",
+  "search_brand_count": "{count, plural, =1{1 brand} other{{count} brand}}",
+  "@search_brand_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_price_chip": "{min}–{max} Dhs",
+  "@search_price_chip": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "settings_iban_current": "Kasalukuyang IBAN: {masked}",
+  "@settings_iban_current": {
+    "placeholders": {
+      "masked": {
+        "type": "String"
+      }
+    }
+  },
+  "auth_or_continue_with": "o magpatuloy gamit ang",
+  "onboarding_address_search_hint": "Hanapin ang iyong address",
+  "settings_language": "Wika",
+  "account_gate_guest_title": "Gumawa ng account o mag-log in para magpatuloy",
+  "account_gate_guest_subtitle": "Sumali sa Klozy para mag-wishlist ng mga item, mag-follow ng mga seller at bumili ng pre-loved na fashion.",
+  "account_gate_create_account": "Gumawa ng account",
+  "account_gate_log_in": "Mag-log in",
+  "account_gate_incomplete_title": "Tapusin ang pag-set up ng iyong profile",
+  "account_gate_incomplete_subtitle": "Kumpletuhin ang iyong profile para ma-unlock ang lahat ng feature ng Klozy.",
+  "account_gate_finish_setup": "Tapusin ang setup",
+  "guest_tab_title": "Mag-sign in sa Klozy",
+  "guest_tab_subtitle": "Gumawa ng account o mag-log in para ma-access ang seksyong ito.",
+  "guest_tab_cta": "Gumawa ng account",
+  "guest_tab_log_in": "Mag-log in",
+  "categoryPickerTitle": "Pumili ng kategorya",
+  "categoryPickerBreadcrumbRoot": "Lahat ng kategorya",
+  "categoryPickerLoading": "Naglo-load...",
+  "categoryPickerRetry": "Subukan ulit",
+  "categoryPickerAddCategories": "Magdagdag ng mga kategorya",
+  "categoryPickerPreferred": "Mga piniling kategorya",
+  "sellPhotosEmptyTitle": "Magdagdag ng mga larawan",
+  "sellPhotosEmptySubtitle": "Kumuha o mag-upload ng mga larawan ng iyong item",
+  "sellPhotosCounter": "mga larawan",
+  "sellRecapPhotoStripEdit": "I-edit",
+  "sellRequiredHint": "* Mga kinakailangang field",
+  "sellSizeSystem": "Sistema ng sukat",
+  "product_buy": "Bilhin",
+  "product_make_offer": "Mag-alok"
+}
