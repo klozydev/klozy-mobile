@@ -42,6 +42,7 @@ import 'package:klozy/src/feature/settings/presentation/screen/seller_verificati
 import 'package:klozy/src/feature/settings/presentation/screen/settings_page.dart';
 import 'package:klozy/src/feature/shell/presentation/screen/shell_page.dart';
 import 'package:klozy/src/router/account_guard.dart';
+import 'package:klozy/src/router/onboarding_guard.dart';
 
 part 'app_router.gr.dart';
 
@@ -49,8 +50,9 @@ part 'app_router.gr.dart';
 @LazySingleton()
 class AppRouter extends RootStackRouter {
   final AccountGuard _accountGuard;
+  final OnboardingGuard _onboardingGuard;
 
-  AppRouter(this._accountGuard);
+  AppRouter(this._accountGuard, this._onboardingGuard);
 
   @override
   RouteType get defaultRouteType => const RouteType.material();
@@ -79,12 +81,12 @@ class AppRouter extends RootStackRouter {
     AutoRoute(
       path: '/onboarding/personalize',
       page: PersonalizeRoute.page,
-      guards: [_accountGuard],
+      guards: [_onboardingGuard],
     ),
     AutoRoute(
       path: '/onboarding/profile',
       page: ProfileCompletionRoute.page,
-      guards: [_accountGuard],
+      guards: [_onboardingGuard],
     ),
     AutoRoute(
       path: '/seller-role',

@@ -125,6 +125,7 @@ import 'package:klozy/src/feature/settings/presentation/bloc/settings_bloc.dart'
 import 'package:klozy/src/router/account_guard.dart' as _i672;
 import 'package:klozy/src/router/app_router.dart' as _i774;
 import 'package:klozy/src/router/auth_guard.dart' as _i480;
+import 'package:klozy/src/router/onboarding_guard.dart' as _i281;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -371,6 +372,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i176.AuthRepository>(),
       ),
     );
+    gh.factory<_i281.OnboardingGuard>(
+      () => _i281.OnboardingGuard(
+        gh<_i865.GetAccountStatusUseCase>(),
+        gh<_i176.AuthRepository>(),
+      ),
+    );
     gh.factory<_i773.CartBloc>(
       () => _i773.CartBloc(
         gh<_i444.CartRepository>(),
@@ -379,7 +386,10 @@ extension GetItInjectableX on _i174.GetIt {
       ),
     );
     gh.lazySingleton<_i774.AppRouter>(
-      () => _i774.AppRouter(gh<_i672.AccountGuard>()),
+      () => _i774.AppRouter(
+        gh<_i672.AccountGuard>(),
+        gh<_i281.OnboardingGuard>(),
+      ),
     );
     gh.lazySingleton<_i27.PushService>(
       () => _i27.PushService(

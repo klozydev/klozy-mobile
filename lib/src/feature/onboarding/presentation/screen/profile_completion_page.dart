@@ -54,10 +54,14 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
   /// Whether the address field shows the resolved-checkmark state.
   bool get _addressResolved => _resolvedAddress != null;
 
+  // A non-empty address is enough to continue. A resolved Places result
+  // enriches it, but onboarding must not be blocked when Places autocomplete is
+  // unavailable (e.g. the API key isn't injected, or the network is down) — the
+  // typed text is submitted as-is in that case.
   bool get _valid =>
       _firstName.text.trim().isNotEmpty &&
       _lastName.text.trim().isNotEmpty &&
-      _addressResolved;
+      _address.text.trim().isNotEmpty;
 
   @override
   void dispose() {
@@ -69,8 +73,9 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
   }
 
   void _submit() {
-    final address = _resolvedAddress;
-    if (!_valid || address == null) return;
+    if (!_valid) return;
+    // Prefer the Places-resolved address; fall back to the typed text.
+    final address = _resolvedAddress ?? _manualAddress();
     context.read<ProfileCompletionBloc>().add(
       ProfileCompletionSubmitted(
         firstName: _firstName.text.trim(),
@@ -81,15 +86,27 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
     );
   }
 
+  /// Address built from the raw typed text when no Places result was resolved.
+  AddressInput _manualAddress() {
+    final String text = _address.text.trim();
+    return AddressInput(
+      line1: text,
+      city: text,
+      emirate: text,
+      country: 'United Arab Emirates',
+    );
+  }
+
   void _onAddressChanged(String query) {
-    // Clear any previously resolved address when the user edits the field.
-    if (_resolvedAddress != null) {
-      setState(() {
+    // Clear any previously resolved address when the user edits the field, and
+    // always rebuild so the Continue button reflects the latest text.
+    setState(() {
+      if (_resolvedAddress != null) {
         _resolvedAddress = null;
         _suggestions = const [];
         _placeIds = const [];
-      });
-    }
+      }
+    });
     context.read<ProfileCompletionBloc>().add(
       ProfileCompletionAddressQueryChanged(query),
     );

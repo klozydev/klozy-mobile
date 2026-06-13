@@ -59,6 +59,9 @@ dependencies:
   cloud_functions:
   # Localization system the chat island uses (.tr()); coexists with gen-l10n.
   easy_localization: ^3.0.0
+  # Responsive sizing the chat island (core_kosmos) renders with (.sp/.w/.h);
+  # initialised in app.dart so ScreenUtil is ready before the chat tab builds.
+  flutter_screenutil: ^5.9.3
   # Riverpod (the chat island's state mgmt) — used directly by the root
   # ProviderScope and the chat bridge.
   flutter_riverpod: 2.6.1

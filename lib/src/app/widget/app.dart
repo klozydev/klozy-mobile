@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' show ProviderScope;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:klozy/l10n/app_localizations.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_event.dart';
@@ -101,6 +102,15 @@ class _AppState extends State<App> {
                       locale: Locale(appConfig.locale),
                       theme: dsTheme(),
                       builder: (context, child) {
+                        // The chat island (kosmos_chat / core_kosmos) renders
+                        // with flutter_screenutil (`.sp`, `.w`, `.h`). Init the
+                        // singleton here (kosmos design size 375x812) so those
+                        // extensions work; without it the chat tab throws a
+                        // LateInitializationError on `_minTextAdapt`.
+                        ScreenUtil.init(
+                          context,
+                          designSize: const Size(375, 812),
+                        );
                         final clamped = MediaQuery.textScalerOf(
                           context,
                         ).clamp(minScaleFactor: 1, maxScaleFactor: 1.2);
