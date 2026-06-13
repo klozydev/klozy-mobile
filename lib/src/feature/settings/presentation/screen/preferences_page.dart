@@ -2,7 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
+import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
+import 'package:klozy/src/design/components/ds_category_tree_picker.dart';
 import 'package:klozy/src/design/components/ds_field_label.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_segmented_control.dart';
@@ -37,7 +39,9 @@ class _PreferencesPageState extends State<PreferencesPage> {
   bool _saving = false;
   String _sizeSystem = 'EU';
   Set<String> _sizes = <String>{};
-  Set<String> _categoryIds = <String>{};
+  // Category id → human-readable breadcrumb label, populated by the shared
+  // tree picker (or seeded from saved ids on load).
+  Map<String, String> _categoryPicks = <String, String>{};
   Set<String> _brandIds = <String>{};
   List<CatalogCategory> _categories = const <CatalogCategory>[];
   List<CatalogSizeValue> _allSizes = const <CatalogSizeValue>[];
@@ -60,11 +64,19 @@ class _PreferencesPageState extends State<PreferencesPage> {
       final prefs = await _me.getPreferences();
       _sizeSystem = prefs.sizeSystem;
       _sizes = prefs.sizes.toSet();
-      _categoryIds = prefs.categoryIds.toSet();
+      _categoryPicks = <String, String>{
+        for (final String id in prefs.categoryIds) id: id,
+      };
       _brandIds = prefs.brandIds.toSet();
     } catch (_) {}
     try {
       _categories = await _catalog.getRootCategories();
+      // Upgrade any seeded ids that match a known root category to its label.
+      for (final CatalogCategory c in _categories) {
+        if (_categoryPicks.containsKey(c.id)) {
+          _categoryPicks[c.id] = c.label;
+        }
+      }
     } catch (_) {}
     try {
       _allSizes = await _catalog.getSizes();
@@ -73,6 +85,21 @@ class _PreferencesPageState extends State<PreferencesPage> {
       _brands = await _catalog.searchBrands();
     } catch (_) {}
     if (mounted) setState(() => _loading = false);
+  }
+
+  Future<void> _openCategoryPicker() async {
+    final PickedCategory? picked = await DSBottomSheet.show<PickedCategory>(
+      context,
+      title: context.l10N.categoryPickerTitle,
+      child: DSCategoryTreePicker(
+        repo: _catalog,
+        showBreadcrumb: true,
+        onLeafSelected: (PickedCategory p) => Navigator.of(context).pop(p),
+      ),
+    );
+    if (picked != null) {
+      setState(() => _categoryPicks[picked.id] = picked.path);
+    }
   }
 
   Future<void> _searchBrands(String query) async {
@@ -91,7 +118,7 @@ class _PreferencesPageState extends State<PreferencesPage> {
         PreferencesInput(
           sizeSystem: _sizeSystem,
           sizes: _sizes.toList(),
-          categoryIds: _categoryIds.toList(),
+          categoryIds: _categoryPicks.keys.toList(),
           brandIds: _brandIds.toList(),
         ),
       );
@@ -141,15 +168,21 @@ class _PreferencesPageState extends State<PreferencesPage> {
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
-                  children: _categories
-                      .map(
-                        (CatalogCategory c) => DSSelectableChip(
-                          label: c.label,
-                          selected: _categoryIds.contains(c.id),
-                          onTap: () => _toggle(_categoryIds, c.id),
-                        ),
-                      )
-                      .toList(),
+                  children: <Widget>[
+                    ..._categoryPicks.entries.map(
+                      (MapEntry<String, String> e) => DSSelectableChip(
+                        label: e.value,
+                        selected: true,
+                        onTap: () =>
+                            setState(() => _categoryPicks.remove(e.key)),
+                      ),
+                    ),
+                    DSSelectableChip(
+                      label: l.categoryPickerAddCategories,
+                      selected: false,
+                      onTap: _openCategoryPicker,
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 20),
                 DSFieldLabel(l.onboarding_sizes_title),

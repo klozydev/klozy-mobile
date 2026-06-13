@@ -15,6 +15,7 @@ import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
+import 'package:klozy/src/domain/product/entity/search_facets.dart';
 import 'package:klozy/src/domain/product/products_repository.dart';
 import 'package:klozy/src/feature/home/presentation/widget/product_card_widget.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_bloc.dart';
@@ -90,10 +91,16 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   Future<void> _openFilters() async {
+    // Pass the facets from the latest results so the sheet only offers values
+    // that actually occur in the matched set (null in browse → full catalog).
+    final SearchState state = context.read<SearchBloc>().state;
+    final SearchFacets? facets = state is SearchResultsState
+        ? state.facets
+        : null;
     final result = await DSBottomSheet.show<SearchFilters>(
       context,
       title: context.l10N.search_filters,
-      child: SearchFiltersSheet(initial: _filters),
+      child: SearchFiltersSheet(initial: _filters, facets: facets),
     );
     if (result != null) _applyFilters(result);
   }

@@ -12,6 +12,7 @@ import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_brand.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_condition.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_size_value.dart';
+import 'package:klozy/src/domain/product/entity/search_facets.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_filters.dart';
 import 'package:klozy/src/feature/search/presentation/widget/filter_section_label_widget.dart';
 import 'package:klozy/src/feature/search/presentation/widget/selected_category_chip_widget.dart';
@@ -21,7 +22,12 @@ import 'package:klozy/src/feature/search/presentation/widget/selected_category_c
 class SearchFiltersSheet extends StatefulWidget {
   final SearchFilters initial;
 
-  const SearchFiltersSheet({super.key, required this.initial});
+  /// Facets of the current result set. When non-null, the condition/size/brand
+  /// options are narrowed to values that actually occur in the matched
+  /// products (with counts). Null in browse mode → full catalog.
+  final SearchFacets? facets;
+
+  const SearchFiltersSheet({super.key, required this.initial, this.facets});
 
   @override
   State<SearchFiltersSheet> createState() => _SearchFiltersSheetState();
@@ -113,6 +119,39 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
     );
   }
 
+  Map<String, int>? get _conditionCounts => widget.facets == null
+      ? null
+      : SearchFacets.counts(widget.facets!.conditions);
+  Map<String, int>? get _sizeCounts =>
+      widget.facets == null ? null : SearchFacets.counts(widget.facets!.sizes);
+  Map<String, int>? get _brandCounts =>
+      widget.facets == null ? null : SearchFacets.counts(widget.facets!.brands);
+
+  List<CatalogCondition> get _visibleConditions {
+    final Map<String, int>? m = _conditionCounts;
+    if (m == null) return _allConditions;
+    return _allConditions
+        .where((CatalogCondition c) => m.containsKey(c.slug))
+        .toList();
+  }
+
+  List<CatalogSizeValue> get _visibleSizes {
+    final Map<String, int>? m = _sizeCounts;
+    if (m == null) return _allSizes;
+    return _allSizes
+        .where((CatalogSizeValue s) => m.containsKey(s.token))
+        .toList();
+  }
+
+  List<CatalogBrand> get _visibleBrands {
+    final Map<String, int>? m = _brandCounts;
+    if (m == null) return _brands;
+    return _brands.where((CatalogBrand b) => m.containsKey(b.id)).toList();
+  }
+
+  String _countSuffix(Map<String, int>? counts, String key) =>
+      (counts == null || counts[key] == null) ? '' : ' (${counts[key]})';
+
   @override
   Widget build(BuildContext context) {
     if (_loading) return const SizedBox(height: 160, child: DSLoader());
@@ -141,17 +180,18 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
                       setState(() => _selectedCategory = picked);
                     },
                   ),
-                if (_allConditions.isNotEmpty) ...<Widget>[
+                if (_visibleConditions.isNotEmpty) ...<Widget>[
                   FilterSectionLabelWidget(
                     text: context.l10N.search_filter_condition,
                   ),
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
-                    children: _allConditions
+                    children: _visibleConditions
                         .map(
                           (CatalogCondition c) => DSSelectableChip(
-                            label: c.label,
+                            label:
+                                '${c.label}${_countSuffix(_conditionCounts, c.slug)}',
                             selected: _conditions.contains(c.slug),
                             onTap: () => setState(
                               () => _conditions.contains(c.slug)
@@ -163,17 +203,18 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
                         .toList(),
                   ),
                 ],
-                if (_allSizes.isNotEmpty) ...<Widget>[
+                if (_visibleSizes.isNotEmpty) ...<Widget>[
                   FilterSectionLabelWidget(
                     text: context.l10N.search_filter_size,
                   ),
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
-                    children: _allSizes
+                    children: _visibleSizes
                         .map(
                           (CatalogSizeValue s) => DSSelectableChip(
-                            label: s.label,
+                            label:
+                                '${s.label}${_countSuffix(_sizeCounts, s.token)}',
                             selected: _sizes.contains(s.token),
                             onTap: () => setState(
                               () => _sizes.contains(s.token)
@@ -198,10 +239,10 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
-                  children: _brands
+                  children: _visibleBrands
                       .map(
                         (CatalogBrand b) => DSSelectableChip(
-                          label: b.name,
+                          label: '${b.name}${_countSuffix(_brandCounts, b.id)}',
                           selected: _brandIds.contains(b.id),
                           onTap: () => setState(
                             () => _brandIds.contains(b.id)

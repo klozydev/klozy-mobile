@@ -21,7 +21,7 @@ class CatalogRepositoryImpl implements CatalogRepository {
       'v1/catalog/categories',
       queryParameters: <String, dynamic>{'parentId': parentId ?? ''},
     );
-    return _list(response.data)
+    final List<CatalogCategory> mapped = _list(response.data)
         .map(
           (Map<String, dynamic> json) => CatalogCategory(
             id: _str(json, ['id', '_id', 'slug']) ?? '',
@@ -31,6 +31,26 @@ class CatalogRepositoryImpl implements CatalogRepository {
         )
         .where((CatalogCategory c) => c.id.isNotEmpty && c.label.isNotEmpty)
         .toList();
+    return _dedupeCategories(mapped);
+  }
+
+  /// Drops duplicate categories the backend may return (same id, or same
+  /// case-insensitive label) so the feed chips and pickers never show a
+  /// category twice. First occurrence wins.
+  List<CatalogCategory> _dedupeCategories(List<CatalogCategory> categories) {
+    final Set<String> seenIds = <String>{};
+    final Set<String> seenLabels = <String>{};
+    final List<CatalogCategory> result = <CatalogCategory>[];
+    for (final CatalogCategory c in categories) {
+      final String label = c.label.trim().toLowerCase();
+      if (seenIds.contains(c.id) || seenLabels.contains(label)) {
+        continue;
+      }
+      seenIds.add(c.id);
+      seenLabels.add(label);
+      result.add(c);
+    }
+    return result;
   }
 
   @override

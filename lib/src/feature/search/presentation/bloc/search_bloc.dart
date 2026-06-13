@@ -4,6 +4,7 @@ import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
+import 'package:klozy/src/domain/product/entity/search_result.dart';
 import 'package:klozy/src/domain/product/products_repository.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_event.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_filters.dart';
@@ -80,14 +81,16 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     emit(const SearchLoadingState());
     try {
       _page = 1;
-      final page = await _search(_page);
+      final result = await _search(_page);
+      final List<Product> items = result.page.data;
       emit(
         SearchResultsState(
-          results: page,
+          results: items,
           query: _query,
           sort: _sort,
           filters: _filters,
-          hasMore: page.length >= _limit,
+          facets: result.facets,
+          hasMore: items.length >= _limit,
         ),
       );
     } catch (error) {
@@ -107,13 +110,14 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     }
     emit(current.copyWith(isLoadingMore: true));
     try {
-      final page = await _search(_page + 1);
+      final result = await _search(_page + 1);
+      final List<Product> more = result.page.data;
       _page += 1;
       emit(
         current.copyWith(
-          results: <Product>[...current.results, ...page],
+          results: <Product>[...current.results, ...more],
           isLoadingMore: false,
-          hasMore: page.length >= _limit,
+          hasMore: more.length >= _limit,
         ),
       );
     } catch (_) {
@@ -121,8 +125,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     }
   }
 
-  Future<List<Product>> _search(int page) async {
-    final result = await _productsRepository.search(
+  Future<SearchResult> _search(int page) {
+    return _productsRepository.search(
       query: _query.trim().isEmpty ? null : _query.trim(),
       rootCategoryId: _filters.rootCategoryId,
       categoryId: _filters.categoryId,
@@ -135,6 +139,5 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       page: page,
       limit: _limit,
     );
-    return result.data;
   }
 }

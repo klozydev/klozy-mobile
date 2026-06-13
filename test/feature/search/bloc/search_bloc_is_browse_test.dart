@@ -3,6 +3,8 @@ import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
+import 'package:klozy/src/domain/product/entity/search_facets.dart';
+import 'package:klozy/src/domain/product/entity/search_result.dart';
 import 'package:klozy/src/domain/product/products_repository.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_bloc.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_event.dart';
@@ -34,6 +36,10 @@ void main() {
   late SearchBloc bloc;
 
   const _emptyPage = PaginatedList<Product>(data: <Product>[]);
+  const _emptySearchResult = SearchResult(
+    page: _emptyPage,
+    facets: SearchFacets.empty,
+  );
   const _emptyCategories = <CatalogCategory>[];
 
   setUpAll(() {
@@ -70,7 +76,7 @@ void main() {
         page: any(named: 'page'),
         limit: any(named: 'limit'),
       ),
-    ).thenAnswer((_) async => _emptyPage);
+    ).thenAnswer((_) async => _emptySearchResult);
 
     bloc = SearchBloc(products, catalog);
   });

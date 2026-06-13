@@ -9,6 +9,8 @@ import 'package:klozy/src/data/product/product_mapper.dart';
 import 'package:klozy/src/domain/product/entity/create_product_input.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
+import 'package:klozy/src/domain/product/entity/search_facets.dart';
+import 'package:klozy/src/domain/product/entity/search_result.dart';
 import 'package:klozy/src/domain/product/products_repository.dart';
 
 @LazySingleton(as: ProductsRepository)
@@ -44,7 +46,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
   }
 
   @override
-  Future<PaginatedList<Product>> search({
+  Future<SearchResult> search({
     String? query,
     String? rootCategoryId,
     String? categoryId,
@@ -73,11 +75,41 @@ class ProductsRepositoryImpl implements ProductsRepository {
         'limit': limit,
       },
     );
-    final parsed = PaginatedListResponse<Product>.fromJson(
-      response.data ?? const <String, dynamic>{},
-      mapProduct,
+    final Map<String, dynamic> data = response.data ?? const <String, dynamic>{};
+    final parsed = PaginatedListResponse<Product>.fromJson(data, mapProduct);
+    return SearchResult(
+      page: PaginatedList<Product>(
+        data: parsed.data,
+        metadata: parsed.metadata,
+      ),
+      facets: _parseFacets(data['facets']),
     );
-    return PaginatedList<Product>(data: parsed.data, metadata: parsed.metadata);
+  }
+
+  SearchFacets _parseFacets(dynamic raw) {
+    if (raw is! Map<String, dynamic>) return SearchFacets.empty;
+    List<FacetBucket> buckets(dynamic list) {
+      if (list is! List) return const <FacetBucket>[];
+      return list
+          .whereType<Map<String, dynamic>>()
+          .map(
+            (Map<String, dynamic> b) => FacetBucket(
+              key: '${b['key'] ?? ''}',
+              count: (b['count'] as num?)?.toInt() ?? 0,
+            ),
+          )
+          .where((FacetBucket b) => b.key.isNotEmpty)
+          .toList();
+    }
+
+    return SearchFacets(
+      brands: buckets(raw['brands']),
+      conditions: buckets(raw['conditions']),
+      sizes: buckets(raw['sizes']),
+      categories: buckets(raw['categories']),
+      priceMin: raw['priceMin'] as num?,
+      priceMax: raw['priceMax'] as num?,
+    );
   }
 
   @override

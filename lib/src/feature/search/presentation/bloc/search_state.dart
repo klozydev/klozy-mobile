@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
+import 'package:klozy/src/domain/product/entity/search_facets.dart';
 import 'package:klozy/src/domain/product/products_repository.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_filters.dart';
 
@@ -43,6 +44,7 @@ final class SearchResultsState extends SearchState {
   final String query;
   final ProductSort sort;
   final SearchFilters filters;
+  final SearchFacets facets;
   final bool isLoadingMore;
   final bool hasMore;
 
@@ -51,6 +53,7 @@ final class SearchResultsState extends SearchState {
     required this.query,
     required this.sort,
     required this.filters,
+    this.facets = SearchFacets.empty,
     this.isLoadingMore = false,
     this.hasMore = true,
   });
@@ -65,6 +68,7 @@ final class SearchResultsState extends SearchState {
       query: query,
       sort: sort,
       filters: filters,
+      facets: facets,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,
       hasMore: hasMore ?? this.hasMore,
     );
@@ -76,6 +80,7 @@ final class SearchResultsState extends SearchState {
     query,
     sort,
     filters,
+    facets,
     isLoadingMore,
     hasMore,
   ];

@@ -2,6 +2,7 @@ import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/domain/product/entity/create_product_input.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
+import 'package:klozy/src/domain/product/entity/search_result.dart';
 
 enum ProductSort { popular, latest, priceAsc, priceDesc }
 
@@ -24,8 +25,9 @@ abstract class ProductsRepository {
     int limit = 20,
   });
 
-  /// Full-text + faceted search (`/v1/products/search`).
-  Future<PaginatedList<Product>> search({
+  /// Full-text + faceted search (`/v1/products/search`). Returns the page of
+  /// products plus result-scoped [SearchResult.facets].
+  Future<SearchResult> search({
     String? query,
     String? rootCategoryId,
     String? categoryId,
