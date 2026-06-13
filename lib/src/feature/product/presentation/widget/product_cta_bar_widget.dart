@@ -31,11 +31,20 @@ class ProductCtaBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Floats over the immersive photo/details: solid surface at the bottom that
+    // fades to transparent toward the top (design: gradient "to top, #000 42%").
     return Container(
-      color: DSColor.surface,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          colors: <Color>[DSColor.surface, DSColor.surface, Color(0x00000000)],
+          stops: <double>[0.0, 0.42, 1.0],
+        ),
+      ),
       padding: EdgeInsets.fromLTRB(
         DSSpacing.s,
-        DSSpacing.xs,
+        DSSpacing.xl,
         DSSpacing.s,
         DSSpacing.s + MediaQuery.viewPaddingOf(context).bottom,
       ),

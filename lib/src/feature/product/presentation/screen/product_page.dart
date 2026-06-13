@@ -189,7 +189,18 @@ class _LoadedViewState extends State<_LoadedView> {
                   context.router.push(EditListingRoute(productId: detail.id)),
               onDelete: () =>
                   context.read<ProductBloc>().add(const ProductDeleted()),
-              onMakeOffer: () => context.router.push(const OffersRoute()),
+              // Offers are per-seller cart buckets (POST /v1/offers covers the
+              // whole bucket), so making an offer means adding this item to the
+              // cart and continuing in the cart, where the seller-bucket offer
+              // sheet lives. (Routing to the Offers list was wrong — that only
+              // shows existing offers and gives no way to make one here.)
+              onMakeOffer: () {
+                if (!state.inCart) {
+                  context.read<ProductBloc>().add(const ProductAddToCart());
+                  context.read<CartCubit>().refresh();
+                }
+                context.router.push(const CartRoute());
+              },
             ),
           ),
         ],

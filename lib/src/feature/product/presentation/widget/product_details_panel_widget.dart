@@ -48,8 +48,8 @@ class ProductDetailsPanelWidget extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: dsFontFamily,
                   fontSize: DSFontSize.bodyLarge,
-                  height: 1.5,
-                  color: DSColor.onSurface75,
+                  height: 1.7,
+                  color: DSColor.onSurface65,
                 ),
               ),
             ],
