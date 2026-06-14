@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
+import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -19,6 +20,10 @@ class ProductCtaBarWidget extends StatelessWidget {
   final VoidCallback onMakeOffer;
   final VoidCallback onSeeOffer;
 
+  /// Shows a spinner on the make-offer button while an offer is submitting
+  /// (add-to-cart + POST /v1/offers + open chat can take a moment).
+  final bool offerLoading;
+
   const ProductCtaBarWidget({
     super.key,
     required this.detail,
@@ -29,6 +34,7 @@ class ProductCtaBarWidget extends StatelessWidget {
     required this.onDelete,
     required this.onMakeOffer,
     required this.onSeeOffer,
+    this.offerLoading = false,
   });
 
   @override
@@ -108,7 +114,9 @@ class ProductCtaBarWidget extends StatelessWidget {
         ),
         const SizedBox(width: DSSpacing.xs),
         Expanded(
-          child: detail.hasActiveOffer
+          child: offerLoading
+              ? _glassLoading()
+              : detail.hasActiveOffer
               ? _glass(
                   context.l10N.product_see_offer,
                   Icons.local_offer,
@@ -141,6 +149,23 @@ class ProductCtaBarWidget extends StatelessWidget {
           fontWeight: DSFontWeight.semiBold,
           color: DSColor.onSurface24,
         ),
+      ),
+    );
+  }
+
+  Widget _glassLoading() {
+    return Container(
+      height: 48,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: const Color(0xB81A1A1A),
+        borderRadius: BorderRadius.circular(DSBorderRadius.input),
+        border: Border.all(color: DSColor.onSurface24, width: 0.5),
+      ),
+      child: const SizedBox(
+        width: 20,
+        height: 20,
+        child: DSLoader(size: 18, color: DSColor.onSurface),
       ),
     );
   }

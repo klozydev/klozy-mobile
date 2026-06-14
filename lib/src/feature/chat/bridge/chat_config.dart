@@ -1,4 +1,5 @@
 import 'package:core_kosmos/core_kosmos.dart';
+import 'package:klozy/src/feature/chat/bridge/chat_theme.dart';
 import 'package:klozy/src/feature/chat/bridge/mobile_message_controller.dart';
 import 'package:klozy/src/feature/chat/bridge/mobile_tchat_controller.dart';
 import 'package:klozy/src/feature/chat/bridge/offer_message_builder.dart';
@@ -12,6 +13,24 @@ import 'package:kosmos_chat/kosmos_chat.dart';
 /// Called once at startup (see AppInitializer) before any chat surface builds.
 /// Offer/purchase message builders are added in a later phase.
 void registerChatConfig() {
+  // Klozy dark chat theming. Register under both the base and "-dark" keys so
+  // the package resolves Klozy colours regardless of its isDarkMode flag.
+  if (!GetIt.instance.isRegistered<AppTheme>()) {
+    final AppTheme appTheme = AppTheme()
+      ..addTheme('tchat_theme', klozyTchatTheme(), darkTheme: klozyTchatTheme())
+      ..addTheme(
+        'message_box',
+        klozyMessageBoxTheme(),
+        darkTheme: klozyMessageBoxTheme(),
+      )
+      ..addTheme(
+        'tchat_message_theme',
+        klozyMessageTheme(),
+        darkTheme: klozyMessageTheme(),
+      );
+    GetIt.instance.registerSingleton<AppTheme>(appTheme);
+  }
+
   if (GetIt.instance.isRegistered<AppModel<Object?>>()) return;
   GetIt.instance.registerSingleton<AppModel<Object?>>(
     AppModel<Object?>(

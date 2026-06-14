@@ -79,6 +79,7 @@ class _LoadedView extends StatefulWidget {
 
 class _LoadedViewState extends State<_LoadedView> {
   int _currentPage = 0;
+  bool _submittingOffer = false;
 
   ProductLoadedState get state => widget.state;
   ProductDetail get _detail => state.detail;
@@ -96,6 +97,7 @@ class _LoadedViewState extends State<_LoadedView> {
       child: OfferSheet(subtotal: _detail.price, itemCount: 1),
     );
     if (amount == null || !context.mounted) return;
+    setState(() => _submittingOffer = true);
     try {
       if (!state.inCart) {
         await context.read<CartCubit>().add(_detail.id);
@@ -119,6 +121,8 @@ class _LoadedViewState extends State<_LoadedView> {
       if (context.mounted) {
         context.showSnackBar(context.l10N.offer_send_failed);
       }
+    } finally {
+      if (mounted) setState(() => _submittingOffer = false);
     }
   }
 
@@ -205,6 +209,7 @@ class _LoadedViewState extends State<_LoadedView> {
                   context.read<ProductBloc>().add(const ProductDeleted()),
               onMakeOffer: () => _makeOffer(context),
               onSeeOffer: () => context.openChatWith(detail.seller.id),
+              offerLoading: _submittingOffer,
             ),
           ),
         ],
