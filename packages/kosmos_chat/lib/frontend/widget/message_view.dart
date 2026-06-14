@@ -349,13 +349,19 @@ class _MessageViewWidgetState extends ConsumerState<MessageViewWidget>
                                                   controller: ref
                                                       .read(scrollProvider)
                                                       .controller,
-                                                  padding: !widget.showHeader
-                                                      ? EdgeInsets.only(
-                                                          top: MediaQuery.of(
-                                                                  context)
+                                                  // reverse:true -> bottom is
+                                                  // the visual gap above the
+                                                  // input bar; without it the
+                                                  // newest message sits flush
+                                                  // against BottomMessageBar.
+                                                  padding: EdgeInsets.only(
+                                                    top: !widget.showHeader
+                                                        ? MediaQuery.of(context)
                                                               .padding
-                                                              .top)
-                                                      : null,
+                                                              .top
+                                                        : 0,
+                                                    bottom: formatHeight(10),
+                                                  ),
                                                   physics:
                                                       const AlwaysScrollableScrollPhysics(),
                                                   clipBehavior: Clip.none,

@@ -60,7 +60,14 @@ TchatThemeData klozyTchatTheme() {
 
 /// Message bubbles (`message_box`).
 MessageBoxThemeData klozyMessageBoxTheme() {
+  const EdgeInsets bubblePadding = EdgeInsets.symmetric(
+    horizontal: 14,
+    vertical: 10,
+  );
   return MessageBoxThemeData(
+    // Inner padding so text isn't flush to (and clipped by) the bubble edges.
+    meMessagePadding: bubblePadding,
+    otherMessagePadding: bubblePadding,
     // My messages: gold bubble, black text.
     meContainerDecoration: _bubble(DSColor.primary),
     meMessageTextStyle: _style(14, DSColor.surface),

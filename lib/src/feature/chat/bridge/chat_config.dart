@@ -1,4 +1,5 @@
 import 'package:core_kosmos/core_kosmos.dart';
+import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/feature/chat/bridge/chat_theme.dart';
 import 'package:klozy/src/feature/chat/bridge/mobile_message_controller.dart';
 import 'package:klozy/src/feature/chat/bridge/mobile_tchat_controller.dart';
@@ -6,6 +7,7 @@ import 'package:klozy/src/feature/chat/bridge/offer_message_builder.dart';
 import 'package:klozy/src/feature/chat/bridge/purchase_message_builder.dart';
 import 'package:kosmos_chat/frontend/widget/components/message_builder.dart';
 import 'package:kosmos_chat/kosmos_chat.dart';
+import 'package:ui_kosmos_v4/button/theme/button_theme.dart';
 
 /// Registers the chat package configuration into core_kosmos's [AppModel],
 /// read later via `getTchatBackEndConfig()` / `getTchatFrontEndConfig()`.
@@ -27,6 +29,13 @@ void registerChatConfig() {
         'tchat_message_theme',
         klozyMessageTheme(),
         darkTheme: klozyMessageTheme(),
+      )
+      // Back button (header chevron) defaults to dark navy — make it readable
+      // on the black chat surface.
+      ..addTheme(
+        'back_button',
+        const KosmosButtonThemeData(iconColor: DSColor.onSurface),
+        darkTheme: const KosmosButtonThemeData(iconColor: DSColor.onSurface),
       );
     GetIt.instance.registerSingleton<AppTheme>(appTheme);
   }
