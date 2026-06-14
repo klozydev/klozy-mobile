@@ -119,11 +119,21 @@ class TchatController implements TchatInterface {
         .listen((event) async {
       if (event.docChanges.isEmpty) return;
 
+      // Resolve ALL participants up front so the list renders names together:
+      // seed from each thread doc's embedded usersData, then one batched read of
+      // chat_users for anyone still missing. No per-row lookup afterwards.
+      final Set<String> participantIds = <String>{};
+      for (final docChange in event.docChanges) {
+        EmbeddedUserCache.putAll(docChange.doc.data()?['usersData']);
+        for (final dynamic p
+            in (docChange.doc.data()?['participants'] ?? <dynamic>[])) {
+          if (p is String) participantIds.add(p);
+        }
+      }
+      await EmbeddedUserCache.prefetchFromChatUsers(participantIds);
+
       for (final docChange in event.docChanges) {
         String docId = docChange.doc.id;
-        // Seed the embedded-profile cache from this thread doc so getUserData
-        // resolves participants instantly (no per-user read).
-        EmbeddedUserCache.putAll(docChange.doc.data()?['usersData']);
         switch (docChange.type) {
           /// Événement ajouté.
           case DocumentChangeType.added:
