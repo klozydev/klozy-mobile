@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core_kosmos/core_kosmos.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kosmos_chat/backend/kosmos_chat_backend.dart';
 import 'package:kosmos_chat/backend/provider/tchat_user_data.dart';
@@ -39,8 +40,14 @@ class MessageBox extends StatefulHookConsumerWidget {
 class _MessageBoxState extends ConsumerState<MessageBox> {
    
 
+  // Klozy keys chat identity by Firebase UID (message senderId == uid). The
+  // kosmos userProvider streams a Firestore users/{uid} doc that Klozy doesn't
+  // populate (Postgres is source of truth), so user?.id is usually null — match
+  // on the Firebase UID too, otherwise my own messages render as "other" (dark
+  // bubble) instead of "me" (gold).
   late final bool fromMe =
-      widget.message.senderId == ref.read(userProvider).user?.id;
+      widget.message.senderId == ref.read(userProvider).user?.id ||
+          widget.message.senderId == FirebaseAuth.instance.currentUser?.uid;
   late final bool isFirstMessage = widget.previousMessage == null ||
       widget.previousMessage?.senderId != widget.message.senderId;
   late final bool isLastMessage = widget.nextMessage == null ||

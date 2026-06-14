@@ -126,6 +126,18 @@ class _LoadedViewState extends State<_LoadedView> {
     }
   }
 
+  /// Opening the chat resolves the seller's Firebase UID and looks up / creates
+  /// the thread, which takes a moment — show the same spinner the make-offer
+  /// flow uses so the button doesn't look dead on tap.
+  Future<void> _seeOffer(BuildContext context) async {
+    setState(() => _submittingOffer = true);
+    try {
+      await context.openChatWith(_detail.seller.id);
+    } finally {
+      if (mounted) setState(() => _submittingOffer = false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final ProductDetail detail = _detail;
@@ -208,7 +220,7 @@ class _LoadedViewState extends State<_LoadedView> {
               onDelete: () =>
                   context.read<ProductBloc>().add(const ProductDeleted()),
               onMakeOffer: () => _makeOffer(context),
-              onSeeOffer: () => context.openChatWith(detail.seller.id),
+              onSeeOffer: () => _seeOffer(context),
               offerLoading: _submittingOffer,
             ),
           ),

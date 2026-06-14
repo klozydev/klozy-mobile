@@ -44,7 +44,7 @@ Widget offerBuilder(
                     TextSpan(
                       text: "${message.metadata['productPrice']} aed",
                       style: themeData.meMessageTextStyle?.copyWith(
-                        color: Colors.white,
+                        color: DSColor.surface,
                         fontWeight: FontWeight.w400,
                         decoration: TextDecoration.lineThrough,
                       ),
@@ -53,14 +53,14 @@ Widget offerBuilder(
                       text: ' - ',
                       style: themeData.meMessageTextStyle?.copyWith(
                         fontWeight: FontWeight.w400,
-                        color: Colors.white,
+                        color: DSColor.surface,
                       ),
                     ),
                     TextSpan(
                       text: "${message.metadata['newProductPrice']} aed",
                       style: themeData.meMessageTextStyle?.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                        color: DSColor.surface,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ],
@@ -68,15 +68,15 @@ Widget offerBuilder(
               ),
               if (message.metadata['accepted'] != null || isCancelled)
                 Divider(
-                  color: Colors.white.withValues(alpha: 0.2),
+                  color: DSColor.surface.withValues(alpha: 0.2),
                   thickness: formatHeight(0.4),
                   height: formatHeight(17),
                 ),
               if (isCancelled)
                 Text(
                   'Cancelled',
-                  style: chatWhiteStyle(12, FontWeight.w500).copyWith(
-                    color: Colors.white.withValues(alpha: 0.75),
+                  style: chatOnPrimaryStyle(12, FontWeight.w500).copyWith(
+                    color: DSColor.surface.withValues(alpha: 0.75),
                     fontStyle: FontStyle.italic,
                   ),
                 )
@@ -85,8 +85,8 @@ Widget offerBuilder(
                   children: <Widget>[
                     Text(
                       'Accepted',
-                      style: chatWhiteStyle(12, FontWeight.w500).copyWith(
-                        color: Colors.white.withValues(alpha: 0.75),
+                      style: chatOnPrimaryStyle(12, FontWeight.w500).copyWith(
+                        color: DSColor.surface.withValues(alpha: 0.75),
                         fontStyle: FontStyle.italic,
                       ),
                     ),
@@ -99,10 +99,10 @@ Widget offerBuilder(
                       },
                       child: Text(
                         'View summary',
-                        style: chatWhiteStyle(
+                        style: chatOnPrimaryStyle(
                           12,
                           FontWeight.w500,
-                        ).copyWith(color: Colors.white),
+                        ).copyWith(color: DSColor.surface),
                       ),
                     ),
                   ],
@@ -110,8 +110,8 @@ Widget offerBuilder(
               else if (message.metadata['accepted'] == false)
                 Text(
                   'Refused',
-                  style: chatWhiteStyle(10, FontWeight.w300).copyWith(
-                    color: Colors.white.withValues(alpha: 0.75),
+                  style: chatOnPrimaryStyle(10, FontWeight.w300).copyWith(
+                    color: DSColor.surface.withValues(alpha: 0.75),
                     fontStyle: FontStyle.italic,
                   ),
                 ),

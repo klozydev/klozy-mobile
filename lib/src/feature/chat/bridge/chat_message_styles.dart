@@ -2,12 +2,27 @@ import 'dart:ui' as ui;
 
 import 'package:core_kosmos/core_kosmos.dart';
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/tokens/ds_color.dart';
 
-/// White text style helper for offer/purchase message bubbles (ported from
-/// klozy's DefaultAppStyle.white). Uses responsive `sp()` sizing.
+/// White text style helper for offer/purchase message bubbles on the dark
+/// "other" bubble (ported from klozy's DefaultAppStyle.white). Responsive `sp()`.
 TextStyle chatWhiteStyle(double size, [FontWeight weight = FontWeight.normal]) {
   return TextStyle(
     color: Colors.white,
+    fontSize: sp(size),
+    fontWeight: weight,
+    fontFamily: 'Poppins',
+  );
+}
+
+/// Dark text for the gold "me" bubble — white-on-gold is unreadable, so my own
+/// offer/purchase bubbles use the surface colour instead.
+TextStyle chatOnPrimaryStyle(
+  double size, [
+  FontWeight weight = FontWeight.normal,
+]) {
+  return TextStyle(
+    color: DSColor.surface,
     fontSize: sp(size),
     fontWeight: weight,
     fontFamily: 'Poppins',

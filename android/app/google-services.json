@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "1062855309544-6shmotjdu7nit0l93uhe0a9v0hbbh6pg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.klozy.app",
+            "certificate_hash": "3e17c18ac61a99fc76bfb0bd6eb4d5882875d39a"
+          }
+        },
+        {
           "client_id": "1062855309544-ler9l675rkgj90dsbnn9i16orq13l2k9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

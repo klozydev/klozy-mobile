@@ -1,6 +1,7 @@
 import 'package:core_kosmos/core_kosmos.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/feature/chat/bridge/chat_message_styles.dart';
 import 'package:klozy/src/feature/chat/bridge/custom_text_message.dart';
 import 'package:klozy/src/router/app_router.dart';
@@ -39,7 +40,9 @@ Widget purchaseBuilder(
             MediaQuery.of(context).size.width,
           ),
           child: Divider(
-            color: Colors.white.withValues(alpha: 0.2),
+            color: (me ? DSColor.surface : Colors.white).withValues(
+              alpha: 0.2,
+            ),
             thickness: formatHeight(0.4),
             height: formatHeight(17),
           ),
@@ -54,10 +57,10 @@ Widget purchaseBuilder(
           },
           child: Text(
             'package.tchat.message.view-order-details'.tr(),
-            style: chatWhiteStyle(
+            style: (me ? chatOnPrimaryStyle : chatWhiteStyle)(
               12,
               FontWeight.w500,
-            ).copyWith(color: Colors.white),
+            ),
           ),
         ),
       ],
