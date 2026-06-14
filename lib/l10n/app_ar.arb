@@ -690,5 +690,6 @@
   "sellRequiredHint": "* الحقول المطلوبة",
   "sellSizeSystem": "نظام المقاسات",
   "product_buy": "شراء",
-  "product_make_offer": "تقديم عرض"
+  "product_make_offer": "تقديم عرض",
+  "offer_send_failed": "تعذّر إرسال عرضك. حاول مرة أخرى."
 }

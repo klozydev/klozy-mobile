@@ -690,5 +690,6 @@
   "sellRequiredHint": "* فیلدهای الزامی",
   "sellSizeSystem": "سیستم اندازه",
   "product_buy": "خرید",
-  "product_make_offer": "ارائه پیشنهاد"
+  "product_make_offer": "ارائه پیشنهاد",
+  "offer_send_failed": "ارسال پیشنهاد شما ممکن نشد. دوباره تلاش کنید."
 }

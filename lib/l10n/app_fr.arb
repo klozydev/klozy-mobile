@@ -690,5 +690,6 @@
   "sellRequiredHint": "* Champs obligatoires",
   "sellSizeSystem": "Système de tailles",
   "product_buy": "Acheter",
-  "product_make_offer": "Faire une offre"
+  "product_make_offer": "Faire une offre",
+  "offer_send_failed": "Impossible d'envoyer votre offre. Veuillez réessayer."
 }

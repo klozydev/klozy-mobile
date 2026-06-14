@@ -23,6 +23,13 @@ class CartCubit extends Cubit<Cart> {
 
   Future<void> refresh() => load();
 
+  /// Adds a product to the cart (server) then reloads. Rethrows so callers that
+  /// depend on the item being in the cart (e.g. making an offer) can react.
+  Future<void> add(String productId) async {
+    await _repository.addItem(productId);
+    await load();
+  }
+
   Future<void> remove(String productId) async {
     try {
       await _repository.removeItem(productId);

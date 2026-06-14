@@ -690,5 +690,6 @@
   "sellRequiredHint": "* आवश्यक फ़ील्ड",
   "sellSizeSystem": "साइज़ सिस्टम",
   "product_buy": "खरीदें",
-  "product_make_offer": "ऑफ़र दें"
+  "product_make_offer": "ऑफ़र दें",
+  "offer_send_failed": "आपका ऑफ़र नहीं भेजा जा सका। कृपया पुनः प्रयास करें।"
 }

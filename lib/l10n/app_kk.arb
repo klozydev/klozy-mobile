@@ -690,5 +690,6 @@
   "sellRequiredHint": "* Міндетті өрістер",
   "sellSizeSystem": "Өлшем жүйесі",
   "product_buy": "Сатып алу",
-  "product_make_offer": "Ұсыныс жасау"
+  "product_make_offer": "Ұсыныс жасау",
+  "offer_send_failed": "Ұсынысыңызды жіберу мүмкін болмады. Қайталап көріңіз."
 }

@@ -4,13 +4,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/cart/cart_cubit.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/offers/offers_repository.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
+import 'package:klozy/src/feature/cart/presentation/widget/offer_sheet.dart';
+import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_bloc.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_event.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_state.dart';
@@ -102,6 +106,35 @@ class _LoadedViewState extends State<_LoadedView> {
 
   void _onPageChanged(int page) => setState(() => _currentPage = page);
 
+  /// In-place make-offer: enter an amount, silently ensure the item is in the
+  /// cart (offers cover a seller's whole bucket server-side — no navigation to
+  /// the cart), submit the offer, then open the chat with the seller where the
+  /// offer bubble appears. Mirrors the old app's flow.
+  Future<void> _makeOffer(BuildContext context) async {
+    final num? amount = await DSBottomSheet.show<num>(
+      context,
+      title: context.l10N.cart_make_an_offer,
+      child: OfferSheet(subtotal: _detail.price, itemCount: 1),
+    );
+    if (amount == null || !context.mounted) return;
+    try {
+      if (!state.inCart) {
+        await context.read<CartCubit>().add(_detail.id);
+      }
+      await locator<OffersRepository>().makeOffer(
+        sellerId: _detail.seller.id,
+        amount: amount,
+      );
+      if (!context.mounted) return;
+      context.read<CartCubit>().refresh();
+      await context.openChatWith(_detail.seller.id);
+    } catch (_) {
+      if (context.mounted) {
+        context.showSnackBar(context.l10N.offer_send_failed);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final ProductDetail detail = _detail;
@@ -189,18 +222,7 @@ class _LoadedViewState extends State<_LoadedView> {
                   context.router.push(EditListingRoute(productId: detail.id)),
               onDelete: () =>
                   context.read<ProductBloc>().add(const ProductDeleted()),
-              // Offers are per-seller cart buckets (POST /v1/offers covers the
-              // whole bucket), so making an offer means adding this item to the
-              // cart and continuing in the cart, where the seller-bucket offer
-              // sheet lives. (Routing to the Offers list was wrong — that only
-              // shows existing offers and gives no way to make one here.)
-              onMakeOffer: () {
-                if (!state.inCart) {
-                  context.read<ProductBloc>().add(const ProductAddToCart());
-                  context.read<CartCubit>().refresh();
-                }
-                context.router.push(const CartRoute());
-              },
+              onMakeOffer: () => _makeOffer(context),
             ),
           ),
         ],

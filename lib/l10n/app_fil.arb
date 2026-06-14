@@ -690,5 +690,6 @@
   "sellRequiredHint": "* Mga kinakailangang field",
   "sellSizeSystem": "Sistema ng sukat",
   "product_buy": "Bilhin",
-  "product_make_offer": "Mag-alok"
+  "product_make_offer": "Mag-alok",
+  "offer_send_failed": "Hindi naipadala ang iyong alok. Pakisubukang muli."
 }

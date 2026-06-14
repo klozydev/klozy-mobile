@@ -690,5 +690,6 @@
   "sellRequiredHint": "* Обязательные поля",
   "sellSizeSystem": "Система размеров",
   "product_buy": "Купить",
-  "product_make_offer": "Предложить цену"
+  "product_make_offer": "Предложить цену",
+  "offer_send_failed": "Не удалось отправить ваше предложение. Попробуйте ещё раз."
 }
