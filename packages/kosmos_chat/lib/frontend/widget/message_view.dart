@@ -283,7 +283,8 @@ class _MessageViewWidgetState extends ConsumerState<MessageViewWidget>
     final otherId = widget.tchat.participants.firstWhereOrNull(
         (element) => element != FirebaseAuth.instance.currentUser!.uid);
 
-    if (ref.watch(userProvider).metadata!.bloquedUsers.contains(otherId) &&
+    if ((ref.watch(userProvider).metadata?.bloquedUsers ?? const <String>[])
+            .contains(otherId) &&
         !widget.tchat.isGroup) {
       isIBlockedOtherUser = true;
     }

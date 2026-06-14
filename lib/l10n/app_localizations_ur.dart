@@ -1592,4 +1592,7 @@ class AppLocalizationsUr extends AppLocalizations {
   @override
   String get offer_send_failed =>
       'آپ کی پیشکش نہیں بھیجی جا سکی۔ دوبارہ کوشش کریں۔';
+
+  @override
+  String get product_see_offer => 'پیشکش دیکھیں';
 }

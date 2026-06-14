@@ -177,10 +177,10 @@ class _LoadedViewState extends State<_LoadedView> {
                           right: 0,
                           child: ProductTopScrimWidget(),
                         ),
-                        const Positioned(
-                          bottom: 0,
-                          left: 0,
-                          right: 0,
+                        // Fill the hero so the scrim's FractionallySizedBox has
+                        // a bounded height (a bottom-only Positioned leaves it
+                        // unbounded → "infinite height" layout error).
+                        const Positioned.fill(
                           child: ProductBottomScrimWidget(),
                         ),
                         Positioned(

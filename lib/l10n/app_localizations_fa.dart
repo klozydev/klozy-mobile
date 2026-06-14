@@ -1592,4 +1592,7 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get offer_send_failed =>
       'ارسال پیشنهاد شما ممکن نشد. دوباره تلاش کنید.';
+
+  @override
+  String get product_see_offer => 'مشاهده پیشنهاد';
 }

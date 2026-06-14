@@ -1594,4 +1594,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get offer_send_failed => 'تعذّر إرسال عرضك. حاول مرة أخرى.';
+
+  @override
+  String get product_see_offer => 'مشاهدة العرض';
 }

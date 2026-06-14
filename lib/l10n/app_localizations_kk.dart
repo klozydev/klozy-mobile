@@ -1599,4 +1599,7 @@ class AppLocalizationsKk extends AppLocalizations {
   @override
   String get offer_send_failed =>
       'Ұсынысыңызды жіберу мүмкін болмады. Қайталап көріңіз.';
+
+  @override
+  String get product_see_offer => 'Ұсынысты көру';
 }

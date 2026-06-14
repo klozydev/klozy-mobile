@@ -1591,4 +1591,7 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get offer_send_failed =>
       'आपका ऑफ़र नहीं भेजा जा सका। कृपया पुनः प्रयास करें।';
+
+  @override
+  String get product_see_offer => 'ऑफ़र देखें';
 }

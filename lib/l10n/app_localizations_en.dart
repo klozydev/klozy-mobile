@@ -1585,4 +1585,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get offer_send_failed =>
       'Couldn\'t send your offer. Please try again.';
+
+  @override
+  String get product_see_offer => 'See offer';
 }

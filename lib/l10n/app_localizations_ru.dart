@@ -1607,4 +1607,7 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get offer_send_failed =>
       'Не удалось отправить ваше предложение. Попробуйте ещё раз.';
+
+  @override
+  String get product_see_offer => 'Посмотреть предложение';
 }

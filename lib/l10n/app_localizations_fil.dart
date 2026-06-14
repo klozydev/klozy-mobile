@@ -1601,4 +1601,7 @@ class AppLocalizationsFil extends AppLocalizations {
   @override
   String get offer_send_failed =>
       'Hindi naipadala ang iyong alok. Pakisubukang muli.';
+
+  @override
+  String get product_see_offer => 'Tingnan ang alok';
 }

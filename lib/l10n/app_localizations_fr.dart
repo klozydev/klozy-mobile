@@ -1600,4 +1600,7 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get offer_send_failed =>
       'Impossible d\'envoyer votre offre. Veuillez réessayer.';
+
+  @override
+  String get product_see_offer => 'Voir l\'offre';
 }
