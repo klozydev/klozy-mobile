@@ -20,6 +20,24 @@ import 'package:uuid/uuid.dart';
 // ignore: depend_on_referenced_packages
 import 'package:dartz/dartz.dart' as dz;
 
+/// Klozy: the backend embeds participant display data in each thread doc so the
+/// list resolves names with no per-user read. Depending on the deployed backend
+/// version it lives at the top level (`usersData`) or under `metadata.usersData`.
+/// Normalise to `metadata.usersData` (what TchatRowItem reads) so either works.
+Map<String, dynamic> _klozyNormalizeTchat(Map<String, dynamic>? raw) {
+  if (raw == null) return <String, dynamic>{};
+  final Map<String, dynamic> data = Map<String, dynamic>.from(raw);
+  final Object? topLevel = data['usersData'];
+  if (topLevel is Map) {
+    final Map<String, dynamic> metadata = <String, dynamic>{
+      ...?(data['metadata'] as Map?)?.cast<String, dynamic>(),
+    };
+    metadata['usersData'] ??= topLevel;
+    data['metadata'] = metadata;
+  }
+  return data;
+}
+
 class TchatController implements TchatInterface {
   const TchatController() : super();
 
@@ -125,7 +143,7 @@ class TchatController implements TchatInterface {
           case DocumentChangeType.added:
             final isAlreadyExisting = tchatList.containsKey(docId);
             if (isAlreadyExisting) {
-              tchatList[docId] = TchatModel.fromJson(docChange.doc.data() ?? {})
+              tchatList[docId] = TchatModel.fromJson(_klozyNormalizeTchat(docChange.doc.data()))
                   .copyWith(id: docChange.doc.id);
               await backendCacheControllerTchat.save(
                   tchatList[docId]!, docId, tchatList[docId]!.toJson);
@@ -138,7 +156,7 @@ class TchatController implements TchatInterface {
               break;
             }
 
-            final data = TchatModel.fromJson(docChange.doc.data() ?? {})
+            final data = TchatModel.fromJson(_klozyNormalizeTchat(docChange.doc.data()))
                 .copyWith(id: docChange.doc.id);
             final deletedData = data.deletedBy?.firstWhereOrNull(
                 (p0) => p0.userId == FirebaseAuth.instance.currentUser!.uid);
@@ -182,7 +200,7 @@ class TchatController implements TchatInterface {
           case DocumentChangeType.modified:
             final exists = tchatList.containsKey(docId);
             if (!exists) {
-              final data = TchatModel.fromJson(docChange.doc.data() ?? {})
+              final data = TchatModel.fromJson(_klozyNormalizeTchat(docChange.doc.data()))
                   .copyWith(id: docChange.doc.id);
               final deletedDates = List.from(data.deletedBy ?? []);
               deletedDates.sort((a, b) => b.deletedAt!.compareTo(a.deletedAt!));
@@ -231,7 +249,7 @@ class TchatController implements TchatInterface {
             }
 
             if (exists) {
-              final data = TchatModel.fromJson(docChange.doc.data() ?? {})
+              final data = TchatModel.fromJson(_klozyNormalizeTchat(docChange.doc.data()))
                   .copyWith(id: docChange.doc.id);
               final deletedData = data.deletedBy?.firstWhereOrNull(
                   (p0) => p0.userId == FirebaseAuth.instance.currentUser!.uid);
@@ -266,7 +284,7 @@ class TchatController implements TchatInterface {
                 continue;
               }
             }
-            tchatList[docId] = TchatModel.fromJson(docChange.doc.data() ?? {})
+            tchatList[docId] = TchatModel.fromJson(_klozyNormalizeTchat(docChange.doc.data()))
                 .copyWith(id: docChange.doc.id);
             for (var element in tchatList[docId]?.participants ?? []) {
               // Klozy: resolve participant data in the background (REST getProfile is
