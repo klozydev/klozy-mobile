@@ -3,6 +3,9 @@ import 'package:equatable/equatable.dart';
 /// A user profile (self or public) for the profile screen.
 class SocialProfile extends Equatable {
   final String id;
+
+  /// Firebase UID — the id the kosmos chat keys threads by (used by ChatEntry).
+  final String firebaseUid;
   final String handle;
   final String displayName;
   final String? avatarUrl;
@@ -19,6 +22,7 @@ class SocialProfile extends Equatable {
 
   const SocialProfile({
     required this.id,
+    this.firebaseUid = '',
     this.handle = '',
     this.displayName = '',
     this.avatarUrl,
@@ -39,6 +43,7 @@ class SocialProfile extends Equatable {
   SocialProfile copyWith({bool? isFollowing, int? followers}) {
     return SocialProfile(
       id: id,
+      firebaseUid: firebaseUid,
       handle: handle,
       displayName: displayName,
       avatarUrl: avatarUrl,
@@ -58,6 +63,7 @@ class SocialProfile extends Equatable {
   @override
   List<Object?> get props => [
     id,
+    firebaseUid,
     handle,
     displayName,
     avatarUrl,

@@ -16,6 +16,7 @@ SocialProfile mapSocialProfile(Object? raw) {
       : counts;
   return SocialProfile(
     id: _str(inner, ['id', '_id', 'uid']) ?? '',
+    firebaseUid: _str(inner, ['firebaseUid']) ?? '',
     handle: _str(inner, ['handle', 'username']) ?? '',
     displayName: _str(inner, ['displayName', 'name', 'firstName']) ?? '',
     avatarUrl: _str(inner, ['avatarUrl', 'avatar', 'photoUrl']),
