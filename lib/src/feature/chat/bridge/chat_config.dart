@@ -59,7 +59,10 @@ void registerChatConfig() {
 
 TchatBackEndConfig _backendConfig() {
   return TchatBackEndConfig(
-    showTchatIfNoMessage: false,
+    // Klozy threads always carry a message (offer/purchase/text), so don't gate
+    // them behind an extra per-thread "has any message" Firestore round-trip —
+    // that serial check is part of what made the list slow to first paint.
+    showTchatIfNoMessage: true,
     tchatInterface: const MobileTchatController(),
     messageInterface: const MobileMessageController(),
   );

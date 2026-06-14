@@ -130,7 +130,10 @@ class TchatController implements TchatInterface {
               await backendCacheControllerTchat.save(
                   tchatList[docId]!, docId, tchatList[docId]!.toJson);
               for (var element in tchatList[docId]?.participants ?? []) {
-                await fetchUserData?.call(element);
+                // Klozy: resolve participant data in the background (REST getProfile is
+              // slow); don't block the thread list paint on it. The user-data
+              // provider notifies and rows fill in their name/avatar reactively.
+              fetchUserData?.call(element);
               }
               break;
             }
@@ -167,7 +170,10 @@ class TchatController implements TchatInterface {
             if (!existMessageAfterLastDeletedData && !showIfEmpty) continue;
             tchatList[docId] = data;
             for (var element in data.participants) {
-              await fetchUserData?.call(element);
+              // Klozy: resolve participant data in the background (REST getProfile is
+              // slow); don't block the thread list paint on it. The user-data
+              // provider notifies and rows fill in their name/avatar reactively.
+              fetchUserData?.call(element);
             }
             await backendCacheControllerTchat.save(data, data.id!, data.toJson);
             break;
@@ -213,7 +219,10 @@ class TchatController implements TchatInterface {
               }
               tchatList[docId] = data;
               for (var element in data.participants) {
-                await fetchUserData?.call(element);
+                // Klozy: resolve participant data in the background (REST getProfile is
+              // slow); don't block the thread list paint on it. The user-data
+              // provider notifies and rows fill in their name/avatar reactively.
+              fetchUserData?.call(element);
               }
               await backendCacheControllerTchat.save(
                   data, data.id!, data.toJson);
@@ -260,7 +269,10 @@ class TchatController implements TchatInterface {
             tchatList[docId] = TchatModel.fromJson(docChange.doc.data() ?? {})
                 .copyWith(id: docChange.doc.id);
             for (var element in tchatList[docId]?.participants ?? []) {
-              await fetchUserData?.call(element);
+              // Klozy: resolve participant data in the background (REST getProfile is
+              // slow); don't block the thread list paint on it. The user-data
+              // provider notifies and rows fill in their name/avatar reactively.
+              fetchUserData?.call(element);
             }
             await backendCacheControllerTchat.save(
                 tchatList[docId]!, docId, tchatList[docId]!.toJson);
