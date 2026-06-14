@@ -81,6 +81,9 @@ class _LoadedView extends StatefulWidget {
 class _LoadedViewState extends State<_LoadedView> {
   late final ScrollController _scrollController = ScrollController();
   int _currentPage = 0;
+  // Guards the snap animation: animateTo fires its own ScrollEndNotification on
+  // completion, which would re-enter _handleScrollEnd and recurse forever.
+  bool _snapping = false;
 
   ProductLoadedState get state => widget.state;
   ProductDetail get _detail => state.detail;
@@ -92,16 +95,22 @@ class _LoadedViewState extends State<_LoadedView> {
   }
 
   bool _handleScrollEnd(ScrollEndNotification notification) {
+    if (_snapping) return false;
     final double maxExtent = _scrollController.position.maxScrollExtent;
     if (maxExtent <= 0) return false;
     final double current = _scrollController.offset;
     final double threshold = maxExtent * 0.22;
     final double target = current < threshold ? 0.0 : maxExtent;
-    _scrollController.animateTo(
-      target,
-      duration: const Duration(milliseconds: 320),
-      curve: Curves.easeOutCubic,
-    );
+    // Already snapped — don't animate (would fire an endless scroll-end loop).
+    if ((current - target).abs() < 1.0) return false;
+    _snapping = true;
+    _scrollController
+        .animateTo(
+          target,
+          duration: const Duration(milliseconds: 320),
+          curve: Curves.easeOutCubic,
+        )
+        .whenComplete(() => _snapping = false);
     return true;
   }
 
