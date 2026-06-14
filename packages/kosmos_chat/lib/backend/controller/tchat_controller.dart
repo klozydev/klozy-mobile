@@ -6,7 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
-import 'package:kosmos_chat/backend/cache/embedded_user_cache.dart';
 import 'package:kosmos_chat/backend/controller/cache/hive_controller.dart';
 import 'package:kosmos_chat/backend/controller/interface/tchat_interface.dart';
 import 'package:kosmos_chat/backend/controller/isolate/firebase_storage.dart';
@@ -118,19 +117,6 @@ class TchatController implements TchatInterface {
         .snapshots()
         .listen((event) async {
       if (event.docChanges.isEmpty) return;
-
-      // Resolve ALL participants up front so the list renders names together:
-      // seed from each thread doc's embedded usersData, then one batched read of
-      // chat_users for anyone still missing. No per-row lookup afterwards.
-      final Set<String> participantIds = <String>{};
-      for (final docChange in event.docChanges) {
-        EmbeddedUserCache.putAll(docChange.doc.data()?['usersData']);
-        for (final dynamic p
-            in (docChange.doc.data()?['participants'] ?? <dynamic>[])) {
-          if (p is String) participantIds.add(p);
-        }
-      }
-      await EmbeddedUserCache.prefetchFromChatUsers(participantIds);
 
       for (final docChange in event.docChanges) {
         String docId = docChange.doc.id;

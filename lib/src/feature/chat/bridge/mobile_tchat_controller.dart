@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:klozy/src/router/app_router.dart';
-import 'package:kosmos_chat/backend/cache/embedded_user_cache.dart';
 import 'package:kosmos_chat/backend/provider/message_list.dart';
 import 'package:kosmos_chat/kosmos_chat.dart';
 
@@ -19,18 +18,12 @@ class MobileTchatController extends TchatController {
   static const String _chatUsersCollection = 'chat_users';
 
   /// Resolve a participant's chat display data — Firebase only, never the REST
-  /// API (a customer must not be able to query another customer).
-  ///
-  /// Primary path is instant: the participant's profile is embedded in the
-  /// thread doc (`tchat.usersData`), which the single thread-list query already
-  /// returned, so [EmbeddedUserCache] serves it with zero extra reads. Only if a
-  /// thread predates the embedded data do we fall back to a `chat_users/{id}`
-  /// Firestore read.
+  /// API (a customer must not be able to query another customer). The thread
+  /// list reads names straight from each thread doc's `metadata.usersData`
+  /// (see TchatRowItem), so this is only hit for the open-thread header; it does
+  /// a single `chat_users/{id}` read.
   @override
   Future<Map<String, dynamic>> getUserData(String userId) async {
-    final Map<String, dynamic>? embedded = EmbeddedUserCache.get(userId);
-    if (embedded != null) return embedded;
-
     try {
       final DocumentSnapshot<Map<String, dynamic>> snap = await FirebaseFirestore
           .instance

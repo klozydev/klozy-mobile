@@ -51,7 +51,22 @@ class _TchatRowItemState extends ConsumerState<TchatRowItem> {
     TchatFrontEndConfig frontEndConfig = getTchatFrontEndConfig();
 
     userList.clear();
+    // Klozy: participant display data is embedded in the thread doc
+    // (metadata.usersData), so resolve names/avatars straight from the data the
+    // list query already returned — instant, all rows at once, no per-user read.
+    final Map<dynamic, dynamic>? usersData =
+        widget.data.metadata['usersData'] as Map<dynamic, dynamic>?;
     for (final element in widget.data.participants) {
+      final dynamic embedded = usersData?[element];
+      if (embedded is Map) {
+        userList.add(
+          SocialUser.fromJson(<String, dynamic>{
+            ...Map<String, dynamic>.from(embedded),
+            'id': '',
+          }).copyWith(id: element),
+        );
+        continue;
+      }
       final u = prov.getById(element);
       if (u != null) userList.add(u);
     }
