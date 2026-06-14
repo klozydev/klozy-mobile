@@ -691,5 +691,6 @@
   "sellSizeSystem": "نظام المقاسات",
   "product_buy": "شراء",
   "product_make_offer": "تقديم عرض",
-  "offer_send_failed": "تعذّر إرسال عرضك. حاول مرة أخرى."
+  "offer_send_failed": "تعذّر إرسال عرضك. حاول مرة أخرى.",
+  "product_see_offer": "مشاهدة العرض"
 }

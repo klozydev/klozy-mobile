@@ -17,6 +17,7 @@ class ProductCtaBarWidget extends StatelessWidget {
   final VoidCallback onEdit;
   final VoidCallback onDelete;
   final VoidCallback onMakeOffer;
+  final VoidCallback onSeeOffer;
 
   const ProductCtaBarWidget({
     super.key,
@@ -27,6 +28,7 @@ class ProductCtaBarWidget extends StatelessWidget {
     required this.onEdit,
     required this.onDelete,
     required this.onMakeOffer,
+    required this.onSeeOffer,
   });
 
   @override
@@ -106,11 +108,17 @@ class ProductCtaBarWidget extends StatelessWidget {
         ),
         const SizedBox(width: DSSpacing.xs),
         Expanded(
-          child: _glass(
-            context.l10N.product_make_offer,
-            Icons.local_offer_outlined,
-            onMakeOffer,
-          ),
+          child: detail.hasActiveOffer
+              ? _glass(
+                  context.l10N.product_see_offer,
+                  Icons.local_offer,
+                  onSeeOffer,
+                )
+              : _glass(
+                  context.l10N.product_make_offer,
+                  Icons.local_offer_outlined,
+                  onMakeOffer,
+                ),
         ),
       ],
     );

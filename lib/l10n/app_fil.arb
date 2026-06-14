@@ -691,5 +691,6 @@
   "sellSizeSystem": "Sistema ng sukat",
   "product_buy": "Bilhin",
   "product_make_offer": "Mag-alok",
-  "offer_send_failed": "Hindi naipadala ang iyong alok. Pakisubukang muli."
+  "offer_send_failed": "Hindi naipadala ang iyong alok. Pakisubukang muli.",
+  "product_see_offer": "Tingnan ang alok"
 }

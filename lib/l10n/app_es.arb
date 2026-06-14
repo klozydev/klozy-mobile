@@ -691,5 +691,6 @@
   "sellSizeSystem": "Sistema de tallas",
   "product_buy": "Comprar",
   "product_make_offer": "Hacer una oferta",
-  "offer_send_failed": "No se pudo enviar tu oferta. Inténtalo de nuevo."
+  "offer_send_failed": "No se pudo enviar tu oferta. Inténtalo de nuevo.",
+  "product_see_offer": "Ver oferta"
 }

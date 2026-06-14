@@ -691,5 +691,6 @@
   "sellSizeSystem": "سائز سسٹم",
   "product_buy": "خریدیں",
   "product_make_offer": "پیشکش کریں",
-  "offer_send_failed": "آپ کی پیشکش نہیں بھیجی جا سکی۔ دوبارہ کوشش کریں۔"
+  "offer_send_failed": "آپ کی پیشکش نہیں بھیجی جا سکی۔ دوبارہ کوشش کریں۔",
+  "product_see_offer": "پیشکش دیکھیں"
 }

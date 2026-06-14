@@ -52,6 +52,10 @@ class ProductDetail extends Equatable {
   final bool isOwner;
   final String? categoryLabel;
 
+  /// True when the viewer already has a pending/accepted offer with this seller
+  /// — the CTA shows "See offer" instead of "Make an offer".
+  final bool hasActiveOffer;
+
   const ProductDetail({
     required this.id,
     required this.title,
@@ -69,11 +73,16 @@ class ProductDetail extends Equatable {
     this.status = ProductStatus.active,
     this.isOwner = false,
     this.categoryLabel,
+    this.hasActiveOffer = false,
   });
 
   bool get isBlocked => status != ProductStatus.active;
 
-  ProductDetail copyWith({ProductStatus? status, bool? isOwner}) {
+  ProductDetail copyWith({
+    ProductStatus? status,
+    bool? isOwner,
+    bool? hasActiveOffer,
+  }) {
     return ProductDetail(
       id: id,
       title: title,
@@ -91,6 +100,7 @@ class ProductDetail extends Equatable {
       status: status ?? this.status,
       isOwner: isOwner ?? this.isOwner,
       categoryLabel: categoryLabel,
+      hasActiveOffer: hasActiveOffer ?? this.hasActiveOffer,
     );
   }
 
@@ -112,5 +122,6 @@ class ProductDetail extends Equatable {
     seller,
     isOwner,
     categoryLabel,
+    hasActiveOffer,
   ];
 }

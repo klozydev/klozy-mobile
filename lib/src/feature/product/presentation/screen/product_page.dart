@@ -232,6 +232,7 @@ class _LoadedViewState extends State<_LoadedView> {
               onDelete: () =>
                   context.read<ProductBloc>().add(const ProductDeleted()),
               onMakeOffer: () => _makeOffer(context),
+              onSeeOffer: () => context.openChatWith(detail.seller.id),
             ),
           ),
         ],

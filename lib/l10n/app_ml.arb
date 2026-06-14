@@ -691,5 +691,6 @@
   "sellSizeSystem": "സൈസ് സിസ്റ്റം",
   "product_buy": "വാങ്ങുക",
   "product_make_offer": "ഓഫർ നൽകുക",
-  "offer_send_failed": "നിങ്ങളുടെ ഓഫർ അയയ്ക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക."
+  "offer_send_failed": "നിങ്ങളുടെ ഓഫർ അയയ്ക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക.",
+  "product_see_offer": "ഓഫർ കാണുക"
 }

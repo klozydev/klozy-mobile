@@ -695,5 +695,6 @@
   "sellRequiredHint": "* Required fields",
   "sellSizeSystem": "Size system",
   "settings_language": "Language",
-  "offer_send_failed": "Couldn't send your offer. Please try again."
+  "offer_send_failed": "Couldn't send your offer. Please try again.",
+  "product_see_offer": "See offer"
 }
