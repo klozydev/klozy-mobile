@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/cart/cart_cubit.dart';
@@ -128,6 +129,14 @@ class _LoadedViewState extends State<_LoadedView> {
       if (!context.mounted) return;
       context.read<CartCubit>().refresh();
       await context.openChatWith(_detail.seller.id);
+    } on DioException catch (e) {
+      // 409 = an active offer with this seller already exists. Don't error —
+      // just open the chat where that offer lives.
+      if (e.response?.statusCode == 409 && context.mounted) {
+        await context.openChatWith(_detail.seller.id);
+      } else if (context.mounted) {
+        context.showSnackBar(context.l10N.offer_send_failed);
+      }
     } catch (_) {
       if (context.mounted) {
         context.showSnackBar(context.l10N.offer_send_failed);

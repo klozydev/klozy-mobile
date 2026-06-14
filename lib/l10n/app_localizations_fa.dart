@@ -1588,4 +1588,8 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get settings_language => 'زبان';
+
+  @override
+  String get offer_send_failed =>
+      'ارسال پیشنهاد شما ممکن نشد. دوباره تلاش کنید.';
 }

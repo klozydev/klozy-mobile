@@ -1596,4 +1596,8 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get settings_language => 'Langue';
+
+  @override
+  String get offer_send_failed =>
+      'Impossible d\'envoyer votre offre. Veuillez réessayer.';
 }

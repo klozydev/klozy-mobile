@@ -1588,4 +1588,8 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get settings_language => 'زبان';
+
+  @override
+  String get offer_send_failed =>
+      'آپ کی پیشکش نہیں بھیجی جا سکی۔ دوبارہ کوشش کریں۔';
 }

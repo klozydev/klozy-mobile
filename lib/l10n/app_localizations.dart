@@ -2979,6 +2979,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language'**
   String get settings_language;
+
+  /// No description provided for @offer_send_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t send your offer. Please try again.'**
+  String get offer_send_failed;
 }
 
 class _AppLocalizationsDelegate

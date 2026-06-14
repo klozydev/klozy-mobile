@@ -1589,4 +1589,8 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get settings_language => 'Idioma';
+
+  @override
+  String get offer_send_failed =>
+      'No se pudo enviar tu oferta. Inténtalo de nuevo.';
 }

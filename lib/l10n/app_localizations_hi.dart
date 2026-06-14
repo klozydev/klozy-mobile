@@ -1587,4 +1587,8 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get settings_language => 'भाषा';
+
+  @override
+  String get offer_send_failed =>
+      'आपका ऑफ़र नहीं भेजा जा सका। कृपया पुनः प्रयास करें।';
 }

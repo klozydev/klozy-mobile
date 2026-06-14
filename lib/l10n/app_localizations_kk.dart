@@ -1595,4 +1595,8 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get settings_language => 'Тіл';
+
+  @override
+  String get offer_send_failed =>
+      'Ұсынысыңызды жіберу мүмкін болмады. Қайталап көріңіз.';
 }

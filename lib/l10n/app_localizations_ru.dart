@@ -1603,4 +1603,8 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get settings_language => 'Язык';
+
+  @override
+  String get offer_send_failed =>
+      'Не удалось отправить ваше предложение. Попробуйте ещё раз.';
 }

@@ -1601,4 +1601,8 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get settings_language => 'ഭാഷ';
+
+  @override
+  String get offer_send_failed =>
+      'നിങ്ങളുടെ ഓഫർ അയയ്ക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക.';
 }
