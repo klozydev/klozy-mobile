@@ -19,7 +19,6 @@ import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_bloc.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_event.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_state.dart';
-import 'package:klozy/src/feature/product/presentation/widget/product_bottom_scrim_widget.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_carousel_widget.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_cta_bar_widget.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_details_panel_widget.dart';
@@ -79,40 +78,10 @@ class _LoadedView extends StatefulWidget {
 }
 
 class _LoadedViewState extends State<_LoadedView> {
-  late final ScrollController _scrollController = ScrollController();
   int _currentPage = 0;
-  // Guards the snap animation: animateTo fires its own ScrollEndNotification on
-  // completion, which would re-enter _handleScrollEnd and recurse forever.
-  bool _snapping = false;
 
   ProductLoadedState get state => widget.state;
   ProductDetail get _detail => state.detail;
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
-  bool _handleScrollEnd(ScrollEndNotification notification) {
-    if (_snapping) return false;
-    final double maxExtent = _scrollController.position.maxScrollExtent;
-    if (maxExtent <= 0) return false;
-    final double current = _scrollController.offset;
-    final double threshold = maxExtent * 0.22;
-    final double target = current < threshold ? 0.0 : maxExtent;
-    // Already snapped — don't animate (would fire an endless scroll-end loop).
-    if ((current - target).abs() < 1.0) return false;
-    _snapping = true;
-    _scrollController
-        .animateTo(
-          target,
-          duration: const Duration(milliseconds: 320),
-          curve: Curves.easeOutCubic,
-        )
-        .whenComplete(() => _snapping = false);
-    return true;
-  }
 
   void _onPageChanged(int page) => setState(() => _currentPage = page);
 
@@ -163,64 +132,58 @@ class _LoadedViewState extends State<_LoadedView> {
       backgroundColor: DSColor.surface,
       body: Stack(
         children: <Widget>[
-          NotificationListener<ScrollEndNotification>(
-            onNotification: _handleScrollEnd,
-            child: SingleChildScrollView(
-              controller: _scrollController,
-              physics: const ClampingScrollPhysics(),
-              child: Column(
-                children: <Widget>[
-                  SizedBox(
-                    height: screenHeight,
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: <Widget>[
-                        ProductCarouselWidget(
-                          images: detail.images,
-                          status: detail.status,
-                          onPageChanged: _onPageChanged,
-                        ),
-                        const Positioned(
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          child: ProductTopScrimWidget(),
-                        ),
-                        // Fill the hero so the scrim's FractionallySizedBox has
-                        // a bounded height (a bottom-only Positioned leaves it
-                        // unbounded → "infinite height" layout error).
-                        const Positioned.fill(
-                          child: ProductBottomScrimWidget(),
-                        ),
-                        Positioned(
-                          bottom: DSSpacing.l,
-                          left: 0,
-                          right: 0,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: <Widget>[
-                              if (imageCount > 1) ...<Widget>[
-                                ProductPageDotsWidget(
-                                  count: imageCount,
-                                  current: _currentPage,
-                                ),
-                                const SizedBox(height: DSSpacing.s),
-                              ],
-                              ProductTitleBlockWidget(product: detail),
-                            ],
-                          ),
-                        ),
-                      ],
+          Column(
+            children: <Widget>[
+              // Fixed-height swipeable gallery. Kept OUTSIDE the scroll view so
+              // its horizontal PageView never fights a vertical scroll gesture.
+              SizedBox(
+                height: screenHeight * 0.58,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: <Widget>[
+                    ProductCarouselWidget(
+                      images: detail.images,
+                      status: detail.status,
+                      onPageChanged: _onPageChanged,
                     ),
-                  ),
-                  ProductDetailsPanelWidget(
-                    detail: detail,
-                    isOwner: detail.isOwner,
-                  ),
-                ],
+                    const Positioned(
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      child: ProductTopScrimWidget(),
+                    ),
+                    if (imageCount > 1)
+                      Positioned(
+                        bottom: DSSpacing.s,
+                        left: 0,
+                        right: 0,
+                        child: ProductPageDotsWidget(
+                          count: imageCount,
+                          current: _currentPage,
+                        ),
+                      ),
+                  ],
+                ),
               ),
-            ),
+              // Details scroll below the gallery.
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(top: DSSpacing.s),
+                        child: ProductTitleBlockWidget(product: detail),
+                      ),
+                      ProductDetailsPanelWidget(
+                        detail: detail,
+                        isOwner: detail.isOwner,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
           ProductTopBarWidget(detail: detail),
           Positioned(
