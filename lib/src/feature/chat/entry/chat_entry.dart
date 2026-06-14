@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/social/entity/social_profile.dart';
 import 'package:klozy/src/domain/social/social_repository.dart';
 import 'package:klozy/src/router/app_router.dart';
 import 'package:kosmos_chat/backend/provider/message_list.dart';
@@ -29,11 +31,14 @@ class ChatEntry {
       // UID so both participants — and the backend's offer/purchase mirror —
       // build the same thread id.
       String other = otherUserId;
+      SocialProfile? otherProfile;
       try {
-        final profile = await locator<SocialRepository>().getProfile(
+        otherProfile = await locator<SocialRepository>().getProfile(
           otherUserId,
         );
-        if (profile.firebaseUid.isNotEmpty) other = profile.firebaseUid;
+        if (otherProfile.firebaseUid.isNotEmpty) {
+          other = otherProfile.firebaseUid;
+        }
       } catch (_) {}
       const controller = TchatController();
       final existing = await controller.tchatExist(
@@ -48,7 +53,16 @@ class ChatEntry {
             userId1: me,
             userId2: other,
           );
-      if (tchatId == null || !context.mounted) return;
+      if (tchatId == null) return;
+
+      // The thread was created client-side, so the backend's offer/purchase
+      // mirror hasn't embedded participant profiles yet. Embed them now from
+      // data the FE already has (both profiles), keyed by backend id AND
+      // Firebase UID, so the thread list resolves names straight from the doc —
+      // no per-user read, no cache. Best-effort.
+      await _embedUsersData(tchatId, otherProfile);
+
+      if (!context.mounted) return;
       // Prime the message provider from the root ProviderScope container.
       ProviderScope.containerOf(
         context,
@@ -59,5 +73,49 @@ class ChatEntry {
     } finally {
       _busy = false;
     }
+  }
+
+  /// Writes `metadata.usersData` (both participants' display fields, keyed by
+  /// backend id and Firebase UID) onto the thread doc, matching what the backend
+  /// mirror writes. Fetches the current user's own profile (self-query, allowed)
+  /// and reuses the already-fetched [otherProfile]. Best-effort — never throws.
+  static Future<void> _embedUsersData(
+    String tchatId,
+    SocialProfile? otherProfile,
+  ) async {
+    try {
+      final String? me = FirebaseAuth.instance.currentUser?.uid;
+      SocialProfile? myProfile;
+      if (me != null) {
+        try {
+          myProfile = await locator<SocialRepository>().getProfile(me);
+        } catch (_) {}
+      }
+
+      final Map<String, dynamic> usersData = <String, dynamic>{};
+      for (final SocialProfile? p in <SocialProfile?>[myProfile, otherProfile]) {
+        if (p == null) continue;
+        final Map<String, dynamic> data = <String, dynamic>{
+          'firstname': p.displayName,
+          'lastname': '',
+          'pseudo': p.handle,
+          'email': '',
+          'rating': p.rating,
+          'profileImage': p.avatarUrl,
+          'displayName': p.displayName,
+        };
+        for (final String key in <String>[p.id, p.firebaseUid]) {
+          if (key.isNotEmpty) usersData[key] = data;
+        }
+      }
+      if (usersData.isEmpty) return;
+
+      await FirebaseFirestore.instance
+          .collection('tchat')
+          .doc(tchatId)
+          .set(<String, dynamic>{
+            'metadata': <String, dynamic>{'usersData': usersData},
+          }, SetOptions(merge: true));
+    } catch (_) {}
   }
 }
