@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
+import 'package:kosmos_chat/backend/cache/embedded_user_cache.dart';
 import 'package:kosmos_chat/backend/controller/cache/hive_controller.dart';
 import 'package:kosmos_chat/backend/controller/interface/tchat_interface.dart';
 import 'package:kosmos_chat/backend/controller/isolate/firebase_storage.dart';
@@ -120,6 +121,9 @@ class TchatController implements TchatInterface {
 
       for (final docChange in event.docChanges) {
         String docId = docChange.doc.id;
+        // Seed the embedded-profile cache from this thread doc so getUserData
+        // resolves participants instantly (no per-user read).
+        EmbeddedUserCache.putAll(docChange.doc.data()?['usersData']);
         switch (docChange.type) {
           /// Événement ajouté.
           case DocumentChangeType.added:
