@@ -618,6 +618,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get product_delete_listing => 'लिस्टिंग हटाएँ';
 
   @override
+  String get product_delete_confirm =>
+      'Delete this listing? This can\'t be undone.';
+
+  @override
   String get product_report_listing => 'लिस्टिंग की रिपोर्ट करें';
 
   @override

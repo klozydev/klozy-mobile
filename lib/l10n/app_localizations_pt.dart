@@ -619,6 +619,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get product_delete_listing => 'Excluir anúncio';
 
   @override
+  String get product_delete_confirm =>
+      'Delete this listing? This can\'t be undone.';
+
+  @override
   String get product_report_listing => 'Denunciar anúncio';
 
   @override

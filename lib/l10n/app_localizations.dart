@@ -1204,6 +1204,12 @@ abstract class AppLocalizations {
   /// **'Delete listing'**
   String get product_delete_listing;
 
+  /// No description provided for @product_delete_confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this listing? This can\'t be undone.'**
+  String get product_delete_confirm;
+
   /// No description provided for @product_report_listing.
   ///
   /// In en, this message translates to:

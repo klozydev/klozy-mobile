@@ -41,7 +41,9 @@ class AccountGuard extends AutoRouteGuard {
             case AccountStatus.valid:
               settle(() => resolver.next(true));
             case AccountStatus.incompleteOnboarding:
-              settle(() => resolver.redirectUntil(const PersonalizeRoute()));
+              // Onboarding is no longer forced up front — let the user through
+              // and let individual actions request profile completion on-demand.
+              settle(() => resolver.next(true));
             case AccountStatus.legacy:
               // Settle the resolver FIRST so navigation is never left hanging,
               // then clean up the stale session fire-and-forget. If signOut

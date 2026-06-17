@@ -129,7 +129,9 @@ class _IncompleteOnboardingContent extends StatelessWidget {
             // becomes stale once maybePop() removes it from the tree.
             final router = context.router;
             Navigator.of(context).maybePop();
-            router.push(const PersonalizeRoute());
+            // Skip the "personalize your feed" step — go straight to the
+            // profile-completion form when an action needs a complete profile.
+            router.push(const ProfileCompletionRoute());
           },
         ),
         const SizedBox(height: DSSpacing.xxs),

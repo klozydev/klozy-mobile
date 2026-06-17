@@ -272,12 +272,10 @@ class _LoginPageState extends State<LoginPage> {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
-      context.router.replaceAll(<PageRouteInfo>[
-        if (state.onboardingComplete)
-          const ShellRoute()
-        else
-          const PersonalizeRoute(),
-      ]);
+      // Go straight home after auth — profile completion is no longer forced
+      // up front; it's requested on-demand by the actions that need it
+      // (e.g. the seller address gate).
+      context.router.replaceAll(<PageRouteInfo>[const ShellRoute()]);
     } else if (state is AuthFailure) {
       context.showSnackBar(state.message);
     } else if (state is AuthPasswordResetSent) {

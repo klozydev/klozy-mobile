@@ -619,6 +619,10 @@ class AppLocalizationsKk extends AppLocalizations {
   String get product_delete_listing => 'Тізімді жою';
 
   @override
+  String get product_delete_confirm =>
+      'Delete this listing? This can\'t be undone.';
+
+  @override
   String get product_report_listing => 'Тізімге шағымдану';
 
   @override

@@ -227,12 +227,9 @@ class _OtpPageState extends State<OtpPage> {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
-      context.router.replaceAll(<PageRouteInfo>[
-        if (state.onboardingComplete)
-          const ShellRoute()
-        else
-          const PersonalizeRoute(),
-      ]);
+      // Always land on home after a verified sign-in; profile completion is
+      // on-demand now (no forced personalize/complete-profile step).
+      context.router.replaceAll(<PageRouteInfo>[const ShellRoute()]);
     } else if (state is AuthCodeSent) {
       setState(() => _verificationId = state.verification.verificationId);
       _startCountdown();

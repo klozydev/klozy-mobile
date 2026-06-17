@@ -627,6 +627,10 @@ class AppLocalizationsMl extends AppLocalizations {
   String get product_delete_listing => 'ലിസ്റ്റിംഗ് ഇല്ലാതാക്കുക';
 
   @override
+  String get product_delete_confirm =>
+      'Delete this listing? This can\'t be undone.';
+
+  @override
   String get product_report_listing => 'ലിസ്റ്റിംഗ് റിപ്പോർട്ട് ചെയ്യുക';
 
   @override

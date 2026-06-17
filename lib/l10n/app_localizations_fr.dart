@@ -621,6 +621,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get product_delete_listing => 'Supprimer l\'annonce';
 
   @override
+  String get product_delete_confirm =>
+      'Delete this listing? This can\'t be undone.';
+
+  @override
   String get product_report_listing => 'Signaler l\'annonce';
 
   @override

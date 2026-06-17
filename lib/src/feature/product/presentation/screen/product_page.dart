@@ -126,6 +126,37 @@ class _LoadedViewState extends State<_LoadedView> {
     }
   }
 
+  /// Confirm before deleting the user's own listing — deletion is irreversible.
+  Future<void> _confirmDelete(BuildContext context) async {
+    final bloc = context.read<ProductBloc>();
+    final bool ok =
+        await showDialog<bool>(
+          context: context,
+          builder: (BuildContext c) => AlertDialog(
+            backgroundColor: DSColor.card,
+            content: Text(
+              context.l10N.product_delete_confirm,
+              style: const TextStyle(color: DSColor.onSurface),
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(c).pop(false),
+                child: Text(context.l10N.settings_cancel),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(c).pop(true),
+                child: Text(
+                  context.l10N.product_delete_listing,
+                  style: const TextStyle(color: DSColor.danger),
+                ),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (ok) bloc.add(const ProductDeleted());
+  }
+
   /// Opening the chat resolves the seller's Firebase UID and looks up / creates
   /// the thread, which takes a moment — show the same spinner the make-offer
   /// flow uses so the button doesn't look dead on tap.
@@ -218,8 +249,7 @@ class _LoadedViewState extends State<_LoadedView> {
               onViewCart: () => context.router.push(const CartRoute()),
               onEdit: () =>
                   context.router.push(EditListingRoute(productId: detail.id)),
-              onDelete: () =>
-                  context.read<ProductBloc>().add(const ProductDeleted()),
+              onDelete: () => _confirmDelete(context),
               onMakeOffer: () => _makeOffer(context),
               onSeeOffer: () => _seeOffer(context),
               offerLoading: _submittingOffer,

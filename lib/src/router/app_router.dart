@@ -77,12 +77,8 @@ class AppRouter extends RootStackRouter {
     AutoRoute(path: '/login', page: LoginRoute.page),
     AutoRoute(path: '/phone', page: PhoneRoute.page),
     AutoRoute(path: '/otp', page: OtpRoute.page),
-    // Onboarding — reachable by incompleteOnboarding + valid (guard handles it)
-    AutoRoute(
-      path: '/onboarding/personalize',
-      page: PersonalizeRoute.page,
-      guards: [_onboardingGuard],
-    ),
+    // On-demand profile completion (no forced "personalize your feed" step).
+    // Reached when an action gate needs a complete profile.
     AutoRoute(
       path: '/onboarding/profile',
       page: ProfileCompletionRoute.page,

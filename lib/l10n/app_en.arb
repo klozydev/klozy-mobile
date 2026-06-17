@@ -261,6 +261,7 @@
   "product_mark_as_sold": "Mark as sold",
   "product_mark_as_available": "Mark as available",
   "product_delete_listing": "Delete listing",
+  "product_delete_confirm": "Delete this listing? This can't be undone.",
   "product_report_listing": "Report listing",
   "product_report_this_listing": "Report this listing",
   "product_listing_deleted": "Listing deleted",

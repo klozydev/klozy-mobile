@@ -615,6 +615,10 @@ class AppLocalizationsFa extends AppLocalizations {
   String get product_delete_listing => 'حذف لیست';
 
   @override
+  String get product_delete_confirm =>
+      'Delete this listing? This can\'t be undone.';
+
+  @override
   String get product_report_listing => 'گزارش لیست';
 
   @override
