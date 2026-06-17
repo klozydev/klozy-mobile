@@ -15,9 +15,12 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/me/entity/me_profile.dart';
+import 'package:klozy/src/domain/sell/usecase/check_sell_prerequisite_usecase.dart';
+import 'package:klozy/src/domain/sell/usecase/sell_prerequisite.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_bloc.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_event.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_state.dart';
+import 'package:klozy/src/router/app_router.dart';
 
 @RoutePage()
 class SellerRolePage extends StatefulWidget implements AutoRouteWrapper {
@@ -61,13 +64,35 @@ class _SellerRolePageState extends State<SellerRolePage> {
     );
   }
 
+  /// After the seller role is saved, resolve what's still required and replace
+  /// this screen with that step directly (verification for vendors, payout for
+  /// particulars, etc.) instead of popping back with an alert.
+  Future<void> _continueAfterRole(BuildContext context) async {
+    final SellPrerequisite next =
+        await locator<CheckSellPrerequisiteUseCase>()();
+    if (!context.mounted) return;
+    switch (next) {
+      case SellPrerequisite.needsAddress:
+        context.router.replace(AddressFormRoute(requirePhone: true));
+      case SellPrerequisite.needsIban:
+        context.router.replace(const PayoutRoute());
+      case SellPrerequisite.needsKyb:
+        context.router.replace(const SellerVerificationRoute());
+      case SellPrerequisite.ready:
+        context.router.replace(const SellRoute());
+      case SellPrerequisite.needsRole:
+        context.router.maybePop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SellerRoleBloc, SellerRoleState>(
       listener: (BuildContext context, SellerRoleState state) {
         if (state is SellerRoleDone) {
-          context.showSnackBar(context.l10N.onboarding_seller_account_set_up);
-          context.router.maybePop();
+          // Don't bounce back with a "account set up" alert — take the seller
+          // straight to the next required step (verification / payout / etc).
+          _continueAfterRole(context);
         } else if (state is SellerRoleFailure) {
           context.showSnackBar(state.message);
         }
