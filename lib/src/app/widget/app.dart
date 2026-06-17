@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -84,7 +85,20 @@ class _AppState extends State<App> {
                       ),
                     ],
                     child: MaterialApp.router(
-                      routerConfig: _appRouter.config(),
+                      routerConfig: _appRouter.config(
+                        deepLinkBuilder: (PlatformDeepLink deepLink) {
+                          final Uri uri = deepLink.uri;
+                          // Custom-scheme links (e.g. klozy://product/123) put
+                          // the first path segment in the URI host, so AutoRoute
+                          // can't match `/product/:id`. Rebuild a normal path.
+                          // https links already carry the real path (host is the
+                          // domain), so they pass through unchanged.
+                          if (uri.scheme == 'klozy' && uri.host.isNotEmpty) {
+                            return DeepLink.path('/${uri.host}${uri.path}');
+                          }
+                          return deepLink;
+                        },
+                      ),
                       debugShowCheckedModeBanner: false,
                       onGenerateTitle: (BuildContext context) =>
                           context.l10N.app_name,
