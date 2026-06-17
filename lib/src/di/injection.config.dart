@@ -258,13 +258,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i276.NotificationsCubit>(),
       ),
     );
-    gh.factory<_i212.ProductBloc>(
-      () => _i212.ProductBloc(
-        gh<_i786.ProductsRepository>(),
-        gh<_i444.CartRepository>(),
-        gh<_i1010.MeRepository>(),
-      ),
-    );
     gh.lazySingleton<_i931.SocialRepository>(
       () => _i590.SocialRepositoryImpl(
         gh<_i361.Dio>(),
@@ -356,6 +349,14 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i496.FollowListBloc>(
       () => _i496.FollowListBloc(gh<_i931.SocialRepository>()),
+    );
+    gh.factory<_i212.ProductBloc>(
+      () => _i212.ProductBloc(
+        gh<_i786.ProductsRepository>(),
+        gh<_i444.CartRepository>(),
+        gh<_i1010.MeRepository>(),
+        gh<_i675.CartCubit>(),
+      ),
     );
     gh.factory<_i634.AccountGate>(
       () => _i634.AccountGate(gh<_i631.RequireValidAccountUseCase>()),

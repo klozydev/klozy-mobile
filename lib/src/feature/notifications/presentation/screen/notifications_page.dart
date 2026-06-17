@@ -55,7 +55,9 @@ class _NotificationsPageState extends State<NotificationsPage> {
 
   void _open(BuildContext context, AppNotification n) {
     context.read<NotificationsBloc>().add(NotificationMarkedRead(n.id));
-    if (n.productId != null) {
+    if (n.tchatId != null) {
+      context.router.push(ChatThreadRoute(tchatId: n.tchatId!));
+    } else if (n.productId != null) {
       context.router.push(ProductRoute(id: n.productId!));
     } else if (n.orderId != null) {
       context.router.push(OrderDetailRoute(id: n.orderId!));

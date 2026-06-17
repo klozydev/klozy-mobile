@@ -244,17 +244,31 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
               icon: Icons.logout_rounded,
               label: l.settings_logout,
               danger: true,
-              onTap: () async {
-                if (await _confirm(
-                  context,
-                  l.settings_logout_confirm,
-                  l.settings_logout,
-                )) {
-                  if (context.mounted) {
-                    context.read<SettingsBloc>().add(const SettingsLoggedOut());
-                  }
-                }
-              },
+              trailing: state.isBusy
+                  ? const SizedBox(
+                      width: 18,
+                      height: 18,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: DSColor.danger,
+                      ),
+                    )
+                  : null,
+              onTap: state.isBusy
+                  ? null
+                  : () async {
+                      if (await _confirm(
+                        context,
+                        l.settings_logout_confirm,
+                        l.settings_logout,
+                      )) {
+                        if (context.mounted) {
+                          context.read<SettingsBloc>().add(
+                            const SettingsLoggedOut(),
+                          );
+                        }
+                      }
+                    },
             ),
             SettingsRowWidget(
               icon: Icons.delete_outline_rounded,

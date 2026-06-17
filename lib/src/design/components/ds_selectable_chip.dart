@@ -26,7 +26,7 @@ class DSSelectableChip extends StatelessWidget {
         duration: const Duration(milliseconds: 150),
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
         decoration: BoxDecoration(
-          color: selected ? DSColor.primary : DSColor.onSurface07,
+          color: selected ? DSColor.primary : DSColor.card,
           borderRadius: BorderRadius.circular(DSBorderRadius.chip),
           border: selected
               ? null

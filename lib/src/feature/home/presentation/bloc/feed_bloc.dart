@@ -134,7 +134,12 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
     FeedRefreshed event,
     Emitter<FeedState> emit,
   ) async {
-    if (state is! FeedReady) return;
+    final current = state;
+    if (current is! FeedReady) return;
+    // Mark in-flight so the result is always a *distinct* state — otherwise an
+    // unchanged first page is value-equal to the current state, Bloc drops the
+    // emit, and the RefreshIndicator (awaiting the next state) hangs on screen.
+    emit(current.copyWith(isLoadingMore: true));
     try {
       _page = 1;
       final page = await _productsRepository.feed(
@@ -151,7 +156,8 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
         ),
       );
     } catch (_) {
-      // Quiet refresh: keep showing what we have.
+      // Quiet refresh: keep showing what we have, but still settle the spinner.
+      emit(current.copyWith(isLoadingMore: false));
     }
   }
 }

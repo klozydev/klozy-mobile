@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/app/cart/cart_cubit.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/domain/cart/cart_repository.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
@@ -13,11 +14,13 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final ProductsRepository _productsRepository;
   final CartRepository _cartRepository;
   final MeRepository _meRepository;
+  final CartCubit _cartCubit;
 
   ProductBloc(
     this._productsRepository,
     this._cartRepository,
     this._meRepository,
+    this._cartCubit,
   ) : super(const ProductLoadingState()) {
     on<ProductStarted>(_onStarted);
     on<ProductAddToCart>(_onAddToCart);
@@ -60,6 +63,10 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     try {
       await _cartRepository.addItem(current.detail.id);
       emit(current.copyWith(inCart: true));
+      // Reload the app-wide cart only after the add has persisted, so the home
+      // cart badge reflects the new item (the old fire-and-forget refresh on
+      // the page raced the add and read a stale count).
+      await _cartCubit.load();
     } catch (_) {}
   }
 

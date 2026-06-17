@@ -71,8 +71,19 @@ class _FeedTabWidgetState extends State<FeedTabWidget> {
       backgroundColor: DSColor.card,
       onRefresh: () async {
         final bloc = context.read<FeedBloc>();
+        // Wait for the refresh to actually settle (a FeedReady that is no
+        // longer loading), with a timeout so the indicator can never get
+        // stuck if no further state is emitted.
+        final settled = bloc.stream
+            .firstWhere(
+              (FeedState s) => s is FeedReady && !s.isLoadingMore,
+            )
+            .timeout(
+              const Duration(seconds: 10),
+              onTimeout: () => bloc.state,
+            );
         bloc.add(const FeedRefreshed());
-        await bloc.stream.first;
+        await settled;
       },
       child: CustomScrollView(
         controller: _controller,

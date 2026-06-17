@@ -8,7 +8,6 @@ class CreateProductInput {
   final String? size;
   final String? brandId;
   final String? brandName;
-  final num? weightGrams;
   final List<String> images;
   final String? location;
 
@@ -24,7 +23,6 @@ class CreateProductInput {
     this.size,
     this.brandId,
     this.brandName,
-    this.weightGrams,
     this.images = const <String>[],
     this.location,
     this.translations,
@@ -40,7 +38,6 @@ class CreateProductInput {
     if (size != null && size!.isNotEmpty) 'size': size,
     if (brandId != null && brandId!.isNotEmpty) 'brandId': brandId,
     if (brandName != null && brandName!.isNotEmpty) 'brandName': brandName,
-    if (weightGrams != null && weightGrams! > 0) 'weightGrams': weightGrams,
     if (images.isNotEmpty) 'images': images,
     if (location != null && location!.isNotEmpty) 'location': location,
     if (translations != null && translations!.isNotEmpty)

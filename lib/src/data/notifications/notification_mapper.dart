@@ -17,6 +17,7 @@ AppNotification mapNotification(Object? raw) {
     productId: _str(data, ['productId']) ?? _str(json, ['productId']),
     orderId: _str(data, ['orderId']) ?? _str(json, ['orderId']),
     userId: _str(data, ['userId', 'actorId']) ?? _str(json, ['userId']),
+    tchatId: _str(data, ['tchatId']) ?? _str(json, ['tchatId']),
   );
 }
 

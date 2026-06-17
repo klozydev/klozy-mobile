@@ -210,8 +210,9 @@ class _LoadedViewState extends State<_LoadedView> {
               detail: detail,
               inCart: state.inCart,
               onAddToCart: () {
+                // ProductBloc reloads the CartCubit once the add persists, so
+                // the badge updates without racing a premature refresh here.
                 context.read<ProductBloc>().add(const ProductAddToCart());
-                context.read<CartCubit>().refresh();
                 context.showSnackBar(context.l10N.product_added_to_cart);
               },
               onViewCart: () => context.router.push(const CartRoute()),

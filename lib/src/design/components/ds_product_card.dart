@@ -56,12 +56,32 @@ class DSProductCard extends StatefulWidget {
 }
 
 class _DSProductCardState extends State<DSProductCard> {
-  late bool _liked;
+  // The like state is owned by the parent (e.g. WishlistCubit) and flows in via
+  // [widget.isLiked]; the card no longer toggles a local copy, so tapping the
+  // heart while blocked by an auth/profile gate can't leave a ghost "liked" UI.
+  // [_baselineLiked] is the liked value at the time [widget.likes] was sampled,
+  // used to show a correct optimistic ±1 against the server count.
+  late bool _baselineLiked;
 
   @override
   void initState() {
     super.initState();
-    _liked = widget.isLiked;
+    _baselineLiked = widget.isLiked;
+  }
+
+  @override
+  void didUpdateWidget(covariant DSProductCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Fresh server data resets the baseline; a pure like-toggle does not.
+    if (widget.likes != oldWidget.likes) {
+      _baselineLiked = widget.isLiked;
+    }
+  }
+
+  int get _displayLikes {
+    final delta = (widget.isLiked ? 1 : 0) - (_baselineLiked ? 1 : 0);
+    final total = widget.likes + delta;
+    return total < 0 ? 0 : total;
   }
 
   @override
@@ -99,12 +119,9 @@ class _DSProductCardState extends State<DSProductCard> {
                     bottom: DSSpacing.xxs,
                     right: DSSpacing.xxs,
                     child: _LikeButton(
-                      liked: _liked,
-                      count: widget.likes + (_liked && !widget.isLiked ? 1 : 0),
-                      onTap: () {
-                        setState(() => _liked = !_liked);
-                        widget.onLikeChanged?.call(_liked);
-                      },
+                      liked: widget.isLiked,
+                      count: _displayLikes,
+                      onTap: () => widget.onLikeChanged?.call(!widget.isLiked),
                     ),
                   ),
                 ],

@@ -49,7 +49,6 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
   late final TextEditingController _desc = TextEditingController(
     text: widget.state.draft.description ?? '',
   );
-  final TextEditingController _weight = TextEditingController();
 
   bool _titleEdited = false;
   bool _priceEdited = false;
@@ -67,7 +66,6 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
     _title.dispose();
     _price.dispose();
     _desc.dispose();
-    _weight.dispose();
     super.dispose();
   }
 
@@ -131,7 +129,6 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
           categoryId: _category!.id,
           description: _desc.text.trim(),
           size: _size,
-          weightGrams: num.tryParse(_weight.text.trim()),
           brandId: _brand?.id,
           brandName: _brand?.id == null ? _brand?.name : null,
           images: widget.state.imageUrls,
@@ -246,16 +243,6 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                       const SellDraftFieldEdited(SellDraftField.description),
                     );
                   },
-                ),
-                const SizedBox(height: DSSpacing.xs),
-                DSFieldLabel(context.l10N.sell_weight),
-                DSTextField(
-                  controller: _weight,
-                  hintText: context.l10N.sell_weight_hint,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
                 ),
                 const SizedBox(height: DSSpacing.m),
                 _sectionLabel(context.l10N.sell_category, required: true),

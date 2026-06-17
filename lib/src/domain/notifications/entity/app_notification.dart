@@ -13,6 +13,7 @@ class AppNotification extends Equatable {
   final String? productId;
   final String? orderId;
   final String? userId;
+  final String? tchatId;
 
   const AppNotification({
     required this.id,
@@ -24,6 +25,7 @@ class AppNotification extends Equatable {
     this.productId,
     this.orderId,
     this.userId,
+    this.tchatId,
   });
 
   AppNotification copyWith({bool? read}) {
@@ -37,6 +39,7 @@ class AppNotification extends Equatable {
       productId: productId,
       orderId: orderId,
       userId: userId,
+      tchatId: tchatId,
     );
   }
 
@@ -51,5 +54,6 @@ class AppNotification extends Equatable {
     productId,
     orderId,
     userId,
+    tchatId,
   ];
 }
