@@ -179,58 +179,55 @@ class _LoadedViewState extends State<_LoadedView> {
       backgroundColor: DSColor.surface,
       body: Stack(
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              // Fixed-height swipeable gallery. Kept OUTSIDE the scroll view so
-              // its horizontal PageView never fights a vertical scroll gesture.
-              SizedBox(
-                height: screenHeight * 0.58,
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: <Widget>[
-                    ProductCarouselWidget(
-                      images: detail.images,
-                      status: detail.status,
-                      onPageChanged: _onPageChanged,
-                    ),
-                    const Positioned(
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      child: ProductTopScrimWidget(),
-                    ),
-                    if (imageCount > 1)
-                      Positioned(
-                        bottom: DSSpacing.s,
+          // The image shows (near-)fullscreen first; scrolling down reveals the
+          // details below it. A small peek under the gallery hints there's more
+          // to scroll. The gallery's PageView is horizontal, so it doesn't fight
+          // the page's vertical scroll.
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                SizedBox(
+                  height: screenHeight * 0.92,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      ProductCarouselWidget(
+                        images: detail.images,
+                        status: detail.status,
+                        onPageChanged: _onPageChanged,
+                      ),
+                      const Positioned(
+                        top: 0,
                         left: 0,
                         right: 0,
-                        child: ProductPageDotsWidget(
-                          count: imageCount,
-                          current: _currentPage,
+                        child: ProductTopScrimWidget(),
+                      ),
+                      if (imageCount > 1)
+                        Positioned(
+                          bottom: DSSpacing.s,
+                          left: 0,
+                          right: 0,
+                          child: ProductPageDotsWidget(
+                            count: imageCount,
+                            current: _currentPage,
+                          ),
                         ),
-                      ),
-                  ],
-                ),
-              ),
-              // Details scroll below the gallery.
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(top: DSSpacing.s),
-                        child: ProductTitleBlockWidget(product: detail),
-                      ),
-                      ProductDetailsPanelWidget(
-                        detail: detail,
-                        isOwner: detail.isOwner,
-                      ),
                     ],
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(top: DSSpacing.s),
+                  child: ProductTitleBlockWidget(product: detail),
+                ),
+                ProductDetailsPanelWidget(
+                  detail: detail,
+                  isOwner: detail.isOwner,
+                ),
+                // Clears the pinned CTA bar at the bottom.
+                const SizedBox(height: 96),
+              ],
+            ),
           ),
           ProductTopBarWidget(detail: detail),
           Positioned(
