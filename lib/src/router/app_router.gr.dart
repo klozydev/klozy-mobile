@@ -29,12 +29,20 @@ class AddressBookRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [AddressFormPage]
 class AddressFormRoute extends PageRouteInfo<AddressFormRouteArgs> {
-  AddressFormRoute({Address? address, Key? key, List<PageRouteInfo>? children})
-    : super(
-        AddressFormRoute.name,
-        args: AddressFormRouteArgs(address: address, key: key),
-        initialChildren: children,
-      );
+  AddressFormRoute({
+    Address? address,
+    bool requirePhone = false,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+         AddressFormRoute.name,
+         args: AddressFormRouteArgs(
+           address: address,
+           requirePhone: requirePhone,
+           key: key,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'AddressFormRoute';
 
@@ -44,32 +52,44 @@ class AddressFormRoute extends PageRouteInfo<AddressFormRouteArgs> {
       final args = data.argsAs<AddressFormRouteArgs>(
         orElse: () => const AddressFormRouteArgs(),
       );
-      return AddressFormPage(address: args.address, key: args.key);
+      return AddressFormPage(
+        address: args.address,
+        requirePhone: args.requirePhone,
+        key: args.key,
+      );
     },
   );
 }
 
 class AddressFormRouteArgs {
-  const AddressFormRouteArgs({this.address, this.key});
+  const AddressFormRouteArgs({
+    this.address,
+    this.requirePhone = false,
+    this.key,
+  });
 
   final Address? address;
+
+  final bool requirePhone;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'AddressFormRouteArgs{address: $address, key: $key}';
+    return 'AddressFormRouteArgs{address: $address, requirePhone: $requirePhone, key: $key}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! AddressFormRouteArgs) return false;
-    return address == other.address && key == other.key;
+    return address == other.address &&
+        requirePhone == other.requirePhone &&
+        key == other.key;
   }
 
   @override
-  int get hashCode => address.hashCode ^ key.hashCode;
+  int get hashCode => address.hashCode ^ requirePhone.hashCode ^ key.hashCode;
 }
 
 /// generated route for

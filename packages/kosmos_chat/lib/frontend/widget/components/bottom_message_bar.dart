@@ -206,7 +206,9 @@ class _BottomMessageBarState extends ConsumerState<BottomMessageBar> {
       width: double.infinity,
       padding: themeData.replyToBackgroundPadding,
       decoration: themeData.replyToBackgroundDecoration,
-      clipBehavior: Clip.antiAlias,
+      clipBehavior: themeData.replyToBackgroundDecoration != null
+          ? Clip.antiAlias
+          : Clip.none,
       child: IntrinsicHeight(
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -214,7 +216,9 @@ class _BottomMessageBarState extends ConsumerState<BottomMessageBar> {
             Expanded(
               child: Container(
                 decoration: themeData.replyToDecoration,
-                clipBehavior: Clip.antiAlias,
+                clipBehavior: themeData.replyToDecoration != null
+                    ? Clip.antiAlias
+                    : Clip.none,
                 child: ReplyToBuilder.replyPreviewBuilder(
                     context, ref, replyTo, widget.tchat),
               ),

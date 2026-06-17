@@ -30,6 +30,13 @@ class CheckSellPrerequisiteUseCase {
       return SellPrerequisite.needsRole;
     }
 
+    // Every seller (particular or vendor) must have a default shipping address
+    // on file — the EMX label needs the seller's line1/city/phone, otherwise
+    // POST /v1/orders/:id/ship returns 400 once they have a sale.
+    if (!profile.hasAddress) {
+      return SellPrerequisite.needsAddress;
+    }
+
     if (profile.sellerRole == SellerRole.particular) {
       // Particular seller needs a payout IBAN on file.
       if (profile.payoutIbanMasked == null) {

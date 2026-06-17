@@ -15,7 +15,11 @@ import 'package:klozy/src/domain/me/me_repository.dart';
 class AddressFormPage extends StatefulWidget {
   final Address? address;
 
-  const AddressFormPage({this.address, super.key});
+  /// When true (seller shipping setup), the phone is mandatory — EMX rejects a
+  /// forward shipment whose shipper has no phone number.
+  final bool requirePhone;
+
+  const AddressFormPage({this.address, this.requirePhone = false, super.key});
 
   @override
   State<AddressFormPage> createState() => _AddressFormPageState();
@@ -55,7 +59,8 @@ class _AddressFormPageState extends State<AddressFormPage> {
   bool get _valid =>
       _line1.text.trim().isNotEmpty &&
       _city.text.trim().isNotEmpty &&
-      _emirate.text.trim().isNotEmpty;
+      _emirate.text.trim().isNotEmpty &&
+      (!widget.requirePhone || _phone.text.trim().isNotEmpty);
 
   Future<void> _save() async {
     setState(() => _saving = true);
@@ -118,8 +123,12 @@ class _AddressFormPageState extends State<AddressFormPage> {
           DSFieldLabel(l.address_recipient),
           DSTextField(controller: _recipient),
           const SizedBox(height: 12),
-          DSFieldLabel(l.address_phone),
-          DSTextField(controller: _phone, keyboardType: TextInputType.phone),
+          DSFieldLabel(l.address_phone, required: widget.requirePhone),
+          DSTextField(
+            controller: _phone,
+            keyboardType: TextInputType.phone,
+            onChanged: widget.requirePhone ? (_) => setState(() {}) : null,
+          ),
           const SizedBox(height: 12),
           DSFieldLabel(l.settings_address_line1, required: true),
           DSTextField(controller: _line1, onChanged: (_) => setState(() {})),

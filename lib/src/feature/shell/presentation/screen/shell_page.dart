@@ -36,6 +36,10 @@ class ShellPage extends StatelessWidget {
               switch (prerequisite) {
                 case SellPrerequisite.needsRole:
                   await context.router.push(const SellerRoleRoute());
+                case SellPrerequisite.needsAddress:
+                  await context.router.push(
+                    AddressFormRoute(requirePhone: true),
+                  );
                 case SellPrerequisite.needsIban:
                   await context.router.push(const PayoutRoute());
                 case SellPrerequisite.needsKyb:
