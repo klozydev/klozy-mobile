@@ -129,4 +129,16 @@ class TchatListProvider with ChangeNotifier {
     }
     return false;
   }
+
+  /// Number of threads with at least one message the current user hasn't seen —
+  /// drives the chat tab's unread badge.
+  int get unreadCount {
+    final uid = FirebaseAuth.instance.currentUser?.uid;
+    if (uid == null) return 0;
+    var count = 0;
+    for (final TchatModel item in (_tchatList?.values ?? <TchatModel>[])) {
+      if (item.lastMessageSeenBy.doesNotContain(uid)) count++;
+    }
+    return count;
+  }
 }

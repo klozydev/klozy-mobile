@@ -9,22 +9,24 @@ import 'package:klozy/src/design/components/ds_selectable_chip.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
-import 'package:klozy/src/domain/catalog/entity/catalog_brand.dart';
-import 'package:klozy/src/domain/catalog/entity/catalog_condition.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_size_value.dart';
 import 'package:klozy/src/domain/product/entity/search_facets.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_filters.dart';
 import 'package:klozy/src/feature/search/presentation/widget/filter_section_label_widget.dart';
 import 'package:klozy/src/feature/search/presentation/widget/selected_category_chip_widget.dart';
 
-/// Filters sheet body — category drill-down + conditions + sizes. Returns the
-/// chosen [SearchFilters] via `Navigator.pop`.
+/// Filters sheet body — category drill-down + (per-category) sizes + price.
+/// Returns the chosen [SearchFilters] via `Navigator.pop`.
+///
+/// Conditions and brands were intentionally removed; sizes are shown only once
+/// a leaf category is picked (a category with no children), since size options
+/// are category-specific.
 class SearchFiltersSheet extends StatefulWidget {
   final SearchFilters initial;
 
-  /// Facets of the current result set. When non-null, the condition/size/brand
-  /// options are narrowed to values that actually occur in the matched
-  /// products (with counts). Null in browse mode → full catalog.
+  /// Facets of the current result set. When non-null, the size options are
+  /// narrowed to values that actually occur in the matched products (with
+  /// counts). Null in browse mode → full set for the category.
   final SearchFacets? facets;
 
   const SearchFiltersSheet({super.key, required this.initial, this.facets});
@@ -35,7 +37,6 @@ class SearchFiltersSheet extends StatefulWidget {
 
 class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
   final CatalogRepository _catalog = locator<CatalogRepository>();
-  final TextEditingController _brandQuery = TextEditingController();
   late final TextEditingController _minPrice = TextEditingController(
     text: widget.initial.minPrice?.toInt().toString() ?? '',
   );
@@ -43,66 +44,63 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
     text: widget.initial.maxPrice?.toInt().toString() ?? '',
   );
 
-  bool _loading = true;
-  List<CatalogCondition> _allConditions = const <CatalogCondition>[];
-  List<CatalogSizeValue> _allSizes = const <CatalogSizeValue>[];
-  List<CatalogBrand> _brands = const <CatalogBrand>[];
+  /// Sizes valid for the currently-selected leaf category. Empty until a leaf
+  /// category is chosen.
+  List<CatalogSizeValue> _sizesForCategory = const <CatalogSizeValue>[];
+  bool _loadingSizes = false;
 
   PickedCategory? _selectedCategory;
 
-  late Set<String> _conditions = <String>{...widget.initial.conditions};
   late Set<String> _sizes = <String>{...widget.initial.sizes};
-  late Set<String> _brandIds = <String>{...widget.initial.brandIds};
-
-  @override
-  void initState() {
-    super.initState();
-    _load();
-  }
 
   @override
   void dispose() {
-    _brandQuery.dispose();
     _minPrice.dispose();
     _maxPrice.dispose();
     super.dispose();
   }
 
-  Future<void> _searchBrands(String query) async {
+  /// Loads the size tokens for the chosen leaf category. Sizes are
+  /// category-specific, so there's nothing to show until one is picked.
+  Future<void> _loadSizesFor(String categoryId) async {
+    setState(() => _loadingSizes = true);
+    List<CatalogSizeValue> sizes = const <CatalogSizeValue>[];
     try {
-      final brands = await _catalog.searchBrands(
-        query: query.trim().isEmpty ? null : query.trim(),
-      );
-      if (mounted) setState(() => _brands = brands);
-    } catch (_) {}
-  }
-
-  Future<void> _load() async {
-    try {
-      _allConditions = await _catalog.getConditions();
-    } catch (_) {}
-    try {
-      _allSizes = await _catalog.getSizes();
-    } catch (_) {}
-    try {
-      _brands = await _catalog.searchBrands();
+      sizes = await _catalog.getSizeConfig(categoryId);
     } catch (_) {}
     if (!mounted) return;
     setState(() {
-      _loading = false;
+      _sizesForCategory = sizes;
+      _loadingSizes = false;
+    });
+  }
+
+  void _onCategoryPicked(PickedCategory picked) {
+    setState(() {
+      _selectedCategory = picked;
+      // A different category invalidates the previous size selection.
+      _sizes = <String>{};
+      _sizesForCategory = const <CatalogSizeValue>[];
+    });
+    _loadSizesFor(picked.id);
+  }
+
+  void _clearCategory() {
+    setState(() {
+      _selectedCategory = null;
+      _sizes = <String>{};
+      _sizesForCategory = const <CatalogSizeValue>[];
     });
   }
 
   void _reset() {
     setState(() {
       _selectedCategory = null;
-      _conditions = <String>{};
       _sizes = <String>{};
-      _brandIds = <String>{};
+      _sizesForCategory = const <CatalogSizeValue>[];
       _minPrice.clear();
       _maxPrice.clear();
     });
-    _load();
   }
 
   void _apply() {
@@ -110,43 +108,24 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
       SearchFilters(
         categoryId: _selectedCategory?.id,
         categoryPath: _selectedCategory?.path,
-        conditions: _conditions,
         sizes: _sizes,
-        brandIds: _brandIds,
         minPrice: num.tryParse(_minPrice.text.trim()),
         maxPrice: num.tryParse(_maxPrice.text.trim()),
       ),
     );
   }
 
-  Map<String, int>? get _conditionCounts => widget.facets == null
-      ? null
-      : SearchFacets.counts(widget.facets!.conditions);
   Map<String, int>? get _sizeCounts =>
       widget.facets == null ? null : SearchFacets.counts(widget.facets!.sizes);
-  Map<String, int>? get _brandCounts =>
-      widget.facets == null ? null : SearchFacets.counts(widget.facets!.brands);
 
-  List<CatalogCondition> get _visibleConditions {
-    final Map<String, int>? m = _conditionCounts;
-    if (m == null) return _allConditions;
-    return _allConditions
-        .where((CatalogCondition c) => m.containsKey(c.slug))
-        .toList();
-  }
-
+  /// Sizes for the category, narrowed to those that actually occur in the
+  /// current result set when facets are available.
   List<CatalogSizeValue> get _visibleSizes {
     final Map<String, int>? m = _sizeCounts;
-    if (m == null) return _allSizes;
-    return _allSizes
+    if (m == null) return _sizesForCategory;
+    return _sizesForCategory
         .where((CatalogSizeValue s) => m.containsKey(s.token))
         .toList();
-  }
-
-  List<CatalogBrand> get _visibleBrands {
-    final Map<String, int>? m = _brandCounts;
-    if (m == null) return _brands;
-    return _brands.where((CatalogBrand b) => m.containsKey(b.id)).toList();
   }
 
   String _countSuffix(Map<String, int>? counts, String key) =>
@@ -154,7 +133,6 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
 
   @override
   Widget build(BuildContext context) {
-    if (_loading) return const SizedBox(height: 160, child: DSLoader());
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -170,89 +148,44 @@ class _SearchFiltersSheetState extends State<SearchFiltersSheet> {
                 if (_selectedCategory != null)
                   SelectedCategoryChipWidget(
                     path: _selectedCategory!.path,
-                    onClear: () => setState(() => _selectedCategory = null),
+                    onClear: _clearCategory,
                   )
                 else
                   DSCategoryTreePicker(
                     repo: _catalog,
                     showBreadcrumb: true,
-                    onLeafSelected: (PickedCategory picked) {
-                      setState(() => _selectedCategory = picked);
-                    },
+                    onLeafSelected: _onCategoryPicked,
                   ),
-                if (_visibleConditions.isNotEmpty) ...<Widget>[
-                  FilterSectionLabelWidget(
-                    text: context.l10N.search_filter_condition,
-                  ),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: _visibleConditions
-                        .map(
-                          (CatalogCondition c) => DSSelectableChip(
-                            label:
-                                '${c.label}${_countSuffix(_conditionCounts, c.slug)}',
-                            selected: _conditions.contains(c.slug),
-                            onTap: () => setState(
-                              () => _conditions.contains(c.slug)
-                                  ? _conditions.remove(c.slug)
-                                  : _conditions.add(c.slug),
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ],
-                if (_visibleSizes.isNotEmpty) ...<Widget>[
+                // Sizes only make sense for a chosen leaf category.
+                if (_selectedCategory != null) ...<Widget>[
                   FilterSectionLabelWidget(
                     text: context.l10N.search_filter_size,
                   ),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: _visibleSizes
-                        .map(
-                          (CatalogSizeValue s) => DSSelectableChip(
-                            label:
-                                '${s.label}${_countSuffix(_sizeCounts, s.token)}',
-                            selected: _sizes.contains(s.token),
-                            onTap: () => setState(
-                              () => _sizes.contains(s.token)
-                                  ? _sizes.remove(s.token)
-                                  : _sizes.add(s.token),
+                  if (_loadingSizes)
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8),
+                      child: SizedBox(height: 40, child: DSLoader()),
+                    )
+                  else if (_visibleSizes.isNotEmpty)
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: _visibleSizes
+                          .map(
+                            (CatalogSizeValue s) => DSSelectableChip(
+                              label:
+                                  '${s.label}${_countSuffix(_sizeCounts, s.token)}',
+                              selected: _sizes.contains(s.token),
+                              onTap: () => setState(
+                                () => _sizes.contains(s.token)
+                                    ? _sizes.remove(s.token)
+                                    : _sizes.add(s.token),
+                              ),
                             ),
-                          ),
-                        )
-                        .toList(),
-                  ),
+                          )
+                          .toList(),
+                    ),
                 ],
-                FilterSectionLabelWidget(
-                  text: context.l10N.search_filter_brand,
-                ),
-                DSTextField(
-                  controller: _brandQuery,
-                  hintText: context.l10N.onboarding_brands_search_hint,
-                  prefixIcon: Icons.search_rounded,
-                  onChanged: _searchBrands,
-                ),
-                const SizedBox(height: 10),
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: _visibleBrands
-                      .map(
-                        (CatalogBrand b) => DSSelectableChip(
-                          label: '${b.name}${_countSuffix(_brandCounts, b.id)}',
-                          selected: _brandIds.contains(b.id),
-                          onTap: () => setState(
-                            () => _brandIds.contains(b.id)
-                                ? _brandIds.remove(b.id)
-                                : _brandIds.add(b.id),
-                          ),
-                        ),
-                      )
-                      .toList(),
-                ),
                 FilterSectionLabelWidget(
                   text: context.l10N.search_filter_price,
                 ),

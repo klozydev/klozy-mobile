@@ -89,7 +89,9 @@ class SellBloc extends Bloc<SellEvent, SellState> {
     final current = state;
     // Return to the photo picker with the originals so the user can add or
     // swap images, rather than popping the whole sell flow back to home.
-    emit(SellPhotosState(current is SellRecapState ? current.paths : <String>[]));
+    emit(
+      SellPhotosState(current is SellRecapState ? current.paths : <String>[]),
+    );
   }
 
   Future<void> _onAnalyzeRequested(

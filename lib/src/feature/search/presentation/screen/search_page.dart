@@ -265,29 +265,11 @@ class _SearchPageState extends State<SearchPage> {
         ),
       );
     }
-    if (_filters.conditions.isNotEmpty) {
-      chips.add(
-        _clearChip(
-          context.l10N.search_condition_count(_filters.conditions.length),
-          () {
-            _applyFilters(_filters.copyWith(conditions: <String>{}));
-          },
-        ),
-      );
-    }
     if (_filters.sizes.isNotEmpty) {
       chips.add(
         _clearChip(context.l10N.search_size_count(_filters.sizes.length), () {
           _applyFilters(_filters.copyWith(sizes: <String>{}));
         }),
-      );
-    }
-    if (_filters.brandIds.isNotEmpty) {
-      chips.add(
-        _clearChip(
-          context.l10N.search_brand_count(_filters.brandIds.length),
-          () => _applyFilters(_filters.copyWith(brandIds: <String>{})),
-        ),
       );
     }
     if (_filters.hasPrice) {
@@ -301,13 +283,11 @@ class _SearchPageState extends State<SearchPage> {
         ),
       );
     }
-    return SizedBox(
-      height: 44,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        children: chips,
-      ),
+    // Wrap (not a horizontal ListView) so multiple active chips flow onto new
+    // rows with vertical spacing instead of scrolling off-screen in one line.
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 4, 8, 4),
+      child: Wrap(runSpacing: 8, children: chips),
     );
   }
 
