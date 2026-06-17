@@ -27,6 +27,7 @@ class SellBloc extends Bloc<SellEvent, SellState> {
   ) : super(const SellPhotosState(<String>[])) {
     on<SellStarted>(_onStarted);
     on<SellPhotosUpdated>(_onPhotosUpdated);
+    on<SellEditPhotosRequested>(_onEditPhotosRequested);
     on<SellAnalyzeRequested>(_onAnalyzeRequested);
     on<SellSizeSystemToggled>(_onSizeSystemToggled);
     on<SellDraftFieldEdited>(_onDraftFieldEdited);
@@ -81,6 +82,16 @@ class SellBloc extends Bloc<SellEvent, SellState> {
     emit(SellPhotosState(event.paths));
   }
 
+  void _onEditPhotosRequested(
+    SellEditPhotosRequested event,
+    Emitter<SellState> emit,
+  ) {
+    final current = state;
+    // Return to the photo picker with the originals so the user can add or
+    // swap images, rather than popping the whole sell flow back to home.
+    emit(SellPhotosState(current is SellRecapState ? current.paths : <String>[]));
+  }
+
   Future<void> _onAnalyzeRequested(
     SellAnalyzeRequested event,
     Emitter<SellState> emit,
@@ -118,6 +129,7 @@ class SellBloc extends Bloc<SellEvent, SellState> {
           rootCategories: categories,
           conditions: conditions,
           imageUrls: urls,
+          paths: event.paths,
           aiFilled: _aiFilledFields(draft),
         ),
       );

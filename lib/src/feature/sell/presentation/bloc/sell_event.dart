@@ -34,6 +34,12 @@ final class SellAnalyzeRequested extends SellEvent {
   List<Object?> get props => [paths];
 }
 
+/// User tapped "edit photos" on the recap — return to the picker step with the
+/// already-chosen photos so they can add/replace images instead of leaving.
+final class SellEditPhotosRequested extends SellEvent {
+  const SellEditPhotosRequested();
+}
+
 final class SellSizeSystemToggled extends SellEvent {
   final SizeSystem system;
 

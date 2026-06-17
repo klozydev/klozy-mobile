@@ -156,7 +156,9 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
               children: <Widget>[
                 SellPhotoStripWidget(
                   photoPaths: state.imageUrls,
-                  onEditTapped: () => context.router.maybePop(),
+                  onEditTapped: () => context.read<SellBloc>().add(
+                    const SellEditPhotosRequested(),
+                  ),
                 ),
                 const SizedBox(height: DSSpacing.s),
                 DSFieldLabel(

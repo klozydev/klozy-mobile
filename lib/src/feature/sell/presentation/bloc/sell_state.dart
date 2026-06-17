@@ -43,6 +43,10 @@ final class SellRecapState extends SellState {
   final List<CatalogCondition> conditions;
   final List<String> imageUrls;
 
+  /// The original local file paths, kept so "edit photos" can return to the
+  /// picker pre-populated instead of dropping the user out of the flow.
+  final List<String> paths;
+
   /// Fields populated by the AI analysis — drive the sparkle badge.
   final Set<SellDraftField> aiFilled;
 
@@ -56,6 +60,7 @@ final class SellRecapState extends SellState {
     required this.rootCategories,
     required this.conditions,
     required this.imageUrls,
+    this.paths = const <String>[],
     this.aiFilled = const <SellDraftField>{},
     this.sizeSystem = SizeSystem.eu,
     this.isCreating = false,
@@ -74,6 +79,7 @@ final class SellRecapState extends SellState {
       rootCategories: rootCategories,
       conditions: conditions,
       imageUrls: imageUrls,
+      paths: paths,
       aiFilled: aiFilled ?? this.aiFilled,
       sizeSystem: sizeSystem ?? this.sizeSystem,
       isCreating: isCreating ?? this.isCreating,
@@ -87,6 +93,7 @@ final class SellRecapState extends SellState {
     rootCategories,
     conditions,
     imageUrls,
+    paths,
     aiFilled,
     sizeSystem,
     isCreating,
