@@ -159,15 +159,6 @@ extension GetItInjectableX on _i174.GetIt {
       () => appModule.getFlutterSecureStorage(),
     );
     gh.lazySingleton<_i370.AppLogger>(() => observabilityModule.getAppLogger());
-    gh.lazySingleton<_i541.PlacesRemoteDatasource>(
-      () => _i541.PlacesRemoteDatasource(),
-    );
-    gh.lazySingleton<_i904.PlacesRepository>(
-      () => _i902.PlacesRepositoryImpl(
-        gh<_i541.PlacesRemoteDatasource>(),
-        gh<_i915.PlacesMapper>(),
-      ),
-    );
     gh.factory<_i906.Prefs>(() => _i906.Prefs(gh<_i460.SharedPreferences>()));
     gh.factory<_i480.AuthGuard>(() => _i480.AuthGuard(gh<_i59.FirebaseAuth>()));
     gh.factory<_i32.LoggingInterceptor>(
@@ -199,6 +190,15 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i465.RemoteReelsDataSource>(
       () => _i465.RemoteReelsDataSource(gh<_i361.Dio>()),
+    );
+    gh.lazySingleton<_i541.PlacesRemoteDatasource>(
+      () => _i541.PlacesRemoteDatasource(gh<_i361.Dio>()),
+    );
+    gh.lazySingleton<_i904.PlacesRepository>(
+      () => _i902.PlacesRepositoryImpl(
+        gh<_i541.PlacesRemoteDatasource>(),
+        gh<_i915.PlacesMapper>(),
+      ),
     );
     gh.lazySingleton<_i204.CatalogRepository>(
       () => _i379.CatalogRepositoryImpl(gh<_i361.Dio>()),

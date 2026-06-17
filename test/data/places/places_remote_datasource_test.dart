@@ -31,10 +31,8 @@ void _stubGet(_MockDio dio, Map<String, dynamic> data) {
   ).thenAnswer((_) async => _ok(data));
 }
 
-const String _testKey = 'test-api-key';
-
 PlacesRemoteDatasource _datasource(_MockDio dio) =>
-    PlacesRemoteDatasource.withDio(dio, apiKey: _testKey);
+    PlacesRemoteDatasource.withDio(dio);
 
 // ---------------------------------------------------------------------------
 // Tests
@@ -45,34 +43,6 @@ void main() {
 
   setUp(() {
     mockDio = _MockDio();
-  });
-
-  // -------------------------------------------------------------------------
-  // API key guard
-  // -------------------------------------------------------------------------
-
-  group('API key guard', () {
-    test('throws StateError when apiKey is empty on autocomplete', () async {
-      final datasource = PlacesRemoteDatasource.withDio(mockDio, apiKey: '');
-      expect(
-        () => datasource.autocomplete('Paris'),
-        throwsA(
-          isA<StateError>().having(
-            (e) => e.message,
-            'message',
-            contains('Google Places API key'),
-          ),
-        ),
-      );
-    });
-
-    test('throws StateError when apiKey is empty on details', () async {
-      final datasource = PlacesRemoteDatasource.withDio(mockDio, apiKey: '');
-      expect(
-        () => datasource.details('ChIJ_xxxxxx'),
-        throwsA(isA<StateError>()),
-      );
-    });
   });
 
   // -------------------------------------------------------------------------
