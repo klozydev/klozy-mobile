@@ -643,7 +643,7 @@ class _MessageViewWidgetState extends ConsumerState<MessageViewWidget>
                             height: (statusString != null) ? null : 0,
                             child: Transform.translate(
                               offset: const Offset(0, -2),
-                              child: Text((statusString?.tr() ?? ""),
+                              child: Text((statusString ?? ""),
                                   style: themeData.statusTextStyle,
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1),

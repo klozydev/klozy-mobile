@@ -28,9 +28,7 @@ OrderListItem mapOrderListItem(Object? raw) {
         ? fees.total
         : (items.isNotEmpty ? items.first.price : 0),
     status: OrderStatus.fromApi(_str(json, ['status'])),
-    counterpartName: counterpart.displayName.isEmpty
-        ? '@${counterpart.handle}'
-        : counterpart.displayName,
+    counterpartName: counterpart.displayName,
     createdAtLabel: _posted(_str(json, ['createdAt'])),
   );
 }
@@ -101,7 +99,6 @@ ProductSeller _party(Map<String, dynamic> json, String key) {
       : const <String, dynamic>{};
   return ProductSeller(
     id: _str(party, ['id', '_id']) ?? '',
-    handle: _str(party, ['handle', 'username']) ?? '',
     displayName: _str(party, ['displayName', 'name']) ?? '',
     avatarUrl: _str(party, ['avatarUrl', 'avatar']),
     isPro: party['isPro'] == true || party['pro'] == true,

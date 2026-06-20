@@ -37,6 +37,11 @@ abstract class AuthRepository {
 
   Future<void> sendPasswordReset(String email);
 
+  /// Sets a new password for the signed-in user (Firebase `updatePassword`).
+  /// May throw [AuthException] with a "sign in again" message when the session
+  /// is stale (`requires-recent-login`).
+  Future<void> updatePassword(String newPassword);
+
   Future<AuthUser> signInWithGoogle();
 
   Future<AuthUser> signInWithApple();
@@ -46,6 +51,20 @@ abstract class AuthRepository {
   Future<PhoneVerification> startPhoneVerification(String phoneNumber);
 
   Future<AuthUser> confirmPhoneCode({
+    required String verificationId,
+    required String smsCode,
+  });
+
+  /// Sends a confirmation link to [newEmail]; the address change applies only
+  /// once the user clicks it (Firebase `verifyBeforeUpdateEmail`). May throw
+  /// [AuthException] with a "sign in again" message when the session is stale
+  /// (`requires-recent-login`).
+  Future<void> sendEmailUpdateVerification(String newEmail);
+
+  /// Re-verifies and attaches a new phone number to the current account
+  /// (Firebase `updatePhoneNumber`). Use [startPhoneVerification] to obtain the
+  /// [verificationId] and the SMS [smsCode] entered by the user.
+  Future<void> updatePhoneNumber({
     required String verificationId,
     required String smsCode,
   });

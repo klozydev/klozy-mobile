@@ -183,12 +183,14 @@ class _SwipeableState extends State<Swipeable> with TickerProviderStateMixin {
           mainAxisAlignment: widget.mainAxisAlignment,
           mainAxisSize: MainAxisSize.max,
           children: [
-            GestureDetector(
-              onHorizontalDragStart: _handleDragStart,
-              onHorizontalDragUpdate: _handleDragUpdate,
-              onHorizontalDragEnd: _handleDragEnd,
-              behavior: HitTestBehavior.opaque,
-              child: widget.child,
+            Flexible(
+              child: GestureDetector(
+                onHorizontalDragStart: _handleDragStart,
+                onHorizontalDragUpdate: _handleDragUpdate,
+                onHorizontalDragEnd: _handleDragEnd,
+                behavior: HitTestBehavior.opaque,
+                child: widget.child,
+              ),
             )
           ],
         ),

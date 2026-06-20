@@ -25,7 +25,11 @@ class NotificationRowWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
-      child: Container(
+      child: AnimatedContainer(
+        // The unread highlight fades out smoothly when the auto read-pass marks
+        // everything read (design: a "read pass" rather than an instant swap).
+        duration: const Duration(milliseconds: 420),
+        curve: Curves.easeOut,
         margin: const EdgeInsets.only(bottom: 2),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 13),
         decoration: BoxDecoration(
@@ -62,9 +66,12 @@ class NotificationRowWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                      if (unread) ...<Widget>[
-                        const SizedBox(width: 8),
-                        Container(
+                      const SizedBox(width: 8),
+                      AnimatedOpacity(
+                        duration: const Duration(milliseconds: 420),
+                        curve: Curves.easeOut,
+                        opacity: unread ? 1 : 0,
+                        child: Container(
                           width: 7,
                           height: 7,
                           decoration: const BoxDecoration(
@@ -72,7 +79,7 @@ class NotificationRowWidget extends StatelessWidget {
                             shape: BoxShape.circle,
                           ),
                         ),
-                      ],
+                      ),
                     ],
                   ),
                   if (notification.body.isNotEmpty) ...<Widget>[

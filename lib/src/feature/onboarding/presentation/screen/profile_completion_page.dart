@@ -188,7 +188,12 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
   ) =>
       current is ProfileCompletionIdle ||
       current is ProfileCompletionSubmitting ||
-      current is ProfileCompletionAddressResolving;
+      current is ProfileCompletionAddressResolving ||
+      // Without these two, the BlocConsumer keeps the cached
+      // AddressResolving state and the Continue button spins forever once
+      // the address resolves (or fails). Rebuild so isLoading clears.
+      current is ProfileCompletionAddressResolved ||
+      current is ProfileCompletionAddressError;
 
   Widget _builder(BuildContext context, ProfileCompletionState state) {
     return Scaffold(

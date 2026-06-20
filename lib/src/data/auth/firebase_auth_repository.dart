@@ -174,6 +174,63 @@ class FirebaseAuthRepository implements AuthRepository {
   }
 
   @override
+  Future<void> sendEmailUpdateVerification(String newEmail) async {
+    final user = _firebaseAuth.currentUser;
+    if (user == null) {
+      throw const AuthException('Please sign in again to change your email.');
+    }
+    try {
+      await user.verifyBeforeUpdateEmail(newEmail.trim());
+    } on FirebaseAuthException catch (e) {
+      throw AuthException(_emailMessage(e));
+    }
+  }
+
+  @override
+  Future<void> updatePassword(String newPassword) async {
+    final user = _firebaseAuth.currentUser;
+    if (user == null) {
+      throw const AuthException(
+        'Please sign in again to change your password.',
+      );
+    }
+    try {
+      await user.updatePassword(newPassword);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        throw const AuthException(
+          'For your security, please sign in again before changing your '
+          'password.',
+        );
+      }
+      if (e.code == 'weak-password') {
+        throw const AuthException('Please choose a stronger password.');
+      }
+      throw AuthException(e.message ?? 'Could not update your password.');
+    }
+  }
+
+  @override
+  Future<void> updatePhoneNumber({
+    required String verificationId,
+    required String smsCode,
+  }) async {
+    final user = _firebaseAuth.currentUser;
+    if (user == null) {
+      throw const AuthException('Please sign in again to change your number.');
+    }
+    try {
+      final credential = PhoneAuthProvider.credential(
+        verificationId: verificationId,
+        smsCode: smsCode,
+      );
+      await user.updatePhoneNumber(credential);
+    } on FirebaseAuthException catch (e) {
+      throw AuthException(_phoneMessage(e));
+    }
+  }
+
+  @override
   Future<void> signOut() async {
     _meRepository.invalidate();
     await _googleSignIn.signOut();
@@ -212,6 +269,8 @@ class FirebaseAuthRepository implements AuthRepository {
     'email-already-in-use' => 'An account already exists for that email.',
     'weak-password' => 'Choose a stronger password (at least 8 characters).',
     'operation-not-allowed' => 'This sign-in method is not enabled.',
+    'requires-recent-login' =>
+      'For your security, please log out and sign in again before changing this.',
     'too-many-requests' => 'Too many attempts. Please try again later.',
     'network-request-failed' => 'Network error. Check your connection.',
     _ => 'Something went wrong. Please try again.',
@@ -221,6 +280,10 @@ class FirebaseAuthRepository implements AuthRepository {
     'invalid-phone-number' => 'That phone number looks invalid.',
     'invalid-verification-code' => 'That code is incorrect.',
     'session-expired' => 'The code expired. Request a new one.',
+    'credential-already-in-use' || 'account-exists-with-different-credential' =>
+      'That number is already linked to another account.',
+    'requires-recent-login' =>
+      'For your security, please log out and sign in again before changing this.',
     'too-many-requests' => 'Too many attempts. Please try again later.',
     _ => 'Phone verification failed. Please try again.',
   };

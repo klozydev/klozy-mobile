@@ -7,6 +7,7 @@ import 'package:klozy/src/core/pagination/paginated_list_response.dart';
 import 'package:klozy/src/data/product/product_detail_mapper.dart';
 import 'package:klozy/src/data/product/product_mapper.dart';
 import 'package:klozy/src/domain/product/entity/create_product_input.dart';
+import 'package:klozy/src/domain/product/entity/feed_page.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
 import 'package:klozy/src/domain/product/entity/search_facets.dart';
@@ -21,7 +22,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
   ProductsRepositoryImpl(this._dio, this._eventBus);
 
   @override
-  Future<PaginatedList<Product>> feed({
+  Future<FeedPage> feed({
     String? rootCategoryId,
     String? categoryId,
     ProductSort sort = ProductSort.popular,
@@ -38,11 +39,15 @@ class ProductsRepositoryImpl implements ProductsRepository {
         'limit': limit,
       },
     );
-    final parsed = PaginatedListResponse<Product>.fromJson(
-      response.data ?? const <String, dynamic>{},
-      mapProduct,
-    );
-    return PaginatedList<Product>(data: parsed.data, metadata: parsed.metadata);
+    final Map<String, dynamic> body =
+        response.data ?? const <String, dynamic>{};
+    final parsed = PaginatedListResponse<Product>.fromJson(body, mapProduct);
+    final List<String> pickedForYou =
+        (body['pickedForYou'] as List<dynamic>?)
+            ?.map((Object? e) => e.toString())
+            .toList() ??
+        const <String>[];
+    return FeedPage(data: parsed.data, pickedForYou: pickedForYou);
   }
 
   @override
@@ -75,7 +80,8 @@ class ProductsRepositoryImpl implements ProductsRepository {
         'limit': limit,
       },
     );
-    final Map<String, dynamic> data = response.data ?? const <String, dynamic>{};
+    final Map<String, dynamic> data =
+        response.data ?? const <String, dynamic>{};
     final parsed = PaginatedListResponse<Product>.fromJson(data, mapProduct);
     return SearchResult(
       page: PaginatedList<Product>(

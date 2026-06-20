@@ -4,7 +4,6 @@ import 'package:equatable/equatable.dart';
 class FollowUser extends Equatable {
   final String id;
   final String displayName;
-  final String handle;
   final String? avatarUrl;
   final bool isPro;
   final bool isFollowing;
@@ -12,19 +11,17 @@ class FollowUser extends Equatable {
   const FollowUser({
     required this.id,
     this.displayName = '',
-    this.handle = '',
     this.avatarUrl,
     this.isPro = false,
     this.isFollowing = false,
   });
 
-  String get name => displayName.isEmpty ? '@$handle' : displayName;
+  String get name => displayName;
 
   FollowUser copyWith({bool? isFollowing}) {
     return FollowUser(
       id: id,
       displayName: displayName,
-      handle: handle,
       avatarUrl: avatarUrl,
       isPro: isPro,
       isFollowing: isFollowing ?? this.isFollowing,
@@ -32,12 +29,5 @@ class FollowUser extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-    id,
-    displayName,
-    handle,
-    avatarUrl,
-    isPro,
-    isFollowing,
-  ];
+  List<Object?> get props => [id, displayName, avatarUrl, isPro, isFollowing];
 }

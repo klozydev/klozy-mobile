@@ -1,5 +1,13 @@
 {
   "app_name": "Klozy",
+  "@_ds": {},
+  "ds_set_composition_header": "This set includes",
+  "ds_set_composition_owner_note": "Add a photo of each piece to reassure buyers and sell faster.",
+  "ds_set_composition_buyer_note": "Some pieces aren't photographed. Contact the seller for details.",
+  "ds_set_composition_photo": "Photo",
+  "ds_set_composition_add": "Add",
+  "ds_set_composition_no_photo": "No photo",
+  "ds_search_bar_hint": "Search for an item or member",
   "@_error_page": {},
   "error_page_show_details": "SHOW DETAILS",
   "error_page_hide_details": "HIDE DETAILS",
@@ -51,6 +59,7 @@
   "error_scenario_maintenance_http_label": "Maintenance",
   "@_auth": {},
   "auth_country_uae": "UNITED ARAB EMIRATES",
+  "auth_hero_placeholder": "HERO  ·  EDITORIAL  FASHION  SHOT",
   "auth_welcome_title": "Buy & sell pre-loved\nfashion you'll love.",
   "auth_get_started": "Get started",
   "auth_already_have_account": "I already have an account · ",
@@ -172,20 +181,48 @@
   "home_tab_reels": "Reels",
   "home_feed_empty": "Nothing here yet.",
   "home_category_all": "All",
+  "home_picked_for_you": "Picked for you · {categories}",
+  "@home_picked_for_you": {
+    "placeholders": {
+      "categories": {
+        "type": "String"
+      }
+    }
+  },
   "home_product_badge_new": "New",
   "home_wishlist_empty": "Your wishlist is empty",
+  "home_wishlist_empty_hint": "Tap the heart on any item to save it here.",
+  "home_wishlist_saved_count": "{count, plural, =1{1 saved item} other{{count} saved items}}",
+  "@home_wishlist_saved_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "@_reels": {},
   "reels_composer_title": "New reel",
+  "reels_compose_details_title": "Add details",
   "reels_pick_title": "Create a reel",
   "reels_pick_subtitle": "Record a short video showing off your pieces, or pick one from your gallery.",
   "reels_record_video": "Record a video",
+  "reels_record_hint": "Up to 60s · vertical",
   "reels_choose_from_gallery": "Choose from gallery",
   "reels_caption_hint": "Say something about your look…",
   "reels_tag_items_title": "Tag items from your shop",
-  "reels_no_listings_to_tag": "You have no active listings to tag yet.",
+  "reels_no_listings_to_tag": "List an item first to tag it in your reels.",
   "reels_post_reel": "Post reel",
   "reels_posted_title": "Reel posted!",
-  "reels_posted_subtitle": "It will appear in Reels once processing finishes.",
+  "reels_posted_subtitle": "Your reel is live in the feed.",
+  "reels_posted_subtitle_tagged": "Your reel is live in the feed with {count} tagged {count, plural, one{item} other{items}}.",
+  "@reels_posted_subtitle_tagged": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reels_view_in_reels": "View in Reels",
   "reels_done": "Done",
   "reels_delete_reel": "Delete reel",
   "reels_report_reel": "Report reel",
@@ -204,6 +241,11 @@
   "reels_report_received_snackbar": "Thanks — report received.",
   "reels_empty": "No reels yet",
   "reels_link_copied_snackbar": "Link copied to clipboard.",
+  "entry_sheet_title": "What would you like to do?",
+  "entry_create_reel": "Create a reel",
+  "entry_create_reel_sub": "Share a video of your pieces",
+  "entry_list_item": "List an item for sale",
+  "entry_list_item_sub": "Photo-first · AI pre-fills your listing",
   "@_search": {},
   "search_hint": "Search items, brands…",
   "search_sort_popular": "Popular",
@@ -221,7 +263,24 @@
   },
   "search_browse_categories": "Browse categories",
   "search_popular_now": "Popular right now",
-  "search_no_results": "No results",
+  "search_no_results": "No items match your search.",
+  "category_items_count": "{count, plural, =1{1 item} other{{count} items}}",
+  "@category_items_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "category_empty": "Nothing here yet.",
+  "search_result_for_query": " for “{query}”",
+  "@search_result_for_query": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
   "search_result_count": "{count, plural, =1{1 result} other{{count} results}}",
   "@search_result_count": {
     "placeholders": {
@@ -251,7 +310,10 @@
   "search_filter_size": "Size",
   "search_filter_reset": "Reset",
   "search_filter_show_results": "Show results",
+  "search_filter_clear": "Clear",
+  "search_filter_all": "All",
   "@_product": {},
+  "product_your_listing": "Your listing",
   "product_add_to_cart": "Add to cart",
   "product_buy": "Buy",
   "product_in_cart_view_cart": "In cart · View cart",
@@ -265,6 +327,7 @@
   "product_report_listing": "Report listing",
   "product_report_this_listing": "Report this listing",
   "product_listing_deleted": "Listing deleted",
+  "product_listing_deleted_subtitle": "This item and its photos have been removed.",
   "product_back_to_feed": "Back to feed",
   "product_added_to_cart": "Added to cart.",
   "product_edit_coming_soon": "Editing a listing is coming soon.",
@@ -289,7 +352,9 @@
   "@_sell": {},
   "sell_sell_in_seconds": "Sell in seconds",
   "sell_your_photos": "Your photos",
-  "sell_add_photos_hint": "Add up to 8 photos. AI will pre-fill your listing.",
+  "sell_add_photos_hint": "Add up to 10 photos. AI will pre-fill your listing.",
+  "sell_reorder_hint": "Drag to reorder. The 1st photo is the cover.",
+  "sell_add_at_least_one_photo": "Add at least 1 photo to continue",
   "sell_continue": "Continue",
   "sell_cover": "Cover",
   "sell_add_a_photo": "Add a photo",
@@ -302,15 +367,22 @@
   "sell_price": "Price",
   "sell_description": "Description",
   "sell_category": "Category",
+  "sell_product_details": "Product details",
+  "sell_subcategory": "Subcategory",
+  "sell_choose_subcategory": "Choose a subcategory",
   "sell_brand": "Brand",
   "sell_size": "Size",
   "sell_condition": "Condition",
   "sell_suggested_by_ai": "Suggested by AI",
+  "sell_prefilled_by_ai": "Pre-filled by AI — review and adjust.",
+  "sell_photo_edit": "Edit",
   "sell_list_item": "List item",
   "sell_optional": "Optional",
   "sell_title_hint": "e.g. Leather biker jacket",
   "sell_price_hint": "AED",
   "sell_description_hint": "Add details about condition, fit, material…",
+  "sell_description_error": "Add a description so buyers know what they're getting",
+  "sell_size_one_size": "One size",
   "sell_search_brands": "Search brands",
   "sell_use_quoted": "Use \"{value}\"",
   "@sell_use_quoted": {
@@ -351,6 +423,7 @@
   },
   "cart_offer_error_below_total": "Offer must be below the total price",
   "cart_offer_chat_note": "One offer covers everything from this seller. It's sent privately in chat — the seller accepts or declines.",
+  "cart_offer_escrow_note": "Your payment is held in escrow until you confirm delivery.",
   "cart_currency_dhs": "Dhs",
   "cart_price_dhs": "{amount} Dhs",
   "@cart_price_dhs": {
@@ -365,6 +438,26 @@
     "placeholders": {
       "count": {
         "type": "int"
+      }
+    }
+  },
+  "checkout_buy_more_from": "Buy more from {name}",
+  "@checkout_buy_more_from": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cart_offer_seller_meta": "{count, plural, =1{1 item} other{{count} items}} · listed at {price} Dhs",
+  "@cart_offer_seller_meta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "price": {
+        "type": "num",
+        "format": "decimalPattern"
       }
     }
   },
@@ -417,6 +510,7 @@
   "orders_no_orders_yet": "No orders yet",
   "orders_prefix_from": "from",
   "orders_prefix_to": "to",
+  "orders_negotiated": "Negotiated",
   "orders_price_dhs": "{amount} Dhs",
   "@orders_price_dhs": {
     "placeholders": {
@@ -440,6 +534,15 @@
   "orders_tracking": "Tracking",
   "orders_tracking_updates_empty": "Tracking updates will appear here.",
   "orders_emx_door_to_door": "EMX door-to-door · UAE domestic",
+  "orders_emx_tracking": "EMX tracking",
+  "orders_track_confirmed_label": "Order confirmed",
+  "orders_track_confirmed_sub": "Seller is preparing your item",
+  "orders_track_shipped_label": "Shipped with EMX",
+  "orders_track_shipped_sub": "Picked up · in transit",
+  "orders_track_out_label": "Out for delivery",
+  "orders_track_out_sub": "Arriving today",
+  "orders_track_delivered_label": "Delivered",
+  "orders_track_delivered_sub": "Confirm to release payment",
   "orders_carrier_prefix": "{carrier} · ",
   "@orders_carrier_prefix": {
     "placeholders": {
@@ -530,6 +633,14 @@
   "profile_no_listings": "No listings yet",
   "profile_no_reels": "No reels yet",
   "profile_no_reviews": "No reviews yet",
+  "profile_reviews_count": "{count, plural, =1{1 review} other{{count} reviews}}",
+  "@profile_reviews_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "profile_no_followers": "No followers yet",
   "profile_no_following": "Not following anyone yet",
   "profile_connections_title": "Connections",
@@ -547,6 +658,10 @@
   "settings_section_legal": "Legal & support",
   "settings_section_account": "Account",
   "settings_edit_profile": "Edit profile",
+  "edit_profile_discard_title": "Discard changes?",
+  "edit_profile_discard_body": "You have unsaved changes. Leave without saving?",
+  "edit_profile_discard_confirm": "Discard",
+  "edit_profile_keep_editing": "Keep editing",
   "settings_delivery_address": "Delivery address",
   "settings_payout_iban": "Payout IBAN",
   "settings_seller_stats": "Seller stats",
@@ -564,8 +679,14 @@
   "settings_delete_confirm": "Permanently delete your account? This cannot be undone.",
   "settings_change_password_no_email": "No email is linked to this account.",
   "settings_password_reset_sent": "Password reset link sent. Check your email.",
+  "settings_new_password": "New password",
+  "settings_new_password_hint": "New password",
+  "settings_confirm_password": "Confirm password",
+  "settings_confirm_password_hint": "Re-enter password",
+  "settings_passwords_no_match": "Passwords do not match",
+  "settings_password_too_short": "Use at least 8 characters",
+  "settings_password_updated": "Password updated.",
   "settings_support_unavailable": "Support is unavailable right now.",
-  "settings_handle": "Handle",
   "settings_address_line1": "Address line",
   "settings_address_area": "Area",
   "settings_address_city": "City",
@@ -577,6 +698,48 @@
   "settings_doc_unavailable": "This document is unavailable right now.",
   "settings_no_blocked": "You haven't blocked anyone.",
   "settings_unblock": "Unblock",
+  "settings_group_account": "Account",
+  "settings_group_notifications": "Notifications",
+  "settings_group_other": "Other",
+  "settings_group_links": "Links",
+  "settings_group_social": "Social",
+  "settings_group_preferences": "Preferences",
+  "settings_personal_data": "Personal data",
+  "settings_personal_data_sub": "Profile, preferences, blocked users",
+  "settings_personal_information": "Personal information",
+  "settings_security": "Security",
+  "settings_security_sub": "Email, password, phone",
+  "settings_payouts_sub": "Bank details (IBAN)",
+  "settings_share_app": "Share the app",
+  "settings_legal_notices": "Legal notices",
+  "settings_about": "About",
+  "settings_instagram": "Instagram",
+  "settings_instagram_handle": "@klozy",
+  "settings_clothing_preference": "Clothing preference",
+  "settings_preferred_size": "Preferred size",
+  "settings_preferred_brands": "Preferred brands",
+  "settings_change_email": "Change email",
+  "settings_phone_number": "Phone number",
+  "settings_current_email": "Current email",
+  "settings_new_email": "New email",
+  "settings_new_email_hint": "you@email.com",
+  "settings_change_email_note": "We'll send a confirmation link to your new address. The change applies once confirmed.",
+  "settings_email_link_sent": "Confirmation link sent. Check your new inbox to finish.",
+  "settings_current_number": "Current number",
+  "settings_new_number": "New number",
+  "settings_new_number_hint": "50 123 4567",
+  "settings_phone_note": "We'll text a 6-digit code to confirm your new number.",
+  "settings_phone_updated": "Phone number updated.",
+  "settings_enter_code_for": "Enter the 6-digit code sent to {number}",
+  "@settings_enter_code_for": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "settings_share_message": "Check out Klozy — buy & sell pre-loved fashion across the UAE. https://klozy.app",
+  "settings_share_failed": "Couldn't open share. Please try again.",
   "onboarding_avatar_failed": "Couldn't upload your photo. Please try again.",
   "sell_weight": "Weight (grams)",
   "sell_weight_hint": "e.g. 800",
@@ -686,6 +849,7 @@
   "categoryPickerBreadcrumbRoot": "All categories",
   "categoryPickerLoading": "Loading...",
   "categoryPickerRetry": "Retry",
+  "categoryPickerDeepestHint": "Deepest level — filter by size below.",
   "categoryPickerAddCategories": "Add categories",
   "categoryPickerPreferred": "Preferred categories",
   "@_sell_enrich": {},

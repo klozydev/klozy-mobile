@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:klozy/src/design/components/ds_star_rating.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
-import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/domain/social/entity/social_profile.dart';
+import 'package:klozy/src/feature/profile/presentation/widget/profile_rating_summary.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_stats_row_widget.dart';
 
 class ProfileHeaderWidget extends StatelessWidget {
@@ -27,31 +26,29 @@ class ProfileHeaderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        const SizedBox(height: DSSpacing.l),
-        _AvatarWidget(avatarUrl: profile.avatarUrl),
-        const SizedBox(height: DSSpacing.m),
+        const SizedBox(height: 8),
+        _AvatarWidget(avatarUrl: profile.avatarUrl, name: profile.name),
+        const SizedBox(height: 14),
         _NameRow(profile: profile),
-        const SizedBox(height: DSSpacing.xxs),
-        if (profile.reviewCount > 0)
-          GestureDetector(
-            onTap: onRatingTap,
-            child: DSStarRating(
-              rating: profile.rating,
-              reviewCount: profile.reviewCount,
-              starSize: 13,
-            ),
+        const SizedBox(height: 7),
+        GestureDetector(
+          onTap: onRatingTap,
+          child: ProfileRatingSummary(
+            rating: profile.rating,
+            reviewCount: profile.reviewCount,
           ),
+        ),
         if (profile.bio != null && profile.bio!.isNotEmpty) ...<Widget>[
-          const SizedBox(height: DSSpacing.xxs),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: DSSpacing.xl),
+          const SizedBox(height: 12),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 300),
             child: Text(
               profile.bio!,
               style: const TextStyle(
                 fontFamily: dsFontFamily,
                 fontSize: DSFontSize.bodyMedium,
-                color: DSColor.onSurface45,
-                height: DSFontHeight.bodyMedium,
+                color: DSColor.onSurface65,
+                height: 19 / DSFontSize.bodyMedium,
               ),
               textAlign: TextAlign.center,
               maxLines: 3,
@@ -59,12 +56,14 @@ class ProfileHeaderWidget extends StatelessWidget {
             ),
           ),
         ],
-        const SizedBox(height: DSSpacing.m),
+        const SizedBox(height: 16),
         ProfileStatsRowWidget(
           followersCount: profile.followers,
           followingCount: profile.following,
+          onFollowers: onFollowers,
+          onFollowing: onFollowing,
         ),
-        const SizedBox(height: DSSpacing.l),
+        const SizedBox(height: 18),
       ],
     );
   }
@@ -72,22 +71,40 @@ class ProfileHeaderWidget extends StatelessWidget {
 
 class _AvatarWidget extends StatelessWidget {
   final String? avatarUrl;
+  final String name;
 
-  const _AvatarWidget({required this.avatarUrl});
+  const _AvatarWidget({required this.avatarUrl, required this.name});
 
   @override
   Widget build(BuildContext context) {
     if (avatarUrl != null) {
       return CircleAvatar(
-        radius: 56,
+        radius: 44,
         backgroundColor: DSColor.lowBlack,
         backgroundImage: CachedNetworkImageProvider(avatarUrl!),
       );
     }
-    return const CircleAvatar(
-      radius: 56,
-      backgroundColor: DSColor.lowBlack,
-      child: Icon(Icons.person, size: 56, color: DSColor.onSurface45),
+    final String initial = name.isEmpty
+        ? '?'
+        : name.characters.first.toUpperCase();
+    return Container(
+      width: 88,
+      height: 88,
+      decoration: BoxDecoration(
+        color: DSColor.card,
+        shape: BoxShape.circle,
+        border: Border.all(color: DSColor.onSurface10, width: 1),
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        initial,
+        style: const TextStyle(
+          fontFamily: dsFontFamily,
+          fontSize: 30,
+          fontWeight: DSFontWeight.bold,
+          color: DSColor.onSurface45,
+        ),
+      ),
     );
   }
 }
@@ -107,9 +124,10 @@ class _NameRow extends StatelessWidget {
             profile.name,
             style: const TextStyle(
               fontFamily: dsFontFamily,
-              fontSize: DSFontSize.displayLarge,
+              fontSize: DSFontSize.headlineLarge,
               fontWeight: DSFontWeight.bold,
               color: DSColor.onSurface,
+              letterSpacing: -0.2,
             ),
             textAlign: TextAlign.center,
             maxLines: 1,
@@ -117,12 +135,9 @@ class _NameRow extends StatelessWidget {
           ),
         ),
         if (profile.isPro) ...<Widget>[
-          const SizedBox(width: DSSpacing.xxs),
+          const SizedBox(width: 8),
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: DSSpacing.xxs - 2,
-              vertical: DSSpacing.xxxs - 2,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
             decoration: BoxDecoration(
               color: const Color(0x1FE0CE7D),
               borderRadius: BorderRadius.circular(DSBorderRadius.chip),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
@@ -14,54 +15,58 @@ class ProductDetailMetaRowWidget extends StatelessWidget {
     final List<Widget> parts = <Widget>[];
 
     if (product.postedLabel != null) {
-      parts.add(
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const Icon(Icons.schedule, size: 13, color: DSColor.onSurface45),
-            const SizedBox(width: DSSpacing.xxxs),
-            Text(
-              product.postedLabel!,
-              style: const TextStyle(
-                fontFamily: dsFontFamily,
-                fontSize: DSFontSize.bodySmall,
-                color: DSColor.onSurface45,
-              ),
-            ),
-          ],
-        ),
-      );
+      parts.add(_MetaChip(icon: Icons.schedule, label: product.postedLabel!));
     }
 
     if (product.location != null) {
       if (parts.isNotEmpty) {
-        parts.add(const SizedBox(width: DSSpacing.xs));
+        parts.add(const SizedBox(width: DSSpacing.xxs));
       }
       parts.add(
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const Icon(
-              Icons.location_on_outlined,
-              size: 13,
-              color: DSColor.onSurface45,
-            ),
-            const SizedBox(width: DSSpacing.xxxs),
-            Text(
-              product.location!,
-              style: const TextStyle(
-                fontFamily: dsFontFamily,
-                fontSize: DSFontSize.bodySmall,
-                color: DSColor.onSurface45,
-              ),
-            ),
-          ],
-        ),
+        _MetaChip(icon: Icons.location_on_outlined, label: product.location!),
       );
     }
 
     if (parts.isEmpty) return const SizedBox.shrink();
 
-    return Row(children: parts);
+    return Row(mainAxisSize: MainAxisSize.min, children: parts);
+  }
+}
+
+/// Boxed meta chip (design: bg onSurface07, hairline border, radius 12,
+/// icon 14 + text 13 medium).
+class _MetaChip extends StatelessWidget {
+  final IconData icon;
+  final String label;
+
+  const _MetaChip({required this.icon, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 9),
+      decoration: BoxDecoration(
+        color: DSColor.onSurface07,
+        borderRadius: BorderRadius.circular(DSBorderRadius.image),
+        border: Border.all(color: DSColor.onSurface10, width: 0.5),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Icon(icon, size: 14, color: DSColor.onSurface65),
+          const SizedBox(width: 7),
+          Text(
+            label,
+            style: const TextStyle(
+              fontFamily: dsFontFamily,
+              fontSize: DSFontSize.bodyMedium,
+              fontWeight: DSFontWeight.medium,
+              color: DSColor.onSurface85,
+              height: 1,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

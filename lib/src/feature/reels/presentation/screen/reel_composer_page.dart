@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:klozy/src/core/events/open_reels_tab_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
+import 'package:klozy/src/design/components/ds_dashed_rounded_border_painter.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
@@ -87,53 +90,111 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
         if (state is ReelComposerDone) {
           return _success(context);
         }
+        final bool picking = _videoPath == null;
         return Scaffold(
           backgroundColor: DSColor.surface,
           appBar: AppBar(
-            leading: IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: () => context.router.maybePop(),
+            leading: picking
+                ? IconButton(
+                    icon: const Icon(Icons.close),
+                    onPressed: () => context.router.maybePop(),
+                  )
+                : IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_new, size: 20),
+                    onPressed: () => setState(() => _videoPath = null),
+                  ),
+            title: Text(
+              picking
+                  ? context.l10N.reels_composer_title
+                  : context.l10N.reels_compose_details_title,
             ),
-            title: Text(context.l10N.reels_composer_title),
           ),
-          body: _videoPath == null
-              ? _pickStage(context)
-              : _composeStage(context, state),
+          body: picking ? _pickStage(context) : _composeStage(context, state),
         );
       },
     );
   }
 
   Widget _pickStage(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(24),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            context.l10N.reels_pick_title,
-            style: const TextStyle(
-              fontFamily: dsFontFamily,
-              fontSize: DSFontSize.headlineLarge,
-              fontWeight: DSFontWeight.bold,
-              color: DSColor.onSurface,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(2, 4, 2, 16),
+            child: Text(
+              context.l10N.reels_pick_subtitle,
+              style: const TextStyle(
+                fontFamily: dsFontFamily,
+                fontSize: DSFontSize.bodyMedium,
+                height: 1.46,
+                color: DSColor.onSurface60,
+              ),
             ),
           ),
-          const SizedBox(height: 8),
-          Text(
-            context.l10N.reels_pick_subtitle,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontFamily: dsFontFamily,
-              fontSize: DSFontSize.bodyMedium,
-              height: 1.46,
-              color: DSColor.onSurface60,
+          // 9:16 record tile.
+          GestureDetector(
+            onTap: () => _pick(ImageSource.camera),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 360),
+              child: AspectRatio(
+                aspectRatio: 9 / 16,
+                child: CustomPaint(
+                  painter: const DSDashedRoundedBorderPainter(
+                    color: DSColor.onSurface24,
+                    radius: DSBorderRadius.card,
+                  ),
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(DSBorderRadius.card),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: <Color>[Color(0xFF16161A), Color(0xFF0D0D10)],
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          width: 64,
+                          height: 64,
+                          decoration: const BoxDecoration(
+                            color: DSColor.primary,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.play_arrow_rounded,
+                            size: 30,
+                            color: DSColor.surface,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          context.l10N.reels_record_video,
+                          style: const TextStyle(
+                            fontFamily: dsFontFamily,
+                            fontSize: DSFontSize.bodyLarge,
+                            fontWeight: DSFontWeight.semiBold,
+                            color: DSColor.onSurface,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          context.l10N.reels_record_hint,
+                          style: const TextStyle(
+                            fontFamily: dsFontFamily,
+                            fontSize: DSFontSize.bodySmall,
+                            color: DSColor.onSurface45,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ),
-          ),
-          const SizedBox(height: 28),
-          DSButtonElevated(
-            text: context.l10N.reels_record_video,
-            onPressed: () => _pick(ImageSource.camera),
           ),
           const SizedBox(height: 12),
           DSButtonOutline(
@@ -185,12 +246,13 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  context.l10N.reels_tag_items_title,
+                  context.l10N.reels_tag_items_title.toUpperCase(),
                   style: const TextStyle(
                     fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.titleLarge,
+                    fontSize: 11,
                     fontWeight: DSFontWeight.semiBold,
-                    color: DSColor.onSurface,
+                    letterSpacing: 0.88,
+                    color: DSColor.onSurface35,
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -212,6 +274,7 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
                           crossAxisCount: 3,
                           mainAxisSpacing: 8,
                           crossAxisSpacing: 8,
+                          childAspectRatio: 3 / 4,
                         ),
                     itemCount: _products.length,
                     itemBuilder: (BuildContext context, int i) {
@@ -224,16 +287,17 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
                               : _tagged.add(p.id),
                         ),
                         child: Container(
+                          clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
                             color: DSColor.card,
                             borderRadius: BorderRadius.circular(
-                              DSBorderRadius.image,
+                              DSBorderRadius.cardSmall,
                             ),
                             border: Border.all(
                               color: selected
                                   ? DSColor.primary
-                                  : Colors.transparent,
-                              width: 2,
+                                  : DSColor.onSurface10,
+                              width: selected ? 1.5 : 0.5,
                             ),
                             image: p.coverImageUrl == null
                                 ? null
@@ -242,19 +306,57 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
                                     fit: BoxFit.cover,
                                   ),
                           ),
-                          child: selected
-                              ? const Align(
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: <Widget>[
+                              // Price overlay along the bottom edge.
+                              Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Container(
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.fromLTRB(
+                                    5,
+                                    12,
+                                    5,
+                                    4,
+                                  ),
+                                  decoration: const BoxDecoration(
+                                    gradient: LinearGradient(
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter,
+                                      colors: <Color>[
+                                        Color(0xD9000000),
+                                        Colors.transparent,
+                                      ],
+                                    ),
+                                  ),
+                                  child: Text(
+                                    context.l10N.product_price_amount(
+                                      p.price.toInt(),
+                                    ),
+                                    style: const TextStyle(
+                                      fontFamily: dsFontFamily,
+                                      fontSize: 9,
+                                      fontWeight: DSFontWeight.semiBold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              if (selected)
+                                const Align(
                                   alignment: Alignment.topRight,
                                   child: Padding(
-                                    padding: EdgeInsets.all(4),
+                                    padding: EdgeInsets.all(5),
                                     child: Icon(
                                       Icons.check_circle,
-                                      size: 18,
+                                      size: 20,
                                       color: DSColor.primary,
                                     ),
                                   ),
-                                )
-                              : null,
+                                ),
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -315,7 +417,11 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        context.l10N.reels_posted_subtitle,
+                        _tagged.isEmpty
+                            ? context.l10N.reels_posted_subtitle
+                            : context.l10N.reels_posted_subtitle_tagged(
+                                _tagged.length,
+                              ),
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontFamily: dsFontFamily,
@@ -331,8 +437,11 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
             ),
             DSBottomBar(
               child: DSButtonElevated(
-                text: context.l10N.reels_done,
-                onPressed: () => context.router.maybePop(),
+                text: context.l10N.reels_view_in_reels,
+                onPressed: () {
+                  locator<EventBus>().fire(const OpenReelsTabEvent());
+                  context.router.maybePop();
+                },
               ),
             ),
           ],

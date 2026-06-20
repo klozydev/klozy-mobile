@@ -16,7 +16,7 @@ import 'package:klozy/src/feature/sell/presentation/bloc/sell_bloc.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_event.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_state.dart';
 
-const int _maxPhotos = 8;
+const int _maxPhotos = 10;
 
 class SellPhotosWidget extends StatefulWidget {
   final SellPhotosState state;
@@ -165,16 +165,65 @@ class _SellPhotosWidgetState extends State<SellPhotosWidget> {
                           if (_paths.length < _maxPhotos) _addTile(),
                         ],
                       ),
+                      const SizedBox(height: DSSpacing.s),
+                      Row(
+                        children: <Widget>[
+                          const Icon(
+                            Icons.info_outline_rounded,
+                            size: 13,
+                            color: DSColor.onSurface35,
+                          ),
+                          const SizedBox(width: 7),
+                          Expanded(
+                            child: Text(
+                              context.l10N.sell_reorder_hint,
+                              style: const TextStyle(
+                                fontFamily: dsFontFamily,
+                                fontSize: DSFontSize.bodyMedium,
+                                color: DSColor.onSurface45,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
         ),
         DSBottomBar(
-          child: DSButtonElevated(
-            text: context.l10N.sell_continue,
-            isEnable: _paths.isNotEmpty,
-            onPressed: () =>
-                context.read<SellBloc>().add(SellAnalyzeRequested(_paths)),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              // Helper shown until the listing has its first (required) photo.
+              if (_paths.isEmpty) ...<Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Icon(
+                      Icons.camera_alt_outlined,
+                      size: 14,
+                      color: DSColor.onSurface35,
+                    ),
+                    const SizedBox(width: 7),
+                    Text(
+                      context.l10N.sell_add_at_least_one_photo,
+                      style: const TextStyle(
+                        fontFamily: dsFontFamily,
+                        fontSize: DSFontSize.bodyMedium,
+                        color: DSColor.onSurface45,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: DSSpacing.xxs),
+              ],
+              DSButtonElevated(
+                text: context.l10N.sell_continue,
+                isEnable: _paths.isNotEmpty,
+                onPressed: () =>
+                    context.read<SellBloc>().add(SellAnalyzeRequested(_paths)),
+              ),
+            ],
           ),
         ),
       ],
@@ -266,17 +315,47 @@ class _SellPhotosWidgetState extends State<SellPhotosWidget> {
                   color: DSColor.primary,
                   borderRadius: BorderRadius.circular(DSBorderRadius.chip),
                 ),
-                child: Text(
-                  context.l10N.sell_cover,
-                  style: const TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: 9,
-                    fontWeight: DSFontWeight.bold,
-                    color: DSColor.surface,
-                  ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const Icon(
+                      Icons.check_rounded,
+                      size: 11,
+                      color: DSColor.surface,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      context.l10N.sell_cover,
+                      style: const TextStyle(
+                        fontFamily: dsFontFamily,
+                        fontSize: 9,
+                        fontWeight: DSFontWeight.bold,
+                        color: DSColor.surface,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
+          // Drag handle (top-left) — affordance for long-press reorder.
+          Positioned(
+            left: DSSpacing.xxs,
+            top: DSSpacing.xxs,
+            child: Container(
+              width: 24,
+              height: 24,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: const Color(0x73000000),
+                borderRadius: BorderRadius.circular(7),
+              ),
+              child: const Icon(
+                Icons.drag_indicator_rounded,
+                size: 15,
+                color: DSColor.onSurface75,
+              ),
+            ),
+          ),
           Positioned(
             right: DSSpacing.xxs,
             top: DSSpacing.xxs,

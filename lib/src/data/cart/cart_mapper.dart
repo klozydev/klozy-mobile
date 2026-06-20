@@ -34,7 +34,7 @@ CartBucket _bucket(Map<String, dynamic> json) {
   final status = _offerStatus(_str(offer, ['status']));
   return CartBucket(
     sellerId: _str(seller, ['id', '_id']) ?? _str(json, ['sellerId']) ?? '',
-    sellerName: _str(seller, ['displayName', 'name', 'handle']) ?? '',
+    sellerName: _str(seller, ['displayName', 'name']) ?? '',
     sellerAvatar: _str(seller, ['avatarUrl', 'avatar', 'photoUrl']),
     isPro: seller['isPro'] == true || seller['pro'] == true,
     items: items,

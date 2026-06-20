@@ -172,7 +172,13 @@ class _MessageBoxState extends ConsumerState<MessageBox> {
                                           MediaQuery.of(context).size.width *
                                               0.4),
                                   // padding: themeData.replyToPadding,
-                                  clipBehavior: Clip.antiAlias,
+                                  clipBehavior: (fromMe
+                                              ? themeData.meReplyToDecoration
+                                              : themeData
+                                                  .otherReplyToDecoration) !=
+                                          null
+                                      ? Clip.antiAlias
+                                      : Clip.none,
                                   decoration: fromMe
                                       ? themeData.meReplyToDecoration
                                       : themeData.otherReplyToDecoration,

@@ -71,6 +71,10 @@ class _SingleReelPageState extends State<SingleReelPage> {
       context,
       child: ReelMenuSheet(
         isOwner: false,
+        onShare: () {
+          Navigator.of(context).maybePop();
+          AppShare.reel(reel.id, caption: reel.caption);
+        },
         onDelete: () => Navigator.of(context).maybePop(),
         onReport: () {
           Navigator.of(context).maybePop();

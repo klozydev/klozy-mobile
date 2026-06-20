@@ -12,12 +12,13 @@ class FilterSectionLabelWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 20, bottom: 12),
       child: Text(
-        text,
+        text.toUpperCase(),
         style: const TextStyle(
           fontFamily: dsFontFamily,
-          fontSize: DSFontSize.titleLarge,
+          fontSize: 11,
           fontWeight: DSFontWeight.semiBold,
-          color: DSColor.onSurface,
+          letterSpacing: 0.88,
+          color: DSColor.onSurface35,
         ),
       ),
     );

@@ -60,6 +60,7 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
           categories: _categories,
           selectedRootId: _rootId,
           items: page.data,
+          pickedForYou: page.pickedForYou,
           hasMore: page.data.length >= _limit,
         ),
       );
@@ -95,6 +96,7 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
           categories: _categories,
           selectedRootId: _rootId,
           items: page.data,
+          pickedForYou: page.pickedForYou,
           hasMore: page.data.length >= _limit,
         ),
       );
@@ -152,6 +154,7 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
           categories: _categories,
           selectedRootId: _rootId,
           items: page.data,
+          pickedForYou: page.pickedForYou,
           hasMore: page.data.length >= _limit,
         ),
       );

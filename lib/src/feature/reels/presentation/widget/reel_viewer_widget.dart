@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
@@ -18,8 +17,8 @@ import 'package:klozy/src/feature/reels/presentation/widget/reel_comments_sheet.
 import 'package:klozy/src/feature/reels/presentation/widget/reel_edit_sheet.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_menu_sheet.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_page_widget.dart';
+import 'package:klozy/src/feature/reels/presentation/widget/reel_progress_dots_widget.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_shop_sheet.dart';
-import 'package:klozy/src/router/app_router.dart';
 
 /// The TikTok-style vertical reel viewer used in the Home "Reels" tab. [active]
 /// is true only while the Reels tab is selected (so videos pause otherwise).
@@ -102,6 +101,10 @@ class _ReelViewerWidgetState extends State<ReelViewerWidget> {
       context,
       child: ReelMenuSheet(
         isOwner: isOwner,
+        onShare: () {
+          Navigator.of(context).maybePop();
+          AppShare.reel(reel.id, caption: reel.caption);
+        },
         onEdit: () {
           Navigator.of(context).maybePop();
           _editCaption(reel);
@@ -144,19 +147,14 @@ class _ReelViewerWidgetState extends State<ReelViewerWidget> {
 
   Widget _viewer(ReelsReadyState state) {
     if (state.reels.isEmpty) {
-      return Stack(
-        children: <Widget>[
-          ColoredBox(
-            color: DSColor.surface,
-            child: Center(
-              child: Text(
-                context.l10N.reels_empty,
-                style: const TextStyle(color: DSColor.onSurface45),
-              ),
-            ),
+      return ColoredBox(
+        color: DSColor.surface,
+        child: Center(
+          child: Text(
+            context.l10N.reels_empty,
+            style: const TextStyle(color: DSColor.onSurface45),
           ),
-          _composerButton(),
-        ],
+        ),
       );
     }
     return Stack(
@@ -183,27 +181,15 @@ class _ReelViewerWidgetState extends State<ReelViewerWidget> {
             );
           },
         ),
-        _composerButton(),
-      ],
-    );
-  }
-
-  Widget _composerButton() {
-    return Positioned(
-      top: MediaQuery.viewPaddingOf(context).top + 8,
-      right: 14,
-      child: GestureDetector(
-        onTap: () => context.router.push(const ReelComposerRoute()),
-        child: Container(
-          width: 38,
-          height: 38,
-          decoration: const BoxDecoration(
-            color: Color(0x66000000),
-            shape: BoxShape.circle,
+        Positioned(
+          top: MediaQuery.viewPaddingOf(context).top + 56,
+          right: 14,
+          child: ReelProgressDotsWidget(
+            count: state.reels.length,
+            current: _index,
           ),
-          child: const Icon(Icons.add, size: 22, color: Colors.white),
         ),
-      ),
+      ],
     );
   }
 }

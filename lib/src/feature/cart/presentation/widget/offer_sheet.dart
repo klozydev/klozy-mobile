@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
@@ -6,18 +7,28 @@ import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
+import 'package:klozy/src/domain/cart/entity/cart_item.dart';
 
-/// "Make an offer" body — one offer for the whole seller bucket. Returns the
-/// amount (num) via `Navigator.pop`.
+/// "Make an offer" body — one offer for the whole seller bucket. Shows the
+/// seller header and a per-item list (design: the offer covers everything from
+/// this seller), then the amount field. Returns the amount via `Navigator.pop`.
 class OfferSheet extends StatefulWidget {
   final num subtotal;
-  final int itemCount;
+  final String sellerName;
+  final String? sellerAvatar;
+  final bool isPro;
+  final List<CartItem> items;
 
   const OfferSheet({
     super.key,
     required this.subtotal,
-    required this.itemCount,
+    required this.sellerName,
+    required this.items,
+    this.sellerAvatar,
+    this.isPro = false,
   });
+
+  int get itemCount => items.length;
 
   @override
   State<OfferSheet> createState() => _OfferSheetState();
@@ -45,6 +56,131 @@ class _OfferSheetState extends State<OfferSheet> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        // Seller header — avatar, name, PRO badge, and "N items · listed at X".
+        Padding(
+          padding: const EdgeInsets.only(bottom: 12),
+          child: Row(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 17,
+                backgroundColor: DSColor.lowBlack,
+                backgroundImage: widget.sellerAvatar == null
+                    ? null
+                    : NetworkImage(widget.sellerAvatar!),
+                child: widget.sellerAvatar == null
+                    ? const Icon(Icons.person, size: 17, color: Colors.white)
+                    : null,
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Flexible(
+                          child: Text(
+                            widget.sellerName,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontFamily: dsFontFamily,
+                              fontSize: DSFontSize.bodyLarge,
+                              fontWeight: DSFontWeight.semiBold,
+                              color: DSColor.onSurface,
+                            ),
+                          ),
+                        ),
+                        if (widget.isPro) ...<Widget>[
+                          const SizedBox(width: 8),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 6,
+                              vertical: 2,
+                            ),
+                            decoration: BoxDecoration(
+                              color: const Color(0x1FE0CE7D),
+                              borderRadius: BorderRadius.circular(
+                                DSBorderRadius.chip,
+                              ),
+                            ),
+                            child: Text(
+                              context.l10N.cart_pro_badge,
+                              style: const TextStyle(
+                                fontFamily: dsFontFamily,
+                                fontSize: 9,
+                                fontWeight: DSFontWeight.bold,
+                                color: DSColor.primary,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                    const SizedBox(height: 1),
+                    Text(
+                      context.l10N.cart_offer_seller_meta(
+                        widget.items.length,
+                        widget.subtotal,
+                      ),
+                      style: const TextStyle(
+                        fontFamily: dsFontFamily,
+                        fontSize: DSFontSize.bodySmall,
+                        color: DSColor.onSurface45,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        // Per-item list — small thumbnail, title, listed price.
+        for (final CartItem item in widget.items)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: SizedBox(
+                    width: 32,
+                    height: 32,
+                    child: item.image == null
+                        ? const ColoredBox(color: DSColor.lowBlack)
+                        : CachedNetworkImage(
+                            imageUrl: item.image!,
+                            fit: BoxFit.cover,
+                          ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    item.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontFamily: dsFontFamily,
+                      fontSize: DSFontSize.bodyMedium,
+                      color: DSColor.onSurface75,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  context.l10N.cart_price_dhs(item.price.round()),
+                  style: const TextStyle(
+                    fontFamily: dsFontFamily,
+                    fontSize: DSFontSize.bodyMedium,
+                    color: DSColor.onSurface45,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        const SizedBox(height: 12),
         DSTextField(
           controller: _amount,
           autofocus: true,
@@ -88,6 +224,34 @@ class _OfferSheetState extends State<OfferSheet> {
             height: 1.45,
             color: DSColor.onSurface35,
           ),
+        ),
+        const SizedBox(height: 12),
+        // Escrow reassurance — funds are held until the buyer confirms delivery
+        // (design: lock icon + note above the send button).
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const Padding(
+              padding: EdgeInsets.only(top: 1),
+              child: Icon(
+                Icons.lock_outline_rounded,
+                size: 15,
+                color: DSColor.onSurface45,
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                context.l10N.cart_offer_escrow_note,
+                style: const TextStyle(
+                  fontFamily: dsFontFamily,
+                  fontSize: DSFontSize.bodySmall,
+                  height: 1.45,
+                  color: DSColor.onSurface60,
+                ),
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 16),
         DSButtonElevated(

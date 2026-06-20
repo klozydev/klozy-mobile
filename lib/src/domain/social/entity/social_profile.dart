@@ -6,7 +6,6 @@ class SocialProfile extends Equatable {
 
   /// Firebase UID — the id the kosmos chat keys threads by (used by ChatEntry).
   final String firebaseUid;
-  final String handle;
   final String displayName;
   final String? avatarUrl;
   final String? bio;
@@ -23,7 +22,6 @@ class SocialProfile extends Equatable {
   const SocialProfile({
     required this.id,
     this.firebaseUid = '',
-    this.handle = '',
     this.displayName = '',
     this.avatarUrl,
     this.bio,
@@ -38,13 +36,12 @@ class SocialProfile extends Equatable {
     this.location,
   });
 
-  String get name => displayName.isEmpty ? '@$handle' : displayName;
+  String get name => displayName;
 
   SocialProfile copyWith({bool? isFollowing, int? followers}) {
     return SocialProfile(
       id: id,
       firebaseUid: firebaseUid,
-      handle: handle,
       displayName: displayName,
       avatarUrl: avatarUrl,
       bio: bio,
@@ -64,7 +61,6 @@ class SocialProfile extends Equatable {
   List<Object?> get props => [
     id,
     firebaseUid,
-    handle,
     displayName,
     avatarUrl,
     bio,

@@ -39,8 +39,10 @@ class _NotificationsPageState extends State<NotificationsPage> {
   @override
   void initState() {
     super.initState();
-    // Mirrors the prototype: clear unread shortly after opening.
-    _autoRead = Timer(const Duration(milliseconds: 1500), () {
+    // Mirrors the prototype's read pass: after a brief beat the unread items
+    // are marked read and their highlights/dots fade out together (the row
+    // widget animates the transition).
+    _autoRead = Timer(const Duration(milliseconds: 1800), () {
       if (mounted) {
         context.read<NotificationsBloc>().add(const NotificationsReadAll());
       }
@@ -104,56 +106,27 @@ class _NotificationsPageState extends State<NotificationsPage> {
               ),
             ),
             NotificationsLoadedState() =>
-              state.isEmpty ? _Empty() : _grouped(context, state.items),
+              state.isEmpty ? _Empty() : _list(context, state.items),
           };
         },
       ),
     );
   }
 
-  Widget _grouped(BuildContext context, List<AppNotification> items) {
-    final now = DateTime.now();
-    bool isToday(DateTime? d) =>
-        d != null &&
-        d.year == now.year &&
-        d.month == now.month &&
-        d.day == now.day;
-    final today = items.where((AppNotification n) => isToday(n.createdAt));
-    final earlier = items.where((AppNotification n) => !isToday(n.createdAt));
-    return ListView(
+  // Flat, chronological list — the prototype shows no date-group headers.
+  Widget _list(BuildContext context, List<AppNotification> items) {
+    return ListView.builder(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-      children: <Widget>[
-        if (today.isNotEmpty) _header(context.l10N.notifications_group_today),
-        ...today.map(_row),
-        if (earlier.isNotEmpty)
-          _header(context.l10N.notifications_group_earlier),
-        ...earlier.map(_row),
-      ],
-    );
-  }
-
-  Widget _header(String text) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(2, 12, 2, 8),
-      child: Text(
-        text.toUpperCase(),
-        style: const TextStyle(
-          fontFamily: dsFontFamily,
-          fontSize: DSFontSize.bodySmall,
-          fontWeight: DSFontWeight.semiBold,
-          letterSpacing: 0.6,
-          color: DSColor.onSurface45,
-        ),
-      ),
-    );
-  }
-
-  Widget _row(AppNotification n) {
-    return NotificationRowWidget(
-      notification: n,
-      onTap: () => _open(context, n),
-      onDelete: () =>
-          context.read<NotificationsBloc>().add(NotificationRemoved(n.id)),
+      itemCount: items.length,
+      itemBuilder: (BuildContext context, int i) {
+        final AppNotification n = items[i];
+        return NotificationRowWidget(
+          notification: n,
+          onTap: () => _open(context, n),
+          onDelete: () =>
+              context.read<NotificationsBloc>().add(NotificationRemoved(n.id)),
+        );
+      },
     );
   }
 }

@@ -1,18 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:klozy/src/app/theme/app_config_change_notifier.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
-import 'package:klozy/src/core/l10n/app_language.dart';
+import 'package:klozy/src/core/util/app_share.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
-import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/feature/settings/presentation/bloc/settings_bloc.dart';
 import 'package:klozy/src/feature/settings/presentation/bloc/settings_event.dart';
 import 'package:klozy/src/feature/settings/presentation/bloc/settings_state.dart';
-import 'package:klozy/src/feature/settings/presentation/widget/language_picker_sheet.dart';
 import 'package:klozy/src/feature/settings/presentation/widget/settings_row_widget.dart';
 import 'package:klozy/src/feature/settings/presentation/widget/settings_section_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
@@ -59,16 +56,6 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
     return ok ?? false;
   }
 
-  String _currentLanguageName() {
-    final String code = locator<AppConfigChangeNotifier>().locale;
-    return kAppLanguages
-        .firstWhere(
-          (AppLanguage l) => l.code == code,
-          orElse: () => kAppLanguages.first,
-        )
-        .name;
-  }
-
   Future<void> _launch(BuildContext context, String url) async {
     final uri = Uri.tryParse(url);
     if (uri == null ||
@@ -96,6 +83,9 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
               onPressed: () => context.router.maybePop(),
             ),
             title: Text(context.l10N.settings_title),
+            actions: <Widget>[
+              if (state is SettingsLoadedState) _overflowMenu(context, state),
+            ],
           ),
           body: switch (state) {
             SettingsLoadingState() => const DSLoader(),
@@ -118,62 +108,30 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
       children: <Widget>[
         SettingsSectionWidget(
-          title: l.settings_section_profile,
+          title: l.settings_group_account,
           children: <Widget>[
             SettingsRowWidget(
               icon: Icons.person_outline,
-              label: l.settings_edit_profile,
-              onTap: () => context.router.push(const EditProfileRoute()),
+              label: l.settings_personal_data,
+              subtitle: l.settings_personal_data_sub,
+              onTap: () => context.router.push(const PersonalDataRoute()),
             ),
             SettingsRowWidget(
-              icon: Icons.location_on_outlined,
-              label: l.settings_delivery_address,
-              onTap: () => context.router.push(const AddressBookRoute()),
+              icon: Icons.shield_outlined,
+              label: l.settings_security,
+              subtitle: l.settings_security_sub,
+              onTap: () => context.router.push(const SecurityRoute()),
             ),
-            SettingsRowWidget(
-              icon: Icons.tune_rounded,
-              label: l.settings_preferences,
-              onTap: () => context.router.push(const PreferencesRoute()),
-            ),
-            SettingsRowWidget(
-              icon: Icons.language_rounded,
-              label: l.settings_language,
-              value: _currentLanguageName(),
-              onTap: () => LanguagePickerSheet.show(
-                context,
-                l.settings_language,
-                locator<AppConfigChangeNotifier>().locale,
-              ),
-            ),
-          ],
-        ),
-        SettingsSectionWidget(
-          title: l.settings_section_seller,
-          children: <Widget>[
             SettingsRowWidget(
               icon: Icons.account_balance_outlined,
-              label: l.settings_payout_iban,
-              onTap: () => context.router.push(const PayoutRoute()),
-            ),
-            SettingsRowWidget(
-              icon: Icons.payments_outlined,
               label: l.settings_payouts,
-              onTap: () => context.router.push(const PayoutsRoute()),
-            ),
-            SettingsRowWidget(
-              icon: Icons.insights_outlined,
-              label: l.settings_seller_stats,
-              onTap: () => context.router.push(const SellerStatsRoute()),
-            ),
-            SettingsRowWidget(
-              icon: Icons.verified_outlined,
-              label: l.connect_title,
-              onTap: () => context.router.push(const SellerVerificationRoute()),
+              subtitle: l.settings_payouts_sub,
+              onTap: () => context.router.push(const PayoutRoute()),
             ),
           ],
         ),
         SettingsSectionWidget(
-          title: l.settings_section_notifications,
+          title: l.settings_group_notifications,
           children: <Widget>[
             SettingsRowWidget(
               icon: Icons.notifications_none_rounded,
@@ -200,28 +158,23 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
           ],
         ),
         SettingsSectionWidget(
-          title: l.settings_section_privacy,
+          title: l.settings_group_other,
           children: <Widget>[
             SettingsRowWidget(
-              icon: Icons.block_outlined,
-              label: l.settings_blocked_users,
-              onTap: () => context.router.push(const BlockedUsersRoute()),
+              icon: Icons.help_outline_rounded,
+              label: l.settings_support,
+              onTap: () => _support(context, state),
             ),
             SettingsRowWidget(
-              icon: Icons.lock_outline_rounded,
-              label: l.settings_change_password,
-              onTap: () => _changePassword(context, state),
+              icon: Icons.ios_share_rounded,
+              label: l.settings_share_app,
+              onTap: () => AppShare.text(l.settings_share_message),
             ),
           ],
         ),
         SettingsSectionWidget(
-          title: l.settings_section_legal,
+          title: l.settings_group_links,
           children: <Widget>[
-            SettingsRowWidget(
-              icon: Icons.description_outlined,
-              label: l.settings_terms,
-              onTap: () => context.router.push(LegalDocRoute(docKey: 'terms')),
-            ),
             SettingsRowWidget(
               icon: Icons.privacy_tip_outlined,
               label: l.settings_privacy,
@@ -229,90 +182,117 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
                   context.router.push(LegalDocRoute(docKey: 'privacy')),
             ),
             SettingsRowWidget(
-              icon: Icons.help_outline_rounded,
-              label: l.settings_support,
-              onTap: () => _support(context, state),
+              icon: Icons.description_outlined,
+              label: l.settings_terms,
+              onTap: () => context.router.push(LegalDocRoute(docKey: 'terms')),
             ),
-            const _VersionRow(),
+            SettingsRowWidget(
+              icon: Icons.gavel_rounded,
+              label: l.settings_legal_notices,
+              onTap: () => context.router.push(LegalDocRoute(docKey: 'legal')),
+            ),
+            SettingsRowWidget(
+              icon: Icons.info_outline_rounded,
+              label: l.settings_about,
+              onTap: () => context.router.push(LegalDocRoute(docKey: 'about')),
+            ),
           ],
         ),
-        const SizedBox(height: 8),
         SettingsSectionWidget(
-          title: l.settings_section_account,
+          title: l.settings_group_social,
           children: <Widget>[
             SettingsRowWidget(
-              icon: Icons.logout_rounded,
-              label: l.settings_logout,
-              danger: true,
-              trailing: state.isBusy
-                  ? const SizedBox(
-                      width: 18,
-                      height: 18,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: DSColor.danger,
-                      ),
-                    )
-                  : null,
-              onTap: state.isBusy
-                  ? null
-                  : () async {
-                      if (await _confirm(
-                        context,
-                        l.settings_logout_confirm,
-                        l.settings_logout,
-                      )) {
-                        if (context.mounted) {
-                          context.read<SettingsBloc>().add(
-                            const SettingsLoggedOut(),
-                          );
-                        }
-                      }
-                    },
-            ),
-            SettingsRowWidget(
-              icon: Icons.delete_outline_rounded,
-              label: l.settings_delete_account,
-              danger: true,
-              onTap: () async {
-                if (await _confirm(
-                  context,
-                  l.settings_delete_confirm,
-                  l.settings_delete_account,
-                )) {
-                  if (context.mounted) {
-                    context.read<SettingsBloc>().add(
-                      const SettingsAccountDeleted(),
-                    );
-                  }
-                }
-              },
+              icon: Icons.camera_alt_outlined,
+              label: l.settings_instagram,
+              value: l.settings_instagram_handle,
+              onTap: () => _support(context, state),
             ),
           ],
         ),
+        const SizedBox(height: 16),
+        const _VersionRow(),
       ],
     );
   }
 
-  Future<void> _changePassword(
-    BuildContext context,
-    SettingsLoadedState state,
-  ) async {
-    final email = state.me.email;
-    if (email == null || email.isEmpty) {
-      context.showSnackBar(context.l10N.settings_change_password_no_email);
-      return;
+  /// App-bar ⋯ menu holding the destructive account actions (design: Log out /
+  /// Delete account behind the overflow, each guarded by a confirm dialog).
+  Widget _overflowMenu(BuildContext context, SettingsLoadedState state) {
+    final l = context.l10N;
+    if (state.isBusy) {
+      return const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: SizedBox(
+          width: 18,
+          height: 18,
+          child: CircularProgressIndicator(
+            strokeWidth: 2,
+            color: DSColor.danger,
+          ),
+        ),
+      );
     }
-    try {
-      await locator<AuthRepository>().sendPasswordReset(email);
-      if (context.mounted) {
-        context.showSnackBar(context.l10N.settings_password_reset_sent);
-      }
-    } catch (_) {
-      if (context.mounted) {
-        context.showSnackBar(context.l10N.settings_link_failed);
-      }
-    }
+    return PopupMenuButton<String>(
+      icon: const Icon(Icons.more_horiz_rounded, color: DSColor.onSurface),
+      color: DSColor.card,
+      onSelected: (String value) async {
+        if (value == 'logout') {
+          if (await _confirm(
+                context,
+                l.settings_logout_confirm,
+                l.settings_logout,
+              ) &&
+              context.mounted) {
+            context.read<SettingsBloc>().add(const SettingsLoggedOut());
+          }
+        } else if (value == 'delete') {
+          if (await _confirm(
+                context,
+                l.settings_delete_confirm,
+                l.settings_delete_account,
+              ) &&
+              context.mounted) {
+            context.read<SettingsBloc>().add(const SettingsAccountDeleted());
+          }
+        }
+      },
+      itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+        PopupMenuItem<String>(
+          value: 'logout',
+          child: Row(
+            children: <Widget>[
+              const Icon(
+                Icons.logout_rounded,
+                size: 18,
+                color: DSColor.onSurface60,
+              ),
+              const SizedBox(width: 12),
+              Text(
+                l.settings_logout,
+                style: const TextStyle(color: DSColor.onSurface),
+              ),
+            ],
+          ),
+        ),
+        PopupMenuItem<String>(
+          value: 'delete',
+          child: Row(
+            children: <Widget>[
+              const Icon(
+                Icons.delete_outline_rounded,
+                size: 18,
+                color: DSColor.danger,
+              ),
+              const SizedBox(width: 12),
+              Text(
+                l.settings_delete_account,
+                style: const TextStyle(color: DSColor.danger),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
   }
 
   void _support(BuildContext context, SettingsLoadedState state) {

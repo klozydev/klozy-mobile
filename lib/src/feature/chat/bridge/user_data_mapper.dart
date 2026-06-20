@@ -8,7 +8,7 @@ Map<String, dynamic> socialProfileToChatUserMap(SocialProfile p) {
   return <String, dynamic>{
     'firstname': p.displayName,
     'lastname': '',
-    'pseudo': p.handle,
+    'pseudo': p.displayName,
     'email': '',
     'rating': p.rating,
     'profileImage': p.avatarUrl,

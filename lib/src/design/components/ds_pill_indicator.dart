@@ -15,7 +15,7 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 ///
 /// Tokens :
 /// - active   : [activeColor] (défaut [DSColor.primary])
-/// - inactive : [DSColor.onSurface32]
+/// - inactive : [DSColor.onSurface35]
 /// - height   : 3 px fixe
 /// - radius   : [DSBorderRadius.heavy] (100)
 class DSPillIndicator extends StatelessWidget {
@@ -50,7 +50,7 @@ class DSPillIndicator extends StatelessWidget {
             width: isActive ? activeWidth : inactiveWidth,
             height: 3,
             decoration: BoxDecoration(
-              color: isActive ? activeColor : DSColor.onSurface32,
+              color: isActive ? activeColor : DSColor.onSurface35,
               borderRadius: BorderRadius.circular(DSBorderRadius.heavy),
             ),
           ),

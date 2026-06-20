@@ -1,28 +1,31 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
-import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
 
-/// Bottom action bar — buyer (add-to-cart + make-offer / in-cart), owner (edit + delete), or
-/// a disabled state when sold/reserved.
+/// Bottom action bar.
+///
+/// Mirrors the last design:
+///  • buyer — single Add to cart (offers are made from the cart, not the PDP),
+///    an "In cart · View cart" glass button once added, or a disabled label when
+///    the listing is sold/reserved.
+///  • owner — a danger-outlined trash button that opens the overflow menu
+///    (Edit / Mark sold / Delete) plus a primary Edit listing button.
 class ProductCtaBarWidget extends StatelessWidget {
   final ProductDetail detail;
   final bool inCart;
   final VoidCallback onAddToCart;
   final VoidCallback onViewCart;
   final VoidCallback onEdit;
-  final VoidCallback onDelete;
-  final VoidCallback onMakeOffer;
-  final VoidCallback onSeeOffer;
 
-  /// Shows a spinner on the make-offer button while an offer is submitting
-  /// (add-to-cart + POST /v1/offers + open chat can take a moment).
-  final bool offerLoading;
+  /// Owner trash button — opens the overflow menu (Edit / Mark sold / Delete).
+  final VoidCallback onOpenMenu;
 
   const ProductCtaBarWidget({
     super.key,
@@ -31,10 +34,7 @@ class ProductCtaBarWidget extends StatelessWidget {
     required this.onAddToCart,
     required this.onViewCart,
     required this.onEdit,
-    required this.onDelete,
-    required this.onMakeOffer,
-    required this.onSeeOffer,
-    this.offerLoading = false,
+    required this.onOpenMenu,
   });
 
   @override
@@ -62,29 +62,33 @@ class ProductCtaBarWidget extends StatelessWidget {
 
   Widget _content(BuildContext context) {
     if (detail.isOwner) {
+      // Trash opens the overflow menu (Edit / Mark sold / Delete); Edit is the
+      // primary action. Mark-sold lives in the menu, not as a primary button.
       return Row(
         children: <Widget>[
-          Expanded(
-            child: DSButtonElevated(
-              text: context.l10N.product_edit_listing,
-              onPressed: onEdit,
-            ),
-          ),
-          const SizedBox(width: DSSpacing.xs),
           GestureDetector(
-            onTap: onDelete,
+            onTap: onOpenMenu,
             child: Container(
-              width: 48,
+              width: 52,
               height: 48,
+              alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: DSColor.onSurface07,
+                color: Colors.transparent,
                 borderRadius: BorderRadius.circular(DSBorderRadius.input),
-                border: Border.all(color: DSColor.onSurface15, width: 0.5),
+                border: Border.all(color: DSColor.danger, width: 1.5),
               ),
               child: const Icon(
                 Icons.delete_outline_rounded,
-                color: DSColor.destructive,
+                color: DSColor.danger,
               ),
+            ),
+          ),
+          const SizedBox(width: DSSpacing.xs),
+          Expanded(
+            child: DSButtonElevated(
+              text: context.l10N.product_edit_listing,
+              icon: Icons.edit_outlined,
+              onPressed: onEdit,
             ),
           ),
         ],
@@ -104,31 +108,10 @@ class ProductCtaBarWidget extends StatelessWidget {
         onViewCart,
       );
     }
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: DSButtonElevated(
-            text: context.l10N.product_buy,
-            onPressed: onAddToCart,
-          ),
-        ),
-        const SizedBox(width: DSSpacing.xs),
-        Expanded(
-          child: offerLoading
-              ? _glassLoading()
-              : detail.hasActiveOffer
-              ? _glass(
-                  context.l10N.product_see_offer,
-                  Icons.local_offer,
-                  onSeeOffer,
-                )
-              : _glass(
-                  context.l10N.product_make_offer,
-                  Icons.local_offer_outlined,
-                  onMakeOffer,
-                ),
-        ),
-      ],
+    return DSButtonElevated(
+      text: context.l10N.product_add_to_cart,
+      icon: Icons.shopping_bag_outlined,
+      onPressed: onAddToCart,
     );
   }
 
@@ -153,34 +136,10 @@ class ProductCtaBarWidget extends StatelessWidget {
     );
   }
 
-  Widget _glassLoading() {
-    return Container(
-      height: 48,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: const Color(0xB81A1A1A),
-        borderRadius: BorderRadius.circular(DSBorderRadius.input),
-        border: Border.all(color: DSColor.onSurface24, width: 0.5),
-      ),
-      child: const SizedBox(
-        width: 20,
-        height: 20,
-        child: DSLoader(size: 18, color: DSColor.onSurface),
-      ),
-    );
-  }
-
   Widget _glass(String label, IconData icon, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        height: 48,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: const Color(0xB81A1A1A),
-          borderRadius: BorderRadius.circular(DSBorderRadius.input),
-          border: Border.all(color: DSColor.onSurface24, width: 0.5),
-        ),
+      child: _GlassSurface(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -196,6 +155,35 @@ class ProductCtaBarWidget extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Backdrop-blurred glass surface for the secondary CTA — matches the design's
+/// `BackdropFilter(blur 14)` over a translucent white fill, keeping the bar
+/// immersive over the photo instead of a flat opaque block.
+class _GlassSurface extends StatelessWidget {
+  final Widget child;
+
+  const _GlassSurface({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(DSBorderRadius.input),
+      child: BackdropFilter(
+        filter: ui.ImageFilter.blur(sigmaX: 14, sigmaY: 14),
+        child: Container(
+          height: 48,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: Colors.white.withValues(alpha: 0.07),
+            borderRadius: BorderRadius.circular(DSBorderRadius.input),
+            border: Border.all(color: DSColor.onSurface24, width: 0.5),
+          ),
+          child: child,
         ),
       ),
     );

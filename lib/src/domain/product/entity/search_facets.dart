@@ -43,8 +43,9 @@ class SearchFacets extends Equatable {
       categories.isEmpty;
 
   /// Lookup of key → count for one dimension.
-  static Map<String, int> counts(List<FacetBucket> buckets) =>
-      <String, int>{for (final FacetBucket b in buckets) b.key: b.count};
+  static Map<String, int> counts(List<FacetBucket> buckets) => <String, int>{
+    for (final FacetBucket b in buckets) b.key: b.count,
+  };
 
   @override
   List<Object?> get props => <Object?>[

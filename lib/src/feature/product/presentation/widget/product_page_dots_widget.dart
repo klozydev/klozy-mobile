@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
+import 'package:klozy/src/design/tokens/ds_color.dart';
 
 class ProductPageDotsWidget extends StatelessWidget {
   const ProductPageDotsWidget({
@@ -19,13 +20,15 @@ class ProductPageDotsWidget extends StatelessWidget {
       children: List<Widget>.generate(count, (int i) {
         final bool active = i == current;
         return AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          width: active ? 16 : 6,
-          height: 6,
-          margin: const EdgeInsets.symmetric(horizontal: 3),
+          duration: const Duration(milliseconds: 280),
+          width: active ? 22 : 6,
+          height: 3,
+          margin: const EdgeInsets.symmetric(horizontal: 2.5),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(DSBorderRadius.chip),
-            color: active ? Colors.white : Colors.white.withValues(alpha: 0.4),
+            color: active
+                ? DSColor.primary
+                : Colors.white.withValues(alpha: 0.32),
           ),
         );
       }),

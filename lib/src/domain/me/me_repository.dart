@@ -22,12 +22,11 @@ abstract class MeRepository {
   /// on sign-out.
   void invalidate();
 
-  /// `PATCH /v1/me` — name + bio + handle.
+  /// `PATCH /v1/me` — name + bio.
   Future<MeProfile> updateProfile({
     String? firstName,
     String? lastName,
     String? bio,
-    String? handle,
   });
 
   /// `POST /v1/me/avatar` (multipart) — returns the new avatar URL.

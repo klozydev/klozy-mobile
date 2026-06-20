@@ -42,9 +42,9 @@ class SellPage extends StatelessWidget implements AutoRouteWrapper {
             appBar: _closeBar(context),
             body: SafeArea(top: false, child: SellPhotosWidget(state: state)),
           ),
-          SellAnalyzingState() => const Scaffold(
+          SellAnalyzingState(:final coverPath) => Scaffold(
             backgroundColor: DSColor.surface,
-            body: SellTransitionWidget(),
+            body: SellTransitionWidget(coverPath: coverPath),
           ),
           SellRecapState() => Scaffold(
             backgroundColor: DSColor.surface,

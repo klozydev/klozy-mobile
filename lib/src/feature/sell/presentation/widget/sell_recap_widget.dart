@@ -9,6 +9,7 @@ import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_category_tree_picker.dart';
 import 'package:klozy/src/design/components/ds_field_label.dart';
 import 'package:klozy/src/design/components/ds_selectable_chip.dart';
+import 'package:klozy/src/design/components/ds_sparkle.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -16,6 +17,7 @@ import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
+import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_condition.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_size_value.dart';
 import 'package:klozy/src/domain/product/entity/create_product_input.dart';
@@ -54,12 +56,20 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
   bool _priceEdited = false;
   bool _descEdited = false;
 
+  /// Selected root (Women/Men/Kids). Chosen via inline chips; gates the
+  /// subcategory drill-down which is scoped to it.
+  CatalogCategory? _mainCategory;
   PickedCategory? _category;
   PickedBrand? _brand;
   String? _size;
   String? _conditionSlug;
   List<CatalogSizeValue> _sizes = const <CatalogSizeValue>[];
+  // True once a subcategory's size config has been fetched. An empty config for
+  // a chosen leaf means the item is "one size" (design: unique-size handling).
+  bool _sizesLoaded = false;
   bool _showErrors = false;
+
+  bool get _isOneSize => _category != null && _sizesLoaded && _sizes.isEmpty;
 
   @override
   void dispose() {
@@ -69,19 +79,42 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
     super.dispose();
   }
 
+  /// Selecting a root category resets any chosen subcategory + size.
+  void _selectMainCategory(CatalogCategory category) {
+    setState(() {
+      _mainCategory = category;
+      _category = null;
+      _size = null;
+      _sizes = const <CatalogSizeValue>[];
+      _sizesLoaded = false;
+    });
+  }
+
   Future<void> _pickCategory() async {
-    final result = await context.router.push(const SellCategoryRoute());
+    final result = await context.router.push(
+      SellCategoryRoute(parent: _mainCategory),
+    );
     if (!mounted) return;
     if (result is! PickedCategory) return;
     setState(() {
       _category = result;
       _size = null;
       _sizes = const <CatalogSizeValue>[];
+      _sizesLoaded = false;
     });
     try {
       final sizes = await locator<CatalogRepository>().getSizeConfig(result.id);
-      if (mounted) setState(() => _sizes = sizes);
-    } catch (_) {}
+      if (mounted) {
+        setState(() {
+          _sizes = sizes;
+          _sizesLoaded = true;
+          // One-size categories carry no size options — preselect "One size".
+          if (sizes.isEmpty) _size = context.l10N.sell_size_one_size;
+        });
+      }
+    } catch (_) {
+      if (mounted) setState(() => _sizesLoaded = true);
+    }
   }
 
   Future<void> _pickBrand() async {
@@ -96,6 +129,8 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
   num? get _priceValue => num.tryParse(_price.text.trim());
   bool get _titleValid => _title.text.trim().length >= 2;
   bool get _priceValid => (_priceValue ?? 0) > 0;
+  // Description is required in the design (buyers rely on it).
+  bool get _descValid => _desc.text.trim().length >= 3;
 
   /// The AI's per-locale drafts with `en` overridden by the user's final text.
   Map<String, dynamic>? _translations() {
@@ -114,6 +149,7 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
     final valid =
         _titleValid &&
         _priceValid &&
+        _descValid &&
         _category != null &&
         _conditionSlug != null;
     if (!valid) {
@@ -161,6 +197,26 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                   ),
                 ),
                 const SizedBox(height: DSSpacing.s),
+                if (state.aiFilled.isNotEmpty) ...<Widget>[
+                  Row(
+                    children: <Widget>[
+                      const DSSparkle(size: 15),
+                      const SizedBox(width: 7),
+                      Expanded(
+                        child: Text(
+                          context.l10N.sell_prefilled_by_ai,
+                          style: const TextStyle(
+                            fontFamily: dsFontFamily,
+                            fontSize: DSFontSize.bodyMedium,
+                            fontWeight: DSFontWeight.medium,
+                            color: DSColor.onSurface60,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: DSSpacing.s),
+                ],
                 DSFieldLabel(
                   context.l10N.sell_title,
                   required: true,
@@ -223,6 +279,7 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                 const SizedBox(height: DSSpacing.xs),
                 DSFieldLabel(
                   context.l10N.sell_description,
+                  required: true,
                   suffix:
                       state.aiFilled.contains(SellDraftField.description) &&
                           !_descEdited
@@ -245,13 +302,47 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                       const SellDraftFieldEdited(SellDraftField.description),
                     );
                   },
+                  errorText: _showErrors && !_descValid
+                      ? context.l10N.sell_description_error
+                      : null,
                 ),
                 const SizedBox(height: DSSpacing.m),
-                _sectionLabel(context.l10N.sell_category, required: true),
-                _trigger(
-                  _category?.path ?? context.l10N.sell_optional,
-                  _pickCategory,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: DSSpacing.s),
+                  child: Text(
+                    context.l10N.sell_product_details,
+                    style: const TextStyle(
+                      fontFamily: dsFontFamily,
+                      fontSize: DSFontSize.titleLarge,
+                      fontWeight: DSFontWeight.semiBold,
+                      color: DSColor.onSurface,
+                    ),
+                  ),
                 ),
+                // Main category chips (Women / Men / Kids) — pick one, then a
+                // scoped subcategory drill-down appears below (design split).
+                _sectionLabel(context.l10N.sell_category, required: true),
+                Wrap(
+                  spacing: DSSpacing.xxs,
+                  runSpacing: DSSpacing.xxs,
+                  children: state.rootCategories
+                      .map(
+                        (CatalogCategory c) => DSSelectableChip(
+                          label: c.label,
+                          selected: _mainCategory?.id == c.id,
+                          onTap: () => _selectMainCategory(c),
+                        ),
+                      )
+                      .toList(),
+                ),
+                if (_mainCategory != null) ...<Widget>[
+                  const SizedBox(height: DSSpacing.s),
+                  _sectionLabel(context.l10N.sell_subcategory, required: true),
+                  _trigger(
+                    _category?.path ?? context.l10N.sell_choose_subcategory,
+                    _pickCategory,
+                  ),
+                ],
                 if (_showErrors && _category == null)
                   _errorLine(context.l10N.sell_category_error),
                 const SizedBox(height: DSSpacing.s),
@@ -282,6 +373,15 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                     onToggle: (SizeSystem system) => context
                         .read<SellBloc>()
                         .add(SellSizeSystemToggled(system)),
+                  ),
+                ] else if (_isOneSize) ...<Widget>[
+                  // Unique-size category: a single, preselected "One size" chip.
+                  const SizedBox(height: DSSpacing.s),
+                  _sectionLabel(context.l10N.sell_size),
+                  DSSelectableChip(
+                    label: context.l10N.sell_size_one_size,
+                    selected: true,
+                    onTap: () {},
                   ),
                 ],
                 const SizedBox(height: DSSpacing.s),
@@ -337,22 +437,7 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
     if (aiValue == null || aiValue.isEmpty || edited || current != aiValue) {
       return null;
     }
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        const Icon(Icons.auto_awesome, size: 11, color: DSColor.primary),
-        const SizedBox(width: 4),
-        Text(
-          context.l10N.sell_suggested_by_ai,
-          style: const TextStyle(
-            fontFamily: dsFontFamily,
-            fontSize: 10.5,
-            fontWeight: DSFontWeight.semiBold,
-            color: DSColor.primary,
-          ),
-        ),
-      ],
-    );
+    return const SellFieldAiBadgeWidget();
   }
 
   Widget _sectionLabel(String text, {bool required = false}) {

@@ -1,6 +1,5 @@
-import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/domain/product/entity/create_product_input.dart';
-import 'package:klozy/src/domain/product/entity/product.dart';
+import 'package:klozy/src/domain/product/entity/feed_page.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
 import 'package:klozy/src/domain/product/entity/search_result.dart';
 
@@ -17,7 +16,7 @@ extension ProductSortApi on ProductSort {
 
 /// Read access to listings (`/v1/products`).
 abstract class ProductsRepository {
-  Future<PaginatedList<Product>> feed({
+  Future<FeedPage> feed({
     String? rootCategoryId,
     String? categoryId,
     ProductSort sort = ProductSort.popular,

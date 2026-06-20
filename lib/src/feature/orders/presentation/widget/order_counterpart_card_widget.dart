@@ -51,9 +51,7 @@ class OrderCounterpartCardWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  party.displayName.isEmpty
-                      ? '@${party.handle}'
-                      : party.displayName,
+                  party.displayName,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(

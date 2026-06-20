@@ -131,6 +131,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       rootCategoryId: _filters.rootCategoryId,
       categoryId: _filters.categoryId,
       sizes: _filters.sizes.toList(),
+      conditions: _filters.conditions.toList(),
       minPrice: _filters.minPrice,
       maxPrice: _filters.maxPrice,
       sort: _sort,

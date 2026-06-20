@@ -5,6 +5,7 @@ import 'package:klozy/src/design/tokens/ds_font.dart';
 class SettingsRowWidget extends StatelessWidget {
   final IconData icon;
   final String label;
+  final String? subtitle;
   final String? value;
   final Widget? trailing;
   final VoidCallback? onTap;
@@ -14,6 +15,7 @@ class SettingsRowWidget extends StatelessWidget {
     super.key,
     required this.icon,
     required this.label,
+    this.subtitle,
     this.value,
     this.trailing,
     this.onTap,
@@ -36,14 +38,31 @@ class SettingsRowWidget extends StatelessWidget {
             ),
             const SizedBox(width: 14),
             Expanded(
-              child: Text(
-                label,
-                style: TextStyle(
-                  fontFamily: dsFontFamily,
-                  fontSize: DSFontSize.bodyLarge,
-                  fontWeight: DSFontWeight.medium,
-                  color: color,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    label,
+                    style: TextStyle(
+                      fontFamily: dsFontFamily,
+                      fontSize: DSFontSize.bodyLarge,
+                      fontWeight: DSFontWeight.medium,
+                      color: color,
+                    ),
+                  ),
+                  if (subtitle != null) ...<Widget>[
+                    const SizedBox(height: 1),
+                    Text(
+                      subtitle!,
+                      style: const TextStyle(
+                        fontFamily: dsFontFamily,
+                        fontSize: DSFontSize.bodySmall,
+                        color: DSColor.onSurface45,
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ),
             if (value != null)

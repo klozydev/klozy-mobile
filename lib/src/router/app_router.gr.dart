@@ -11,22 +11,6 @@
 part of 'app_router.dart';
 
 /// generated route for
-/// [AddressBookPage]
-class AddressBookRoute extends PageRouteInfo<void> {
-  const AddressBookRoute({List<PageRouteInfo>? children})
-    : super(AddressBookRoute.name, initialChildren: children);
-
-  static const String name = 'AddressBookRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const AddressBookPage();
-    },
-  );
-}
-
-/// generated route for
 /// [AddressFormPage]
 class AddressFormRoute extends PageRouteInfo<AddressFormRouteArgs> {
   AddressFormRoute({
@@ -120,6 +104,54 @@ class CartRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return WrappedRoute(child: const CartPage());
+    },
+  );
+}
+
+/// generated route for
+/// [ChangeEmailPage]
+class ChangeEmailRoute extends PageRouteInfo<void> {
+  const ChangeEmailRoute({List<PageRouteInfo>? children})
+    : super(ChangeEmailRoute.name, initialChildren: children);
+
+  static const String name = 'ChangeEmailRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ChangeEmailPage();
+    },
+  );
+}
+
+/// generated route for
+/// [ChangePasswordPage]
+class ChangePasswordRoute extends PageRouteInfo<void> {
+  const ChangePasswordRoute({List<PageRouteInfo>? children})
+    : super(ChangePasswordRoute.name, initialChildren: children);
+
+  static const String name = 'ChangePasswordRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ChangePasswordPage();
+    },
+  );
+}
+
+/// generated route for
+/// [ChangePhonePage]
+class ChangePhoneRoute extends PageRouteInfo<void> {
+  const ChangePhoneRoute({List<PageRouteInfo>? children})
+    : super(ChangePhoneRoute.name, initialChildren: children);
+
+  static const String name = 'ChangePhoneRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ChangePhonePage();
     },
   );
 }
@@ -249,11 +281,12 @@ class ChatThreadRouteArgs {
 class CheckoutRoute extends PageRouteInfo<CheckoutRouteArgs> {
   CheckoutRoute({
     required String sellerId,
+    required CartBucket bucket,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
          CheckoutRoute.name,
-         args: CheckoutRouteArgs(sellerId: sellerId, key: key),
+         args: CheckoutRouteArgs(sellerId: sellerId, bucket: bucket, key: key),
          initialChildren: children,
        );
 
@@ -264,33 +297,61 @@ class CheckoutRoute extends PageRouteInfo<CheckoutRouteArgs> {
     builder: (data) {
       final args = data.argsAs<CheckoutRouteArgs>();
       return WrappedRoute(
-        child: CheckoutPage(sellerId: args.sellerId, key: args.key),
+        child: CheckoutPage(
+          sellerId: args.sellerId,
+          bucket: args.bucket,
+          key: args.key,
+        ),
       );
     },
   );
 }
 
 class CheckoutRouteArgs {
-  const CheckoutRouteArgs({required this.sellerId, this.key});
+  const CheckoutRouteArgs({
+    required this.sellerId,
+    required this.bucket,
+    this.key,
+  });
 
   final String sellerId;
+
+  final CartBucket bucket;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'CheckoutRouteArgs{sellerId: $sellerId, key: $key}';
+    return 'CheckoutRouteArgs{sellerId: $sellerId, bucket: $bucket, key: $key}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! CheckoutRouteArgs) return false;
-    return sellerId == other.sellerId && key == other.key;
+    return sellerId == other.sellerId &&
+        bucket == other.bucket &&
+        key == other.key;
   }
 
   @override
-  int get hashCode => sellerId.hashCode ^ key.hashCode;
+  int get hashCode => sellerId.hashCode ^ bucket.hashCode ^ key.hashCode;
+}
+
+/// generated route for
+/// [ClothingPreferencePage]
+class ClothingPreferenceRoute extends PageRouteInfo<void> {
+  const ClothingPreferenceRoute({List<PageRouteInfo>? children})
+    : super(ClothingPreferenceRoute.name, initialChildren: children);
+
+  static const String name = 'ClothingPreferenceRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ClothingPreferencePage();
+    },
+  );
 }
 
 /// generated route for
@@ -741,17 +802,17 @@ class PayoutRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [PayoutsPage]
-class PayoutsRoute extends PageRouteInfo<void> {
-  const PayoutsRoute({List<PageRouteInfo>? children})
-    : super(PayoutsRoute.name, initialChildren: children);
+/// [PersonalDataPage]
+class PersonalDataRoute extends PageRouteInfo<void> {
+  const PersonalDataRoute({List<PageRouteInfo>? children})
+    : super(PersonalDataRoute.name, initialChildren: children);
 
-  static const String name = 'PayoutsRoute';
+  static const String name = 'PersonalDataRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const PayoutsPage();
+      return const PersonalDataPage();
     },
   );
 }
@@ -789,17 +850,33 @@ class PhoneRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [PreferencesPage]
-class PreferencesRoute extends PageRouteInfo<void> {
-  const PreferencesRoute({List<PageRouteInfo>? children})
-    : super(PreferencesRoute.name, initialChildren: children);
+/// [PreferredBrandsPage]
+class PreferredBrandsRoute extends PageRouteInfo<void> {
+  const PreferredBrandsRoute({List<PageRouteInfo>? children})
+    : super(PreferredBrandsRoute.name, initialChildren: children);
 
-  static const String name = 'PreferencesRoute';
+  static const String name = 'PreferredBrandsRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const PreferencesPage();
+      return const PreferredBrandsPage();
+    },
+  );
+}
+
+/// generated route for
+/// [PreferredSizePage]
+class PreferredSizeRoute extends PageRouteInfo<void> {
+  const PreferredSizeRoute({List<PageRouteInfo>? children})
+    : super(PreferredSizeRoute.name, initialChildren: children);
+
+  static const String name = 'PreferredSizeRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const PreferredSizePage();
     },
   );
 }
@@ -903,6 +980,55 @@ class ReelComposerRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [SearchCategoryPage]
+class SearchCategoryRoute extends PageRouteInfo<SearchCategoryRouteArgs> {
+  SearchCategoryRoute({
+    Key? key,
+    required CatalogCategory root,
+    List<PageRouteInfo>? children,
+  }) : super(
+         SearchCategoryRoute.name,
+         args: SearchCategoryRouteArgs(key: key, root: root),
+         initialChildren: children,
+       );
+
+  static const String name = 'SearchCategoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<SearchCategoryRouteArgs>();
+      return WrappedRoute(
+        child: SearchCategoryPage(key: args.key, root: args.root),
+      );
+    },
+  );
+}
+
+class SearchCategoryRouteArgs {
+  const SearchCategoryRouteArgs({this.key, required this.root});
+
+  final Key? key;
+
+  final CatalogCategory root;
+
+  @override
+  String toString() {
+    return 'SearchCategoryRouteArgs{key: $key, root: $root}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! SearchCategoryRouteArgs) return false;
+    return key == other.key && root == other.root;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ root.hashCode;
+}
+
+/// generated route for
 /// [SearchPage]
 class SearchRoute extends PageRouteInfo<void> {
   const SearchRoute({List<PageRouteInfo>? children})
@@ -919,19 +1045,70 @@ class SearchRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [SecurityPage]
+class SecurityRoute extends PageRouteInfo<void> {
+  const SecurityRoute({List<PageRouteInfo>? children})
+    : super(SecurityRoute.name, initialChildren: children);
+
+  static const String name = 'SecurityRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SecurityPage();
+    },
+  );
+}
+
+/// generated route for
 /// [SellCategoryPage]
-class SellCategoryRoute extends PageRouteInfo<void> {
-  const SellCategoryRoute({List<PageRouteInfo>? children})
-    : super(SellCategoryRoute.name, initialChildren: children);
+class SellCategoryRoute extends PageRouteInfo<SellCategoryRouteArgs> {
+  SellCategoryRoute({
+    Key? key,
+    CatalogCategory? parent,
+    List<PageRouteInfo>? children,
+  }) : super(
+         SellCategoryRoute.name,
+         args: SellCategoryRouteArgs(key: key, parent: parent),
+         initialChildren: children,
+       );
 
   static const String name = 'SellCategoryRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return WrappedRoute(child: const SellCategoryPage());
+      final args = data.argsAs<SellCategoryRouteArgs>(
+        orElse: () => const SellCategoryRouteArgs(),
+      );
+      return WrappedRoute(
+        child: SellCategoryPage(key: args.key, parent: args.parent),
+      );
     },
   );
+}
+
+class SellCategoryRouteArgs {
+  const SellCategoryRouteArgs({this.key, this.parent});
+
+  final Key? key;
+
+  final CatalogCategory? parent;
+
+  @override
+  String toString() {
+    return 'SellCategoryRouteArgs{key: $key, parent: $parent}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! SellCategoryRouteArgs) return false;
+    return key == other.key && parent == other.parent;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ parent.hashCode;
 }
 
 /// generated route for
@@ -962,22 +1139,6 @@ class SellerRoleRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return WrappedRoute(child: const SellerRolePage());
-    },
-  );
-}
-
-/// generated route for
-/// [SellerStatsPage]
-class SellerStatsRoute extends PageRouteInfo<void> {
-  const SellerStatsRoute({List<PageRouteInfo>? children})
-    : super(SellerStatsRoute.name, initialChildren: children);
-
-  static const String name = 'SellerStatsRoute';
-
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const SellerStatsPage();
     },
   );
 }

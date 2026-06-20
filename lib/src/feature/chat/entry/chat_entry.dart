@@ -93,12 +93,15 @@ class ChatEntry {
       }
 
       final Map<String, dynamic> usersData = <String, dynamic>{};
-      for (final SocialProfile? p in <SocialProfile?>[myProfile, otherProfile]) {
+      for (final SocialProfile? p in <SocialProfile?>[
+        myProfile,
+        otherProfile,
+      ]) {
         if (p == null) continue;
         final Map<String, dynamic> data = <String, dynamic>{
           'firstname': p.displayName,
           'lastname': '',
-          'pseudo': p.handle,
+          'pseudo': p.displayName,
           'email': '',
           'rating': p.rating,
           'profileImage': p.avatarUrl,
@@ -110,12 +113,12 @@ class ChatEntry {
       }
       if (usersData.isEmpty) return;
 
-      await FirebaseFirestore.instance
-          .collection('tchat')
-          .doc(tchatId)
-          .set(<String, dynamic>{
-            'metadata': <String, dynamic>{'usersData': usersData},
-          }, SetOptions(merge: true));
+      await FirebaseFirestore.instance.collection('tchat').doc(tchatId).set(
+        <String, dynamic>{
+          'metadata': <String, dynamic>{'usersData': usersData},
+        },
+        SetOptions(merge: true),
+      );
     } catch (_) {}
   }
 }

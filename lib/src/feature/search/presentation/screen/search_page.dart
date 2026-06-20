@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
+import 'package:klozy/src/design/components/ds_category_tree_picker.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
@@ -23,6 +24,7 @@ import 'package:klozy/src/feature/search/presentation/bloc/search_event.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_filters.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_state.dart';
 import 'package:klozy/src/feature/search/presentation/widget/search_filters_sheet.dart';
+import 'package:klozy/src/router/app_router.dart';
 
 const _gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
   crossAxisCount: 2,
@@ -30,6 +32,37 @@ const _gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
   crossAxisSpacing: 8,
   childAspectRatio: 0.56,
 );
+
+/// Per-root gradient for the browse category tiles, mirroring the design's
+/// `CAT_GRADS`. Keyed by lower-cased root label; unknown roots fall back to a
+/// neutral dark gradient.
+const Map<String, List<Color>> _catGradients = <String, List<Color>>{
+  'women': <Color>[Color(0xFF2A0F1C), Color(0xFF140810)],
+  'men': <Color>[Color(0xFF0E1426), Color(0xFF080C18)],
+  'kids': <Color>[Color(0xFF10231C), Color(0xFF0A160F)],
+};
+
+const List<Color> _catGradientFallback = <Color>[
+  Color(0xFF1A1A1A),
+  Color(0xFF2A2A2A),
+];
+
+/// Browse tile order, matching the design's hardcoded Women / Men / Kids.
+/// Known roots lead in this order; any others keep their catalog order after.
+const List<String> _rootOrder = <String>['women', 'men', 'kids'];
+
+List<CatalogCategory> _orderedRoots(List<CatalogCategory> roots) {
+  final List<CatalogCategory> sorted = List<CatalogCategory>.of(roots);
+  int rank(CatalogCategory c) {
+    final int i = _rootOrder.indexOf(c.label.toLowerCase());
+    return i == -1 ? _rootOrder.length : i;
+  }
+
+  sorted.sort(
+    (CatalogCategory a, CatalogCategory b) => rank(a).compareTo(rank(b)),
+  );
+  return sorted;
+}
 
 @RoutePage()
 class SearchPage extends StatefulWidget implements AutoRouteWrapper {
@@ -88,6 +121,22 @@ class _SearchPageState extends State<SearchPage> {
   void _applyFilters(SearchFilters filters) {
     setState(() => _filters = filters);
     context.read<SearchBloc>().add(SearchFiltersChanged(filters));
+  }
+
+  /// Tapping a root category card opens the hierarchical drill-down page seeded
+  /// inside that root. Selecting a leaf runs a leaf-scoped search.
+  Future<void> _openCategoryDrill(
+    BuildContext context,
+    CatalogCategory root,
+  ) async {
+    final Object? result = await context.router.push(
+      SearchCategoryRoute(root: root),
+    );
+    if (result is PickedCategory) {
+      _applyFilters(
+        SearchFilters(categoryId: result.id, categoryPath: result.path),
+      );
+    }
   }
 
   Future<void> _openFilters() async {
@@ -151,104 +200,119 @@ class _SearchPageState extends State<SearchPage> {
   Widget _header() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: DSTextField(
-              controller: _query,
-              hintText: context.l10N.search_hint,
-              prefixIcon: Icons.search_rounded,
-              autofocus: false,
-              onChanged: _onQuery,
-              trailing: _query.text.isEmpty
-                  ? null
-                  : GestureDetector(
-                      onTap: () {
-                        _query.clear();
-                        _onQuery('');
-                      },
-                      child: const Icon(
-                        Icons.close,
-                        size: 18,
-                        color: DSColor.onSurface45,
-                      ),
-                    ),
-            ),
-          ),
-          const SizedBox(width: 10),
-          GestureDetector(
-            onTap: _openFilters,
-            behavior: HitTestBehavior.opaque,
-            child: Row(
-              children: <Widget>[
-                Icon(
-                  Icons.tune_rounded,
+      child: DSTextField(
+        controller: _query,
+        hintText: context.l10N.search_hint,
+        prefixIcon: Icons.search_rounded,
+        autofocus: false,
+        onChanged: _onQuery,
+        trailing: _query.text.isEmpty
+            ? null
+            : GestureDetector(
+                onTap: () {
+                  _query.clear();
+                  _onQuery('');
+                },
+                child: const Icon(
+                  Icons.close,
                   size: 18,
-                  color: _filters.activeCount > 0
-                      ? DSColor.primary
-                      : DSColor.onSurface75,
+                  color: DSColor.onSurface45,
                 ),
-                const SizedBox(width: 4),
-                Text(
-                  _filters.activeCount > 0
-                      ? context.l10N.search_filters_with_count(
-                          _filters.activeCount,
-                        )
-                      : context.l10N.search_filters,
-                  style: TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.bodyMedium,
-                    fontWeight: DSFontWeight.medium,
-                    color: _filters.activeCount > 0
-                        ? DSColor.primary
-                        : DSColor.onSurface75,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+              ),
       ),
     );
   }
 
+  /// Sort row, with the Filters pill as its first chip (design: Filters then
+  /// Popular/Latest/Price↑/Price↓ on one horizontally scrolling row).
   Widget _sortRow() {
     return SizedBox(
       height: 44,
       child: ListView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        children: ProductSort.values.map((ProductSort sort) {
-          final bool active = sort == _sort;
-          return Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: GestureDetector(
-              onTap: () => _selectSort(sort),
-              child: Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                decoration: BoxDecoration(
-                  color: active ? DSColor.onSurface : DSColor.onSurface07,
-                  borderRadius: BorderRadius.circular(DSBorderRadius.chip),
-                  border: active
-                      ? null
-                      : Border.all(color: DSColor.onSurface15, width: 0.5),
-                ),
-                child: Text(
-                  _sortLabel(context, sort),
-                  style: TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.bodyMedium,
-                    fontWeight: active
-                        ? DSFontWeight.semiBold
-                        : DSFontWeight.regular,
-                    color: active ? DSColor.surface : DSColor.onSurface75,
+        children: <Widget>[
+          _filtersPill(),
+          ...ProductSort.values.map((ProductSort sort) {
+            final bool active = sort == _sort;
+            return Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: GestureDetector(
+                onTap: () => _selectSort(sort),
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  decoration: BoxDecoration(
+                    color: active ? DSColor.onSurface : DSColor.onSurface07,
+                    borderRadius: BorderRadius.circular(DSBorderRadius.chip),
+                    border: active
+                        ? null
+                        : Border.all(color: DSColor.onSurface15, width: 0.5),
+                  ),
+                  child: Text(
+                    _sortLabel(context, sort),
+                    style: TextStyle(
+                      fontFamily: dsFontFamily,
+                      fontSize: DSFontSize.bodyMedium,
+                      fontWeight: active
+                          ? DSFontWeight.semiBold
+                          : DSFontWeight.regular,
+                      color: active ? DSColor.surface : DSColor.onSurface75,
+                    ),
                   ),
                 ),
               ),
+            );
+          }),
+        ],
+      ),
+    );
+  }
+
+  /// Filters trigger as a bordered pill. Active (≥1 filter) → faint gold fill,
+  /// gold border and gold content; idle → faint surface fill, hairline border.
+  Widget _filtersPill() {
+    final bool active = _filters.activeCount > 0;
+    final Color content = active ? DSColor.primary : DSColor.onSurface75;
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: GestureDetector(
+        onTap: _openFilters,
+        behavior: HitTestBehavior.opaque,
+        child: Container(
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          decoration: BoxDecoration(
+            color: active
+                ? DSColor.primary.withValues(alpha: 0.1)
+                : DSColor.onSurface07,
+            borderRadius: BorderRadius.circular(DSBorderRadius.chip),
+            border: Border.all(
+              color: active ? DSColor.primary : DSColor.onSurface15,
+              width: 0.5,
             ),
-          );
-        }).toList(),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(Icons.tune_rounded, size: 16, color: content),
+              const SizedBox(width: 6),
+              Text(
+                active
+                    ? context.l10N.search_filters_with_count(
+                        _filters.activeCount,
+                      )
+                    : context.l10N.search_filters,
+                style: TextStyle(
+                  fontFamily: dsFontFamily,
+                  fontSize: DSFontSize.bodyMedium,
+                  fontWeight: DSFontWeight.semiBold,
+                  color: content,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -272,22 +336,22 @@ class _SearchPageState extends State<SearchPage> {
         }),
       );
     }
-    if (_filters.hasPrice) {
+    if (_filters.conditions.isNotEmpty) {
       chips.add(
         _clearChip(
-          context.l10N.search_price_chip(
-            _filters.minPrice?.toInt() ?? 0,
-            _filters.maxPrice?.toInt() ?? 0,
-          ),
-          () => _applyFilters(_filters.copyWith(clearPrice: true)),
+          context.l10N.search_condition_count(_filters.conditions.length),
+          () => _applyFilters(_filters.copyWith(conditions: <String>{})),
         ),
       );
     }
-    // Wrap (not a horizontal ListView) so multiple active chips flow onto new
-    // rows with vertical spacing instead of scrolling off-screen in one line.
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 4, 8, 4),
-      child: Wrap(runSpacing: 8, children: chips),
+    // Single horizontally scrolling row (design): active chips never wrap.
+    return SizedBox(
+      height: 36,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        children: chips,
+      ),
     );
   }
 
@@ -295,11 +359,11 @@ class _SearchPageState extends State<SearchPage> {
     return Padding(
       padding: const EdgeInsets.only(right: 8),
       child: Container(
-        padding: const EdgeInsets.fromLTRB(12, 7, 8, 7),
+        alignment: Alignment.center,
+        padding: const EdgeInsets.fromLTRB(12, 5, 8, 5),
         decoration: BoxDecoration(
-          color: DSColor.onSurface07,
+          color: DSColor.onSurface10,
           borderRadius: BorderRadius.circular(DSBorderRadius.chip),
-          border: Border.all(color: DSColor.onSurface15, width: 0.5),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -309,7 +373,8 @@ class _SearchPageState extends State<SearchPage> {
               style: const TextStyle(
                 fontFamily: dsFontFamily,
                 fontSize: DSFontSize.bodyMedium,
-                color: DSColor.onSurface75,
+                fontWeight: DSFontWeight.medium,
+                color: DSColor.onSurface,
               ),
             ),
             const SizedBox(width: 6),
@@ -342,28 +407,45 @@ class _SearchPageState extends State<SearchPage> {
         ),
         const SizedBox(height: 12),
         Row(
-          children: state.categories.take(3).map((CatalogCategory c) {
+          children: _orderedRoots(state.categories).take(3).map((
+            CatalogCategory c,
+          ) {
+            final List<Color> grad =
+                _catGradients[c.label.toLowerCase()] ?? _catGradientFallback;
             return Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(right: 8),
                 child: GestureDetector(
-                  onTap: () => _applyFilters(
-                    SearchFilters(rootCategoryId: c.id, categoryPath: c.label),
-                  ),
-                  child: Container(
-                    height: 90,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: DSColor.card,
-                      borderRadius: BorderRadius.circular(DSBorderRadius.image),
-                    ),
-                    child: Text(
-                      c.label,
-                      style: const TextStyle(
-                        fontFamily: dsFontFamily,
-                        fontSize: DSFontSize.bodyLarge,
-                        fontWeight: DSFontWeight.semiBold,
-                        color: DSColor.onSurface,
+                  onTap: () => _openCategoryDrill(context, c),
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: grad,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          DSBorderRadius.image,
+                        ),
+                      ),
+                      child: Text(
+                        c.label,
+                        style: const TextStyle(
+                          fontFamily: dsFontFamily,
+                          fontSize: DSFontSize.bodyLarge,
+                          fontWeight: DSFontWeight.bold,
+                          color: Colors.white,
+                          shadows: <Shadow>[
+                            Shadow(
+                              color: Colors.black54,
+                              blurRadius: 6,
+                              offset: Offset(0, 1),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -417,7 +499,12 @@ class _SearchPageState extends State<SearchPage> {
           padding: const EdgeInsets.fromLTRB(16, 4, 16, 12),
           sliver: SliverToBoxAdapter(
             child: Text(
-              context.l10N.search_result_count(state.results.length),
+              context.l10N.search_result_count(state.results.length) +
+                  (state.query.trim().isEmpty
+                      ? ''
+                      : context.l10N.search_result_for_query(
+                          state.query.trim(),
+                        )),
               style: const TextStyle(
                 fontFamily: dsFontFamily,
                 fontSize: DSFontSize.bodyMedium,

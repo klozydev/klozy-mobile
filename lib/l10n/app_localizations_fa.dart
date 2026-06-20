@@ -12,6 +12,29 @@ class AppLocalizationsFa extends AppLocalizations {
   String get app_name => 'Klozy';
 
   @override
+  String get ds_set_composition_header => 'This set includes';
+
+  @override
+  String get ds_set_composition_owner_note =>
+      'Add a photo of each piece to reassure buyers and sell faster.';
+
+  @override
+  String get ds_set_composition_buyer_note =>
+      'Some pieces aren\'t photographed. Contact the seller for details.';
+
+  @override
+  String get ds_set_composition_photo => 'Photo';
+
+  @override
+  String get ds_set_composition_add => 'Add';
+
+  @override
+  String get ds_set_composition_no_photo => 'No photo';
+
+  @override
+  String get ds_search_bar_hint => 'Search for an item or member';
+
+  @override
   String get error_page_show_details => 'نمایش جزئیات';
 
   @override
@@ -162,6 +185,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get auth_country_uae => 'امارات متحده عربی';
+
+  @override
+  String get auth_hero_placeholder => 'HERO  ·  EDITORIAL  FASHION  SHOT';
 
   @override
   String get auth_welcome_title => 'خرید و فروش مد دست‌دوم\nکه عاشقش می‌شوید.';
@@ -432,13 +458,36 @@ class AppLocalizationsFa extends AppLocalizations {
   String get home_category_all => 'همه';
 
   @override
+  String home_picked_for_you(String categories) {
+    return 'Picked for you · $categories';
+  }
+
+  @override
   String get home_product_badge_new => 'جدید';
 
   @override
   String get home_wishlist_empty => 'فهرست علاقه‌مندی‌های شما خالی است';
 
   @override
+  String get home_wishlist_empty_hint =>
+      'Tap the heart on any item to save it here.';
+
+  @override
+  String home_wishlist_saved_count(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count saved items',
+      one: '1 saved item',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get reels_composer_title => 'ریل جدید';
+
+  @override
+  String get reels_compose_details_title => 'Add details';
 
   @override
   String get reels_pick_title => 'ساخت ریل';
@@ -449,6 +498,9 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get reels_record_video => 'ضبط ویدیو';
+
+  @override
+  String get reels_record_hint => 'Up to 60s · vertical';
 
   @override
   String get reels_choose_from_gallery => 'انتخاب از گالری';
@@ -471,6 +523,20 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get reels_posted_subtitle =>
       'پس از پایان پردازش در بخش ریلز نمایش داده می‌شود.';
+
+  @override
+  String reels_posted_subtitle_tagged(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'items',
+      one: 'item',
+    );
+    return 'Your reel is live in the feed with $count tagged $_temp0.';
+  }
+
+  @override
+  String get reels_view_in_reels => 'View in Reels';
 
   @override
   String get reels_done => 'انجام شد';
@@ -508,6 +574,21 @@ class AppLocalizationsFa extends AppLocalizations {
   String get reels_link_copied_snackbar => 'پیوند در کلیپ‌بورد کپی شد.';
 
   @override
+  String get entry_sheet_title => 'What would you like to do?';
+
+  @override
+  String get entry_create_reel => 'Create a reel';
+
+  @override
+  String get entry_create_reel_sub => 'Share a video of your pieces';
+
+  @override
+  String get entry_list_item => 'List an item for sale';
+
+  @override
+  String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+
+  @override
   String get search_hint => 'جستجوی کالاها، برندها…';
 
   @override
@@ -538,6 +619,25 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get search_no_results => 'نتیجه‌ای نیست';
+
+  @override
+  String category_items_count(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items',
+      one: '1 item',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get category_empty => 'Nothing here yet.';
+
+  @override
+  String search_result_for_query(String query) {
+    return ' for “$query”';
+  }
 
   @override
   String search_result_count(int count) {
@@ -588,6 +688,15 @@ class AppLocalizationsFa extends AppLocalizations {
   String get search_filter_show_results => 'نمایش نتایج';
 
   @override
+  String get search_filter_clear => 'Clear';
+
+  @override
+  String get search_filter_all => 'All';
+
+  @override
+  String get product_your_listing => 'Your listing';
+
+  @override
   String get product_add_to_cart => 'افزودن به سبد خرید';
 
   @override
@@ -626,6 +735,10 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get product_listing_deleted => 'لیست حذف شد';
+
+  @override
+  String get product_listing_deleted_subtitle =>
+      'This item and its photos have been removed.';
 
   @override
   String get product_back_to_feed => 'بازگشت به فید';
@@ -684,6 +797,13 @@ class AppLocalizationsFa extends AppLocalizations {
       'تا ۸ عکس اضافه کنید. هوش مصنوعی لیست شما را از پیش پر می‌کند.';
 
   @override
+  String get sell_reorder_hint =>
+      'Drag to reorder. The 1st photo is the cover.';
+
+  @override
+  String get sell_add_at_least_one_photo => 'Add at least 1 photo to continue';
+
+  @override
   String get sell_continue => 'ادامه';
 
   @override
@@ -720,6 +840,15 @@ class AppLocalizationsFa extends AppLocalizations {
   String get sell_category => 'دسته‌بندی';
 
   @override
+  String get sell_product_details => 'Product details';
+
+  @override
+  String get sell_subcategory => 'Subcategory';
+
+  @override
+  String get sell_choose_subcategory => 'Choose a subcategory';
+
+  @override
   String get sell_brand => 'برند';
 
   @override
@@ -730,6 +859,12 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get sell_suggested_by_ai => 'پیشنهادشده توسط هوش مصنوعی';
+
+  @override
+  String get sell_prefilled_by_ai => 'Pre-filled by AI — review and adjust.';
+
+  @override
+  String get sell_photo_edit => 'Edit';
 
   @override
   String get sell_list_item => 'ثبت کالا';
@@ -746,6 +881,13 @@ class AppLocalizationsFa extends AppLocalizations {
   @override
   String get sell_description_hint =>
       'جزئیاتی درباره وضعیت، اندازه، جنس اضافه کنید…';
+
+  @override
+  String get sell_description_error =>
+      'Add a description so buyers know what they\'re getting';
+
+  @override
+  String get sell_size_one_size => 'One size';
 
   @override
   String get sell_search_brands => 'جستجوی برندها';
@@ -831,6 +973,10 @@ class AppLocalizationsFa extends AppLocalizations {
       'یک پیشنهاد همه چیز را از این فروشنده پوشش می‌دهد. به‌صورت خصوصی در گفتگو ارسال می‌شود — فروشنده می‌پذیرد یا رد می‌کند.';
 
   @override
+  String get cart_offer_escrow_note =>
+      'Your payment is held in escrow until you confirm delivery.';
+
+  @override
   String get cart_currency_dhs => 'Dhs';
 
   @override
@@ -847,6 +993,26 @@ class AppLocalizationsFa extends AppLocalizations {
       one: '۱ کالا',
     );
     return '$_temp0';
+  }
+
+  @override
+  String checkout_buy_more_from(String name) {
+    return 'Buy more from $name';
+  }
+
+  @override
+  String cart_offer_seller_meta(int count, num price) {
+    final intl.NumberFormat priceNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String priceString = priceNumberFormat.format(price);
+
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items',
+      one: '1 item',
+    );
+    return '$_temp0 · listed at $priceString Dhs';
   }
 
   @override
@@ -944,6 +1110,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get orders_prefix_to => 'به';
 
   @override
+  String get orders_negotiated => 'Negotiated';
+
+  @override
   String orders_price_dhs(int amount) {
     return '$amount Dhs';
   }
@@ -965,6 +1134,33 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get orders_emx_door_to_door => 'EMX درب‌به‌درب · داخلی امارات';
+
+  @override
+  String get orders_emx_tracking => 'EMX tracking';
+
+  @override
+  String get orders_track_confirmed_label => 'Order confirmed';
+
+  @override
+  String get orders_track_confirmed_sub => 'Seller is preparing your item';
+
+  @override
+  String get orders_track_shipped_label => 'Shipped with EMX';
+
+  @override
+  String get orders_track_shipped_sub => 'Picked up · in transit';
+
+  @override
+  String get orders_track_out_label => 'Out for delivery';
+
+  @override
+  String get orders_track_out_sub => 'Arriving today';
+
+  @override
+  String get orders_track_delivered_label => 'Delivered';
+
+  @override
+  String get orders_track_delivered_sub => 'Confirm to release payment';
 
   @override
   String orders_carrier_prefix(String carrier) {
@@ -1157,6 +1353,17 @@ class AppLocalizationsFa extends AppLocalizations {
   String get profile_no_reviews => 'هنوز نظری نیست';
 
   @override
+  String profile_reviews_count(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count reviews',
+      one: '1 review',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get profile_no_followers => 'هنوز دنبال‌کننده‌ای نیست';
 
   @override
@@ -1203,6 +1410,19 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get settings_edit_profile => 'ویرایش نمایه';
+
+  @override
+  String get edit_profile_discard_title => 'Discard changes?';
+
+  @override
+  String get edit_profile_discard_body =>
+      'You have unsaved changes. Leave without saving?';
+
+  @override
+  String get edit_profile_discard_confirm => 'Discard';
+
+  @override
+  String get edit_profile_keep_editing => 'Keep editing';
 
   @override
   String get settings_delivery_address => 'آدرس تحویل';
@@ -1259,11 +1479,29 @@ class AppLocalizationsFa extends AppLocalizations {
       'پیوند بازنشانی گذرواژه ارسال شد. ایمیل خود را بررسی کنید.';
 
   @override
-  String get settings_support_unavailable =>
-      'پشتیبانی در حال حاضر در دسترس نیست.';
+  String get settings_new_password => 'New password';
 
   @override
-  String get settings_handle => 'نام کاربری';
+  String get settings_new_password_hint => 'New password';
+
+  @override
+  String get settings_confirm_password => 'Confirm password';
+
+  @override
+  String get settings_confirm_password_hint => 'Re-enter password';
+
+  @override
+  String get settings_passwords_no_match => 'Passwords do not match';
+
+  @override
+  String get settings_password_too_short => 'Use at least 8 characters';
+
+  @override
+  String get settings_password_updated => 'Password updated.';
+
+  @override
+  String get settings_support_unavailable =>
+      'پشتیبانی در حال حاضر در دسترس نیست.';
 
   @override
   String get settings_address_line1 => 'خط آدرس';
@@ -1299,6 +1537,118 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get settings_unblock => 'رفع مسدودیت';
+
+  @override
+  String get settings_group_account => 'Account';
+
+  @override
+  String get settings_group_notifications => 'Notifications';
+
+  @override
+  String get settings_group_other => 'Other';
+
+  @override
+  String get settings_group_links => 'Links';
+
+  @override
+  String get settings_group_social => 'Social';
+
+  @override
+  String get settings_group_preferences => 'Preferences';
+
+  @override
+  String get settings_personal_data => 'Personal data';
+
+  @override
+  String get settings_personal_data_sub =>
+      'Profile, preferences, blocked users';
+
+  @override
+  String get settings_personal_information => 'Personal information';
+
+  @override
+  String get settings_security => 'Security';
+
+  @override
+  String get settings_security_sub => 'Email, password, phone';
+
+  @override
+  String get settings_payouts_sub => 'Bank details (IBAN)';
+
+  @override
+  String get settings_share_app => 'Share the app';
+
+  @override
+  String get settings_legal_notices => 'Legal notices';
+
+  @override
+  String get settings_about => 'About';
+
+  @override
+  String get settings_instagram => 'Instagram';
+
+  @override
+  String get settings_instagram_handle => '@klozy';
+
+  @override
+  String get settings_clothing_preference => 'Clothing preference';
+
+  @override
+  String get settings_preferred_size => 'Preferred size';
+
+  @override
+  String get settings_preferred_brands => 'Preferred brands';
+
+  @override
+  String get settings_change_email => 'Change email';
+
+  @override
+  String get settings_phone_number => 'Phone number';
+
+  @override
+  String get settings_current_email => 'Current email';
+
+  @override
+  String get settings_new_email => 'New email';
+
+  @override
+  String get settings_new_email_hint => 'you@email.com';
+
+  @override
+  String get settings_change_email_note =>
+      'We\'ll send a confirmation link to your new address. The change applies once confirmed.';
+
+  @override
+  String get settings_email_link_sent =>
+      'Confirmation link sent. Check your new inbox to finish.';
+
+  @override
+  String get settings_current_number => 'Current number';
+
+  @override
+  String get settings_new_number => 'New number';
+
+  @override
+  String get settings_new_number_hint => '50 123 4567';
+
+  @override
+  String get settings_phone_note =>
+      'We\'ll text a 6-digit code to confirm your new number.';
+
+  @override
+  String get settings_phone_updated => 'Phone number updated.';
+
+  @override
+  String settings_enter_code_for(String number) {
+    return 'Enter the 6-digit code sent to $number';
+  }
+
+  @override
+  String get settings_share_message =>
+      'Check out Klozy — buy & sell pre-loved fashion across the UAE. https://klozy.app';
+
+  @override
+  String get settings_share_failed => 'Couldn\'t open share. Please try again.';
 
   @override
   String get onboarding_avatar_failed =>
@@ -1564,6 +1914,10 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get categoryPickerRetry => 'تلاش مجدد';
+
+  @override
+  String get categoryPickerDeepestHint =>
+      'Deepest level — filter by size below.';
 
   @override
   String get categoryPickerAddCategories => 'افزودن دسته‌بندی‌ها';

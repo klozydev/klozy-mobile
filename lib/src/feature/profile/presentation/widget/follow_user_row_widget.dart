@@ -82,15 +82,6 @@ class FollowUserRowWidget extends StatelessWidget {
                       ],
                     ],
                   ),
-                  if (user.handle.isNotEmpty)
-                    Text(
-                      '@${user.handle}',
-                      style: const TextStyle(
-                        fontFamily: dsFontFamily,
-                        fontSize: DSFontSize.bodySmall,
-                        color: DSColor.onSurface45,
-                      ),
-                    ),
                 ],
               ),
             ),

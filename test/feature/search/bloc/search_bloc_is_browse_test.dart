@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
+import 'package:klozy/src/domain/product/entity/feed_page.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/domain/product/entity/search_facets.dart';
 import 'package:klozy/src/domain/product/entity/search_result.dart';
@@ -36,6 +37,7 @@ void main() {
   late SearchBloc bloc;
 
   const _emptyPage = PaginatedList<Product>(data: <Product>[]);
+  const _emptyFeed = FeedPage(data: <Product>[]);
   const _emptySearchResult = SearchResult(
     page: _emptyPage,
     facets: SearchFacets.empty,
@@ -60,7 +62,7 @@ void main() {
         sort: any(named: 'sort'),
         limit: any(named: 'limit'),
       ),
-    ).thenAnswer((_) async => _emptyPage);
+    ).thenAnswer((_) async => _emptyFeed);
 
     when(
       () => products.search(

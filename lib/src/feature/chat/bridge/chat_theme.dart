@@ -30,10 +30,7 @@ TextStyle _style(
 }
 
 BoxDecoration _bubble(Color color) {
-  return BoxDecoration(
-    color: color,
-    borderRadius: BorderRadius.circular(16),
-  );
+  return BoxDecoration(color: color, borderRadius: BorderRadius.circular(16));
 }
 
 /// Conversation list (`tchat_theme`).

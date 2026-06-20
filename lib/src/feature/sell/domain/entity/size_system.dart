@@ -1,1 +1,1 @@
-enum SizeSystem { eu, us }
+enum SizeSystem { eu, uk, us }

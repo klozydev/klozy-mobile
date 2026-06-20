@@ -38,6 +38,12 @@ class SellSizeToggleWidget extends StatelessWidget {
         ),
         const SizedBox(width: DSSpacing.xxxs),
         DSSelectableChip(
+          label: 'UK',
+          selected: current == SizeSystem.uk,
+          onTap: () => onToggle(SizeSystem.uk),
+        ),
+        const SizedBox(width: DSSpacing.xxxs),
+        DSSelectableChip(
           label: 'US',
           selected: current == SizeSystem.us,
           onTap: () => onToggle(SizeSystem.us),

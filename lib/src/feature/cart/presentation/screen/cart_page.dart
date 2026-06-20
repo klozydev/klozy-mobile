@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
@@ -35,7 +36,10 @@ class CartPage extends StatelessWidget implements AutoRouteWrapper {
       title: context.l10N.cart_make_an_offer,
       child: OfferSheet(
         subtotal: bucket.subtotal,
-        itemCount: bucket.items.length,
+        sellerName: bucket.sellerName,
+        sellerAvatar: bucket.sellerAvatar,
+        isPro: bucket.isPro,
+        items: bucket.items,
       ),
     );
     if (amount != null && context.mounted) {
@@ -97,8 +101,15 @@ class CartPage extends StatelessWidget implements AutoRouteWrapper {
                                 );
                               }
                             },
-                            onCheckout: () => context.router.push(
-                              CheckoutRoute(sellerId: b.sellerId),
+                            // JIT profile gate: a complete profile (name +
+                            // delivery address) is required before checkout.
+                            // Incomplete users get the "finish setup" sheet →
+                            // ProfileCompletionRoute; guests get sign-up.
+                            onCheckout: () => locator<AccountGate>().guard(
+                              context,
+                              onAllowed: () => context.router.push(
+                                CheckoutRoute(sellerId: b.sellerId, bucket: b),
+                              ),
                             ),
                             onMessageSeller: () =>
                                 context.openChatWith(b.sellerId),

@@ -124,6 +124,48 @@ abstract class AppLocalizations {
   /// **'Klozy'**
   String get app_name;
 
+  /// No description provided for @ds_set_composition_header.
+  ///
+  /// In en, this message translates to:
+  /// **'This set includes'**
+  String get ds_set_composition_header;
+
+  /// No description provided for @ds_set_composition_owner_note.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a photo of each piece to reassure buyers and sell faster.'**
+  String get ds_set_composition_owner_note;
+
+  /// No description provided for @ds_set_composition_buyer_note.
+  ///
+  /// In en, this message translates to:
+  /// **'Some pieces aren\'t photographed. Contact the seller for details.'**
+  String get ds_set_composition_buyer_note;
+
+  /// No description provided for @ds_set_composition_photo.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get ds_set_composition_photo;
+
+  /// No description provided for @ds_set_composition_add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get ds_set_composition_add;
+
+  /// No description provided for @ds_set_composition_no_photo.
+  ///
+  /// In en, this message translates to:
+  /// **'No photo'**
+  String get ds_set_composition_no_photo;
+
+  /// No description provided for @ds_search_bar_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search for an item or member'**
+  String get ds_search_bar_hint;
+
   /// No description provided for @error_page_show_details.
   ///
   /// In en, this message translates to:
@@ -411,6 +453,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'UNITED ARAB EMIRATES'**
   String get auth_country_uae;
+
+  /// No description provided for @auth_hero_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'HERO  ·  EDITORIAL  FASHION  SHOT'**
+  String get auth_hero_placeholder;
 
   /// No description provided for @auth_welcome_title.
   ///
@@ -898,6 +946,12 @@ abstract class AppLocalizations {
   /// **'All'**
   String get home_category_all;
 
+  /// No description provided for @home_picked_for_you.
+  ///
+  /// In en, this message translates to:
+  /// **'Picked for you · {categories}'**
+  String home_picked_for_you(String categories);
+
   /// No description provided for @home_product_badge_new.
   ///
   /// In en, this message translates to:
@@ -910,11 +964,29 @@ abstract class AppLocalizations {
   /// **'Your wishlist is empty'**
   String get home_wishlist_empty;
 
+  /// No description provided for @home_wishlist_empty_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the heart on any item to save it here.'**
+  String get home_wishlist_empty_hint;
+
+  /// No description provided for @home_wishlist_saved_count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 saved item} other{{count} saved items}}'**
+  String home_wishlist_saved_count(int count);
+
   /// No description provided for @reels_composer_title.
   ///
   /// In en, this message translates to:
   /// **'New reel'**
   String get reels_composer_title;
+
+  /// No description provided for @reels_compose_details_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Add details'**
+  String get reels_compose_details_title;
 
   /// No description provided for @reels_pick_title.
   ///
@@ -933,6 +1005,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Record a video'**
   String get reels_record_video;
+
+  /// No description provided for @reels_record_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to 60s · vertical'**
+  String get reels_record_hint;
 
   /// No description provided for @reels_choose_from_gallery.
   ///
@@ -955,7 +1033,7 @@ abstract class AppLocalizations {
   /// No description provided for @reels_no_listings_to_tag.
   ///
   /// In en, this message translates to:
-  /// **'You have no active listings to tag yet.'**
+  /// **'List an item first to tag it in your reels.'**
   String get reels_no_listings_to_tag;
 
   /// No description provided for @reels_post_reel.
@@ -973,8 +1051,20 @@ abstract class AppLocalizations {
   /// No description provided for @reels_posted_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'It will appear in Reels once processing finishes.'**
+  /// **'Your reel is live in the feed.'**
   String get reels_posted_subtitle;
+
+  /// No description provided for @reels_posted_subtitle_tagged.
+  ///
+  /// In en, this message translates to:
+  /// **'Your reel is live in the feed with {count} tagged {count, plural, one{item} other{items}}.'**
+  String reels_posted_subtitle_tagged(int count);
+
+  /// No description provided for @reels_view_in_reels.
+  ///
+  /// In en, this message translates to:
+  /// **'View in Reels'**
+  String get reels_view_in_reels;
 
   /// No description provided for @reels_done.
   ///
@@ -1042,6 +1132,36 @@ abstract class AppLocalizations {
   /// **'Link copied to clipboard.'**
   String get reels_link_copied_snackbar;
 
+  /// No description provided for @entry_sheet_title.
+  ///
+  /// In en, this message translates to:
+  /// **'What would you like to do?'**
+  String get entry_sheet_title;
+
+  /// No description provided for @entry_create_reel.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a reel'**
+  String get entry_create_reel;
+
+  /// No description provided for @entry_create_reel_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Share a video of your pieces'**
+  String get entry_create_reel_sub;
+
+  /// No description provided for @entry_list_item.
+  ///
+  /// In en, this message translates to:
+  /// **'List an item for sale'**
+  String get entry_list_item;
+
+  /// No description provided for @entry_list_item_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo-first · AI pre-fills your listing'**
+  String get entry_list_item_sub;
+
   /// No description provided for @search_hint.
   ///
   /// In en, this message translates to:
@@ -1099,8 +1219,26 @@ abstract class AppLocalizations {
   /// No description provided for @search_no_results.
   ///
   /// In en, this message translates to:
-  /// **'No results'**
+  /// **'No items match your search.'**
   String get search_no_results;
+
+  /// No description provided for @category_items_count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 item} other{{count} items}}'**
+  String category_items_count(int count);
+
+  /// No description provided for @category_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here yet.'**
+  String get category_empty;
+
+  /// No description provided for @search_result_for_query.
+  ///
+  /// In en, this message translates to:
+  /// **' for “{query}”'**
+  String search_result_for_query(String query);
 
   /// No description provided for @search_result_count.
   ///
@@ -1149,6 +1287,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Show results'**
   String get search_filter_show_results;
+
+  /// No description provided for @search_filter_clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get search_filter_clear;
+
+  /// No description provided for @search_filter_all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get search_filter_all;
+
+  /// No description provided for @product_your_listing.
+  ///
+  /// In en, this message translates to:
+  /// **'Your listing'**
+  String get product_your_listing;
 
   /// No description provided for @product_add_to_cart.
   ///
@@ -1227,6 +1383,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Listing deleted'**
   String get product_listing_deleted;
+
+  /// No description provided for @product_listing_deleted_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This item and its photos have been removed.'**
+  String get product_listing_deleted_subtitle;
 
   /// No description provided for @product_back_to_feed.
   ///
@@ -1327,8 +1489,20 @@ abstract class AppLocalizations {
   /// No description provided for @sell_add_photos_hint.
   ///
   /// In en, this message translates to:
-  /// **'Add up to 8 photos. AI will pre-fill your listing.'**
+  /// **'Add up to 10 photos. AI will pre-fill your listing.'**
   String get sell_add_photos_hint;
+
+  /// No description provided for @sell_reorder_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag to reorder. The 1st photo is the cover.'**
+  String get sell_reorder_hint;
+
+  /// No description provided for @sell_add_at_least_one_photo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add at least 1 photo to continue'**
+  String get sell_add_at_least_one_photo;
 
   /// No description provided for @sell_continue.
   ///
@@ -1402,6 +1576,24 @@ abstract class AppLocalizations {
   /// **'Category'**
   String get sell_category;
 
+  /// No description provided for @sell_product_details.
+  ///
+  /// In en, this message translates to:
+  /// **'Product details'**
+  String get sell_product_details;
+
+  /// No description provided for @sell_subcategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Subcategory'**
+  String get sell_subcategory;
+
+  /// No description provided for @sell_choose_subcategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a subcategory'**
+  String get sell_choose_subcategory;
+
   /// No description provided for @sell_brand.
   ///
   /// In en, this message translates to:
@@ -1425,6 +1617,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Suggested by AI'**
   String get sell_suggested_by_ai;
+
+  /// No description provided for @sell_prefilled_by_ai.
+  ///
+  /// In en, this message translates to:
+  /// **'Pre-filled by AI — review and adjust.'**
+  String get sell_prefilled_by_ai;
+
+  /// No description provided for @sell_photo_edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get sell_photo_edit;
 
   /// No description provided for @sell_list_item.
   ///
@@ -1455,6 +1659,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add details about condition, fit, material…'**
   String get sell_description_hint;
+
+  /// No description provided for @sell_description_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a description so buyers know what they\'re getting'**
+  String get sell_description_error;
+
+  /// No description provided for @sell_size_one_size.
+  ///
+  /// In en, this message translates to:
+  /// **'One size'**
+  String get sell_size_one_size;
 
   /// No description provided for @sell_search_brands.
   ///
@@ -1606,6 +1822,12 @@ abstract class AppLocalizations {
   /// **'One offer covers everything from this seller. It\'s sent privately in chat — the seller accepts or declines.'**
   String get cart_offer_chat_note;
 
+  /// No description provided for @cart_offer_escrow_note.
+  ///
+  /// In en, this message translates to:
+  /// **'Your payment is held in escrow until you confirm delivery.'**
+  String get cart_offer_escrow_note;
+
   /// No description provided for @cart_currency_dhs.
   ///
   /// In en, this message translates to:
@@ -1623,6 +1845,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =1{1 item} other{{count} items}}'**
   String cart_item_count(int count);
+
+  /// No description provided for @checkout_buy_more_from.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy more from {name}'**
+  String checkout_buy_more_from(String name);
+
+  /// No description provided for @cart_offer_seller_meta.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 item} other{{count} items}} · listed at {price} Dhs'**
+  String cart_offer_seller_meta(int count, num price);
 
   /// No description provided for @cart_sellers_summary.
   ///
@@ -1780,6 +2014,12 @@ abstract class AppLocalizations {
   /// **'to'**
   String get orders_prefix_to;
 
+  /// No description provided for @orders_negotiated.
+  ///
+  /// In en, this message translates to:
+  /// **'Negotiated'**
+  String get orders_negotiated;
+
   /// No description provided for @orders_price_dhs.
   ///
   /// In en, this message translates to:
@@ -1815,6 +2055,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'EMX door-to-door · UAE domestic'**
   String get orders_emx_door_to_door;
+
+  /// No description provided for @orders_emx_tracking.
+  ///
+  /// In en, this message translates to:
+  /// **'EMX tracking'**
+  String get orders_emx_tracking;
+
+  /// No description provided for @orders_track_confirmed_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Order confirmed'**
+  String get orders_track_confirmed_label;
+
+  /// No description provided for @orders_track_confirmed_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Seller is preparing your item'**
+  String get orders_track_confirmed_sub;
+
+  /// No description provided for @orders_track_shipped_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Shipped with EMX'**
+  String get orders_track_shipped_label;
+
+  /// No description provided for @orders_track_shipped_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Picked up · in transit'**
+  String get orders_track_shipped_sub;
+
+  /// No description provided for @orders_track_out_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Out for delivery'**
+  String get orders_track_out_label;
+
+  /// No description provided for @orders_track_out_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Arriving today'**
+  String get orders_track_out_sub;
+
+  /// No description provided for @orders_track_delivered_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered'**
+  String get orders_track_delivered_label;
+
+  /// No description provided for @orders_track_delivered_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm to release payment'**
+  String get orders_track_delivered_sub;
 
   /// No description provided for @orders_carrier_prefix.
   ///
@@ -2164,6 +2458,12 @@ abstract class AppLocalizations {
   /// **'No reviews yet'**
   String get profile_no_reviews;
 
+  /// No description provided for @profile_reviews_count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 review} other{{count} reviews}}'**
+  String profile_reviews_count(int count);
+
   /// No description provided for @profile_no_followers.
   ///
   /// In en, this message translates to:
@@ -2259,6 +2559,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Edit profile'**
   String get settings_edit_profile;
+
+  /// No description provided for @edit_profile_discard_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard changes?'**
+  String get edit_profile_discard_title;
+
+  /// No description provided for @edit_profile_discard_body.
+  ///
+  /// In en, this message translates to:
+  /// **'You have unsaved changes. Leave without saving?'**
+  String get edit_profile_discard_body;
+
+  /// No description provided for @edit_profile_discard_confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get edit_profile_discard_confirm;
+
+  /// No description provided for @edit_profile_keep_editing.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep editing'**
+  String get edit_profile_keep_editing;
 
   /// No description provided for @settings_delivery_address.
   ///
@@ -2362,17 +2686,53 @@ abstract class AppLocalizations {
   /// **'Password reset link sent. Check your email.'**
   String get settings_password_reset_sent;
 
+  /// No description provided for @settings_new_password.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get settings_new_password;
+
+  /// No description provided for @settings_new_password_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get settings_new_password_hint;
+
+  /// No description provided for @settings_confirm_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password'**
+  String get settings_confirm_password;
+
+  /// No description provided for @settings_confirm_password_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Re-enter password'**
+  String get settings_confirm_password_hint;
+
+  /// No description provided for @settings_passwords_no_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get settings_passwords_no_match;
+
+  /// No description provided for @settings_password_too_short.
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least 8 characters'**
+  String get settings_password_too_short;
+
+  /// No description provided for @settings_password_updated.
+  ///
+  /// In en, this message translates to:
+  /// **'Password updated.'**
+  String get settings_password_updated;
+
   /// No description provided for @settings_support_unavailable.
   ///
   /// In en, this message translates to:
   /// **'Support is unavailable right now.'**
   String get settings_support_unavailable;
-
-  /// No description provided for @settings_handle.
-  ///
-  /// In en, this message translates to:
-  /// **'Handle'**
-  String get settings_handle;
 
   /// No description provided for @settings_address_line1.
   ///
@@ -2439,6 +2799,216 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unblock'**
   String get settings_unblock;
+
+  /// No description provided for @settings_group_account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get settings_group_account;
+
+  /// No description provided for @settings_group_notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get settings_group_notifications;
+
+  /// No description provided for @settings_group_other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get settings_group_other;
+
+  /// No description provided for @settings_group_links.
+  ///
+  /// In en, this message translates to:
+  /// **'Links'**
+  String get settings_group_links;
+
+  /// No description provided for @settings_group_social.
+  ///
+  /// In en, this message translates to:
+  /// **'Social'**
+  String get settings_group_social;
+
+  /// No description provided for @settings_group_preferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences'**
+  String get settings_group_preferences;
+
+  /// No description provided for @settings_personal_data.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal data'**
+  String get settings_personal_data;
+
+  /// No description provided for @settings_personal_data_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile, preferences, blocked users'**
+  String get settings_personal_data_sub;
+
+  /// No description provided for @settings_personal_information.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal information'**
+  String get settings_personal_information;
+
+  /// No description provided for @settings_security.
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get settings_security;
+
+  /// No description provided for @settings_security_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Email, password, phone'**
+  String get settings_security_sub;
+
+  /// No description provided for @settings_payouts_sub.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank details (IBAN)'**
+  String get settings_payouts_sub;
+
+  /// No description provided for @settings_share_app.
+  ///
+  /// In en, this message translates to:
+  /// **'Share the app'**
+  String get settings_share_app;
+
+  /// No description provided for @settings_legal_notices.
+  ///
+  /// In en, this message translates to:
+  /// **'Legal notices'**
+  String get settings_legal_notices;
+
+  /// No description provided for @settings_about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get settings_about;
+
+  /// No description provided for @settings_instagram.
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram'**
+  String get settings_instagram;
+
+  /// No description provided for @settings_instagram_handle.
+  ///
+  /// In en, this message translates to:
+  /// **'@klozy'**
+  String get settings_instagram_handle;
+
+  /// No description provided for @settings_clothing_preference.
+  ///
+  /// In en, this message translates to:
+  /// **'Clothing preference'**
+  String get settings_clothing_preference;
+
+  /// No description provided for @settings_preferred_size.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferred size'**
+  String get settings_preferred_size;
+
+  /// No description provided for @settings_preferred_brands.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferred brands'**
+  String get settings_preferred_brands;
+
+  /// No description provided for @settings_change_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Change email'**
+  String get settings_change_email;
+
+  /// No description provided for @settings_phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number'**
+  String get settings_phone_number;
+
+  /// No description provided for @settings_current_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Current email'**
+  String get settings_current_email;
+
+  /// No description provided for @settings_new_email.
+  ///
+  /// In en, this message translates to:
+  /// **'New email'**
+  String get settings_new_email;
+
+  /// No description provided for @settings_new_email_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'you@email.com'**
+  String get settings_new_email_hint;
+
+  /// No description provided for @settings_change_email_note.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll send a confirmation link to your new address. The change applies once confirmed.'**
+  String get settings_change_email_note;
+
+  /// No description provided for @settings_email_link_sent.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmation link sent. Check your new inbox to finish.'**
+  String get settings_email_link_sent;
+
+  /// No description provided for @settings_current_number.
+  ///
+  /// In en, this message translates to:
+  /// **'Current number'**
+  String get settings_current_number;
+
+  /// No description provided for @settings_new_number.
+  ///
+  /// In en, this message translates to:
+  /// **'New number'**
+  String get settings_new_number;
+
+  /// No description provided for @settings_new_number_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'50 123 4567'**
+  String get settings_new_number_hint;
+
+  /// No description provided for @settings_phone_note.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll text a 6-digit code to confirm your new number.'**
+  String get settings_phone_note;
+
+  /// No description provided for @settings_phone_updated.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number updated.'**
+  String get settings_phone_updated;
+
+  /// No description provided for @settings_enter_code_for.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the 6-digit code sent to {number}'**
+  String settings_enter_code_for(String number);
+
+  /// No description provided for @settings_share_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Check out Klozy — buy & sell pre-loved fashion across the UAE. https://klozy.app'**
+  String get settings_share_message;
+
+  /// No description provided for @settings_share_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open share. Please try again.'**
+  String get settings_share_failed;
 
   /// No description provided for @onboarding_avatar_failed.
   ///
@@ -2931,6 +3501,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Retry'**
   String get categoryPickerRetry;
+
+  /// No description provided for @categoryPickerDeepestHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Deepest level — filter by size below.'**
+  String get categoryPickerDeepestHint;
 
   /// No description provided for @categoryPickerAddCategories.
   ///

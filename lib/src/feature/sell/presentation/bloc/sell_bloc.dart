@@ -99,7 +99,7 @@ class SellBloc extends Bloc<SellEvent, SellState> {
     Emitter<SellState> emit,
   ) async {
     if (event.paths.isEmpty) return;
-    emit(const SellAnalyzingState());
+    emit(SellAnalyzingState(coverPath: event.paths.first));
     try {
       final urls = await _uploadsRepository.uploadImages(event.paths);
       if (urls.isEmpty) {

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/components/shimmer_box/shimmer_box_widget.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
-import 'package:klozy/src/design/tokens/ds_color.dart';
 
-/// First-load placeholder rows for the notification center.
+/// First-load placeholder rows for the notification center — animated shimmer,
+/// mirroring the prototype's `k-shimmer` rows.
 class NotificationSkeletonWidget extends StatelessWidget {
   const NotificationSkeletonWidget({super.key});
 
@@ -16,49 +17,26 @@ class NotificationSkeletonWidget extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _Block(width: 40, height: 40, circle: true),
+            ShimmerBoxWidget(
+              width: 40,
+              height: 40,
+              borderRadius: DSBorderRadius.chip,
+            ),
             SizedBox(width: 12),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  _Block(width: 160, height: 13),
+                  ShimmerBoxWidget(width: 160, height: 13),
                   SizedBox(height: 8),
-                  _Block(width: double.infinity, height: 11),
+                  ShimmerBoxWidget(width: double.infinity, height: 11),
                   SizedBox(height: 6),
-                  _Block(width: 80, height: 10),
+                  ShimmerBoxWidget(width: 80, height: 10),
                 ],
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _Block extends StatelessWidget {
-  final double width;
-  final double height;
-  final bool circle;
-
-  const _Block({
-    required this.width,
-    required this.height,
-    this.circle = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: DSColor.onSurface07,
-        shape: circle ? BoxShape.circle : BoxShape.rectangle,
-        borderRadius: circle
-            ? null
-            : BorderRadius.circular(DSBorderRadius.light),
       ),
     );
   }

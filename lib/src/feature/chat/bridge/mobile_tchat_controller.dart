@@ -25,11 +25,11 @@ class MobileTchatController extends TchatController {
   @override
   Future<Map<String, dynamic>> getUserData(String userId) async {
     try {
-      final DocumentSnapshot<Map<String, dynamic>> snap = await FirebaseFirestore
-          .instance
-          .collection(_chatUsersCollection)
-          .doc(userId)
-          .get();
+      final DocumentSnapshot<Map<String, dynamic>> snap =
+          await FirebaseFirestore.instance
+              .collection(_chatUsersCollection)
+              .doc(userId)
+              .get();
       return snap.data() ?? <String, dynamic>{};
     } catch (_) {
       return <String, dynamic>{};

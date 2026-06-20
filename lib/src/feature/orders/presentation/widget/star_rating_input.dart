@@ -25,7 +25,7 @@ class StarRatingInput extends StatelessWidget {
               child: Icon(
                 i <= rating ? Icons.star_rounded : Icons.star_outline_rounded,
                 size: 38,
-                color: i <= rating ? DSColor.primary : DSColor.onSurface32,
+                color: i <= rating ? DSColor.primary : DSColor.onSurface35,
               ),
             ),
           ),

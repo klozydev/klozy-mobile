@@ -7,7 +7,6 @@ enum SellerRole { particular, vendor }
 /// every field is nullable and [isProfileComplete] is computed client-side.
 class MeProfile extends Equatable {
   final String id;
-  final String? handle;
   final String? firstName;
   final String? lastName;
   final String? bio;
@@ -20,7 +19,6 @@ class MeProfile extends Equatable {
 
   const MeProfile({
     required this.id,
-    this.handle,
     this.firstName,
     this.lastName,
     this.bio,
@@ -42,7 +40,6 @@ class MeProfile extends Equatable {
   @override
   List<Object?> get props => [
     id,
-    handle,
     firstName,
     lastName,
     bio,

@@ -32,6 +32,7 @@ class ProfileReviewsList extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
                 profile.rating.toStringAsFixed(1),
@@ -42,15 +43,30 @@ class ProfileReviewsList extends StatelessWidget {
                   color: DSColor.onSurface,
                 ),
               ),
-              const SizedBox(width: 12),
-              DSStarRating(
-                rating: profile.rating,
-                reviewCount: profile.reviewCount,
-                starSize: 15,
+              const SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  DSStarRating(
+                    rating: profile.rating,
+                    starSize: 15,
+                    showCount: false,
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    context.l10N.profile_reviews_count(profile.reviewCount),
+                    style: const TextStyle(
+                      fontFamily: dsFontFamily,
+                      fontSize: DSFontSize.bodySmall,
+                      color: DSColor.onSurface45,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 4),
           ...reviews.map((UserReview r) => ReviewCardWidget(review: r)),
         ],
       ),

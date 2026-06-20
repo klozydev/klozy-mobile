@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/design/components/ds_star_rating.dart';
-import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/domain/social/entity/user_review.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class ReviewCardWidget extends StatelessWidget {
   final UserReview review;
@@ -13,61 +13,75 @@ class ReviewCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: DSColor.card,
-        borderRadius: BorderRadius.circular(DSBorderRadius.card),
-        border: Border.all(color: DSColor.onSurface07, width: 0.5),
+      padding: const EdgeInsets.symmetric(vertical: 14),
+      decoration: const BoxDecoration(
+        border: Border(top: BorderSide(color: DSColor.onSurface07, width: 0.5)),
       ),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              CircleAvatar(
-                radius: 16,
-                backgroundColor: DSColor.lowBlack,
-                backgroundImage: review.authorAvatar == null
-                    ? null
-                    : NetworkImage(review.authorAvatar!),
-                child: review.authorAvatar == null
-                    ? const Icon(Icons.person, size: 16, color: Colors.white)
-                    : null,
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  review.authorName,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.bodyMedium,
-                    fontWeight: DSFontWeight.semiBold,
-                    color: DSColor.onSurface,
-                  ),
-                ),
-              ),
-              DSStarRating(
-                rating: review.rating,
-                showCount: false,
-                starSize: 11,
-              ),
-            ],
+          CircleAvatar(
+            radius: 19,
+            backgroundColor: DSColor.lowBlack,
+            backgroundImage: review.authorAvatar == null
+                ? null
+                : NetworkImage(review.authorAvatar!),
+            child: review.authorAvatar == null
+                ? const Icon(Icons.person, size: 19, color: Colors.white)
+                : null,
           ),
-          if (review.body.isNotEmpty) ...<Widget>[
-            const SizedBox(height: 8),
-            Text(
-              review.body,
-              style: const TextStyle(
-                fontFamily: dsFontFamily,
-                fontSize: DSFontSize.bodyMedium,
-                height: 1.4,
-                color: DSColor.onSurface75,
-              ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        review.authorName,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontFamily: dsFontFamily,
+                          fontSize: DSFontSize.bodyLarge,
+                          fontWeight: DSFontWeight.semiBold,
+                          color: DSColor.onSurface,
+                        ),
+                      ),
+                    ),
+                    if (review.createdAt != null)
+                      Text(
+                        timeago.format(review.createdAt!, locale: 'en_short'),
+                        style: const TextStyle(
+                          fontFamily: dsFontFamily,
+                          fontSize: DSFontSize.bodySmall,
+                          color: DSColor.onSurface35,
+                        ),
+                      ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                DSStarRating(
+                  rating: review.rating,
+                  showCount: false,
+                  starSize: 13,
+                ),
+                if (review.body.isNotEmpty) ...<Widget>[
+                  const SizedBox(height: 6),
+                  Text(
+                    review.body,
+                    style: const TextStyle(
+                      fontFamily: dsFontFamily,
+                      fontSize: DSFontSize.bodyMedium,
+                      height: 18 / DSFontSize.bodyMedium,
+                      color: DSColor.onSurface65,
+                    ),
+                  ),
+                ],
+              ],
             ),
-          ],
+          ),
         ],
       ),
     );

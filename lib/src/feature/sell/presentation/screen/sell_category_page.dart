@@ -6,10 +6,15 @@ import 'package:klozy/src/design/components/ds_category_tree_picker.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
+import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 
 @RoutePage()
 class SellCategoryPage extends StatelessWidget implements AutoRouteWrapper {
-  const SellCategoryPage({super.key});
+  /// When set, the drill-down is scoped to this root (design: pick a main
+  /// category — Women/Men/Kids — first, then choose a subcategory within it).
+  final CatalogCategory? parent;
+
+  const SellCategoryPage({super.key, this.parent});
 
   @override
   Widget wrappedRoute(BuildContext context) => this;
@@ -26,6 +31,7 @@ class SellCategoryPage extends StatelessWidget implements AutoRouteWrapper {
         child: DSCategoryTreePicker(
           repo: locator<CatalogRepository>(),
           showBreadcrumb: true,
+          initialParent: parent,
           onLeafSelected: (PickedCategory picked) {
             context.router.maybePop(picked);
           },

@@ -36,7 +36,7 @@ class ProfileReelsGrid extends StatelessWidget {
         return GestureDetector(
           onTap: () => onTap(reel),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(DSBorderRadius.light),
+            borderRadius: BorderRadius.circular(DSBorderRadius.cardSmall),
             child: Stack(
               fit: StackFit.expand,
               children: <Widget>[
@@ -44,24 +44,49 @@ class ProfileReelsGrid extends StatelessWidget {
                   const ColoredBox(color: DSColor.lowBlack)
                 else
                   Image.network(reel.thumbnailUrl!, fit: BoxFit.cover),
-                const Center(
-                  child: Icon(
-                    Icons.play_arrow_rounded,
-                    size: 28,
-                    color: Colors.white,
+                // Bottom gradient scrim.
+                const DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: <double>[0.55, 1],
+                      colors: <Color>[Colors.transparent, Color(0x99000000)],
+                    ),
                   ),
                 ),
+                // Top-right play badge.
                 Positioned(
-                  left: 6,
-                  bottom: 6,
+                  top: 8,
+                  right: 8,
+                  child: Container(
+                    width: 22,
+                    height: 22,
+                    decoration: const BoxDecoration(
+                      color: Color(0x66000000),
+                      shape: BoxShape.circle,
+                    ),
+                    alignment: Alignment.center,
+                    child: const Icon(
+                      Icons.play_arrow_rounded,
+                      size: 12,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                // Bottom-left view count.
+                Positioned(
+                  left: 8,
+                  bottom: 7,
                   child: Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const Icon(
-                        Icons.visibility_outlined,
-                        size: 12,
-                        color: Colors.white,
+                        Icons.play_arrow_rounded,
+                        size: 11,
+                        color: Color(0xD9FFFFFF),
                       ),
-                      const SizedBox(width: 3),
+                      const SizedBox(width: 4),
                       Text(
                         '${reel.views}',
                         style: const TextStyle(

@@ -3,10 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
+import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/sell/usecase/check_sell_prerequisite_usecase.dart';
 import 'package:klozy/src/domain/sell/usecase/sell_prerequisite.dart';
+import 'package:klozy/src/feature/shell/presentation/widget/entry_choice.dart';
+import 'package:klozy/src/feature/shell/presentation/widget/entry_sheet_widget.dart';
 import 'package:klozy/src/feature/shell/presentation/widget/shell_bottom_nav_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
 import 'package:kosmos_chat/backend/provider/tchat_list.dart';
@@ -28,7 +32,7 @@ class ShellPage extends StatelessWidget {
         ProfileRoute(),
       ],
       bottomNavigationBuilder: (_, TabsRouter tabsRouter) {
-        void onSell() => locator<AccountGate>().guard(
+        void startSell() => locator<AccountGate>().guard(
           context,
           onAllowed: () async {
             final prerequisite =
@@ -47,6 +51,27 @@ class ShellPage extends StatelessWidget {
             }
           },
         );
+        // The "+" opens an entry sheet — create a reel or list an item — then
+        // routes to the chosen flow (each behind the account gate).
+        Future<void> onSell() async {
+          final EntryChoice? choice = await DSBottomSheet.show<EntryChoice>(
+            context,
+            title: context.l10N.entry_sheet_title,
+            child: const EntrySheetWidget(),
+          );
+          switch (choice) {
+            case EntryChoice.reel:
+              locator<AccountGate>().guard(
+                context,
+                onAllowed: () => context.router.push(const ReelComposerRoute()),
+              );
+            case EntryChoice.sell:
+              startSell();
+            case null:
+              break;
+          }
+        }
+
         // Watch the chat unread count (Riverpod, from the kosmos_chat island)
         // so the chat tab shows a live badge regardless of which tab is active.
         return Consumer(

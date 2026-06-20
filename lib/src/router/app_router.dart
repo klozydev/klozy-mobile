@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/domain/cart/entity/cart_bucket.dart';
+import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
 import 'package:klozy/src/domain/me/entity/address.dart';
 import 'package:klozy/src/feature/auth/presentation/screen/login_page.dart';
 import 'package:klozy/src/feature/auth/presentation/screen/otp_page.dart';
@@ -26,18 +28,23 @@ import 'package:klozy/src/feature/profile/presentation/screen/profile_page.dart'
 import 'package:klozy/src/feature/profile/presentation/screen/user_profile_page.dart';
 import 'package:klozy/src/feature/reels/presentation/screen/reel_composer_page.dart';
 import 'package:klozy/src/feature/reels/presentation/screen/single_reel_page.dart';
+import 'package:klozy/src/feature/search/presentation/screen/search_category_page.dart';
 import 'package:klozy/src/feature/search/presentation/screen/search_page.dart';
 import 'package:klozy/src/feature/sell/presentation/screen/sell_category_page.dart';
 import 'package:klozy/src/feature/sell/presentation/screen/sell_page.dart';
-import 'package:klozy/src/feature/settings/presentation/screen/address_book_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/address_form_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/blocked_users_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/change_email_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/change_password_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/change_phone_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/clothing_preference_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/edit_profile_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/legal_doc_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/payout_page.dart';
-import 'package:klozy/src/feature/settings/presentation/screen/payouts_page.dart';
-import 'package:klozy/src/feature/settings/presentation/screen/preferences_page.dart';
-import 'package:klozy/src/feature/settings/presentation/screen/seller_stats_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/personal_data_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/preferred_brands_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/preferred_size_page.dart';
+import 'package:klozy/src/feature/settings/presentation/screen/security_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/seller_verification_page.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/settings_page.dart';
 import 'package:klozy/src/feature/shell/presentation/screen/shell_page.dart';
@@ -73,6 +80,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(path: 'profile', page: ProfileRoute.page),
       ],
     ),
+    AutoRoute(path: '/search/category', page: SearchCategoryRoute.page),
     AutoRoute(path: '/welcome', page: WelcomeRoute.page),
     AutoRoute(path: '/login', page: LoginRoute.page),
     AutoRoute(path: '/phone', page: PhoneRoute.page),
@@ -154,33 +162,53 @@ class AppRouter extends RootStackRouter {
       guards: [_accountGuard],
     ),
     AutoRoute(
-      path: '/settings/addresses',
-      page: AddressBookRoute.page,
-      guards: [_accountGuard],
-    ),
-    AutoRoute(
       path: '/settings/addresses/form',
       page: AddressFormRoute.page,
       guards: [_accountGuard],
     ),
     AutoRoute(
-      path: '/settings/payouts',
-      page: PayoutsRoute.page,
+      path: '/settings/personal-data',
+      page: PersonalDataRoute.page,
       guards: [_accountGuard],
     ),
     AutoRoute(
-      path: '/settings/preferences',
-      page: PreferencesRoute.page,
+      path: '/settings/security',
+      page: SecurityRoute.page,
+      guards: [_accountGuard],
+    ),
+    AutoRoute(
+      path: '/settings/security/email',
+      page: ChangeEmailRoute.page,
+      guards: [_accountGuard],
+    ),
+    AutoRoute(
+      path: '/settings/security/password',
+      page: ChangePasswordRoute.page,
+      guards: [_accountGuard],
+    ),
+    AutoRoute(
+      path: '/settings/security/phone',
+      page: ChangePhoneRoute.page,
+      guards: [_accountGuard],
+    ),
+    AutoRoute(
+      path: '/settings/preferences/clothing',
+      page: ClothingPreferenceRoute.page,
+      guards: [_accountGuard],
+    ),
+    AutoRoute(
+      path: '/settings/preferences/size',
+      page: PreferredSizeRoute.page,
+      guards: [_accountGuard],
+    ),
+    AutoRoute(
+      path: '/settings/preferences/brands',
+      page: PreferredBrandsRoute.page,
       guards: [_accountGuard],
     ),
     AutoRoute(
       path: '/settings/payout',
       page: PayoutRoute.page,
-      guards: [_accountGuard],
-    ),
-    AutoRoute(
-      path: '/settings/seller-stats',
-      page: SellerStatsRoute.page,
       guards: [_accountGuard],
     ),
     AutoRoute(

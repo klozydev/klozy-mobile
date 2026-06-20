@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_attribute_chip.dart';
+import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
@@ -19,6 +20,29 @@ class ProductTitleBlockWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
+          // Owner-only "Your listing" pill above the title (design: gold glass
+          // chip, accent text).
+          if (product.isOwner)
+            Container(
+              margin: const EdgeInsets.only(bottom: DSSpacing.xs),
+              padding: const EdgeInsets.symmetric(
+                horizontal: DSSpacing.xs,
+                vertical: DSSpacing.xxxs,
+              ),
+              decoration: BoxDecoration(
+                color: DSColor.primary.withValues(alpha: 0.16),
+                borderRadius: BorderRadius.circular(DSBorderRadius.chip),
+              ),
+              child: Text(
+                context.l10N.product_your_listing,
+                style: const TextStyle(
+                  fontFamily: dsFontFamily,
+                  fontSize: DSFontSize.bodySmall,
+                  fontWeight: DSFontWeight.semiBold,
+                  color: DSColor.primary,
+                ),
+              ),
+            ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -55,18 +79,16 @@ class ProductTitleBlockWidget extends StatelessWidget {
             ],
           ),
           const SizedBox(height: DSSpacing.xs),
+          // Chips mirror the design order: brand · size · condition.
           Wrap(
             spacing: DSSpacing.xxs,
             runSpacing: DSSpacing.xxs,
             children: <Widget>[
+              if (product.brand.isNotEmpty)
+                DSAttributeChip(label: product.brand),
               if (product.size.isNotEmpty) DSAttributeChip(label: product.size),
               if (product.conditionLabel != null)
                 DSAttributeChip(label: product.conditionLabel!),
-              if (product.brand.isNotEmpty)
-                DSAttributeChip(label: product.brand),
-              if (product.categoryLabel != null &&
-                  product.categoryLabel!.isNotEmpty)
-                DSAttributeChip(label: product.categoryLabel!),
             ],
           ),
         ],

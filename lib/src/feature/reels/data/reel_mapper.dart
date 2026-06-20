@@ -38,10 +38,7 @@ ReelComment mapReelComment(Object? raw) {
     body: _str(json, ['body', 'text', 'comment']) ?? '',
     authorId:
         _str(author, ['id', '_id', 'uid']) ?? _str(json, ['authorId']) ?? '',
-    authorName:
-        _str(author, ['displayName', 'name']) ??
-        _str(author, ['handle', 'username']) ??
-        '',
+    authorName: _str(author, ['displayName', 'name']) ?? '',
     authorAvatar: _str(author, ['avatarUrl', 'avatar', 'photoUrl']),
     createdAt: DateTime.tryParse(_str(json, ['createdAt', 'created']) ?? ''),
   );
@@ -53,7 +50,8 @@ ReelAuthor _author(Map<String, dynamic> json) {
       : const <String, dynamic>{};
   return ReelAuthor(
     id: _str(author, ['id', '_id', 'uid']) ?? '',
-    handle: _str(author, ['handle', 'username']) ?? '',
+    displayName: _str(author, ['displayName', 'name']) ?? '',
+    handle: _str(author, ['handle', 'username', 'userName']),
     avatarUrl: _str(author, ['avatarUrl', 'avatar', 'photoUrl']),
     isPro: author['isPro'] == true || author['pro'] == true,
   );

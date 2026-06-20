@@ -4,14 +4,12 @@ import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
-import 'package:klozy/src/feature/product/presentation/widget/product_heart_button_widget.dart';
 
 class ProductSellerCardWidget extends StatelessWidget {
   final ProductSeller seller;
   final bool isOwner;
   final VoidCallback onMessage;
   final VoidCallback? onTap;
-  final ProductDetail? detail;
 
   const ProductSellerCardWidget({
     super.key,
@@ -19,7 +17,6 @@ class ProductSellerCardWidget extends StatelessWidget {
     required this.isOwner,
     required this.onMessage,
     this.onTap,
-    this.detail,
   });
 
   @override
@@ -54,9 +51,7 @@ class ProductSellerCardWidget extends StatelessWidget {
                     children: <Widget>[
                       Flexible(
                         child: Text(
-                          seller.displayName.isEmpty
-                              ? '@${seller.handle}'
-                              : seller.displayName,
+                          seller.displayName,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
@@ -120,10 +115,6 @@ class ProductSellerCardWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              if (detail != null) ...<Widget>[
-                const SizedBox(width: 8),
-                ProductHeartButtonWidget(detail: detail!),
-              ],
             ],
           ],
         ),

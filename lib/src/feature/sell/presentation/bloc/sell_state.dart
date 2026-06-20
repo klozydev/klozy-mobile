@@ -25,7 +25,13 @@ final class SellPhotosState extends SellState {
 }
 
 final class SellAnalyzingState extends SellState {
-  const SellAnalyzingState();
+  /// Local path of the cover photo, shown blurred behind the AI animation.
+  final String? coverPath;
+
+  const SellAnalyzingState({this.coverPath});
+
+  @override
+  List<Object?> get props => [coverPath];
 }
 
 final class SellErrorState extends SellState {

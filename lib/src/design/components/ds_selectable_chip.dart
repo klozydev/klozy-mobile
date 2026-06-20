@@ -37,6 +37,7 @@ class DSSelectableChip extends StatelessWidget {
           style: TextStyle(
             fontFamily: dsFontFamily,
             fontSize: DSFontSize.bodyMedium,
+            height: DSFontHeight.bodyMedium,
             fontWeight: selected ? DSFontWeight.semiBold : DSFontWeight.medium,
             color: selected ? DSColor.surface : DSColor.onSurface75,
           ),

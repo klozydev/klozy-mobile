@@ -15,6 +15,7 @@ import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/feature/orders/presentation/bloc/order_detail_bloc.dart';
 import 'package:klozy/src/feature/orders/presentation/bloc/order_detail_event.dart';
 import 'package:klozy/src/feature/orders/presentation/bloc/order_detail_state.dart';
+import 'package:klozy/src/feature/orders/presentation/widget/emx_tracking_template.dart';
 import 'package:klozy/src/feature/orders/presentation/widget/order_action_bar_widget.dart';
 import 'package:klozy/src/feature/orders/presentation/widget/order_counterpart_card_widget.dart';
 import 'package:klozy/src/feature/orders/presentation/widget/order_status_pill_widget.dart';
@@ -198,40 +199,29 @@ class _OrderBody extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16),
-              if (order.tracking.steps.isEmpty)
-                Text(
-                  context.l10N.orders_tracking_updates_empty,
-                  style: const TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.bodyMedium,
-                    color: DSColor.onSurface45,
-                  ),
-                )
-              else
-                OrderTrackingStepperWidget(steps: order.tracking.steps),
+              OrderTrackingStepperWidget(
+                steps: buildEmxTrackingSteps(context.l10N, order.status),
+              ),
               if (order.tracking.trackingNumber != null) ...<Widget>[
                 const Divider(height: 24, color: DSColor.onSurface08),
                 Row(
                   children: <Widget>[
                     Text(
-                      context.l10N.orders_carrier_prefix(
-                        order.tracking.carrier,
-                      ),
+                      context.l10N.orders_emx_tracking,
                       style: const TextStyle(
                         fontFamily: dsFontFamily,
                         fontSize: DSFontSize.bodyMedium,
-                        color: DSColor.onSurface60,
+                        color: DSColor.onSurface45,
                       ),
                     ),
-                    Expanded(
-                      child: Text(
-                        order.tracking.trackingNumber!,
-                        style: const TextStyle(
-                          fontFamily: dsFontFamily,
-                          fontSize: DSFontSize.bodyMedium,
-                          fontWeight: DSFontWeight.semiBold,
-                          color: DSColor.onSurface,
-                        ),
+                    const Spacer(),
+                    Text(
+                      order.tracking.trackingNumber!,
+                      style: const TextStyle(
+                        fontFamily: dsFontFamily,
+                        fontSize: DSFontSize.bodyMedium,
+                        fontWeight: DSFontWeight.semiBold,
+                        color: DSColor.onSurface,
                       ),
                     ),
                   ],
@@ -359,14 +349,35 @@ class _OrderBody extends StatelessWidget {
                     ),
                   ),
                 const SizedBox(height: 4),
-                Text(
-                  context.l10N.orders_price_dhs(item.price.toInt()),
-                  style: const TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.bodyMedium,
-                    fontWeight: DSFontWeight.bold,
-                    color: DSColor.onSurface,
-                  ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      context.l10N.orders_price_dhs(
+                        item.effectivePrice.toInt(),
+                      ),
+                      style: const TextStyle(
+                        fontFamily: dsFontFamily,
+                        fontSize: DSFontSize.bodyMedium,
+                        fontWeight: DSFontWeight.bold,
+                        color: DSColor.onSurface,
+                      ),
+                    ),
+                    // Accepted-offer items show the negotiated price plus a tag
+                    // (design: small accent "Negotiated" label).
+                    if (item.effectivePrice < item.price) ...<Widget>[
+                      const SizedBox(width: 8),
+                      Text(
+                        context.l10N.orders_negotiated,
+                        style: const TextStyle(
+                          fontFamily: dsFontFamily,
+                          fontSize: DSFontSize.bodySmall,
+                          fontWeight: DSFontWeight.semiBold,
+                          color: DSColor.primary,
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
               ],
             ),

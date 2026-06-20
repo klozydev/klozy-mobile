@@ -4,7 +4,6 @@ enum ProductStatus { active, reserved, sold }
 
 class ProductSeller extends Equatable {
   final String id;
-  final String handle;
   final String displayName;
   final String? avatarUrl;
   final bool isPro;
@@ -13,7 +12,6 @@ class ProductSeller extends Equatable {
 
   const ProductSeller({
     required this.id,
-    this.handle = '',
     this.displayName = '',
     this.avatarUrl,
     this.isPro = false,
@@ -24,7 +22,6 @@ class ProductSeller extends Equatable {
   @override
   List<Object?> get props => [
     id,
-    handle,
     displayName,
     avatarUrl,
     isPro,

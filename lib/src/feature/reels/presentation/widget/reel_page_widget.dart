@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
@@ -5,6 +6,7 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_action_widget.dart';
+import 'package:klozy/src/router/app_router.dart';
 import 'package:video_player/video_player.dart';
 
 /// A single full-bleed reel page: looping video (or poster) + tap-to-pause +
@@ -190,28 +192,44 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              CircleAvatar(
-                radius: 19,
-                backgroundColor: DSColor.lowBlack,
-                backgroundImage: reel.author.avatarUrl == null
-                    ? null
-                    : NetworkImage(reel.author.avatarUrl!),
-                child: reel.author.avatarUrl == null
-                    ? const Icon(Icons.person, size: 20, color: Colors.white)
-                    : null,
-              ),
-              const SizedBox(width: 10),
-              Flexible(
-                child: Text(
-                  '@${reel.author.handle}',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontFamily: dsFontFamily,
-                    fontSize: DSFontSize.bodyLarge,
-                    fontWeight: DSFontWeight.semiBold,
-                    color: Colors.white,
-                  ),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => context.router.push(
+                  UserProfileRoute(userId: reel.author.id),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    CircleAvatar(
+                      radius: 19,
+                      backgroundColor: DSColor.lowBlack,
+                      backgroundImage: reel.author.avatarUrl == null
+                          ? null
+                          : NetworkImage(reel.author.avatarUrl!),
+                      child: reel.author.avatarUrl == null
+                          ? const Icon(
+                              Icons.person,
+                              size: 20,
+                              color: Colors.white,
+                            )
+                          : null,
+                    ),
+                    const SizedBox(width: 10),
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 180),
+                      child: Text(
+                        reel.author.label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontFamily: dsFontFamily,
+                          fontSize: DSFontSize.bodyLarge,
+                          fontWeight: DSFontWeight.semiBold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               if (reel.author.isPro) ...<Widget>[

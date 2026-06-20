@@ -22,7 +22,7 @@ class OrderTrackingStepperWidget extends StatelessWidget {
   Widget _row(TrackingStep step, {required bool isLast}) {
     final bool done = step.state == TrackStepState.done;
     final bool active = step.state == TrackStepState.active;
-    final Color accent = done || active ? DSColor.primary : DSColor.onSurface18;
+    final Color accent = done || active ? DSColor.primary : DSColor.onSurface15;
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,7 +97,7 @@ class OrderTrackingStepperWidget extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: active ? DSColor.primary : DSColor.onSurface18,
+          color: active ? DSColor.primary : DSColor.onSurface15,
           width: 2,
         ),
       ),

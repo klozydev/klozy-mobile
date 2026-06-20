@@ -3,16 +3,19 @@ import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 
-/// Reel overflow menu body — Edit + Delete (owner) or Report (others).
+/// Reel overflow menu body — Edit + Share + Delete (owner) or Share + Report
+/// (others).
 class ReelMenuSheet extends StatelessWidget {
   final bool isOwner;
   final VoidCallback? onEdit;
+  final VoidCallback onShare;
   final VoidCallback onDelete;
   final VoidCallback onReport;
 
   const ReelMenuSheet({
     super.key,
     required this.isOwner,
+    required this.onShare,
     required this.onDelete,
     required this.onReport,
     this.onEdit,
@@ -32,18 +35,31 @@ class ReelMenuSheet extends StatelessWidget {
               onTap: onEdit!,
             ),
           _row(
+            icon: Icons.ios_share_rounded,
+            label: context.l10N.reels_share,
+            color: DSColor.onSurface,
+            onTap: onShare,
+          ),
+          _row(
             icon: Icons.delete_outline_rounded,
             label: context.l10N.reels_delete_reel,
             color: DSColor.danger,
             onTap: onDelete,
           ),
-        ] else
+        ] else ...<Widget>[
+          _row(
+            icon: Icons.ios_share_rounded,
+            label: context.l10N.reels_share,
+            color: DSColor.onSurface,
+            onTap: onShare,
+          ),
           _row(
             icon: Icons.flag_outlined,
             label: context.l10N.reels_report_reel,
             color: DSColor.danger,
             onTap: onReport,
           ),
+        ],
       ],
     );
   }

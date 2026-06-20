@@ -19,6 +19,7 @@ import 'package:klozy/src/feature/profile/presentation/bloc/profile_event.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_state.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_tab.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_actions_widget.dart';
+import 'package:klozy/src/feature/profile/presentation/widget/profile_circle_button.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_header_widget.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_menu_sheet.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_products_grid.dart';
@@ -44,6 +45,24 @@ class ProfileView extends StatelessWidget {
 
 class _ProfileScaffold extends StatelessWidget {
   const _ProfileScaffold();
+
+  /// Runs [onValid] when the account is valid; for an incomplete onboarding
+  /// it funnels the user into the completion flow via [AccountGateSheet].
+  void _guardedOwnerAction(
+    BuildContext context, {
+    required VoidCallback onValid,
+  }) {
+    final AccountState accountState = context.read<AccountBloc>().state;
+    if (accountState is AccountResolved &&
+        accountState.status == AccountStatus.incompleteOnboarding) {
+      AccountGateSheet.show(
+        context,
+        status: AccountStatus.incompleteOnboarding,
+      );
+      return;
+    }
+    onValid();
+  }
 
   void _openMenu(BuildContext context) {
     final ProfileBloc bloc = context.read<ProfileBloc>();
@@ -71,23 +90,58 @@ class _ProfileScaffold extends StatelessWidget {
       backgroundColor: DSColor.surface,
       appBar: AppBar(
         backgroundColor: DSColor.surface,
+        elevation: 0,
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.shopping_bag_outlined),
-            onPressed: () => context.router.push(const CartRoute()),
-          ),
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined),
-            onPressed: () => context.router.push(const NotificationsRoute()),
-          ),
           BlocBuilder<ProfileBloc, ProfileState>(
             builder: (BuildContext context, ProfileState state) {
-              if (state is! ProfileLoadedState || state.profile.isMe) {
+              if (state is! ProfileLoadedState) {
                 return const SizedBox.shrink();
               }
-              return IconButton(
-                icon: const Icon(Icons.more_horiz),
-                onPressed: () => _openMenu(context),
+              final List<Widget> buttons = state.profile.isMe
+                  ? <Widget>[
+                      ProfileCircleButton(
+                        icon: Icons.shopping_bag_outlined,
+                        onTap: () => _guardedOwnerAction(
+                          context,
+                          onValid: () =>
+                              context.router.push(const OrdersRoute()),
+                        ),
+                      ),
+                      ProfileCircleButton(
+                        icon: Icons.notifications_none_rounded,
+                        showBadge: true,
+                        onTap: () => _guardedOwnerAction(
+                          context,
+                          onValid: () =>
+                              context.router.push(const NotificationsRoute()),
+                        ),
+                      ),
+                      ProfileCircleButton(
+                        icon: Icons.settings_outlined,
+                        onTap: () => _guardedOwnerAction(
+                          context,
+                          onValid: () =>
+                              context.router.push(const SettingsRoute()),
+                        ),
+                      ),
+                    ]
+                  : <Widget>[
+                      ProfileCircleButton(
+                        icon: Icons.more_horiz,
+                        onTap: () => _openMenu(context),
+                      ),
+                    ];
+              return Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    for (int i = 0; i < buttons.length; i++) ...<Widget>[
+                      if (i > 0) const SizedBox(width: 10),
+                      buttons[i],
+                    ],
+                  ],
+                ),
               );
             },
           ),
@@ -122,26 +176,6 @@ class _ProfileBody extends StatefulWidget {
 class _ProfileBodyState extends State<_ProfileBody>
     with TickerProviderStateMixin {
   late final TabController _tabController;
-
-  /// Runs [onValid] when the account is [AccountStatus.valid]; for
-  /// [AccountStatus.incompleteOnboarding] shows [AccountGateSheet] so the
-  /// user is funnelled into the completion flow instead of hitting a silent
-  /// guard redirect.
-  void _guardedOwnerAction(
-    BuildContext context, {
-    required VoidCallback onValid,
-  }) {
-    final accountState = context.read<AccountBloc>().state;
-    if (accountState is AccountResolved &&
-        accountState.status == AccountStatus.incompleteOnboarding) {
-      AccountGateSheet.show(
-        context,
-        status: AccountStatus.incompleteOnboarding,
-      );
-      return;
-    }
-    onValid();
-  }
 
   @override
   void initState() {
@@ -187,39 +221,22 @@ class _ProfileBodyState extends State<_ProfileBody>
                 onRatingTap: () {},
               ),
             ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                child: ProfileActionsWidget(
-                  profile: profile,
-                  onFollow: () => locator<AccountGate>().guard(
-                    context,
-                    onAllowed: () => context.read<ProfileBloc>().add(
-                      const ProfileFollowToggled(),
+            if (!profile.isMe)
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 18),
+                  child: ProfileActionsWidget(
+                    profile: profile,
+                    onFollow: () => locator<AccountGate>().guard(
+                      context,
+                      onAllowed: () => context.read<ProfileBloc>().add(
+                        const ProfileFollowToggled(),
+                      ),
                     ),
-                  ),
-                  onMessage: () => context.openChatWith(profile.id),
-                  onEdit: () => _guardedOwnerAction(
-                    context,
-                    onValid: () =>
-                        context.router.push(const EditProfileRoute()),
-                  ),
-                  onOrders: () => _guardedOwnerAction(
-                    context,
-                    onValid: () => context.router.push(const OrdersRoute()),
-                  ),
-                  onNotifications: () => _guardedOwnerAction(
-                    context,
-                    onValid: () =>
-                        context.router.push(const NotificationsRoute()),
-                  ),
-                  onSettings: () => _guardedOwnerAction(
-                    context,
-                    onValid: () => context.router.push(const SettingsRoute()),
+                    onMessage: () => context.openChatWith(profile.id),
                   ),
                 ),
               ),
-            ),
             SliverPersistentHeader(
               pinned: true,
               delegate: _TabBarDelegate(tabController: _tabController),

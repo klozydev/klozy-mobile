@@ -5,7 +5,6 @@ import 'package:flutter_stripe/flutter_stripe.dart' hide Address;
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
-import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
@@ -13,19 +12,25 @@ import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/cart/entity/cart_bucket.dart';
 import 'package:klozy/src/domain/checkout/entity/checkout_quote.dart';
 import 'package:klozy/src/domain/checkout/entity/checkout_result.dart';
 import 'package:klozy/src/domain/me/entity/address.dart';
+import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/feature/checkout/presentation/bloc/checkout_bloc.dart';
 import 'package:klozy/src/feature/checkout/presentation/bloc/checkout_event.dart';
 import 'package:klozy/src/feature/checkout/presentation/bloc/checkout_state.dart';
+import 'package:klozy/src/feature/checkout/presentation/widget/checkout_seller_card_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
 
 @RoutePage()
 class CheckoutPage extends StatelessWidget implements AutoRouteWrapper {
   final String sellerId;
 
-  const CheckoutPage({required this.sellerId, super.key});
+  /// The seller's cart bucket, used to render the seller card + item list.
+  final CartBucket bucket;
+
+  const CheckoutPage({required this.sellerId, required this.bucket, super.key});
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -92,7 +97,7 @@ class CheckoutPage extends StatelessWidget implements AutoRouteWrapper {
                   context.read<CheckoutBloc>().add(CheckoutStarted(sellerId)),
             ),
           ),
-          CheckoutReadyState() => _Review(state: state),
+          CheckoutReadyState() => _Review(state: state, bucket: bucket),
           CheckoutDoneState() => const _OrderPlaced(),
         };
       },
@@ -102,8 +107,9 @@ class CheckoutPage extends StatelessWidget implements AutoRouteWrapper {
 
 class _Review extends StatelessWidget {
   final CheckoutReadyState state;
+  final CartBucket bucket;
 
-  const _Review({required this.state});
+  const _Review({required this.state, required this.bucket});
 
   Address? get _selected {
     for (final Address a in state.addresses) {
@@ -112,64 +118,14 @@ class _Review extends StatelessWidget {
     return state.addresses.isEmpty ? null : state.addresses.first;
   }
 
-  Future<void> _pickAddress(BuildContext context) async {
+  /// Add or edit the single delivery address inline (no address list). Reloads
+  /// the checkout so the new/edited address is reflected once the form returns.
+  Future<void> _editAddress(BuildContext context, {Address? address}) async {
     final bloc = context.read<CheckoutBloc>();
-    final chosen = await DSBottomSheet.show<String>(
-      context,
-      title: context.l10N.checkout_delivery,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: state.addresses
-            .map(
-              (Address a) => InkWell(
-                onTap: () => Navigator.of(context).pop(a.id),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        a.id == state.selectedAddressId
-                            ? Icons.radio_button_checked
-                            : Icons.radio_button_unchecked,
-                        size: 20,
-                        color: a.id == state.selectedAddressId
-                            ? DSColor.primary
-                            : DSColor.onSurface45,
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              a.title,
-                              style: const TextStyle(
-                                fontFamily: dsFontFamily,
-                                fontSize: DSFontSize.bodyLarge,
-                                fontWeight: DSFontWeight.semiBold,
-                                color: DSColor.onSurface,
-                              ),
-                            ),
-                            Text(
-                              a.summary,
-                              style: const TextStyle(
-                                fontFamily: dsFontFamily,
-                                fontSize: DSFontSize.bodyMedium,
-                                color: DSColor.onSurface60,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            )
-            .toList(),
-      ),
+    final changed = await context.router.push<bool>(
+      AddressFormRoute(address: address),
     );
-    if (chosen != null) bloc.add(CheckoutAddressSelected(chosen));
+    if (changed == true) bloc.add(CheckoutStarted(bucket.sellerId));
   }
 
   @override
@@ -199,9 +155,14 @@ class _Review extends StatelessWidget {
         children: <Widget>[
           _DeliveryCard(
             address: address,
-            canChange: state.addresses.length > 1,
-            onChange: () => _pickAddress(context),
-            onAdd: () => context.router.push(const AddressBookRoute()),
+            onChange: () => _editAddress(context, address: address),
+            onAdd: () => _editAddress(context),
+          ),
+          CheckoutSellerCardWidget(
+            bucket: bucket,
+            onOpenSeller: () =>
+                context.router.push(UserProfileRoute(userId: bucket.sellerId)),
+            onMessage: () => context.openChatWith(bucket.sellerId),
           ),
           _card(context.l10N.checkout_summary, <Widget>[
             if (state.isQuoting)
@@ -369,13 +330,11 @@ class _ShippingTierChips extends StatelessWidget {
 
 class _DeliveryCard extends StatelessWidget {
   final Address? address;
-  final bool canChange;
   final VoidCallback onChange;
   final VoidCallback onAdd;
 
   const _DeliveryCard({
     required this.address,
-    required this.canChange,
     required this.onChange,
     required this.onAdd,
   });
@@ -432,7 +391,7 @@ class _DeliveryCard extends StatelessWidget {
                   ),
           ),
           TextButton(
-            onPressed: address == null ? onAdd : (canChange ? onChange : onAdd),
+            onPressed: address == null ? onAdd : onChange,
             child: Text(
               address == null
                   ? context.l10N.checkout_add

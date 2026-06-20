@@ -48,28 +48,34 @@ class OrderListCardWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
-                    order.title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontFamily: dsFontFamily,
-                      fontSize: DSFontSize.bodyLarge,
-                      fontWeight: DSFontWeight.semiBold,
-                      color: DSColor.onSurface,
-                    ),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          order.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontFamily: dsFontFamily,
+                            fontSize: DSFontSize.bodyLarge,
+                            fontWeight: DSFontWeight.semiBold,
+                            color: DSColor.onSurface,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        context.l10N.orders_price_dhs(order.price.toInt()),
+                        style: const TextStyle(
+                          fontFamily: dsFontFamily,
+                          fontSize: DSFontSize.bodyLarge,
+                          fontWeight: DSFontWeight.bold,
+                          color: DSColor.onSurface,
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 2),
-                  Text(
-                    context.l10N.orders_price_dhs(order.price.toInt()),
-                    style: const TextStyle(
-                      fontFamily: dsFontFamily,
-                      fontSize: DSFontSize.bodyMedium,
-                      fontWeight: DSFontWeight.bold,
-                      color: DSColor.onSurface,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
                   Text(
                     _meta(context),
                     maxLines: 1,
@@ -80,11 +86,13 @@ class OrderListCardWidget extends StatelessWidget {
                       color: DSColor.onSurface45,
                     ),
                   ),
+                  const SizedBox(height: 7),
+                  // Status pill sits below the title/meta (design), not pinned
+                  // to the card's right edge.
+                  OrderStatusPillWidget(status: order.status),
                 ],
               ),
             ),
-            const SizedBox(width: 8),
-            OrderStatusPillWidget(status: order.status),
           ],
         ),
       ),

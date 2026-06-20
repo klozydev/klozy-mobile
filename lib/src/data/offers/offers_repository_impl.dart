@@ -45,10 +45,7 @@ class OffersRepositoryImpl implements OffersRepository {
         'PENDING' => OfferStatus.pending,
         _ => OfferStatus.unknown,
       },
-      counterpartName:
-          _str(party, ['displayName', 'name']) ??
-          _str(party, ['handle', 'username']) ??
-          '',
+      counterpartName: _str(party, ['displayName', 'name']) ?? '',
       counterpartAvatar: _str(party, ['avatarUrl', 'avatar']),
       itemCount: items is List ? items.length : 0,
       createdAt: DateTime.tryParse(_str(json, ['createdAt']) ?? ''),

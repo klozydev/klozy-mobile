@@ -28,9 +28,7 @@ abstract final class DSColor {
   static const Color onSurface10 = Color(0x1AFFFFFF); // 10%
   static const Color onSurface12 = Color(0x1FFFFFFF); // 12%
   static const Color onSurface15 = Color(0x26FFFFFF); // 15%
-  static const Color onSurface18 = Color(0x2EFFFFFF); // 18%
   static const Color onSurface24 = Color(0x3DFFFFFF); // 24%
-  static const Color onSurface32 = Color(0x52FFFFFF); // 32%
   static const Color onSurface35 = Color(0x59FFFFFF); // 35%
   static const Color onSurface45 = Color(0x73FFFFFF); // 45%
   static const Color onSurface60 = Color(0x99FFFFFF); // 60%

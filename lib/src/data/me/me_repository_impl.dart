@@ -59,12 +59,10 @@ class MeRepositoryImpl implements MeRepository {
     String? firstName,
     String? lastName,
     String? bio,
-    String? handle,
   }) async {
     final response = await _dio.patch<Map<String, dynamic>>(
       'v1/me',
       data: <String, dynamic>{
-        if (handle != null) 'handle': handle,
         if (firstName != null) 'firstName': firstName,
         if (lastName != null) 'lastName': lastName,
         if (bio != null) 'bio': bio,
@@ -317,7 +315,6 @@ class MeRepositoryImpl implements MeRepository {
       return BlockedUser(
         id: _str(j, ['id', '_id', 'uid']) ?? '',
         displayName: _str(j, ['displayName', 'name']) ?? '',
-        handle: _str(j, ['handle', 'username']) ?? '',
         avatarUrl: _str(j, ['avatarUrl', 'avatar']),
       );
     }).toList();
@@ -359,7 +356,6 @@ class MeRepositoryImpl implements MeRepository {
     return MeProfile(
       payoutIbanMasked: _str(payout, ['ibanMasked']),
       id: _str(json, ['id', 'uid', '_id']) ?? '',
-      handle: _str(json, ['handle', 'username']),
       firstName: _str(json, ['firstName', 'first_name']),
       lastName: _str(json, ['lastName', 'last_name']),
       bio: _str(json, ['bio']),

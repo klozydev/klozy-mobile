@@ -29,6 +29,9 @@ final class FeedReady extends FeedState {
   final List<CatalogCategory> categories;
   final String? selectedRootId;
   final List<Product> items;
+
+  /// Preferred category names for the "Picked for you" hint (All tab only).
+  final List<String> pickedForYou;
   final bool isLoadingMore;
   final bool hasMore;
 
@@ -36,6 +39,7 @@ final class FeedReady extends FeedState {
     required this.categories,
     required this.items,
     this.selectedRootId,
+    this.pickedForYou = const <String>[],
     this.isLoadingMore = false,
     this.hasMore = true,
   });
@@ -44,6 +48,7 @@ final class FeedReady extends FeedState {
     String? selectedRootId,
     bool resetSelectedRoot = false,
     List<Product>? items,
+    List<String>? pickedForYou,
     bool? isLoadingMore,
     bool? hasMore,
   }) {
@@ -53,6 +58,7 @@ final class FeedReady extends FeedState {
           ? null
           : (selectedRootId ?? this.selectedRootId),
       items: items ?? this.items,
+      pickedForYou: pickedForYou ?? this.pickedForYou,
       isLoadingMore: isLoadingMore ?? this.isLoadingMore,
       hasMore: hasMore ?? this.hasMore,
     );
@@ -63,6 +69,7 @@ final class FeedReady extends FeedState {
     categories,
     selectedRootId,
     items,
+    pickedForYou,
     isLoadingMore,
     hasMore,
   ];

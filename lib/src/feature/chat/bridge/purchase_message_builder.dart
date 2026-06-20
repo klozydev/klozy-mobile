@@ -40,9 +40,7 @@ Widget purchaseBuilder(
             MediaQuery.of(context).size.width,
           ),
           child: Divider(
-            color: (me ? DSColor.surface : Colors.white).withValues(
-              alpha: 0.2,
-            ),
+            color: (me ? DSColor.surface : Colors.white).withValues(alpha: 0.2),
             thickness: formatHeight(0.4),
             height: formatHeight(17),
           ),

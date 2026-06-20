@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:klozy/src/app/cart/cart_cubit.dart';
+import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
@@ -12,16 +11,15 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/di/injection.dart';
-import 'package:klozy/src/domain/offers/offers_repository.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
-import 'package:klozy/src/feature/cart/presentation/widget/offer_sheet.dart';
-import 'package:klozy/src/feature/chat/entry/chat_launcher.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_bloc.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_event.dart';
 import 'package:klozy/src/feature/product/presentation/bloc/product_state.dart';
+import 'package:klozy/src/feature/product/presentation/widget/product_bottom_scrim_widget.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_carousel_widget.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_cta_bar_widget.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_details_panel_widget.dart';
+import 'package:klozy/src/feature/product/presentation/widget/product_menu_sheet.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_page_dots_widget.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_title_block_widget.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_top_bar_widget.dart';
@@ -78,52 +76,87 @@ class _LoadedView extends StatefulWidget {
 }
 
 class _LoadedViewState extends State<_LoadedView> {
+  final ScrollController _scroll = ScrollController();
   int _currentPage = 0;
-  bool _submittingOffer = false;
+  double _offset = 0;
+
+  // Two-state immersive scroll (design reference product_detail_screen.dart):
+  // the photo is fullscreen in `minimized`; pulling up reveals the details and
+  // the screen snaps to the nearest state on release.
+  // Title→bottom gap while minimized (clears the floating CTAs).
+  static const double _kTitlePinned = 88;
+  // Final gap between the chips and the seller card once expanded.
+  static const double _kTitleTight = 14;
+  // Past this fraction of the scroll extent we snap to `expanded`.
+  static const double _kSnapThreshold = 0.22;
 
   ProductLoadedState get state => widget.state;
   ProductDetail get _detail => state.detail;
 
+  @override
+  void initState() {
+    super.initState();
+    _scroll.addListener(() {
+      if (mounted) setState(() => _offset = _scroll.offset);
+    });
+  }
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
+
   void _onPageChanged(int page) => setState(() => _currentPage = page);
 
-  /// In-place make-offer: enter an amount, silently ensure the item is in the
-  /// cart (offers cover a seller's whole bucket server-side — no navigation to
-  /// the cart), submit the offer, then open the chat with the seller where the
-  /// offer bubble appears. Mirrors the old app's flow.
-  Future<void> _makeOffer(BuildContext context) async {
-    final num? amount = await DSBottomSheet.show<num>(
-      context,
-      title: context.l10N.cart_make_an_offer,
-      child: OfferSheet(subtotal: _detail.price, itemCount: 1),
-    );
-    if (amount == null || !context.mounted) return;
-    setState(() => _submittingOffer = true);
-    try {
-      if (!state.inCart) {
-        await context.read<CartCubit>().add(_detail.id);
-      }
-      await locator<OffersRepository>().makeOffer(
-        sellerId: _detail.seller.id,
-        amount: amount,
+  /// On gesture end, animate to whichever state is closest — fully collapsed
+  /// (photo) or fully expanded (details).
+  bool _onScrollEnd(ScrollEndNotification _) {
+    if (!_scroll.hasClients) return false;
+    final double max = _scroll.position.maxScrollExtent;
+    if (max <= 0) return false;
+    final double target = _offset > max * _kSnapThreshold ? max : 0.0;
+    if ((_scroll.offset - target).abs() > 0.5) {
+      _scroll.animateTo(
+        target,
+        duration: const Duration(milliseconds: 320),
+        curve: Curves.easeOutCubic,
       );
-      if (!context.mounted) return;
-      context.read<CartCubit>().refresh();
-      await context.openChatWith(_detail.seller.id);
-    } on DioException catch (e) {
-      // 409 = an active offer with this seller already exists. Don't error —
-      // just open the chat where that offer lives.
-      if (e.response?.statusCode == 409 && context.mounted) {
-        await context.openChatWith(_detail.seller.id);
-      } else if (context.mounted) {
-        context.showSnackBar(context.l10N.offer_send_failed);
-      }
-    } catch (_) {
-      if (context.mounted) {
-        context.showSnackBar(context.l10N.offer_send_failed);
-      }
-    } finally {
-      if (mounted) setState(() => _submittingOffer = false);
     }
+    return false;
+  }
+
+  /// Owner overflow menu (opened from the trash button on the CTA bar):
+  /// Edit / Mark sold-available / Delete. Matches the design, where mark-sold
+  /// and delete live in this menu rather than as primary buttons.
+  Future<void> _openOwnerMenu(BuildContext context) {
+    final ProductBloc bloc = context.read<ProductBloc>();
+    return DSBottomSheet.show<void>(
+      context,
+      child: ProductMenuSheet(
+        isOwner: true,
+        isSold: _detail.status == ProductStatus.sold,
+        onEdit: () {
+          Navigator.of(context).maybePop();
+          context.router.push(EditListingRoute(productId: _detail.id));
+        },
+        onToggleSold: () {
+          Navigator.of(context).maybePop();
+          bloc.add(
+            ProductMarkStatus(
+              _detail.status == ProductStatus.sold
+                  ? ProductStatus.active
+                  : ProductStatus.sold,
+            ),
+          );
+        },
+        onDelete: () {
+          Navigator.of(context).maybePop();
+          _confirmDelete(context);
+        },
+        onReport: () {},
+      ),
+    );
   }
 
   /// Confirm before deleting the user's own listing — deletion is irreversible.
@@ -157,16 +190,11 @@ class _LoadedViewState extends State<_LoadedView> {
     if (ok) bloc.add(const ProductDeleted());
   }
 
-  /// Opening the chat resolves the seller's Firebase UID and looks up / creates
-  /// the thread, which takes a moment — show the same spinner the make-offer
-  /// flow uses so the button doesn't look dead on tap.
-  Future<void> _seeOffer(BuildContext context) async {
-    setState(() => _submittingOffer = true);
-    try {
-      await context.openChatWith(_detail.seller.id);
-    } finally {
-      if (mounted) setState(() => _submittingOffer = false);
-    }
+  /// Inline "Report this listing" — fires the report and confirms via snackbar
+  /// (same flow as the overflow menu's report action).
+  void _report(BuildContext context) {
+    context.read<ProductBloc>().add(const ProductReported());
+    context.showSnackBar(context.l10N.product_report_received);
   }
 
   @override
@@ -174,59 +202,81 @@ class _LoadedViewState extends State<_LoadedView> {
     final ProductDetail detail = _detail;
     final int imageCount = detail.images.length;
     final double screenHeight = MediaQuery.sizeOf(context).height;
+    // The title block is anchored [titleBottom] above the hero's bottom edge.
+    // It stays pinned at the start of the scroll (88) then hugs the seller card
+    // (14) as the screen expands.
+    final double titleBottom = (_kTitlePinned - _offset)
+        .clamp(_kTitleTight, _kTitlePinned)
+        .toDouble();
 
     return Scaffold(
       backgroundColor: DSColor.surface,
       body: Stack(
         children: <Widget>[
-          // The image shows (near-)fullscreen first; scrolling down reveals the
-          // details below it. A small peek under the gallery hints there's more
-          // to scroll. The gallery's PageView is horizontal, so it doesn't fight
-          // the page's vertical scroll.
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                SizedBox(
-                  height: screenHeight * 0.92,
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: <Widget>[
-                      ProductCarouselWidget(
-                        images: detail.images,
-                        status: detail.status,
-                        onPageChanged: _onPageChanged,
-                      ),
-                      const Positioned(
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        child: ProductTopScrimWidget(),
-                      ),
-                      if (imageCount > 1)
-                        Positioned(
-                          bottom: DSSpacing.s,
-                          left: 0,
-                          right: 0,
-                          child: ProductPageDotsWidget(
-                            count: imageCount,
-                            current: _currentPage,
+          // Immersive two-state scroll: the hero photo fills the screen; pulling
+          // up reveals the details panel and the page snaps to the nearest state
+          // on release. The title block is pinned over the hero, then sticks to
+          // the seller card.
+          NotificationListener<ScrollEndNotification>(
+            onNotification: _onScrollEnd,
+            child: SingleChildScrollView(
+              controller: _scroll,
+              physics: const ClampingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  SizedBox(
+                    height: screenHeight,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: <Widget>[
+                        ProductCarouselWidget(
+                          images: detail.images,
+                          status: detail.status,
+                          onPageChanged: _onPageChanged,
+                        ),
+                        const Positioned.fill(
+                          child: IgnorePointer(
+                            child: ProductBottomScrimWidget(),
                           ),
                         ),
-                    ],
+                        const Positioned(
+                          top: 0,
+                          left: 0,
+                          right: 0,
+                          child: ProductTopScrimWidget(),
+                        ),
+                        if (imageCount > 1)
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            child: SafeArea(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 44),
+                                child: ProductPageDotsWidget(
+                                  count: imageCount,
+                                  current: _currentPage,
+                                ),
+                              ),
+                            ),
+                          ),
+                        Positioned(
+                          left: 0,
+                          right: 0,
+                          bottom: titleBottom,
+                          child: ProductTitleBlockWidget(product: detail),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: DSSpacing.s),
-                  child: ProductTitleBlockWidget(product: detail),
-                ),
-                ProductDetailsPanelWidget(
-                  detail: detail,
-                  isOwner: detail.isOwner,
-                ),
-                // Clears the pinned CTA bar at the bottom.
-                const SizedBox(height: 96),
-              ],
+                  ProductDetailsPanelWidget(
+                    detail: detail,
+                    isOwner: detail.isOwner,
+                    onReport: () => _report(context),
+                  ),
+                ],
+              ),
             ),
           ),
           ProductTopBarWidget(detail: detail),
@@ -243,13 +293,13 @@ class _LoadedViewState extends State<_LoadedView> {
                 context.read<ProductBloc>().add(const ProductAddToCart());
                 context.showSnackBar(context.l10N.product_added_to_cart);
               },
-              onViewCart: () => context.router.push(const CartRoute()),
+              onViewCart: () => locator<AccountGate>().guard(
+                context,
+                onAllowed: () => context.router.push(const CartRoute()),
+              ),
               onEdit: () =>
                   context.router.push(EditListingRoute(productId: detail.id)),
-              onDelete: () => _confirmDelete(context),
-              onMakeOffer: () => _makeOffer(context),
-              onSeeOffer: () => _seeOffer(context),
-              offerLoading: _submittingOffer,
+              onOpenMenu: () => _openOwnerMenu(context),
             ),
           ),
         ],
@@ -282,6 +332,16 @@ class _DeletedView extends StatelessWidget {
                   fontSize: DSFontSize.titleLarge,
                   fontWeight: DSFontWeight.semiBold,
                   color: DSColor.onSurface,
+                ),
+              ),
+              const SizedBox(height: DSSpacing.xs),
+              Text(
+                context.l10N.product_listing_deleted_subtitle,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontFamily: dsFontFamily,
+                  fontSize: DSFontSize.bodyMedium,
+                  color: DSColor.onSurface45,
                 ),
               ),
               const SizedBox(height: DSSpacing.m),

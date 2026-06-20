@@ -11,6 +11,7 @@ import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/feature/home/presentation/bloc/feed_bloc.dart';
 import 'package:klozy/src/feature/home/presentation/bloc/feed_event.dart';
 import 'package:klozy/src/feature/home/presentation/bloc/feed_state.dart';
+import 'package:klozy/src/feature/home/presentation/widget/feed_picked_for_you_widget.dart';
 import 'package:klozy/src/feature/home/presentation/widget/product_card_widget.dart';
 
 const _gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
@@ -75,13 +76,8 @@ class _FeedTabWidgetState extends State<FeedTabWidget> {
         // longer loading), with a timeout so the indicator can never get
         // stuck if no further state is emitted.
         final settled = bloc.stream
-            .firstWhere(
-              (FeedState s) => s is FeedReady && !s.isLoadingMore,
-            )
-            .timeout(
-              const Duration(seconds: 10),
-              onTimeout: () => bloc.state,
-            );
+            .firstWhere((FeedState s) => s is FeedReady && !s.isLoadingMore)
+            .timeout(const Duration(seconds: 10), onTimeout: () => bloc.state);
         bloc.add(const FeedRefreshed());
         await settled;
       },
@@ -89,6 +85,10 @@ class _FeedTabWidgetState extends State<FeedTabWidget> {
         controller: _controller,
         slivers: <Widget>[
           SliverToBoxAdapter(child: _chips(context, state)),
+          if (state.selectedRootId == null && state.pickedForYou.isNotEmpty)
+            SliverToBoxAdapter(
+              child: FeedPickedForYouWidget(categories: state.pickedForYou),
+            ),
           if (state.items.isEmpty && state.isLoadingMore)
             const SliverPadding(
               padding: EdgeInsets.symmetric(horizontal: 16),
@@ -151,7 +151,7 @@ class _FeedTabWidgetState extends State<FeedTabWidget> {
       ),
     ];
     return SizedBox(
-      height: 56,
+      height: 64,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
@@ -159,11 +159,13 @@ class _FeedTabWidgetState extends State<FeedTabWidget> {
         separatorBuilder: (_, _) => const SizedBox(width: 8),
         itemBuilder: (BuildContext context, int i) {
           final chip = chips[i];
-          return DSSelectableChip(
-            label: chip.label,
-            selected: state.selectedRootId == chip.id,
-            onTap: () =>
-                context.read<FeedBloc>().add(FeedCategorySelected(chip.id)),
+          return Center(
+            child: DSSelectableChip(
+              label: chip.label,
+              selected: state.selectedRootId == chip.id,
+              onTap: () =>
+                  context.read<FeedBloc>().add(FeedCategorySelected(chip.id)),
+            ),
           );
         },
       ),

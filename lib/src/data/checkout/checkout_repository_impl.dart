@@ -93,7 +93,7 @@ class CheckoutRepositoryImpl implements CheckoutRepository {
             .toList();
     return OrderSummary(
       orderId: _str(order, ['id', '_id']) ?? '',
-      sellerName: _str(seller, ['displayName', 'name', 'handle']) ?? '',
+      sellerName: _str(seller, ['displayName', 'name']) ?? '',
       sellerAvatar: _str(seller, ['avatarUrl', 'avatar']),
       items: items,
       fees: OrderFees(

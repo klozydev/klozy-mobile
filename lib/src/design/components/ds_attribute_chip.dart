@@ -13,7 +13,7 @@ import 'package:klozy/src/design/tokens/ds_spacing.dart';
 ///
 /// Tokens :
 /// - background : transparent
-/// - border     : [DSColor.onSurface18] · 0.5 px
+/// - border     : [DSColor.onSurface15] · 0.5 px
 /// - radius     : [DSBorderRadius.light] (8)
 /// - text       : [DSColor.onSurface65] · [DSFontSize.bodySmall] · regular
 /// - padding    : h=[DSSpacing.xs], v=6
@@ -32,7 +32,7 @@ class DSAttributeChip extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(DSBorderRadius.light),
-        border: Border.all(color: DSColor.onSurface18, width: 0.5),
+        border: Border.all(color: DSColor.onSurface15, width: 0.5),
       ),
       child: Text(
         label,

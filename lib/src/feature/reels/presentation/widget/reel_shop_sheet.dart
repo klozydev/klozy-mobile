@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
@@ -59,9 +57,6 @@ class _ReelShopSheetState extends State<ReelShopSheet> {
   }
 
   Widget _row(BuildContext context, Product product) {
-    final bool liked = context.select<WishlistCubit, bool>(
-      (WishlistCubit c) => c.state.contains(product.id),
-    );
     return GestureDetector(
       onTap: () => context.router.push(ProductRoute(id: product.id)),
       child: Container(
@@ -120,13 +115,10 @@ class _ReelShopSheetState extends State<ReelShopSheet> {
                 ],
               ),
             ),
-            IconButton(
-              onPressed: () => context.read<WishlistCubit>().toggle(product.id),
-              icon: Icon(
-                liked ? Icons.favorite : Icons.favorite_border,
-                size: 22,
-                color: liked ? DSColor.danger : DSColor.onSurface60,
-              ),
+            const Icon(
+              Icons.chevron_right_rounded,
+              size: 22,
+              color: DSColor.onSurface35,
             ),
           ],
         ),

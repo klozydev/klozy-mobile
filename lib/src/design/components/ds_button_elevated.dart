@@ -13,6 +13,7 @@ class DSButtonElevated extends StatelessWidget {
   final bool _isEnable;
   final VoidCallback? _onPressed;
   final Color _backgroundColor;
+  final IconData? _icon;
 
   const DSButtonElevated({
     super.key,
@@ -21,11 +22,13 @@ class DSButtonElevated extends StatelessWidget {
     bool isEnable = true,
     VoidCallback? onPressed,
     Color backgroundColor = DSColor.primary,
+    IconData? icon,
   }) : _text = text,
        _isLoading = isLoading,
        _isEnable = isEnable,
        _onPressed = onPressed,
-       _backgroundColor = backgroundColor;
+       _backgroundColor = backgroundColor,
+       _icon = icon;
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +44,31 @@ class DSButtonElevated extends StatelessWidget {
               strokeWidth: 3,
             ),
           )
-        : Text(
+        : _icon == null
+        ? Text(
             _text,
             textAlign: TextAlign.center,
             style: Theme.of(
               context,
             ).textTheme.bodyLarge?.copyWith(color: DSColor.surface),
+          )
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(_icon, size: 17, color: DSColor.surface),
+              const SizedBox(width: DSSpacing.xxs),
+              Flexible(
+                child: Text(
+                  _text,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: DSColor.surface),
+                ),
+              ),
+            ],
           );
 
     return SizedBox(

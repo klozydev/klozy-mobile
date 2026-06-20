@@ -17,7 +17,6 @@ SocialProfile mapSocialProfile(Object? raw) {
   return SocialProfile(
     id: _str(inner, ['id', '_id', 'uid']) ?? '',
     firebaseUid: _str(inner, ['firebaseUid']) ?? '',
-    handle: _str(inner, ['handle', 'username']) ?? '',
     displayName: _str(inner, ['displayName', 'name', 'firstName']) ?? '',
     avatarUrl: _str(inner, ['avatarUrl', 'avatar', 'photoUrl']),
     bio: _str(inner, ['bio']),
@@ -38,7 +37,6 @@ FollowUser mapFollowUser(Object? raw) {
   return FollowUser(
     id: _str(json, ['id', '_id', 'uid']) ?? '',
     displayName: _str(json, ['displayName', 'name']) ?? '',
-    handle: _str(json, ['handle', 'username']) ?? '',
     avatarUrl: _str(json, ['avatarUrl', 'avatar', 'photoUrl']),
     isPro: json['isPro'] == true || json['pro'] == true,
     isFollowing: json['isFollowing'] == true || json['following'] == true,
@@ -68,7 +66,7 @@ UserReview mapUserReview(Object? raw) {
             : json);
   return UserReview(
     id: _str(json, ['id', '_id']) ?? '',
-    authorName: _str(author, ['displayName', 'name', 'handle']) ?? '',
+    authorName: _str(author, ['displayName', 'name']) ?? '',
     authorAvatar: _str(author, ['avatarUrl', 'avatar']),
     rating: (_num(json, ['rating', 'stars']) ?? 0).toDouble(),
     body: _str(json, ['body', 'text', 'comment']) ?? '',

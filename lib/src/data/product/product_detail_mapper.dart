@@ -36,10 +36,7 @@ ProductSeller _seller(Map<String, dynamic> json) {
       : const <String, dynamic>{};
   return ProductSeller(
     id: _str(seller, ['id', '_id', 'uid']) ?? '',
-    handle: _str(seller, ['handle', 'username']) ?? '',
-    displayName:
-        _str(seller, ['displayName', 'name', 'firstName']) ??
-        (_str(seller, ['handle']) ?? ''),
+    displayName: _str(seller, ['displayName', 'name', 'firstName']) ?? '',
     avatarUrl: _str(seller, ['avatarUrl', 'avatar', 'photoUrl']),
     isPro: seller['isPro'] == true || seller['pro'] == true,
     rating: (_num(seller, ['rating', 'avgRating']) ?? 0).toDouble(),
