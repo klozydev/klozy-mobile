@@ -45,14 +45,16 @@ FollowUser mapFollowUser(Object? raw) {
 
 ProfileReel mapProfileReel(Object? raw) {
   final json = _obj(raw);
+  // The reel thumbnail lives under the nested `playback` object
+  // (`playback.thumbnailUrl`); fall back to top-level keys for safety.
+  final playback = json['playback'] is Map<String, dynamic>
+      ? json['playback'] as Map<String, dynamic>
+      : const <String, dynamic>{};
   return ProfileReel(
     id: _str(json, ['id', '_id']) ?? '',
-    thumbnailUrl: _str(json, [
-      'thumbnailUrl',
-      'thumbnail',
-      'posterUrl',
-      'coverUrl',
-    ]),
+    thumbnailUrl:
+        _str(playback, ['thumbnailUrl', 'thumbnail', 'posterUrl']) ??
+        _str(json, ['thumbnailUrl', 'thumbnail', 'posterUrl', 'coverUrl']),
     views: _int(json, ['views', 'viewCount']),
   );
 }

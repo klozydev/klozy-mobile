@@ -295,11 +295,17 @@ class _ReelTabContent extends StatelessWidget {
     if (state.tabLoading && state.reels == null) {
       return const DSLoader();
     }
+    final List<ProfileReel> reels = state.reels ?? const <ProfileReel>[];
     return SingleChildScrollView(
       child: ProfileReelsGrid(
-        reels: state.reels ?? const <ProfileReel>[],
-        onTap: (ProfileReel reel) =>
-            context.router.push(SingleReelRoute(reelId: reel.id)),
+        reels: reels,
+        onTap: (ProfileReel reel) => context.router.push(
+          SingleReelRoute(
+            reelId: reel.id,
+            reelIds: reels.map((ProfileReel r) => r.id).toList(),
+            initialIndex: reels.indexOf(reel),
+          ),
+        ),
       ),
     );
   }

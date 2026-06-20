@@ -1196,11 +1196,18 @@ class ShellRoute extends PageRouteInfo<void> {
 class SingleReelRoute extends PageRouteInfo<SingleReelRouteArgs> {
   SingleReelRoute({
     required String reelId,
+    List<String>? reelIds,
+    int initialIndex = 0,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
          SingleReelRoute.name,
-         args: SingleReelRouteArgs(reelId: reelId, key: key),
+         args: SingleReelRouteArgs(
+           reelId: reelId,
+           reelIds: reelIds,
+           initialIndex: initialIndex,
+           key: key,
+         ),
          rawPathParams: {'id': reelId},
          initialChildren: children,
        );
@@ -1214,32 +1221,53 @@ class SingleReelRoute extends PageRouteInfo<SingleReelRouteArgs> {
       final args = data.argsAs<SingleReelRouteArgs>(
         orElse: () => SingleReelRouteArgs(reelId: pathParams.getString('id')),
       );
-      return SingleReelPage(reelId: args.reelId, key: args.key);
+      return SingleReelPage(
+        reelId: args.reelId,
+        reelIds: args.reelIds,
+        initialIndex: args.initialIndex,
+        key: args.key,
+      );
     },
   );
 }
 
 class SingleReelRouteArgs {
-  const SingleReelRouteArgs({required this.reelId, this.key});
+  const SingleReelRouteArgs({
+    required this.reelId,
+    this.reelIds,
+    this.initialIndex = 0,
+    this.key,
+  });
 
   final String reelId;
+
+  final List<String>? reelIds;
+
+  final int initialIndex;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'SingleReelRouteArgs{reelId: $reelId, key: $key}';
+    return 'SingleReelRouteArgs{reelId: $reelId, reelIds: $reelIds, initialIndex: $initialIndex, key: $key}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! SingleReelRouteArgs) return false;
-    return reelId == other.reelId && key == other.key;
+    return reelId == other.reelId &&
+        const ListEquality().equals(reelIds, other.reelIds) &&
+        initialIndex == other.initialIndex &&
+        key == other.key;
   }
 
   @override
-  int get hashCode => reelId.hashCode ^ key.hashCode;
+  int get hashCode =>
+      reelId.hashCode ^
+      const ListEquality().hash(reelIds) ^
+      initialIndex.hashCode ^
+      key.hashCode;
 }
 
 /// generated route for

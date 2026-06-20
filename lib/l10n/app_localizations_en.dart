@@ -484,13 +484,13 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get reels_processing_video => 'Processing video…';
+
+  @override
   String get reels_composer_title => 'New reel';
 
   @override
   String get reels_compose_details_title => 'Add details';
-
-  @override
-  String get reels_pick_title => 'Create a reel';
 
   @override
   String get reels_pick_subtitle =>
@@ -506,6 +506,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reels_choose_from_gallery => 'Choose from gallery';
 
   @override
+  String get reels_caption_label => 'Caption';
+
+  @override
   String get reels_caption_hint => 'Say something about your look…';
 
   @override
@@ -517,6 +520,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reels_post_reel => 'Post reel';
+
+  @override
+  String reels_post_reel_tagged(int count) {
+    return 'Post reel · $count tagged';
+  }
+
+  @override
+  String get reels_publishing => 'Publishing your reel…';
 
   @override
   String get reels_posted_title => 'Reel posted!';
@@ -587,6 +598,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+
+  @override
+  String get entry_cancel => 'Cancel';
 
   @override
   String get search_hint => 'Search items, brands…';
@@ -792,7 +806,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sell_add_photos_hint =>
-      'Add up to 10 photos. AI will pre-fill your listing.';
+      'Add up to 8 photos. AI will pre-fill your listing.';
 
   @override
   String get sell_reorder_hint =>
@@ -874,7 +888,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sell_title_hint => 'e.g. Leather biker jacket';
 
   @override
-  String get sell_price_hint => 'AED';
+  String get sell_price_hint => '0';
+
+  @override
+  String get sell_price_suffix => 'Dhs';
 
   @override
   String get sell_description_hint =>
@@ -1919,10 +1936,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get categoryPickerPreferred => 'Preferred categories';
 
   @override
-  String get sellPhotosEmptyTitle => 'Add photos';
+  String get sellPhotosEmptyTitle => 'Add your photos';
 
   @override
-  String get sellPhotosEmptySubtitle => 'Take or upload photos of your item';
+  String get sellPhotosEmptySubtitle =>
+      'Start with one photo — AI writes the title, description and price.';
 
   @override
   String get sellPhotosCounter => 'photos';
@@ -1932,9 +1950,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sellRequiredHint => '* Required fields';
-
-  @override
-  String get sellSizeSystem => 'Size system';
 
   @override
   String get settings_language => 'Language';

@@ -488,13 +488,13 @@ class AppLocalizationsUr extends AppLocalizations {
   }
 
   @override
+  String get reels_processing_video => 'Processing video…';
+
+  @override
   String get reels_composer_title => 'نئی ریل';
 
   @override
   String get reels_compose_details_title => 'Add details';
-
-  @override
-  String get reels_pick_title => 'ریل بنائیں';
 
   @override
   String get reels_pick_subtitle =>
@@ -510,6 +510,9 @@ class AppLocalizationsUr extends AppLocalizations {
   String get reels_choose_from_gallery => 'گیلری سے منتخب کریں';
 
   @override
+  String get reels_caption_label => 'Caption';
+
+  @override
   String get reels_caption_hint => 'اپنے لُک کے بارے میں کچھ کہیں…';
 
   @override
@@ -521,6 +524,14 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get reels_post_reel => 'ریل پوسٹ کریں';
+
+  @override
+  String reels_post_reel_tagged(int count) {
+    return 'Post reel · $count tagged';
+  }
+
+  @override
+  String get reels_publishing => 'Publishing your reel…';
 
   @override
   String get reels_posted_title => 'ریل پوسٹ ہو گئی!';
@@ -592,6 +603,9 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+
+  @override
+  String get entry_cancel => 'Cancel';
 
   @override
   String get search_hint => 'آئٹمز، برانڈز تلاش کریں…';
@@ -882,6 +896,9 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get sell_price_hint => 'AED';
+
+  @override
+  String get sell_price_suffix => 'Dhs';
 
   @override
   String get sell_description_hint =>
@@ -1940,9 +1957,6 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get sellRequiredHint => '* لازمی فیلڈز';
-
-  @override
-  String get sellSizeSystem => 'سائز سسٹم';
 
   @override
   String get settings_language => 'زبان';

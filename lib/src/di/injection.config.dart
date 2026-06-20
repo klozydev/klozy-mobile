@@ -324,9 +324,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i728.ReelComposerBloc>(
       () => _i728.ReelComposerBloc(gh<_i651.ReelsRepository>()),
     );
-    gh.factory<_i194.ReelsBloc>(
-      () => _i194.ReelsBloc(gh<_i651.ReelsRepository>()),
-    );
     gh.factory<_i918.SellerRoleBloc>(
       () => _i918.SellerRoleBloc(gh<_i1010.MeRepository>()),
     );
@@ -385,6 +382,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i486.OffersRepository>(),
         gh<_i675.CartCubit>(),
       ),
+    );
+    gh.factory<_i194.ReelsBloc>(
+      () => _i194.ReelsBloc(gh<_i651.ReelsRepository>(), gh<_i1017.EventBus>()),
     );
     gh.lazySingleton<_i774.AppRouter>(
       () => _i774.AppRouter(

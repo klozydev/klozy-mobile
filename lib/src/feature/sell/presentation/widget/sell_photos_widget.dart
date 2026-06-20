@@ -16,7 +16,7 @@ import 'package:klozy/src/feature/sell/presentation/bloc/sell_bloc.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_event.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_state.dart';
 
-const int _maxPhotos = 10;
+const int _maxPhotos = 8;
 
 class SellPhotosWidget extends StatefulWidget {
   final SellPhotosState state;

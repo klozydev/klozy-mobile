@@ -123,8 +123,12 @@ class ReelsRepositoryImpl extends ReelsRepository {
   }
 
   @override
-  Future<void> uploadVideo(String uploadUrl, String filePath) =>
-      _remoteDataSource.uploadVideo(uploadUrl, filePath);
+  Future<void> uploadVideo(String uploadUrl, String filePath) async {
+    await _remoteDataSource.uploadVideo(uploadUrl, filePath);
+    // Notify the feed/profile reels lists once the video is actually uploaded
+    // (createReel only produces a DRAFT with no asset yet).
+    _eventBus.fire(const ReelsChangedEvent());
+  }
 
   String _reelId(Map<String, dynamic> json) {
     final reel = json['reel'];

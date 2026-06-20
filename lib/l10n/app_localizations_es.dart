@@ -487,13 +487,13 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
+  String get reels_processing_video => 'Processing video…';
+
+  @override
   String get reels_composer_title => 'Nuevo reel';
 
   @override
   String get reels_compose_details_title => 'Add details';
-
-  @override
-  String get reels_pick_title => 'Crea un reel';
 
   @override
   String get reels_pick_subtitle =>
@@ -509,6 +509,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get reels_choose_from_gallery => 'Elegir de la galería';
 
   @override
+  String get reels_caption_label => 'Caption';
+
+  @override
   String get reels_caption_hint => 'Di algo sobre tu look…';
 
   @override
@@ -520,6 +523,14 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get reels_post_reel => 'Publicar reel';
+
+  @override
+  String reels_post_reel_tagged(int count) {
+    return 'Post reel · $count tagged';
+  }
+
+  @override
+  String get reels_publishing => 'Publishing your reel…';
 
   @override
   String get reels_posted_title => '¡Reel publicado!';
@@ -591,6 +602,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+
+  @override
+  String get entry_cancel => 'Cancel';
 
   @override
   String get search_hint => 'Buscar artículos, marcas…';
@@ -880,6 +894,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get sell_price_hint => 'AED';
+
+  @override
+  String get sell_price_suffix => 'Dhs';
 
   @override
   String get sell_description_hint =>
@@ -1941,9 +1958,6 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get sellRequiredHint => '* Campos obligatorios';
-
-  @override
-  String get sellSizeSystem => 'Sistema de tallas';
 
   @override
   String get settings_language => 'Idioma';

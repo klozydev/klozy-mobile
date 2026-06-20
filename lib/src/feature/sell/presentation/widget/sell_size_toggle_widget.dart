@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_selectable_chip.dart';
-import 'package:klozy/src/design/tokens/ds_color.dart';
-import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/feature/sell/domain/entity/size_system.dart';
 
-/// EU / US size system toggle.
+/// EU / UK / US size system toggle — sits inline next to the size label
+/// (design: segmented control, no standalone "Size system" caption).
 class SellSizeToggleWidget extends StatelessWidget {
   final SizeSystem current;
   final void Function(SizeSystem) onToggle;
@@ -20,17 +18,8 @@ class SellSizeToggleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Text(
-          context.l10N.sellSizeSystem,
-          style: const TextStyle(
-            fontFamily: dsFontFamily,
-            fontSize: DSFontSize.bodyMedium,
-            fontWeight: DSFontWeight.medium,
-            color: DSColor.onSurface75,
-          ),
-        ),
-        const SizedBox(width: DSSpacing.xxs),
         DSSelectableChip(
           label: 'EU',
           selected: current == SizeSystem.eu,

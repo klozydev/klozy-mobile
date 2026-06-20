@@ -492,13 +492,13 @@ class AppLocalizationsMl extends AppLocalizations {
   }
 
   @override
+  String get reels_processing_video => 'Processing video…';
+
+  @override
   String get reels_composer_title => 'പുതിയ റീൽ';
 
   @override
   String get reels_compose_details_title => 'Add details';
-
-  @override
-  String get reels_pick_title => 'ഒരു റീൽ സൃഷ്ടിക്കുക';
 
   @override
   String get reels_pick_subtitle =>
@@ -514,6 +514,9 @@ class AppLocalizationsMl extends AppLocalizations {
   String get reels_choose_from_gallery => 'ഗാലറിയിൽ നിന്ന് തിരഞ്ഞെടുക്കുക';
 
   @override
+  String get reels_caption_label => 'Caption';
+
+  @override
   String get reels_caption_hint =>
       'നിങ്ങളുടെ ലുക്കിനെക്കുറിച്ച് എന്തെങ്കിലും പറയുക…';
 
@@ -527,6 +530,14 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get reels_post_reel => 'റീൽ പോസ്റ്റ് ചെയ്യുക';
+
+  @override
+  String reels_post_reel_tagged(int count) {
+    return 'Post reel · $count tagged';
+  }
+
+  @override
+  String get reels_publishing => 'Publishing your reel…';
 
   @override
   String get reels_posted_title => 'റീൽ പോസ്റ്റ് ചെയ്തു!';
@@ -599,6 +610,9 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+
+  @override
+  String get entry_cancel => 'Cancel';
 
   @override
   String get search_hint => 'ഇനങ്ങൾ, ബ്രാൻഡുകൾ തിരയുക…';
@@ -890,6 +904,9 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get sell_price_hint => 'AED';
+
+  @override
+  String get sell_price_suffix => 'Dhs';
 
   @override
   String get sell_description_hint =>
@@ -1953,9 +1970,6 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get sellRequiredHint => '* ആവശ്യമായ ഫീൽഡുകൾ';
-
-  @override
-  String get sellSizeSystem => 'സൈസ് സിസ്റ്റം';
 
   @override
   String get settings_language => 'ഭാഷ';

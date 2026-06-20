@@ -12,6 +12,10 @@ class Reel extends Equatable {
   final int viewCount;
   final int taggedCount;
 
+  /// Mux asset is transcoded and playable (API `status == READY`).
+  /// `false` while the upload is still PROCESSING.
+  final bool isReady;
+
   const Reel({
     required this.id,
     required this.author,
@@ -22,6 +26,7 @@ class Reel extends Equatable {
     this.isLiked = false,
     this.viewCount = 0,
     this.taggedCount = 0,
+    this.isReady = true,
   });
 
   Reel copyWith({int? likes, bool? isLiked}) {
@@ -35,6 +40,7 @@ class Reel extends Equatable {
       isLiked: isLiked ?? this.isLiked,
       viewCount: viewCount,
       taggedCount: taggedCount,
+      isReady: isReady,
     );
   }
 
@@ -49,5 +55,6 @@ class Reel extends Equatable {
     isLiked,
     viewCount,
     taggedCount,
+    isReady,
   ];
 }

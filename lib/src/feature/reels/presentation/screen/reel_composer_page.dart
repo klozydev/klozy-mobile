@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +9,6 @@ import 'package:klozy/src/core/events/open_reels_tab_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
-import 'package:klozy/src/design/components/ds_button_outline.dart';
 import 'package:klozy/src/design/components/ds_dashed_rounded_border_painter.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
@@ -19,6 +20,7 @@ import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_bloc.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_event.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_state.dart';
+import 'package:video_player/video_player.dart';
 
 @RoutePage()
 class ReelComposerPage extends StatefulWidget implements AutoRouteWrapper {
@@ -41,11 +43,14 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
   final TextEditingController _caption = TextEditingController();
   final Set<String> _tagged = <String>{};
   String? _videoPath;
+  // Drives the picked-video first-frame preview shown in the compose stage.
+  VideoPlayerController? _thumb;
   List<Product> _products = const <Product>[];
 
   @override
   void dispose() {
     _caption.dispose();
+    _thumb?.dispose();
     super.dispose();
   }
 
@@ -54,7 +59,29 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
       source: source,
       maxDuration: const Duration(seconds: 60),
     );
-    if (file != null) setState(() => _videoPath = file.path);
+    if (file == null) return;
+    final VideoPlayerController controller = VideoPlayerController.file(
+      File(file.path),
+    );
+    await controller.initialize();
+    if (!mounted) {
+      controller.dispose();
+      return;
+    }
+    _thumb?.dispose();
+    setState(() {
+      _videoPath = file.path;
+      _thumb = controller;
+    });
+  }
+
+  // Clears the picked video and tears down its preview controller.
+  void _clearVideo() {
+    _thumb?.dispose();
+    setState(() {
+      _videoPath = null;
+      _thumb = null;
+    });
   }
 
   void _post() {
@@ -90,24 +117,41 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
         if (state is ReelComposerDone) {
           return _success(context);
         }
+        if (state is ReelComposerPosting) {
+          return _publishing(context);
+        }
         final bool picking = _videoPath == null;
         return Scaffold(
           backgroundColor: DSColor.surface,
           appBar: AppBar(
+            centerTitle: true,
+            automaticallyImplyLeading: false,
+            // Back (left) only in compose stage; rewinds to the pick stage.
             leading: picking
-                ? IconButton(
-                    icon: const Icon(Icons.close),
-                    onPressed: () => context.router.maybePop(),
-                  )
+                ? null
                 : IconButton(
                     icon: const Icon(Icons.arrow_back_ios_new, size: 20),
-                    onPressed: () => setState(() => _videoPath = null),
+                    onPressed: _clearVideo,
                   ),
             title: Text(
               picking
                   ? context.l10N.reels_composer_title
                   : context.l10N.reels_compose_details_title,
+              style: const TextStyle(
+                fontFamily: dsFontFamily,
+                fontSize: DSFontSize.bodyLarge,
+                fontWeight: DSFontWeight.semiBold,
+                color: DSColor.onSurface,
+              ),
             ),
+            // ✕ close always top-right; abandons the whole flow.
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.close),
+                color: DSColor.onSurface60,
+                onPressed: () => context.router.maybePop(),
+              ),
+            ],
           ),
           body: picking ? _pickStage(context) : _composeStage(context, state),
         );
@@ -197,9 +241,37 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
             ),
           ),
           const SizedBox(height: 12),
-          DSButtonOutline(
-            text: context.l10N.reels_choose_from_gallery,
-            onPressed: () => _pick(ImageSource.gallery),
+          // Filled card button with leading gallery/bag icon.
+          GestureDetector(
+            onTap: () => _pick(ImageSource.gallery),
+            child: Container(
+              height: 50,
+              decoration: BoxDecoration(
+                color: DSColor.card,
+                borderRadius: BorderRadius.circular(DSBorderRadius.input),
+                border: Border.all(color: DSColor.onSurface10, width: 0.5),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Icon(
+                    Icons.shopping_bag_outlined,
+                    size: 18,
+                    color: DSColor.onSurface75,
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    context.l10N.reels_choose_from_gallery,
+                    style: const TextStyle(
+                      fontFamily: dsFontFamily,
+                      fontSize: DSFontSize.bodyLarge,
+                      fontWeight: DSFontWeight.semiBold,
+                      color: DSColor.onSurface,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
@@ -207,7 +279,6 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
   }
 
   Widget _composeStage(BuildContext context, ReelComposerState state) {
-    final bool posting = state is ReelComposerPosting;
     return Column(
       children: <Widget>[
         Expanded(
@@ -219,27 +290,72 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      width: 78,
-                      height: 104,
-                      decoration: BoxDecoration(
-                        color: DSColor.card,
-                        borderRadius: BorderRadius.circular(
-                          DSBorderRadius.image,
-                        ),
-                      ),
-                      child: const Icon(
-                        Icons.play_circle_outline,
-                        color: DSColor.onSurface45,
+                    // Picked-video first-frame preview; gradient fallback
+                    // until the controller reports ready.
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(DSBorderRadius.image),
+                      child: SizedBox(
+                        width: 78,
+                        height: 104,
+                        child: _thumb != null && _thumb!.value.isInitialized
+                            ? FittedBox(
+                                fit: BoxFit.cover,
+                                clipBehavior: Clip.hardEdge,
+                                child: SizedBox(
+                                  width: _thumb!.value.size.width,
+                                  height: _thumb!.value.size.height,
+                                  child: VideoPlayer(_thumb!),
+                                ),
+                              )
+                            : const DecoratedBox(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: <Color>[
+                                      Color(0xFF2A1505),
+                                      Color(0xFF0E0A04),
+                                    ],
+                                  ),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'REEL',
+                                    style: TextStyle(
+                                      fontFamily: dsFontFamily,
+                                      fontSize: DSFontSize.bodySmall,
+                                      fontWeight: DSFontWeight.semiBold,
+                                      letterSpacing: 0.5,
+                                      color: DSColor.onSurface45,
+                                    ),
+                                  ),
+                                ),
+                              ),
                       ),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: DSTextField(
-                        controller: _caption,
-                        hintText: context.l10N.reels_caption_hint,
-                        maxLines: 4,
-                        maxLength: 300,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 6, left: 2),
+                            child: Text(
+                              context.l10N.reels_caption_label,
+                              style: const TextStyle(
+                                fontFamily: dsFontFamily,
+                                fontSize: DSFontSize.bodySmall,
+                                fontWeight: DSFontWeight.semiBold,
+                                color: DSColor.onSurface60,
+                              ),
+                            ),
+                          ),
+                          DSTextField(
+                            controller: _caption,
+                            hintText: context.l10N.reels_caption_hint,
+                            maxLines: 3,
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -348,10 +464,22 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
                                   alignment: Alignment.topRight,
                                   child: Padding(
                                     padding: EdgeInsets.all(5),
-                                    child: Icon(
-                                      Icons.check_circle,
-                                      size: 20,
-                                      color: DSColor.primary,
+                                    // Accent-filled 20px disc with a surface
+                                    // tick inside (matches design check2 chip).
+                                    child: DecoratedBox(
+                                      decoration: BoxDecoration(
+                                        color: DSColor.primary,
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: SizedBox(
+                                        width: 20,
+                                        height: 20,
+                                        child: Icon(
+                                          Icons.check,
+                                          size: 12,
+                                          color: DSColor.surface,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -367,8 +495,9 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
         ),
         DSBottomBar(
           child: DSButtonElevated(
-            text: context.l10N.reels_post_reel,
-            isLoading: posting,
+            text: _tagged.isEmpty
+                ? context.l10N.reels_post_reel
+                : context.l10N.reels_post_reel_tagged(_tagged.length),
             onPressed: _post,
           ),
         ),
@@ -376,75 +505,104 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
     );
   }
 
+  Widget _publishing(BuildContext context) {
+    return Scaffold(
+      backgroundColor: DSColor.surface,
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const SizedBox(
+              width: 30,
+              height: 30,
+              child: CircularProgressIndicator(
+                strokeWidth: 2.5,
+                color: DSColor.primary,
+              ),
+            ),
+            const SizedBox(height: 18),
+            Text(
+              context.l10N.reels_publishing,
+              style: const TextStyle(
+                fontFamily: dsFontFamily,
+                fontSize: DSFontSize.bodyLarge,
+                fontWeight: DSFontWeight.medium,
+                color: DSColor.onSurface75,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _success(BuildContext context) {
     return Scaffold(
       backgroundColor: DSColor.surface,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 32),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Container(
-                        width: 88,
-                        height: 88,
-                        decoration: const BoxDecoration(
-                          color: DSColor.primary,
-                          shape: BoxShape.circle,
-                          boxShadow: <BoxShadow>[
-                            BoxShadow(color: Color(0x66E0CE7D), blurRadius: 46),
-                          ],
-                        ),
-                        child: const Icon(
-                          Icons.check_rounded,
-                          size: 44,
-                          color: DSColor.surface,
-                        ),
-                      ),
-                      const SizedBox(height: 22),
-                      Text(
-                        context.l10N.reels_posted_title,
-                        style: const TextStyle(
-                          fontFamily: dsFontFamily,
-                          fontSize: 24,
-                          fontWeight: DSFontWeight.bold,
-                          color: DSColor.onSurface,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        _tagged.isEmpty
-                            ? context.l10N.reels_posted_subtitle
-                            : context.l10N.reels_posted_subtitle_tagged(
-                                _tagged.length,
-                              ),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontFamily: dsFontFamily,
-                          fontSize: DSFontSize.bodyLarge,
-                          height: 1.5,
-                          color: DSColor.onSurface60,
-                        ),
-                      ),
+        // Whole block (glow → title → subtitle → button) centered together;
+        // the CTA sits inline directly under the subtitle, not pinned bottom.
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Container(
+                  width: 88,
+                  height: 88,
+                  decoration: const BoxDecoration(
+                    color: DSColor.primary,
+                    shape: BoxShape.circle,
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(color: Color(0x66E0CE7D), blurRadius: 46),
                     ],
                   ),
+                  child: const Icon(
+                    Icons.check_rounded,
+                    size: 44,
+                    color: DSColor.surface,
+                  ),
                 ),
-              ),
+                const SizedBox(height: 22),
+                Text(
+                  context.l10N.reels_posted_title,
+                  style: const TextStyle(
+                    fontFamily: dsFontFamily,
+                    fontSize: 26,
+                    fontWeight: DSFontWeight.bold,
+                    color: DSColor.onSurface,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  _tagged.isEmpty
+                      ? context.l10N.reels_posted_subtitle
+                      : context.l10N.reels_posted_subtitle_tagged(
+                          _tagged.length,
+                        ),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontFamily: dsFontFamily,
+                    fontSize: DSFontSize.bodyLarge,
+                    height: 1.5,
+                    color: DSColor.onSurface60,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: 200,
+                  child: DSButtonElevated(
+                    text: context.l10N.reels_view_in_reels,
+                    onPressed: () {
+                      locator<EventBus>().fire(const OpenReelsTabEvent());
+                      context.router.maybePop();
+                    },
+                  ),
+                ),
+              ],
             ),
-            DSBottomBar(
-              child: DSButtonElevated(
-                text: context.l10N.reels_view_in_reels,
-                onPressed: () {
-                  locator<EventBus>().fire(const OpenReelsTabEvent());
-                  context.router.maybePop();
-                },
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

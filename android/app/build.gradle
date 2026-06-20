@@ -88,7 +88,18 @@ flutter {
     source '../..'
 }
 
+// image_picker_android 0.8.13 calls PickVisualMedia.isSystemPickerAvailable()
+// (internal isSystemPickerAvailable$activity_release), added in androidx.activity
+// 1.9.0. A transitive dep pins an older version that wins, crashing with
+// NoSuchMethodError on gallery pick — force the newer one onto every config.
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.activity:activity:1.10.1'
+    }
+}
+
 dependencies {
     implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'androidx.activity:activity:1.10.1'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
 }

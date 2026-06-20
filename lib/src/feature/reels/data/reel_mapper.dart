@@ -6,14 +6,21 @@ import 'package:klozy/src/feature/reels/domain/entity/reel_comment.dart';
 /// (`stream.mux.com/{id}.m3u8`) are assumed pending a live `/v1/reels` response.
 Reel mapReel(Object? raw) {
   final json = raw is Map<String, dynamic> ? raw : const <String, dynamic>{};
+  // API nests playback URLs under a `playback` object (null until READY);
+  // fall back to top-level keys for other response shapes.
+  final playback = json['playback'] is Map<String, dynamic>
+      ? json['playback'] as Map<String, dynamic>
+      : const <String, dynamic>{};
   final playbackId = _str(json, ['muxPlaybackId', 'playbackId']);
 
   return Reel(
     id: _str(json, ['id', '_id']) ?? '',
     playbackUrl:
+        _str(playback, ['hlsUrl', 'streamUrl', 'playbackUrl']) ??
         _str(json, ['playbackUrl', 'hlsUrl', 'streamUrl']) ??
         (playbackId == null ? null : 'https://stream.mux.com/$playbackId.m3u8'),
     posterUrl:
+        _str(playback, ['thumbnailUrl', 'posterUrl', 'poster']) ??
         _str(json, ['posterUrl', 'thumbnailUrl', 'poster']) ??
         (playbackId == null
             ? null
@@ -24,7 +31,16 @@ Reel mapReel(Object? raw) {
     isLiked: json['isLiked'] == true || json['liked'] == true,
     viewCount: _int(json, ['viewCount', 'views']),
     taggedCount: _taggedCount(json),
+    isReady: _isReady(json, playback),
   );
+}
+
+/// READY when the API says so; if `status` is absent (other shapes), treat a
+/// resolved playback object/URL as ready.
+bool _isReady(Map<String, dynamic> json, Map<String, dynamic> playback) {
+  final status = _str(json, ['status']);
+  if (status != null) return status.toUpperCase() == 'READY';
+  return playback.isNotEmpty || _str(json, ['playbackUrl', 'hlsUrl']) != null;
 }
 
 /// Defensive JSON → [ReelComment] mapping.

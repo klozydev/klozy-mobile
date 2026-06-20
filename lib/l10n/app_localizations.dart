@@ -976,6 +976,12 @@ abstract class AppLocalizations {
   /// **'{count, plural, =1{1 saved item} other{{count} saved items}}'**
   String home_wishlist_saved_count(int count);
 
+  /// No description provided for @reels_processing_video.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing video…'**
+  String get reels_processing_video;
+
   /// No description provided for @reels_composer_title.
   ///
   /// In en, this message translates to:
@@ -987,12 +993,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add details'**
   String get reels_compose_details_title;
-
-  /// No description provided for @reels_pick_title.
-  ///
-  /// In en, this message translates to:
-  /// **'Create a reel'**
-  String get reels_pick_title;
 
   /// No description provided for @reels_pick_subtitle.
   ///
@@ -1018,6 +1018,12 @@ abstract class AppLocalizations {
   /// **'Choose from gallery'**
   String get reels_choose_from_gallery;
 
+  /// No description provided for @reels_caption_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Caption'**
+  String get reels_caption_label;
+
   /// No description provided for @reels_caption_hint.
   ///
   /// In en, this message translates to:
@@ -1041,6 +1047,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Post reel'**
   String get reels_post_reel;
+
+  /// No description provided for @reels_post_reel_tagged.
+  ///
+  /// In en, this message translates to:
+  /// **'Post reel · {count} tagged'**
+  String reels_post_reel_tagged(int count);
+
+  /// No description provided for @reels_publishing.
+  ///
+  /// In en, this message translates to:
+  /// **'Publishing your reel…'**
+  String get reels_publishing;
 
   /// No description provided for @reels_posted_title.
   ///
@@ -1161,6 +1179,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Photo-first · AI pre-fills your listing'**
   String get entry_list_item_sub;
+
+  /// No description provided for @entry_cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get entry_cancel;
 
   /// No description provided for @search_hint.
   ///
@@ -1489,7 +1513,7 @@ abstract class AppLocalizations {
   /// No description provided for @sell_add_photos_hint.
   ///
   /// In en, this message translates to:
-  /// **'Add up to 10 photos. AI will pre-fill your listing.'**
+  /// **'Add up to 8 photos. AI will pre-fill your listing.'**
   String get sell_add_photos_hint;
 
   /// No description provided for @sell_reorder_hint.
@@ -1651,8 +1675,14 @@ abstract class AppLocalizations {
   /// No description provided for @sell_price_hint.
   ///
   /// In en, this message translates to:
-  /// **'AED'**
+  /// **'0'**
   String get sell_price_hint;
+
+  /// No description provided for @sell_price_suffix.
+  ///
+  /// In en, this message translates to:
+  /// **'Dhs'**
+  String get sell_price_suffix;
 
   /// No description provided for @sell_description_hint.
   ///
@@ -3523,13 +3553,13 @@ abstract class AppLocalizations {
   /// No description provided for @sellPhotosEmptyTitle.
   ///
   /// In en, this message translates to:
-  /// **'Add photos'**
+  /// **'Add your photos'**
   String get sellPhotosEmptyTitle;
 
   /// No description provided for @sellPhotosEmptySubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Take or upload photos of your item'**
+  /// **'Start with one photo — AI writes the title, description and price.'**
   String get sellPhotosEmptySubtitle;
 
   /// No description provided for @sellPhotosCounter.
@@ -3549,12 +3579,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'* Required fields'**
   String get sellRequiredHint;
-
-  /// No description provided for @sellSizeSystem.
-  ///
-  /// In en, this message translates to:
-  /// **'Size system'**
-  String get sellSizeSystem;
 
   /// No description provided for @settings_language.
   ///

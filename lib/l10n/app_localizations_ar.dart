@@ -482,13 +482,13 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
+  String get reels_processing_video => 'Processing video…';
+
+  @override
   String get reels_composer_title => 'مقطع جديد';
 
   @override
   String get reels_compose_details_title => 'Add details';
-
-  @override
-  String get reels_pick_title => 'أنشئ مقطعًا';
 
   @override
   String get reels_pick_subtitle =>
@@ -504,6 +504,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reels_choose_from_gallery => 'اختيار من المعرض';
 
   @override
+  String get reels_caption_label => 'Caption';
+
+  @override
   String get reels_caption_hint => 'قل شيئًا عن إطلالتك…';
 
   @override
@@ -514,6 +517,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get reels_post_reel => 'نشر المقطع';
+
+  @override
+  String reels_post_reel_tagged(int count) {
+    return 'Post reel · $count tagged';
+  }
+
+  @override
+  String get reels_publishing => 'Publishing your reel…';
 
   @override
   String get reels_posted_title => 'تم نشر المقطع!';
@@ -584,6 +595,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+
+  @override
+  String get entry_cancel => 'Cancel';
 
   @override
   String get search_hint => 'ابحث عن قطع وماركات…';
@@ -884,6 +898,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sell_price_hint => 'AED';
+
+  @override
+  String get sell_price_suffix => 'Dhs';
 
   @override
   String get sell_description_hint => 'أضف تفاصيل عن الحالة والمقاس والخامة…';
@@ -1943,9 +1960,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sellRequiredHint => '* الحقول المطلوبة';
-
-  @override
-  String get sellSizeSystem => 'نظام المقاسات';
 
   @override
   String get settings_language => 'اللغة';

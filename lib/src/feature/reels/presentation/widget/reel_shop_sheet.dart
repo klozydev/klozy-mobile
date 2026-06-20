@@ -75,7 +75,12 @@ class _ReelShopSheetState extends State<ReelShopSheet> {
                 height: 56,
                 child: product.coverImageUrl == null
                     ? const ColoredBox(color: DSColor.lowBlack)
-                    : Image.network(product.coverImageUrl!, fit: BoxFit.cover),
+                    : Image.network(
+                        product.coverImageUrl!,
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, _, _) =>
+                            const ColoredBox(color: DSColor.lowBlack),
+                      ),
               ),
             ),
             const SizedBox(width: 12),

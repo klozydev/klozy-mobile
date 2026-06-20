@@ -43,7 +43,13 @@ class ProfileReelsGrid extends StatelessWidget {
                 if (reel.thumbnailUrl == null)
                   const ColoredBox(color: DSColor.lowBlack)
                 else
-                  Image.network(reel.thumbnailUrl!, fit: BoxFit.cover),
+                  Image.network(
+                    reel.thumbnailUrl!,
+                    fit: BoxFit.cover,
+                    // Broken/expired Mux thumbnail (404) → neutral tile.
+                    errorBuilder: (_, _, _) =>
+                        const ColoredBox(color: DSColor.lowBlack),
+                  ),
                 // Bottom gradient scrim.
                 const DecoratedBox(
                   decoration: BoxDecoration(

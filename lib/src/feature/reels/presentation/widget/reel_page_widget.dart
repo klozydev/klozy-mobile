@@ -41,6 +41,7 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
   VideoPlayerController? _controller;
   bool _ready = false;
   bool _paused = false;
+  bool _failed = false;
 
   @override
   void initState() {
@@ -50,11 +51,24 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
       final controller = VideoPlayerController.networkUrl(Uri.parse(url))
         ..setLooping(true);
       _controller = controller;
-      controller.initialize().then((_) {
-        if (!mounted) return;
-        setState(() => _ready = true);
-        if (widget.isActive) controller.play();
-      });
+      controller.addListener(_onControllerUpdate);
+      controller
+          .initialize()
+          .then((_) {
+            if (!mounted) return;
+            setState(() => _ready = true);
+            if (widget.isActive) controller.play();
+          })
+          // Bad/expired Mux source (e.g. 404) → fall back to poster, don't crash.
+          .catchError((Object _) {
+            if (mounted) setState(() => _failed = true);
+          });
+    }
+  }
+
+  void _onControllerUpdate() {
+    if (_controller?.value.hasError == true && !_failed) {
+      if (mounted) setState(() => _failed = true);
     }
   }
 
@@ -73,6 +87,7 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
 
   @override
   void dispose() {
+    _controller?.removeListener(_onControllerUpdate);
     _controller?.dispose();
     super.dispose();
   }
@@ -127,7 +142,7 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
 
   Widget _videoOrPoster() {
     final controller = _controller;
-    if (_ready && controller != null) {
+    if (_ready && !_failed && controller != null) {
       return FittedBox(
         fit: BoxFit.cover,
         child: SizedBox(
@@ -137,8 +152,14 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
         ),
       );
     }
-    if (widget.reel.posterUrl != null) {
-      return Image.network(widget.reel.posterUrl!, fit: BoxFit.cover);
+    final poster = widget.reel.posterUrl;
+    if (poster != null) {
+      return Image.network(
+        poster,
+        fit: BoxFit.cover,
+        // Broken thumbnail (404) → neutral surface, never an error glyph.
+        errorBuilder: (_, _, _) => const SizedBox.shrink(),
+      );
     }
     return const SizedBox.shrink();
   }

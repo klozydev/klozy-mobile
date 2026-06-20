@@ -263,6 +263,15 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                   controller: _price,
                   hintText: context.l10N.sell_price_hint,
                   keyboardType: TextInputType.number,
+                  trailing: Text(
+                    context.l10N.sell_price_suffix,
+                    style: const TextStyle(
+                      fontFamily: dsFontFamily,
+                      fontSize: DSFontSize.bodyLarge,
+                      fontWeight: DSFontWeight.semiBold,
+                      color: DSColor.onSurface60,
+                    ),
+                  ),
                   inputFormatters: <TextInputFormatter>[
                     FilteringTextInputFormatter.digitsOnly,
                   ],
@@ -353,7 +362,22 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                 ),
                 if (_sizes.isNotEmpty) ...<Widget>[
                   const SizedBox(height: DSSpacing.s),
-                  _sectionLabel(context.l10N.sell_size),
+                  // Label left, EU/UK/US segmented toggle inline right (design).
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        DSFieldLabel(context.l10N.sell_size),
+                        SellSizeToggleWidget(
+                          current: state.sizeSystem,
+                          onToggle: (SizeSystem system) => context
+                              .read<SellBloc>()
+                              .add(SellSizeSystemToggled(system)),
+                        ),
+                      ],
+                    ),
+                  ),
                   Wrap(
                     spacing: DSSpacing.xxs,
                     runSpacing: DSSpacing.xxs,
@@ -366,13 +390,6 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                           ),
                         )
                         .toList(),
-                  ),
-                  const SizedBox(height: DSSpacing.xxs),
-                  SellSizeToggleWidget(
-                    current: state.sizeSystem,
-                    onToggle: (SizeSystem system) => context
-                        .read<SellBloc>()
-                        .add(SellSizeSystemToggled(system)),
                   ),
                 ] else if (_isOneSize) ...<Widget>[
                   // Unique-size category: a single, preselected "One size" chip.
