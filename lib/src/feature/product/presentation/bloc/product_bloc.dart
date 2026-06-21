@@ -39,10 +39,18 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       if (!detail.isOwner) {
         detail = detail.copyWith(isOwner: await _isMine(detail));
       }
-      emit(ProductLoadedState(detail: detail));
+      emit(ProductLoadedState(detail: detail, inCart: _isInCart(detail.id)));
     } catch (error) {
       emit(ProductErrorState(type: AppErrorType.fromException(error)));
     }
+  }
+
+  /// Whether the product is already in the app-wide cart (so the CTA shows the
+  /// "in cart" state when the page is reopened).
+  bool _isInCart(String productId) {
+    return _cartCubit.state.buckets.any(
+      (bucket) => bucket.items.any((item) => item.productId == productId),
+    );
   }
 
   Future<bool> _isMine(ProductDetail detail) async {
