@@ -11,7 +11,16 @@ class AppErrorWidget extends StatelessWidget {
   final AppErrorType type;
   final VoidCallback onRetry;
 
-  const AppErrorWidget({super.key, required this.type, required this.onRetry});
+  /// Overrides [AppErrorType.message] with a server-provided message (e.g. a
+  /// 409 business error) when present.
+  final String? message;
+
+  const AppErrorWidget({
+    super.key,
+    required this.type,
+    required this.onRetry,
+    this.message,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +37,7 @@ class AppErrorWidget extends StatelessWidget {
             ),
             const SizedBox(height: DSSpacing.xxs),
             Text(
-              type.message,
+              message ?? type.message,
               textAlign: TextAlign.center,
               style: context.textTheme.bodyMedium?.copyWith(
                 color: DSColor.onSurface60,

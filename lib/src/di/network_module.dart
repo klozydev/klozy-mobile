@@ -5,6 +5,7 @@ import 'package:klozy/src/core/network/base_url/base_url.dart';
 import 'package:klozy/src/core/network/base_url/dev_base_url.dart';
 import 'package:klozy/src/core/network/base_url/prod_base_url.dart';
 import 'package:klozy/src/core/network/interceptors/authentication_interceptor.dart';
+import 'package:klozy/src/core/network/interceptors/cache_interceptor.dart';
 import 'package:klozy/src/core/network/interceptors/default_interceptor.dart';
 import 'package:klozy/src/core/network/interceptors/logging_interceptor.dart';
 
@@ -15,6 +16,7 @@ abstract class NetworkModule {
     AuthenticationInterceptor authenticationInterceptor,
     DefaultInterceptor defaultInterceptor,
     LoggingInterceptor loggingInterceptor,
+    CacheInterceptor cacheInterceptor,
     BaseUrl baseUrl,
   ) {
     final dio = Dio();
@@ -25,6 +27,8 @@ abstract class NetworkModule {
       sendTimeout: const Duration(minutes: 1),
     );
     dio.interceptors.add(defaultInterceptor);
+    // Cache before auth so a hit short-circuits token attach + network.
+    dio.interceptors.add(cacheInterceptor);
     dio.interceptors.add(authenticationInterceptor);
     dio.interceptors.add(loggingInterceptor);
     return dio;

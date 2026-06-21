@@ -29,8 +29,11 @@ import 'package:klozy/src/app/theme/app_config_change_notifier.dart' as _i616;
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart' as _i956;
 import 'package:klozy/src/core/account/account_gate.dart' as _i634;
 import 'package:klozy/src/core/network/base_url/base_url.dart' as _i402;
+import 'package:klozy/src/core/network/cache/session_cache.dart' as _i560;
 import 'package:klozy/src/core/network/interceptors/authentication_interceptor.dart'
     as _i211;
+import 'package:klozy/src/core/network/interceptors/cache_interceptor.dart'
+    as _i889;
 import 'package:klozy/src/core/network/interceptors/default_interceptor.dart'
     as _i793;
 import 'package:klozy/src/core/network/interceptors/logging_interceptor.dart'
@@ -198,11 +201,15 @@ extension GetItInjectableX on _i174.GetIt {
       () => appModule.getFlutterSecureStorage(),
     );
     gh.lazySingleton<_i370.AppLogger>(() => observabilityModule.getAppLogger());
+    gh.lazySingleton<_i560.SessionCache>(() => _i560.SessionCache());
     gh.factory<_i511.ChatRemoteDataSource>(
       () => _i511.ChatRemoteDataSource(
         gh<_i974.FirebaseFirestore>(),
         gh<_i457.FirebaseStorage>(),
       ),
+    );
+    gh.factory<_i889.CacheInterceptor>(
+      () => _i889.CacheInterceptor(gh<_i560.SessionCache>()),
     );
     gh.factory<_i906.Prefs>(() => _i906.Prefs(gh<_i460.SharedPreferences>()));
     gh.factory<_i480.AuthGuard>(() => _i480.AuthGuard(gh<_i59.FirebaseAuth>()));
@@ -220,15 +227,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i211.AuthenticationInterceptor>(),
         gh<_i793.DefaultInterceptor>(),
         gh<_i32.LoggingInterceptor>(),
+        gh<_i889.CacheInterceptor>(),
         gh<_i402.BaseUrl>(),
       ),
-    );
-    gh.lazySingleton<_i264.WishlistRepository>(
-      () => _i759.WishlistRepositoryImpl(gh<_i361.Dio>()),
-    );
-    gh.lazySingleton<_i786.ProductsRepository>(
-      () =>
-          _i251.ProductsRepositoryImpl(gh<_i361.Dio>(), gh<_i1017.EventBus>()),
     );
     gh.lazySingleton<_i755.NotificationsRepository>(
       () => _i175.NotificationsRepositoryImpl(gh<_i361.Dio>()),
@@ -254,13 +255,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i320.SellRepository>(
       () => _i607.SellRepositoryImpl(gh<_i361.Dio>()),
     );
-    gh.factory<_i266.FeedBloc>(
-      () => _i266.FeedBloc(
-        gh<_i786.ProductsRepository>(),
-        gh<_i204.CatalogRepository>(),
-        gh<_i1017.EventBus>(),
-      ),
-    );
     gh.lazySingleton<_i276.NotificationsCubit>(
       () => _i276.NotificationsCubit(gh<_i755.NotificationsRepository>()),
     );
@@ -285,12 +279,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i59.FirebaseAuth>(),
         gh<_i1010.MeRepository>(),
         gh<_i486.OffersRepository>(),
-      ),
-    );
-    gh.factory<_i345.SearchBloc>(
-      () => _i345.SearchBloc(
-        gh<_i786.ProductsRepository>(),
-        gh<_i204.CatalogRepository>(),
       ),
     );
     gh.lazySingleton<_i444.CartRepository>(
@@ -345,10 +333,22 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i264.PublicConfigRepository>(
       () => _i441.PublicConfigRepositoryImpl(gh<_i361.Dio>()),
     );
-    gh.lazySingleton<_i956.WishlistCubit>(
-      () => _i956.WishlistCubit(
-        gh<_i264.WishlistRepository>(),
+    gh.factory<_i651.ReelsRepository>(
+      () => _i203.ReelsRepositoryImpl(
+        gh<_i465.RemoteReelsDataSource>(),
+        gh<_i1010.MeRepository>(),
         gh<_i1017.EventBus>(),
+        gh<_i560.SessionCache>(),
+      ),
+    );
+    gh.lazySingleton<_i264.WishlistRepository>(
+      () => _i759.WishlistRepositoryImpl(gh<_i361.Dio>()),
+    );
+    gh.lazySingleton<_i786.ProductsRepository>(
+      () => _i251.ProductsRepositoryImpl(
+        gh<_i361.Dio>(),
+        gh<_i1017.EventBus>(),
+        gh<_i560.SessionCache>(),
       ),
     );
     gh.factory<_i817.NotificationsBloc>(
@@ -357,10 +357,19 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i276.NotificationsCubit>(),
       ),
     );
+    gh.lazySingleton<_i176.AuthRepository>(
+      () => _i751.FirebaseAuthRepository(
+        gh<_i59.FirebaseAuth>(),
+        gh<_i116.GoogleSignIn>(),
+        gh<_i1010.MeRepository>(),
+        gh<_i560.SessionCache>(),
+      ),
+    );
     gh.lazySingleton<_i931.SocialRepository>(
       () => _i590.SocialRepositoryImpl(
         gh<_i361.Dio>(),
         gh<_i1010.MeRepository>(),
+        gh<_i560.SessionCache>(),
       ),
     );
     gh.factory<_i402.SellBloc>(
@@ -371,17 +380,20 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i204.CatalogRepository>(),
       ),
     );
-    gh.lazySingleton<_i176.AuthRepository>(
-      () => _i751.FirebaseAuthRepository(
-        gh<_i59.FirebaseAuth>(),
-        gh<_i116.GoogleSignIn>(),
-        gh<_i1010.MeRepository>(),
-      ),
-    );
     gh.factory<_i1029.ProfileBloc>(
       () => _i1029.ProfileBloc(
         gh<_i931.SocialRepository>(),
         gh<_i1010.MeRepository>(),
+        gh<_i1017.EventBus>(),
+      ),
+    );
+    gh.factory<_i194.ReelsBloc>(
+      () => _i194.ReelsBloc(gh<_i651.ReelsRepository>(), gh<_i1017.EventBus>()),
+    );
+    gh.factory<_i266.FeedBloc>(
+      () => _i266.FeedBloc(
+        gh<_i786.ProductsRepository>(),
+        gh<_i204.CatalogRepository>(),
         gh<_i1017.EventBus>(),
       ),
     );
@@ -413,13 +425,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i1010.MeRepository>(),
       ),
     );
-    gh.factory<_i651.ReelsRepository>(
-      () => _i203.ReelsRepositoryImpl(
-        gh<_i465.RemoteReelsDataSource>(),
-        gh<_i1010.MeRepository>(),
-        gh<_i1017.EventBus>(),
-      ),
-    );
     gh.factory<_i1037.PersonalizeBloc>(
       () => _i1037.PersonalizeBloc(
         gh<_i204.CatalogRepository>(),
@@ -441,9 +446,21 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i675.CartCubit>(
       () => _i675.CartCubit(gh<_i444.CartRepository>()),
     );
+    gh.factory<_i345.SearchBloc>(
+      () => _i345.SearchBloc(
+        gh<_i786.ProductsRepository>(),
+        gh<_i204.CatalogRepository>(),
+      ),
+    );
     gh.factory<_i631.RequireValidAccountUseCase>(
       () =>
           _i631.RequireValidAccountUseCase(gh<_i865.GetAccountStatusUseCase>()),
+    );
+    gh.lazySingleton<_i956.WishlistCubit>(
+      () => _i956.WishlistCubit(
+        gh<_i264.WishlistRepository>(),
+        gh<_i1017.EventBus>(),
+      ),
     );
     gh.factory<_i351.CheckoutBloc>(
       () => _i351.CheckoutBloc(
@@ -490,9 +507,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i486.OffersRepository>(),
         gh<_i675.CartCubit>(),
       ),
-    );
-    gh.factory<_i194.ReelsBloc>(
-      () => _i194.ReelsBloc(gh<_i651.ReelsRepository>(), gh<_i1017.EventBus>()),
     );
     gh.lazySingleton<_i774.AppRouter>(
       () => _i774.AppRouter(

@@ -60,7 +60,12 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
       _shipmentType = _quote.shipmentType;
       emit(_ready);
     } catch (error) {
-      emit(CheckoutErrorState(type: AppErrorType.fromException(error)));
+      emit(
+        CheckoutErrorState(
+          type: AppErrorType.fromException(error),
+          message: AppErrorType.serverMessage(error),
+        ),
+      );
     }
   }
 

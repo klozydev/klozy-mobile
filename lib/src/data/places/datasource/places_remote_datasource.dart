@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/data/places/model/place_details_response.dart';
 import 'package:klozy/src/data/places/model/place_suggestion_response.dart';
 
@@ -42,6 +43,7 @@ class PlacesRemoteDatasource {
         'input': input,
         'sessiontoken': _sessionToken,
       },
+      options: cacheable('places'),
     );
 
     final data = response.data ?? const <String, dynamic>{};
@@ -68,6 +70,7 @@ class PlacesRemoteDatasource {
         'placeId': placeId,
         if (token != null) 'sessiontoken': token,
       },
+      options: cacheable('places'),
     );
 
     final data = response.data ?? const <String, dynamic>{};

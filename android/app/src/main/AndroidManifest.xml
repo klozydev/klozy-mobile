@@ -43,6 +43,18 @@
 
                 <data android:scheme="klozy" />
             </intent-filter>
+
+            <!-- Verified App Links for klozy.store (Android auto-verify via
+                 https://klozy.store/.well-known/assetlinks.json). -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="https" android:host="klozy.store" />
+                <data android:scheme="https" android:host="www.klozy.store" />
+            </intent-filter>
         </activity>
 
         <meta-data

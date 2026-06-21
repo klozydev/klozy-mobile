@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.klozy.app",
+      "sha256_cert_fingerprints": [
+        "FD:C1:D0:F2:42:5B:D5:E1:ED:67:39:A8:C3:97:88:A2:CF:E5:32:94:08:1D:40:18:4F:E6:2A:D0:3C:CA:0A:31",
+        "C5:29:F3:58:DF:2A:CD:F8:8E:8C:6E:3F:78:2E:40:DE:3C:92:FB:D7:27:3D:81:83:FF:A7:5E:FB:D1:D1:98:F1"
+      ]
+    }
+  }
+]

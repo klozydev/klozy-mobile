@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/domain/config/entity/contact_info.dart';
 import 'package:klozy/src/domain/config/entity/legal_doc.dart';
 import 'package:klozy/src/domain/config/public_config_repository.dart';
@@ -12,7 +13,10 @@ class PublicConfigRepositoryImpl implements PublicConfigRepository {
 
   @override
   Future<List<LegalDoc>> getLegalDocs() async {
-    final response = await _dio.get<dynamic>('v1/legal');
+    final response = await _dio.get<dynamic>(
+      'v1/legal',
+      options: cacheable('config'),
+    );
     return _list(response.data).whereType<Map<String, dynamic>>().map((
       Map<String, dynamic> j,
     ) {
@@ -26,7 +30,10 @@ class PublicConfigRepositoryImpl implements PublicConfigRepository {
 
   @override
   Future<LegalDocContent> getLegalDoc(String key) async {
-    final response = await _dio.get<Map<String, dynamic>>('v1/legal/$key');
+    final response = await _dio.get<Map<String, dynamic>>(
+      'v1/legal/$key',
+      options: cacheable('config'),
+    );
     final j = response.data ?? const <String, dynamic>{};
     return LegalDocContent(
       title: _str(j, ['name', 'title']) ?? '',
@@ -36,7 +43,10 @@ class PublicConfigRepositoryImpl implements PublicConfigRepository {
 
   @override
   Future<ContactInfo> getContact() async {
-    final response = await _dio.get<Map<String, dynamic>>('v1/app/contact');
+    final response = await _dio.get<Map<String, dynamic>>(
+      'v1/app/contact',
+      options: cacheable('config'),
+    );
     final j = response.data ?? const <String, dynamic>{};
     return ContactInfo(
       supportEmail: _str(j, ['supportEmail', 'email']),

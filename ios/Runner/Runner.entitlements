@@ -10,6 +10,8 @@
 	</array>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
+		<string>applinks:klozy.store</string>
+		<string>applinks:www.klozy.store</string>
 		<string>applinks:klozy.com</string>
 	</array>
 </dict>

@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/feature/chat/domain/entity/chat_media.dart';
@@ -68,6 +70,12 @@ class ChatThreadBloc extends Bloc<ChatThreadEvent, ChatThreadState> {
     _threadId = event.threadId;
     emit(const ChatThreadLoadedState());
 
+    FirebaseAuth.instance.currentUser?.getIdTokenResult().then(
+      (IdTokenResult r) => debugPrint(
+        'CHAT CLAIMS: klozyUserId=${r.claims?['klozyUserId']} all=${r.claims}',
+      ),
+    );
+
     _messagesSub?.cancel();
     _messagesSub = _watchMessages(_threadId).listen(
       (List<ChatMessage> m) => add(ChatMessagesReceived(m)),
@@ -131,7 +139,8 @@ class ChatThreadBloc extends Bloc<ChatThreadEvent, ChatThreadState> {
 
     try {
       await _sendText(_threadId, text, clientId: clientId, replyTo: replyTo);
-    } catch (_) {
+    } catch (e, st) {
+      debugPrint('CHAT SEND FAILED (text): $e\n$st');
       _markFailed(clientId);
       emit(_loaded.copyWith(messages: _merged()));
     }
@@ -168,7 +177,8 @@ class ChatThreadBloc extends Bloc<ChatThreadEvent, ChatThreadState> {
       emit(_loaded.copyWith(messages: _merged()));
       try {
         await _sendMedia(_threadId, item, clientId: clientId);
-      } catch (_) {
+      } catch (e, st) {
+        debugPrint('CHAT SEND FAILED (media): $e\n$st');
         _markFailed(clientId);
         emit(_loaded.copyWith(messages: _merged()));
       }
@@ -197,7 +207,8 @@ class ChatThreadBloc extends Bloc<ChatThreadEvent, ChatThreadState> {
     emit(_loaded.copyWith(messages: _merged()));
     try {
       await _sendAudio(_threadId, event.audio, clientId: clientId);
-    } catch (_) {
+    } catch (e, st) {
+      debugPrint('CHAT SEND FAILED (audio): $e\n$st');
       _markFailed(clientId);
       emit(_loaded.copyWith(messages: _merged()));
     }

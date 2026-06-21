@@ -1,6 +1,7 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/events/reels_changed_event.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/core/pagination/paginated_list_response.dart';
 import 'package:klozy/src/data/product/product_mapper.dart';
@@ -17,11 +18,13 @@ class ReelsRepositoryImpl extends ReelsRepository {
   final RemoteReelsDataSource _remoteDataSource;
   final MeRepository _meRepository;
   final EventBus _eventBus;
+  final SessionCache _cache;
 
   ReelsRepositoryImpl(
     this._remoteDataSource,
     this._meRepository,
     this._eventBus,
+    this._cache,
   );
 
   @override
@@ -73,6 +76,7 @@ class ReelsRepositoryImpl extends ReelsRepository {
     await _remoteDataSource.update(id, <String, dynamic>{
       if (caption != null) 'caption': caption,
     });
+    _cache.invalidateGroup('reels');
     _eventBus.fire(const ReelsChangedEvent());
   }
 
@@ -92,6 +96,7 @@ class ReelsRepositoryImpl extends ReelsRepository {
   @override
   Future<void> delete(String id) async {
     await _remoteDataSource.delete(id);
+    _cache.invalidateGroup('reels');
     _eventBus.fire(const ReelsChangedEvent());
   }
 
@@ -118,6 +123,7 @@ class ReelsRepositoryImpl extends ReelsRepository {
       caption: caption,
       taggedProductIds: taggedProductIds,
     );
+    _cache.invalidateGroup('reels');
     _eventBus.fire(const ReelsChangedEvent());
     return (reelId: _reelId(json), uploadUrl: _uploadUrl(json));
   }

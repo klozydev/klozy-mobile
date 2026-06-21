@@ -37,6 +37,18 @@ enum AppErrorType {
     }
   }
 
+  /// The human-readable `message` field from a backend error body (e.g. a 409
+  /// "Some items are no longer available …"), or null if absent.
+  static String? serverMessage(Object error) {
+    if (error is DioException) {
+      final dynamic data = error.response?.data;
+      if (data is Map && data['message'] is String) {
+        return data['message'] as String;
+      }
+    }
+    return null;
+  }
+
   String get title => switch (this) {
     AppErrorType.network => 'No connection',
     AppErrorType.timeout => 'Took too long',

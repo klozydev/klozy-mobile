@@ -12,12 +12,12 @@ class AppShare {
   }
 
   static void reel(String reelId, {String? caption}) {
-    final link = 'https://klozy.app/reels/$reelId';
+    final link = 'https://klozy.store/reels/$reelId';
     text(caption == null || caption.isEmpty ? link : '$caption\n$link');
   }
 
   static void product(String productId, {String? title}) {
-    final link = 'https://klozy.app/products/$productId';
+    final link = 'https://klozy.store/products/$productId';
     text(title == null || title.isEmpty ? link : '$title\n$link');
   }
 }

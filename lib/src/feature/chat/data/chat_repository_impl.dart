@@ -73,8 +73,11 @@ class ChatRepositoryImpl implements ChatRepository {
         .map(
           (List<ConversationResponse> rows) => rows
               .map(
-                (ConversationResponse r) =>
-                    ChatThreadMapper.toEntity(r, myUid: myId),
+                (ConversationResponse r) => ChatThreadMapper.toEntity(
+                  r,
+                  myUid: myId,
+                  myBackendId: _auth.currentUser?.uid,
+                ),
               )
               .toList(),
         );
@@ -89,8 +92,11 @@ class ChatRepositoryImpl implements ChatRepository {
         .map(
           (List<ChatMessageResponse> rows) => rows
               .map(
-                (ChatMessageResponse r) =>
-                    ChatMessageMapper.toEntity(r, myUid: myId),
+                (ChatMessageResponse r) => ChatMessageMapper.toEntity(
+                  r,
+                  myUid: myId,
+                  myBackendId: _auth.currentUser?.uid,
+                ),
               )
               .toList(),
         );
@@ -103,7 +109,13 @@ class ChatRepositoryImpl implements ChatRepository {
     yield* _remote
         .watchThread(threadId)
         .map(
-          (r) => r == null ? null : ChatThreadMapper.toEntity(r, myUid: myId),
+          (r) => r == null
+              ? null
+              : ChatThreadMapper.toEntity(
+                  r,
+                  myUid: myId,
+                  myBackendId: _auth.currentUser?.uid,
+                ),
         );
   }
 

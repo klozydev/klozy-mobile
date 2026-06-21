@@ -88,11 +88,12 @@ class CheckoutPage extends StatelessWidget implements AutoRouteWrapper {
             backgroundColor: DSColor.surface,
             body: DSLoader(),
           ),
-          CheckoutErrorState(:final type) => Scaffold(
+          CheckoutErrorState(:final type, :final message) => Scaffold(
             backgroundColor: DSColor.surface,
             appBar: AppBar(),
             body: AppErrorWidget(
               type: type,
+              message: message,
               onRetry: () =>
                   context.read<CheckoutBloc>().add(CheckoutStarted(sellerId)),
             ),

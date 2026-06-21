@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/events/products_changed_event.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/core/pagination/paginated_list_response.dart';
 import 'package:klozy/src/data/product/product_detail_mapper.dart';
@@ -18,8 +19,9 @@ import 'package:klozy/src/domain/product/products_repository.dart';
 class ProductsRepositoryImpl implements ProductsRepository {
   final Dio _dio;
   final EventBus _eventBus;
+  final SessionCache _cache;
 
-  ProductsRepositoryImpl(this._dio, this._eventBus);
+  ProductsRepositoryImpl(this._dio, this._eventBus, this._cache);
 
   @override
   Future<FeedPage> feed({
@@ -120,7 +122,10 @@ class ProductsRepositoryImpl implements ProductsRepository {
 
   @override
   Future<ProductDetail> getProduct(String id) async {
-    final response = await _dio.get<Map<String, dynamic>>('v1/products/$id');
+    final response = await _dio.get<Map<String, dynamic>>(
+      'v1/products/$id',
+      options: cacheable('products'),
+    );
     final json = response.data ?? const <String, dynamic>{};
     // The API wraps single-resource responses as {data: {...product...}};
     // unwrap before mapping, with a passthrough fallback for bare objects.
@@ -136,12 +141,14 @@ class ProductsRepositoryImpl implements ProductsRepository {
       'v1/products/$id',
       data: <String, dynamic>{'status': status.name.toUpperCase()},
     );
+    _cache.invalidateGroup('products');
     _eventBus.fire(const ProductsChangedEvent());
   }
 
   @override
   Future<void> deleteProduct(String id) async {
     await _dio.delete<dynamic>('v1/products/$id');
+    _cache.invalidateGroup('products');
     _eventBus.fire(const ProductsChangedEvent());
   }
 
@@ -151,6 +158,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
       'v1/products/$id/report',
       data: <String, dynamic>{'reason': reason},
     );
+    _cache.invalidateGroup('products');
   }
 
   @override
@@ -164,6 +172,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
         ? json['data'] as Map<String, dynamic>
         : json;
     final id = inner['id'] ?? inner['_id'];
+    _cache.invalidateGroup('products');
     _eventBus.fire(const ProductsChangedEvent());
     return id is String ? id : '';
   }
@@ -195,6 +204,7 @@ class ProductsRepositoryImpl implements ProductsRepository {
         if (brandName != null && brandName.isNotEmpty) 'brandName': brandName,
       },
     );
+    _cache.invalidateGroup('products');
     _eventBus.fire(const ProductsChangedEvent());
   }
 }

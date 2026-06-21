@@ -1,18 +1,20 @@
 // Klozy native chat — Firestore security rules for the `chat` collection.
 //
-// Conversations are keyed by BACKEND user ids, so the rules authorize by the
-// `klozyUserId` custom claim (the backend sets it on the Firebase token during
-// /v1/me provisioning) — NOT request.auth.uid (the Firebase uid).
+// Conversations are keyed by BACKEND user ids; authorize by the `klozyUserId`
+// custom claim (the backend sets it on the Firebase token during /v1/me
+// provisioning) — NOT request.auth.uid.
 //
-// PASTE the `match /chat/{conversationId} { ... }` block below into your rules
-// in the Firebase console, inside
-//   service cloud.firestore { match /databases/{database}/documents { ... } }
-// alongside your other collection rules, then PUBLISH. The NestJS backend uses
-// the Admin SDK and bypasses these rules.
+// Reads tolerate a not-yet-existing conversation (resource == null / parent
+// missing) so the thread can subscribe instantly while the doc is created in
+// the background — a missing doc has no data to leak.
+//
+// PASTE inside service cloud.firestore { match /databases/{database}/documents { … } }
+// and PUBLISH. The NestJS backend uses the Admin SDK and bypasses these rules.
 
 match /chat/{conversationId} {
   allow read: if request.auth != null
-              && request.auth.token.klozyUserId in resource.data.participantIds;
+              && (resource == null
+                  || request.auth.token.klozyUserId in resource.data.participantIds);
 
   allow create: if request.auth != null
                 && request.auth.token.klozyUserId in request.resource.data.participantIds;
@@ -24,18 +26,26 @@ match /chat/{conversationId} {
   allow delete: if false;
 
   match /messages/{messageId} {
+    function convMissing() {
+      return !exists(/databases/$(database)/documents/chat/$(conversationId));
+    }
     function convParticipants() {
       return get(/databases/$(database)/documents/chat/$(conversationId)).data.participantIds;
     }
 
+    // A missing conversation has no messages, so reads return empty rather than
+    // erroring while the conversation is being created.
     allow read: if request.auth != null
-                && request.auth.token.klozyUserId in convParticipants();
+                && (convMissing()
+                    || request.auth.token.klozyUserId in convParticipants());
 
     allow create: if request.auth != null
                   && request.auth.token.klozyUserId == request.resource.data.senderId
-                  && request.auth.token.klozyUserId in convParticipants();
+                  && (convMissing()
+                      || request.auth.token.klozyUserId in convParticipants());
 
     allow update: if request.auth != null
+                  && !convMissing()
                   && request.auth.token.klozyUserId in convParticipants();
 
     allow delete: if false;

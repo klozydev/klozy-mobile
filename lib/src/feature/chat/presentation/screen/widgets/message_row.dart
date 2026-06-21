@@ -42,9 +42,13 @@ class MessageRow extends StatelessWidget {
     final CrossAxisAlignment align = _isCentered
         ? CrossAxisAlignment.center
         : (message.isMine ? CrossAxisAlignment.end : CrossAxisAlignment.start);
+    final Alignment rowAlign = _isCentered
+        ? Alignment.center
+        : (message.isMine ? Alignment.centerRight : Alignment.centerLeft);
 
     Widget content = Column(
       crossAxisAlignment: align,
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         _bubble(),
         Padding(
@@ -108,7 +112,7 @@ class MessageRow extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2),
-      child: content,
+      child: Align(alignment: rowAlign, child: content),
     );
   }
 

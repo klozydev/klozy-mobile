@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_brand.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
@@ -20,6 +21,7 @@ class CatalogRepositoryImpl implements CatalogRepository {
     final response = await _dio.get<List<dynamic>>(
       'v1/catalog/categories',
       queryParameters: <String, dynamic>{'parentId': parentId ?? ''},
+      options: cacheable('catalog'),
     );
     final List<CatalogCategory> mapped = _list(response.data)
         .map(
@@ -61,6 +63,7 @@ class CatalogRepositoryImpl implements CatalogRepository {
         if (query != null && query.isNotEmpty) 'q': query,
         'limit': 100,
       },
+      options: cacheable('catalog'),
     );
     return _list(response.data)
         .map(
@@ -75,7 +78,10 @@ class CatalogRepositoryImpl implements CatalogRepository {
 
   @override
   Future<List<CatalogCondition>> getConditions() async {
-    final response = await _dio.get<List<dynamic>>('v1/catalog/conditions');
+    final response = await _dio.get<List<dynamic>>(
+      'v1/catalog/conditions',
+      options: cacheable('catalog'),
+    );
     return _list(response.data)
         .map(
           (Map<String, dynamic> json) => CatalogCondition(
@@ -91,6 +97,7 @@ class CatalogRepositoryImpl implements CatalogRepository {
   Future<List<CatalogSizeValue>> getSizeConfig(String categoryId) async {
     final response = await _dio.get<dynamic>(
       'v1/catalog/categories/$categoryId/size-config',
+      options: cacheable('catalog'),
     );
     final data = response.data;
     final List<dynamic> sets = data is List
@@ -104,7 +111,10 @@ class CatalogRepositoryImpl implements CatalogRepository {
 
   @override
   Future<List<CatalogSizeValue>> getSizes() async {
-    final response = await _dio.get<List<dynamic>>('v1/catalog/sizes');
+    final response = await _dio.get<List<dynamic>>(
+      'v1/catalog/sizes',
+      options: cacheable('catalog'),
+    );
     return _flattenSizes(_list(response.data));
   }
 

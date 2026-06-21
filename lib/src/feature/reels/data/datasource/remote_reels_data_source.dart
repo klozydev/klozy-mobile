@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 
 @injectable
 class RemoteReelsDataSource {
@@ -21,7 +22,10 @@ class RemoteReelsDataSource {
   }
 
   Future<Map<String, dynamic>> getOne(String id) async {
-    final response = await _dio.get<Map<String, dynamic>>('v1/reels/$id');
+    final response = await _dio.get<Map<String, dynamic>>(
+      'v1/reels/$id',
+      options: cacheable('reels'),
+    );
     return response.data ?? const <String, dynamic>{};
   }
 
@@ -61,7 +65,10 @@ class RemoteReelsDataSource {
   Future<void> delete(String id) => _dio.delete<dynamic>('v1/reels/$id');
 
   Future<List<dynamic>> shopTheLook(String id) async {
-    final response = await _dio.get<List<dynamic>>('v1/reels/$id/products');
+    final response = await _dio.get<List<dynamic>>(
+      'v1/reels/$id/products',
+      options: cacheable('reels'),
+    );
     return response.data ?? const <dynamic>[];
   }
 

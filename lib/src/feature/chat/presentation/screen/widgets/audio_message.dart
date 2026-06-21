@@ -105,9 +105,10 @@ class _AudioMessageState extends State<AudioMessage> {
   Widget build(BuildContext context) {
     final bool mine = widget.message.isMine;
     final Color foreground = mine ? Colors.black : Colors.white;
+    final double maxWidth = MediaQuery.sizeOf(context).width * 0.72;
 
     return Container(
-      constraints: const BoxConstraints(minWidth: 158),
+      constraints: BoxConstraints(minWidth: 158, maxWidth: maxWidth),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       decoration: BoxDecoration(
         color: mine ? DSColor.primary : DSColor.card,

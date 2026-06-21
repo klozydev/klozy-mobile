@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/data/product/product_mapper.dart';
 import 'package:klozy/src/data/social/social_mapper.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
@@ -14,12 +15,16 @@ import 'package:klozy/src/domain/social/social_repository.dart';
 class SocialRepositoryImpl implements SocialRepository {
   final Dio _dio;
   final MeRepository _meRepository;
+  final SessionCache _cache;
 
-  SocialRepositoryImpl(this._dio, this._meRepository);
+  SocialRepositoryImpl(this._dio, this._meRepository, this._cache);
 
   @override
   Future<SocialProfile> getProfile(String userId) async {
-    final response = await _dio.get<Map<String, dynamic>>('v1/users/$userId');
+    final response = await _dio.get<Map<String, dynamic>>(
+      'v1/users/$userId',
+      options: cacheable('social'),
+    );
     return mapSocialProfile(response.data);
   }
 
@@ -56,7 +61,10 @@ class SocialRepositoryImpl implements SocialRepository {
   @override
   Future<List<UserReview>> getReviews(String userId) async {
     try {
-      final response = await _dio.get<dynamic>('v1/users/$userId/reviews');
+      final response = await _dio.get<dynamic>(
+        'v1/users/$userId/reviews',
+        options: cacheable('social'),
+      );
       return _list(response.data).map(mapUserReview).toList();
     } catch (_) {
       return const <UserReview>[];
@@ -65,24 +73,32 @@ class SocialRepositoryImpl implements SocialRepository {
 
   @override
   Future<List<FollowUser>> getFollowers(String userId) async {
-    final response = await _dio.get<dynamic>('v1/users/$userId/followers');
+    final response = await _dio.get<dynamic>(
+      'v1/users/$userId/followers',
+      options: cacheable('social'),
+    );
     return _list(response.data).map(mapFollowUser).toList();
   }
 
   @override
   Future<List<FollowUser>> getFollowing(String userId) async {
-    final response = await _dio.get<dynamic>('v1/users/$userId/following');
+    final response = await _dio.get<dynamic>(
+      'v1/users/$userId/following',
+      options: cacheable('social'),
+    );
     return _list(response.data).map(mapFollowUser).toList();
   }
 
   @override
   Future<void> follow(String userId) async {
     await _dio.put<dynamic>('v1/users/$userId/follow');
+    _cache.invalidateGroup('social');
   }
 
   @override
   Future<void> unfollow(String userId) async {
     await _dio.delete<dynamic>('v1/users/$userId/follow');
+    _cache.invalidateGroup('social');
   }
 
   @override
@@ -91,6 +107,7 @@ class SocialRepositoryImpl implements SocialRepository {
       'v1/users/$userId/report',
       data: <String, dynamic>{'reason': reason},
     );
+    _cache.invalidateGroup('social');
   }
 
   List<dynamic> _list(Object? data) {

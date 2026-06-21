@@ -6,6 +6,7 @@ import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/auth/entity/auth_user.dart';
@@ -17,11 +18,13 @@ class FirebaseAuthRepository implements AuthRepository {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
   final MeRepository _meRepository;
+  final SessionCache _cache;
 
   FirebaseAuthRepository(
     this._firebaseAuth,
     this._googleSignIn,
     this._meRepository,
+    this._cache,
   );
 
   @override
@@ -233,6 +236,7 @@ class FirebaseAuthRepository implements AuthRepository {
   @override
   Future<void> signOut() async {
     _meRepository.invalidate();
+    _cache.clear();
     await _googleSignIn.signOut();
     await _firebaseAuth.signOut();
   }

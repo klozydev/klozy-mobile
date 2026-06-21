@@ -21,10 +21,13 @@ final class CheckoutLoadingState extends CheckoutState {
 final class CheckoutErrorState extends CheckoutState {
   final AppErrorType type;
 
-  const CheckoutErrorState({required this.type});
+  /// Server-provided message (e.g. a 409 "items no longer available").
+  final String? message;
+
+  const CheckoutErrorState({required this.type, this.message});
 
   @override
-  List<Object?> get props => [type];
+  List<Object?> get props => [type, message];
 }
 
 final class CheckoutReadyState extends CheckoutState {
