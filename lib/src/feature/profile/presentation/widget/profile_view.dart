@@ -233,7 +233,11 @@ class _ProfileBodyState extends State<_ProfileBody>
                         const ProfileFollowToggled(),
                       ),
                     ),
-                    onMessage: () => context.openChatWith(profile.id),
+                    onMessage: () => context.openChatWith(
+                      profile.id,
+                      displayName: profile.displayName,
+                      avatarUrl: profile.avatarUrl,
+                    ),
                   ),
                 ),
               ),

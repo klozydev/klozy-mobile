@@ -20,6 +20,22 @@ abstract final class DSColor {
   static const Color avatarGradientStart = Color(0xFF4A90E2);
   static const Color avatarGradientEnd = Color(0xFF2C5AA0);
 
+  // MARK: Chat
+  /// "Active now" / accepted-offer / purchase accent (muted sage green).
+  static const Color chatPositive = Color(0xFFA7D2BE);
+
+  /// Thread-header background (92% black over the messages pane).
+  static const Color chatHeaderBackground = Color(0xEB0A0A0A);
+
+  /// Attach / menu bottom-sheet surface.
+  static const Color sheetBackground = Color(0xFF181818);
+
+  /// Slightly-darker inset surface (offer composer field, thumbs).
+  static const Color cardInset = Color(0xFF0E0E0E);
+
+  static const Color chatPositiveBg = Color(0x14A7D2BE); // 8%
+  static const Color chatPositiveBorder = Color(0x40A7D2BE); // 25%
+
   // MARK: Alpha-ed whites
   static const Color onSurface05 = Color(0x0DFFFFFF); // 5%
   static const Color onSurface06 = Color(0x0FFFFFFF); // 6%

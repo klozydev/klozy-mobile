@@ -1969,4 +1969,95 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get product_see_offer => 'مشاهدة العرض';
+
+  @override
+  String get chat_empty_title => 'No conversations yet';
+
+  @override
+  String get chat_empty_subtitle =>
+      'Message a seller from any product to start chatting.';
+
+  @override
+  String get chat_composer_hint => 'Message…';
+
+  @override
+  String get chat_recording => 'Recording…';
+
+  @override
+  String get chat_attach_photo => 'Photo & Video';
+
+  @override
+  String get chat_attach_camera => 'Camera';
+
+  @override
+  String get chat_attach_audio => 'Audio file';
+
+  @override
+  String get chat_attach_document => 'Document';
+
+  @override
+  String get chat_menu_report => 'Report & block';
+
+  @override
+  String get chat_menu_delete => 'Delete conversation';
+
+  @override
+  String get chat_reply_self => 'Replying to yourself';
+
+  @override
+  String get chat_reply_other => 'Replying';
+
+  @override
+  String get chat_media_placeholder => '[media]';
+
+  @override
+  String get chat_offer_yours => 'Your offer';
+
+  @override
+  String get chat_offer_incoming => 'Offer';
+
+  @override
+  String get chat_offer_refuse => 'Refuse';
+
+  @override
+  String get chat_offer_accept => 'Accept';
+
+  @override
+  String get chat_offer_pending => 'Pending response…';
+
+  @override
+  String get chat_offer_accepted => 'Offer accepted';
+
+  @override
+  String get chat_offer_declined => 'Offer declined';
+
+  @override
+  String get chat_message_deleted => 'Message deleted';
+
+  @override
+  String get chat_currency => 'Dhs';
+
+  @override
+  String get chat_purchase_confirmed => 'Purchase confirmed';
+
+  @override
+  String get chat_purchase_for => 'for';
+
+  @override
+  String get chat_no_messages => 'No messages yet';
+
+  @override
+  String get chat_preview_photo => '📷 Photo';
+
+  @override
+  String get chat_preview_voice => '🎤 Voice message';
+
+  @override
+  String get chat_preview_offer_sent => 'You sent an offer';
+
+  @override
+  String get chat_preview_offer_new => 'New offer';
+
+  @override
+  String get chat_preview_you_prefix => 'You: ';
 }

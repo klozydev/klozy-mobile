@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 class SocialProfile extends Equatable {
   final String id;
 
-  /// Firebase UID — the id the kosmos chat keys threads by (used by ChatEntry).
+  /// Firebase UID — the id the chat feature keys conversations by (ChatEntry).
   final String firebaseUid;
   final String displayName;
   final String? avatarUrl;

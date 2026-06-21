@@ -2305,7 +2305,7 @@ abstract class AppLocalizations {
   /// No description provided for @chat_title.
   ///
   /// In en, this message translates to:
-  /// **'Chat'**
+  /// **'Messages'**
   String get chat_title;
 
   /// No description provided for @ds_password_strength_weak.
@@ -3597,6 +3597,186 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'See offer'**
   String get product_see_offer;
+
+  /// No description provided for @chat_empty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No conversations yet'**
+  String get chat_empty_title;
+
+  /// No description provided for @chat_empty_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Message a seller from any product to start chatting.'**
+  String get chat_empty_subtitle;
+
+  /// No description provided for @chat_composer_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Message…'**
+  String get chat_composer_hint;
+
+  /// No description provided for @chat_recording.
+  ///
+  /// In en, this message translates to:
+  /// **'Recording…'**
+  String get chat_recording;
+
+  /// No description provided for @chat_attach_photo.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo & Video'**
+  String get chat_attach_photo;
+
+  /// No description provided for @chat_attach_camera.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get chat_attach_camera;
+
+  /// No description provided for @chat_attach_audio.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio file'**
+  String get chat_attach_audio;
+
+  /// No description provided for @chat_attach_document.
+  ///
+  /// In en, this message translates to:
+  /// **'Document'**
+  String get chat_attach_document;
+
+  /// No description provided for @chat_menu_report.
+  ///
+  /// In en, this message translates to:
+  /// **'Report & block'**
+  String get chat_menu_report;
+
+  /// No description provided for @chat_menu_delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete conversation'**
+  String get chat_menu_delete;
+
+  /// No description provided for @chat_reply_self.
+  ///
+  /// In en, this message translates to:
+  /// **'Replying to yourself'**
+  String get chat_reply_self;
+
+  /// No description provided for @chat_reply_other.
+  ///
+  /// In en, this message translates to:
+  /// **'Replying'**
+  String get chat_reply_other;
+
+  /// No description provided for @chat_media_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'[media]'**
+  String get chat_media_placeholder;
+
+  /// No description provided for @chat_offer_yours.
+  ///
+  /// In en, this message translates to:
+  /// **'Your offer'**
+  String get chat_offer_yours;
+
+  /// No description provided for @chat_offer_incoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Offer'**
+  String get chat_offer_incoming;
+
+  /// No description provided for @chat_offer_refuse.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse'**
+  String get chat_offer_refuse;
+
+  /// No description provided for @chat_offer_accept.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get chat_offer_accept;
+
+  /// No description provided for @chat_offer_pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending response…'**
+  String get chat_offer_pending;
+
+  /// No description provided for @chat_offer_accepted.
+  ///
+  /// In en, this message translates to:
+  /// **'Offer accepted'**
+  String get chat_offer_accepted;
+
+  /// No description provided for @chat_offer_declined.
+  ///
+  /// In en, this message translates to:
+  /// **'Offer declined'**
+  String get chat_offer_declined;
+
+  /// No description provided for @chat_message_deleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Message deleted'**
+  String get chat_message_deleted;
+
+  /// No description provided for @chat_currency.
+  ///
+  /// In en, this message translates to:
+  /// **'Dhs'**
+  String get chat_currency;
+
+  /// No description provided for @chat_purchase_confirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase confirmed'**
+  String get chat_purchase_confirmed;
+
+  /// No description provided for @chat_purchase_for.
+  ///
+  /// In en, this message translates to:
+  /// **'for'**
+  String get chat_purchase_for;
+
+  /// No description provided for @chat_no_messages.
+  ///
+  /// In en, this message translates to:
+  /// **'No messages yet'**
+  String get chat_no_messages;
+
+  /// No description provided for @chat_preview_photo.
+  ///
+  /// In en, this message translates to:
+  /// **'📷 Photo'**
+  String get chat_preview_photo;
+
+  /// No description provided for @chat_preview_voice.
+  ///
+  /// In en, this message translates to:
+  /// **'🎤 Voice message'**
+  String get chat_preview_voice;
+
+  /// No description provided for @chat_preview_offer_sent.
+  ///
+  /// In en, this message translates to:
+  /// **'You sent an offer'**
+  String get chat_preview_offer_sent;
+
+  /// No description provided for @chat_preview_offer_new.
+  ///
+  /// In en, this message translates to:
+  /// **'New offer'**
+  String get chat_preview_offer_new;
+
+  /// No description provided for @chat_preview_you_prefix.
+  ///
+  /// In en, this message translates to:
+  /// **'You: '**
+  String get chat_preview_you_prefix;
 }
 
 class _AppLocalizationsDelegate

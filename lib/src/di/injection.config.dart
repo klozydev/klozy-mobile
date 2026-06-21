@@ -9,10 +9,12 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:cloud_firestore/cloud_firestore.dart' as _i974;
 import 'package:dio/dio.dart' as _i361;
 import 'package:event_bus/event_bus.dart' as _i1017;
 import 'package:firebase_auth/firebase_auth.dart' as _i59;
 import 'package:firebase_messaging/firebase_messaging.dart' as _i892;
+import 'package:firebase_storage/firebase_storage.dart' as _i457;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:google_sign_in/google_sign_in.dart' as _i116;
@@ -20,6 +22,7 @@ import 'package:injectable/injectable.dart' as _i526;
 import 'package:klozy/src/app/bloc/account/account_bloc.dart' as _i386;
 import 'package:klozy/src/app/bloc/app_bloc.dart' as _i432;
 import 'package:klozy/src/app/cart/cart_cubit.dart' as _i675;
+import 'package:klozy/src/app/chat/chat_unread_cubit.dart' as _i520;
 import 'package:klozy/src/app/notifications/notifications_cubit.dart' as _i276;
 import 'package:klozy/src/app/push/push_service.dart' as _i27;
 import 'package:klozy/src/app/theme/app_config_change_notifier.dart' as _i616;
@@ -85,6 +88,36 @@ import 'package:klozy/src/feature/auth/presentation/bloc/auth_bloc.dart'
     as _i692;
 import 'package:klozy/src/feature/cart/presentation/bloc/cart_bloc.dart'
     as _i773;
+import 'package:klozy/src/feature/chat/data/chat_repository_impl.dart' as _i259;
+import 'package:klozy/src/feature/chat/data/datasource/chat_remote_data_source.dart'
+    as _i511;
+import 'package:klozy/src/feature/chat/domain/chat_repository.dart' as _i668;
+import 'package:klozy/src/feature/chat/domain/usecase/delete_conversation.dart'
+    as _i735;
+import 'package:klozy/src/feature/chat/domain/usecase/mark_thread_seen.dart'
+    as _i850;
+import 'package:klozy/src/feature/chat/domain/usecase/open_or_create_thread.dart'
+    as _i1011;
+import 'package:klozy/src/feature/chat/domain/usecase/report_and_block.dart'
+    as _i316;
+import 'package:klozy/src/feature/chat/domain/usecase/respond_to_offer.dart'
+    as _i795;
+import 'package:klozy/src/feature/chat/domain/usecase/send_audio_message.dart'
+    as _i48;
+import 'package:klozy/src/feature/chat/domain/usecase/send_media_message.dart'
+    as _i41;
+import 'package:klozy/src/feature/chat/domain/usecase/send_text_message.dart'
+    as _i560;
+import 'package:klozy/src/feature/chat/domain/usecase/watch_messages.dart'
+    as _i113;
+import 'package:klozy/src/feature/chat/domain/usecase/watch_thread.dart'
+    as _i25;
+import 'package:klozy/src/feature/chat/domain/usecase/watch_threads.dart'
+    as _i1046;
+import 'package:klozy/src/feature/chat/presentation/bloc/chat_list/chat_list_bloc.dart'
+    as _i637;
+import 'package:klozy/src/feature/chat/presentation/bloc/chat_thread/chat_thread_bloc.dart'
+    as _i919;
 import 'package:klozy/src/feature/checkout/presentation/bloc/checkout_bloc.dart'
     as _i351;
 import 'package:klozy/src/feature/home/presentation/bloc/feed_bloc.dart'
@@ -154,11 +187,23 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i892.FirebaseMessaging>(
       () => firebaseModule.firebaseMessaging,
     );
+    gh.lazySingleton<_i974.FirebaseFirestore>(
+      () => firebaseModule.firebaseFirestore,
+    );
+    gh.lazySingleton<_i457.FirebaseStorage>(
+      () => firebaseModule.firebaseStorage,
+    );
     gh.lazySingleton<_i1017.EventBus>(() => appModule.getEventBus());
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => appModule.getFlutterSecureStorage(),
     );
     gh.lazySingleton<_i370.AppLogger>(() => observabilityModule.getAppLogger());
+    gh.factory<_i511.ChatRemoteDataSource>(
+      () => _i511.ChatRemoteDataSource(
+        gh<_i974.FirebaseFirestore>(),
+        gh<_i457.FirebaseStorage>(),
+      ),
+    );
     gh.factory<_i906.Prefs>(() => _i906.Prefs(gh<_i460.SharedPreferences>()));
     gh.factory<_i480.AuthGuard>(() => _i480.AuthGuard(gh<_i59.FirebaseAuth>()));
     gh.factory<_i32.LoggingInterceptor>(
@@ -234,6 +279,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i242.OrdersRepository>(
       () => _i339.OrdersRepositoryImpl(gh<_i361.Dio>()),
     );
+    gh.factory<_i668.ChatRepository>(
+      () => _i259.ChatRepositoryImpl(
+        gh<_i511.ChatRemoteDataSource>(),
+        gh<_i59.FirebaseAuth>(),
+        gh<_i1010.MeRepository>(),
+        gh<_i486.OffersRepository>(),
+      ),
+    );
     gh.factory<_i345.SearchBloc>(
       () => _i345.SearchBloc(
         gh<_i786.ProductsRepository>(),
@@ -242,6 +295,52 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i444.CartRepository>(
       () => _i358.CartRepositoryImpl(gh<_i361.Dio>()),
+    );
+    gh.factory<_i316.ReportAndBlock>(
+      () => _i316.ReportAndBlock(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i41.SendMediaMessage>(
+      () => _i41.SendMediaMessage(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i25.WatchThread>(
+      () => _i25.WatchThread(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i113.WatchMessages>(
+      () => _i113.WatchMessages(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i560.SendTextMessage>(
+      () => _i560.SendTextMessage(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i795.RespondToOffer>(
+      () => _i795.RespondToOffer(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i48.SendAudioMessage>(
+      () => _i48.SendAudioMessage(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i1046.WatchThreads>(
+      () => _i1046.WatchThreads(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i735.DeleteConversation>(
+      () => _i735.DeleteConversation(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i1011.OpenOrCreateThread>(
+      () => _i1011.OpenOrCreateThread(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i850.MarkThreadSeen>(
+      () => _i850.MarkThreadSeen(gh<_i668.ChatRepository>()),
+    );
+    gh.factory<_i919.ChatThreadBloc>(
+      () => _i919.ChatThreadBloc(
+        gh<_i113.WatchMessages>(),
+        gh<_i25.WatchThread>(),
+        gh<_i560.SendTextMessage>(),
+        gh<_i41.SendMediaMessage>(),
+        gh<_i48.SendAudioMessage>(),
+        gh<_i850.MarkThreadSeen>(),
+        gh<_i735.DeleteConversation>(),
+        gh<_i316.ReportAndBlock>(),
+        gh<_i795.RespondToOffer>(),
+      ),
     );
     gh.lazySingleton<_i264.PublicConfigRepository>(
       () => _i441.PublicConfigRepositoryImpl(gh<_i361.Dio>()),
@@ -286,6 +385,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i1017.EventBus>(),
       ),
     );
+    gh.lazySingleton<_i520.ChatUnreadCubit>(
+      () => _i520.ChatUnreadCubit(
+        gh<_i1046.WatchThreads>(),
+        gh<_i59.FirebaseAuth>(),
+      ),
+    );
     gh.factory<_i1007.OrdersBloc>(
       () => _i1007.OrdersBloc(gh<_i242.OrdersRepository>()),
     );
@@ -320,6 +425,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i204.CatalogRepository>(),
         gh<_i1010.MeRepository>(),
       ),
+    );
+    gh.factory<_i637.ChatListBloc>(
+      () => _i637.ChatListBloc(gh<_i1046.WatchThreads>()),
     );
     gh.factory<_i728.ReelComposerBloc>(
       () => _i728.ReelComposerBloc(gh<_i651.ReelsRepository>()),
@@ -364,14 +472,14 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i176.AuthRepository>(),
       ),
     );
-    gh.factory<_i672.AccountGuard>(
-      () => _i672.AccountGuard(
+    gh.factory<_i281.OnboardingGuard>(
+      () => _i281.OnboardingGuard(
         gh<_i865.GetAccountStatusUseCase>(),
         gh<_i176.AuthRepository>(),
       ),
     );
-    gh.factory<_i281.OnboardingGuard>(
-      () => _i281.OnboardingGuard(
+    gh.factory<_i672.AccountGuard>(
+      () => _i672.AccountGuard(
         gh<_i865.GetAccountStatusUseCase>(),
         gh<_i176.AuthRepository>(),
       ),

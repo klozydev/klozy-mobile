@@ -37,7 +37,11 @@ class ProductDetailsPanelWidget extends StatelessWidget {
             ProductSellerCardWidget(
               seller: detail.seller,
               isOwner: isOwner,
-              onMessage: () => context.openChatWith(detail.seller.id),
+              onMessage: () => context.openChatWith(
+                detail.seller.id,
+                displayName: detail.seller.displayName,
+                avatarUrl: detail.seller.avatarUrl,
+              ),
               onTap: isOwner
                   ? null
                   : () => context.router.push(

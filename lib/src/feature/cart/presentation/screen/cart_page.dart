@@ -111,8 +111,11 @@ class CartPage extends StatelessWidget implements AutoRouteWrapper {
                                 CheckoutRoute(sellerId: b.sellerId, bucket: b),
                               ),
                             ),
-                            onMessageSeller: () =>
-                                context.openChatWith(b.sellerId),
+                            onMessageSeller: () => context.openChatWith(
+                              b.sellerId,
+                              displayName: b.sellerName,
+                              avatarUrl: b.sellerAvatar,
+                            ),
                           ),
                         ),
                       ],

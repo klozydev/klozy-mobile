@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
 import 'package:klozy/src/di/injection.dart';
-import 'package:klozy/src/feature/chat/bridge/chat_config.dart';
 
 /// Google web/server OAuth client (client_type 3 from google-services.json) —
 /// the audience Firebase expects on the Google ID token.
@@ -14,5 +13,4 @@ Future<void> initialize() async {
   Intl.defaultLocale = 'en';
   await GoogleSignIn.instance.initialize(serverClientId: _googleServerClientId);
   await configureDependencies();
-  registerChatConfig();
 }

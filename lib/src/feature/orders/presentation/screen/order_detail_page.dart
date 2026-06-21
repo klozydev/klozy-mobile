@@ -234,7 +234,11 @@ class _OrderBody extends StatelessWidget {
         OrderCounterpartCardWidget(
           party: order.counterpart,
           roleLabel: order.counterpartRoleLabel,
-          onMessage: () => context.openChatWith(order.counterpart.id),
+          onMessage: () => context.openChatWith(
+            order.counterpart.id,
+            displayName: order.counterpart.displayName,
+            avatarUrl: order.counterpart.avatarUrl,
+          ),
         ),
         if (order.deliveryAddress != null) ...<Widget>[
           const SizedBox(height: 16),

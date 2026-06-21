@@ -38,7 +38,7 @@ dependencies:
   image_picker: 1.2.1
   file_picker: 11.0.2
   just_audio: 0.10.5
-  record: 7.1.0
+  record: 5.2.1
   path_provider: 2.1.6
   flutter_stripe: 13.0.0
   url_launcher: 6.3.2
@@ -60,6 +60,20 @@ dev_dependencies:
   lint: 2.8.0
   flutter_lints: 5.0.0
   mocktail: 1.0.4
+
+# `record` 5.x otherwise resolves record_platform_interface 1.6.0, which the
+# stale record_linux 0.7.2 (the only 1.x linux impl) doesn't implement — and the
+# mobile build still type-checks every federated platform impl. Pin the whole
+# family to the consistent pre-`startStream` interface 1.4.0 generation, whose
+# record_android 1.4.5 also predates the broken 2.x `AdtsContainer` Kotlin code.
+dependency_overrides:
+  record: 5.0.5
+  record_platform_interface: 1.0.2
+  record_android: 1.1.0
+  record_web: 1.0.4
+  record_windows: 1.0.2
+  record_darwin: 1.0.1
+  record_linux: 0.7.2
 
 flutter:
   generate: true

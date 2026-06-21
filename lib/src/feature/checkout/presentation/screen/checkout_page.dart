@@ -162,7 +162,11 @@ class _Review extends StatelessWidget {
             bucket: bucket,
             onOpenSeller: () =>
                 context.router.push(UserProfileRoute(userId: bucket.sellerId)),
-            onMessage: () => context.openChatWith(bucket.sellerId),
+            onMessage: () => context.openChatWith(
+              bucket.sellerId,
+              displayName: bucket.sellerName,
+              avatarUrl: bucket.sellerAvatar,
+            ),
           ),
           _card(context.l10N.checkout_summary, <Widget>[
             if (state.isQuoting)

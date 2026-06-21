@@ -1,9 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart' show ProviderScope;
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:klozy/l10n/app_localizations.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_event.dart';
@@ -11,6 +8,7 @@ import 'package:klozy/src/app/bloc/app_bloc.dart';
 import 'package:klozy/src/app/bloc/app_event.dart';
 import 'package:klozy/src/app/bloc/app_state.dart';
 import 'package:klozy/src/app/cart/cart_cubit.dart';
+import 'package:klozy/src/app/chat/chat_unread_cubit.dart';
 import 'package:klozy/src/app/notifications/notifications_cubit.dart';
 import 'package:klozy/src/app/theme/app_config_change_notifier.dart';
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
@@ -59,86 +57,68 @@ class _AppState extends State<App> {
 
   Widget _builder(BuildContext _, AppState state) {
     if (state is AppIdleState) {
-      // ProviderScope backs the chat island (Riverpod/hooks). Harmless to the
-      // existing BLoC/Cubit tree.
-      return ProviderScope(
-        child: ChangeNotifierProvider(
-          create: (_) => _themeChangeNotifier,
-          child: Consumer<AppConfigChangeNotifier>(
-            builder:
-                (
-                  BuildContext context,
-                  AppConfigChangeNotifier appConfig,
-                  Widget? child,
-                ) {
-                  return MultiBlocProvider(
-                    providers: <BlocProvider<dynamic>>[
-                      BlocProvider<AccountBloc>.value(value: _accountBloc),
-                      BlocProvider<WishlistCubit>.value(
-                        value: locator<WishlistCubit>(),
-                      ),
-                      BlocProvider<CartCubit>.value(
-                        value: locator<CartCubit>(),
-                      ),
-                      BlocProvider<NotificationsCubit>.value(
-                        value: locator<NotificationsCubit>(),
-                      ),
-                    ],
-                    child: MaterialApp.router(
-                      routerConfig: _appRouter.config(
-                        deepLinkBuilder: (PlatformDeepLink deepLink) {
-                          final Uri uri = deepLink.uri;
-                          // Custom-scheme links (e.g. klozy://product/123) put
-                          // the first path segment in the URI host, so AutoRoute
-                          // can't match `/product/:id`. Rebuild a normal path.
-                          // https links already carry the real path (host is the
-                          // domain), so they pass through unchanged.
-                          if (uri.scheme == 'klozy' && uri.host.isNotEmpty) {
-                            return DeepLink.path('/${uri.host}${uri.path}');
-                          }
-                          return deepLink;
-                        },
-                      ),
-                      debugShowCheckedModeBanner: false,
-                      onGenerateTitle: (BuildContext context) =>
-                          context.l10N.app_name,
-                      // App strings + locale are driven by gen-l10n
-                      // (`context.l10N`) and AppConfigChangeNotifier. The
-                      // easy_localization delegates are kept ONLY so the chat
-                      // island's `.tr()` keeps working; the chat island's own
-                      // locale stays managed by EasyLocalization (main.dart) and
-                      // is intentionally left untouched.
-                      localizationsDelegates: <LocalizationsDelegate<dynamic>>[
-                        ...context.localizationDelegates,
-                        ...AppLocalizations.localizationsDelegates,
-                      ],
-                      supportedLocales: AppLocalizations.supportedLocales,
-                      locale: Locale(appConfig.locale),
-                      theme: dsTheme(),
-                      builder: (context, child) {
-                        // The chat island (kosmos_chat / core_kosmos) renders
-                        // with flutter_screenutil (`.sp`, `.w`, `.h`). Init the
-                        // singleton here (kosmos design size 375x812) so those
-                        // extensions work; without it the chat tab throws a
-                        // LateInitializationError on `_minTextAdapt`.
-                        ScreenUtil.init(
-                          context,
-                          designSize: const Size(375, 812),
-                        );
-                        final clamped = MediaQuery.textScalerOf(
-                          context,
-                        ).clamp(minScaleFactor: 1, maxScaleFactor: 1.2);
-                        return MediaQuery(
-                          data: MediaQuery.of(
-                            context,
-                          ).copyWith(textScaler: clamped),
-                          child: child ?? const SizedBox.shrink(),
-                        );
+      return ChangeNotifierProvider(
+        create: (_) => _themeChangeNotifier,
+        child: Consumer<AppConfigChangeNotifier>(
+          builder:
+              (
+                BuildContext context,
+                AppConfigChangeNotifier appConfig,
+                Widget? child,
+              ) {
+                return MultiBlocProvider(
+                  providers: <BlocProvider<dynamic>>[
+                    BlocProvider<AccountBloc>.value(value: _accountBloc),
+                    BlocProvider<WishlistCubit>.value(
+                      value: locator<WishlistCubit>(),
+                    ),
+                    BlocProvider<CartCubit>.value(value: locator<CartCubit>()),
+                    BlocProvider<NotificationsCubit>.value(
+                      value: locator<NotificationsCubit>(),
+                    ),
+                    BlocProvider<ChatUnreadCubit>.value(
+                      value: locator<ChatUnreadCubit>(),
+                    ),
+                  ],
+                  child: MaterialApp.router(
+                    routerConfig: _appRouter.config(
+                      deepLinkBuilder: (PlatformDeepLink deepLink) {
+                        final Uri uri = deepLink.uri;
+                        // Custom-scheme links (e.g. klozy://product/123) put
+                        // the first path segment in the URI host, so AutoRoute
+                        // can't match `/product/:id`. Rebuild a normal path.
+                        // https links already carry the real path (host is the
+                        // domain), so they pass through unchanged.
+                        if (uri.scheme == 'klozy' && uri.host.isNotEmpty) {
+                          return DeepLink.path('/${uri.host}${uri.path}');
+                        }
+                        return deepLink;
                       },
                     ),
-                  );
-                },
-          ),
+                    debugShowCheckedModeBanner: false,
+                    onGenerateTitle: (BuildContext context) =>
+                        context.l10N.app_name,
+                    // App strings + locale are driven by gen-l10n
+                    // (`context.l10N`) and AppConfigChangeNotifier.
+                    localizationsDelegates:
+                        AppLocalizations.localizationsDelegates,
+                    supportedLocales: AppLocalizations.supportedLocales,
+                    locale: Locale(appConfig.locale),
+                    theme: dsTheme(),
+                    builder: (context, child) {
+                      final clamped = MediaQuery.textScalerOf(
+                        context,
+                      ).clamp(minScaleFactor: 1, maxScaleFactor: 1.2);
+                      return MediaQuery(
+                        data: MediaQuery.of(
+                          context,
+                        ).copyWith(textScaler: clamped),
+                        child: child ?? const SizedBox.shrink(),
+                      );
+                    },
+                  ),
+                );
+              },
         ),
       );
     }

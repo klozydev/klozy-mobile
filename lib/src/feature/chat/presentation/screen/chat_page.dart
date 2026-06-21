@@ -7,12 +7,9 @@ import 'package:klozy/src/core/account/guest_tab_placeholder_widget.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/domain/account/entity/account_status.dart';
-import 'package:kosmos_chat/kosmos_chat.dart';
+import 'package:klozy/src/feature/chat/presentation/screen/chat_list_page.dart';
 
-/// The Chat tab (shell index 2): hosts the package's conversation list.
-///
-/// The root [ProviderScope] (in App) supplies the Riverpod scope the package
-/// widgets need; navigation into a thread is driven by MobileTchatController.
+/// The Chat tab (shell index 2): hosts the native conversation list.
 ///
 /// When the account resolves to guest, [GuestTabPlaceholderWidget] is shown
 /// instead of the chat list to prompt sign-in.
@@ -33,10 +30,7 @@ class ChatPage extends StatelessWidget {
           return const GuestTabPlaceholderWidget();
         }
         if (state is AccountResolved) {
-          return const Scaffold(
-            backgroundColor: DSColor.surface,
-            body: SafeArea(child: TchatListPage()),
-          );
+          return const ChatListPage();
         }
         // AccountInitial or AccountResolving — show loader while bootstrapping.
         return const Scaffold(

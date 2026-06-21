@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/app/chat/chat_unread_cubit.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
@@ -13,7 +13,6 @@ import 'package:klozy/src/feature/shell/presentation/widget/entry_choice.dart';
 import 'package:klozy/src/feature/shell/presentation/widget/entry_sheet_widget.dart';
 import 'package:klozy/src/feature/shell/presentation/widget/shell_bottom_nav_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
-import 'package:kosmos_chat/backend/provider/tchat_list.dart';
 
 /// Root authenticated shell — hosts the four bottom-nav tabs (Home, Search,
 /// Chat, Profile) and the center Sell FAB (which pushes the sell flow).
@@ -72,14 +71,11 @@ class ShellPage extends StatelessWidget {
           }
         }
 
-        // Watch the chat unread count (Riverpod, from the kosmos_chat island)
-        // so the chat tab shows a live badge regardless of which tab is active.
-        return Consumer(
-          builder: (BuildContext context, WidgetRef ref, _) {
-            final String? uid = FirebaseAuth.instance.currentUser?.uid;
-            final int chatBadge = uid == null
-                ? 0
-                : ref.watch(tchatListProvider(uid)).unreadCount;
+        // Live chat unread count (app-wide cubit) so the chat tab badge stays
+        // current regardless of which tab is active.
+        return BlocBuilder<ChatUnreadCubit, int>(
+          bloc: locator<ChatUnreadCubit>(),
+          builder: (BuildContext context, int chatBadge) {
             return ShellBottomNavWidget(
               activeIndex: tabsRouter.activeIndex,
               onTab: tabsRouter.setActiveIndex,

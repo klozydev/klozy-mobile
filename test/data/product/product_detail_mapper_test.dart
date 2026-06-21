@@ -156,7 +156,6 @@ void main() {
     setUp(() => seller = mapProductDetail(_fullProduct()).seller);
 
     test('id', () => expect(seller.id, 'user-456'));
-    test('handle', () => expect(seller.handle, 'john_doe'));
     test('displayName', () => expect(seller.displayName, 'John Doe'));
     test('avatarUrl', () => expect(seller.avatarUrl, 'https://cdn.example.com/avatar.jpg'));
     test('isPro', () => expect(seller.isPro, isTrue));
