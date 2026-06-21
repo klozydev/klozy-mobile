@@ -10,8 +10,8 @@ environment:
 dependencies:
   auto_route: 10.1.0+1
   bloc: 9.0.0
-  cached_network_image: ^3.4.1
-  bloc_concurrency: ^0.3.0
+  cached_network_image: 3.4.1
+  bloc_concurrency: 0.3.0
   dio: 5.8.0+1
   equatable: 2.0.7
   flutter:
@@ -30,44 +30,24 @@ dependencies:
   intl: 0.20.2
   event_bus: 2.0.1
   firebase_core: 4.7.0
-  firebase_auth: ^6.4.0
-  google_sign_in: ^7.2.0
-  sign_in_with_apple: ^7.0.1
-  crypto: ^3.0.7
-  video_player: ^2.10.1
-  image_picker: ^1.2.1
-  flutter_stripe: ^13.0.0
-  url_launcher: ^6.3.2
-  share_plus: ^12.0.2
-  timeago: ^3.7.0
-  package_info_plus: ^9.0.1
-  firebase_messaging: ^16.2.0
-
-  # Chat island (vendored, isolated — Riverpod + Firebase)
-  core_kosmos:
-    path: packages/core_kosmos
-  ui_kosmos_v4:
-    path: packages/ui_kosmos_v4
-  kosmos_chat:
-    path: packages/kosmos_chat
-  # Firebase plugins the chat island uses — declared directly (mobile bridge
-  # code imports cloud_functions; the rest back the chat data layer). Leave
-  # unversioned so pub picks the firebase_core 4.x-compatible line.
-  cloud_firestore:
-  firebase_database:
-  firebase_storage:
-  cloud_functions:
-  # Localization system the chat island uses (.tr()); coexists with gen-l10n.
-  easy_localization: ^3.0.0
-  # Responsive sizing the chat island (core_kosmos) renders with (.sp/.w/.h);
-  # initialised in app.dart so ScreenUtil is ready before the chat tab builds.
-  flutter_screenutil: ^5.9.3
-  # Riverpod (the chat island's state mgmt) — used directly by the root
-  # ProviderScope and the chat bridge.
-  flutter_riverpod: 2.6.1
-  hooks_riverpod: 2.6.1
-  # Used by the ported CustomTextMessage bubble (offer/purchase builders).
-  timeago_flutter: ^3.7.0
+  firebase_auth: 6.4.0
+  google_sign_in: 7.2.0
+  sign_in_with_apple: 7.0.1
+  crypto: 3.0.7
+  video_player: 2.10.1
+  image_picker: 1.2.1
+  file_picker: 11.0.2
+  just_audio: 0.10.5
+  record: 7.1.0
+  path_provider: 2.1.6
+  flutter_stripe: 13.0.0
+  url_launcher: 6.3.2
+  share_plus: 12.0.2
+  timeago: 3.7.1
+  package_info_plus: 9.0.1
+  firebase_messaging: 16.2.0
+  cloud_firestore: 6.3.0
+  firebase_storage: 13.3.0
 
 dev_dependencies:
   flutter_test:
@@ -79,7 +59,7 @@ dev_dependencies:
   json_serializable: 6.9.5
   lint: 2.8.0
   flutter_lints: 5.0.0
-  mocktail: ^1.0.4
+  mocktail: 1.0.4
 
 flutter:
   generate: true
