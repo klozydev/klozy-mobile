@@ -130,25 +130,13 @@ class _LoadedViewState extends State<_LoadedView> {
   /// Edit / Mark sold-available / Delete. Matches the design, where mark-sold
   /// and delete live in this menu rather than as primary buttons.
   Future<void> _openOwnerMenu(BuildContext context) {
-    final ProductBloc bloc = context.read<ProductBloc>();
     return DSBottomSheet.show<void>(
       context,
       child: ProductMenuSheet(
         isOwner: true,
-        isSold: _detail.status == ProductStatus.sold,
         onEdit: () {
           Navigator.of(context).maybePop();
           context.router.push(EditListingRoute(productId: _detail.id));
-        },
-        onToggleSold: () {
-          Navigator.of(context).maybePop();
-          bloc.add(
-            ProductMarkStatus(
-              _detail.status == ProductStatus.sold
-                  ? ProductStatus.active
-                  : ProductStatus.sold,
-            ),
-          );
         },
         onDelete: () {
           Navigator.of(context).maybePop();
