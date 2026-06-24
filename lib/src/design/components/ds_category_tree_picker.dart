@@ -145,12 +145,14 @@ class _DSCategoryTreePickerState extends State<DSCategoryTreePicker> {
     }
   }
 
-  /// Items to render, hiding zero-count categories when facet counts are given.
+  /// Items to render. When facet counts are given, hide empty *leaf* categories
+  /// but always keep parents (anything with children) so the user can start
+  /// from a parent and drill into nested categories that do have items.
   List<CatalogCategory> get _visibleItems {
     final Map<String, int>? counts = widget.categoryCounts;
     if (counts == null) return _items;
     return _items
-        .where((CatalogCategory c) => (counts[c.id] ?? 0) > 0)
+        .where((CatalogCategory c) => c.hasChildren || (counts[c.id] ?? 0) > 0)
         .toList();
   }
 
