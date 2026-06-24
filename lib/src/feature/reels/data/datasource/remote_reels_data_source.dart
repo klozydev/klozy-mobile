@@ -73,12 +73,25 @@ class RemoteReelsDataSource {
   }
 
   Future<List<dynamic>> userProducts(String userId) async {
-    final response = await _dio.get<Map<String, dynamic>>(
+    final response = await _dio.get<dynamic>(
       'v1/users/$userId/products',
       queryParameters: <String, dynamic>{'page': 1, 'limit': 50},
     );
-    final data = response.data?['data'];
-    return data is List ? data : const <dynamic>[];
+    // The endpoint may return a bare list or a paginated envelope; accept the
+    // same key variants the profile feature handles.
+    final Object? data = response.data;
+    if (data is List) return data;
+    if (data is Map<String, dynamic>) {
+      for (final String key in const <String>[
+        'data',
+        'items',
+        'results',
+        'products',
+      ]) {
+        if (data[key] is List) return data[key] as List<dynamic>;
+      }
+    }
+    return const <dynamic>[];
   }
 
   Future<Map<String, dynamic>> createReel({
