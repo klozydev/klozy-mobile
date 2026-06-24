@@ -8,7 +8,9 @@ import 'package:klozy/src/feature/chat/data/response/chat_reply_response.dart';
 part 'chat_message_response.g.dart';
 
 /// A message doc: `conversations/{conversationId}/messages/{messageId}`.
-@JsonSerializable()
+// explicitToJson so nested objects (replyTo/media/offer/purchase) serialize to
+// maps — Firestore can't encode the response instances directly.
+@JsonSerializable(explicitToJson: true)
 class ChatMessageResponse {
   final String? id;
   final String? conversationId;

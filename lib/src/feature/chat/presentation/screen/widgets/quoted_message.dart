@@ -24,38 +24,27 @@ class QuotedMessage extends StatelessWidget {
         ? Colors.black.withValues(alpha: 0.70)
         : Colors.white.withValues(alpha: 0.70);
 
+    // Accent bar drawn as a left border (rather than a stretch-sized child) so
+    // the row never contains a height-less box — that produced a "render box
+    // with no size" hit-test crash and collapsed the reply bubble.
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(6),
+      padding: const EdgeInsets.fromLTRB(8, 6, 6, 6),
       decoration: BoxDecoration(
         color: background,
         borderRadius: BorderRadius.circular(10),
+        border: Border(left: BorderSide(color: barColor, width: 3)),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Container(
-            width: 3,
-            decoration: BoxDecoration(
-              color: barColor,
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Text(
-              reply.text ?? '[media]',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontFamily: dsFontFamily,
-                fontSize: 12,
-                fontWeight: DSFontWeight.medium,
-                color: textColor,
-              ),
-            ),
-          ),
-        ],
+      child: Text(
+        reply.text ?? '[media]',
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          fontFamily: dsFontFamily,
+          fontSize: 12,
+          fontWeight: DSFontWeight.medium,
+          color: textColor,
+        ),
       ),
     );
   }
