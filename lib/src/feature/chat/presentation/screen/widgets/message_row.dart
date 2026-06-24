@@ -46,7 +46,7 @@ class MessageRow extends StatelessWidget {
         ? Alignment.center
         : (message.isMine ? Alignment.centerRight : Alignment.centerLeft);
 
-    Widget content = Column(
+    final Widget content = Column(
       crossAxisAlignment: align,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -94,8 +94,12 @@ class MessageRow extends StatelessWidget {
       ],
     );
 
+    // Align fills the full row width so the swipe-to-reply gesture is
+    // recognised anywhere on the row, not just on the (shrink-wrapped) bubble.
+    Widget row = Align(alignment: rowAlign, child: content);
+
     if (_canReply) {
-      content = Dismissible(
+      row = Dismissible(
         key: ValueKey<String>('reply_${message.id}'),
         direction: DismissDirection.startToEnd,
         dismissThresholds: const <DismissDirection, double>{
@@ -106,13 +110,13 @@ class MessageRow extends StatelessWidget {
           return false;
         },
         background: const _ReplyHint(),
-        child: content,
+        child: row,
       );
     }
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2),
-      child: Align(alignment: rowAlign, child: content),
+      child: row,
     );
   }
 

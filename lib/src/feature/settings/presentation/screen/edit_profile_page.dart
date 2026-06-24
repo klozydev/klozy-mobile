@@ -43,6 +43,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   bool _loading = true;
   bool _saving = false;
+  // Set once the save succeeds so the unsaved-changes guard lets us pop cleanly.
+  bool _saved = false;
   String? _avatarUrl;
 
   // Initial values, captured after load, to detect unsaved edits.
@@ -179,14 +181,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
       // Notify the Profile tab + Chat to refresh their cached profile data.
       locator<EventBus>().fire(const ProfileChangedEvent());
       if (mounted) {
-        // Mark the form clean so the PopScope unsaved-changes guard doesn't
-        // fire the discard dialog when we pop after a successful save.
-        _initialFirst = _firstName.text;
-        _initialLast = _lastName.text;
-        _initialBio = _bio.text;
-        _initialAddress = _address.text;
+        // Mark as saved so the PopScope guard allows the pop without the
+        // discard dialog. Pop on the next frame so the rebuild (which flips
+        // canPop to true) lands before the navigation.
+        _saved = true;
         context.showSnackBar(context.l10N.settings_saved);
-        context.router.maybePop();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) context.router.maybePop();
+        });
       }
     } catch (_) {
       if (mounted) context.showSnackBar(context.l10N.settings_save_failed);
@@ -232,7 +234,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     // required markers, validation, address autocomplete) — only the headline
     // title and the submit button label differ, and all fields are prefilled.
     return PopScope(
-      canPop: !_isDirty,
+      canPop: _saved || !_isDirty,
       onPopInvokedWithResult: (bool didPop, Object? result) async {
         if (didPop) return;
         if (await _confirmDiscard() && mounted) context.router.maybePop();
