@@ -76,6 +76,15 @@ class SellSuccessWidget extends StatelessWidget {
                         context.router.replace(ProductRoute(id: productId)),
                   ),
                   const SizedBox(height: 10),
+                  // Quick path into the reel composer with this product
+                  // pre-tagged (a reel requires at least one tagged product).
+                  DSButtonOutline(
+                    text: context.l10N.sell_create_reel,
+                    onPressed: () => context.router.replace(
+                      ReelComposerRoute(initialProductId: productId),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   DSButtonOutline(
                     text: context.l10N.sell_back_to_home,
                     onPressed: () => context.router.maybePop(),

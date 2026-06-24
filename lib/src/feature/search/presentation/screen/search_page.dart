@@ -172,7 +172,6 @@ class _SearchPageState extends State<SearchPage> {
           children: <Widget>[
             _header(),
             _sortRow(),
-            if (_filters.activeCount > 0) _activeChips(),
             const SizedBox(height: DSSpacing.xxs),
             Expanded(
               child: BlocBuilder<SearchBloc, SearchState>(
@@ -312,81 +311,6 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _activeChips() {
-    final chips = <Widget>[];
-    if (_filters.categoryId != null) {
-      chips.add(
-        _clearChip(
-          _filters.categoryPath ?? context.l10N.search_filter_category,
-          () {
-            _applyFilters(_filters.copyWith(clearCategory: true));
-          },
-        ),
-      );
-    }
-    if (_filters.sizes.isNotEmpty) {
-      chips.add(
-        _clearChip(context.l10N.search_size_count(_filters.sizes.length), () {
-          _applyFilters(_filters.copyWith(sizes: <String>{}));
-        }),
-      );
-    }
-    if (_filters.conditions.isNotEmpty) {
-      chips.add(
-        _clearChip(
-          context.l10N.search_condition_count(_filters.conditions.length),
-          () => _applyFilters(_filters.copyWith(conditions: <String>{})),
-        ),
-      );
-    }
-    // Single horizontally scrolling row (design): active chips never wrap.
-    return SizedBox(
-      height: 36,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        children: chips,
-      ),
-    );
-  }
-
-  Widget _clearChip(String label, VoidCallback onClear) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 8),
-      child: Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.fromLTRB(12, 5, 8, 5),
-        decoration: BoxDecoration(
-          color: DSColor.onSurface10,
-          borderRadius: BorderRadius.circular(DSBorderRadius.chip),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text(
-              label,
-              style: const TextStyle(
-                fontFamily: dsFontFamily,
-                fontSize: DSFontSize.bodyMedium,
-                fontWeight: DSFontWeight.medium,
-                color: DSColor.onSurface,
-              ),
-            ),
-            const SizedBox(width: 6),
-            GestureDetector(
-              onTap: onClear,
-              child: const Icon(
-                Icons.close,
-                size: 14,
-                color: DSColor.onSurface45,
-              ),
-            ),
-          ],
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_state.dart';
+import 'package:klozy/src/app/notifications/notifications_cubit.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/account/account_gate_sheet.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
@@ -107,14 +108,20 @@ class _ProfileScaffold extends StatelessWidget {
                               context.router.push(const OrdersRoute()),
                         ),
                       ),
-                      ProfileCircleButton(
-                        icon: Icons.notifications_none_rounded,
-                        showBadge: true,
-                        onTap: () => _guardedOwnerAction(
-                          context,
-                          onValid: () =>
-                              context.router.push(const NotificationsRoute()),
-                        ),
+                      BlocBuilder<NotificationsCubit, int>(
+                        bloc: locator<NotificationsCubit>(),
+                        builder: (BuildContext context, int unread) {
+                          return ProfileCircleButton(
+                            icon: Icons.notifications_none_rounded,
+                            showBadge: unread > 0,
+                            onTap: () => _guardedOwnerAction(
+                              context,
+                              onValid: () => context.router.push(
+                                const NotificationsRoute(),
+                              ),
+                            ),
+                          );
+                        },
                       ),
                       ProfileCircleButton(
                         icon: Icons.settings_outlined,

@@ -220,14 +220,19 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
   Widget _overflowMenu(BuildContext context, SettingsLoadedState state) {
     final l = context.l10N;
     if (state.isBusy) {
-      return const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: SizedBox(
-          width: 18,
-          height: 18,
-          child: CircularProgressIndicator(
-            strokeWidth: 2,
-            color: DSColor.danger,
+      // Center a correctly-sized spinner in the app-bar action slot (the old
+      // raw 18px box rendered off-centre and cramped).
+      return const SizedBox(
+        width: 48,
+        height: 48,
+        child: Center(
+          child: SizedBox(
+            width: 18,
+            height: 18,
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+              color: DSColor.onSurface60,
+            ),
           ),
         ),
       );

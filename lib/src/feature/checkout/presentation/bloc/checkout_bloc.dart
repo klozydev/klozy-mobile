@@ -114,8 +114,10 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
         shipmentType: _shipmentType,
       );
       emit(CheckoutPaymentState(_result!));
-    } catch (_) {
-      emit(_ready);
+    } catch (error) {
+      // Surface the failure to the user (snackbar) instead of failing silently;
+      // stay on the review screen so they can retry.
+      emit(_ready.copyWith(payError: AppErrorType.serverMessage(error) ?? ''));
     }
   }
 

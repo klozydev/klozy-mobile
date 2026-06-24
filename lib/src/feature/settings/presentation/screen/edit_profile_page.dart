@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/components/avatar_upload_widget.dart';
+import 'package:klozy/src/core/events/profile_changed_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_address_field.dart';
 import 'package:klozy/src/design/components/ds_address_suggestion.dart';
@@ -174,7 +176,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
       if (_address.text.trim().isNotEmpty && _address.text != _initialAddress) {
         await _repo.setAddress(_resolvedAddress ?? _manualAddress());
       }
+      // Notify the Profile tab + Chat to refresh their cached profile data.
+      locator<EventBus>().fire(const ProfileChangedEvent());
       if (mounted) {
+        // Mark the form clean so the PopScope unsaved-changes guard doesn't
+        // fire the discard dialog when we pop after a successful save.
+        _initialFirst = _firstName.text;
+        _initialLast = _lastName.text;
+        _initialBio = _bio.text;
+        _initialAddress = _address.text;
         context.showSnackBar(context.l10N.settings_saved);
         context.router.maybePop();
       }

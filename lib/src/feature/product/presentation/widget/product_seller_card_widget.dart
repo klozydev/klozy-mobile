@@ -88,12 +88,15 @@ class ProductSellerCardWidget extends StatelessWidget {
                       ],
                     ],
                   ),
-                  const SizedBox(height: 4),
-                  DSStarRating(
-                    rating: seller.rating,
-                    reviewCount: seller.reviewCount,
-                    starSize: 12,
-                  ),
+                  // Hide the rating entirely for sellers with no reviews yet.
+                  if (seller.reviewCount > 0) ...<Widget>[
+                    const SizedBox(height: 4),
+                    DSStarRating(
+                      rating: seller.rating,
+                      reviewCount: seller.reviewCount,
+                      starSize: 12,
+                    ),
+                  ],
                 ],
               ),
             ),

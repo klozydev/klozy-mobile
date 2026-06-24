@@ -1,7 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/events/profile_changed_event.dart';
 import 'package:klozy/src/design/components/ds_address_suggestion.dart';
+import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/domain/places/places_repository.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/profile_completion_event.dart';
@@ -100,6 +103,7 @@ class ProfileCompletionBloc
         bio: event.bio,
       );
       await _meRepository.setAddress(event.address);
+      locator<EventBus>().fire(const ProfileChangedEvent());
       emit(const ProfileCompletionDone());
     } catch (_) {
       emit(

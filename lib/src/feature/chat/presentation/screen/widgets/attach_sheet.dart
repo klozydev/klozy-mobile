@@ -30,16 +30,6 @@ class AttachSheet extends StatelessWidget {
             label: context.l10N.chat_attach_camera,
             onTap: () => Navigator.of(context).pop(AttachChoice.camera),
           ),
-          _AttachOption(
-            icon: Icons.library_music_outlined,
-            label: context.l10N.chat_attach_audio,
-            onTap: () => Navigator.of(context).pop(AttachChoice.audio),
-          ),
-          _AttachOption(
-            icon: Icons.insert_drive_file_outlined,
-            label: context.l10N.chat_attach_document,
-            onTap: () => Navigator.of(context).pop(AttachChoice.document),
-          ),
         ],
       ),
     );

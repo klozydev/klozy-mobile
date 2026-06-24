@@ -62,7 +62,7 @@ class ShellPage extends StatelessWidget {
             case EntryChoice.reel:
               locator<AccountGate>().guard(
                 context,
-                onAllowed: () => context.router.push(const ReelComposerRoute()),
+                onAllowed: () => context.router.push(ReelComposerRoute()),
               );
             case EntryChoice.sell:
               startSell();

@@ -81,6 +81,13 @@ class CheckoutPage extends StatelessWidget implements AutoRouteWrapper {
     return BlocConsumer<CheckoutBloc, CheckoutState>(
       listener: (BuildContext context, CheckoutState state) {
         if (state is CheckoutPaymentState) _present(context, state.result);
+        if (state is CheckoutReadyState && state.payError != null) {
+          context.showSnackBar(
+            state.payError!.isEmpty
+                ? context.l10N.checkout_payment_failed
+                : state.payError!,
+          );
+        }
       },
       builder: (BuildContext context, CheckoutState state) {
         return switch (state) {

@@ -944,18 +944,59 @@ class ProfileRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ReelComposerPage]
-class ReelComposerRoute extends PageRouteInfo<void> {
-  const ReelComposerRoute({List<PageRouteInfo>? children})
-    : super(ReelComposerRoute.name, initialChildren: children);
+class ReelComposerRoute extends PageRouteInfo<ReelComposerRouteArgs> {
+  ReelComposerRoute({
+    Key? key,
+    String? initialProductId,
+    List<PageRouteInfo>? children,
+  }) : super(
+         ReelComposerRoute.name,
+         args: ReelComposerRouteArgs(
+           key: key,
+           initialProductId: initialProductId,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'ReelComposerRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return WrappedRoute(child: const ReelComposerPage());
+      final args = data.argsAs<ReelComposerRouteArgs>(
+        orElse: () => const ReelComposerRouteArgs(),
+      );
+      return WrappedRoute(
+        child: ReelComposerPage(
+          key: args.key,
+          initialProductId: args.initialProductId,
+        ),
+      );
     },
   );
+}
+
+class ReelComposerRouteArgs {
+  const ReelComposerRouteArgs({this.key, this.initialProductId});
+
+  final Key? key;
+
+  final String? initialProductId;
+
+  @override
+  String toString() {
+    return 'ReelComposerRouteArgs{key: $key, initialProductId: $initialProductId}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ReelComposerRouteArgs) return false;
+    return key == other.key && initialProductId == other.initialProductId;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ initialProductId.hashCode;
 }
 
 /// generated route for

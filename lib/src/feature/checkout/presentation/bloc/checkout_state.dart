@@ -38,6 +38,11 @@ final class CheckoutReadyState extends CheckoutState {
   final bool isQuoting;
   final bool isCreating;
 
+  /// Transient one-shot error surfaced as a snackbar (e.g. a failed Pay
+  /// attempt) while keeping the review screen visible. Null on every normal
+  /// emit; set only after a checkout failure.
+  final String? payError;
+
   const CheckoutReadyState({
     required this.addresses,
     required this.quote,
@@ -45,6 +50,7 @@ final class CheckoutReadyState extends CheckoutState {
     this.selectedShipmentType,
     this.isQuoting = false,
     this.isCreating = false,
+    this.payError,
   });
 
   /// Fees for the selected shipping tier (the quote's default otherwise).
@@ -63,6 +69,7 @@ final class CheckoutReadyState extends CheckoutState {
     String? selectedShipmentType,
     bool? isQuoting,
     bool? isCreating,
+    String? payError,
   }) {
     return CheckoutReadyState(
       addresses: addresses,
@@ -71,6 +78,7 @@ final class CheckoutReadyState extends CheckoutState {
       selectedShipmentType: selectedShipmentType ?? this.selectedShipmentType,
       isQuoting: isQuoting ?? this.isQuoting,
       isCreating: isCreating ?? this.isCreating,
+      payError: payError,
     );
   }
 
@@ -82,6 +90,7 @@ final class CheckoutReadyState extends CheckoutState {
     selectedShipmentType,
     isQuoting,
     isCreating,
+    payError,
   ];
 }
 

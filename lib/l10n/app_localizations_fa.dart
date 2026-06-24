@@ -594,6 +594,9 @@ class AppLocalizationsFa extends AppLocalizations {
   String get entry_create_reel_sub => 'Share a video of your pieces';
 
   @override
+  String get entry_create_reel_needs_product => 'Add a product first';
+
+  @override
   String get entry_list_item => 'List an item for sale';
 
   @override
@@ -940,10 +943,16 @@ class AppLocalizationsFa extends AppLocalizations {
   String get sell_back_to_home => 'بازگشت به خانه';
 
   @override
+  String get sell_create_reel => 'Create a reel';
+
+  @override
   String get cart_title => 'سبد خرید';
 
   @override
   String get cart_make_an_offer => 'پیشنهاد قیمت';
+
+  @override
+  String get cart_offer_sent => 'Offer sent — the seller will get back to you';
 
   @override
   String get cart_cancel_offer => 'لغو پیشنهاد';
@@ -1988,10 +1997,14 @@ class AppLocalizationsFa extends AppLocalizations {
   String get chat_attach_camera => 'Camera';
 
   @override
-  String get chat_attach_audio => 'Audio file';
+  String get chat_incomplete_profile_title => 'Finish setting up your profile';
 
   @override
-  String get chat_attach_document => 'Document';
+  String get chat_incomplete_profile_subtitle =>
+      'Complete your profile to start chatting with buyers and sellers.';
+
+  @override
+  String get chat_incomplete_profile_cta => 'Complete profile';
 
   @override
   String get chat_menu_report => 'Report & block';

@@ -1168,6 +1168,12 @@ abstract class AppLocalizations {
   /// **'Share a video of your pieces'**
   String get entry_create_reel_sub;
 
+  /// No description provided for @entry_create_reel_needs_product.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a product first'**
+  String get entry_create_reel_needs_product;
+
   /// No description provided for @entry_list_item.
   ///
   /// In en, this message translates to:
@@ -1762,6 +1768,12 @@ abstract class AppLocalizations {
   /// **'Back to home'**
   String get sell_back_to_home;
 
+  /// No description provided for @sell_create_reel.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a reel'**
+  String get sell_create_reel;
+
   /// No description provided for @cart_title.
   ///
   /// In en, this message translates to:
@@ -1773,6 +1785,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Make an offer'**
   String get cart_make_an_offer;
+
+  /// No description provided for @cart_offer_sent.
+  ///
+  /// In en, this message translates to:
+  /// **'Offer sent — the seller will get back to you'**
+  String get cart_offer_sent;
 
   /// No description provided for @cart_cancel_offer.
   ///
@@ -3634,17 +3652,23 @@ abstract class AppLocalizations {
   /// **'Camera'**
   String get chat_attach_camera;
 
-  /// No description provided for @chat_attach_audio.
+  /// No description provided for @chat_incomplete_profile_title.
   ///
   /// In en, this message translates to:
-  /// **'Audio file'**
-  String get chat_attach_audio;
+  /// **'Finish setting up your profile'**
+  String get chat_incomplete_profile_title;
 
-  /// No description provided for @chat_attach_document.
+  /// No description provided for @chat_incomplete_profile_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Document'**
-  String get chat_attach_document;
+  /// **'Complete your profile to start chatting with buyers and sellers.'**
+  String get chat_incomplete_profile_subtitle;
+
+  /// No description provided for @chat_incomplete_profile_cta.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete profile'**
+  String get chat_incomplete_profile_cta;
 
   /// No description provided for @chat_menu_report.
   ///

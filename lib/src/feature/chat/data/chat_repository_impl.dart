@@ -1,5 +1,8 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/events/profile_changed_event.dart';
+import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/me/entity/me_profile.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/domain/offers/offers_repository.dart';
@@ -24,7 +27,16 @@ import 'package:klozy/src/feature/chat/domain/entity/message_kind.dart';
 /// All reads/writes are Firebase-only.
 @Injectable(as: ChatRepository)
 class ChatRepositoryImpl implements ChatRepository {
-  ChatRepositoryImpl(this._remote, this._auth, this._me, this._offers);
+  ChatRepositoryImpl(this._remote, this._auth, this._me, this._offers) {
+    // Drop the cached name/avatar when the user edits their profile so the next
+    // conversation write embeds fresh participant data.
+    locator<EventBus>().on<ProfileChangedEvent>().listen((_) {
+      _meLoaded = false;
+      _myId = null;
+      _myName = null;
+      _myAvatar = null;
+    });
+  }
 
   final ChatRemoteDataSource _remote;
   final FirebaseAuth _auth;

@@ -5,6 +5,7 @@ import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/core/events/products_changed_event.dart';
+import 'package:klozy/src/core/events/profile_changed_event.dart';
 import 'package:klozy/src/core/events/reels_changed_event.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/domain/social/social_repository.dart';
@@ -35,6 +36,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     );
     _subscriptions.add(
       eventBus.on<ReelsChangedEvent>().listen(
+        (_) => add(const ProfileRefreshed()),
+      ),
+    );
+    _subscriptions.add(
+      eventBus.on<ProfileChangedEvent>().listen(
         (_) => add(const ProfileRefreshed()),
       ),
     );

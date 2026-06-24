@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -92,10 +91,6 @@ class _ChatThreadPageState extends State<ChatThreadPage> {
         await _pickPhotos();
       case AttachChoice.camera:
         await _pickCamera();
-      case AttachChoice.audio:
-        await _pickFiles(FileType.audio, MediaType.audio);
-      case AttachChoice.document:
-        await _pickFiles(FileType.any, MediaType.other);
     }
   }
 
@@ -128,22 +123,6 @@ class _ChatThreadPageState extends State<ChatThreadPage> {
         ),
       ]),
     );
-  }
-
-  Future<void> _pickFiles(FileType type, MediaType mediaType) async {
-    final FilePickerResult? result = await FilePicker.pickFiles(type: type);
-    if (result == null) return;
-    final List<ChatOutgoingMedia> items = result.files
-        .where((PlatformFile f) => f.path != null)
-        .map(
-          (PlatformFile f) => ChatOutgoingMedia(
-            file: File(f.path!),
-            type: mediaType,
-            name: f.name,
-          ),
-        )
-        .toList();
-    if (items.isNotEmpty) _bloc.add(ChatMediaPicked(items));
   }
 
   bool _isVideoPath(String path) {

@@ -46,6 +46,7 @@ class CartPage extends StatelessWidget implements AutoRouteWrapper {
       context.read<CartBloc>().add(
         CartOfferMade(sellerId: bucket.sellerId, amount: amount),
       );
+      context.showSnackBar(context.l10N.cart_offer_sent);
     }
   }
 

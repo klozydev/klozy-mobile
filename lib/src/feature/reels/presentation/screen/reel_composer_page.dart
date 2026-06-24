@@ -24,7 +24,12 @@ import 'package:video_player/video_player.dart';
 
 @RoutePage()
 class ReelComposerPage extends StatefulWidget implements AutoRouteWrapper {
-  const ReelComposerPage({super.key});
+  /// When opened from the sell-success screen, the just-created product is
+  /// passed here so the composer starts with it already tagged (a reel
+  /// requires at least one tagged product).
+  final String? initialProductId;
+
+  const ReelComposerPage({super.key, this.initialProductId});
 
   @override
   Widget wrappedRoute(BuildContext context) {
@@ -46,6 +51,13 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
   // Drives the picked-video first-frame preview shown in the compose stage.
   VideoPlayerController? _thumb;
   List<Product> _products = const <Product>[];
+
+  @override
+  void initState() {
+    super.initState();
+    final String? id = widget.initialProductId;
+    if (id != null && id.isNotEmpty) _tagged.add(id);
+  }
 
   @override
   void dispose() {

@@ -8,6 +8,7 @@ import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/domain/account/entity/account_status.dart';
 import 'package:klozy/src/feature/chat/presentation/screen/chat_list_page.dart';
+import 'package:klozy/src/feature/chat/presentation/screen/widgets/incomplete_profile_placeholder_widget.dart';
 
 /// The Chat tab (shell index 2): hosts the native conversation list.
 ///
@@ -28,6 +29,10 @@ class ChatPage extends StatelessWidget {
       builder: (BuildContext context, AccountState state) {
         if (state is AccountResolved && state.status == AccountStatus.guest) {
           return const GuestTabPlaceholderWidget();
+        }
+        if (state is AccountResolved &&
+            state.status == AccountStatus.incompleteOnboarding) {
+          return const IncompleteProfilePlaceholderWidget();
         }
         if (state is AccountResolved) {
           return const ChatListPage();
