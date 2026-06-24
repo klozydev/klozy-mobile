@@ -54,12 +54,12 @@ class OffersRepositoryImpl implements OffersRepository {
 
   @override
   Future<void> makeOffer({
-    required String sellerId,
+    required List<String> productIds,
     required num amount,
   }) async {
     await _dio.post<dynamic>(
       'v1/offers',
-      data: <String, dynamic>{'sellerId': sellerId, 'amount': amount},
+      data: <String, dynamic>{'productIds': productIds, 'amount': amount},
     );
   }
 

@@ -1,7 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:klozy/src/domain/cart/entity/cart_bundle.dart';
 import 'package:klozy/src/domain/cart/entity/cart_item.dart';
 
-/// One seller's items in the cart (offers + checkout happen per bucket).
+/// One seller's items in the cart. A seller can have several active offers:
+/// single-item offers (on a [CartItem]) and bundle offers (in [bundles]).
 class CartBucket extends Equatable {
   final String sellerId;
   final String sellerName;
@@ -9,9 +11,10 @@ class CartBucket extends Equatable {
   final bool isPro;
   final List<CartItem> items;
   final num subtotal;
-  final String? offerId;
-  final num? offerAmount;
-  final CartOfferStatus offerStatus;
+  final List<CartBundle> bundles;
+
+  /// True when there are >= 2 standalone items that could be bundled.
+  final bool canBundle;
 
   const CartBucket({
     required this.sellerId,
@@ -20,12 +23,16 @@ class CartBucket extends Equatable {
     this.sellerName = '',
     this.sellerAvatar,
     this.isPro = false,
-    this.offerId,
-    this.offerAmount,
-    this.offerStatus = CartOfferStatus.none,
+    this.bundles = const <CartBundle>[],
+    this.canBundle = false,
   });
 
-  bool get hasPendingOffer => offerStatus == CartOfferStatus.pending;
+  /// Product ids of standalone items (no item offer, not in a bundle) — the set
+  /// a new bundle offer would cover.
+  List<String> get standaloneProductIds => items
+      .where((CartItem i) => !i.inBundle && !i.hasItemOffer)
+      .map((CartItem i) => i.productId)
+      .toList();
 
   @override
   List<Object?> get props => [
@@ -35,8 +42,7 @@ class CartBucket extends Equatable {
     isPro,
     items,
     subtotal,
-    offerId,
-    offerAmount,
-    offerStatus,
+    bundles,
+    canBundle,
   ];
 }

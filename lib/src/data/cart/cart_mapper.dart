@@ -1,5 +1,6 @@
 import 'package:klozy/src/domain/cart/entity/cart.dart';
 import 'package:klozy/src/domain/cart/entity/cart_bucket.dart';
+import 'package:klozy/src/domain/cart/entity/cart_bundle.dart';
 import 'package:klozy/src/domain/cart/entity/cart_item.dart';
 
 /// Defensive JSON → [Cart] mapping (`GET /v1/cart` is an opaque object).
@@ -23,15 +24,16 @@ CartBucket _bucket(Map<String, dynamic> json) {
   final seller = json['seller'] is Map<String, dynamic>
       ? json['seller'] as Map<String, dynamic>
       : const <String, dynamic>{};
-  final offer = json['offer'] is Map<String, dynamic>
-      ? json['offer'] as Map<String, dynamic>
-      : const <String, dynamic>{};
   final items =
       (json['items'] is List ? json['items'] as List<dynamic> : const [])
           .whereType<Map<String, dynamic>>()
           .map(_item)
           .toList();
-  final status = _offerStatus(_str(offer, ['status']));
+  final bundles =
+      (json['bundles'] is List ? json['bundles'] as List<dynamic> : const [])
+          .whereType<Map<String, dynamic>>()
+          .map(_bundle)
+          .toList();
   return CartBucket(
     sellerId: _str(seller, ['id', '_id']) ?? _str(json, ['sellerId']) ?? '',
     sellerName: _str(seller, ['displayName', 'name']) ?? '',
@@ -41,9 +43,21 @@ CartBucket _bucket(Map<String, dynamic> json) {
     subtotal:
         _num(json, ['subtotal', 'total']) ??
         items.fold<num>(0, (num s, CartItem i) => s + i.effectivePrice),
-    offerId: _str(offer, ['id', '_id']),
-    offerAmount: _num(offer, ['amount']),
-    offerStatus: status,
+    bundles: bundles,
+    canBundle: json['canBundle'] == true,
+  );
+}
+
+CartBundle _bundle(Map<String, dynamic> json) {
+  final ids = json['productIds'];
+  return CartBundle(
+    id: _str(json, ['id', '_id']) ?? '',
+    amount: _num(json, ['amount', 'amountFils']) ?? 0,
+    status: _offerStatus(_str(json, ['status'])),
+    productIds: ids is List
+        ? ids.whereType<String>().toList()
+        : const <String>[],
+    listSum: _num(json, ['listSum']) ?? 0,
   );
 }
 
@@ -51,15 +65,20 @@ CartItem _item(Map<String, dynamic> json) {
   final product = json['product'] is Map<String, dynamic>
       ? json['product'] as Map<String, dynamic>
       : json;
+  final price = _num(json, ['listPrice']) ?? _num(product, ['price']) ?? 0;
   return CartItem(
-    productId: _str(product, ['id', '_id']) ?? _str(json, ['productId']) ?? '',
+    productId: _str(json, ['productId']) ?? _str(product, ['id', '_id']) ?? '',
     title: _str(product, ['title', 'name']) ?? '',
     brand: _brand(product),
     size: _str(product, ['size']) ?? '',
     image: _cover(product),
-    price: _num(product, ['price']) ?? _num(json, ['price']) ?? 0,
-    offerPrice: _num(json, ['offer', 'offerPrice']),
+    price: price,
+    effectivePrice: _num(json, ['effectivePrice']) ?? price,
+    offerId: _str(json, ['offerId']),
+    offerAmount: _num(json, ['offerAmount']),
     offerStatus: _offerStatus(_str(json, ['offerStatus'])),
+    bundleId: _str(json, ['bundleId']),
+    addedAfter: json['addedAfter'] == true,
   );
 }
 

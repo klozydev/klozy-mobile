@@ -40,7 +40,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     await _mutate(
       emit,
       () => _offersRepository.makeOffer(
-        sellerId: event.sellerId,
+        productIds: event.productIds,
         amount: event.amount,
       ),
     );

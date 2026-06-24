@@ -424,6 +424,36 @@
   "cart_offer_pending": "Offer pending",
   "cart_offer_accepted": "Offer accepted",
   "cart_pro_badge": "PRO",
+  "cart_cancel": "Cancel",
+  "cart_in_bundle": "In bundle offer",
+  "cart_in_accepted_bundle": "In accepted bundle",
+  "cart_added_after_bundle": "Added after your bundle offer — not included",
+  "cart_bundle_pending": "Pending response",
+  "cart_bundle_accepted": "Accepted",
+  "cart_offer_sent_amount": "Offer sent · {amount} Dhs",
+  "@cart_offer_sent_amount": {
+    "placeholders": { "amount": { "type": "int" } }
+  },
+  "cart_offer_accepted_save": "Offer accepted · save {amount} Dhs",
+  "@cart_offer_accepted_save": {
+    "placeholders": { "amount": { "type": "int" } }
+  },
+  "cart_bundle_was": "was {amount} Dhs",
+  "@cart_bundle_was": {
+    "placeholders": { "amount": { "type": "int" } }
+  },
+  "cart_checkout_amount": "Check out · {amount} Dhs",
+  "@cart_checkout_amount": {
+    "placeholders": { "amount": { "type": "int" } }
+  },
+  "cart_offer_for_all": "{count, plural, =1{Offer for this item} other{Offer for all {count} items}}",
+  "@cart_offer_for_all": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "cart_bundle_title": "{count, plural, =1{Bundle offer · 1 item} other{Bundle offer · {count} items}}",
+  "@cart_bundle_title": {
+    "placeholders": { "count": { "type": "int" } }
+  },
   "cart_empty_title": "Your cart is empty",
   "cart_empty_subtitle": "Add items and they'll group by seller here.",
   "cart_offer_send": "Send offer",

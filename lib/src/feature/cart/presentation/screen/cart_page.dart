@@ -10,6 +10,7 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/cart/entity/cart_bucket.dart';
+import 'package:klozy/src/domain/cart/entity/cart_item.dart';
 import 'package:klozy/src/feature/cart/presentation/bloc/cart_bloc.dart';
 import 'package:klozy/src/feature/cart/presentation/bloc/cart_event.dart';
 import 'package:klozy/src/feature/cart/presentation/bloc/cart_state.dart';
@@ -30,21 +31,30 @@ class CartPage extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
-  Future<void> _makeOffer(BuildContext context, CartBucket bucket) async {
+  /// Opens the offer composer over [items] (budget = their list total) and, on
+  /// a valid amount, sends an offer covering [productIds] (one id = item offer,
+  /// several = a bundle offer).
+  Future<void> _openOffer(
+    BuildContext context,
+    CartBucket bucket, {
+    required List<CartItem> items,
+    required List<String> productIds,
+  }) async {
+    final num budget = items.fold<num>(0, (num s, CartItem i) => s + i.price);
     final amount = await DSBottomSheet.show<num>(
       context,
       title: context.l10N.cart_make_an_offer,
       child: OfferSheet(
-        subtotal: bucket.subtotal,
+        subtotal: budget,
         sellerName: bucket.sellerName,
         sellerAvatar: bucket.sellerAvatar,
         isPro: bucket.isPro,
-        items: bucket.items,
+        items: items,
       ),
     );
     if (amount != null && context.mounted) {
       context.read<CartBloc>().add(
-        CartOfferMade(sellerId: bucket.sellerId, amount: amount),
+        CartOfferMade(productIds: productIds, amount: amount),
       );
       context.showSnackBar(context.l10N.cart_offer_sent);
     }
@@ -94,14 +104,26 @@ class CartPage extends StatelessWidget implements AutoRouteWrapper {
                             onRemoveItem: (String id) => context
                                 .read<CartBloc>()
                                 .add(CartItemRemoved(id)),
-                            onMakeOffer: () => _makeOffer(context, b),
-                            onCancelOffer: () {
-                              if (b.offerId != null) {
-                                context.read<CartBloc>().add(
-                                  CartOfferCancelled(b.offerId!),
-                                );
-                              }
-                            },
+                            onMakeItemOffer: (CartItem item) => _openOffer(
+                              context,
+                              b,
+                              items: <CartItem>[item],
+                              productIds: <String>[item.productId],
+                            ),
+                            onMakeBundleOffer: () => _openOffer(
+                              context,
+                              b,
+                              items: b.items
+                                  .where(
+                                    (CartItem i) => b.standaloneProductIds
+                                        .contains(i.productId),
+                                  )
+                                  .toList(),
+                              productIds: b.standaloneProductIds,
+                            ),
+                            onCancelOffer: (String offerId) => context
+                                .read<CartBloc>()
+                                .add(CartOfferCancelled(offerId)),
                             // JIT profile gate: a complete profile (name +
                             // delivery address) is required before checkout.
                             // Incomplete users get the "finish setup" sheet →

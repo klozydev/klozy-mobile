@@ -1828,6 +1828,78 @@ abstract class AppLocalizations {
   /// **'PRO'**
   String get cart_pro_badge;
 
+  /// No description provided for @cart_cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cart_cancel;
+
+  /// No description provided for @cart_in_bundle.
+  ///
+  /// In en, this message translates to:
+  /// **'In bundle offer'**
+  String get cart_in_bundle;
+
+  /// No description provided for @cart_in_accepted_bundle.
+  ///
+  /// In en, this message translates to:
+  /// **'In accepted bundle'**
+  String get cart_in_accepted_bundle;
+
+  /// No description provided for @cart_added_after_bundle.
+  ///
+  /// In en, this message translates to:
+  /// **'Added after your bundle offer — not included'**
+  String get cart_added_after_bundle;
+
+  /// No description provided for @cart_bundle_pending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending response'**
+  String get cart_bundle_pending;
+
+  /// No description provided for @cart_bundle_accepted.
+  ///
+  /// In en, this message translates to:
+  /// **'Accepted'**
+  String get cart_bundle_accepted;
+
+  /// No description provided for @cart_offer_sent_amount.
+  ///
+  /// In en, this message translates to:
+  /// **'Offer sent · {amount} Dhs'**
+  String cart_offer_sent_amount(int amount);
+
+  /// No description provided for @cart_offer_accepted_save.
+  ///
+  /// In en, this message translates to:
+  /// **'Offer accepted · save {amount} Dhs'**
+  String cart_offer_accepted_save(int amount);
+
+  /// No description provided for @cart_bundle_was.
+  ///
+  /// In en, this message translates to:
+  /// **'was {amount} Dhs'**
+  String cart_bundle_was(int amount);
+
+  /// No description provided for @cart_checkout_amount.
+  ///
+  /// In en, this message translates to:
+  /// **'Check out · {amount} Dhs'**
+  String cart_checkout_amount(int amount);
+
+  /// No description provided for @cart_offer_for_all.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Offer for this item} other{Offer for all {count} items}}'**
+  String cart_offer_for_all(int count);
+
+  /// No description provided for @cart_bundle_title.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Bundle offer · 1 item} other{Bundle offer · {count} items}}'**
+  String cart_bundle_title(int count);
+
   /// No description provided for @cart_empty_title.
   ///
   /// In en, this message translates to:

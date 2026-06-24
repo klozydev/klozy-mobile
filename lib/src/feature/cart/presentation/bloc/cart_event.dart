@@ -23,13 +23,13 @@ final class CartItemRemoved extends CartEvent {
 }
 
 final class CartOfferMade extends CartEvent {
-  final String sellerId;
+  final List<String> productIds;
   final num amount;
 
-  const CartOfferMade({required this.sellerId, required this.amount});
+  const CartOfferMade({required this.productIds, required this.amount});
 
   @override
-  List<Object?> get props => [sellerId, amount];
+  List<Object?> get props => [productIds, amount];
 }
 
 final class CartOfferCancelled extends CartEvent {

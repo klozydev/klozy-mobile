@@ -976,6 +976,67 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cart_pro_badge => 'PRO';
 
   @override
+  String get cart_cancel => 'Cancel';
+
+  @override
+  String get cart_in_bundle => 'In bundle offer';
+
+  @override
+  String get cart_in_accepted_bundle => 'In accepted bundle';
+
+  @override
+  String get cart_added_after_bundle =>
+      'Added after your bundle offer — not included';
+
+  @override
+  String get cart_bundle_pending => 'Pending response';
+
+  @override
+  String get cart_bundle_accepted => 'Accepted';
+
+  @override
+  String cart_offer_sent_amount(int amount) {
+    return 'Offer sent · $amount Dhs';
+  }
+
+  @override
+  String cart_offer_accepted_save(int amount) {
+    return 'Offer accepted · save $amount Dhs';
+  }
+
+  @override
+  String cart_bundle_was(int amount) {
+    return 'was $amount Dhs';
+  }
+
+  @override
+  String cart_checkout_amount(int amount) {
+    return 'Check out · $amount Dhs';
+  }
+
+  @override
+  String cart_offer_for_all(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Offer for all $count items',
+      one: 'Offer for this item',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String cart_bundle_title(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Bundle offer · $count items',
+      one: 'Bundle offer · 1 item',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get cart_empty_title => 'Tu carrito está vacío';
 
   @override
