@@ -38,10 +38,10 @@ class _EntrySheetWidgetState extends State<EntrySheetWidget> {
         FutureBuilder<List<Product>>(
           future: _products,
           builder: (BuildContext context, AsyncSnapshot<List<Product>> snap) {
-            // Optimistic while loading: only disable once we *know* the count
-            // is zero, so the row never flickers for users who do have items.
-            final bool hasProducts =
-                !snap.hasData || (snap.data?.isNotEmpty ?? false);
+            // Disabled until we've confirmed the user has at least one product.
+            // Staying disabled while loading prevents tapping through before the
+            // count resolves (the call is cached, so the wait is brief).
+            final bool hasProducts = snap.data?.isNotEmpty ?? false;
             return _EntryRow(
               icon: Icons.image_outlined,
               tint: DSColor.onSurface,
