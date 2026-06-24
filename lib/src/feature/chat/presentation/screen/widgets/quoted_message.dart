@@ -9,10 +9,18 @@ import 'package:klozy/src/feature/chat/domain/entity/chat_message.dart';
 /// a single-line snippet of the message being replied to. Colours flip with
 /// [mine] so the chip reads against both the gold (me) and dark (them) bubbles.
 class QuotedMessage extends StatelessWidget {
-  const QuotedMessage({super.key, required this.reply, required this.mine});
+  const QuotedMessage({
+    super.key,
+    required this.reply,
+    required this.mine,
+    this.onTap,
+  });
 
   final ChatMessage reply;
   final bool mine;
+
+  /// Tapping the quote jumps to the original message in the thread.
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +35,27 @@ class QuotedMessage extends StatelessWidget {
     // Accent bar drawn as a left border (rather than a stretch-sized child) so
     // the row never contains a height-less box — that produced a "render box
     // with no size" hit-test crash and collapsed the reply bubble.
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(8, 6, 6, 6),
-      decoration: BoxDecoration(
-        color: background,
-        borderRadius: BorderRadius.circular(10),
-        border: Border(left: BorderSide(color: barColor, width: 3)),
-      ),
-      child: Text(
-        reply.text ?? '[media]',
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          fontFamily: dsFontFamily,
-          fontSize: 12,
-          fontWeight: DSFontWeight.medium,
-          color: textColor,
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.fromLTRB(8, 6, 6, 6),
+        decoration: BoxDecoration(
+          color: background,
+          borderRadius: BorderRadius.circular(10),
+          border: Border(left: BorderSide(color: barColor, width: 3)),
+        ),
+        child: Text(
+          reply.text ?? '[media]',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: dsFontFamily,
+            fontSize: 12,
+            fontWeight: DSFontWeight.medium,
+            color: textColor,
+          ),
         ),
       ),
     );

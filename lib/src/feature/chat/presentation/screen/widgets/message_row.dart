@@ -22,6 +22,7 @@ class MessageRow extends StatelessWidget {
     required this.onOpenMedia,
     required this.onAcceptOffer,
     required this.onRefuseOffer,
+    this.onQuotedTap,
   });
 
   final ChatMessage message;
@@ -29,6 +30,9 @@ class MessageRow extends StatelessWidget {
   final ValueChanged<ChatMessage> onOpenMedia;
   final ValueChanged<ChatMessage> onAcceptOffer;
   final ValueChanged<ChatMessage> onRefuseOffer;
+
+  /// Called with a message id when a quoted reply is tapped (jump-to-message).
+  final ValueChanged<String>? onQuotedTap;
 
   bool get _isCentered =>
       message.kind == ChatMessageKind.purchase ||
@@ -123,7 +127,7 @@ class MessageRow extends StatelessWidget {
   Widget _bubble() {
     switch (message.kind) {
       case ChatMessageKind.text:
-        return TextBubble(message: message);
+        return TextBubble(message: message, onQuotedTap: onQuotedTap);
       case ChatMessageKind.image:
       case ChatMessageKind.video:
         return ImageVideoMessage(

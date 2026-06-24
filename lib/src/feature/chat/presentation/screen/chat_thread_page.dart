@@ -62,6 +62,9 @@ class _ChatThreadPageState extends State<ChatThreadPage> {
   final ScrollController _scroll = ScrollController();
   final ImagePicker _imagePicker = ImagePicker();
 
+  // Per-message keys so tapping a quoted reply can scroll to the original.
+  final Map<String, GlobalKey> _messageKeys = <String, GlobalKey>{};
+
   @override
   void dispose() {
     _scroll.dispose();
@@ -69,6 +72,20 @@ class _ChatThreadPageState extends State<ChatThreadPage> {
   }
 
   ChatThreadBloc get _bloc => context.read<ChatThreadBloc>();
+
+  // Scrolls the original message into view when its quoted reply is tapped.
+  // Only works when the target is currently built (lazy list) — nearby
+  // messages, which is the common case for a reply.
+  void _scrollToMessage(String id) {
+    final BuildContext? target = _messageKeys[id]?.currentContext;
+    if (target == null) return;
+    Scrollable.ensureVisible(
+      target,
+      alignment: 0.4,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
 
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -242,8 +259,10 @@ class _ChatThreadPageState extends State<ChatThreadPage> {
           itemBuilder: (BuildContext context, int i) {
             final ChatMessage message = state.messages[i];
             return MessageRow(
+              key: _messageKeys.putIfAbsent(message.id, () => GlobalKey()),
               message: message,
               onReply: (ChatMessage m) => _bloc.add(ChatReplySet(m)),
+              onQuotedTap: _scrollToMessage,
               onOpenMedia: _openMedia,
               onAcceptOffer: (ChatMessage m) => _bloc.add(
                 ChatOfferResponded(

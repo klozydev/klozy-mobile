@@ -11,9 +11,12 @@ import 'package:klozy/src/feature/chat/presentation/screen/widgets/quoted_messag
 /// When [ChatMessage.replyTo] is set, a [QuotedMessage] preview is stacked
 /// above the body inside the same bubble.
 class TextBubble extends StatelessWidget {
-  const TextBubble({super.key, required this.message});
+  const TextBubble({super.key, required this.message, this.onQuotedTap});
 
   final ChatMessage message;
+
+  /// Called with the replied-to message id when the quote chip is tapped.
+  final ValueChanged<String>? onQuotedTap;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,13 @@ class TextBubble extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             if (message.replyTo != null) ...<Widget>[
-              QuotedMessage(reply: message.replyTo!, mine: mine),
+              QuotedMessage(
+                reply: message.replyTo!,
+                mine: mine,
+                onTap: onQuotedTap == null
+                    ? null
+                    : () => onQuotedTap!(message.replyTo!.id),
+              ),
               const SizedBox(height: 6),
             ],
             Text(
