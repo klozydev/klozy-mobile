@@ -66,11 +66,13 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => [
-    // Shell + guest-allowed tabs — no guard (guests can browse)
+    // Shell requires a signed-in account — guests/legacy are bounced to
+    // WelcomeRoute (no browsing the app shell while logged out).
     AutoRoute(
       path: '/',
       page: ShellRoute.page,
       initial: true,
+      guards: [_onboardingGuard],
       children: [
         AutoRoute(path: 'home', page: HomeRoute.page, initial: true),
         AutoRoute(path: 'search', page: SearchRoute.page),
