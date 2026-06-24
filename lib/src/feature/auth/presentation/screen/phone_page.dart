@@ -106,7 +106,19 @@ class _PhonePageState extends State<PhonePage> {
                               ),
                               child: const Row(
                                 children: <Widget>[
-                                  Text('🇦🇪', style: TextStyle(fontSize: 18)),
+                                  // Force an emoji font fallback — the app's
+                                  // Poppins has no flag glyph and iOS won't fall
+                                  // back automatically, so it renders as tofu.
+                                  Text(
+                                    '🇦🇪',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamilyFallback: <String>[
+                                        'Apple Color Emoji',
+                                        'Noto Color Emoji',
+                                      ],
+                                    ),
+                                  ),
                                   SizedBox(width: 8),
                                   Text(
                                     '+971',
