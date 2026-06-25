@@ -7,9 +7,9 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/router/app_router.dart';
 
-/// Full-tab placeholder shown in the Chat tab when the signed-in user hasn't
-/// finished setting up their profile. Prompts them to complete it (chat needs a
-/// name/address) instead of rendering the conversation list in a broken state.
+/// Full-tab placeholder shown in private tabs (Chat, Profile) when the
+/// signed-in user hasn't finished setting up their profile. Prompts them to
+/// complete it instead of rendering the tab in a broken/empty state.
 class IncompleteProfilePlaceholderWidget extends StatelessWidget {
   const IncompleteProfilePlaceholderWidget({super.key});
 

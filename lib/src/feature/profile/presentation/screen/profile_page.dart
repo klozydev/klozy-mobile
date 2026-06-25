@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_state.dart';
 import 'package:klozy/src/core/account/guest_tab_placeholder_widget.dart';
+import 'package:klozy/src/core/account/incomplete_profile_placeholder_widget.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/domain/account/entity/account_status.dart';
@@ -28,6 +29,12 @@ class ProfilePage extends StatelessWidget {
       builder: (BuildContext context, AccountState state) {
         if (state is AccountResolved && state.status == AccountStatus.guest) {
           return const GuestTabPlaceholderWidget();
+        }
+        if (state is AccountResolved &&
+            state.status == AccountStatus.incompleteOnboarding) {
+          // A half-set-up account has no usable profile to render — prompt the
+          // user to finish setup instead of showing a blank Account tab.
+          return const IncompleteProfilePlaceholderWidget();
         }
         if (state is AccountResolved) {
           return const ProfileView();

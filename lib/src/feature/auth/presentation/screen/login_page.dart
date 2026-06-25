@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
@@ -272,6 +274,12 @@ class _LoginPageState extends State<LoginPage> {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
+      // Re-resolve the global account session now that we're signed in — the
+      // singleton AccountBloc still holds the pre-auth (guest) status, so the
+      // shell's Chat / Profile tabs would otherwise render the guest/login
+      // placeholder until a hot restart. Bootstrapping first makes them resolve
+      // to incompleteOnboarding/valid.
+      context.read<AccountBloc>().add(const AccountBootstrapRequested());
       // Go straight home after auth — profile completion is no longer forced
       // up front; it's requested on-demand by the actions that need it
       // (e.g. the seller address gate).

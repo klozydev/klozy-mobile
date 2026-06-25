@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/app/bloc/account/account_event.dart';
 import 'package:klozy/src/app/bloc/account/account_state.dart';
+import 'package:klozy/src/core/events/profile_changed_event.dart';
 import 'package:klozy/src/domain/account/entity/account_status.dart';
 import 'package:klozy/src/domain/account/usecase/get_account_status_usecase.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
@@ -18,10 +22,20 @@ import 'package:klozy/src/domain/auth/auth_repository.dart';
 class AccountBloc extends Bloc<AccountEvent, AccountState> {
   final GetAccountStatusUseCase _getAccountStatus;
   final AuthRepository _authRepository;
+  final EventBus _eventBus;
 
-  AccountBloc(this._getAccountStatus, this._authRepository)
+  StreamSubscription<ProfileChangedEvent>? _profileSub;
+
+  AccountBloc(this._getAccountStatus, this._authRepository, this._eventBus)
     : super(const AccountInitial()) {
     on<AccountBootstrapRequested>(_onBootstrapRequested);
+    // Completing/editing the profile (via onboarding OR Edit Profile) changes
+    // the resolved status (incompleteOnboarding → valid), but those flows only
+    // fire ProfileChangedEvent. Re-resolve here so the shell's Chat/Profile
+    // tabs leave the "finish your profile" placeholder without a restart.
+    _profileSub = _eventBus.on<ProfileChangedEvent>().listen(
+      (_) => add(const AccountBootstrapRequested()),
+    );
   }
 
   Future<void> _onBootstrapRequested(
@@ -39,5 +53,11 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
     } else {
       emit(AccountResolved(status));
     }
+  }
+
+  @override
+  Future<void> close() {
+    _profileSub?.cancel();
+    return super.close();
   }
 }

@@ -166,7 +166,11 @@ class _PhonePageState extends State<PhonePage> {
                 DSBottomBar(
                   child: DSButtonElevated(
                     text: context.l10N.auth_send_code,
-                    isLoading: state is AuthLoading,
+                    // Stay loading through AuthCodeSent too: after the reCAPTCHA
+                    // challenge resolves the bloc emits AuthCodeSent (not
+                    // AuthLoading) right before we push the OTP route, and a
+                    // bare button in that gap reads as the flow having reset.
+                    isLoading: state is AuthLoading || state is AuthCodeSent,
                     isEnable: _valid,
                     onPressed: () =>
                         context.read<AuthBloc>().add(AuthPhoneStarted(_e164)),

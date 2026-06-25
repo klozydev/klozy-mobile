@@ -38,6 +38,11 @@ class _ChatComposerState extends State<ChatComposer> {
   String? _path;
 
   Future<void> _startRecording() async {
+    // Guard against re-entry (e.g. a double-tap on the mic, which `start` is
+    // async enough to let through): a second pass would spawn a second
+    // periodic timer on top of the first, both incrementing `_elapsed`, making
+    // the counter run at 2× (or more) speed.
+    if (_recording) return;
     if (!await _recorder.hasPermission()) return;
     final Directory dir = await getTemporaryDirectory();
     final String path =
@@ -48,6 +53,8 @@ class _ChatComposerState extends State<ChatComposer> {
       _recording = true;
       _elapsed = 0;
     });
+    // Cancel any stray timer before arming a fresh one so ticks never stack.
+    _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (mounted) setState(() => _elapsed += 1);
     });

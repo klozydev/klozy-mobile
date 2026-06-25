@@ -446,6 +446,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i675.CartCubit>(
       () => _i675.CartCubit(gh<_i444.CartRepository>()),
     );
+    gh.factory<_i386.AccountBloc>(
+      () => _i386.AccountBloc(
+        gh<_i865.GetAccountStatusUseCase>(),
+        gh<_i176.AuthRepository>(),
+        gh<_i1017.EventBus>(),
+      ),
+    );
     gh.factory<_i345.SearchBloc>(
       () => _i345.SearchBloc(
         gh<_i786.ProductsRepository>(),
@@ -482,12 +489,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i634.AccountGate>(
       () => _i634.AccountGate(gh<_i631.RequireValidAccountUseCase>()),
-    );
-    gh.factory<_i386.AccountBloc>(
-      () => _i386.AccountBloc(
-        gh<_i865.GetAccountStatusUseCase>(),
-        gh<_i176.AuthRepository>(),
-      ),
     );
     gh.factory<_i281.OnboardingGuard>(
       () => _i281.OnboardingGuard(

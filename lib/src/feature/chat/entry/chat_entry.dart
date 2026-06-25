@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:klozy/src/di/injection.dart';
@@ -29,14 +27,24 @@ class ChatEntry {
     final List<String> ids = <String>[myId, otherUserId]..sort();
     final String conversationId = '${ids.first}_${ids[1]}';
 
-    // Open immediately; ensure the conversation doc exists in the background.
-    unawaited(
-      locator<OpenOrCreateThread>().call(
+    // Ensure the conversation doc exists BEFORE opening the thread. The thread
+    // page immediately subscribes to the messages subcollection; if the parent
+    // conversation doc doesn't exist yet, that listen is denied by the security
+    // rule and the (un-retried) stream stays dead for the session — so the
+    // first message's optimistic bubble is never reconciled with its server
+    // echo and spins on "sending" forever (until the chat is reopened). Awaiting
+    // creation here closes that race. It's a no-op round-trip for existing
+    // threads, and we still navigate even if creation fails so chat never traps.
+    try {
+      await locator<OpenOrCreateThread>().call(
         otherUserId,
         displayName: displayName,
         avatarUrl: avatarUrl,
-      ),
-    );
+      );
+    } catch (_) {
+      // Best-effort — the first send also upserts the conversation doc.
+    }
+    if (!context.mounted) return;
 
     await context.router.push(
       ChatThreadRoute(

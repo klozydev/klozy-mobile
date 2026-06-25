@@ -47,6 +47,15 @@ class _HomePageState extends State<HomePage> {
   int _tab = 0;
   late final StreamSubscription<OpenReelsTabEvent> _openReelsSub;
 
+  // The shell's tabs router — used to know whether the Home tab is the one
+  // currently on screen. Without it, switching to another shell tab (e.g.
+  // Profile) leaves the Reels video (and its audio) playing in the background,
+  // so opening a second reel elsewhere plays two audio tracks at once.
+  TabsRouter? _tabsRouter;
+
+  bool get _homeTabActive =>
+      _tabsRouter == null || _tabsRouter!.activeIndex == 0;
+
   @override
   void initState() {
     super.initState();
@@ -63,7 +72,24 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final TabsRouter router = AutoTabsRouter.of(context);
+    if (!identical(router, _tabsRouter)) {
+      _tabsRouter?.removeListener(_onShellTabChanged);
+      _tabsRouter = router..addListener(_onShellTabChanged);
+    }
+  }
+
+  // Rebuild so the Reels viewer's `active` flag follows the shell tab and
+  // pauses/resumes playback as the user moves between tabs.
+  void _onShellTabChanged() {
+    if (mounted) setState(() {});
+  }
+
+  @override
   void dispose() {
+    _tabsRouter?.removeListener(_onShellTabChanged);
     _openReelsSub.cancel();
     super.dispose();
   }
@@ -116,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(top: contentInset),
                   child: WishlistTabWidget(active: _tab == 1),
                 ),
-                ReelViewerWidget(active: _tab == 2),
+                ReelViewerWidget(active: _tab == 2 && _homeTabActive),
               ],
             ),
           ),

@@ -4,11 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_state.dart';
 import 'package:klozy/src/core/account/guest_tab_placeholder_widget.dart';
+import 'package:klozy/src/core/account/incomplete_profile_placeholder_widget.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/domain/account/entity/account_status.dart';
 import 'package:klozy/src/feature/chat/presentation/screen/chat_list_page.dart';
-import 'package:klozy/src/feature/chat/presentation/screen/widgets/incomplete_profile_placeholder_widget.dart';
 
 /// The Chat tab (shell index 2): hosts the native conversation list.
 ///

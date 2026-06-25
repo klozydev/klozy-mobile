@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_bloc.dart';
+import 'package:klozy/src/app/bloc/account/account_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
@@ -227,6 +229,10 @@ class _OtpPageState extends State<OtpPage> {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
+      // Re-resolve the global account session post sign-in (the singleton
+      // AccountBloc still holds the guest status from before auth) so the
+      // shell tabs don't show the guest/login placeholder until a hot restart.
+      context.read<AccountBloc>().add(const AccountBootstrapRequested());
       // Always land on home after a verified sign-in; profile completion is
       // on-demand now (no forced personalize/complete-profile step).
       context.router.replaceAll(<PageRouteInfo>[const ShellRoute()]);

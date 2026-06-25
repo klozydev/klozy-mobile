@@ -83,6 +83,19 @@ class _PreferredSizePageState extends State<PreferredSizePage> {
     );
   }
 
+  /// Sizes to show for the selected size system. Shoe sizes are region-scoped
+  /// tokens (e.g. `EU 42`, `US 10`, `UK 8`), so only the rows for the active
+  /// system are shown — that's what makes the EU/US/UK selector actually swap
+  /// the displayed representation. Region-agnostic sizes (clothing: S/M/L…)
+  /// carry no system prefix and are always shown.
+  List<CatalogSizeValue> get _visibleSizes =>
+      _allSizes.where((CatalogSizeValue s) {
+        final bool isRegional = _sizeSystems.any(
+          (String system) => s.token.startsWith('$system '),
+        );
+        return !isRegional || s.token.startsWith('$_sizeSystem ');
+      }).toList();
+
   @override
   Widget build(BuildContext context) {
     final l = context.l10N;
@@ -121,7 +134,7 @@ class _PreferredSizePageState extends State<PreferredSizePage> {
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
-                  children: _allSizes
+                  children: _visibleSizes
                       .map(
                         (CatalogSizeValue s) => DSSelectableChip(
                           label: s.label,

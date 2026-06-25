@@ -84,6 +84,24 @@ class _AppState extends State<App> {
                     routerConfig: _appRouter.config(
                       deepLinkBuilder: (PlatformDeepLink deepLink) {
                         final Uri uri = deepLink.uri;
+                        // Only our own links should drive navigation. Auth SDK
+                        // callbacks come back on their own URL scheme — Firebase
+                        // phone reCAPTCHA / Google sign-in return via the
+                        // reversed-client-id scheme (com.googleusercontent.apps…)
+                        // or an app-id scheme. Those are consumed by the Firebase
+                        // SDK; if we let them fall through here they hit the '*'
+                        // → '/' redirect and the guard bounces the (still
+                        // signed-out) user to WelcomeRoute, flashing the Get
+                        // Started screen mid sign-in. Ignore any non-app scheme.
+                        // The empty scheme (normal cold start) and http/https
+                        // (Universal Links) still route normally.
+                        final String scheme = uri.scheme;
+                        final bool routable =
+                            scheme.isEmpty ||
+                            scheme == 'klozy' ||
+                            scheme == 'http' ||
+                            scheme == 'https';
+                        if (!routable) return DeepLink.none;
                         // Custom-scheme links (e.g. klozy://product/123) put
                         // the first path segment in the URI host, so AutoRoute
                         // can't match `/product/:id`. Rebuild a normal path.
