@@ -1,3 +1,4 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_event.dart';
@@ -36,7 +37,7 @@ void main() {
     mockAuthRepository = _MockAuthRepository();
     // signOut is a no-op in most tests unless overridden.
     when(() => mockAuthRepository.signOut()).thenAnswer((_) async {});
-    bloc = AccountBloc(mockUseCase, mockAuthRepository);
+    bloc = AccountBloc(mockUseCase, mockAuthRepository, EventBus());
   });
 
   tearDown(() => bloc.close());

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/data/auth/firebase_auth_repository.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:mocktail/mocktail.dart';
@@ -21,7 +22,12 @@ void main() {
     mockAuth = _MockFirebaseAuth();
     mockGoogleSignIn = _MockGoogleSignIn();
     mockMe = _MockMeRepository();
-    repo = FirebaseAuthRepository(mockAuth, mockGoogleSignIn, mockMe);
+    repo = FirebaseAuthRepository(
+      mockAuth,
+      mockGoogleSignIn,
+      mockMe,
+      SessionCache(),
+    );
 
     when(() => mockGoogleSignIn.signOut()).thenAnswer((_) async {});
     when(() => mockAuth.signOut()).thenAnswer((_) async {});

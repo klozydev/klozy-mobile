@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -27,7 +28,7 @@ class _MockStackRouter extends Mock implements StackRouter {}
 /// all events — gives [BlocBuilder] the exact state it needs without I/O.
 class _FakeAccountBloc extends AccountBloc {
   _FakeAccountBloc(AccountState initialState)
-    : super(_MockGetAccountStatusUseCase(), _MockAuthRepository()) {
+    : super(_MockGetAccountStatusUseCase(), _MockAuthRepository(), EventBus()) {
     emit(initialState);
   }
 }
