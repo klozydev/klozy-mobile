@@ -27,6 +27,7 @@ void _stubGet(_MockDio dio, Map<String, dynamic> data) {
     () => dio.get<Map<String, dynamic>>(
       any(),
       queryParameters: any(named: 'queryParameters'),
+      options: any(named: 'options'),
     ),
   ).thenAnswer((_) async => _ok(data));
 }
@@ -40,6 +41,12 @@ PlacesRemoteDatasource _datasource(_MockDio dio) =>
 
 void main() {
   late _MockDio mockDio;
+
+  setUpAll(() {
+    // Datasource passes `options: cacheable('places')`, so any() on the
+    // `options` named arg needs a registered fallback of the Options type.
+    registerFallbackValue(Options());
+  });
 
   setUp(() {
     mockDio = _MockDio();
@@ -133,6 +140,7 @@ void main() {
         () => mockDio.get<Map<String, dynamic>>(
           any(),
           queryParameters: captureAny(named: 'queryParameters'),
+          options: any(named: 'options'),
         ),
       ).captured;
 
@@ -193,6 +201,7 @@ void main() {
         () => mockDio.get<Map<String, dynamic>>(
           any(),
           queryParameters: any(named: 'queryParameters'),
+          options: any(named: 'options'),
         ),
       ).thenAnswer(
         (_) async =>
@@ -206,6 +215,7 @@ void main() {
         () => mockDio.get<Map<String, dynamic>>(
           any(),
           queryParameters: any(named: 'queryParameters'),
+          options: any(named: 'options'),
         ),
       ).thenAnswer(
         (_) async => _ok(<String, dynamic>{
@@ -225,6 +235,7 @@ void main() {
         () => mockDio.get<Map<String, dynamic>>(
           any(),
           queryParameters: any(named: 'queryParameters'),
+          options: any(named: 'options'),
         ),
       ).thenAnswer(
         (_) async =>
@@ -237,6 +248,7 @@ void main() {
         () => mockDio.get<Map<String, dynamic>>(
           any(),
           queryParameters: captureAny(named: 'queryParameters'),
+          options: any(named: 'options'),
         ),
       ).captured;
 

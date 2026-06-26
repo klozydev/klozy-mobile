@@ -43,9 +43,9 @@ void main() {
 
   group('CheckSellPrerequisiteUseCase', () {
     test('returns needsRole when sellerRole is null', () async {
-      when(() => mockMe.getMe()).thenAnswer(
-        (_) async => const MeProfile(id: 'u1'),
-      );
+      when(
+        () => mockMe.getMe(),
+      ).thenAnswer((_) async => const MeProfile(id: 'u1'));
 
       final result = await useCase();
 
@@ -53,27 +53,31 @@ void main() {
       verifyNever(() => mockMe.getConnectStatus());
     });
 
-    test('returns needsIban for particular seller without payoutIbanMasked',
-        () async {
-      when(() => mockMe.getMe()).thenAnswer(
-        (_) async => const MeProfile(
-          id: 'u1',
-          sellerRole: SellerRole.particular,
-          payoutIbanMasked: null,
-        ),
-      );
+    test(
+      'returns needsIban for particular seller without payoutIbanMasked',
+      () async {
+        when(() => mockMe.getMe()).thenAnswer(
+          (_) async => const MeProfile(
+            id: 'u1',
+            sellerRole: SellerRole.particular,
+            hasAddress: true,
+            payoutIbanMasked: null,
+          ),
+        );
 
-      final result = await useCase();
+        final result = await useCase();
 
-      expect(result, SellPrerequisite.needsIban);
-      verifyNever(() => mockMe.getConnectStatus());
-    });
+        expect(result, SellPrerequisite.needsIban);
+        verifyNever(() => mockMe.getConnectStatus());
+      },
+    );
 
     test('returns ready for particular seller with payoutIbanMasked', () async {
       when(() => mockMe.getMe()).thenAnswer(
         (_) async => const MeProfile(
           id: 'u1',
           sellerRole: SellerRole.particular,
+          hasAddress: true,
           payoutIbanMasked: 'FR76 **** 1234',
         ),
       );
@@ -84,47 +88,64 @@ void main() {
       verifyNever(() => mockMe.getConnectStatus());
     });
 
-    test('returns needsKyb for vendor with pending Connect onboarding',
-        () async {
-      when(() => mockMe.getMe()).thenAnswer(
-        (_) async => const MeProfile(id: 'u1', sellerRole: SellerRole.vendor),
-      );
-      when(() => mockMe.getConnectStatus()).thenAnswer(
-        (_) async => _connectPending,
-      );
+    test(
+      'returns needsKyb for vendor with pending Connect onboarding',
+      () async {
+        when(() => mockMe.getMe()).thenAnswer(
+          (_) async => const MeProfile(
+            id: 'u1',
+            sellerRole: SellerRole.vendor,
+            hasAddress: true,
+          ),
+        );
+        when(
+          () => mockMe.getConnectStatus(),
+        ).thenAnswer((_) async => _connectPending);
 
-      final result = await useCase();
+        final result = await useCase();
 
-      expect(result, SellPrerequisite.needsKyb);
-    });
+        expect(result, SellPrerequisite.needsKyb);
+      },
+    );
 
     test(
-        'returns needsKyb for vendor with complete onboarding but chargesEnabled false',
-        () async {
-      when(() => mockMe.getMe()).thenAnswer(
-        (_) async => const MeProfile(id: 'u1', sellerRole: SellerRole.vendor),
-      );
-      when(() => mockMe.getConnectStatus()).thenAnswer(
-        (_) async => _connectCompleteNoCharges,
-      );
+      'returns needsKyb for vendor with complete onboarding but chargesEnabled false',
+      () async {
+        when(() => mockMe.getMe()).thenAnswer(
+          (_) async => const MeProfile(
+            id: 'u1',
+            sellerRole: SellerRole.vendor,
+            hasAddress: true,
+          ),
+        );
+        when(
+          () => mockMe.getConnectStatus(),
+        ).thenAnswer((_) async => _connectCompleteNoCharges);
 
-      final result = await useCase();
+        final result = await useCase();
 
-      expect(result, SellPrerequisite.needsKyb);
-    });
+        expect(result, SellPrerequisite.needsKyb);
+      },
+    );
 
-    test('returns ready for vendor with complete Connect and chargesEnabled',
-        () async {
-      when(() => mockMe.getMe()).thenAnswer(
-        (_) async => const MeProfile(id: 'u1', sellerRole: SellerRole.vendor),
-      );
-      when(() => mockMe.getConnectStatus()).thenAnswer(
-        (_) async => _connectReady,
-      );
+    test(
+      'returns ready for vendor with complete Connect and chargesEnabled',
+      () async {
+        when(() => mockMe.getMe()).thenAnswer(
+          (_) async => const MeProfile(
+            id: 'u1',
+            sellerRole: SellerRole.vendor,
+            hasAddress: true,
+          ),
+        );
+        when(
+          () => mockMe.getConnectStatus(),
+        ).thenAnswer((_) async => _connectReady);
 
-      final result = await useCase();
+        final result = await useCase();
 
-      expect(result, SellPrerequisite.ready);
-    });
+        expect(result, SellPrerequisite.ready);
+      },
+    );
   });
 }

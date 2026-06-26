@@ -15,11 +15,11 @@ class _MockDio extends Mock implements Dio {}
 /// Minimal API envelope that MeRepositoryImpl._mapProfile can parse into a
 /// non-empty MeProfile.
 Map<String, dynamic> _profileEnvelope({String id = 'u1'}) => <String, dynamic>{
-      'id': id,
-      'firstName': 'Jane',
-      'lastName': 'Doe',
-      'hasAddress': true,
-    };
+  'id': id,
+  'firstName': 'Jane',
+  'lastName': 'Doe',
+  'hasAddress': true,
+};
 
 Response<Map<String, dynamic>> _profileResponse({String id = 'u1'}) =>
     Response<Map<String, dynamic>>(
@@ -38,44 +38,48 @@ void main() {
 
     // Default stub for all non-getMe Dio calls (mutations).
     when(
-      () => mockDio.patch<Map<String, dynamic>>(any(), data: any(named: 'data')),
-    ).thenAnswer(
-      (_) async => _profileResponse(),
-    );
+      () =>
+          mockDio.patch<Map<String, dynamic>>(any(), data: any(named: 'data')),
+    ).thenAnswer((_) async => _profileResponse());
     when(
       () => mockDio.put<dynamic>(any(), data: any(named: 'data')),
-    ).thenAnswer((_) async => Response<dynamic>(
-          requestOptions: RequestOptions(path: ''),
-          statusCode: 200,
-        ));
-    when(
-      () => mockDio.put<dynamic>(any()),
-    ).thenAnswer((_) async => Response<dynamic>(
-          requestOptions: RequestOptions(path: ''),
-          statusCode: 200,
-        ));
+    ).thenAnswer(
+      (_) async => Response<dynamic>(
+        requestOptions: RequestOptions(path: ''),
+        statusCode: 200,
+      ),
+    );
+    when(() => mockDio.put<dynamic>(any())).thenAnswer(
+      (_) async => Response<dynamic>(
+        requestOptions: RequestOptions(path: ''),
+        statusCode: 200,
+      ),
+    );
   });
 
   // ── Cache hit: two calls → one network request ─────────────────────────────
 
   group('getMe caching', () {
-    test('two consecutive calls result in exactly one network request', () async {
-      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer(
-        (_) async => _profileResponse(),
-      );
+    test(
+      'two consecutive calls result in exactly one network request',
+      () async {
+        when(
+          () => mockDio.get<Map<String, dynamic>>('v1/me'),
+        ).thenAnswer((_) async => _profileResponse());
 
-      final first = await repo.getMe();
-      final second = await repo.getMe();
+        final first = await repo.getMe();
+        final second = await repo.getMe();
 
-      expect(first, isA<MeProfile>());
-      expect(second, same(first)); // identical instance from cache
-      verify(() => mockDio.get<Map<String, dynamic>>('v1/me')).called(1);
-    });
+        expect(first, isA<MeProfile>());
+        expect(second, same(first)); // identical instance from cache
+        verify(() => mockDio.get<Map<String, dynamic>>('v1/me')).called(1);
+      },
+    );
 
     test('concurrent calls share one in-flight request (dedup)', () async {
-      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer(
-        (_) async => _profileResponse(),
-      );
+      when(
+        () => mockDio.get<Map<String, dynamic>>('v1/me'),
+      ).thenAnswer((_) async => _profileResponse());
 
       // Fire both without awaiting in between.
       final results = await Future.wait([repo.getMe(), repo.getMe()]);
@@ -86,7 +90,9 @@ void main() {
 
     test('after error, next call retries the network', () async {
       var callCount = 0;
-      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer((_) async {
+      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer((
+        _,
+      ) async {
         callCount++;
         if (callCount == 1) throw Exception('network error');
         return _profileResponse();
@@ -103,9 +109,9 @@ void main() {
 
   group('invalidate', () {
     test('forces a fresh network call on next getMe()', () async {
-      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer(
-        (_) async => _profileResponse(),
-      );
+      when(
+        () => mockDio.get<Map<String, dynamic>>('v1/me'),
+      ).thenAnswer((_) async => _profileResponse());
 
       await repo.getMe();
       repo.invalidate();
@@ -114,37 +120,39 @@ void main() {
       verify(() => mockDio.get<Map<String, dynamic>>('v1/me')).called(2);
     });
 
-    test('invalidate after updateProfile triggers fresh fetch on next getMe()',
-        () async {
-      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer(
-        (_) async => _profileResponse(),
-      );
-      when(
-        () => mockDio.patch<Map<String, dynamic>>('v1/me',
-            data: any(named: 'data')),
-      ).thenAnswer((_) async => _profileResponse(id: 'u1-updated'));
+    test(
+      'invalidate after updateProfile triggers fresh fetch on next getMe()',
+      () async {
+        when(
+          () => mockDio.get<Map<String, dynamic>>('v1/me'),
+        ).thenAnswer((_) async => _profileResponse());
+        when(
+          () => mockDio.patch<Map<String, dynamic>>(
+            'v1/me',
+            data: any(named: 'data'),
+          ),
+        ).thenAnswer((_) async => _profileResponse(id: 'u1-updated'));
 
-      await repo.getMe(); // primes cache
-      await repo.updateProfile(firstName: 'John'); // warms cache with response
-      // updateProfile itself updates _cached, so no extra network call needed
-      // for getMe, but the version it stores is the PATCH response.
-      await repo.getMe();
-      // Only one GET (initial); PATCH response was used to warm cache.
-      verify(() => mockDio.get<Map<String, dynamic>>('v1/me')).called(1);
-    });
+        await repo.getMe(); // primes cache
+        await repo.updateProfile(
+          firstName: 'John',
+        ); // warms cache with response
+        // updateProfile itself updates _cached, so no extra network call needed
+        // for getMe, but the version it stores is the PATCH response.
+        await repo.getMe();
+        // Only one GET (initial); PATCH response was used to warm cache.
+        verify(() => mockDio.get<Map<String, dynamic>>('v1/me')).called(1);
+      },
+    );
 
     test('invalidate after setAddress forces fresh fetch', () async {
-      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer(
-        (_) async => _profileResponse(),
-      );
+      when(
+        () => mockDio.get<Map<String, dynamic>>('v1/me'),
+      ).thenAnswer((_) async => _profileResponse());
 
       await repo.getMe();
       await repo.setAddress(
-        const AddressInput(
-          line1: '1 Main St',
-          city: 'Dubai',
-          emirate: 'Dubai',
-        ),
+        const AddressInput(line1: '1 Main St', city: 'Dubai', emirate: 'Dubai'),
       );
       await repo.getMe();
 
@@ -152,9 +160,9 @@ void main() {
     });
 
     test('invalidate after setSellerRole forces fresh fetch', () async {
-      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer(
-        (_) async => _profileResponse(),
-      );
+      when(
+        () => mockDio.get<Map<String, dynamic>>('v1/me'),
+      ).thenAnswer((_) async => _profileResponse());
 
       await repo.getMe();
       await repo.setSellerRole(role: SellerRole.particular);
@@ -164,9 +172,9 @@ void main() {
     });
 
     test('invalidate after setPayoutIban forces fresh fetch', () async {
-      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer(
-        (_) async => _profileResponse(),
-      );
+      when(
+        () => mockDio.get<Map<String, dynamic>>('v1/me'),
+      ).thenAnswer((_) async => _profileResponse());
 
       await repo.getMe();
       await repo.setPayoutIban('FR76 1234 5678');
@@ -176,14 +184,12 @@ void main() {
     });
 
     test('invalidate after updatePreferences forces fresh fetch', () async {
-      when(() => mockDio.get<Map<String, dynamic>>('v1/me')).thenAnswer(
-        (_) async => _profileResponse(),
-      );
+      when(
+        () => mockDio.get<Map<String, dynamic>>('v1/me'),
+      ).thenAnswer((_) async => _profileResponse());
 
       await repo.getMe();
-      await repo.updatePreferences(
-        const PreferencesInput(sizeSystem: 'EU'),
-      );
+      await repo.updatePreferences(const PreferencesInput(sizeSystem: 'EU'));
       await repo.getMe();
 
       verify(() => mockDio.get<Map<String, dynamic>>('v1/me')).called(2);

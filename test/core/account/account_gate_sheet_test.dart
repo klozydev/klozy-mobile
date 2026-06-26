@@ -239,7 +239,7 @@ void main() {
       expect(find.byType(DSButtonOutline), findsNothing);
     });
 
-    testWidgets('tapping "Finish setup" pushes PersonalizeRoute', (
+    testWidgets('tapping "Finish setup" pushes ProfileCompletionRoute', (
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
@@ -259,7 +259,9 @@ void main() {
           onFailure: any(named: 'onFailure'),
         ),
       ).captured;
-      expect(captured.single, isA<PersonalizeRoute>());
+      // The gate skips the "personalize your feed" step and goes straight to
+      // the profile-completion form.
+      expect(captured.single, isA<ProfileCompletionRoute>());
     });
   });
 }

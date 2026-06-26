@@ -77,20 +77,21 @@ void main() {
 
   // ── incompleteOnboarding ──────────────────────────────────────────────────
 
-  test('incompleteOnboarding → redirectUntil(PersonalizeRoute)', () async {
-    when(
-      () => mockGetStatus(),
-    ).thenAnswer((_) async => AccountStatus.incompleteOnboarding);
-    when(() => mockResolver.redirectUntil(any())).thenAnswer((_) async => null);
+  test(
+    'incompleteOnboarding → next(true), NOT forced into onboarding',
+    () async {
+      when(
+        () => mockGetStatus(),
+      ).thenAnswer((_) async => AccountStatus.incompleteOnboarding);
 
-    await _guardNavigate(guard, mockResolver, mockRouter);
+      await _guardNavigate(guard, mockResolver, mockRouter);
 
-    final captured = verify(
-      () => mockResolver.redirectUntil(captureAny()),
-    ).captured;
-    expect(captured.single, isA<PersonalizeRoute>());
-    verifyNever(() => mockResolver.next(any()));
-  });
+      // Onboarding is no longer forced up front: the user passes through and
+      // individual actions request profile completion on-demand.
+      verify(() => mockResolver.next(true)).called(1);
+      verifyNever(() => mockResolver.redirectUntil(any()));
+    },
+  );
 
   // ── guest ─────────────────────────────────────────────────────────────────
 

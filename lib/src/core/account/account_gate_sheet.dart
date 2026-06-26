@@ -17,7 +17,8 @@ import 'package:klozy/src/router/app_router.dart';
 /// - [AccountStatus.guest] or [AccountStatus.legacy] — "Create an account /
 ///   Log in to continue", both CTAs navigate to [WelcomeRoute].
 /// - [AccountStatus.incompleteOnboarding] — "Finish setting up your profile",
-///   CTA navigates to [PersonalizeRoute] to resume onboarding.
+///   CTA navigates straight to [ProfileCompletionRoute] (skips the personalize
+///   step) to finish the profile the gated action requires.
 class AccountGateSheet extends StatelessWidget {
   final AccountStatus status;
 

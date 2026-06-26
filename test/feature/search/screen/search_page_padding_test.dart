@@ -17,35 +17,35 @@ void main() {
       expect(DSSpacing.xxs, equals(8.0));
     });
 
-    testWidgets(
-      'SizedBox(height: DSSpacing.xxs) renders with height 8.0',
-      (WidgetTester tester) async {
-        await tester.pumpWidget(
-          const MaterialApp(
-            home: Scaffold(
-              body: Column(
-                children: [
-                  SizedBox(height: 44), // sort row stand-in
-                  SizedBox(height: DSSpacing.xxs), // the gap
-                  Expanded(child: SizedBox.expand()),
-                ],
-              ),
+    testWidgets('SizedBox(height: DSSpacing.xxs) renders with height 8.0', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: Column(
+              children: [
+                SizedBox(height: 44), // sort row stand-in
+                SizedBox(height: DSSpacing.xxs), // the gap
+                Expanded(child: SizedBox.expand()),
+              ],
             ),
           ),
-        );
+        ),
+      );
 
-        final sizedBoxes = tester
-            .widgetList<SizedBox>(find.byType(SizedBox))
-            .where((SizedBox w) => w.height == DSSpacing.xxs)
-            .toList();
+      final sizedBoxes = tester
+          .widgetList<SizedBox>(find.byType(SizedBox))
+          .where((SizedBox w) => w.height == DSSpacing.xxs)
+          .toList();
 
-        expect(
-          sizedBoxes,
-          isNotEmpty,
-          reason: 'A SizedBox(height: DSSpacing.xxs) must exist as the '
-              'separator between the sort-row and the content area',
-        );
-      },
-    );
+      expect(
+        sizedBoxes,
+        isNotEmpty,
+        reason:
+            'A SizedBox(height: DSSpacing.xxs) must exist as the '
+            'separator between the sort-row and the content area',
+      );
+    });
   });
 }

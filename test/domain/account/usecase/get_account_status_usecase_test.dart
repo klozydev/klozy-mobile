@@ -28,13 +28,13 @@ const _incompleteProfile = MeProfile(
 
 /// Helper to create a [DioException] with the given HTTP status code.
 DioException _dioException(int statusCode) => DioException(
-      requestOptions: RequestOptions(path: 'v1/me'),
-      response: Response<dynamic>(
-        requestOptions: RequestOptions(path: 'v1/me'),
-        statusCode: statusCode,
-      ),
-      type: DioExceptionType.badResponse,
-    );
+  requestOptions: RequestOptions(path: 'v1/me'),
+  response: Response<dynamic>(
+    requestOptions: RequestOptions(path: 'v1/me'),
+    statusCode: statusCode,
+  ),
+  type: DioExceptionType.badResponse,
+);
 
 void main() {
   late _MockAuthRepository mockAuth;
@@ -99,34 +99,36 @@ void main() {
     });
 
     test(
-        'returns incompleteOnboarding on transient network error (non-404 DioException)',
-        () async {
-      when(() => mockAuth.currentUserId).thenReturn('uid-real');
-      when(() => mockAuth.isAnonymous).thenReturn(false);
-      when(() => mockMe.getMe()).thenThrow(
-        DioException(
-          requestOptions: RequestOptions(path: 'v1/me'),
-          type: DioExceptionType.connectionError,
-        ),
-      );
+      'returns incompleteOnboarding on transient network error (non-404 DioException)',
+      () async {
+        when(() => mockAuth.currentUserId).thenReturn('uid-real');
+        when(() => mockAuth.isAnonymous).thenReturn(false);
+        when(() => mockMe.getMe()).thenThrow(
+          DioException(
+            requestOptions: RequestOptions(path: 'v1/me'),
+            type: DioExceptionType.connectionError,
+          ),
+        );
 
-      final result = await useCase();
+        final result = await useCase();
 
-      // Safe fallback: do not log the user out on a transient connectivity blip.
-      expect(result, AccountStatus.incompleteOnboarding);
-    });
+        // Safe fallback: do not log the user out on a transient connectivity blip.
+        expect(result, AccountStatus.incompleteOnboarding);
+      },
+    );
 
     test(
-        'returns incompleteOnboarding on 500 server error (non-404 DioException)',
-        () async {
-      when(() => mockAuth.currentUserId).thenReturn('uid-real');
-      when(() => mockAuth.isAnonymous).thenReturn(false);
-      when(() => mockMe.getMe()).thenThrow(_dioException(500));
+      'returns incompleteOnboarding on 500 server error (non-404 DioException)',
+      () async {
+        when(() => mockAuth.currentUserId).thenReturn('uid-real');
+        when(() => mockAuth.isAnonymous).thenReturn(false);
+        when(() => mockMe.getMe()).thenThrow(_dioException(500));
 
-      final result = await useCase();
+        final result = await useCase();
 
-      expect(result, AccountStatus.incompleteOnboarding);
-    });
+        expect(result, AccountStatus.incompleteOnboarding);
+      },
+    );
 
     test('returns incompleteOnboarding on unexpected exception', () async {
       when(() => mockAuth.currentUserId).thenReturn('uid-real');

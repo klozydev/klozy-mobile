@@ -18,14 +18,17 @@ void main() {
 
   group('RequireValidAccountUseCase.call', () {
     for (final status in AccountStatus.values) {
-      test('delegates to GetAccountStatusUseCase and returns $status', () async {
-        when(() => mockGetStatus()).thenAnswer((_) async => status);
+      test(
+        'delegates to GetAccountStatusUseCase and returns $status',
+        () async {
+          when(() => mockGetStatus()).thenAnswer((_) async => status);
 
-        final result = await useCase();
+          final result = await useCase();
 
-        expect(result, status);
-        verify(() => mockGetStatus()).called(1);
-      });
+          expect(result, status);
+          verify(() => mockGetStatus()).called(1);
+        },
+      );
     }
   });
 
@@ -43,17 +46,15 @@ void main() {
     });
 
     test('returns false for AccountStatus.legacy', () async {
-      when(() => mockGetStatus()).thenAnswer(
-        (_) async => AccountStatus.legacy,
-      );
+      when(() => mockGetStatus()).thenAnswer((_) async => AccountStatus.legacy);
 
       expect(await useCase.isValid(), isFalse);
     });
 
     test('returns false for AccountStatus.incompleteOnboarding', () async {
-      when(() => mockGetStatus()).thenAnswer(
-        (_) async => AccountStatus.incompleteOnboarding,
-      );
+      when(
+        () => mockGetStatus(),
+      ).thenAnswer((_) async => AccountStatus.incompleteOnboarding);
 
       expect(await useCase.isValid(), isFalse);
     });

@@ -1,4 +1,6 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/me/entity/address_input.dart';
 import 'package:klozy/src/domain/me/entity/me_profile.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
@@ -80,9 +82,21 @@ void main() {
     mockMeRepo = _MockMeRepository();
     mockPlacesRepo = _MockPlacesRepository();
     bloc = ProfileCompletionBloc(mockMeRepo, mockPlacesRepo);
+    // The submit handler fires a ProfileChangedEvent via locator<EventBus>();
+    // register a real bus so the success path doesn't throw and fall into the
+    // failure branch.
+    if (locator.isRegistered<EventBus>()) {
+      locator.unregister<EventBus>();
+    }
+    locator.registerSingleton<EventBus>(EventBus());
   });
 
-  tearDown(() => bloc.close());
+  tearDown(() async {
+    await bloc.close();
+    if (locator.isRegistered<EventBus>()) {
+      locator.unregister<EventBus>();
+    }
+  });
 
   // ── Address autocomplete ──────────────────────────────────────────────────
 

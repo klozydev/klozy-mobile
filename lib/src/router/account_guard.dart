@@ -11,7 +11,8 @@ import 'package:klozy/src/router/app_router.dart';
 ///
 /// - guest → redirect to WelcomeRoute (no sign-out needed; no session to clean).
 /// - legacy → sign out (stale Firebase session), then redirect to WelcomeRoute.
-/// - incompleteOnboarding → resume onboarding at PersonalizeRoute.
+/// - incompleteOnboarding → `resolver.next(true)` (onboarding is not forced up
+///   front; individual actions request profile completion on-demand).
 /// - valid → `resolver.next(true)`.
 ///
 /// Guest-allowed browse routes ([AccountRoutes.guestAllowed]) must NOT use this

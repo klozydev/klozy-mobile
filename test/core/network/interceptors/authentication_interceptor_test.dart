@@ -45,7 +45,10 @@ class _FakeErrorHandler extends Fake implements ErrorInterceptorHandler {
   }
 
   @override
-  void resolve(Response<dynamic> response, [bool callFollowingResponseInterceptor = false]) {
+  void resolve(
+    Response<dynamic> response, [
+    bool callFollowingResponseInterceptor = false,
+  ]) {
     wasCalled = true;
     resolvedResponse = response;
   }
@@ -53,8 +56,7 @@ class _FakeErrorHandler extends Fake implements ErrorInterceptorHandler {
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-RequestOptions _options({String path = '/test'}) =>
-    RequestOptions(path: path);
+RequestOptions _options({String path = '/test'}) => RequestOptions(path: path);
 
 DioException _dioError({int statusCode = 401, RequestOptions? options}) =>
     DioException(
@@ -96,16 +98,21 @@ void main() {
       expect(handler.nextOptions!.headers['Authorization'], 'Bearer tok123');
     });
 
-    test('calls handler.next without header when no user is signed in',
-        () async {
-      when(() => mockAuth.currentUser).thenReturn(null);
+    test(
+      'calls handler.next without header when no user is signed in',
+      () async {
+        when(() => mockAuth.currentUser).thenReturn(null);
 
-      final handler = _FakeRequestHandler();
-      await interceptor.onRequest(_options(), handler);
+        final handler = _FakeRequestHandler();
+        await interceptor.onRequest(_options(), handler);
 
-      expect(handler.wasCalled, isTrue);
-      expect(handler.nextOptions!.headers.containsKey('Authorization'), isFalse);
-    });
+        expect(handler.wasCalled, isTrue);
+        expect(
+          handler.nextOptions!.headers.containsKey('Authorization'),
+          isFalse,
+        );
+      },
+    );
 
     test('calls handler.next without header when getIdToken throws', () async {
       when(() => mockAuth.currentUser).thenReturn(mockUser);
@@ -118,32 +125,45 @@ void main() {
 
       // Queue must NOT stall — handler.next() must always be reached.
       expect(handler.wasCalled, isTrue);
-      expect(handler.nextOptions!.headers.containsKey('Authorization'), isFalse);
+      expect(
+        handler.nextOptions!.headers.containsKey('Authorization'),
+        isFalse,
+      );
     });
 
-    test('calls handler.next without header when getIdToken returns null',
-        () async {
-      when(() => mockAuth.currentUser).thenReturn(mockUser);
-      when(() => mockUser.getIdToken(any())).thenAnswer((_) async => null);
+    test(
+      'calls handler.next without header when getIdToken returns null',
+      () async {
+        when(() => mockAuth.currentUser).thenReturn(mockUser);
+        when(() => mockUser.getIdToken(any())).thenAnswer((_) async => null);
 
-      final handler = _FakeRequestHandler();
-      await interceptor.onRequest(_options(), handler);
+        final handler = _FakeRequestHandler();
+        await interceptor.onRequest(_options(), handler);
 
-      expect(handler.wasCalled, isTrue);
-      expect(handler.nextOptions!.headers.containsKey('Authorization'), isFalse);
-    });
+        expect(handler.wasCalled, isTrue);
+        expect(
+          handler.nextOptions!.headers.containsKey('Authorization'),
+          isFalse,
+        );
+      },
+    );
 
-    test('calls handler.next without header when getIdToken returns empty string',
-        () async {
-      when(() => mockAuth.currentUser).thenReturn(mockUser);
-      when(() => mockUser.getIdToken(any())).thenAnswer((_) async => '');
+    test(
+      'calls handler.next without header when getIdToken returns empty string',
+      () async {
+        when(() => mockAuth.currentUser).thenReturn(mockUser);
+        when(() => mockUser.getIdToken(any())).thenAnswer((_) async => '');
 
-      final handler = _FakeRequestHandler();
-      await interceptor.onRequest(_options(), handler);
+        final handler = _FakeRequestHandler();
+        await interceptor.onRequest(_options(), handler);
 
-      expect(handler.wasCalled, isTrue);
-      expect(handler.nextOptions!.headers.containsKey('Authorization'), isFalse);
-    });
+        expect(handler.wasCalled, isTrue);
+        expect(
+          handler.nextOptions!.headers.containsKey('Authorization'),
+          isFalse,
+        );
+      },
+    );
   });
 
   // ── onError ─────────────────────────────────────────────────────────────────
@@ -198,20 +218,21 @@ void main() {
     });
 
     test(
-        'passes original 401 through when force-refresh getIdToken throws (queue must not stall)',
-        () async {
-      when(() => mockAuth.currentUser).thenReturn(mockUser);
-      when(
-        () => mockUser.getIdToken(true),
-      ).thenThrow(Exception('revoked session'));
-      final error = _dioError(statusCode: 401);
+      'passes original 401 through when force-refresh getIdToken throws (queue must not stall)',
+      () async {
+        when(() => mockAuth.currentUser).thenReturn(mockUser);
+        when(
+          () => mockUser.getIdToken(true),
+        ).thenThrow(Exception('revoked session'));
+        final error = _dioError(statusCode: 401);
 
-      final handler = _FakeErrorHandler();
-      await interceptor.onError(error, handler);
+        final handler = _FakeErrorHandler();
+        await interceptor.onError(error, handler);
 
-      // _idToken swallows the throw and returns null → handler.next(err)
-      expect(handler.wasCalled, isTrue);
-      expect(handler.nextError?.response?.statusCode, 401);
-    });
+        // _idToken swallows the throw and returns null → handler.next(err)
+        expect(handler.wasCalled, isTrue);
+        expect(handler.nextError?.response?.statusCode, 401);
+      },
+    );
   });
 }
