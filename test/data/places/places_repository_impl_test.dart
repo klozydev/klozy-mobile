@@ -17,33 +17,24 @@ class _MockPlacesRemoteDatasource extends Mock
 // Helpers
 // ---------------------------------------------------------------------------
 
-PlaceDetailsResponse _fakeDetailsResponse() => PlaceDetailsResponse(
+PlaceDetailsResponse _fakeDetailsResponse() => const PlaceDetailsResponse(
   placeId: 'ChIJABC',
   formattedAddress: '1 Rue Test, 75001 Paris, France',
   addressComponents: <AddressComponentResponse>[
-    const AddressComponentResponse(
-      longName: '1',
-      types: <String>['street_number'],
-    ),
-    const AddressComponentResponse(
-      longName: 'Rue Test',
-      types: <String>['route'],
-    ),
-    const AddressComponentResponse(
+    AddressComponentResponse(longName: '1', types: <String>['street_number']),
+    AddressComponentResponse(longName: 'Rue Test', types: <String>['route']),
+    AddressComponentResponse(
       longName: 'Paris',
       types: <String>['locality', 'political'],
     ),
-    const AddressComponentResponse(
-      longName: '75001',
-      types: <String>['postal_code'],
-    ),
-    const AddressComponentResponse(
+    AddressComponentResponse(longName: '75001', types: <String>['postal_code']),
+    AddressComponentResponse(
       longName: 'France',
       types: <String>['country', 'political'],
     ),
   ],
   geometry: GeometryResponse(
-    location: const LocationResponse(lat: 48.8566, lng: 2.3522),
+    location: LocationResponse(lat: 48.8566, lng: 2.3522),
   ),
 );
 
@@ -104,7 +95,7 @@ void main() {
       expect(result[1].description, 'Paris, TX, USA');
     });
 
-    test('propagates datasource exceptions', () async {
+    test('propagates datasource exceptions', () {
       when(
         () => mockDatasource.autocomplete(any()),
       ).thenThrow(StateError('API error'));
@@ -138,7 +129,7 @@ void main() {
       expect(result.longitude, 2.3522);
     });
 
-    test('propagates datasource exceptions', () async {
+    test('propagates datasource exceptions', () {
       when(
         () => mockDatasource.details(any()),
       ).thenThrow(StateError('place not found'));

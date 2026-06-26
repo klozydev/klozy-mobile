@@ -19,7 +19,7 @@ void main() {
   });
 
   group('ProductCardWidget — currency display', () {
-    Widget _buildCard(Product product) {
+    Widget buildCard(Product product) {
       final wishlist = WishlistCubit(_MockWishlistRepository(), EventBus());
       return BlocProvider<WishlistCubit>.value(
         value: wishlist,
@@ -27,9 +27,7 @@ void main() {
           theme: dsTheme(),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-          home: Scaffold(
-            body: ProductCardWidget(product: product),
-          ),
+          home: Scaffold(body: ProductCardWidget(product: product)),
         ),
       );
     }
@@ -45,7 +43,7 @@ void main() {
         size: '42',
       );
 
-      await tester.pumpWidget(_buildCard(product));
+      await tester.pumpWidget(buildCard(product));
       await tester.pump();
 
       // The rendered price text must contain the amount and the currency.
@@ -56,13 +54,9 @@ void main() {
     testWidgets('price text is formatted as "<amount> Dhs"', (
       WidgetTester tester,
     ) async {
-      const product = Product(
-        id: 'p2',
-        title: 'Leather Jacket',
-        price: 1200,
-      );
+      const product = Product(id: 'p2', title: 'Leather Jacket', price: 1200);
 
-      await tester.pumpWidget(_buildCard(product));
+      await tester.pumpWidget(buildCard(product));
       await tester.pump();
 
       expect(find.text('1200 Dhs'), findsOneWidget);
@@ -71,13 +65,9 @@ void main() {
     testWidgets('decimal price is truncated to int before Dhs', (
       WidgetTester tester,
     ) async {
-      const product = Product(
-        id: 'p3',
-        title: 'Cap',
-        price: 89.99,
-      );
+      const product = Product(id: 'p3', title: 'Cap', price: 89.99);
 
-      await tester.pumpWidget(_buildCard(product));
+      await tester.pumpWidget(buildCard(product));
       await tester.pump();
 
       // price.toInt() = 89 → "89 Dhs"

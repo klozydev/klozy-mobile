@@ -54,7 +54,7 @@ void main() {
 
         expect(states, <AccountState>[
           const AccountResolving(),
-          AccountResolved(AccountStatus.valid),
+          const AccountResolved(AccountStatus.valid),
         ]);
         verifyNever(() => mockAuthRepository.signOut());
       },
@@ -72,7 +72,7 @@ void main() {
 
         expect(states, <AccountState>[
           const AccountResolving(),
-          AccountResolved(AccountStatus.guest),
+          const AccountResolved(AccountStatus.guest),
         ]);
         verifyNever(() => mockAuthRepository.signOut());
       },
@@ -91,7 +91,7 @@ void main() {
       expect(states, <AccountState>[
         const AccountResolving(),
         // After signOut the user is a clean guest.
-        AccountResolved(AccountStatus.guest),
+        const AccountResolved(AccountStatus.guest),
       ]);
     });
 
@@ -109,7 +109,7 @@ void main() {
 
         expect(states, <AccountState>[
           const AccountResolving(),
-          AccountResolved(AccountStatus.incompleteOnboarding),
+          const AccountResolved(AccountStatus.incompleteOnboarding),
         ]);
         verifyNever(() => mockAuthRepository.signOut());
       },
@@ -134,7 +134,10 @@ void main() {
         () => mockUseCase(),
       ).thenAnswer((_) async => AccountStatus.incompleteOnboarding);
       await _collectStates(bloc, const AccountBootstrapRequested());
-      expect(bloc.state, AccountResolved(AccountStatus.incompleteOnboarding));
+      expect(
+        bloc.state,
+        const AccountResolved(AccountStatus.incompleteOnboarding),
+      );
 
       // Profile is now complete — re-bootstrap (triggered by
       // ProfileCompletionPage on ProfileCompletionDone).
@@ -147,9 +150,9 @@ void main() {
 
       expect(states, <AccountState>[
         const AccountResolving(),
-        AccountResolved(AccountStatus.valid),
+        const AccountResolved(AccountStatus.valid),
       ]);
-      expect(bloc.state, AccountResolved(AccountStatus.valid));
+      expect(bloc.state, const AccountResolved(AccountStatus.valid));
     });
   });
 }

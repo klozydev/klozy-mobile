@@ -36,13 +36,13 @@ void main() {
   late _MockCatalogRepository catalog;
   late SearchBloc bloc;
 
-  const _emptyPage = PaginatedList<Product>(data: <Product>[]);
-  const _emptyFeed = FeedPage(data: <Product>[]);
-  const _emptySearchResult = SearchResult(
-    page: _emptyPage,
+  const emptyPage = PaginatedList<Product>(data: <Product>[]);
+  const emptyFeed = FeedPage(data: <Product>[]);
+  const emptySearchResult = SearchResult(
+    page: emptyPage,
     facets: SearchFacets.empty,
   );
-  const _emptyCategories = <CatalogCategory>[];
+  const emptyCategories = <CatalogCategory>[];
 
   setUpAll(() {
     registerFallbackValue(ProductSort.popular);
@@ -55,14 +55,14 @@ void main() {
 
     when(
       () => catalog.getRootCategories(),
-    ).thenAnswer((_) async => _emptyCategories);
+    ).thenAnswer((_) async => emptyCategories);
 
     when(
       () => products.feed(
         sort: any(named: 'sort'),
         limit: any(named: 'limit'),
       ),
-    ).thenAnswer((_) async => _emptyFeed);
+    ).thenAnswer((_) async => emptyFeed);
 
     when(
       () => products.search(
@@ -78,7 +78,7 @@ void main() {
         page: any(named: 'page'),
         limit: any(named: 'limit'),
       ),
-    ).thenAnswer((_) async => _emptySearchResult);
+    ).thenAnswer((_) async => emptySearchResult);
 
     bloc = SearchBloc(products, catalog);
   });

@@ -30,33 +30,33 @@ void main() {
 
   group('PlacesMapper.toDetails — full payload', () {
     test('maps all fields correctly when all components are present', () {
-      final response = PlaceDetailsResponse(
+      const response = PlaceDetailsResponse(
         placeId: 'ChIJD7fiBh9u5kcRYJSMaMOCCwQ',
         formattedAddress: '12 Rue de Rivoli, 75001 Paris, France',
         addressComponents: <AddressComponentResponse>[
-          const AddressComponentResponse(
+          AddressComponentResponse(
             longName: '12',
             types: <String>['street_number'],
           ),
-          const AddressComponentResponse(
+          AddressComponentResponse(
             longName: 'Rue de Rivoli',
             types: <String>['route'],
           ),
-          const AddressComponentResponse(
+          AddressComponentResponse(
             longName: 'Paris',
             types: <String>['locality', 'political'],
           ),
-          const AddressComponentResponse(
+          AddressComponentResponse(
             longName: '75001',
             types: <String>['postal_code'],
           ),
-          const AddressComponentResponse(
+          AddressComponentResponse(
             longName: 'France',
             types: <String>['country', 'political'],
           ),
         ],
         geometry: GeometryResponse(
-          location: const LocationResponse(lat: 48.8566, lng: 2.3522),
+          location: LocationResponse(lat: 48.8566, lng: 2.3522),
         ),
       );
 
@@ -73,15 +73,15 @@ void main() {
     });
 
     test('line1 is route-only when street_number is absent', () {
-      final response = PlaceDetailsResponse(
+      const response = PlaceDetailsResponse(
         placeId: 'xyz',
         formattedAddress: 'Rue de la Paix, Paris',
         addressComponents: <AddressComponentResponse>[
-          const AddressComponentResponse(
+          AddressComponentResponse(
             longName: 'Rue de la Paix',
             types: <String>['route'],
           ),
-          const AddressComponentResponse(
+          AddressComponentResponse(
             longName: 'Paris',
             types: <String>['locality', 'political'],
           ),
@@ -95,11 +95,11 @@ void main() {
     });
 
     test('line1 is null when both street_number and route are absent', () {
-      final response = PlaceDetailsResponse(
+      const response = PlaceDetailsResponse(
         placeId: 'xyz',
         formattedAddress: 'Paris, France',
         addressComponents: <AddressComponentResponse>[
-          const AddressComponentResponse(
+          AddressComponentResponse(
             longName: 'Paris',
             types: <String>['locality', 'political'],
           ),
@@ -114,15 +114,15 @@ void main() {
     test(
       'city falls back to administrative_area_level_2 when locality absent',
       () {
-        final response = PlaceDetailsResponse(
+        const response = PlaceDetailsResponse(
           placeId: 'xyz',
           formattedAddress: 'Countryside, UK',
           addressComponents: <AddressComponentResponse>[
-            const AddressComponentResponse(
+            AddressComponentResponse(
               longName: 'Surrey',
               types: <String>['administrative_area_level_2', 'political'],
             ),
-            const AddressComponentResponse(
+            AddressComponentResponse(
               longName: 'United Kingdom',
               types: <String>['country', 'political'],
             ),
@@ -136,10 +136,10 @@ void main() {
     );
 
     test('latitude and longitude are null when geometry is absent', () {
-      final response = PlaceDetailsResponse(
+      const response = PlaceDetailsResponse(
         placeId: 'xyz',
         formattedAddress: 'Somewhere',
-        addressComponents: const <AddressComponentResponse>[],
+        addressComponents: <AddressComponentResponse>[],
       );
 
       final details = mapper.toDetails(response);

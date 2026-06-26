@@ -249,7 +249,7 @@ void main() {
 
       final states = await _collectStates(
         bloc,
-        ProfileCompletionSubmitted(
+        const ProfileCompletionSubmitted(
           firstName: 'Jane',
           lastName: 'Doe',
           address: _fakeAddress,
@@ -274,7 +274,7 @@ void main() {
 
       final states = await _collectStates(
         bloc,
-        ProfileCompletionSubmitted(
+        const ProfileCompletionSubmitted(
           firstName: 'Jane',
           lastName: 'Doe',
           address: _fakeAddress,

@@ -262,13 +262,13 @@ void main() {
       );
     });
 
-    test('throws StateError when result field is missing', () async {
+    test('throws StateError when result field is missing', () {
       _stubGet(mockDio, <String, dynamic>{'status': 'OK'});
       final ds = _datasource(mockDio);
       expect(() => ds.details('bad-id'), throwsA(isA<StateError>()));
     });
 
-    test('throws StateError when API returns non-OK status', () async {
+    test('throws StateError when API returns non-OK status', () {
       _stubGet(mockDio, <String, dynamic>{
         'status': 'REQUEST_DENIED',
         'error_message': 'The provided API key is invalid.',
