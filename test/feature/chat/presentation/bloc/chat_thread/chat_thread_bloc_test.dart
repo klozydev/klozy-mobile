@@ -8,9 +8,13 @@
 /// ChatThreadLoadingState.
 library;
 
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:klozy/src/feature/chat/domain/entity/chat_message.dart';
+import 'package:klozy/src/feature/chat/domain/entity/chat_outgoing_media.dart';
 import 'package:klozy/src/feature/chat/domain/entity/chat_thread.dart';
+import 'package:klozy/src/feature/chat/domain/entity/media_type.dart';
 import 'package:klozy/src/feature/chat/domain/entity/message_kind.dart';
 import 'package:klozy/src/feature/chat/domain/usecase/delete_conversation.dart';
 import 'package:klozy/src/feature/chat/domain/usecase/mark_thread_seen.dart';
@@ -100,6 +104,12 @@ void main() {
   late _MockReportAndBlock mockReportBlock;
   late _MockRespondToOffer mockRespond;
   late ChatThreadBloc bloc;
+
+  setUpAll(() {
+    registerFallbackValue(
+      ChatOutgoingMedia(file: File('/fake'), type: MediaType.image),
+    );
+  });
 
   setUp(() {
     mockWatch = _MockWatchMessages();
@@ -329,6 +339,153 @@ void main() {
       final states = await _collectStates(bloc, const ChatUserBlocked());
 
       expect(states.last, const ChatThreadClosedState());
+    });
+  });
+
+  group('ChatMediaPicked', () {
+    late _MockSendMediaMessage mockMedia;
+    late ChatThreadBloc mediaBloc;
+
+    setUp(() {
+      mockMedia = _MockSendMediaMessage();
+      mediaBloc = _makeBloc(sendMedia: mockMedia);
+    });
+
+    tearDown(() => mediaBloc.close());
+
+    test('optimistically emits image message and calls sendMedia', () async {
+      when(
+        () => mockMedia.call(any(), any(), clientId: any(named: 'clientId')),
+      ).thenAnswer((_) async {});
+
+      final item = ChatOutgoingMedia(
+        file: File('/fake/image.jpg'),
+        type: MediaType.image,
+      );
+      final states = await _collectStates(mediaBloc, ChatMediaPicked([item]));
+
+      expect(states, isNotEmpty);
+      final loaded = states.first as ChatThreadLoadedState;
+      expect(loaded.messages, isNotEmpty);
+      expect(loaded.messages.first.sendStatus, 'sending');
+      expect(loaded.messages.first.kind, ChatMessageKind.image);
+      verify(
+        () => mockMedia.call(any(), any(), clientId: any(named: 'clientId')),
+      ).called(1);
+    });
+
+    test('optimistically emits video message for video type', () async {
+      when(
+        () => mockMedia.call(any(), any(), clientId: any(named: 'clientId')),
+      ).thenAnswer((_) async {});
+
+      final item = ChatOutgoingMedia(
+        file: File('/fake/clip.mp4'),
+        type: MediaType.video,
+      );
+      final states = await _collectStates(mediaBloc, ChatMediaPicked([item]));
+
+      final loaded = states.first as ChatThreadLoadedState;
+      expect(loaded.messages.first.kind, ChatMessageKind.video);
+    });
+
+    test(
+      'optimistically emits audio message for audio type via _kindOf',
+      () async {
+        when(
+          () => mockMedia.call(any(), any(), clientId: any(named: 'clientId')),
+        ).thenAnswer((_) async {});
+
+        final item = ChatOutgoingMedia(
+          file: File('/fake/audio.mp3'),
+          type: MediaType.audio,
+        );
+        final states = await _collectStates(mediaBloc, ChatMediaPicked([item]));
+
+        final loaded = states.first as ChatThreadLoadedState;
+        expect(loaded.messages.first.kind, ChatMessageKind.audio);
+      },
+    );
+
+    test('optimistically emits file message for other type', () async {
+      when(
+        () => mockMedia.call(any(), any(), clientId: any(named: 'clientId')),
+      ).thenAnswer((_) async {});
+
+      final item = ChatOutgoingMedia(
+        file: File('/fake/doc.pdf'),
+        type: MediaType.other,
+      );
+      final states = await _collectStates(mediaBloc, ChatMediaPicked([item]));
+
+      final loaded = states.first as ChatThreadLoadedState;
+      expect(loaded.messages.first.kind, ChatMessageKind.file);
+    });
+
+    test('marks message as failed when sendMedia throws', () async {
+      when(
+        () => mockMedia.call(any(), any(), clientId: any(named: 'clientId')),
+      ).thenThrow(Exception('upload failed'));
+
+      final item = ChatOutgoingMedia(
+        file: File('/fake/image.jpg'),
+        type: MediaType.image,
+      );
+      final states = await _collectStates(mediaBloc, ChatMediaPicked([item]));
+
+      expect(states.length, 2);
+      final last = states.last as ChatThreadLoadedState;
+      expect(last.messages.first.sendStatus, 'failed');
+    });
+  });
+
+  group('ChatAudioRecorded', () {
+    late _MockSendAudioMessage mockAudio;
+    late ChatThreadBloc audioBloc;
+
+    setUp(() {
+      mockAudio = _MockSendAudioMessage();
+      audioBloc = _makeBloc(sendAudio: mockAudio);
+    });
+
+    tearDown(() => audioBloc.close());
+
+    test('optimistically emits audio message and calls sendAudio', () async {
+      when(
+        () => mockAudio.call(any(), any(), clientId: any(named: 'clientId')),
+      ).thenAnswer((_) async {});
+
+      final audio = ChatOutgoingMedia(
+        file: File('/fake/voice.m4a'),
+        type: MediaType.audio,
+        durationMs: 3000,
+      );
+      final states = await _collectStates(audioBloc, ChatAudioRecorded(audio));
+
+      expect(states, isNotEmpty);
+      final loaded = states.first as ChatThreadLoadedState;
+      expect(loaded.messages, isNotEmpty);
+      expect(loaded.messages.first.sendStatus, 'sending');
+      expect(loaded.messages.first.kind, ChatMessageKind.audio);
+      verify(
+        () => mockAudio.call(any(), any(), clientId: any(named: 'clientId')),
+      ).called(1);
+    });
+
+    test('marks audio message as failed when sendAudio throws', () async {
+      when(
+        () => mockAudio.call(any(), any(), clientId: any(named: 'clientId')),
+      ).thenThrow(Exception('upload failed'));
+
+      final audio = ChatOutgoingMedia(
+        file: File('/fake/voice.m4a'),
+        type: MediaType.audio,
+      );
+      final states = await _collectStates(audioBloc, ChatAudioRecorded(audio));
+
+      expect(states.length, 2);
+      final last = states.last as ChatThreadLoadedState;
+      expect(last.messages.first.sendStatus, 'failed');
     });
   });
 }
