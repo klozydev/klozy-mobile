@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/data/me/me_repository_impl.dart';
 import 'package:klozy/src/domain/me/entity/address_input.dart';
 import 'package:klozy/src/domain/me/entity/me_profile.dart';
@@ -9,6 +10,8 @@ import 'package:mocktail/mocktail.dart';
 // ── Fakes ─────────────────────────────────────────────────────────────────────
 
 class _MockDio extends Mock implements Dio {}
+
+class _MockSessionCache extends Mock implements SessionCache {}
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -30,11 +33,15 @@ Response<Map<String, dynamic>> _profileResponse({String id = 'u1'}) =>
 
 void main() {
   late _MockDio mockDio;
+  late _MockSessionCache mockCache;
   late MeRepositoryImpl repo;
 
   setUp(() {
     mockDio = _MockDio();
-    repo = MeRepositoryImpl(mockDio);
+    mockCache = _MockSessionCache();
+    repo = MeRepositoryImpl(mockDio, mockCache);
+
+    when(() => mockCache.invalidateGroup(any())).thenAnswer((_) {});
 
     // Default stub for all non-getMe Dio calls (mutations).
     when(
