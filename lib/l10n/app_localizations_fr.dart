@@ -12,27 +12,27 @@ class AppLocalizationsFr extends AppLocalizations {
   String get app_name => 'Klozy';
 
   @override
-  String get ds_set_composition_header => 'This set includes';
+  String get ds_set_composition_header => 'Cet ensemble comprend';
 
   @override
   String get ds_set_composition_owner_note =>
-      'Add a photo of each piece to reassure buyers and sell faster.';
+      'Ajoutez une photo de chaque pièce pour rassurer les acheteurs et vendre plus vite.';
 
   @override
   String get ds_set_composition_buyer_note =>
-      'Some pieces aren\'t photographed. Contact the seller for details.';
+      'Certaines pièces ne sont pas photographiées. Contactez le vendeur pour plus de détails.';
 
   @override
   String get ds_set_composition_photo => 'Photo';
 
   @override
-  String get ds_set_composition_add => 'Add';
+  String get ds_set_composition_add => 'Ajouter';
 
   @override
-  String get ds_set_composition_no_photo => 'No photo';
+  String get ds_set_composition_no_photo => 'Pas de photo';
 
   @override
-  String get ds_search_bar_hint => 'Search for an item or member';
+  String get ds_search_bar_hint => 'Rechercher un article ou un membre';
 
   @override
   String get error_page_show_details => 'AFFICHER LES DÉTAILS';
@@ -463,7 +463,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String home_picked_for_you(String categories) {
-    return 'Picked for you · $categories';
+    return 'Sélectionné pour vous · $categories';
   }
 
   @override
@@ -474,27 +474,27 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get home_wishlist_empty_hint =>
-      'Tap the heart on any item to save it here.';
+      'Appuyez sur le cœur d\'un article pour le sauvegarder ici.';
 
   @override
   String home_wishlist_saved_count(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count saved items',
-      one: '1 saved item',
+      other: '$count articles sauvegardés',
+      one: '1 article sauvegardé',
     );
     return '$_temp0';
   }
 
   @override
-  String get reels_processing_video => 'Processing video…';
+  String get reels_processing_video => 'Traitement de la vidéo…';
 
   @override
   String get reels_composer_title => 'Nouveau reel';
 
   @override
-  String get reels_compose_details_title => 'Add details';
+  String get reels_compose_details_title => 'Ajouter des détails';
 
   @override
   String get reels_pick_subtitle =>
@@ -504,13 +504,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get reels_record_video => 'Enregistrer une vidéo';
 
   @override
-  String get reels_record_hint => 'Up to 60s · vertical';
+  String get reels_record_hint => 'Jusqu\'à 60 s · vertical';
 
   @override
   String get reels_choose_from_gallery => 'Choisir dans la galerie';
 
   @override
-  String get reels_caption_label => 'Caption';
+  String get reels_caption_label => 'Légende';
 
   @override
   String get reels_caption_hint => 'Dites quelque chose sur votre look…';
@@ -528,11 +528,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String reels_post_reel_tagged(int count) {
-    return 'Post reel · $count tagged';
+    return 'Publier le reel · $count identifié(s)';
   }
 
   @override
-  String get reels_publishing => 'Publishing your reel…';
+  String get reels_publishing => 'Publication de votre reel…';
 
   @override
   String get reels_posted_title => 'Reel publié !';
@@ -546,14 +546,14 @@ class AppLocalizationsFr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'items',
-      one: 'item',
+      other: 'articles identifiés',
+      one: 'article identifié',
     );
-    return 'Your reel is live in the feed with $count tagged $_temp0.';
+    return 'Votre reel est en direct dans le fil avec $count $_temp0.';
   }
 
   @override
-  String get reels_view_in_reels => 'View in Reels';
+  String get reels_view_in_reels => 'Voir dans Reels';
 
   @override
   String get reels_done => 'Terminé';
@@ -591,25 +591,26 @@ class AppLocalizationsFr extends AppLocalizations {
   String get reels_link_copied_snackbar => 'Lien copié dans le presse-papiers.';
 
   @override
-  String get entry_sheet_title => 'What would you like to do?';
+  String get entry_sheet_title => 'Que souhaitez-vous faire ?';
 
   @override
-  String get entry_create_reel => 'Create a reel';
+  String get entry_create_reel => 'Créer un reel';
 
   @override
-  String get entry_create_reel_sub => 'Share a video of your pieces';
+  String get entry_create_reel_sub => 'Partagez une vidéo de vos pièces';
 
   @override
-  String get entry_create_reel_needs_product => 'Add a product first';
+  String get entry_create_reel_needs_product => 'Ajoutez d\'abord un produit';
 
   @override
-  String get entry_list_item => 'List an item for sale';
+  String get entry_list_item => 'Mettre un article en vente';
 
   @override
-  String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+  String get entry_list_item_sub =>
+      'Photo d\'abord · l\'IA pré-remplit votre annonce';
 
   @override
-  String get entry_cancel => 'Cancel';
+  String get entry_cancel => 'Annuler';
 
   @override
   String get search_hint => 'Rechercher des articles, des marques…';
@@ -648,18 +649,18 @@ class AppLocalizationsFr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count items',
-      one: '1 item',
+      other: '$count articles',
+      one: '1 article',
     );
     return '$_temp0';
   }
 
   @override
-  String get category_empty => 'Nothing here yet.';
+  String get category_empty => 'Rien ici pour l\'instant.';
 
   @override
   String search_result_for_query(String query) {
-    return ' for “$query”';
+    return ' pour « $query »';
   }
 
   @override
@@ -711,13 +712,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get search_filter_show_results => 'Afficher les résultats';
 
   @override
-  String get search_filter_clear => 'Clear';
+  String get search_filter_clear => 'Effacer';
 
   @override
-  String get search_filter_all => 'All';
+  String get search_filter_all => 'Tout';
 
   @override
-  String get product_your_listing => 'Your listing';
+  String get product_your_listing => 'Votre annonce';
 
   @override
   String get product_add_to_cart => 'Ajouter au panier';
@@ -748,7 +749,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get product_delete_confirm =>
-      'Delete this listing? This can\'t be undone.';
+      'Supprimer cette annonce ? Cette action est irréversible.';
 
   @override
   String get product_report_listing => 'Signaler l\'annonce';
@@ -761,7 +762,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get product_listing_deleted_subtitle =>
-      'This item and its photos have been removed.';
+      'Cet article et ses photos ont été supprimés.';
 
   @override
   String get product_back_to_feed => 'Retour au fil';
@@ -805,7 +806,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String product_price_amount(int amount) {
-    return '$amount ';
+    return '$amount Dhs';
   }
 
   @override
@@ -820,10 +821,11 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get sell_reorder_hint =>
-      'Drag to reorder. The 1st photo is the cover.';
+      'Faites glisser pour réorganiser. La 1re photo est la couverture.';
 
   @override
-  String get sell_add_at_least_one_photo => 'Add at least 1 photo to continue';
+  String get sell_add_at_least_one_photo =>
+      'Ajoutez au moins 1 photo pour continuer';
 
   @override
   String get sell_continue => 'Continuer';
@@ -863,13 +865,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get sell_category => 'Catégorie';
 
   @override
-  String get sell_product_details => 'Product details';
+  String get sell_product_details => 'Détails du produit';
 
   @override
-  String get sell_subcategory => 'Subcategory';
+  String get sell_subcategory => 'Sous-catégorie';
 
   @override
-  String get sell_choose_subcategory => 'Choose a subcategory';
+  String get sell_choose_subcategory => 'Choisir une sous-catégorie';
 
   @override
   String get sell_brand => 'Marque';
@@ -884,10 +886,11 @@ class AppLocalizationsFr extends AppLocalizations {
   String get sell_suggested_by_ai => 'Suggéré par l\'IA';
 
   @override
-  String get sell_prefilled_by_ai => 'Pre-filled by AI — review and adjust.';
+  String get sell_prefilled_by_ai =>
+      'Pré-rempli par l\'IA — vérifiez et ajustez.';
 
   @override
-  String get sell_photo_edit => 'Edit';
+  String get sell_photo_edit => 'Modifier';
 
   @override
   String get sell_list_item => 'Mettre en vente';
@@ -899,7 +902,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get sell_title_hint => 'p. ex. Veste de motard en cuir';
 
   @override
-  String get sell_price_hint => 'AED';
+  String get sell_price_hint => '0';
 
   @override
   String get sell_price_suffix => 'Dhs';
@@ -910,10 +913,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get sell_description_error =>
-      'Add a description so buyers know what they\'re getting';
+      'Ajoutez une description pour que les acheteurs sachent ce qu\'ils achètent';
 
   @override
-  String get sell_size_one_size => 'One size';
+  String get sell_size_one_size => 'Taille unique';
 
   @override
   String get sell_search_brands => 'Rechercher des marques';
@@ -949,7 +952,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get sell_back_to_home => 'Retour à l\'accueil';
 
   @override
-  String get sell_create_reel => 'Create a reel';
+  String get sell_create_reel => 'Créer un reel';
 
   @override
   String get cart_title => 'Panier';
@@ -958,7 +961,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cart_make_an_offer => 'Faire une offre';
 
   @override
-  String get cart_offer_sent => 'Offer sent — the seller will get back to you';
+  String get cart_offer_sent => 'Offre envoyée — le vendeur vous répondra';
 
   @override
   String get cart_cancel_offer => 'Annuler l\'offre';
@@ -979,42 +982,42 @@ class AppLocalizationsFr extends AppLocalizations {
   String get cart_pro_badge => 'PRO';
 
   @override
-  String get cart_cancel => 'Cancel';
+  String get cart_cancel => 'Annuler';
 
   @override
-  String get cart_in_bundle => 'In bundle offer';
+  String get cart_in_bundle => 'Dans l\'offre groupée';
 
   @override
-  String get cart_in_accepted_bundle => 'In accepted bundle';
+  String get cart_in_accepted_bundle => 'Dans l\'offre groupée acceptée';
 
   @override
   String get cart_added_after_bundle =>
-      'Added after your bundle offer — not included';
+      'Ajouté après votre offre groupée — non inclus';
 
   @override
-  String get cart_bundle_pending => 'Pending response';
+  String get cart_bundle_pending => 'Réponse en attente';
 
   @override
-  String get cart_bundle_accepted => 'Accepted';
+  String get cart_bundle_accepted => 'Acceptée';
 
   @override
   String cart_offer_sent_amount(int amount) {
-    return 'Offer sent · $amount Dhs';
+    return 'Offre envoyée · $amount Dhs';
   }
 
   @override
   String cart_offer_accepted_save(int amount) {
-    return 'Offer accepted · save $amount Dhs';
+    return 'Offre acceptée · économie de $amount Dhs';
   }
 
   @override
   String cart_bundle_was(int amount) {
-    return 'was $amount Dhs';
+    return 'était $amount Dhs';
   }
 
   @override
   String cart_checkout_amount(int amount) {
-    return 'Check out · $amount Dhs';
+    return 'Passer à la caisse · $amount Dhs';
   }
 
   @override
@@ -1022,8 +1025,8 @@ class AppLocalizationsFr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Offer for all $count items',
-      one: 'Offer for this item',
+      other: 'Offre pour les $count articles',
+      one: 'Offre pour cet article',
     );
     return '$_temp0';
   }
@@ -1033,8 +1036,8 @@ class AppLocalizationsFr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Bundle offer · $count items',
-      one: 'Bundle offer · 1 item',
+      other: 'Offre groupée · $count articles',
+      one: 'Offre groupée · 1 article',
     );
     return '$_temp0';
   }
@@ -1067,7 +1070,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get cart_offer_escrow_note =>
-      'Your payment is held in escrow until you confirm delivery.';
+      'Votre paiement est conservé sous séquestre jusqu\'à ce que vous confirmiez la livraison.';
 
   @override
   String get cart_currency_dhs => 'Dhs';
@@ -1090,7 +1093,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String checkout_buy_more_from(String name) {
-    return 'Buy more from $name';
+    return 'Acheter plus auprès de $name';
   }
 
   @override
@@ -1102,10 +1105,10 @@ class AppLocalizationsFr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count items',
-      one: '1 item',
+      other: '$count articles',
+      one: '1 article',
     );
-    return '$_temp0 · listed at $priceString Dhs';
+    return '$_temp0 · affiché à $priceString Dhs';
   }
 
   @override
@@ -1203,7 +1206,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get orders_prefix_to => 'à';
 
   @override
-  String get orders_negotiated => 'Negotiated';
+  String get orders_negotiated => 'Négocié';
 
   @override
   String orders_price_dhs(int amount) {
@@ -1229,31 +1232,31 @@ class AppLocalizationsFr extends AppLocalizations {
   String get orders_emx_door_to_door => 'EMX porte-à-porte · national EAU';
 
   @override
-  String get orders_emx_tracking => 'EMX tracking';
+  String get orders_emx_tracking => 'Suivi EMX';
 
   @override
-  String get orders_track_confirmed_label => 'Order confirmed';
+  String get orders_track_confirmed_label => 'Commande confirmée';
 
   @override
-  String get orders_track_confirmed_sub => 'Seller is preparing your item';
+  String get orders_track_confirmed_sub => 'Le vendeur prépare votre article';
 
   @override
-  String get orders_track_shipped_label => 'Shipped with EMX';
+  String get orders_track_shipped_label => 'Expédié avec EMX';
 
   @override
-  String get orders_track_shipped_sub => 'Picked up · in transit';
+  String get orders_track_shipped_sub => 'Pris en charge · en transit';
 
   @override
-  String get orders_track_out_label => 'Out for delivery';
+  String get orders_track_out_label => 'En cours de distribution';
 
   @override
-  String get orders_track_out_sub => 'Arriving today';
+  String get orders_track_out_sub => 'Livraison aujourd\'hui';
 
   @override
-  String get orders_track_delivered_label => 'Delivered';
+  String get orders_track_delivered_label => 'Livré';
 
   @override
-  String get orders_track_delivered_sub => 'Confirm to release payment';
+  String get orders_track_delivered_sub => 'Confirmez pour libérer le paiement';
 
   @override
   String orders_carrier_prefix(String carrier) {
@@ -1343,7 +1346,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get profile_title => 'Profil';
 
   @override
-  String get chat_title => 'Chat';
+  String get chat_title => 'Messages';
 
   @override
   String get ds_password_strength_weak => 'Faible';
@@ -1448,8 +1451,8 @@ class AppLocalizationsFr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count reviews',
-      one: '1 review',
+      other: '$count avis',
+      one: '1 avis',
     );
     return '$_temp0';
   }
@@ -1504,17 +1507,17 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settings_edit_profile => 'Modifier le profil';
 
   @override
-  String get edit_profile_discard_title => 'Discard changes?';
+  String get edit_profile_discard_title => 'Abandonner les modifications ?';
 
   @override
   String get edit_profile_discard_body =>
-      'You have unsaved changes. Leave without saving?';
+      'Vous avez des modifications non sauvegardées. Partir sans sauvegarder ?';
 
   @override
-  String get edit_profile_discard_confirm => 'Discard';
+  String get edit_profile_discard_confirm => 'Abandonner';
 
   @override
-  String get edit_profile_keep_editing => 'Keep editing';
+  String get edit_profile_keep_editing => 'Continuer à modifier';
 
   @override
   String get settings_delivery_address => 'Adresse de livraison';
@@ -1571,25 +1574,26 @@ class AppLocalizationsFr extends AppLocalizations {
       'Lien de réinitialisation du mot de passe envoyé. Vérifiez votre e-mail.';
 
   @override
-  String get settings_new_password => 'New password';
+  String get settings_new_password => 'Nouveau mot de passe';
 
   @override
-  String get settings_new_password_hint => 'New password';
+  String get settings_new_password_hint => 'Nouveau mot de passe';
 
   @override
-  String get settings_confirm_password => 'Confirm password';
+  String get settings_confirm_password => 'Confirmer le mot de passe';
 
   @override
-  String get settings_confirm_password_hint => 'Re-enter password';
+  String get settings_confirm_password_hint => 'Ressaisir le mot de passe';
 
   @override
-  String get settings_passwords_no_match => 'Passwords do not match';
+  String get settings_passwords_no_match =>
+      'Les mots de passe ne correspondent pas';
 
   @override
-  String get settings_password_too_short => 'Use at least 8 characters';
+  String get settings_password_too_short => 'Utilisez au moins 8 caractères';
 
   @override
-  String get settings_password_updated => 'Password updated.';
+  String get settings_password_updated => 'Mot de passe mis à jour.';
 
   @override
   String get settings_support_unavailable =>
@@ -1632,50 +1636,50 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settings_unblock => 'Débloquer';
 
   @override
-  String get settings_group_account => 'Account';
+  String get settings_group_account => 'Compte';
 
   @override
   String get settings_group_notifications => 'Notifications';
 
   @override
-  String get settings_group_other => 'Other';
+  String get settings_group_other => 'Autre';
 
   @override
-  String get settings_group_links => 'Links';
+  String get settings_group_links => 'Liens';
 
   @override
-  String get settings_group_social => 'Social';
+  String get settings_group_social => 'Réseaux sociaux';
 
   @override
-  String get settings_group_preferences => 'Preferences';
+  String get settings_group_preferences => 'Préférences';
 
   @override
-  String get settings_personal_data => 'Personal data';
+  String get settings_personal_data => 'Données personnelles';
 
   @override
   String get settings_personal_data_sub =>
-      'Profile, preferences, blocked users';
+      'Profil, préférences, utilisateurs bloqués';
 
   @override
-  String get settings_personal_information => 'Personal information';
+  String get settings_personal_information => 'Informations personnelles';
 
   @override
-  String get settings_security => 'Security';
+  String get settings_security => 'Sécurité';
 
   @override
-  String get settings_security_sub => 'Email, password, phone';
+  String get settings_security_sub => 'E-mail, mot de passe, téléphone';
 
   @override
-  String get settings_payouts_sub => 'Bank details (IBAN)';
+  String get settings_payouts_sub => 'Coordonnées bancaires (IBAN)';
 
   @override
-  String get settings_share_app => 'Share the app';
+  String get settings_share_app => 'Partager l\'application';
 
   @override
-  String get settings_legal_notices => 'Legal notices';
+  String get settings_legal_notices => 'Mentions légales';
 
   @override
-  String get settings_about => 'About';
+  String get settings_about => 'À propos';
 
   @override
   String get settings_instagram => 'Instagram';
@@ -1684,64 +1688,65 @@ class AppLocalizationsFr extends AppLocalizations {
   String get settings_instagram_handle => '@klozy';
 
   @override
-  String get settings_clothing_preference => 'Clothing preference';
+  String get settings_clothing_preference => 'Préférences vestimentaires';
 
   @override
-  String get settings_preferred_size => 'Preferred size';
+  String get settings_preferred_size => 'Taille préférée';
 
   @override
-  String get settings_preferred_brands => 'Preferred brands';
+  String get settings_preferred_brands => 'Marques préférées';
 
   @override
-  String get settings_change_email => 'Change email';
+  String get settings_change_email => 'Modifier l\'e-mail';
 
   @override
-  String get settings_phone_number => 'Phone number';
+  String get settings_phone_number => 'Numéro de téléphone';
 
   @override
-  String get settings_current_email => 'Current email';
+  String get settings_current_email => 'E-mail actuel';
 
   @override
-  String get settings_new_email => 'New email';
+  String get settings_new_email => 'Nouvel e-mail';
 
   @override
-  String get settings_new_email_hint => 'you@email.com';
+  String get settings_new_email_hint => 'vous@email.com';
 
   @override
   String get settings_change_email_note =>
-      'We\'ll send a confirmation link to your new address. The change applies once confirmed.';
+      'Nous enverrons un lien de confirmation à votre nouvelle adresse. La modification prend effet une fois confirmée.';
 
   @override
   String get settings_email_link_sent =>
-      'Confirmation link sent. Check your new inbox to finish.';
+      'Lien de confirmation envoyé. Vérifiez votre nouvelle boîte de réception pour terminer.';
 
   @override
-  String get settings_current_number => 'Current number';
+  String get settings_current_number => 'Numéro actuel';
 
   @override
-  String get settings_new_number => 'New number';
+  String get settings_new_number => 'Nouveau numéro';
 
   @override
   String get settings_new_number_hint => '50 123 4567';
 
   @override
   String get settings_phone_note =>
-      'We\'ll text a 6-digit code to confirm your new number.';
+      'Nous vous enverrons un code à 6 chiffres par SMS pour confirmer votre nouveau numéro.';
 
   @override
-  String get settings_phone_updated => 'Phone number updated.';
+  String get settings_phone_updated => 'Numéro de téléphone mis à jour.';
 
   @override
   String settings_enter_code_for(String number) {
-    return 'Enter the 6-digit code sent to $number';
+    return 'Saisissez le code à 6 chiffres envoyé au $number';
   }
 
   @override
   String get settings_share_message =>
-      'Check out Klozy — buy & sell pre-loved fashion across the UAE. https://klozy.app';
+      'Découvrez Klozy — achetez et vendez de la mode de seconde main aux Émirats arabes unis. https://klozy.app';
 
   @override
-  String get settings_share_failed => 'Couldn\'t open share. Please try again.';
+  String get settings_share_failed =>
+      'Impossible d\'ouvrir le partage. Veuillez réessayer.';
 
   @override
   String get onboarding_avatar_failed =>
@@ -2012,7 +2017,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get categoryPickerDeepestHint =>
-      'Deepest level — filter by size below.';
+      'Niveau le plus profond — filtrez par taille ci-dessous.';
 
   @override
   String get categoryPickerAddCategories => 'Ajouter des catégories';
@@ -2025,7 +2030,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get sellPhotosEmptySubtitle =>
-      'Prenez ou téléchargez des photos de votre article';
+      'Commencez avec une photo —\nL\'IA rédige le titre, la description et le prix.';
 
   @override
   String get sellPhotosCounter => 'photos';
@@ -2047,97 +2052,98 @@ class AppLocalizationsFr extends AppLocalizations {
   String get product_see_offer => 'Voir l\'offre';
 
   @override
-  String get chat_empty_title => 'No conversations yet';
+  String get chat_empty_title => 'Aucune conversation pour l\'instant';
 
   @override
   String get chat_empty_subtitle =>
-      'Message a seller from any product to start chatting.';
+      'Envoyez un message à un vendeur depuis n\'importe quel produit pour commencer à discuter.';
 
   @override
   String get chat_composer_hint => 'Message…';
 
   @override
-  String get chat_recording => 'Recording…';
+  String get chat_recording => 'Enregistrement…';
 
   @override
-  String get chat_attach_photo => 'Photo & Video';
+  String get chat_attach_photo => 'Photo et vidéo';
 
   @override
-  String get chat_attach_camera => 'Camera';
+  String get chat_attach_camera => 'Appareil photo';
 
   @override
-  String get chat_incomplete_profile_title => 'Finish setting up your profile';
+  String get chat_incomplete_profile_title =>
+      'Terminez la configuration de votre profil';
 
   @override
   String get chat_incomplete_profile_subtitle =>
-      'Complete your profile to start chatting with buyers and sellers.';
+      'Complétez votre profil pour commencer à discuter avec des acheteurs et des vendeurs.';
 
   @override
-  String get chat_incomplete_profile_cta => 'Complete profile';
+  String get chat_incomplete_profile_cta => 'Compléter le profil';
 
   @override
-  String get chat_menu_report => 'Report & block';
+  String get chat_menu_report => 'Signaler et bloquer';
 
   @override
-  String get chat_menu_delete => 'Delete conversation';
+  String get chat_menu_delete => 'Supprimer la conversation';
 
   @override
-  String get chat_reply_self => 'Replying to yourself';
+  String get chat_reply_self => 'Vous vous répondez';
 
   @override
-  String get chat_reply_other => 'Replying';
+  String get chat_reply_other => 'En réponse';
 
   @override
-  String get chat_media_placeholder => '[media]';
+  String get chat_media_placeholder => '[média]';
 
   @override
-  String get chat_offer_yours => 'Your offer';
+  String get chat_offer_yours => 'Votre offre';
 
   @override
-  String get chat_offer_incoming => 'Offer';
+  String get chat_offer_incoming => 'Offre';
 
   @override
-  String get chat_offer_refuse => 'Refuse';
+  String get chat_offer_refuse => 'Refuser';
 
   @override
-  String get chat_offer_accept => 'Accept';
+  String get chat_offer_accept => 'Accepter';
 
   @override
-  String get chat_offer_pending => 'Pending response…';
+  String get chat_offer_pending => 'Réponse en attente…';
 
   @override
-  String get chat_offer_accepted => 'Offer accepted';
+  String get chat_offer_accepted => 'Offre acceptée';
 
   @override
-  String get chat_offer_declined => 'Offer declined';
+  String get chat_offer_declined => 'Offre refusée';
 
   @override
-  String get chat_message_deleted => 'Message deleted';
+  String get chat_message_deleted => 'Message supprimé';
 
   @override
   String get chat_currency => 'Dhs';
 
   @override
-  String get chat_purchase_confirmed => 'Purchase confirmed';
+  String get chat_purchase_confirmed => 'Achat confirmé';
 
   @override
-  String get chat_purchase_for => 'for';
+  String get chat_purchase_for => 'pour';
 
   @override
-  String get chat_no_messages => 'No messages yet';
+  String get chat_no_messages => 'Aucun message pour l\'instant';
 
   @override
   String get chat_preview_photo => '📷 Photo';
 
   @override
-  String get chat_preview_voice => '🎤 Voice message';
+  String get chat_preview_voice => '🎤 Message vocal';
 
   @override
-  String get chat_preview_offer_sent => 'You sent an offer';
+  String get chat_preview_offer_sent => 'Vous avez envoyé une offre';
 
   @override
-  String get chat_preview_offer_new => 'New offer';
+  String get chat_preview_offer_new => 'Nouvelle offre';
 
   @override
-  String get chat_preview_you_prefix => 'You: ';
+  String get chat_preview_you_prefix => 'Vous : ';
 }

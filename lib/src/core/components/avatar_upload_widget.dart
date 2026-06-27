@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:klozy/src/core/events/profile_changed_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_avatar_uploader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -37,6 +39,10 @@ class _AvatarUploadWidgetState extends State<AvatarUploadWidget> {
     });
     try {
       await _repo.uploadAvatar(picked.path);
+      // Avatar changes are persisted immediately (independently of the form's
+      // Save button), so broadcast here too — every screen showing the user's
+      // avatar (Profile tab, Chat participant data, …) refreshes via EventBus.
+      locator<EventBus>().fire(const ProfileChangedEvent());
     } catch (_) {
       if (mounted) context.showSnackBar(context.l10N.onboarding_avatar_failed);
     }

@@ -3,7 +3,7 @@ import 'package:klozy/src/design/components/ds_selectable_chip.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/feature/sell/domain/entity/size_system.dart';
 
-/// EU / UK / US size system toggle — sits inline next to the size label
+/// EU / US size system toggle — sits inline next to the size label
 /// (design: segmented control, no standalone "Size system" caption).
 class SellSizeToggleWidget extends StatelessWidget {
   final SizeSystem current;
@@ -24,12 +24,6 @@ class SellSizeToggleWidget extends StatelessWidget {
           label: 'EU',
           selected: current == SizeSystem.eu,
           onTap: () => onToggle(SizeSystem.eu),
-        ),
-        const SizedBox(width: DSSpacing.xxxs),
-        DSSelectableChip(
-          label: 'UK',
-          selected: current == SizeSystem.uk,
-          onTap: () => onToggle(SizeSystem.uk),
         ),
         const SizedBox(width: DSSpacing.xxxs),
         DSSelectableChip(

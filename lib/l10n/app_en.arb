@@ -899,7 +899,7 @@
   "categoryPickerPreferred": "Preferred categories",
   "@_sell_enrich": {},
   "sellPhotosEmptyTitle": "Add your photos",
-  "sellPhotosEmptySubtitle": "Start with one photo — AI writes the title, description and price.",
+  "sellPhotosEmptySubtitle": "Start with one photo —\nAI writes the title, description and price.",
   "sellPhotosCounter": "photos",
   "sellRecapPhotoStripEdit": "Edit",
   "sellRequiredHint": "* Required fields",

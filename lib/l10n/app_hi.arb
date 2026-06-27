@@ -1,6 +1,14 @@
 {
   "app_name": "Klozy",
-  "@_error_page": {},
+  "@_ds": [],
+  "ds_set_composition_header": "इस सेट में शामिल है",
+  "ds_set_composition_owner_note": "खरीदारों को आश्वस्त करने और जल्दी बेचने के लिए प्रत्येक टुकड़े की फ़ोटो जोड़ें।",
+  "ds_set_composition_buyer_note": "कुछ टुकड़ों की फ़ोटो नहीं ली गई है। विवरण के लिए विक्रेता से संपर्क करें।",
+  "ds_set_composition_photo": "फ़ोटो",
+  "ds_set_composition_add": "जोड़ें",
+  "ds_set_composition_no_photo": "कोई फ़ोटो नहीं",
+  "ds_search_bar_hint": "कोई आइटम या सदस्य खोजें",
+  "@_error_page": [],
   "error_page_show_details": "विवरण दिखाएँ",
   "error_page_hide_details": "विवरण छिपाएँ",
   "error_page_copy_for_support": "सहायता के लिए कॉपी करें",
@@ -10,7 +18,7 @@
   "error_page_stage_label": "चरण",
   "error_page_request_label": "अनुरोध",
   "error_page_message_label": "संदेश",
-  "@_error_scenario": {},
+  "@_error_scenario": [],
   "error_scenario_network_title": "ऐसा लगता है कि आप ऑफ़लाइन हैं",
   "error_scenario_network_body": "सिंक करने के लिए हमें कनेक्शन चाहिए। अपना Wi-Fi या मोबाइल डेटा जाँचें और फिर से प्रयास करें।",
   "error_scenario_network_primary": "कनेक्शन फिर से जोड़ें",
@@ -49,8 +57,9 @@
   "error_scenario_notfound_http_label": "नहीं मिला",
   "error_scenario_rate_limit_http_label": "बहुत अधिक अनुरोध",
   "error_scenario_maintenance_http_label": "रखरखाव",
-  "@_auth": {},
+  "@_auth": [],
   "auth_country_uae": "संयुक्त अरब अमीरात",
+  "auth_hero_placeholder": "हीरो · एडिटोरियल फ़ैशन शॉट",
   "auth_welcome_title": "पसंदीदा प्री-लव्ड\nफ़ैशन खरीदें और बेचें।",
   "auth_get_started": "शुरू करें",
   "auth_already_have_account": "मेरा पहले से ही खाता है · ",
@@ -81,27 +90,13 @@
   "auth_enter_code_title": "कोड दर्ज करें",
   "auth_code_sent_to": "इसे भेजा गया ",
   "auth_resend_code_in": "{time} में कोड फिर से भेजें",
-  "@auth_resend_code_in": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "auth_resend_code": "कोड फिर से भेजें",
   "auth_code_spam_hint": "नहीं मिला? स्पैम जाँचें। कूलडाउन के बाद एक नए कोड का अनुरोध किया जा सकता है।",
   "auth_verify": "सत्यापित करें",
   "auth_new_code_sent": "एक नया कोड भेजा गया।",
-  "@_onboarding": {},
+  "@_onboarding": [],
   "onboarding_all_set": "आप पूरी तरह तैयार हैं!",
   "onboarding_all_set_named": "आप पूरी तरह तैयार हैं, {name}!",
-  "@onboarding_all_set_named": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_feed_ready_subtitle": "आपका Klozy फ़ीड तैयार है। खोजें, बेचें और लुक खरीदें — सब एक ही जगह।",
   "onboarding_start_exploring": "एक्सप्लोर करना शुरू करें",
   "onboarding_complete_profile_title": "अपनी प्रोफ़ाइल पूरी करें",
@@ -114,16 +109,6 @@
   "onboarding_address_label": "पता",
   "onboarding_bio_label": "बायो",
   "onboarding_bio_char_count": "{count}/{max}",
-  "@onboarding_bio_char_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_bio_hint": "खरीदारों को अपनी स्टाइल के बारे में थोड़ा बताएँ…",
   "onboarding_continue": "जारी रखें",
   "onboarding_skip": "छोड़ें",
@@ -134,26 +119,12 @@
   "onboarding_sizes_title": "साइज़",
   "onboarding_clothing_label": "कपड़े",
   "onboarding_shoes_label": "जूते · {system}",
-  "@onboarding_shoes_label": {
-    "placeholders": {
-      "system": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_brands_title": "ब्रांड",
   "onboarding_brands_hint": "अपने पसंदीदा को फ़ॉलो करें",
   "onboarding_brands_search_hint": "ब्रांड खोजें",
   "onboarding_no_brand_matches": "कोई ब्रांड मेल नहीं खाता।",
   "onboarding_show_feed": "मेरा फ़ीड दिखाएँ",
   "onboarding_show_feed_count": "मेरा फ़ीड दिखाएँ · {count} चयनित",
-  "@onboarding_show_feed_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_seller_account_set_up": "विक्रेता खाता सेट हो गया।",
   "onboarding_seller_role_title": "आप कैसे बेचेंगे?",
   "onboarding_seller_role_subtitle": "वह खाता चुनें जो आपके लिए उपयुक्त हो। आप सेटिंग्स में कभी भी स्विच या अपग्रेड कर सकते हैं।",
@@ -166,45 +137,55 @@
   "onboarding_pro_vendor_badge": "PRO",
   "onboarding_pro_vendor_description": "एक रीसेल व्यवसाय चला रहे हैं। थोक लिस्टिंग, एक ब्रांडेड शॉप और एनालिटिक्स। Stripe (KYB) के ज़रिए सत्यापित और भुगतान किया गया।",
   "onboarding_buyer_protection_note": "हर बिक्री Klozy खरीदार सुरक्षा के अंतर्गत आती है। भुगतान एस्क्रो में रखा जाता है और डिलीवरी की पुष्टि होने पर आपको जारी किया जाता है।",
-  "@_home": {},
+  "@_home": [],
   "home_tab_feed": "फ़ीड",
   "home_tab_wishlist": "विशलिस्ट",
   "home_tab_reels": "रील्स",
   "home_feed_empty": "अभी यहाँ कुछ नहीं है।",
   "home_category_all": "सभी",
+  "home_picked_for_you": "आपके लिए चुना गया · {categories}",
   "home_product_badge_new": "नया",
   "home_wishlist_empty": "आपकी विशलिस्ट खाली है",
-  "@_reels": {},
+  "home_wishlist_empty_hint": "किसी भी आइटम पर दिल टैप करें और यहाँ सेव करें।",
+  "home_wishlist_saved_count": "{count, plural, =1{1 सहेजा गया आइटम} other{{count} सहेजे गए आइटम}}",
+  "@_reels": [],
+  "reels_processing_video": "वीडियो प्रोसेस हो रहा है…",
   "reels_composer_title": "नई रील",
-  "reels_pick_title": "एक रील बनाएँ",
+  "reels_compose_details_title": "विवरण जोड़ें",
   "reels_pick_subtitle": "अपनी चीज़ों को दिखाते हुए एक छोटा वीडियो रिकॉर्ड करें, या अपनी गैलरी से एक चुनें।",
   "reels_record_video": "एक वीडियो रिकॉर्ड करें",
+  "reels_record_hint": "60 सेकंड तक · वर्टिकल",
   "reels_choose_from_gallery": "गैलरी से चुनें",
+  "reels_caption_label": "कैप्शन",
   "reels_caption_hint": "अपने लुक के बारे में कुछ कहें…",
   "reels_tag_items_title": "अपनी शॉप से आइटम टैग करें",
   "reels_no_listings_to_tag": "आपके पास टैग करने के लिए अभी कोई सक्रिय लिस्टिंग नहीं है।",
   "reels_post_reel": "रील पोस्ट करें",
+  "reels_post_reel_tagged": "रील पोस्ट करें · {count} टैग",
+  "reels_publishing": "आपकी रील प्रकाशित हो रही है…",
   "reels_posted_title": "रील पोस्ट हो गई!",
   "reels_posted_subtitle": "प्रोसेसिंग पूरी होने के बाद यह रील्स में दिखाई देगी।",
+  "reels_posted_subtitle_tagged": "आपकी रील {count} टैग किए गए {count, plural, one{आइटम} other{आइटम}} के साथ फ़ीड में लाइव है।",
+  "reels_view_in_reels": "Reels में देखें",
   "reels_done": "हो गया",
   "reels_delete_reel": "रील हटाएँ",
   "reels_report_reel": "रील की रिपोर्ट करें",
   "reels_share": "शेयर करें",
   "reels_shop_the_look_count": "लुक खरीदें · {count}",
-  "@reels_shop_the_look_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "reels_no_tagged_items": "कोई टैग किया हुआ आइटम नहीं।",
   "reels_shop_the_look": "लुक खरीदें",
   "reels_deleted_snackbar": "रील हटा दी गई।",
   "reels_report_received_snackbar": "धन्यवाद — रिपोर्ट प्राप्त हुई।",
   "reels_empty": "अभी कोई रील नहीं",
   "reels_link_copied_snackbar": "लिंक क्लिपबोर्ड पर कॉपी हो गया।",
-  "@_search": {},
+  "entry_sheet_title": "आप क्या करना चाहेंगे?",
+  "entry_create_reel": "एक रील बनाएँ",
+  "entry_create_reel_sub": "अपने आइटम का वीडियो शेयर करें",
+  "entry_create_reel_needs_product": "पहले एक उत्पाद जोड़ें",
+  "entry_list_item": "बिक्री के लिए एक आइटम लिस्ट करें",
+  "entry_list_item_sub": "पहले फ़ोटो · AI आपकी लिस्टिंग भर देगा",
+  "entry_cancel": "रद्द करें",
+  "@_search": [],
   "search_hint": "आइटम, ब्रांड खोजें…",
   "search_sort_popular": "लोकप्रिय",
   "search_sort_latest": "नवीनतम",
@@ -212,47 +193,26 @@
   "search_sort_price_desc": "कीमत ↓",
   "search_filters": "फ़िल्टर",
   "search_filters_with_count": "फ़िल्टर · {count}",
-  "@search_filters_with_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_browse_categories": "श्रेणियाँ ब्राउज़ करें",
   "search_popular_now": "अभी लोकप्रिय",
   "search_no_results": "कोई परिणाम नहीं",
+  "category_items_count": "{count, plural, =1{1 आइटम} other{{count} आइटम}}",
+  "category_empty": "अभी यहाँ कुछ नहीं।",
+  "search_result_for_query": " “{query}” के लिए",
   "search_result_count": "{count, plural, =1{1 परिणाम} other{{count} परिणाम}}",
-  "@search_result_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_condition_count": "{count, plural, =1{1 स्थिति} other{{count} स्थितियाँ}}",
-  "@search_condition_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_size_count": "{count, plural, =1{1 साइज़} other{{count} साइज़}}",
-  "@search_size_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_filter_category": "श्रेणी",
   "search_filter_condition": "स्थिति",
   "search_filter_size": "साइज़",
   "search_filter_reset": "रीसेट करें",
   "search_filter_show_results": "परिणाम दिखाएँ",
-  "@_product": {},
+  "search_filter_clear": "साफ़ करें",
+  "search_filter_all": "सभी",
+  "@_product": [],
+  "product_your_listing": "आपकी लिस्टिंग",
   "product_add_to_cart": "कार्ट में जोड़ें",
+  "product_buy": "खरीदें",
   "product_in_cart_view_cart": "कार्ट में · कार्ट देखें",
   "product_edit_listing": "लिस्टिंग संपादित करें",
   "product_status_sold": "बिक गया",
@@ -260,9 +220,11 @@
   "product_mark_as_sold": "बिका हुआ चिह्नित करें",
   "product_mark_as_available": "उपलब्ध चिह्नित करें",
   "product_delete_listing": "लिस्टिंग हटाएँ",
+  "product_delete_confirm": "यह लिस्टिंग हटाएँ? इसे पूर्ववत नहीं किया जा सकता।",
   "product_report_listing": "लिस्टिंग की रिपोर्ट करें",
   "product_report_this_listing": "इस लिस्टिंग की रिपोर्ट करें",
   "product_listing_deleted": "लिस्टिंग हटा दी गई",
+  "product_listing_deleted_subtitle": "यह आइटम और इसकी फ़ोटो हटा दी गई हैं।",
   "product_back_to_feed": "फ़ीड पर वापस जाएँ",
   "product_added_to_cart": "कार्ट में जोड़ा गया।",
   "product_edit_coming_soon": "लिस्टिंग का संपादन जल्द ही आ रहा है।",
@@ -274,19 +236,15 @@
   "product_stat_posted": "पोस्ट किया गया",
   "product_stamp_sold": "बिक गया",
   "product_stamp_reserved": "आरक्षित",
+  "product_make_offer": "ऑफ़र दें",
   "product_currency_dhs": "Dhs",
   "product_price_amount": "{amount} ",
-  "@product_price_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
-  "@_sell": {},
+  "@_sell": [],
   "sell_sell_in_seconds": "सेकंडों में बेचें",
   "sell_your_photos": "आपकी फ़ोटो",
   "sell_add_photos_hint": "8 फ़ोटो तक जोड़ें। AI आपकी लिस्टिंग पहले से भर देगा।",
+  "sell_reorder_hint": "क्रम बदलने के लिए खींचें। पहली फ़ोटो कवर है।",
+  "sell_add_at_least_one_photo": "जारी रखने के लिए कम से कम 1 फ़ोटो जोड़ें",
   "sell_continue": "जारी रखें",
   "sell_cover": "कवर",
   "sell_add_a_photo": "एक फ़ोटो जोड़ें",
@@ -299,24 +257,25 @@
   "sell_price": "कीमत",
   "sell_description": "विवरण",
   "sell_category": "श्रेणी",
+  "sell_product_details": "उत्पाद विवरण",
+  "sell_subcategory": "उपश्रेणी",
+  "sell_choose_subcategory": "एक उपश्रेणी चुनें",
   "sell_brand": "ब्रांड",
   "sell_size": "साइज़",
   "sell_condition": "स्थिति",
   "sell_suggested_by_ai": "AI द्वारा सुझाया गया",
+  "sell_prefilled_by_ai": "AI द्वारा पहले से भरा गया — समीक्षा करें और समायोजित करें।",
+  "sell_photo_edit": "संपादित करें",
   "sell_list_item": "आइटम लिस्ट करें",
   "sell_optional": "वैकल्पिक",
   "sell_title_hint": "जैसे लेदर बाइकर जैकेट",
   "sell_price_hint": "AED",
+  "sell_price_suffix": "Dhs",
   "sell_description_hint": "स्थिति, फ़िट, सामग्री के बारे में विवरण जोड़ें…",
+  "sell_description_error": "विवरण जोड़ें ताकि खरीदार जान सकें कि उन्हें क्या मिल रहा है",
+  "sell_size_one_size": "एक साइज़",
   "sell_search_brands": "ब्रांड खोजें",
   "sell_use_quoted": "\"{value}\" का उपयोग करें",
-  "@sell_use_quoted": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "sell_title_error": "एक शीर्षक जोड़ें (कम से कम 2 अक्षर)",
   "sell_price_error": "एक कीमत दर्ज करें",
   "sell_category_error": "एक श्रेणी चुनें",
@@ -325,55 +284,44 @@
   "sell_item_visible_to_buyers": "आपका आइटम अब खरीदारों को दिखाई दे रहा है।",
   "sell_view_listing": "लिस्टिंग देखें",
   "sell_back_to_home": "होम पर वापस जाएँ",
-  "@_cart": {},
+  "sell_create_reel": "एक रील बनाएँ",
+  "@_cart": [],
   "cart_title": "कार्ट",
   "cart_make_an_offer": "एक ऑफ़र दें",
+  "cart_offer_sent": "ऑफ़र भेजा गया — विक्रेता आपसे जल्द संपर्क करेगा",
   "cart_cancel_offer": "ऑफ़र रद्द करें",
   "cart_check_out": "चेक आउट करें",
   "cart_subtotal": "उप-योग",
   "cart_offer_pending": "ऑफ़र लंबित",
   "cart_offer_accepted": "ऑफ़र स्वीकृत",
   "cart_pro_badge": "PRO",
+  "cart_cancel": "रद्द करें",
+  "cart_in_bundle": "बंडल ऑफ़र में",
+  "cart_in_accepted_bundle": "स्वीकृत बंडल में",
+  "cart_added_after_bundle": "बंडल ऑफ़र के बाद जोड़ा गया — शामिल नहीं",
+  "cart_bundle_pending": "प्रतिक्रिया की प्रतीक्षा में",
+  "cart_bundle_accepted": "स्वीकृत",
+  "cart_offer_sent_amount": "ऑफ़र भेजा गया · {amount} Dhs",
+  "cart_offer_accepted_save": "ऑफ़र स्वीकृत · {amount} Dhs की बचत",
+  "cart_bundle_was": "पहले {amount} Dhs था",
+  "cart_checkout_amount": "चेकआउट · {amount} Dhs",
+  "cart_offer_for_all": "{count, plural, =1{इस आइटम के लिए ऑफ़र} other{सभी {count} आइटम के लिए ऑफ़र}}",
+  "cart_bundle_title": "{count, plural, =1{बंडल ऑफ़र · 1 आइटम} other{बंडल ऑफ़र · {count} आइटम}}",
   "cart_empty_title": "आपका कार्ट खाली है",
   "cart_empty_subtitle": "आइटम जोड़ें और वे यहाँ विक्रेता के अनुसार समूहित हो जाएँगे।",
   "cart_offer_send": "ऑफ़र भेजें",
   "cart_offer_hint_single": "आपका ऑफ़र",
   "cart_offer_hint_multi": "सभी {count} आइटम के लिए आपका ऑफ़र",
-  "@cart_offer_hint_multi": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "cart_offer_error_below_total": "ऑफ़र कुल कीमत से कम होना चाहिए",
   "cart_offer_chat_note": "एक ऑफ़र इस विक्रेता की सभी चीज़ों को कवर करता है। यह चैट में निजी रूप से भेजा जाता है — विक्रेता स्वीकार या अस्वीकार करता है।",
+  "cart_offer_escrow_note": "डिलीवरी की पुष्टि होने तक आपका भुगतान एस्क्रो में रखा जाता है।",
   "cart_currency_dhs": "Dhs",
   "cart_price_dhs": "{amount} Dhs",
-  "@cart_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "cart_item_count": "{count, plural, =1{1 आइटम} other{{count} आइटम}}",
-  "@cart_item_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
+  "checkout_buy_more_from": "{name} से और खरीदें",
+  "cart_offer_seller_meta": "{count, plural, =1{1 आइटम} other{{count} आइटम}} · {price} Dhs पर सूचीबद्ध",
   "cart_sellers_summary": "{count, plural, =1{1 विक्रेता · प्रति विक्रेता एक ऑफ़र और चेकआउट} other{{count} विक्रेता · प्रति विक्रेता एक ऑफ़र और चेकआउट}}",
-  "@cart_sellers_summary": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@_checkout": {},
+  "@_checkout": [],
   "checkout_title": "चेकआउट",
   "checkout_delivery": "डिलीवरी",
   "checkout_summary": "सारांश",
@@ -383,21 +331,7 @@
   "checkout_vat": "VAT",
   "checkout_total": "कुल",
   "checkout_pay_amount": "{amount} Dhs का भुगतान करें",
-  "@checkout_pay_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_amount_dhs": "{amount} Dhs",
-  "@checkout_amount_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_encrypted_escrow_note": "एन्क्रिप्टेड चेकआउट · भुगतान एस्क्रो में रखा गया",
   "checkout_order_placed_title": "ऑर्डर दे दिया गया!",
   "checkout_order_placed_escrow_message": "आपका भुगतान तब तक एस्क्रो में रखा जाता है जब तक आप डिलीवरी की पुष्टि नहीं करते।",
@@ -405,7 +339,7 @@
   "checkout_continue_shopping": "खरीदारी जारी रखें",
   "checkout_payment_unavailable": "इस ऑर्डर के लिए भुगतान अनुपलब्ध है।",
   "checkout_payment_failed": "भुगतान विफल रहा। कृपया फिर से प्रयास करें।",
-  "@_orders": {},
+  "@_orders": [],
   "orders_my_orders": "मेरे ऑर्डर",
   "orders_buying": "खरीदारी",
   "orders_selling": "बिक्री",
@@ -414,37 +348,23 @@
   "orders_no_orders_yet": "अभी कोई ऑर्डर नहीं",
   "orders_prefix_from": "से",
   "orders_prefix_to": "को",
+  "orders_negotiated": "बातचीत किया गया",
   "orders_price_dhs": "{amount} Dhs",
-  "@orders_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "orders_counterpart_meta": "{prefix} {name}",
-  "@orders_counterpart_meta": {
-    "placeholders": {
-      "prefix": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "orders_order_details": "ऑर्डर विवरण",
   "orders_tracking": "ट्रैकिंग",
   "orders_tracking_updates_empty": "ट्रैकिंग अपडेट यहाँ दिखाई देंगे।",
   "orders_emx_door_to_door": "EMX डोर-टू-डोर · UAE घरेलू",
+  "orders_emx_tracking": "EMX ट्रैकिंग",
+  "orders_track_confirmed_label": "ऑर्डर पुष्टि",
+  "orders_track_confirmed_sub": "विक्रेता आपका आइटम तैयार कर रहा है",
+  "orders_track_shipped_label": "EMX से भेजा गया",
+  "orders_track_shipped_sub": "पिकअप हुआ · रास्ते में",
+  "orders_track_out_label": "डिलीवरी के लिए निकला",
+  "orders_track_out_sub": "आज आ रहा है",
+  "orders_track_delivered_label": "डिलीवर हो गया",
+  "orders_track_delivered_sub": "भुगतान जारी करने के लिए पुष्टि करें",
   "orders_carrier_prefix": "{carrier} · ",
-  "@orders_carrier_prefix": {
-    "placeholders": {
-      "carrier": {
-        "type": "String"
-      }
-    }
-  },
   "orders_mark_as_shipped": "शिप किया हुआ चिह्नित करें",
   "orders_download_emx_label": "EMX लेबल डाउनलोड करें",
   "orders_confirm_receipt": "प्राप्ति की पुष्टि करें",
@@ -470,45 +390,23 @@
   "orders_status_return_requested": "वापसी का अनुरोध किया गया",
   "orders_status_canceled": "रद्द कर दिया गया",
   "orders_status_unknown": "—",
-  "@_misc": {},
+  "@_misc": [],
   "profile_title": "प्रोफ़ाइल",
   "chat_title": "चैट",
-  "@_ds": {},
   "ds_password_strength_weak": "कमज़ोर",
   "ds_password_strength_fair": "ठीक-ठाक",
   "ds_password_strength_good": "अच्छा",
   "ds_password_strength_strong": "मज़बूत",
-  "@_notifications": {},
+  "@_notifications": [],
   "notifications_title": "सूचनाएँ",
   "notifications_read_all": "सभी पढ़ें",
   "notifications_empty": "आप पूरी तरह अपडेट हैं।",
   "notifications_profile_coming_soon": "प्रोफ़ाइल जल्द ही आ रही हैं।",
   "notifications_time_just_now": "अभी-अभी",
   "notifications_time_minutes": "{count} मिनट पहले",
-  "@notifications_time_minutes": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_hours": "{count} घंटे पहले",
-  "@notifications_time_hours": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_days": "{count} दिन पहले",
-  "@notifications_time_days": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@_profile_feature": {},
+  "@_profile_feature": [],
   "profile_edit": "प्रोफ़ाइल संपादित करें",
   "profile_follow": "फ़ॉलो करें",
   "profile_following": "फ़ॉलो किया जा रहा है",
@@ -527,10 +425,11 @@
   "profile_no_listings": "अभी कोई लिस्टिंग नहीं",
   "profile_no_reels": "अभी कोई रील नहीं",
   "profile_no_reviews": "अभी कोई समीक्षा नहीं",
+  "profile_reviews_count": "{count, plural, =1{1 समीक्षा} other{{count} समीक्षाएँ}}",
   "profile_no_followers": "अभी कोई फ़ॉलोअर नहीं",
   "profile_no_following": "अभी किसी को फ़ॉलो नहीं कर रहे",
   "profile_connections_title": "कनेक्शन",
-  "@_settings": {},
+  "@_settings": [],
   "settings_title": "सेटिंग्स",
   "settings_cancel": "रद्द करें",
   "settings_save": "सहेजें",
@@ -544,6 +443,10 @@
   "settings_section_legal": "कानूनी और सहायता",
   "settings_section_account": "खाता",
   "settings_edit_profile": "प्रोफ़ाइल संपादित करें",
+  "edit_profile_discard_title": "बदलाव छोड़ें?",
+  "edit_profile_discard_body": "आपके पास सहेजे नहीं गए बदलाव हैं। बिना सहेजे छोड़ें?",
+  "edit_profile_discard_confirm": "छोड़ें",
+  "edit_profile_keep_editing": "संपादन जारी रखें",
   "settings_delivery_address": "डिलीवरी पता",
   "settings_payout_iban": "भुगतान IBAN",
   "settings_seller_stats": "विक्रेता आँकड़े",
@@ -561,8 +464,14 @@
   "settings_delete_confirm": "अपना खाता स्थायी रूप से हटाएँ? इसे पूर्ववत नहीं किया जा सकता।",
   "settings_change_password_no_email": "इस खाते से कोई ईमेल लिंक नहीं है।",
   "settings_password_reset_sent": "पासवर्ड रीसेट लिंक भेज दिया गया। अपना ईमेल जाँचें।",
+  "settings_new_password": "नया पासवर्ड",
+  "settings_new_password_hint": "नया पासवर्ड",
+  "settings_confirm_password": "पासवर्ड की पुष्टि करें",
+  "settings_confirm_password_hint": "पासवर्ड फिर से दर्ज करें",
+  "settings_passwords_no_match": "पासवर्ड मेल नहीं खाते",
+  "settings_password_too_short": "कम से कम 8 अक्षरों का उपयोग करें",
+  "settings_password_updated": "पासवर्ड अपडेट हो गया।",
   "settings_support_unavailable": "सहायता अभी उपलब्ध नहीं है।",
-  "settings_handle": "हैंडल",
   "settings_address_line1": "पता लाइन",
   "settings_address_area": "क्षेत्र",
   "settings_address_city": "शहर",
@@ -574,6 +483,41 @@
   "settings_doc_unavailable": "यह दस्तावेज़ अभी उपलब्ध नहीं है।",
   "settings_no_blocked": "आपने किसी को ब्लॉक नहीं किया है।",
   "settings_unblock": "अनब्लॉक करें",
+  "settings_group_account": "खाता",
+  "settings_group_notifications": "सूचनाएँ",
+  "settings_group_other": "अन्य",
+  "settings_group_links": "लिंक",
+  "settings_group_social": "सोशल",
+  "settings_group_preferences": "प्राथमिकताएँ",
+  "settings_personal_data": "व्यक्तिगत डेटा",
+  "settings_personal_data_sub": "प्रोफ़ाइल, प्राथमिकताएँ, ब्लॉक किए गए उपयोगकर्ता",
+  "settings_personal_information": "व्यक्तिगत जानकारी",
+  "settings_security": "सुरक्षा",
+  "settings_security_sub": "ईमेल, पासवर्ड, फ़ोन",
+  "settings_payouts_sub": "बैंक विवरण (IBAN)",
+  "settings_share_app": "ऐप शेयर करें",
+  "settings_legal_notices": "कानूनी सूचनाएँ",
+  "settings_about": "के बारे में",
+  "settings_instagram": "Instagram",
+  "settings_instagram_handle": "@klozy",
+  "settings_clothing_preference": "कपड़ों की प्राथमिकता",
+  "settings_preferred_size": "पसंदीदा साइज़",
+  "settings_preferred_brands": "पसंदीदा ब्रांड",
+  "settings_change_email": "ईमेल बदलें",
+  "settings_phone_number": "फ़ोन नंबर",
+  "settings_current_email": "वर्तमान ईमेल",
+  "settings_new_email": "नया ईमेल",
+  "settings_new_email_hint": "you@email.com",
+  "settings_change_email_note": "हम आपके नए पते पर एक पुष्टिकरण लिंक भेजेंगे। बदलाव पुष्टि होने के बाद लागू होगा।",
+  "settings_email_link_sent": "पुष्टिकरण लिंक भेज दिया गया। समाप्त करने के लिए अपना नया इनबॉक्स जाँचें।",
+  "settings_current_number": "वर्तमान नंबर",
+  "settings_new_number": "नया नंबर",
+  "settings_new_number_hint": "50 123 4567",
+  "settings_phone_note": "हम आपके नए नंबर की पुष्टि करने के लिए 6-अंकों का कोड भेजेंगे।",
+  "settings_phone_updated": "फ़ोन नंबर अपडेट हो गया।",
+  "settings_enter_code_for": "{number} पर भेजा गया 6-अंकों का कोड दर्ज करें",
+  "settings_share_message": "Klozy देखें — UAE भर में प्री-लव्ड फ़ैशन खरीदें और बेचें। https://klozy.app",
+  "settings_share_failed": "शेयर नहीं खुल सका। कृपया फिर से प्रयास करें।",
   "onboarding_avatar_failed": "आपकी फ़ोटो अपलोड नहीं की जा सकी। कृपया फिर से प्रयास करें।",
   "sell_weight": "वज़न (ग्राम)",
   "sell_weight_hint": "जैसे 800",
@@ -637,35 +581,11 @@
   "search_price_min": "न्यूनतम",
   "search_price_max": "अधिकतम",
   "search_brand_count": "{count, plural, =1{1 ब्रांड} other{{count} ब्रांड}}",
-  "@search_brand_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_price_chip": "{min}–{max} Dhs",
-  "@search_price_chip": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "settings_iban_current": "वर्तमान IBAN: {masked}",
-  "@settings_iban_current": {
-    "placeholders": {
-      "masked": {
-        "type": "String"
-      }
-    }
-  },
   "auth_or_continue_with": "या इससे जारी रखें",
   "onboarding_address_search_hint": "अपना पता खोजें",
-  "settings_language": "भाषा",
+  "@_account": [],
   "account_gate_guest_title": "जारी रखने के लिए खाता बनाएं या लॉग इन करें",
   "account_gate_guest_subtitle": "आइटम विशलिस्ट करने, विक्रेताओं को फ़ॉलो करने और प्री-लव्ड फ़ैशन खरीदने के लिए Klozy से जुड़ें।",
   "account_gate_create_account": "खाता बनाएं",
@@ -673,24 +593,58 @@
   "account_gate_incomplete_title": "अपनी प्रोफ़ाइल सेटअप पूरा करें",
   "account_gate_incomplete_subtitle": "Klozy की सभी सुविधाएं अनलॉक करने के लिए अपनी प्रोफ़ाइल पूरी करें।",
   "account_gate_finish_setup": "सेटअप पूरा करें",
+  "@_guest_tab": [],
   "guest_tab_title": "Klozy में साइन इन करें",
   "guest_tab_subtitle": "इस सेक्शन तक पहुंचने के लिए खाता बनाएं या लॉग इन करें।",
   "guest_tab_cta": "खाता बनाएं",
   "guest_tab_log_in": "लॉग इन करें",
+  "@_categoryPicker": [],
   "categoryPickerTitle": "श्रेणी चुनें",
   "categoryPickerBreadcrumbRoot": "सभी श्रेणियां",
   "categoryPickerLoading": "लोड हो रहा है...",
   "categoryPickerRetry": "पुनः प्रयास करें",
+  "categoryPickerDeepestHint": "सबसे गहरा स्तर — नीचे साइज़ से फ़िल्टर करें।",
   "categoryPickerAddCategories": "श्रेणियां जोड़ें",
   "categoryPickerPreferred": "पसंदीदा श्रेणियां",
+  "@_sell_enrich": [],
   "sellPhotosEmptyTitle": "फ़ोटो जोड़ें",
   "sellPhotosEmptySubtitle": "अपने आइटम की फ़ोटो लें या अपलोड करें",
   "sellPhotosCounter": "फ़ोटो",
   "sellRecapPhotoStripEdit": "संपादित करें",
   "sellRequiredHint": "* आवश्यक फ़ील्ड",
-  "sellSizeSystem": "साइज़ सिस्टम",
-  "product_buy": "खरीदें",
-  "product_make_offer": "ऑफ़र दें",
+  "settings_language": "भाषा",
   "offer_send_failed": "आपका ऑफ़र नहीं भेजा जा सका। कृपया पुनः प्रयास करें।",
-  "product_see_offer": "ऑफ़र देखें"
+  "product_see_offer": "ऑफ़र देखें",
+  "@_chat": [],
+  "chat_empty_title": "अभी कोई बातचीत नहीं",
+  "chat_empty_subtitle": "चैट शुरू करने के लिए किसी भी उत्पाद से विक्रेता को संदेश भेजें।",
+  "chat_composer_hint": "संदेश…",
+  "chat_recording": "रिकॉर्ड हो रहा है…",
+  "chat_attach_photo": "फ़ोटो और वीडियो",
+  "chat_attach_camera": "कैमरा",
+  "chat_incomplete_profile_title": "अपनी प्रोफ़ाइल सेटअप पूरा करें",
+  "chat_incomplete_profile_subtitle": "खरीदारों और विक्रेताओं से चैट शुरू करने के लिए अपनी प्रोफ़ाइल पूरी करें।",
+  "chat_incomplete_profile_cta": "प्रोफ़ाइल पूरी करें",
+  "chat_menu_report": "रिपोर्ट करें और ब्लॉक करें",
+  "chat_menu_delete": "बातचीत हटाएँ",
+  "chat_reply_self": "खुद को जवाब दे रहे हैं",
+  "chat_reply_other": "जवाब दे रहे हैं",
+  "chat_media_placeholder": "[मीडिया]",
+  "chat_offer_yours": "आपका ऑफ़र",
+  "chat_offer_incoming": "ऑफ़र",
+  "chat_offer_refuse": "अस्वीकार करें",
+  "chat_offer_accept": "स्वीकार करें",
+  "chat_offer_pending": "प्रतिक्रिया का इंतज़ार…",
+  "chat_offer_accepted": "ऑफ़र स्वीकृत",
+  "chat_offer_declined": "ऑफ़र अस्वीकृत",
+  "chat_message_deleted": "संदेश हटा दिया गया",
+  "chat_currency": "Dhs",
+  "chat_purchase_confirmed": "खरीद की पुष्टि हुई",
+  "chat_purchase_for": "के लिए",
+  "chat_no_messages": "अभी कोई संदेश नहीं",
+  "chat_preview_photo": "📷 फ़ोटो",
+  "chat_preview_voice": "🎤 वॉइस मैसेज",
+  "chat_preview_offer_sent": "आपने एक ऑफ़र भेजा",
+  "chat_preview_offer_new": "नया ऑफ़र",
+  "chat_preview_you_prefix": "आप: "
 }

@@ -131,6 +131,7 @@ class CatalogRepositoryImpl implements CatalogRepository {
               CatalogSizeValue(
                 token: token,
                 label: _str(v, ['label']) ?? token,
+                systemLabels: _systemLabels(v['systemLabels']),
               ),
             );
           }
@@ -169,5 +170,22 @@ class CatalogRepositoryImpl implements CatalogRepository {
       if (value is String && value.isNotEmpty) return value;
     }
     return null;
+  }
+
+  /// Parses a size value's `systemLabels` map (e.g. `{'EU': '42', 'US': '9'}`)
+  /// into a `Map<String, String>`, dropping any non-string entries. Returns
+  /// null when absent or empty so region-agnostic sizes stay plain.
+  Map<String, String>? _systemLabels(Object? raw) {
+    if (raw is! Map) return null;
+    final result = <String, String>{};
+    raw.forEach((Object? key, Object? value) {
+      if (key is String && value is String && value.isNotEmpty) {
+        // Normalise keys to upper-case ('EU'/'US'/'UK'): the backend is
+        // inconsistent (size sets carry lower-case `systems`, product tokens
+        // use upper-case "EU 42"), so we pin a single casing here.
+        result[key.toUpperCase()] = value;
+      }
+    });
+    return result.isEmpty ? null : result;
   }
 }

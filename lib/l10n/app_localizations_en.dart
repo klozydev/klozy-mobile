@@ -2010,7 +2010,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sellPhotosEmptySubtitle =>
-      'Start with one photo — AI writes the title, description and price.';
+      'Start with one photo —\nAI writes the title, description and price.';
 
   @override
   String get sellPhotosCounter => 'photos';

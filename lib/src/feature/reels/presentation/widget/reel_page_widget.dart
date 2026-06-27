@@ -4,10 +4,13 @@ import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
+import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel.dart';
+import 'package:klozy/src/feature/reels/presentation/playback/reel_playback_coordinator.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_action_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
 import 'package:video_player/video_player.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 /// A single full-bleed reel page: looping video (or poster) + tap-to-pause +
 /// engagement overlay.
@@ -38,14 +41,19 @@ class ReelPageWidget extends StatefulWidget {
 }
 
 class _ReelPageWidgetState extends State<ReelPageWidget> {
+  late final ReelPlaybackCoordinator _coordinator;
   VideoPlayerController? _controller;
   bool _ready = false;
-  bool _paused = false;
+  // Manual pause via tap — survives visibility/active changes so a tapped reel
+  // stays paused until the user taps again.
+  bool _userPaused = false;
+  bool _isOnScreen = true;
   bool _failed = false;
 
   @override
   void initState() {
     super.initState();
+    _coordinator = locator<ReelPlaybackCoordinator>();
     final url = widget.reel.playbackUrl;
     if (url != null) {
       final controller = VideoPlayerController.networkUrl(Uri.parse(url))
@@ -57,7 +65,7 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
           .then((_) {
             if (!mounted) return;
             setState(() => _ready = true);
-            if (widget.isActive) controller.play();
+            _syncPlayback();
           })
           // Bad/expired Mux source (e.g. 404) → fall back to poster, don't crash.
           .catchError((Object _) {
@@ -76,20 +84,52 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
   void didUpdateWidget(ReelPageWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.isActive != oldWidget.isActive) {
-      if (widget.isActive) {
-        _controller?.play();
-        _paused = false;
-      } else {
-        _controller?.pause();
-      }
+      if (widget.isActive) _userPaused = false;
+      _syncPlayback();
     }
   }
 
   @override
   void dispose() {
+    _coordinator.release(this);
     _controller?.removeListener(_onControllerUpdate);
     _controller?.dispose();
     super.dispose();
+  }
+
+  /// Single source of truth for play/pause. A reel plays only when it is the
+  /// focused page ([widget.isActive]), actually on screen ([_isOnScreen]) and
+  /// not manually paused. Playing it preempts any other reel via the
+  /// coordinator, so two surfaces can never overlap audio.
+  void _syncPlayback() {
+    final controller = _controller;
+    if (controller == null || !_ready || _failed) return;
+    final shouldPlay = widget.isActive && _isOnScreen && !_userPaused;
+    if (shouldPlay) {
+      _coordinator.requestPlayback(this, _pauseForPreemption);
+      controller.play();
+    } else {
+      controller.pause();
+      _coordinator.release(this);
+    }
+  }
+
+  /// Called by the coordinator when another reel takes over playback. Pauses
+  /// without setting [_userPaused], so this reel resumes automatically once it
+  /// is back on screen.
+  void _pauseForPreemption() {
+    _controller?.pause();
+    if (mounted) setState(() {});
+  }
+
+  void _onVisibilityChanged(VisibilityInfo info) {
+    // Threshold ~0: an opaque pushed route (profile, single reel) drops the
+    // fraction to 0 and pauses; a partial bottom sheet keeps the reel playing
+    // (overlap is already prevented by the coordinator).
+    final isOnScreen = info.visibleFraction > 0;
+    if (isOnScreen == _isOnScreen) return;
+    _isOnScreen = isOnScreen;
+    _syncPlayback();
   }
 
   void _togglePlay() {
@@ -97,45 +137,48 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
     if (controller == null) return;
     setState(() {
       if (controller.value.isPlaying) {
-        controller.pause();
-        _paused = true;
+        _userPaused = true;
       } else {
-        controller.play();
-        _paused = false;
+        _userPaused = false;
       }
     });
+    _syncPlayback();
   }
 
   @override
   Widget build(BuildContext context) {
     final reel = widget.reel;
-    return GestureDetector(
-      onTap: _togglePlay,
-      child: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          ColoredBox(color: DSColor.surface, child: _videoOrPoster()),
-          // Bottom scrim for the caption / actions.
-          const DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.center,
-                end: Alignment.bottomCenter,
-                colors: <Color>[Colors.transparent, Color(0xB3000000)],
+    return VisibilityDetector(
+      key: Key('reel-${reel.id}'),
+      onVisibilityChanged: _onVisibilityChanged,
+      child: GestureDetector(
+        onTap: _togglePlay,
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            ColoredBox(color: DSColor.surface, child: _videoOrPoster()),
+            // Bottom scrim for the caption / actions.
+            const DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.center,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[Colors.transparent, Color(0xB3000000)],
+                ),
               ),
             ),
-          ),
-          if (_paused)
-            const Center(
-              child: Icon(
-                Icons.play_arrow_rounded,
-                size: 64,
-                color: Color(0xD9FFFFFF),
+            if (_userPaused)
+              const Center(
+                child: Icon(
+                  Icons.play_arrow_rounded,
+                  size: 64,
+                  color: Color(0xD9FFFFFF),
+                ),
               ),
-            ),
-          _rail(context, reel),
-          _caption(context, reel),
-        ],
+            _rail(context, reel),
+            _caption(context, reel),
+          ],
+        ),
       ),
     );
   }

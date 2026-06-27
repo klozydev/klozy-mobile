@@ -1,5 +1,13 @@
 {
   "app_name": "Klozy",
+  "@_ds": {},
+  "ds_set_composition_header": "Este set incluye",
+  "ds_set_composition_owner_note": "Añade una foto de cada prenda para dar confianza a los compradores y vender más rápido.",
+  "ds_set_composition_buyer_note": "Algunas prendas no tienen foto. Contacta con el vendedor para más detalles.",
+  "ds_set_composition_photo": "Foto",
+  "ds_set_composition_add": "Añadir",
+  "ds_set_composition_no_photo": "Sin foto",
+  "ds_search_bar_hint": "Buscar un artículo o miembro",
   "@_error_page": {},
   "error_page_show_details": "MOSTRAR DETALLES",
   "error_page_hide_details": "OCULTAR DETALLES",
@@ -51,6 +59,7 @@
   "error_scenario_maintenance_http_label": "Mantenimiento",
   "@_auth": {},
   "auth_country_uae": "EMIRATOS ÁRABES UNIDOS",
+  "auth_hero_placeholder": "FOTO  ·  EDITORIAL  DE MODA",
   "auth_welcome_title": "Compra y vende moda\nde segunda mano que te encantará.",
   "auth_get_started": "Empezar",
   "auth_already_have_account": "Ya tengo una cuenta · ",
@@ -81,13 +90,6 @@
   "auth_enter_code_title": "Introduce el código",
   "auth_code_sent_to": "Enviado a ",
   "auth_resend_code_in": "Reenviar código en {time}",
-  "@auth_resend_code_in": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "auth_resend_code": "Reenviar código",
   "auth_code_spam_hint": "¿No lo recibiste? Revisa el spam. Puedes solicitar un nuevo código tras el tiempo de espera.",
   "auth_verify": "Verificar",
@@ -95,13 +97,6 @@
   "@_onboarding": {},
   "onboarding_all_set": "¡Todo listo!",
   "onboarding_all_set_named": "¡Todo listo, {name}!",
-  "@onboarding_all_set_named": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_feed_ready_subtitle": "Tu feed de Klozy está listo. Descubre, vende y compra el look, todo en un mismo lugar.",
   "onboarding_start_exploring": "Empezar a explorar",
   "onboarding_complete_profile_title": "Completa tu perfil",
@@ -114,16 +109,6 @@
   "onboarding_address_label": "Dirección",
   "onboarding_bio_label": "Biografía",
   "onboarding_bio_char_count": "{count}/{max}",
-  "@onboarding_bio_char_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_bio_hint": "Cuéntales a los compradores un poco sobre tu estilo…",
   "onboarding_continue": "Continuar",
   "onboarding_skip": "Omitir",
@@ -134,26 +119,12 @@
   "onboarding_sizes_title": "Tallas",
   "onboarding_clothing_label": "Ropa",
   "onboarding_shoes_label": "Calzado · {system}",
-  "@onboarding_shoes_label": {
-    "placeholders": {
-      "system": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_brands_title": "Marcas",
   "onboarding_brands_hint": "Sigue tus favoritas",
   "onboarding_brands_search_hint": "Buscar marcas",
   "onboarding_no_brand_matches": "No hay marcas que coincidan.",
   "onboarding_show_feed": "Mostrar mi feed",
   "onboarding_show_feed_count": "Mostrar mi feed · {count} seleccionadas",
-  "@onboarding_show_feed_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_seller_account_set_up": "Cuenta de vendedor configurada.",
   "onboarding_seller_role_title": "¿Cómo vas a vender?",
   "onboarding_seller_role_subtitle": "Elige la cuenta que mejor se adapte a ti. Puedes cambiarla o mejorarla cuando quieras en Ajustes.",
@@ -172,38 +143,48 @@
   "home_tab_reels": "Reels",
   "home_feed_empty": "Aún no hay nada aquí.",
   "home_category_all": "Todo",
+  "home_picked_for_you": "Seleccionado para ti · {categories}",
   "home_product_badge_new": "Nuevo",
   "home_wishlist_empty": "Tu lista de favoritos está vacía",
+  "home_wishlist_empty_hint": "Toca el corazón en cualquier artículo para guardarlo aquí.",
+  "home_wishlist_saved_count": "{count, plural, one{1 artículo guardado} other{{count} artículos guardados}}",
   "@_reels": {},
+  "reels_processing_video": "Procesando el vídeo…",
   "reels_composer_title": "Nuevo reel",
-  "reels_pick_title": "Crea un reel",
+  "reels_compose_details_title": "Añadir detalles",
   "reels_pick_subtitle": "Graba un vídeo corto mostrando tus prendas o elige uno de tu galería.",
   "reels_record_video": "Grabar un vídeo",
+  "reels_record_hint": "Hasta 60 s · vertical",
   "reels_choose_from_gallery": "Elegir de la galería",
+  "reels_caption_label": "Descripción",
   "reels_caption_hint": "Di algo sobre tu look…",
   "reels_tag_items_title": "Etiqueta artículos de tu tienda",
   "reels_no_listings_to_tag": "Aún no tienes publicaciones activas para etiquetar.",
   "reels_post_reel": "Publicar reel",
+  "reels_post_reel_tagged": "Publicar reel · {count} etiquetados",
+  "reels_publishing": "Publicando tu reel…",
   "reels_posted_title": "¡Reel publicado!",
   "reels_posted_subtitle": "Aparecerá en Reels cuando termine el procesamiento.",
+  "reels_posted_subtitle_tagged": "Tu reel está en el feed con {count} {count, plural, one{artículo} other{artículos}} etiquetados.",
+  "reels_view_in_reels": "Ver en Reels",
   "reels_done": "Hecho",
   "reels_delete_reel": "Eliminar reel",
   "reels_report_reel": "Reportar reel",
   "reels_share": "Compartir",
   "reels_shop_the_look_count": "Compra el look · {count}",
-  "@reels_shop_the_look_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "reels_no_tagged_items": "No hay artículos etiquetados.",
   "reels_shop_the_look": "Compra el look",
   "reels_deleted_snackbar": "Reel eliminado.",
   "reels_report_received_snackbar": "Gracias, recibimos tu reporte.",
   "reels_empty": "Aún no hay reels",
   "reels_link_copied_snackbar": "Enlace copiado al portapapeles.",
+  "entry_sheet_title": "¿Qué te gustaría hacer?",
+  "entry_create_reel": "Crear un reel",
+  "entry_create_reel_sub": "Comparte un vídeo de tus prendas",
+  "entry_create_reel_needs_product": "Añade un producto primero",
+  "entry_list_item": "Publicar un artículo en venta",
+  "entry_list_item_sub": "Primero la foto · la IA rellena tu publicación",
+  "entry_cancel": "Cancelar",
   "@_search": {},
   "search_hint": "Buscar artículos, marcas…",
   "search_sort_popular": "Popular",
@@ -212,47 +193,26 @@
   "search_sort_price_desc": "Precio ↓",
   "search_filters": "Filtros",
   "search_filters_with_count": "Filtros · {count}",
-  "@search_filters_with_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_browse_categories": "Explorar categorías",
   "search_popular_now": "Popular ahora mismo",
   "search_no_results": "Sin resultados",
+  "category_items_count": "{count, plural, one{1 artículo} other{{count} artículos}}",
+  "category_empty": "Aún no hay nada aquí.",
+  "search_result_for_query": " para \"{query}\"",
   "search_result_count": "{count, plural, =1{1 resultado} other{{count} resultados}}",
-  "@search_result_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_condition_count": "{count, plural, =1{1 estado} other{{count} estados}}",
-  "@search_condition_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_size_count": "{count, plural, =1{1 talla} other{{count} tallas}}",
-  "@search_size_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_filter_category": "Categoría",
   "search_filter_condition": "Estado",
   "search_filter_size": "Talla",
   "search_filter_reset": "Restablecer",
   "search_filter_show_results": "Mostrar resultados",
+  "search_filter_clear": "Limpiar",
+  "search_filter_all": "Todo",
   "@_product": {},
+  "product_your_listing": "Tu publicación",
   "product_add_to_cart": "Añadir al carrito",
+  "product_buy": "Comprar",
   "product_in_cart_view_cart": "En el carrito · Ver carrito",
   "product_edit_listing": "Editar publicación",
   "product_status_sold": "Vendido",
@@ -260,9 +220,11 @@
   "product_mark_as_sold": "Marcar como vendido",
   "product_mark_as_available": "Marcar como disponible",
   "product_delete_listing": "Eliminar publicación",
+  "product_delete_confirm": "¿Eliminar esta publicación? Esta acción no se puede deshacer.",
   "product_report_listing": "Reportar publicación",
   "product_report_this_listing": "Reportar esta publicación",
   "product_listing_deleted": "Publicación eliminada",
+  "product_listing_deleted_subtitle": "Este artículo y sus fotos han sido eliminados.",
   "product_back_to_feed": "Volver al feed",
   "product_added_to_cart": "Añadido al carrito.",
   "product_edit_coming_soon": "La edición de publicaciones llegará pronto.",
@@ -274,19 +236,15 @@
   "product_stat_posted": "Publicado",
   "product_stamp_sold": "VENDIDO",
   "product_stamp_reserved": "RESERVADO",
+  "product_make_offer": "Hacer una oferta",
   "product_currency_dhs": "Dhs",
-  "product_price_amount": "{amount} ",
-  "@product_price_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
+  "product_price_amount": "{amount} Dhs",
   "@_sell": {},
   "sell_sell_in_seconds": "Vende en segundos",
   "sell_your_photos": "Tus fotos",
   "sell_add_photos_hint": "Añade hasta 8 fotos. La IA rellenará tu publicación automáticamente.",
+  "sell_reorder_hint": "Arrastra para reordenar. La 1.ª foto es la portada.",
+  "sell_add_at_least_one_photo": "Añade al menos 1 foto para continuar",
   "sell_continue": "Continuar",
   "sell_cover": "Portada",
   "sell_add_a_photo": "Añadir una foto",
@@ -299,24 +257,25 @@
   "sell_price": "Precio",
   "sell_description": "Descripción",
   "sell_category": "Categoría",
+  "sell_product_details": "Detalles del producto",
+  "sell_subcategory": "Subcategoría",
+  "sell_choose_subcategory": "Elige una subcategoría",
   "sell_brand": "Marca",
   "sell_size": "Talla",
   "sell_condition": "Estado",
   "sell_suggested_by_ai": "Sugerido por IA",
+  "sell_prefilled_by_ai": "Rellenado por IA — revisa y ajusta.",
+  "sell_photo_edit": "Editar",
   "sell_list_item": "Publicar artículo",
   "sell_optional": "Opcional",
   "sell_title_hint": "p. ej. Chaqueta biker de cuero",
-  "sell_price_hint": "AED",
+  "sell_price_hint": "0",
+  "sell_price_suffix": "Dhs",
   "sell_description_hint": "Añade detalles sobre el estado, el ajuste, el material…",
+  "sell_description_error": "Añade una descripción para que los compradores sepan lo que obtienen",
+  "sell_size_one_size": "Talla única",
   "sell_search_brands": "Buscar marcas",
   "sell_use_quoted": "Usar \"{value}\"",
-  "@sell_use_quoted": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "sell_title_error": "Añade un título (al menos 2 caracteres)",
   "sell_price_error": "Introduce un precio",
   "sell_category_error": "Elige una categoría",
@@ -325,54 +284,43 @@
   "sell_item_visible_to_buyers": "Tu artículo ya es visible para los compradores.",
   "sell_view_listing": "Ver publicación",
   "sell_back_to_home": "Volver al inicio",
+  "sell_create_reel": "Crear un reel",
   "@_cart": {},
   "cart_title": "Carrito",
   "cart_make_an_offer": "Hacer una oferta",
+  "cart_offer_sent": "Oferta enviada — el vendedor te responderá",
   "cart_cancel_offer": "Cancelar oferta",
   "cart_check_out": "Pagar",
   "cart_subtotal": "Subtotal",
   "cart_offer_pending": "Oferta pendiente",
   "cart_offer_accepted": "Oferta aceptada",
   "cart_pro_badge": "PRO",
+  "cart_cancel": "Cancelar",
+  "cart_in_bundle": "En oferta de lote",
+  "cart_in_accepted_bundle": "En lote aceptado",
+  "cart_added_after_bundle": "Añadido tras tu oferta de lote — no incluido",
+  "cart_bundle_pending": "Respuesta pendiente",
+  "cart_bundle_accepted": "Aceptada",
+  "cart_offer_sent_amount": "Oferta enviada · {amount} Dhs",
+  "cart_offer_accepted_save": "Oferta aceptada · ahorras {amount} Dhs",
+  "cart_bundle_was": "antes {amount} Dhs",
+  "cart_checkout_amount": "Pagar · {amount} Dhs",
+  "cart_offer_for_all": "{count, plural, one{Oferta por este artículo} other{Oferta por los {count} artículos}}",
+  "cart_bundle_title": "{count, plural, one{Oferta de lote · 1 artículo} other{Oferta de lote · {count} artículos}}",
   "cart_empty_title": "Tu carrito está vacío",
   "cart_empty_subtitle": "Añade artículos y se agruparán por vendedor aquí.",
   "cart_offer_send": "Enviar oferta",
   "cart_offer_hint_single": "Tu oferta",
   "cart_offer_hint_multi": "Tu oferta por los {count} artículos",
-  "@cart_offer_hint_multi": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "cart_offer_error_below_total": "La oferta debe ser inferior al precio total",
   "cart_offer_chat_note": "Una sola oferta cubre todo lo de este vendedor. Se envía de forma privada en el chat, y el vendedor la acepta o la rechaza.",
+  "cart_offer_escrow_note": "Tu pago se retiene en depósito de garantía hasta que confirmes la entrega.",
   "cart_currency_dhs": "Dhs",
   "cart_price_dhs": "{amount} Dhs",
-  "@cart_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "cart_item_count": "{count, plural, =1{1 artículo} other{{count} artículos}}",
-  "@cart_item_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
+  "checkout_buy_more_from": "Comprar más de {name}",
+  "cart_offer_seller_meta": "{count, plural, one{1 artículo} other{{count} artículos}} · a la venta por {price} Dhs",
   "cart_sellers_summary": "{count, plural, =1{1 vendedor · una oferta y un pago por vendedor} other{{count} vendedores · una oferta y un pago por vendedor}}",
-  "@cart_sellers_summary": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_checkout": {},
   "checkout_title": "Pago",
   "checkout_delivery": "Entrega",
@@ -383,21 +331,7 @@
   "checkout_vat": "VAT",
   "checkout_total": "Total",
   "checkout_pay_amount": "Pagar {amount} Dhs",
-  "@checkout_pay_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_amount_dhs": "{amount} Dhs",
-  "@checkout_amount_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_encrypted_escrow_note": "Pago cifrado · importe retenido en depósito de garantía",
   "checkout_order_placed_title": "¡Pedido realizado!",
   "checkout_order_placed_escrow_message": "Tu pago se retiene en depósito de garantía hasta que confirmes la entrega.",
@@ -414,37 +348,23 @@
   "orders_no_orders_yet": "Aún no hay pedidos",
   "orders_prefix_from": "de",
   "orders_prefix_to": "para",
+  "orders_negotiated": "Negociado",
   "orders_price_dhs": "{amount} Dhs",
-  "@orders_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "orders_counterpart_meta": "{prefix} {name}",
-  "@orders_counterpart_meta": {
-    "placeholders": {
-      "prefix": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "orders_order_details": "Detalles del pedido",
   "orders_tracking": "Seguimiento",
   "orders_tracking_updates_empty": "Las actualizaciones de seguimiento aparecerán aquí.",
   "orders_emx_door_to_door": "EMX puerta a puerta · nacional EAU",
+  "orders_emx_tracking": "Seguimiento EMX",
+  "orders_track_confirmed_label": "Pedido confirmado",
+  "orders_track_confirmed_sub": "El vendedor está preparando tu artículo",
+  "orders_track_shipped_label": "Enviado con EMX",
+  "orders_track_shipped_sub": "Recogido · en tránsito",
+  "orders_track_out_label": "En camino",
+  "orders_track_out_sub": "Llegará hoy",
+  "orders_track_delivered_label": "Entregado",
+  "orders_track_delivered_sub": "Confirma para liberar el pago",
   "orders_carrier_prefix": "{carrier} · ",
-  "@orders_carrier_prefix": {
-    "placeholders": {
-      "carrier": {
-        "type": "String"
-      }
-    }
-  },
   "orders_mark_as_shipped": "Marcar como enviado",
   "orders_download_emx_label": "Descargar etiqueta EMX",
   "orders_confirm_receipt": "Confirmar recepción",
@@ -473,7 +393,6 @@
   "@_misc": {},
   "profile_title": "Perfil",
   "chat_title": "Chat",
-  "@_ds": {},
   "ds_password_strength_weak": "Débil",
   "ds_password_strength_fair": "Aceptable",
   "ds_password_strength_good": "Buena",
@@ -485,29 +404,8 @@
   "notifications_profile_coming_soon": "Los perfiles llegarán pronto.",
   "notifications_time_just_now": "Ahora mismo",
   "notifications_time_minutes": "hace {count} min",
-  "@notifications_time_minutes": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_hours": "hace {count} h",
-  "@notifications_time_hours": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_days": "hace {count} d",
-  "@notifications_time_days": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_profile_feature": {},
   "profile_edit": "Editar perfil",
   "profile_follow": "Seguir",
@@ -527,6 +425,7 @@
   "profile_no_listings": "Aún no hay publicaciones",
   "profile_no_reels": "Aún no hay reels",
   "profile_no_reviews": "Aún no hay reseñas",
+  "profile_reviews_count": "{count, plural, one{1 reseña} other{{count} reseñas}}",
   "profile_no_followers": "Aún no hay seguidores",
   "profile_no_following": "Aún no sigue a nadie",
   "profile_connections_title": "Conexiones",
@@ -544,6 +443,10 @@
   "settings_section_legal": "Legal y soporte",
   "settings_section_account": "Cuenta",
   "settings_edit_profile": "Editar perfil",
+  "edit_profile_discard_title": "¿Descartar cambios?",
+  "edit_profile_discard_body": "Tienes cambios sin guardar. ¿Salir sin guardar?",
+  "edit_profile_discard_confirm": "Descartar",
+  "edit_profile_keep_editing": "Seguir editando",
   "settings_delivery_address": "Dirección de entrega",
   "settings_payout_iban": "IBAN de cobro",
   "settings_seller_stats": "Estadísticas de vendedor",
@@ -561,8 +464,14 @@
   "settings_delete_confirm": "¿Eliminar tu cuenta de forma permanente? Esto no se puede deshacer.",
   "settings_change_password_no_email": "No hay ningún correo vinculado a esta cuenta.",
   "settings_password_reset_sent": "Enlace para restablecer la contraseña enviado. Revisa tu correo.",
+  "settings_new_password": "Nueva contraseña",
+  "settings_new_password_hint": "Nueva contraseña",
+  "settings_confirm_password": "Confirmar contraseña",
+  "settings_confirm_password_hint": "Vuelve a introducir la contraseña",
+  "settings_passwords_no_match": "Las contraseñas no coinciden",
+  "settings_password_too_short": "Usa al menos 8 caracteres",
+  "settings_password_updated": "Contraseña actualizada.",
   "settings_support_unavailable": "El soporte no está disponible en este momento.",
-  "settings_handle": "Nombre de usuario",
   "settings_address_line1": "Línea de dirección",
   "settings_address_area": "Zona",
   "settings_address_city": "Ciudad",
@@ -574,6 +483,41 @@
   "settings_doc_unavailable": "Este documento no está disponible en este momento.",
   "settings_no_blocked": "No has bloqueado a nadie.",
   "settings_unblock": "Desbloquear",
+  "settings_group_account": "Cuenta",
+  "settings_group_notifications": "Notificaciones",
+  "settings_group_other": "Otros",
+  "settings_group_links": "Enlaces",
+  "settings_group_social": "Social",
+  "settings_group_preferences": "Preferencias",
+  "settings_personal_data": "Datos personales",
+  "settings_personal_data_sub": "Perfil, preferencias, usuarios bloqueados",
+  "settings_personal_information": "Información personal",
+  "settings_security": "Seguridad",
+  "settings_security_sub": "Correo, contraseña, teléfono",
+  "settings_payouts_sub": "Datos bancarios (IBAN)",
+  "settings_share_app": "Compartir la app",
+  "settings_legal_notices": "Avisos legales",
+  "settings_about": "Acerca de",
+  "settings_instagram": "Instagram",
+  "settings_instagram_handle": "@klozy",
+  "settings_clothing_preference": "Preferencia de ropa",
+  "settings_preferred_size": "Talla preferida",
+  "settings_preferred_brands": "Marcas preferidas",
+  "settings_change_email": "Cambiar correo",
+  "settings_phone_number": "Número de teléfono",
+  "settings_current_email": "Correo actual",
+  "settings_new_email": "Nuevo correo",
+  "settings_new_email_hint": "tu@correo.com",
+  "settings_change_email_note": "Te enviaremos un enlace de confirmación a tu nueva dirección. El cambio se aplica una vez confirmado.",
+  "settings_email_link_sent": "Enlace de confirmación enviado. Revisa tu nueva bandeja de entrada para finalizar.",
+  "settings_current_number": "Número actual",
+  "settings_new_number": "Nuevo número",
+  "settings_new_number_hint": "50 123 4567",
+  "settings_phone_note": "Te enviaremos un código de 6 dígitos por SMS para confirmar tu nuevo número.",
+  "settings_phone_updated": "Número de teléfono actualizado.",
+  "settings_enter_code_for": "Introduce el código de 6 dígitos enviado a {number}",
+  "settings_share_message": "Descubre Klozy — compra y vende moda de segunda mano en todo EAU. https://klozy.app",
+  "settings_share_failed": "No se pudo abrir para compartir. Inténtalo de nuevo.",
   "onboarding_avatar_failed": "No se pudo subir tu foto. Inténtalo de nuevo.",
   "sell_weight": "Peso (gramos)",
   "sell_weight_hint": "p. ej. 800",
@@ -637,35 +581,11 @@
   "search_price_min": "Mín",
   "search_price_max": "Máx",
   "search_brand_count": "{count, plural, =1{1 marca} other{{count} marcas}}",
-  "@search_brand_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_price_chip": "{min}–{max} Dhs",
-  "@search_price_chip": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "settings_iban_current": "IBAN actual: {masked}",
-  "@settings_iban_current": {
-    "placeholders": {
-      "masked": {
-        "type": "String"
-      }
-    }
-  },
   "auth_or_continue_with": "o continúa con",
   "onboarding_address_search_hint": "Busca tu dirección",
-  "settings_language": "Idioma",
+  "@_account": {},
   "account_gate_guest_title": "Crea una cuenta o inicia sesión para continuar",
   "account_gate_guest_subtitle": "Únete a Klozy para añadir artículos a tu lista de deseos, seguir a vendedores y comprar moda de segunda mano.",
   "account_gate_create_account": "Crear una cuenta",
@@ -673,24 +593,58 @@
   "account_gate_incomplete_title": "Termina de configurar tu perfil",
   "account_gate_incomplete_subtitle": "Completa tu perfil para desbloquear todas las funciones de Klozy.",
   "account_gate_finish_setup": "Finalizar configuración",
+  "@_guest_tab": {},
   "guest_tab_title": "Inicia sesión en Klozy",
   "guest_tab_subtitle": "Crea una cuenta o inicia sesión para acceder a esta sección.",
   "guest_tab_cta": "Crear una cuenta",
   "guest_tab_log_in": "Iniciar sesión",
+  "@_categoryPicker": {},
   "categoryPickerTitle": "Seleccionar categoría",
   "categoryPickerBreadcrumbRoot": "Todas las categorías",
   "categoryPickerLoading": "Cargando...",
   "categoryPickerRetry": "Reintentar",
+  "categoryPickerDeepestHint": "Nivel más profundo — filtra por talla abajo.",
   "categoryPickerAddCategories": "Añadir categorías",
   "categoryPickerPreferred": "Categorías preferidas",
+  "@_sell_enrich": {},
   "sellPhotosEmptyTitle": "Añadir fotos",
-  "sellPhotosEmptySubtitle": "Toma o sube fotos de tu artículo",
+  "sellPhotosEmptySubtitle": "Empieza con una foto —\nla IA escribe el título, la descripción y el precio.",
   "sellPhotosCounter": "fotos",
   "sellRecapPhotoStripEdit": "Editar",
   "sellRequiredHint": "* Campos obligatorios",
-  "sellSizeSystem": "Sistema de tallas",
-  "product_buy": "Comprar",
-  "product_make_offer": "Hacer una oferta",
+  "settings_language": "Idioma",
   "offer_send_failed": "No se pudo enviar tu oferta. Inténtalo de nuevo.",
-  "product_see_offer": "Ver oferta"
+  "product_see_offer": "Ver oferta",
+  "@_chat": {},
+  "chat_empty_title": "Aún no hay conversaciones",
+  "chat_empty_subtitle": "Escríbele a un vendedor desde cualquier producto para empezar a chatear.",
+  "chat_composer_hint": "Escribe un mensaje…",
+  "chat_recording": "Grabando…",
+  "chat_attach_photo": "Foto y vídeo",
+  "chat_attach_camera": "Cámara",
+  "chat_incomplete_profile_title": "Termina de configurar tu perfil",
+  "chat_incomplete_profile_subtitle": "Completa tu perfil para empezar a chatear con compradores y vendedores.",
+  "chat_incomplete_profile_cta": "Completar perfil",
+  "chat_menu_report": "Reportar y bloquear",
+  "chat_menu_delete": "Eliminar conversación",
+  "chat_reply_self": "Respondiéndote a ti mismo",
+  "chat_reply_other": "Respondiendo",
+  "chat_media_placeholder": "[multimedia]",
+  "chat_offer_yours": "Tu oferta",
+  "chat_offer_incoming": "Oferta",
+  "chat_offer_refuse": "Rechazar",
+  "chat_offer_accept": "Aceptar",
+  "chat_offer_pending": "Respuesta pendiente…",
+  "chat_offer_accepted": "Oferta aceptada",
+  "chat_offer_declined": "Oferta rechazada",
+  "chat_message_deleted": "Mensaje eliminado",
+  "chat_currency": "Dhs",
+  "chat_purchase_confirmed": "Compra confirmada",
+  "chat_purchase_for": "por",
+  "chat_no_messages": "Aún no hay mensajes",
+  "chat_preview_photo": "📷 Foto",
+  "chat_preview_voice": "🎤 Mensaje de voz",
+  "chat_preview_offer_sent": "Has enviado una oferta",
+  "chat_preview_offer_new": "Nueva oferta",
+  "chat_preview_you_prefix": "Tú: "
 }

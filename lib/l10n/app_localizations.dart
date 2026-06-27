@@ -3649,7 +3649,7 @@ abstract class AppLocalizations {
   /// No description provided for @sellPhotosEmptySubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Start with one photo — AI writes the title, description and price.'**
+  /// **'Start with one photo —\nAI writes the title, description and price.'**
   String get sellPhotosEmptySubtitle;
 
   /// No description provided for @sellPhotosCounter.

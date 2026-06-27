@@ -29,6 +29,7 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
   AccountBloc(this._getAccountStatus, this._authRepository, this._eventBus)
     : super(const AccountInitial()) {
     on<AccountBootstrapRequested>(_onBootstrapRequested);
+    on<AccountAuthenticated>(_onAuthenticated);
     // Completing/editing the profile (via onboarding OR Edit Profile) changes
     // the resolved status (incompleteOnboarding → valid), but those flows only
     // fire ProfileChangedEvent. Re-resolve here so the shell's Chat/Profile
@@ -53,6 +54,23 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
     } else {
       emit(AccountResolved(status));
     }
+  }
+
+  /// Resolve directly from the just-completed auth flow. No network round-trip
+  /// and — critically — no legacy sign-out path, so a freshly signed-up user is
+  /// never bounced to the guest placeholder before their backend profile is
+  /// readable.
+  void _onAuthenticated(
+    AccountAuthenticated event,
+    Emitter<AccountState> emit,
+  ) {
+    emit(
+      AccountResolved(
+        event.onboardingComplete
+            ? AccountStatus.valid
+            : AccountStatus.incompleteOnboarding,
+      ),
+    );
   }
 
   @override

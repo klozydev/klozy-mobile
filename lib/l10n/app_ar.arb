@@ -1,5 +1,13 @@
 {
   "app_name": "Klozy",
+  "@_ds": {},
+  "ds_set_composition_header": "يشمل هذه المجموعة",
+  "ds_set_composition_owner_note": "أضف صورة لكل قطعة لطمأنة المشترين والبيع بشكل أسرع.",
+  "ds_set_composition_buyer_note": "بعض القطع غير مصوّرة. تواصل مع البائع لمزيد من التفاصيل.",
+  "ds_set_composition_photo": "صورة",
+  "ds_set_composition_add": "إضافة",
+  "ds_set_composition_no_photo": "لا توجد صورة",
+  "ds_search_bar_hint": "ابحث عن قطعة أو عضو",
   "@_error_page": {},
   "error_page_show_details": "عرض التفاصيل",
   "error_page_hide_details": "إخفاء التفاصيل",
@@ -51,6 +59,7 @@
   "error_scenario_maintenance_http_label": "صيانة",
   "@_auth": {},
   "auth_country_uae": "الإمارات العربية المتحدة",
+  "auth_hero_placeholder": "HERO  ·  EDITORIAL  FASHION  SHOT",
   "auth_welcome_title": "اشترِ وبِع أزياءً مستعملة\nستحبّها.",
   "auth_get_started": "ابدأ الآن",
   "auth_already_have_account": "لديّ حساب بالفعل · ",
@@ -81,13 +90,6 @@
   "auth_enter_code_title": "أدخل الرمز",
   "auth_code_sent_to": "أُرسل إلى ",
   "auth_resend_code_in": "إعادة إرسال الرمز خلال {time}",
-  "@auth_resend_code_in": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "auth_resend_code": "إعادة إرسال الرمز",
   "auth_code_spam_hint": "لم يصلك؟ تحقق من البريد العشوائي. يمكنك طلب رمز جديد بعد انتهاء المهلة.",
   "auth_verify": "تحقق",
@@ -95,13 +97,6 @@
   "@_onboarding": {},
   "onboarding_all_set": "كل شيء جاهز!",
   "onboarding_all_set_named": "كل شيء جاهز يا {name}!",
-  "@onboarding_all_set_named": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_feed_ready_subtitle": "موجز Klozy الخاص بك جاهز. اكتشف وبِع وتسوّق الإطلالة — كل ذلك في مكان واحد.",
   "onboarding_start_exploring": "ابدأ الاستكشاف",
   "onboarding_complete_profile_title": "أكمل ملفك الشخصي",
@@ -114,16 +109,6 @@
   "onboarding_address_label": "العنوان",
   "onboarding_bio_label": "نبذة تعريفية",
   "onboarding_bio_char_count": "{count}/{max}",
-  "@onboarding_bio_char_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_bio_hint": "أخبر المشترين قليلًا عن أسلوبك…",
   "onboarding_continue": "متابعة",
   "onboarding_skip": "تخطّي",
@@ -134,26 +119,12 @@
   "onboarding_sizes_title": "المقاسات",
   "onboarding_clothing_label": "الملابس",
   "onboarding_shoes_label": "الأحذية · {system}",
-  "@onboarding_shoes_label": {
-    "placeholders": {
-      "system": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_brands_title": "الماركات",
   "onboarding_brands_hint": "تابع ماركاتك المفضلة",
   "onboarding_brands_search_hint": "ابحث عن ماركات",
   "onboarding_no_brand_matches": "لا توجد ماركة مطابقة.",
   "onboarding_show_feed": "اعرض موجزي",
   "onboarding_show_feed_count": "اعرض موجزي · {count} محدّد",
-  "@onboarding_show_feed_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_seller_account_set_up": "تم إعداد حساب البائع.",
   "onboarding_seller_role_title": "كيف ستبيع؟",
   "onboarding_seller_role_subtitle": "اختر الحساب الذي يناسبك. يمكنك التبديل أو الترقية في أي وقت من الإعدادات.",
@@ -172,38 +143,48 @@
   "home_tab_reels": "المقاطع",
   "home_feed_empty": "لا يوجد شيء هنا بعد.",
   "home_category_all": "الكل",
+  "home_picked_for_you": "مختار لك · {categories}",
   "home_product_badge_new": "جديد",
   "home_wishlist_empty": "قائمة مفضلتك فارغة",
+  "home_wishlist_empty_hint": "اضغط على القلب على أي قطعة لحفظها هنا.",
+  "home_wishlist_saved_count": "{count, plural, zero{لا عناصر محفوظة} one{عنصر محفوظ واحد} two{عنصران محفوظان} few{{count} عناصر محفوظة} many{{count} عنصرًا محفوظًا} other{{count} عنصر محفوظ}}",
   "@_reels": {},
+  "reels_processing_video": "جارٍ معالجة الفيديو…",
   "reels_composer_title": "مقطع جديد",
-  "reels_pick_title": "أنشئ مقطعًا",
+  "reels_compose_details_title": "إضافة تفاصيل",
   "reels_pick_subtitle": "سجّل فيديو قصيرًا تعرض فيه قطعك، أو اختر واحدًا من معرض الصور.",
   "reels_record_video": "تسجيل فيديو",
+  "reels_record_hint": "حتى 60 ثانية · رأسي",
   "reels_choose_from_gallery": "اختيار من المعرض",
+  "reels_caption_label": "وصف",
   "reels_caption_hint": "قل شيئًا عن إطلالتك…",
   "reels_tag_items_title": "أضف قطعًا من متجرك",
   "reels_no_listings_to_tag": "ليس لديك قوائم نشطة لإضافتها بعد.",
   "reels_post_reel": "نشر المقطع",
+  "reels_post_reel_tagged": "نشر المقطع · {count} مميّز",
+  "reels_publishing": "جارٍ نشر مقطعك…",
   "reels_posted_title": "تم نشر المقطع!",
   "reels_posted_subtitle": "سيظهر في المقاطع بمجرد انتهاء المعالجة.",
+  "reels_posted_subtitle_tagged": "مقطعك الآن مباشر في الموجز مع {count, plural, zero{لا قطع مميّزة} one{قطعة مميّزة واحدة} two{قطعتان مميّزتان} few{{count} قطع مميّزة} many{{count} قطعةً مميّزةً} other{{count} قطعة مميّزة}}.",
+  "reels_view_in_reels": "عرض في المقاطع",
   "reels_done": "تم",
   "reels_delete_reel": "حذف المقطع",
   "reels_report_reel": "الإبلاغ عن المقطع",
   "reels_share": "مشاركة",
   "reels_shop_the_look_count": "تسوّق الإطلالة · {count}",
-  "@reels_shop_the_look_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "reels_no_tagged_items": "لا توجد قطع مضافة.",
   "reels_shop_the_look": "تسوّق الإطلالة",
   "reels_deleted_snackbar": "تم حذف المقطع.",
   "reels_report_received_snackbar": "شكرًا — تم استلام البلاغ.",
   "reels_empty": "لا توجد مقاطع بعد",
   "reels_link_copied_snackbar": "تم نسخ الرابط إلى الحافظة.",
+  "entry_sheet_title": "ماذا تريد أن تفعل؟",
+  "entry_create_reel": "إنشاء مقطع",
+  "entry_create_reel_sub": "شارك فيديو لقطعك",
+  "entry_create_reel_needs_product": "أضف منتجًا أولًا",
+  "entry_list_item": "إدراج قطعة للبيع",
+  "entry_list_item_sub": "صورة أولًا · الذكاء الاصطناعي يملأ قائمتك",
+  "entry_cancel": "إلغاء",
   "@_search": {},
   "search_hint": "ابحث عن قطع وماركات…",
   "search_sort_popular": "الأكثر رواجًا",
@@ -212,47 +193,26 @@
   "search_sort_price_desc": "السعر ↓",
   "search_filters": "الفلاتر",
   "search_filters_with_count": "الفلاتر · {count}",
-  "@search_filters_with_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_browse_categories": "تصفّح الفئات",
   "search_popular_now": "الأكثر رواجًا الآن",
   "search_no_results": "لا توجد نتائج",
+  "category_items_count": "{count, plural, zero{لا قطع} one{قطعة واحدة} two{قطعتان} few{{count} قطع} many{{count} قطعةً} other{{count} قطعة}}",
+  "category_empty": "لا يوجد شيء هنا بعد.",
+  "search_result_for_query": " لـ \"{query}\"",
   "search_result_count": "{count, plural, =0{لا نتائج} =1{نتيجة واحدة} =2{نتيجتان} few{{count} نتائج} many{{count} نتيجة} other{{count} نتيجة}}",
-  "@search_result_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_condition_count": "{count, plural, =0{لا حالات} =1{حالة واحدة} =2{حالتان} few{{count} حالات} many{{count} حالة} other{{count} حالة}}",
-  "@search_condition_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_size_count": "{count, plural, =0{لا مقاسات} =1{مقاس واحد} =2{مقاسان} few{{count} مقاسات} many{{count} مقاسًا} other{{count} مقاس}}",
-  "@search_size_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_filter_category": "الفئة",
   "search_filter_condition": "الحالة",
   "search_filter_size": "المقاس",
   "search_filter_reset": "إعادة تعيين",
   "search_filter_show_results": "عرض النتائج",
+  "search_filter_clear": "مسح",
+  "search_filter_all": "الكل",
   "@_product": {},
+  "product_your_listing": "قائمتك",
   "product_add_to_cart": "أضف إلى السلة",
+  "product_buy": "شراء",
   "product_in_cart_view_cart": "في السلة · عرض السلة",
   "product_edit_listing": "تعديل القائمة",
   "product_status_sold": "مُباع",
@@ -260,9 +220,11 @@
   "product_mark_as_sold": "وضع علامة كمُباع",
   "product_mark_as_available": "وضع علامة كمتوفر",
   "product_delete_listing": "حذف القائمة",
+  "product_delete_confirm": "حذف هذه القائمة؟ لا يمكن التراجع عن هذا.",
   "product_report_listing": "الإبلاغ عن القائمة",
   "product_report_this_listing": "الإبلاغ عن هذه القائمة",
   "product_listing_deleted": "تم حذف القائمة",
+  "product_listing_deleted_subtitle": "تمت إزالة هذه القطعة وصورها.",
   "product_back_to_feed": "العودة إلى الموجز",
   "product_added_to_cart": "تمت الإضافة إلى السلة.",
   "product_edit_coming_soon": "تعديل القائمة قريبًا.",
@@ -274,19 +236,15 @@
   "product_stat_posted": "تاريخ النشر",
   "product_stamp_sold": "مُباع",
   "product_stamp_reserved": "محجوز",
+  "product_make_offer": "تقديم عرض",
   "product_currency_dhs": "Dhs",
   "product_price_amount": "{amount} ",
-  "@product_price_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "@_sell": {},
   "sell_sell_in_seconds": "بِع في ثوانٍ",
   "sell_your_photos": "صورك",
   "sell_add_photos_hint": "أضف حتى 8 صور. سيملأ الذكاء الاصطناعي قائمتك تلقائيًا.",
+  "sell_reorder_hint": "اسحب لإعادة الترتيب. الصورة الأولى هي الغلاف.",
+  "sell_add_at_least_one_photo": "أضف صورة واحدة على الأقل للمتابعة",
   "sell_continue": "متابعة",
   "sell_cover": "الغلاف",
   "sell_add_a_photo": "أضف صورة",
@@ -299,24 +257,25 @@
   "sell_price": "السعر",
   "sell_description": "الوصف",
   "sell_category": "الفئة",
+  "sell_product_details": "تفاصيل المنتج",
+  "sell_subcategory": "الفئة الفرعية",
+  "sell_choose_subcategory": "اختر فئة فرعية",
   "sell_brand": "الماركة",
   "sell_size": "المقاس",
   "sell_condition": "الحالة",
   "sell_suggested_by_ai": "مقترح بواسطة الذكاء الاصطناعي",
+  "sell_prefilled_by_ai": "تم ملؤه بواسطة الذكاء الاصطناعي — راجع وعدّل.",
+  "sell_photo_edit": "تعديل",
   "sell_list_item": "إدراج القطعة",
   "sell_optional": "اختياري",
   "sell_title_hint": "مثال: جاكيت جلدي للدراجات",
   "sell_price_hint": "AED",
+  "sell_price_suffix": "Dhs",
   "sell_description_hint": "أضف تفاصيل عن الحالة والمقاس والخامة…",
+  "sell_description_error": "أضف وصفًا حتى يعرف المشترون ما يحصلون عليه",
+  "sell_size_one_size": "مقاس موحّد",
   "sell_search_brands": "ابحث عن ماركات",
   "sell_use_quoted": "استخدم \"{value}\"",
-  "@sell_use_quoted": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "sell_title_error": "أضف عنوانًا (حرفان على الأقل)",
   "sell_price_error": "أدخل سعرًا",
   "sell_category_error": "اختر فئة",
@@ -325,54 +284,43 @@
   "sell_item_visible_to_buyers": "أصبحت قطعتك ظاهرة الآن للمشترين.",
   "sell_view_listing": "عرض القائمة",
   "sell_back_to_home": "العودة إلى الرئيسية",
+  "sell_create_reel": "إنشاء مقطع",
   "@_cart": {},
   "cart_title": "السلة",
   "cart_make_an_offer": "قدّم عرضًا",
+  "cart_offer_sent": "تم إرسال العرض — سيرد عليك البائع",
   "cart_cancel_offer": "إلغاء العرض",
   "cart_check_out": "إتمام الشراء",
   "cart_subtotal": "المجموع الفرعي",
   "cart_offer_pending": "العرض قيد الانتظار",
   "cart_offer_accepted": "تم قبول العرض",
   "cart_pro_badge": "PRO",
+  "cart_cancel": "إلغاء",
+  "cart_in_bundle": "في عرض الحزمة",
+  "cart_in_accepted_bundle": "في الحزمة المقبولة",
+  "cart_added_after_bundle": "أضيف بعد عرض حزمتك — غير مشمول",
+  "cart_bundle_pending": "بانتظار الرد",
+  "cart_bundle_accepted": "مقبول",
+  "cart_offer_sent_amount": "تم إرسال العرض · {amount} Dhs",
+  "cart_offer_accepted_save": "تم قبول العرض · وفّر {amount} Dhs",
+  "cart_bundle_was": "كان {amount} Dhs",
+  "cart_checkout_amount": "إتمام الشراء · {amount} Dhs",
+  "cart_offer_for_all": "{count, plural, zero{عرض للقطع} one{عرض لهذه القطعة} two{عرض لهاتين القطعتين} few{عرض لجميع {count} قطع} many{عرض لجميع {count} قطعةً} other{عرض لجميع {count} قطعة}}",
+  "cart_bundle_title": "{count, plural, zero{عرض حزمة · لا قطع} one{عرض حزمة · قطعة واحدة} two{عرض حزمة · قطعتان} few{عرض حزمة · {count} قطع} many{عرض حزمة · {count} قطعةً} other{عرض حزمة · {count} قطعة}}",
   "cart_empty_title": "سلتك فارغة",
   "cart_empty_subtitle": "أضف قطعًا وسيتم تجميعها حسب البائع هنا.",
   "cart_offer_send": "إرسال العرض",
   "cart_offer_hint_single": "عرضك",
   "cart_offer_hint_multi": "عرضك لجميع القطع البالغ عددها {count}",
-  "@cart_offer_hint_multi": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "cart_offer_error_below_total": "يجب أن يكون العرض أقل من السعر الإجمالي",
   "cart_offer_chat_note": "عرض واحد يشمل كل شيء من هذا البائع. يُرسَل بشكل خاص في الدردشة — يقبله البائع أو يرفضه.",
+  "cart_offer_escrow_note": "يُحتجز دفعك في الضمان حتى تؤكد التسليم.",
   "cart_currency_dhs": "Dhs",
   "cart_price_dhs": "{amount} Dhs",
-  "@cart_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
-  "cart_item_count": "{count, plural, =0{لا قطع} =1{قطعة واحدة} =2{قطعتان} few{{count} قطع} many{{count} قطعة} other{{count} قطعة}}",
-  "@cart_item_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
+  "cart_item_count": "{count, plural, zero{لا قطع} one{قطعة واحدة} two{قطعتان} few{{count} قطع} many{{count} قطعةً} other{{count} قطعة}}",
+  "checkout_buy_more_from": "شراء المزيد من {name}",
+  "cart_offer_seller_meta": "{count, plural, zero{لا قطع} one{قطعة واحدة} two{قطعتان} few{{count} قطع} many{{count} قطعةً} other{{count} قطعة}} · السعر المعلن {price} Dhs",
   "cart_sellers_summary": "{count, plural, =0{لا بائعين} =1{بائع واحد · عرض وإتمام شراء واحد لكل بائع} =2{بائعان · عرض وإتمام شراء واحد لكل بائع} few{{count} بائعين · عرض وإتمام شراء واحد لكل بائع} many{{count} بائعًا · عرض وإتمام شراء واحد لكل بائع} other{{count} بائع · عرض وإتمام شراء واحد لكل بائع}}",
-  "@cart_sellers_summary": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_checkout": {},
   "checkout_title": "إتمام الشراء",
   "checkout_delivery": "التوصيل",
@@ -383,21 +331,7 @@
   "checkout_vat": "VAT",
   "checkout_total": "الإجمالي",
   "checkout_pay_amount": "ادفع {amount} Dhs",
-  "@checkout_pay_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_amount_dhs": "{amount} Dhs",
-  "@checkout_amount_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_encrypted_escrow_note": "إتمام شراء مشفّر · الدفع محتجز في الضمان",
   "checkout_order_placed_title": "تم تقديم الطلب!",
   "checkout_order_placed_escrow_message": "يُحتجز دفعك في الضمان حتى تؤكد التسليم.",
@@ -414,37 +348,23 @@
   "orders_no_orders_yet": "لا توجد طلبات بعد",
   "orders_prefix_from": "من",
   "orders_prefix_to": "إلى",
+  "orders_negotiated": "متفاوَض عليه",
   "orders_price_dhs": "{amount} Dhs",
-  "@orders_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "orders_counterpart_meta": "{prefix} {name}",
-  "@orders_counterpart_meta": {
-    "placeholders": {
-      "prefix": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "orders_order_details": "تفاصيل الطلب",
   "orders_tracking": "التتبّع",
   "orders_tracking_updates_empty": "ستظهر تحديثات التتبّع هنا.",
   "orders_emx_door_to_door": "EMX من الباب إلى الباب · داخل الإمارات",
+  "orders_emx_tracking": "تتبّع EMX",
+  "orders_track_confirmed_label": "تم تأكيد الطلب",
+  "orders_track_confirmed_sub": "البائع يجهّز قطعتك",
+  "orders_track_shipped_label": "تم الشحن مع EMX",
+  "orders_track_shipped_sub": "تم الاستلام · في الطريق",
+  "orders_track_out_label": "خرج للتوصيل",
+  "orders_track_out_sub": "سيصل اليوم",
+  "orders_track_delivered_label": "تم التوصيل",
+  "orders_track_delivered_sub": "أكّد لتحويل الدفع",
   "orders_carrier_prefix": "{carrier} · ",
-  "@orders_carrier_prefix": {
-    "placeholders": {
-      "carrier": {
-        "type": "String"
-      }
-    }
-  },
   "orders_mark_as_shipped": "وضع علامة كمُشحَن",
   "orders_download_emx_label": "تنزيل ملصق EMX",
   "orders_confirm_receipt": "تأكيد الاستلام",
@@ -473,7 +393,6 @@
   "@_misc": {},
   "profile_title": "الملف الشخصي",
   "chat_title": "الدردشة",
-  "@_ds": {},
   "ds_password_strength_weak": "ضعيفة",
   "ds_password_strength_fair": "مقبولة",
   "ds_password_strength_good": "جيدة",
@@ -485,29 +404,8 @@
   "notifications_profile_coming_soon": "الملفات الشخصية قريبًا.",
   "notifications_time_just_now": "الآن",
   "notifications_time_minutes": "قبل {count} د",
-  "@notifications_time_minutes": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_hours": "قبل {count} س",
-  "@notifications_time_hours": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_days": "قبل {count} ي",
-  "@notifications_time_days": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_profile_feature": {},
   "profile_edit": "تعديل الملف الشخصي",
   "profile_follow": "متابعة",
@@ -527,6 +425,7 @@
   "profile_no_listings": "لا توجد قوائم بعد",
   "profile_no_reels": "لا توجد مقاطع بعد",
   "profile_no_reviews": "لا توجد تقييمات بعد",
+  "profile_reviews_count": "{count, plural, zero{لا تقييمات} one{تقييم واحد} two{تقييمان} few{{count} تقييمات} many{{count} تقييمًا} other{{count} تقييم}}",
   "profile_no_followers": "لا يوجد متابِعون بعد",
   "profile_no_following": "لا يتابع أحدًا بعد",
   "profile_connections_title": "التواصل",
@@ -544,6 +443,10 @@
   "settings_section_legal": "الشؤون القانونية والدعم",
   "settings_section_account": "الحساب",
   "settings_edit_profile": "تعديل الملف الشخصي",
+  "edit_profile_discard_title": "تجاهل التغييرات؟",
+  "edit_profile_discard_body": "لديك تغييرات غير محفوظة. هل تريد المغادرة دون حفظ؟",
+  "edit_profile_discard_confirm": "تجاهل",
+  "edit_profile_keep_editing": "متابعة التعديل",
   "settings_delivery_address": "عنوان التوصيل",
   "settings_payout_iban": "IBAN للتحويلات",
   "settings_seller_stats": "إحصاءات البائع",
@@ -561,8 +464,14 @@
   "settings_delete_confirm": "هل تريد حذف حسابك نهائيًا؟ لا يمكن التراجع عن هذا.",
   "settings_change_password_no_email": "لا يوجد بريد إلكتروني مرتبط بهذا الحساب.",
   "settings_password_reset_sent": "تم إرسال رابط إعادة تعيين كلمة المرور. تحقق من بريدك الإلكتروني.",
+  "settings_new_password": "كلمة المرور الجديدة",
+  "settings_new_password_hint": "كلمة المرور الجديدة",
+  "settings_confirm_password": "تأكيد كلمة المرور",
+  "settings_confirm_password_hint": "أعد إدخال كلمة المرور",
+  "settings_passwords_no_match": "كلمتا المرور غير متطابقتين",
+  "settings_password_too_short": "استخدم 8 أحرف على الأقل",
+  "settings_password_updated": "تم تحديث كلمة المرور.",
   "settings_support_unavailable": "الدعم غير متاح حاليًا.",
-  "settings_handle": "اسم المستخدم",
   "settings_address_line1": "سطر العنوان",
   "settings_address_area": "المنطقة",
   "settings_address_city": "المدينة",
@@ -574,6 +483,41 @@
   "settings_doc_unavailable": "هذا المستند غير متاح حاليًا.",
   "settings_no_blocked": "لم تحظر أحدًا.",
   "settings_unblock": "إلغاء الحظر",
+  "settings_group_account": "الحساب",
+  "settings_group_notifications": "الإشعارات",
+  "settings_group_other": "أخرى",
+  "settings_group_links": "الروابط",
+  "settings_group_social": "التواصل الاجتماعي",
+  "settings_group_preferences": "التفضيلات",
+  "settings_personal_data": "البيانات الشخصية",
+  "settings_personal_data_sub": "الملف الشخصي والتفضيلات والمستخدمون المحظورون",
+  "settings_personal_information": "المعلومات الشخصية",
+  "settings_security": "الأمان",
+  "settings_security_sub": "البريد الإلكتروني وكلمة المرور والهاتف",
+  "settings_payouts_sub": "البيانات البنكية (IBAN)",
+  "settings_share_app": "مشاركة التطبيق",
+  "settings_legal_notices": "الإشعارات القانونية",
+  "settings_about": "حول",
+  "settings_instagram": "Instagram",
+  "settings_instagram_handle": "@klozy",
+  "settings_clothing_preference": "تفضيل الملابس",
+  "settings_preferred_size": "المقاس المفضّل",
+  "settings_preferred_brands": "الماركات المفضّلة",
+  "settings_change_email": "تغيير البريد الإلكتروني",
+  "settings_phone_number": "رقم الهاتف",
+  "settings_current_email": "البريد الإلكتروني الحالي",
+  "settings_new_email": "البريد الإلكتروني الجديد",
+  "settings_new_email_hint": "you@email.com",
+  "settings_change_email_note": "سنرسل رابط تأكيد إلى عنوانك الجديد. ستُطبَّق التغييرات بعد التأكيد.",
+  "settings_email_link_sent": "تم إرسال رابط التأكيد. تحقق من صندوق الوارد الجديد للإنهاء.",
+  "settings_current_number": "الرقم الحالي",
+  "settings_new_number": "الرقم الجديد",
+  "settings_new_number_hint": "50 123 4567",
+  "settings_phone_note": "سنرسل لك رمزًا من 6 أرقام لتأكيد رقمك الجديد.",
+  "settings_phone_updated": "تم تحديث رقم الهاتف.",
+  "settings_enter_code_for": "أدخل الرمز المكوّن من 6 أرقام المُرسَل إلى {number}",
+  "settings_share_message": "اكتشف Klozy — شراء وبيع الأزياء المستعملة في الإمارات. https://klozy.app",
+  "settings_share_failed": "تعذّر فتح المشاركة. حاول مرة أخرى.",
   "onboarding_avatar_failed": "تعذّر رفع صورتك. يرجى المحاولة مرة أخرى.",
   "sell_weight": "الوزن (بالجرام)",
   "sell_weight_hint": "مثال: 800",
@@ -637,35 +581,11 @@
   "search_price_min": "الأدنى",
   "search_price_max": "الأعلى",
   "search_brand_count": "{count, plural, =0{لا ماركات} =1{ماركة واحدة} =2{ماركتان} few{{count} ماركات} many{{count} ماركة} other{{count} ماركة}}",
-  "@search_brand_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_price_chip": "{min}–{max} Dhs",
-  "@search_price_chip": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "settings_iban_current": "IBAN الحالي: {masked}",
-  "@settings_iban_current": {
-    "placeholders": {
-      "masked": {
-        "type": "String"
-      }
-    }
-  },
   "auth_or_continue_with": "أو تابع باستخدام",
   "onboarding_address_search_hint": "ابحث عن عنوانك",
-  "settings_language": "اللغة",
+  "@_account": {},
   "account_gate_guest_title": "أنشئ حسابًا أو سجّل الدخول للمتابعة",
   "account_gate_guest_subtitle": "انضم إلى Klozy لإضافة العناصر إلى قائمة الرغبات ومتابعة البائعين وشراء أزياء مستعملة.",
   "account_gate_create_account": "إنشاء حساب",
@@ -673,24 +593,58 @@
   "account_gate_incomplete_title": "أكمل إعداد ملفك الشخصي",
   "account_gate_incomplete_subtitle": "أكمل ملفك الشخصي للوصول إلى جميع ميزات Klozy.",
   "account_gate_finish_setup": "إنهاء الإعداد",
+  "@_guest_tab": {},
   "guest_tab_title": "سجّل الدخول إلى Klozy",
   "guest_tab_subtitle": "أنشئ حسابًا أو سجّل الدخول للوصول إلى هذا القسم.",
   "guest_tab_cta": "إنشاء حساب",
   "guest_tab_log_in": "تسجيل الدخول",
+  "@_categoryPicker": {},
   "categoryPickerTitle": "اختر الفئة",
   "categoryPickerBreadcrumbRoot": "كل الفئات",
   "categoryPickerLoading": "جارٍ التحميل...",
   "categoryPickerRetry": "إعادة المحاولة",
+  "categoryPickerDeepestHint": "أعمق مستوى — صنّف حسب المقاس أدناه.",
   "categoryPickerAddCategories": "إضافة فئات",
   "categoryPickerPreferred": "الفئات المفضّلة",
+  "@_sell_enrich": {},
   "sellPhotosEmptyTitle": "إضافة صور",
   "sellPhotosEmptySubtitle": "التقط أو ارفع صورًا لمنتجك",
   "sellPhotosCounter": "صور",
   "sellRecapPhotoStripEdit": "تعديل",
   "sellRequiredHint": "* الحقول المطلوبة",
-  "sellSizeSystem": "نظام المقاسات",
-  "product_buy": "شراء",
-  "product_make_offer": "تقديم عرض",
+  "settings_language": "اللغة",
   "offer_send_failed": "تعذّر إرسال عرضك. حاول مرة أخرى.",
-  "product_see_offer": "مشاهدة العرض"
+  "product_see_offer": "مشاهدة العرض",
+  "@_chat": {},
+  "chat_empty_title": "لا محادثات بعد",
+  "chat_empty_subtitle": "أرسل رسالة لبائع من أي منتج لبدء المحادثة.",
+  "chat_composer_hint": "رسالة…",
+  "chat_recording": "جارٍ التسجيل…",
+  "chat_attach_photo": "صورة وفيديو",
+  "chat_attach_camera": "الكاميرا",
+  "chat_incomplete_profile_title": "أكمل إعداد ملفك الشخصي",
+  "chat_incomplete_profile_subtitle": "أكمل ملفك الشخصي لبدء المحادثة مع المشترين والبائعين.",
+  "chat_incomplete_profile_cta": "إكمال الملف الشخصي",
+  "chat_menu_report": "إبلاغ وحظر",
+  "chat_menu_delete": "حذف المحادثة",
+  "chat_reply_self": "تردّ على نفسك",
+  "chat_reply_other": "ردّ",
+  "chat_media_placeholder": "[وسائط]",
+  "chat_offer_yours": "عرضك",
+  "chat_offer_incoming": "عرض",
+  "chat_offer_refuse": "رفض",
+  "chat_offer_accept": "قبول",
+  "chat_offer_pending": "بانتظار الرد…",
+  "chat_offer_accepted": "تم قبول العرض",
+  "chat_offer_declined": "تم رفض العرض",
+  "chat_message_deleted": "تم حذف الرسالة",
+  "chat_currency": "Dhs",
+  "chat_purchase_confirmed": "تم تأكيد الشراء",
+  "chat_purchase_for": "بـ",
+  "chat_no_messages": "لا رسائل بعد",
+  "chat_preview_photo": "📷 صورة",
+  "chat_preview_voice": "🎤 رسالة صوتية",
+  "chat_preview_offer_sent": "أرسلت عرضًا",
+  "chat_preview_offer_new": "عرض جديد",
+  "chat_preview_you_prefix": "أنت: "
 }

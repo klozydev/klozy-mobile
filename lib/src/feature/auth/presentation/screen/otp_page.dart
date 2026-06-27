@@ -229,10 +229,14 @@ class _OtpPageState extends State<OtpPage> {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
-      // Re-resolve the global account session post sign-in (the singleton
-      // AccountBloc still holds the guest status from before auth) so the
-      // shell tabs don't show the guest/login placeholder until a hot restart.
-      context.read<AccountBloc>().add(const AccountBootstrapRequested());
+      // Resolve the global account session straight from the auth result (the
+      // singleton AccountBloc still holds the pre-auth guest status). We pass
+      // the known onboarding flag rather than re-resolving: a fresh signup's
+      // backend profile can momentarily 404, which the resolver maps to legacy
+      // → silent sign-out → the guest "login / sign up" placeholder.
+      context.read<AccountBloc>().add(
+        AccountAuthenticated(onboardingComplete: state.onboardingComplete),
+      );
       // Always land on home after a verified sign-in; profile completion is
       // on-demand now (no forced personalize/complete-profile step).
       context.router.replaceAll(<PageRouteInfo>[const ShellRoute()]);

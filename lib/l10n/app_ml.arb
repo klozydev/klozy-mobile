@@ -1,5 +1,13 @@
 {
   "app_name": "Klozy",
+  "@_ds": {},
+  "ds_set_composition_header": "ഈ സെറ്റിൽ ഉൾപ്പെടുന്നവ",
+  "ds_set_composition_owner_note": "വാങ്ങുന്നവരെ ആശ്വസിപ്പിക്കാനും വേഗത്തിൽ വിൽക്കാനും ഓരോ ഭാഗത്തിന്റെയും ഒരു ഫോട്ടോ ചേർക്കുക.",
+  "ds_set_composition_buyer_note": "ചില ഭാഗങ്ങൾ ഫോട്ടോ എടുത്തിട്ടില്ല. വിശദാംശങ്ങൾക്ക് വിൽപ്പനക്കാരനെ ബന്ധപ്പെടുക.",
+  "ds_set_composition_photo": "ഫോട്ടോ",
+  "ds_set_composition_add": "ചേർക്കുക",
+  "ds_set_composition_no_photo": "ഫോട്ടോ ഇല്ല",
+  "ds_search_bar_hint": "ഒരു ഇനം അല്ലെങ്കിൽ അംഗത്തെ തിരയുക",
   "@_error_page": {},
   "error_page_show_details": "വിശദാംശങ്ങൾ കാണിക്കുക",
   "error_page_hide_details": "വിശദാംശങ്ങൾ മറയ്ക്കുക",
@@ -51,6 +59,7 @@
   "error_scenario_maintenance_http_label": "പരിപാലനം",
   "@_auth": {},
   "auth_country_uae": "യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്",
+  "auth_hero_placeholder": "ഹീറോ  ·  എഡിറ്റോറിയൽ  ഫാഷൻ  ഷോട്ട്",
   "auth_welcome_title": "നിങ്ങൾ ഇഷ്ടപ്പെടുന്ന പ്രീ-ലവ്ഡ്\nഫാഷൻ വാങ്ങുകയും വിൽക്കുകയും ചെയ്യുക.",
   "auth_get_started": "ആരംഭിക്കുക",
   "auth_already_have_account": "എനിക്ക് ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ട് · ",
@@ -81,13 +90,6 @@
   "auth_enter_code_title": "കോഡ് നൽകുക",
   "auth_code_sent_to": "ഇതിലേക്ക് അയച്ചു ",
   "auth_resend_code_in": "{time} കഴിഞ്ഞ് കോഡ് വീണ്ടും അയയ്ക്കുക",
-  "@auth_resend_code_in": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "auth_resend_code": "കോഡ് വീണ്ടും അയയ്ക്കുക",
   "auth_code_spam_hint": "കിട്ടിയില്ലേ? സ്പാം പരിശോധിക്കുക. കൂൾഡൗണിന് ശേഷം ഒരു പുതിയ കോഡ് അഭ്യർത്ഥിക്കാം.",
   "auth_verify": "സ്ഥിരീകരിക്കുക",
@@ -95,13 +97,6 @@
   "@_onboarding": {},
   "onboarding_all_set": "നിങ്ങൾ തയ്യാറാണ്!",
   "onboarding_all_set_named": "നിങ്ങൾ തയ്യാറാണ്, {name}!",
-  "@onboarding_all_set_named": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_feed_ready_subtitle": "നിങ്ങളുടെ Klozy ഫീഡ് തയ്യാറാണ്. കണ്ടെത്തുക, വിൽക്കുക, ലുക്ക് ഷോപ്പ് ചെയ്യുക — എല്ലാം ഒരിടത്ത്.",
   "onboarding_start_exploring": "പര്യവേക്ഷണം ആരംഭിക്കുക",
   "onboarding_complete_profile_title": "നിങ്ങളുടെ പ്രൊഫൈൽ പൂർത്തിയാക്കുക",
@@ -114,16 +109,6 @@
   "onboarding_address_label": "വിലാസം",
   "onboarding_bio_label": "ബയോ",
   "onboarding_bio_char_count": "{count}/{max}",
-  "@onboarding_bio_char_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_bio_hint": "നിങ്ങളുടെ ശൈലിയെക്കുറിച്ച് വാങ്ങുന്നവരോട് അൽപ്പം പറയുക…",
   "onboarding_continue": "തുടരുക",
   "onboarding_skip": "ഒഴിവാക്കുക",
@@ -134,26 +119,12 @@
   "onboarding_sizes_title": "സൈസുകൾ",
   "onboarding_clothing_label": "വസ്ത്രങ്ങൾ",
   "onboarding_shoes_label": "ഷൂസ് · {system}",
-  "@onboarding_shoes_label": {
-    "placeholders": {
-      "system": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_brands_title": "ബ്രാൻഡുകൾ",
   "onboarding_brands_hint": "നിങ്ങളുടെ പ്രിയപ്പെട്ടവ ഫോളോ ചെയ്യുക",
   "onboarding_brands_search_hint": "ബ്രാൻഡുകൾ തിരയുക",
   "onboarding_no_brand_matches": "ബ്രാൻഡ് പൊരുത്തങ്ങളൊന്നുമില്ല.",
   "onboarding_show_feed": "എന്റെ ഫീഡ് കാണിക്കുക",
   "onboarding_show_feed_count": "എന്റെ ഫീഡ് കാണിക്കുക · {count} തിരഞ്ഞെടുത്തു",
-  "@onboarding_show_feed_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_seller_account_set_up": "വിൽപ്പനക്കാരന്റെ അക്കൗണ്ട് സജ്ജമാക്കി.",
   "onboarding_seller_role_title": "നിങ്ങൾ എങ്ങനെ വിൽക്കും?",
   "onboarding_seller_role_subtitle": "നിങ്ങൾക്ക് അനുയോജ്യമായ അക്കൗണ്ട് തിരഞ്ഞെടുക്കുക. ക്രമീകരണങ്ങളിൽ എപ്പോൾ വേണമെങ്കിലും മാറ്റാം അല്ലെങ്കിൽ അപ്‌ഗ്രേഡ് ചെയ്യാം.",
@@ -172,38 +143,48 @@
   "home_tab_reels": "റീൽസ്",
   "home_feed_empty": "ഇവിടെ ഇതുവരെ ഒന്നുമില്ല.",
   "home_category_all": "എല്ലാം",
+  "home_picked_for_you": "നിങ്ങൾക്കായി തിരഞ്ഞെടുത്തു · {categories}",
   "home_product_badge_new": "പുതിയത്",
   "home_wishlist_empty": "നിങ്ങളുടെ വിഷ്‌ലിസ്റ്റ് ശൂന്യമാണ്",
+  "home_wishlist_empty_hint": "ഇവിടെ സംരക്ഷിക്കാൻ ഏതെങ്കിലും ഇനത്തിലെ ഹൃദയ ചിഹ്നം ടാപ്പ് ചെയ്യുക.",
+  "home_wishlist_saved_count": "{count, plural, =1{1 സംരക്ഷിച്ച ഇനം} other{{count} സംരക്ഷിച്ച ഇനങ്ങൾ}}",
   "@_reels": {},
+  "reels_processing_video": "വീഡിയോ പ്രോസസ്സ് ചെയ്യുന്നു…",
   "reels_composer_title": "പുതിയ റീൽ",
-  "reels_pick_title": "ഒരു റീൽ സൃഷ്ടിക്കുക",
+  "reels_compose_details_title": "വിശദാംശങ്ങൾ ചേർക്കുക",
   "reels_pick_subtitle": "നിങ്ങളുടെ ഇനങ്ങൾ കാണിക്കുന്ന ഒരു ചെറിയ വീഡിയോ റെക്കോർഡ് ചെയ്യുക, അല്ലെങ്കിൽ നിങ്ങളുടെ ഗാലറിയിൽ നിന്ന് ഒന്ന് തിരഞ്ഞെടുക്കുക.",
   "reels_record_video": "ഒരു വീഡിയോ റെക്കോർഡ് ചെയ്യുക",
+  "reels_record_hint": "60 സെക്കൻഡ് വരെ · ലംബം",
   "reels_choose_from_gallery": "ഗാലറിയിൽ നിന്ന് തിരഞ്ഞെടുക്കുക",
+  "reels_caption_label": "ക്യാപ്ഷൻ",
   "reels_caption_hint": "നിങ്ങളുടെ ലുക്കിനെക്കുറിച്ച് എന്തെങ്കിലും പറയുക…",
   "reels_tag_items_title": "നിങ്ങളുടെ ഷോപ്പിൽ നിന്നുള്ള ഇനങ്ങൾ ടാഗ് ചെയ്യുക",
   "reels_no_listings_to_tag": "ടാഗ് ചെയ്യാൻ നിങ്ങൾക്ക് ഇതുവരെ സജീവമായ ലിസ്റ്റിംഗുകളൊന്നുമില്ല.",
   "reels_post_reel": "റീൽ പോസ്റ്റ് ചെയ്യുക",
+  "reels_post_reel_tagged": "റീൽ പോസ്റ്റ് ചെയ്യുക · {count} ടാഗ് ചെയ്തു",
+  "reels_publishing": "നിങ്ങളുടെ റീൽ പ്രസിദ്ധീകരിക്കുന്നു…",
   "reels_posted_title": "റീൽ പോസ്റ്റ് ചെയ്തു!",
   "reels_posted_subtitle": "പ്രോസസ്സിംഗ് പൂർത്തിയായാൽ ഇത് റീൽസിൽ ദൃശ്യമാകും.",
+  "reels_posted_subtitle_tagged": "നിങ്ങളുടെ റീൽ {count} ടാഗ് ചെയ്ത {count, plural, one{ഇനവുമൊത്ത്} other{ഇനങ്ങളുമൊത്ത്}} ഫീഡിൽ ലൈവ് ആണ്.",
+  "reels_view_in_reels": "Reels-ൽ കാണുക",
   "reels_done": "പൂർത്തിയായി",
   "reels_delete_reel": "റീൽ ഇല്ലാതാക്കുക",
   "reels_report_reel": "റീൽ റിപ്പോർട്ട് ചെയ്യുക",
   "reels_share": "പങ്കിടുക",
   "reels_shop_the_look_count": "ലുക്ക് ഷോപ്പ് ചെയ്യുക · {count}",
-  "@reels_shop_the_look_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "reels_no_tagged_items": "ടാഗ് ചെയ്ത ഇനങ്ങളൊന്നുമില്ല.",
   "reels_shop_the_look": "ലുക്ക് ഷോപ്പ് ചെയ്യുക",
   "reels_deleted_snackbar": "റീൽ ഇല്ലാതാക്കി.",
   "reels_report_received_snackbar": "നന്ദി — റിപ്പോർട്ട് ലഭിച്ചു.",
   "reels_empty": "ഇതുവരെ റീൽസ് ഇല്ല",
   "reels_link_copied_snackbar": "ലിങ്ക് ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തി.",
+  "entry_sheet_title": "നിങ്ങൾ എന്ത് ചെയ്യാൻ ആഗ്രഹിക്കുന്നു?",
+  "entry_create_reel": "ഒരു റീൽ ഉണ്ടാക്കുക",
+  "entry_create_reel_sub": "നിങ്ങളുടെ ഇനങ്ങളുടെ ഒരു വീഡിയോ പങ്കിടുക",
+  "entry_create_reel_needs_product": "ആദ്യം ഒരു ഉൽപ്പന്നം ചേർക്കുക",
+  "entry_list_item": "ഒരു ഇനം വിൽക്കാൻ ലിസ്റ്റ് ചെയ്യുക",
+  "entry_list_item_sub": "ഫോട്ടോ ആദ്യം · AI നിങ്ങളുടെ ലിസ്റ്റിംഗ് മുൻകൂട്ടി പൂരിപ്പിക്കുന്നു",
+  "entry_cancel": "റദ്ദാക്കുക",
   "@_search": {},
   "search_hint": "ഇനങ്ങൾ, ബ്രാൻഡുകൾ തിരയുക…",
   "search_sort_popular": "ജനപ്രിയം",
@@ -212,47 +193,26 @@
   "search_sort_price_desc": "വില ↓",
   "search_filters": "ഫിൽട്ടറുകൾ",
   "search_filters_with_count": "ഫിൽട്ടറുകൾ · {count}",
-  "@search_filters_with_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_browse_categories": "വിഭാഗങ്ങൾ ബ്രൗസ് ചെയ്യുക",
   "search_popular_now": "ഇപ്പോൾ ജനപ്രിയം",
   "search_no_results": "ഫലങ്ങളൊന്നുമില്ല",
+  "category_items_count": "{count, plural, =1{1 ഇനം} other{{count} ഇനങ്ങൾ}}",
+  "category_empty": "ഇവിടെ ഇതുവരെ ഒന്നുമില്ല.",
+  "search_result_for_query": " “{query}”-നായി",
   "search_result_count": "{count, plural, =1{1 ഫലം} other{{count} ഫലങ്ങൾ}}",
-  "@search_result_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_condition_count": "{count, plural, =1{1 അവസ്ഥ} other{{count} അവസ്ഥകൾ}}",
-  "@search_condition_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_size_count": "{count, plural, =1{1 സൈസ്} other{{count} സൈസുകൾ}}",
-  "@search_size_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_filter_category": "വിഭാഗം",
   "search_filter_condition": "അവസ്ഥ",
   "search_filter_size": "സൈസ്",
   "search_filter_reset": "റീസെറ്റ് ചെയ്യുക",
   "search_filter_show_results": "ഫലങ്ങൾ കാണിക്കുക",
+  "search_filter_clear": "മായ്ക്കുക",
+  "search_filter_all": "എല്ലാം",
   "@_product": {},
+  "product_your_listing": "നിങ്ങളുടെ ലിസ്റ്റിംഗ്",
   "product_add_to_cart": "കാർട്ടിലേക്ക് ചേർക്കുക",
+  "product_buy": "വാങ്ങുക",
   "product_in_cart_view_cart": "കാർട്ടിലുണ്ട് · കാർട്ട് കാണുക",
   "product_edit_listing": "ലിസ്റ്റിംഗ് എഡിറ്റ് ചെയ്യുക",
   "product_status_sold": "വിറ്റു",
@@ -260,9 +220,11 @@
   "product_mark_as_sold": "വിറ്റതായി അടയാളപ്പെടുത്തുക",
   "product_mark_as_available": "ലഭ്യമായതായി അടയാളപ്പെടുത്തുക",
   "product_delete_listing": "ലിസ്റ്റിംഗ് ഇല്ലാതാക്കുക",
+  "product_delete_confirm": "ഈ ലിസ്റ്റിംഗ് ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാനാവില്ല.",
   "product_report_listing": "ലിസ്റ്റിംഗ് റിപ്പോർട്ട് ചെയ്യുക",
   "product_report_this_listing": "ഈ ലിസ്റ്റിംഗ് റിപ്പോർട്ട് ചെയ്യുക",
   "product_listing_deleted": "ലിസ്റ്റിംഗ് ഇല്ലാതാക്കി",
+  "product_listing_deleted_subtitle": "ഈ ഇനവും അതിന്റെ ഫോട്ടോകളും നീക്കം ചെയ്തു.",
   "product_back_to_feed": "ഫീഡിലേക്ക് മടങ്ങുക",
   "product_added_to_cart": "കാർട്ടിലേക്ക് ചേർത്തു.",
   "product_edit_coming_soon": "ഒരു ലിസ്റ്റിംഗ് എഡിറ്റ് ചെയ്യൽ ഉടൻ വരുന്നു.",
@@ -274,19 +236,15 @@
   "product_stat_posted": "പോസ്റ്റ് ചെയ്തത്",
   "product_stamp_sold": "വിറ്റു",
   "product_stamp_reserved": "റിസർവ് ചെയ്തു",
+  "product_make_offer": "ഓഫർ നൽകുക",
   "product_currency_dhs": "Dhs",
   "product_price_amount": "{amount} ",
-  "@product_price_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "@_sell": {},
   "sell_sell_in_seconds": "സെക്കൻഡുകൾക്കുള്ളിൽ വിൽക്കുക",
   "sell_your_photos": "നിങ്ങളുടെ ഫോട്ടോകൾ",
   "sell_add_photos_hint": "8 ഫോട്ടോകൾ വരെ ചേർക്കുക. AI നിങ്ങളുടെ ലിസ്റ്റിംഗ് മുൻകൂട്ടി പൂരിപ്പിക്കും.",
+  "sell_reorder_hint": "ക്രമം മാറ്റാൻ വലിക്കുക. ആദ്യ ഫോട്ടോ കവർ ആണ്.",
+  "sell_add_at_least_one_photo": "തുടരാൻ കുറഞ്ഞത് 1 ഫോട്ടോ ചേർക്കുക",
   "sell_continue": "തുടരുക",
   "sell_cover": "കവർ",
   "sell_add_a_photo": "ഒരു ഫോട്ടോ ചേർക്കുക",
@@ -299,24 +257,25 @@
   "sell_price": "വില",
   "sell_description": "വിവരണം",
   "sell_category": "വിഭാഗം",
+  "sell_product_details": "ഉൽപ്പന്ന വിശദാംശങ്ങൾ",
+  "sell_subcategory": "ഉപ വിഭാഗം",
+  "sell_choose_subcategory": "ഒരു ഉപ വിഭാഗം തിരഞ്ഞെടുക്കുക",
   "sell_brand": "ബ്രാൻഡ്",
   "sell_size": "സൈസ്",
   "sell_condition": "അവസ്ഥ",
   "sell_suggested_by_ai": "AI നിർദ്ദേശിച്ചത്",
+  "sell_prefilled_by_ai": "AI-യാൽ മുൻകൂട്ടി പൂരിപ്പിച്ചു — അവലോകനം ചെയ്ത് ക്രമീകരിക്കുക.",
+  "sell_photo_edit": "എഡിറ്റ് ചെയ്യുക",
   "sell_list_item": "ഇനം ലിസ്റ്റ് ചെയ്യുക",
   "sell_optional": "ഓപ്ഷണൽ",
   "sell_title_hint": "ഉദാ. ലെതർ ബൈക്കർ ജാക്കറ്റ്",
   "sell_price_hint": "AED",
+  "sell_price_suffix": "Dhs",
   "sell_description_hint": "അവസ്ഥ, ഫിറ്റ്, മെറ്റീരിയൽ എന്നിവയെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ ചേർക്കുക…",
+  "sell_description_error": "വാങ്ങുന്നവർക്ക് എന്ത് ലഭിക്കുന്നുവെന്ന് അറിയാൻ ഒരു വിവരണം ചേർക്കുക",
+  "sell_size_one_size": "ഒരു സൈസ്",
   "sell_search_brands": "ബ്രാൻഡുകൾ തിരയുക",
   "sell_use_quoted": "\"{value}\" ഉപയോഗിക്കുക",
-  "@sell_use_quoted": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "sell_title_error": "ഒരു ശീർഷകം ചേർക്കുക (കുറഞ്ഞത് 2 പ്രതീകങ്ങൾ)",
   "sell_price_error": "ഒരു വില നൽകുക",
   "sell_category_error": "ഒരു വിഭാഗം തിരഞ്ഞെടുക്കുക",
@@ -325,54 +284,43 @@
   "sell_item_visible_to_buyers": "നിങ്ങളുടെ ഇനം ഇപ്പോൾ വാങ്ങുന്നവർക്ക് ദൃശ്യമാണ്.",
   "sell_view_listing": "ലിസ്റ്റിംഗ് കാണുക",
   "sell_back_to_home": "ഹോമിലേക്ക് മടങ്ങുക",
+  "sell_create_reel": "ഒരു റീൽ ഉണ്ടാക്കുക",
   "@_cart": {},
   "cart_title": "കാർട്ട്",
   "cart_make_an_offer": "ഒരു ഓഫർ നൽകുക",
+  "cart_offer_sent": "ഓഫർ അയച്ചു — വിൽപ്പനക്കാരൻ നിങ്ങളെ ബന്ധപ്പെടും",
   "cart_cancel_offer": "ഓഫർ റദ്ദാക്കുക",
   "cart_check_out": "ചെക്ക് ഔട്ട് ചെയ്യുക",
   "cart_subtotal": "ഉപആകെത്തുക",
   "cart_offer_pending": "ഓഫർ തീർപ്പാക്കാത്തത്",
   "cart_offer_accepted": "ഓഫർ സ്വീകരിച്ചു",
   "cart_pro_badge": "PRO",
+  "cart_cancel": "റദ്ദാക്കുക",
+  "cart_in_bundle": "ബണ്ടിൽ ഓഫറിൽ",
+  "cart_in_accepted_bundle": "സ്വീകരിച്ച ബണ്ടിലിൽ",
+  "cart_added_after_bundle": "നിങ്ങളുടെ ബണ്ടിൽ ഓഫറിന് ശേഷം ചേർത്തു — ഉൾപ്പെടുത്തിയിട്ടില്ല",
+  "cart_bundle_pending": "പ്രതികരണം കാത്തിരിക്കുന്നു",
+  "cart_bundle_accepted": "സ്വീകരിച്ചു",
+  "cart_offer_sent_amount": "ഓഫർ അയച്ചു · {amount} Dhs",
+  "cart_offer_accepted_save": "ഓഫർ സ്വീകരിച്ചു · {amount} Dhs ലാഭിക്കുക",
+  "cart_bundle_was": "{amount} Dhs ആയിരുന്നു",
+  "cart_checkout_amount": "ചെക്ക് ഔട്ട് · {amount} Dhs",
+  "cart_offer_for_all": "{count, plural, =1{ഈ ഇനത്തിനായി ഓഫർ} other{എല്ലാ {count} ഇനങ്ങൾക്കും ഓഫർ}}",
+  "cart_bundle_title": "{count, plural, =1{ബണ്ടിൽ ഓഫർ · 1 ഇനം} other{ബണ്ടിൽ ഓഫർ · {count} ഇനങ്ങൾ}}",
   "cart_empty_title": "നിങ്ങളുടെ കാർട്ട് ശൂന്യമാണ്",
   "cart_empty_subtitle": "ഇനങ്ങൾ ചേർക്കുക, അവ ഇവിടെ വിൽപ്പനക്കാരന്റെ അടിസ്ഥാനത്തിൽ ഗ്രൂപ്പ് ചെയ്യും.",
   "cart_offer_send": "ഓഫർ അയയ്ക്കുക",
   "cart_offer_hint_single": "നിങ്ങളുടെ ഓഫർ",
   "cart_offer_hint_multi": "എല്ലാ {count} ഇനങ്ങൾക്കുമുള്ള നിങ്ങളുടെ ഓഫർ",
-  "@cart_offer_hint_multi": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "cart_offer_error_below_total": "ഓഫർ ആകെ വിലയ്ക്ക് താഴെയായിരിക്കണം",
   "cart_offer_chat_note": "ഒരു ഓഫർ ഈ വിൽപ്പനക്കാരനിൽ നിന്നുള്ള എല്ലാം ഉൾക്കൊള്ളുന്നു. ഇത് ചാറ്റിൽ സ്വകാര്യമായി അയയ്ക്കുന്നു — വിൽപ്പനക്കാരൻ സ്വീകരിക്കുകയോ നിരസിക്കുകയോ ചെയ്യുന്നു.",
+  "cart_offer_escrow_note": "നിങ്ങൾ ഡെലിവറി സ്ഥിരീകരിക്കുന്നതുവരെ നിങ്ങളുടെ പേയ്മെന്റ് എസ്ക്രോവിൽ സൂക്ഷിക്കും.",
   "cart_currency_dhs": "Dhs",
   "cart_price_dhs": "{amount} Dhs",
-  "@cart_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "cart_item_count": "{count, plural, =1{1 ഇനം} other{{count} ഇനങ്ങൾ}}",
-  "@cart_item_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
+  "checkout_buy_more_from": "{name}-ൽ നിന്ന് കൂടുതൽ വാങ്ങുക",
+  "cart_offer_seller_meta": "{count, plural, =1{1 ഇനം} other{{count} ഇനങ്ങൾ}} · {price} Dhs-ൽ ലിസ്റ്റ് ചെയ്തു",
   "cart_sellers_summary": "{count, plural, =1{1 വിൽപ്പനക്കാരൻ · ഓരോ വിൽപ്പനക്കാരനും ഒരു ഓഫറും ചെക്ക്ഔട്ടും} other{{count} വിൽപ്പനക്കാർ · ഓരോ വിൽപ്പനക്കാരനും ഒരു ഓഫറും ചെക്ക്ഔട്ടും}}",
-  "@cart_sellers_summary": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_checkout": {},
   "checkout_title": "ചെക്ക്ഔട്ട്",
   "checkout_delivery": "ഡെലിവറി",
@@ -383,21 +331,7 @@
   "checkout_vat": "VAT",
   "checkout_total": "ആകെ",
   "checkout_pay_amount": "{amount} Dhs അടയ്ക്കുക",
-  "@checkout_pay_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_amount_dhs": "{amount} Dhs",
-  "@checkout_amount_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_encrypted_escrow_note": "എൻക്രിപ്റ്റ് ചെയ്ത ചെക്ക്ഔട്ട് · പേയ്മെന്റ് എസ്ക്രോവിൽ സൂക്ഷിച്ചിരിക്കുന്നു",
   "checkout_order_placed_title": "ഓർഡർ നൽകി!",
   "checkout_order_placed_escrow_message": "നിങ്ങൾ ഡെലിവറി സ്ഥിരീകരിക്കുന്നതുവരെ നിങ്ങളുടെ പേയ്മെന്റ് എസ്ക്രോവിൽ സൂക്ഷിക്കും.",
@@ -414,37 +348,23 @@
   "orders_no_orders_yet": "ഇതുവരെ ഓർഡറുകളൊന്നുമില്ല",
   "orders_prefix_from": "നിന്ന്",
   "orders_prefix_to": "ലേക്ക്",
+  "orders_negotiated": "ചർച്ച ചെയ്തു",
   "orders_price_dhs": "{amount} Dhs",
-  "@orders_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "orders_counterpart_meta": "{prefix} {name}",
-  "@orders_counterpart_meta": {
-    "placeholders": {
-      "prefix": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "orders_order_details": "ഓർഡർ വിശദാംശങ്ങൾ",
   "orders_tracking": "ട്രാക്കിംഗ്",
   "orders_tracking_updates_empty": "ട്രാക്കിംഗ് അപ്‌ഡേറ്റുകൾ ഇവിടെ ദൃശ്യമാകും.",
   "orders_emx_door_to_door": "EMX വാതിൽ മുതൽ വാതിൽ വരെ · യുഎഇ ആഭ്യന്തരം",
+  "orders_emx_tracking": "EMX ട്രാക്കിംഗ്",
+  "orders_track_confirmed_label": "ഓർഡർ സ്ഥിരീകരിച്ചു",
+  "orders_track_confirmed_sub": "വിൽപ്പനക്കാരൻ നിങ്ങളുടെ ഇനം തയ്യാറാക്കുന്നു",
+  "orders_track_shipped_label": "EMX-ൽ ഷിപ്പ് ചെയ്തു",
+  "orders_track_shipped_sub": "ശേഖരിച്ചു · വഴിമധ്യേ",
+  "orders_track_out_label": "ഡെലിവറിക്കായി പുറപ്പെട്ടു",
+  "orders_track_out_sub": "ഇന്ന് എത്തും",
+  "orders_track_delivered_label": "ഡെലിവർ ചെയ്തു",
+  "orders_track_delivered_sub": "പേയ്മെന്റ് റിലീസ് ചെയ്യാൻ സ്ഥിരീകരിക്കുക",
   "orders_carrier_prefix": "{carrier} · ",
-  "@orders_carrier_prefix": {
-    "placeholders": {
-      "carrier": {
-        "type": "String"
-      }
-    }
-  },
   "orders_mark_as_shipped": "ഷിപ്പ് ചെയ്തതായി അടയാളപ്പെടുത്തുക",
   "orders_download_emx_label": "EMX ലേബൽ ഡൗൺലോഡ് ചെയ്യുക",
   "orders_confirm_receipt": "രസീത് സ്ഥിരീകരിക്കുക",
@@ -473,7 +393,6 @@
   "@_misc": {},
   "profile_title": "പ്രൊഫൈൽ",
   "chat_title": "ചാറ്റ്",
-  "@_ds": {},
   "ds_password_strength_weak": "ദുർബലം",
   "ds_password_strength_fair": "സാമാന്യം",
   "ds_password_strength_good": "നല്ലത്",
@@ -485,29 +404,8 @@
   "notifications_profile_coming_soon": "പ്രൊഫൈലുകൾ ഉടൻ വരുന്നു.",
   "notifications_time_just_now": "ഇപ്പോൾ തന്നെ",
   "notifications_time_minutes": "{count}മി മുമ്പ്",
-  "@notifications_time_minutes": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_hours": "{count}മ മുമ്പ്",
-  "@notifications_time_hours": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_days": "{count}ദി മുമ്പ്",
-  "@notifications_time_days": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_profile_feature": {},
   "profile_edit": "പ്രൊഫൈൽ എഡിറ്റ് ചെയ്യുക",
   "profile_follow": "ഫോളോ ചെയ്യുക",
@@ -527,6 +425,7 @@
   "profile_no_listings": "ഇതുവരെ ലിസ്റ്റിംഗുകളൊന്നുമില്ല",
   "profile_no_reels": "ഇതുവരെ റീൽസ് ഇല്ല",
   "profile_no_reviews": "ഇതുവരെ റിവ്യൂകളൊന്നുമില്ല",
+  "profile_reviews_count": "{count, plural, =1{1 റിവ്യൂ} other{{count} റിവ്യൂകൾ}}",
   "profile_no_followers": "ഇതുവരെ ഫോളോവേഴ്സ് ഇല്ല",
   "profile_no_following": "ഇതുവരെ ആരെയും ഫോളോ ചെയ്യുന്നില്ല",
   "profile_connections_title": "കണക്ഷനുകൾ",
@@ -544,6 +443,10 @@
   "settings_section_legal": "നിയമപരവും സപ്പോർട്ടും",
   "settings_section_account": "അക്കൗണ്ട്",
   "settings_edit_profile": "പ്രൊഫൈൽ എഡിറ്റ് ചെയ്യുക",
+  "edit_profile_discard_title": "മാറ്റങ്ങൾ ഉപേക്ഷിക്കണോ?",
+  "edit_profile_discard_body": "നിങ്ങൾക്ക് സംരക്ഷിക്കാത്ത മാറ്റങ്ങൾ ഉണ്ട്. സംരക്ഷിക്കാതെ ഇറങ്ങണോ?",
+  "edit_profile_discard_confirm": "ഉപേക്ഷിക്കുക",
+  "edit_profile_keep_editing": "എഡിറ്റ് ചെയ്യൽ തുടരുക",
   "settings_delivery_address": "ഡെലിവറി വിലാസം",
   "settings_payout_iban": "പേഔട്ട് IBAN",
   "settings_seller_stats": "വിൽപ്പനക്കാരന്റെ സ്ഥിതിവിവരക്കണക്കുകൾ",
@@ -561,8 +464,14 @@
   "settings_delete_confirm": "നിങ്ങളുടെ അക്കൗണ്ട് ശാശ്വതമായി ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാനാവില്ല.",
   "settings_change_password_no_email": "ഈ അക്കൗണ്ടുമായി ഇമെയിൽ ഒന്നും ലിങ്ക് ചെയ്തിട്ടില്ല.",
   "settings_password_reset_sent": "പാസ്‌വേഡ് റീസെറ്റ് ലിങ്ക് അയച്ചു. നിങ്ങളുടെ ഇമെയിൽ പരിശോധിക്കുക.",
+  "settings_new_password": "പുതിയ പാസ്‌വേഡ്",
+  "settings_new_password_hint": "പുതിയ പാസ്‌വേഡ്",
+  "settings_confirm_password": "പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക",
+  "settings_confirm_password_hint": "പാസ്‌വേഡ് വീണ്ടും നൽകുക",
+  "settings_passwords_no_match": "പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല",
+  "settings_password_too_short": "കുറഞ്ഞത് 8 അക്ഷരങ്ങൾ ഉപയോഗിക്കുക",
+  "settings_password_updated": "പാസ്‌വേഡ് അപ്‌ഡേറ്റ് ചെയ്തു.",
   "settings_support_unavailable": "സപ്പോർട്ട് ഇപ്പോൾ ലഭ്യമല്ല.",
-  "settings_handle": "ഹാൻഡിൽ",
   "settings_address_line1": "വിലാസ വരി",
   "settings_address_area": "പ്രദേശം",
   "settings_address_city": "നഗരം",
@@ -574,6 +483,41 @@
   "settings_doc_unavailable": "ഈ ഡോക്യുമെന്റ് ഇപ്പോൾ ലഭ്യമല്ല.",
   "settings_no_blocked": "നിങ്ങൾ ആരെയും ബ്ലോക്ക് ചെയ്തിട്ടില്ല.",
   "settings_unblock": "അൺബ്ലോക്ക് ചെയ്യുക",
+  "settings_group_account": "അക്കൗണ്ട്",
+  "settings_group_notifications": "അറിയിപ്പുകൾ",
+  "settings_group_other": "മറ്റുള്ളവ",
+  "settings_group_links": "ലിങ്കുകൾ",
+  "settings_group_social": "സോഷ്യൽ",
+  "settings_group_preferences": "മുൻഗണനകൾ",
+  "settings_personal_data": "വ്യക്തിഗത ഡേറ്റ",
+  "settings_personal_data_sub": "പ്രൊഫൈൽ, മുൻഗണനകൾ, ബ്ലോക്ക് ചെയ്ത ഉപയോക്താക്കൾ",
+  "settings_personal_information": "വ്യക്തിഗത വിവരം",
+  "settings_security": "സുരക്ഷ",
+  "settings_security_sub": "ഇമെയിൽ, പാസ്‌വേഡ്, ഫോൺ",
+  "settings_payouts_sub": "ബാങ്ക് വിശദാംശങ്ങൾ (IBAN)",
+  "settings_share_app": "ആപ്പ് പങ്കിടുക",
+  "settings_legal_notices": "നിയമ അറിയിപ്പുകൾ",
+  "settings_about": "കുറിച്ച്",
+  "settings_instagram": "Instagram",
+  "settings_instagram_handle": "@klozy",
+  "settings_clothing_preference": "വസ്ത്ര മുൻഗണന",
+  "settings_preferred_size": "ഇഷ്ടപ്പെട്ട സൈസ്",
+  "settings_preferred_brands": "ഇഷ്ടപ്പെട്ട ബ്രാൻഡുകൾ",
+  "settings_change_email": "ഇമെയിൽ മാറ്റുക",
+  "settings_phone_number": "ഫോൺ നമ്പർ",
+  "settings_current_email": "നിലവിലെ ഇമെയിൽ",
+  "settings_new_email": "പുതിയ ഇമെയിൽ",
+  "settings_new_email_hint": "you@email.com",
+  "settings_change_email_note": "ഞങ്ങൾ നിങ്ങളുടെ പുതിയ വിലാസത്തിലേക്ക് ഒരു സ്ഥിരീകരണ ലിങ്ക് അയയ്ക്കും. സ്ഥിരീകരിച്ചാൽ മാറ്റം ബാധകമാകും.",
+  "settings_email_link_sent": "സ്ഥിരീകരണ ലിങ്ക് അയച്ചു. പൂർത്തിയാക്കാൻ നിങ്ങളുടെ പുതിയ ഇൻബോക്സ് പരിശോധിക്കുക.",
+  "settings_current_number": "നിലവിലെ നമ്പർ",
+  "settings_new_number": "പുതിയ നമ്പർ",
+  "settings_new_number_hint": "50 123 4567",
+  "settings_phone_note": "നിങ്ങളുടെ പുതിയ നമ്പർ സ്ഥിരീകരിക്കാൻ ഞങ്ങൾ ഒരു 6-അക്ക കോഡ് ടെക്സ്റ്റ് ചെയ്യും.",
+  "settings_phone_updated": "ഫോൺ നമ്പർ അപ്‌ഡേറ്റ് ചെയ്തു.",
+  "settings_enter_code_for": "{number}-ലേക്ക് അയച്ച 6-അക്ക കോഡ് നൽകുക",
+  "settings_share_message": "Klozy നോക്കൂ — UAE-ൽ ഉടനീളം പ്രീ-ലവ്ഡ് ഫാഷൻ വാങ്ങുകയും വിൽക്കുകയും ചെയ്യൂ. https://klozy.app",
+  "settings_share_failed": "ഷെയർ തുറക്കാനായില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
   "onboarding_avatar_failed": "നിങ്ങളുടെ ഫോട്ടോ അപ്‌ലോഡ് ചെയ്യാനായില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.",
   "sell_weight": "ഭാരം (ഗ്രാം)",
   "sell_weight_hint": "ഉദാ. 800",
@@ -637,35 +581,11 @@
   "search_price_min": "കുറഞ്ഞത്",
   "search_price_max": "കൂടിയത്",
   "search_brand_count": "{count, plural, =1{1 ബ്രാൻഡ്} other{{count} ബ്രാൻഡുകൾ}}",
-  "@search_brand_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_price_chip": "{min}–{max} Dhs",
-  "@search_price_chip": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "settings_iban_current": "നിലവിലെ IBAN: {masked}",
-  "@settings_iban_current": {
-    "placeholders": {
-      "masked": {
-        "type": "String"
-      }
-    }
-  },
   "auth_or_continue_with": "അല്ലെങ്കിൽ ഇതുപയോഗിച്ച് തുടരുക",
   "onboarding_address_search_hint": "നിങ്ങളുടെ വിലാസം തിരയുക",
-  "settings_language": "ഭാഷ",
+  "@_account": {},
   "account_gate_guest_title": "തുടരാൻ അക്കൗണ്ട് സൃഷ്ടിക്കുക അല്ലെങ്കിൽ ലോഗിൻ ചെയ്യുക",
   "account_gate_guest_subtitle": "ഇനങ്ങൾ വിഷ്‌ലിസ്റ്റ് ചെയ്യാനും വിൽപ്പനക്കാരെ ഫോളോ ചെയ്യാനും പ്രീ-ലവ്ഡ് ഫാഷൻ വാങ്ങാനും Klozy-യിൽ ചേരുക.",
   "account_gate_create_account": "അക്കൗണ്ട് സൃഷ്ടിക്കുക",
@@ -673,24 +593,58 @@
   "account_gate_incomplete_title": "നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജീകരണം പൂർത്തിയാക്കുക",
   "account_gate_incomplete_subtitle": "Klozy-യുടെ എല്ലാ ഫീച്ചറുകളും അൺലോക്ക് ചെയ്യാൻ നിങ്ങളുടെ പ്രൊഫൈൽ പൂർത്തിയാക്കുക.",
   "account_gate_finish_setup": "സജ്ജീകരണം പൂർത്തിയാക്കുക",
+  "@_guest_tab": {},
   "guest_tab_title": "Klozy-യിൽ സൈൻ ഇൻ ചെയ്യുക",
   "guest_tab_subtitle": "ഈ വിഭാഗം ആക്‌സസ് ചെയ്യാൻ അക്കൗണ്ട് സൃഷ്ടിക്കുക അല്ലെങ്കിൽ ലോഗിൻ ചെയ്യുക.",
   "guest_tab_cta": "അക്കൗണ്ട് സൃഷ്ടിക്കുക",
   "guest_tab_log_in": "ലോഗിൻ ചെയ്യുക",
+  "@_categoryPicker": {},
   "categoryPickerTitle": "വിഭാഗം തിരഞ്ഞെടുക്കുക",
   "categoryPickerBreadcrumbRoot": "എല്ലാ വിഭാഗങ്ങളും",
   "categoryPickerLoading": "ലോഡ് ചെയ്യുന്നു...",
   "categoryPickerRetry": "വീണ്ടും ശ്രമിക്കുക",
+  "categoryPickerDeepestHint": "ഏറ്റവും താഴ്ന്ന ലെവൽ — ചുവടെ സൈസ് അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക.",
   "categoryPickerAddCategories": "വിഭാഗങ്ങൾ ചേർക്കുക",
   "categoryPickerPreferred": "ഇഷ്ടപ്പെട്ട വിഭാഗങ്ങൾ",
+  "@_sell_enrich": {},
   "sellPhotosEmptyTitle": "ഫോട്ടോകൾ ചേർക്കുക",
   "sellPhotosEmptySubtitle": "നിങ്ങളുടെ ഇനത്തിന്റെ ഫോട്ടോകൾ എടുക്കുക അല്ലെങ്കിൽ അപ്‌ലോഡ് ചെയ്യുക",
   "sellPhotosCounter": "ഫോട്ടോകൾ",
   "sellRecapPhotoStripEdit": "എഡിറ്റ് ചെയ്യുക",
   "sellRequiredHint": "* ആവശ്യമായ ഫീൽഡുകൾ",
-  "sellSizeSystem": "സൈസ് സിസ്റ്റം",
-  "product_buy": "വാങ്ങുക",
-  "product_make_offer": "ഓഫർ നൽകുക",
+  "settings_language": "ഭാഷ",
   "offer_send_failed": "നിങ്ങളുടെ ഓഫർ അയയ്ക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക.",
-  "product_see_offer": "ഓഫർ കാണുക"
+  "product_see_offer": "ഓഫർ കാണുക",
+  "@_chat": {},
+  "chat_empty_title": "ഇതുവരെ സംഭാഷണങ്ങളൊന്നുമില്ല",
+  "chat_empty_subtitle": "ചാറ്റ് ആരംഭിക്കാൻ ഏതെങ്കിലും ഉൽപ്പന്നത്തിൽ നിന്ന് ഒരു വിൽപ്പനക്കാരന് സന്ദേശം അയക്കുക.",
+  "chat_composer_hint": "സന്ദേശം…",
+  "chat_recording": "റെക്കോർഡ് ചെയ്യുന്നു…",
+  "chat_attach_photo": "ഫോട്ടോ & വീഡിയോ",
+  "chat_attach_camera": "ക്യാമറ",
+  "chat_incomplete_profile_title": "നിങ്ങളുടെ പ്രൊഫൈൽ സജ്ജീകരണം പൂർത്തിയാക്കുക",
+  "chat_incomplete_profile_subtitle": "വാങ്ങുന്നവരുമായും വിൽക്കുന്നവരുമായും ചാറ്റ് ആരംഭിക്കാൻ നിങ്ങളുടെ പ്രൊഫൈൽ പൂർത്തിയാക്കുക.",
+  "chat_incomplete_profile_cta": "പ്രൊഫൈൽ പൂർത്തിയാക്കുക",
+  "chat_menu_report": "റിപ്പോർട്ട് ചെയ്ത് ബ്ലോക്ക് ചെയ്യുക",
+  "chat_menu_delete": "സംഭാഷണം ഇല്ലാതാക്കുക",
+  "chat_reply_self": "നിങ്ങൾ നിങ്ങൾക്ക് തന്നെ മറുപടി നൽകുന്നു",
+  "chat_reply_other": "മറുപടി നൽകുന്നു",
+  "chat_media_placeholder": "[മീഡിയ]",
+  "chat_offer_yours": "നിങ്ങളുടെ ഓഫർ",
+  "chat_offer_incoming": "ഓഫർ",
+  "chat_offer_refuse": "നിരസിക്കുക",
+  "chat_offer_accept": "സ്വീകരിക്കുക",
+  "chat_offer_pending": "പ്രതികരണം കാത്തിരിക്കുന്നു…",
+  "chat_offer_accepted": "ഓഫർ സ്വീകരിച്ചു",
+  "chat_offer_declined": "ഓഫർ നിരസിച്ചു",
+  "chat_message_deleted": "സന്ദേശം ഇല്ലാതാക്കി",
+  "chat_currency": "Dhs",
+  "chat_purchase_confirmed": "വാങ്ങൽ സ്ഥിരീകരിച്ചു",
+  "chat_purchase_for": "ഇതിന്",
+  "chat_no_messages": "ഇതുവരെ സന്ദേശങ്ങളൊന്നുമില്ല",
+  "chat_preview_photo": "📷 ഫോട്ടോ",
+  "chat_preview_voice": "🎤 വോയ്‌സ് സന്ദേശം",
+  "chat_preview_offer_sent": "നിങ്ങൾ ഒരു ഓഫർ അയച്ചു",
+  "chat_preview_offer_new": "പുതിയ ഓഫർ",
+  "chat_preview_you_prefix": "നിങ്ങൾ: "
 }

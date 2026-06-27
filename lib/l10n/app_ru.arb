@@ -1,6 +1,14 @@
 {
   "app_name": "Klozy",
-  "@_error_page": {},
+  "@_ds": [],
+  "ds_set_composition_header": "В этот комплект входит",
+  "ds_set_composition_owner_note": "Добавьте фото каждой вещи, чтобы вызвать доверие покупателей и продать быстрее.",
+  "ds_set_composition_buyer_note": "Некоторые вещи не сфотографированы. Свяжитесь с продавцом для подробностей.",
+  "ds_set_composition_photo": "Фото",
+  "ds_set_composition_add": "Добавить",
+  "ds_set_composition_no_photo": "Нет фото",
+  "ds_search_bar_hint": "Поиск товара или участника",
+  "@_error_page": [],
   "error_page_show_details": "ПОКАЗАТЬ ПОДРОБНОСТИ",
   "error_page_hide_details": "СКРЫТЬ ПОДРОБНОСТИ",
   "error_page_copy_for_support": "СКОПИРОВАТЬ ДЛЯ ПОДДЕРЖКИ",
@@ -10,7 +18,7 @@
   "error_page_stage_label": "ЭТАП",
   "error_page_request_label": "ЗАПРОС",
   "error_page_message_label": "СООБЩЕНИЕ",
-  "@_error_scenario": {},
+  "@_error_scenario": [],
   "error_scenario_network_title": "Похоже, вы не в сети",
   "error_scenario_network_body": "Для синхронизации нужно подключение. Проверьте Wi-Fi или мобильный интернет и попробуйте снова.",
   "error_scenario_network_primary": "Повторить подключение",
@@ -49,8 +57,9 @@
   "error_scenario_notfound_http_label": "Не найдено",
   "error_scenario_rate_limit_http_label": "Слишком много запросов",
   "error_scenario_maintenance_http_label": "Техническое обслуживание",
-  "@_auth": {},
+  "@_auth": [],
   "auth_country_uae": "ОБЪЕДИНЁННЫЕ АРАБСКИЕ ЭМИРАТЫ",
+  "auth_hero_placeholder": "HERO  ·  EDITORIAL  FASHION  SHOT",
   "auth_welcome_title": "Покупайте и продавайте\nлюбимую одежду секонд-хенд.",
   "auth_get_started": "Начать",
   "auth_already_have_account": "У меня уже есть аккаунт · ",
@@ -81,27 +90,13 @@
   "auth_enter_code_title": "Введите код",
   "auth_code_sent_to": "Отправлено на ",
   "auth_resend_code_in": "Повторная отправка кода через {time}",
-  "@auth_resend_code_in": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "auth_resend_code": "Отправить код повторно",
   "auth_code_spam_hint": "Не получили? Проверьте папку «Спам». Новый код можно запросить после периода ожидания.",
   "auth_verify": "Подтвердить",
   "auth_new_code_sent": "Новый код отправлен.",
-  "@_onboarding": {},
+  "@_onboarding": [],
   "onboarding_all_set": "Всё готово!",
   "onboarding_all_set_named": "Всё готово, {name}!",
-  "@onboarding_all_set_named": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_feed_ready_subtitle": "Ваша лента Klozy готова. Открывайте, продавайте и покупайте образы — всё в одном месте.",
   "onboarding_start_exploring": "Начать обзор",
   "onboarding_complete_profile_title": "Заполните профиль",
@@ -114,16 +109,6 @@
   "onboarding_address_label": "Адрес",
   "onboarding_bio_label": "О себе",
   "onboarding_bio_char_count": "{count}/{max}",
-  "@onboarding_bio_char_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_bio_hint": "Расскажите покупателям немного о своём стиле…",
   "onboarding_continue": "Продолжить",
   "onboarding_skip": "Пропустить",
@@ -134,26 +119,12 @@
   "onboarding_sizes_title": "Размеры",
   "onboarding_clothing_label": "Одежда",
   "onboarding_shoes_label": "Обувь · {system}",
-  "@onboarding_shoes_label": {
-    "placeholders": {
-      "system": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_brands_title": "Бренды",
   "onboarding_brands_hint": "Подпишитесь на любимые",
   "onboarding_brands_search_hint": "Поиск брендов",
   "onboarding_no_brand_matches": "Брендов не найдено.",
   "onboarding_show_feed": "Показать мою ленту",
   "onboarding_show_feed_count": "Показать мою ленту · выбрано {count}",
-  "@onboarding_show_feed_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_seller_account_set_up": "Аккаунт продавца настроен.",
   "onboarding_seller_role_title": "Как вы будете продавать?",
   "onboarding_seller_role_subtitle": "Выберите аккаунт, который вам подходит. Вы можете сменить или повысить его в любой момент в Настройках.",
@@ -166,45 +137,55 @@
   "onboarding_pro_vendor_badge": "Pro",
   "onboarding_pro_vendor_description": "Ведёте бизнес по перепродаже. Массовые объявления, фирменный магазин и аналитика. Верификация и оплата через Stripe (KYB).",
   "onboarding_buyer_protection_note": "Каждая продажа защищена системой защиты покупателей Klozy. Платёж удерживается на эскроу-счёте и перечисляется вам после подтверждения доставки.",
-  "@_home": {},
+  "@_home": [],
   "home_tab_feed": "Лента",
   "home_tab_wishlist": "Избранное",
   "home_tab_reels": "Reels",
   "home_feed_empty": "Здесь пока ничего нет.",
   "home_category_all": "Все",
+  "home_picked_for_you": "Подобрано для вас · {categories}",
   "home_product_badge_new": "Новое",
   "home_wishlist_empty": "Ваше избранное пусто",
-  "@_reels": {},
+  "home_wishlist_empty_hint": "Нажмите на сердечко на любом товаре, чтобы сохранить его здесь.",
+  "home_wishlist_saved_count": "{count, plural, one{{count} сохранённый товар} few{{count} сохранённых товара} many{{count} сохранённых товаров} other{{count} сохранённого товара}}",
+  "@_reels": [],
+  "reels_processing_video": "Обработка видео…",
   "reels_composer_title": "Новый reel",
-  "reels_pick_title": "Создать reel",
+  "reels_compose_details_title": "Добавить детали",
   "reels_pick_subtitle": "Запишите короткое видео, демонстрирующее ваши вещи, или выберите одно из галереи.",
   "reels_record_video": "Записать видео",
+  "reels_record_hint": "До 60 с · вертикально",
   "reels_choose_from_gallery": "Выбрать из галереи",
+  "reels_caption_label": "Подпись",
   "reels_caption_hint": "Скажите что-нибудь о своём образе…",
   "reels_tag_items_title": "Отметьте товары из вашего магазина",
   "reels_no_listings_to_tag": "У вас пока нет активных объявлений для отметки.",
   "reels_post_reel": "Опубликовать reel",
+  "reels_post_reel_tagged": "Опубликовать reel · отмечено {count}",
+  "reels_publishing": "Публикуем ваш reel…",
   "reels_posted_title": "Reel опубликован!",
   "reels_posted_subtitle": "Он появится в Reels после завершения обработки.",
+  "reels_posted_subtitle_tagged": "Ваш reel опубликован в ленте с {count} {count, plural, one{отмеченным товаром} few{отмеченными товарами} many{отмеченными товарами} other{отмеченными товарами}}.",
+  "reels_view_in_reels": "Смотреть в Reels",
   "reels_done": "Готово",
   "reels_delete_reel": "Удалить reel",
   "reels_report_reel": "Пожаловаться на reel",
   "reels_share": "Поделиться",
   "reels_shop_the_look_count": "Купить образ · {count}",
-  "@reels_shop_the_look_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "reels_no_tagged_items": "Нет отмеченных товаров.",
   "reels_shop_the_look": "Купить образ",
   "reels_deleted_snackbar": "Reel удалён.",
   "reels_report_received_snackbar": "Спасибо — жалоба получена.",
   "reels_empty": "Пока нет reels",
   "reels_link_copied_snackbar": "Ссылка скопирована в буфер обмена.",
-  "@_search": {},
+  "entry_sheet_title": "Что вы хотите сделать?",
+  "entry_create_reel": "Создать reel",
+  "entry_create_reel_sub": "Поделитесь видео своих вещей",
+  "entry_create_reel_needs_product": "Сначала добавьте товар",
+  "entry_list_item": "Разместить товар на продажу",
+  "entry_list_item_sub": "Фото — прежде всего · ИИ заполнит объявление",
+  "entry_cancel": "Отмена",
+  "@_search": [],
   "search_hint": "Поиск товаров, брендов…",
   "search_sort_popular": "Популярные",
   "search_sort_latest": "Новые",
@@ -212,47 +193,26 @@
   "search_sort_price_desc": "Цена ↓",
   "search_filters": "Фильтры",
   "search_filters_with_count": "Фильтры · {count}",
-  "@search_filters_with_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_browse_categories": "Просмотр категорий",
   "search_popular_now": "Сейчас популярно",
   "search_no_results": "Нет результатов",
+  "category_items_count": "{count, plural, one{{count} товар} few{{count} товара} many{{count} товаров} other{{count} товара}}",
+  "category_empty": "Здесь пока ничего нет.",
+  "search_result_for_query": " по запросу «{query}»",
   "search_result_count": "{count, plural, =1{1 результат} few{{count} результата} many{{count} результатов} other{{count} результата}}",
-  "@search_result_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_condition_count": "{count, plural, =1{1 состояние} few{{count} состояния} many{{count} состояний} other{{count} состояния}}",
-  "@search_condition_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_size_count": "{count, plural, =1{1 размер} few{{count} размера} many{{count} размеров} other{{count} размера}}",
-  "@search_size_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_filter_category": "Категория",
   "search_filter_condition": "Состояние",
   "search_filter_size": "Размер",
   "search_filter_reset": "Сбросить",
   "search_filter_show_results": "Показать результаты",
-  "@_product": {},
+  "search_filter_clear": "Очистить",
+  "search_filter_all": "Все",
+  "@_product": [],
+  "product_your_listing": "Ваше объявление",
   "product_add_to_cart": "В корзину",
+  "product_buy": "Купить",
   "product_in_cart_view_cart": "В корзине · Посмотреть корзину",
   "product_edit_listing": "Редактировать объявление",
   "product_status_sold": "Продано",
@@ -260,9 +220,11 @@
   "product_mark_as_sold": "Отметить как проданное",
   "product_mark_as_available": "Отметить как доступное",
   "product_delete_listing": "Удалить объявление",
+  "product_delete_confirm": "Удалить это объявление? Это действие нельзя отменить.",
   "product_report_listing": "Пожаловаться на объявление",
   "product_report_this_listing": "Пожаловаться на это объявление",
   "product_listing_deleted": "Объявление удалено",
+  "product_listing_deleted_subtitle": "Товар и его фотографии удалены.",
   "product_back_to_feed": "Назад в ленту",
   "product_added_to_cart": "Добавлено в корзину.",
   "product_edit_coming_soon": "Редактирование объявлений скоро появится.",
@@ -274,19 +236,15 @@
   "product_stat_posted": "Опубликовано",
   "product_stamp_sold": "ПРОДАНО",
   "product_stamp_reserved": "ЗАРЕЗЕРВИРОВАНО",
+  "product_make_offer": "Предложить цену",
   "product_currency_dhs": "Dhs",
   "product_price_amount": "{amount} ",
-  "@product_price_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
-  "@_sell": {},
+  "@_sell": [],
   "sell_sell_in_seconds": "Продайте за секунды",
   "sell_your_photos": "Ваши фото",
   "sell_add_photos_hint": "Добавьте до 8 фото. ИИ заполнит ваше объявление.",
+  "sell_reorder_hint": "Перетащите для сортировки. 1-е фото — обложка.",
+  "sell_add_at_least_one_photo": "Добавьте минимум 1 фото для продолжения",
   "sell_continue": "Продолжить",
   "sell_cover": "Обложка",
   "sell_add_a_photo": "Добавить фото",
@@ -299,24 +257,25 @@
   "sell_price": "Цена",
   "sell_description": "Описание",
   "sell_category": "Категория",
+  "sell_product_details": "Детали товара",
+  "sell_subcategory": "Подкатегория",
+  "sell_choose_subcategory": "Выберите подкатегорию",
   "sell_brand": "Бренд",
   "sell_size": "Размер",
   "sell_condition": "Состояние",
   "sell_suggested_by_ai": "Предложено ИИ",
+  "sell_prefilled_by_ai": "Заполнено ИИ — проверьте и скорректируйте.",
+  "sell_photo_edit": "Изменить",
   "sell_list_item": "Разместить товар",
   "sell_optional": "Необязательно",
   "sell_title_hint": "напр. Кожаная байкерская куртка",
   "sell_price_hint": "AED",
+  "sell_price_suffix": "Dhs",
   "sell_description_hint": "Добавьте детали о состоянии, посадке, материале…",
+  "sell_description_error": "Добавьте описание, чтобы покупатели знали, что получают",
+  "sell_size_one_size": "Один размер",
   "sell_search_brands": "Поиск брендов",
   "sell_use_quoted": "Использовать «{value}»",
-  "@sell_use_quoted": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "sell_title_error": "Добавьте название (минимум 2 символа)",
   "sell_price_error": "Введите цену",
   "sell_category_error": "Выберите категорию",
@@ -325,55 +284,44 @@
   "sell_item_visible_to_buyers": "Ваш товар теперь виден покупателям.",
   "sell_view_listing": "Посмотреть объявление",
   "sell_back_to_home": "На главную",
-  "@_cart": {},
+  "sell_create_reel": "Создать reel",
+  "@_cart": [],
   "cart_title": "Корзина",
   "cart_make_an_offer": "Предложить цену",
+  "cart_offer_sent": "Предложение отправлено — продавец свяжется с вами",
   "cart_cancel_offer": "Отменить предложение",
   "cart_check_out": "Оформить заказ",
   "cart_subtotal": "Промежуточный итог",
   "cart_offer_pending": "Предложение на рассмотрении",
   "cart_offer_accepted": "Предложение принято",
   "cart_pro_badge": "PRO",
+  "cart_cancel": "Отмена",
+  "cart_in_bundle": "В бандл-предложении",
+  "cart_in_accepted_bundle": "В принятом бандле",
+  "cart_added_after_bundle": "Добавлено после вашего бандл-предложения — не включено",
+  "cart_bundle_pending": "Ожидает ответа",
+  "cart_bundle_accepted": "Принято",
+  "cart_offer_sent_amount": "Предложение отправлено · {amount} Dhs",
+  "cart_offer_accepted_save": "Предложение принято · экономия {amount} Dhs",
+  "cart_bundle_was": "было {amount} Dhs",
+  "cart_checkout_amount": "Оформить заказ · {amount} Dhs",
+  "cart_offer_for_all": "{count, plural, one{Предложение за этот товар} few{Предложение за все {count} товара} many{Предложение за все {count} товаров} other{Предложение за все {count} товара}}",
+  "cart_bundle_title": "{count, plural, one{Бандл-предложение · {count} товар} few{Бандл-предложение · {count} товара} many{Бандл-предложение · {count} товаров} other{Бандл-предложение · {count} товара}}",
   "cart_empty_title": "Ваша корзина пуста",
   "cart_empty_subtitle": "Добавляйте товары, и они сгруппируются здесь по продавцам.",
   "cart_offer_send": "Отправить предложение",
   "cart_offer_hint_single": "Ваше предложение",
   "cart_offer_hint_multi": "Ваше предложение за все {count} товаров",
-  "@cart_offer_hint_multi": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "cart_offer_error_below_total": "Предложение должно быть ниже общей цены",
   "cart_offer_chat_note": "Одно предложение охватывает всё от этого продавца. Оно отправляется приватно в чат — продавец принимает или отклоняет его.",
+  "cart_offer_escrow_note": "Ваш платёж удерживается на эскроу-счёте, пока вы не подтвердите доставку.",
   "cart_currency_dhs": "Dhs",
   "cart_price_dhs": "{amount} Dhs",
-  "@cart_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "cart_item_count": "{count, plural, =1{1 товар} few{{count} товара} many{{count} товаров} other{{count} товара}}",
-  "@cart_item_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
+  "checkout_buy_more_from": "Купить ещё у {name}",
+  "cart_offer_seller_meta": "{count, plural, one{{count} товар} few{{count} товара} many{{count} товаров} other{{count} товара}} · цена {price} Dhs",
   "cart_sellers_summary": "{count, plural, =1{1 продавец · одно предложение и оформление на продавца} few{{count} продавца · одно предложение и оформление на продавца} many{{count} продавцов · одно предложение и оформление на продавца} other{{count} продавца · одно предложение и оформление на продавца}}",
-  "@cart_sellers_summary": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@_checkout": {},
+  "@_checkout": [],
   "checkout_title": "Оформление заказа",
   "checkout_delivery": "Доставка",
   "checkout_summary": "Сводка",
@@ -383,21 +331,7 @@
   "checkout_vat": "VAT",
   "checkout_total": "Итого",
   "checkout_pay_amount": "Оплатить {amount} Dhs",
-  "@checkout_pay_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_amount_dhs": "{amount} Dhs",
-  "@checkout_amount_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_encrypted_escrow_note": "Зашифрованное оформление · платёж удерживается на эскроу-счёте",
   "checkout_order_placed_title": "Заказ оформлен!",
   "checkout_order_placed_escrow_message": "Ваш платёж удерживается на эскроу-счёте, пока вы не подтвердите доставку.",
@@ -405,7 +339,7 @@
   "checkout_continue_shopping": "Продолжить покупки",
   "checkout_payment_unavailable": "Оплата недоступна для этого заказа.",
   "checkout_payment_failed": "Оплата не удалась. Пожалуйста, попробуйте снова.",
-  "@_orders": {},
+  "@_orders": [],
   "orders_my_orders": "Мои заказы",
   "orders_buying": "Покупки",
   "orders_selling": "Продажи",
@@ -414,37 +348,23 @@
   "orders_no_orders_yet": "Пока нет заказов",
   "orders_prefix_from": "от",
   "orders_prefix_to": "для",
+  "orders_negotiated": "Согласовано",
   "orders_price_dhs": "{amount} Dhs",
-  "@orders_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "orders_counterpart_meta": "{prefix} {name}",
-  "@orders_counterpart_meta": {
-    "placeholders": {
-      "prefix": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "orders_order_details": "Детали заказа",
   "orders_tracking": "Отслеживание",
   "orders_tracking_updates_empty": "Обновления отслеживания появятся здесь.",
   "orders_emx_door_to_door": "EMX от двери до двери · по ОАЭ",
+  "orders_emx_tracking": "Отслеживание EMX",
+  "orders_track_confirmed_label": "Заказ подтверждён",
+  "orders_track_confirmed_sub": "Продавец готовит ваш товар",
+  "orders_track_shipped_label": "Отправлено через EMX",
+  "orders_track_shipped_sub": "Принято · в пути",
+  "orders_track_out_label": "Передано курьеру",
+  "orders_track_out_sub": "Доставят сегодня",
+  "orders_track_delivered_label": "Доставлено",
+  "orders_track_delivered_sub": "Подтвердите для перевода платежа",
   "orders_carrier_prefix": "{carrier} · ",
-  "@orders_carrier_prefix": {
-    "placeholders": {
-      "carrier": {
-        "type": "String"
-      }
-    }
-  },
   "orders_mark_as_shipped": "Отметить как отправленное",
   "orders_download_emx_label": "Скачать накладную EMX",
   "orders_confirm_receipt": "Подтвердить получение",
@@ -470,45 +390,23 @@
   "orders_status_return_requested": "Запрошен возврат",
   "orders_status_canceled": "Отменено",
   "orders_status_unknown": "—",
-  "@_misc": {},
+  "@_misc": [],
   "profile_title": "Профиль",
   "chat_title": "Чат",
-  "@_ds": {},
   "ds_password_strength_weak": "Слабый",
   "ds_password_strength_fair": "Средний",
   "ds_password_strength_good": "Хороший",
   "ds_password_strength_strong": "Надёжный",
-  "@_notifications": {},
+  "@_notifications": [],
   "notifications_title": "Уведомления",
   "notifications_read_all": "Прочитать все",
   "notifications_empty": "Вы всё просмотрели.",
   "notifications_profile_coming_soon": "Профили скоро появятся.",
   "notifications_time_just_now": "Только что",
   "notifications_time_minutes": "{count} мин назад",
-  "@notifications_time_minutes": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_hours": "{count} ч назад",
-  "@notifications_time_hours": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_days": "{count} дн назад",
-  "@notifications_time_days": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@_profile_feature": {},
+  "@_profile_feature": [],
   "profile_edit": "Редактировать профиль",
   "profile_follow": "Подписаться",
   "profile_following": "Вы подписаны",
@@ -527,10 +425,11 @@
   "profile_no_listings": "Пока нет объявлений",
   "profile_no_reels": "Пока нет reels",
   "profile_no_reviews": "Пока нет отзывов",
+  "profile_reviews_count": "{count, plural, one{{count} отзыв} few{{count} отзыва} many{{count} отзывов} other{{count} отзыва}}",
   "profile_no_followers": "Пока нет подписчиков",
   "profile_no_following": "Пока нет подписок",
   "profile_connections_title": "Связи",
-  "@_settings": {},
+  "@_settings": [],
   "settings_title": "Настройки",
   "settings_cancel": "Отмена",
   "settings_save": "Сохранить",
@@ -544,6 +443,10 @@
   "settings_section_legal": "Правовая информация и поддержка",
   "settings_section_account": "Аккаунт",
   "settings_edit_profile": "Редактировать профиль",
+  "edit_profile_discard_title": "Отменить изменения?",
+  "edit_profile_discard_body": "У вас есть несохранённые изменения. Уйти без сохранения?",
+  "edit_profile_discard_confirm": "Отменить",
+  "edit_profile_keep_editing": "Продолжить редактирование",
   "settings_delivery_address": "Адрес доставки",
   "settings_payout_iban": "IBAN для выплат",
   "settings_seller_stats": "Статистика продавца",
@@ -561,8 +464,14 @@
   "settings_delete_confirm": "Безвозвратно удалить ваш аккаунт? Это действие нельзя отменить.",
   "settings_change_password_no_email": "К этому аккаунту не привязана электронная почта.",
   "settings_password_reset_sent": "Ссылка для сброса пароля отправлена. Проверьте почту.",
+  "settings_new_password": "Новый пароль",
+  "settings_new_password_hint": "Новый пароль",
+  "settings_confirm_password": "Подтвердите пароль",
+  "settings_confirm_password_hint": "Повторите пароль",
+  "settings_passwords_no_match": "Пароли не совпадают",
+  "settings_password_too_short": "Используйте минимум 8 символов",
+  "settings_password_updated": "Пароль обновлён.",
   "settings_support_unavailable": "Поддержка сейчас недоступна.",
-  "settings_handle": "Имя пользователя",
   "settings_address_line1": "Строка адреса",
   "settings_address_area": "Район",
   "settings_address_city": "Город",
@@ -574,6 +483,41 @@
   "settings_doc_unavailable": "Этот документ сейчас недоступен.",
   "settings_no_blocked": "Вы никого не заблокировали.",
   "settings_unblock": "Разблокировать",
+  "settings_group_account": "Аккаунт",
+  "settings_group_notifications": "Уведомления",
+  "settings_group_other": "Другое",
+  "settings_group_links": "Ссылки",
+  "settings_group_social": "Социальные сети",
+  "settings_group_preferences": "Предпочтения",
+  "settings_personal_data": "Личные данные",
+  "settings_personal_data_sub": "Профиль, предпочтения, заблокированные пользователи",
+  "settings_personal_information": "Личная информация",
+  "settings_security": "Безопасность",
+  "settings_security_sub": "Эл. почта, пароль, телефон",
+  "settings_payouts_sub": "Банковские реквизиты (IBAN)",
+  "settings_share_app": "Поделиться приложением",
+  "settings_legal_notices": "Правовые уведомления",
+  "settings_about": "О приложении",
+  "settings_instagram": "Instagram",
+  "settings_instagram_handle": "@klozy",
+  "settings_clothing_preference": "Предпочтения в одежде",
+  "settings_preferred_size": "Предпочтительный размер",
+  "settings_preferred_brands": "Любимые бренды",
+  "settings_change_email": "Изменить email",
+  "settings_phone_number": "Номер телефона",
+  "settings_current_email": "Текущий email",
+  "settings_new_email": "Новый email",
+  "settings_new_email_hint": "you@email.com",
+  "settings_change_email_note": "Мы отправим ссылку для подтверждения на новый адрес. Изменение вступит в силу после подтверждения.",
+  "settings_email_link_sent": "Ссылка для подтверждения отправлена. Проверьте новый почтовый ящик для завершения.",
+  "settings_current_number": "Текущий номер",
+  "settings_new_number": "Новый номер",
+  "settings_new_number_hint": "50 123 4567",
+  "settings_phone_note": "Мы отправим 6-значный код для подтверждения нового номера.",
+  "settings_phone_updated": "Номер телефона обновлён.",
+  "settings_enter_code_for": "Введите 6-значный код, отправленный на {number}",
+  "settings_share_message": "Попробуйте Klozy — покупайте и продавайте одежду секонд-хенд по всем ОАЭ. https://klozy.app",
+  "settings_share_failed": "Не удалось открыть диалог общего доступа. Пожалуйста, попробуйте снова.",
   "onboarding_avatar_failed": "Не удалось загрузить ваше фото. Пожалуйста, попробуйте снова.",
   "sell_weight": "Вес (граммы)",
   "sell_weight_hint": "напр. 800",
@@ -637,35 +581,11 @@
   "search_price_min": "Мин.",
   "search_price_max": "Макс.",
   "search_brand_count": "{count, plural, =1{1 бренд} few{{count} бренда} many{{count} брендов} other{{count} бренда}}",
-  "@search_brand_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_price_chip": "{min}–{max} Dhs",
-  "@search_price_chip": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "settings_iban_current": "Текущий IBAN: {masked}",
-  "@settings_iban_current": {
-    "placeholders": {
-      "masked": {
-        "type": "String"
-      }
-    }
-  },
   "auth_or_continue_with": "или продолжить с",
   "onboarding_address_search_hint": "Поиск вашего адреса",
-  "settings_language": "Язык",
+  "@_account": [],
   "account_gate_guest_title": "Создайте аккаунт или войдите, чтобы продолжить",
   "account_gate_guest_subtitle": "Присоединяйтесь к Klozy, чтобы добавлять товары в список желаний, подписываться на продавцов и покупать одежду секонд-хенд.",
   "account_gate_create_account": "Создать аккаунт",
@@ -673,24 +593,58 @@
   "account_gate_incomplete_title": "Завершите настройку профиля",
   "account_gate_incomplete_subtitle": "Заполните профиль, чтобы открыть все возможности Klozy.",
   "account_gate_finish_setup": "Завершить настройку",
+  "@_guest_tab": [],
   "guest_tab_title": "Войдите в Klozy",
   "guest_tab_subtitle": "Создайте аккаунт или войдите, чтобы получить доступ к этому разделу.",
   "guest_tab_cta": "Создать аккаунт",
   "guest_tab_log_in": "Войти",
+  "@_categoryPicker": [],
   "categoryPickerTitle": "Выберите категорию",
   "categoryPickerBreadcrumbRoot": "Все категории",
   "categoryPickerLoading": "Загрузка...",
   "categoryPickerRetry": "Повторить",
+  "categoryPickerDeepestHint": "Нижний уровень — фильтруйте по размеру ниже.",
   "categoryPickerAddCategories": "Добавить категории",
   "categoryPickerPreferred": "Предпочитаемые категории",
+  "@_sell_enrich": [],
   "sellPhotosEmptyTitle": "Добавить фото",
   "sellPhotosEmptySubtitle": "Сделайте или загрузите фото вашего товара",
   "sellPhotosCounter": "фото",
   "sellRecapPhotoStripEdit": "Изменить",
   "sellRequiredHint": "* Обязательные поля",
-  "sellSizeSystem": "Система размеров",
-  "product_buy": "Купить",
-  "product_make_offer": "Предложить цену",
+  "settings_language": "Язык",
   "offer_send_failed": "Не удалось отправить ваше предложение. Попробуйте ещё раз.",
-  "product_see_offer": "Посмотреть предложение"
+  "product_see_offer": "Посмотреть предложение",
+  "@_chat": [],
+  "chat_empty_title": "Пока нет переписок",
+  "chat_empty_subtitle": "Напишите продавцу с любого товара, чтобы начать общение.",
+  "chat_composer_hint": "Сообщение…",
+  "chat_recording": "Запись…",
+  "chat_attach_photo": "Фото и видео",
+  "chat_attach_camera": "Камера",
+  "chat_incomplete_profile_title": "Завершите настройку профиля",
+  "chat_incomplete_profile_subtitle": "Заполните профиль, чтобы начать общение с покупателями и продавцами.",
+  "chat_incomplete_profile_cta": "Заполнить профиль",
+  "chat_menu_report": "Пожаловаться и заблокировать",
+  "chat_menu_delete": "Удалить переписку",
+  "chat_reply_self": "Ответ самому себе",
+  "chat_reply_other": "Ответ",
+  "chat_media_placeholder": "[медиа]",
+  "chat_offer_yours": "Ваше предложение",
+  "chat_offer_incoming": "Предложение",
+  "chat_offer_refuse": "Отклонить",
+  "chat_offer_accept": "Принять",
+  "chat_offer_pending": "Ожидает ответа…",
+  "chat_offer_accepted": "Предложение принято",
+  "chat_offer_declined": "Предложение отклонено",
+  "chat_message_deleted": "Сообщение удалено",
+  "chat_currency": "Dhs",
+  "chat_purchase_confirmed": "Покупка подтверждена",
+  "chat_purchase_for": "за",
+  "chat_no_messages": "Пока нет сообщений",
+  "chat_preview_photo": "📷 Фото",
+  "chat_preview_voice": "🎤 Голосовое сообщение",
+  "chat_preview_offer_sent": "Вы отправили предложение",
+  "chat_preview_offer_new": "Новое предложение",
+  "chat_preview_you_prefix": "Вы: "
 }

@@ -12,27 +12,27 @@ class AppLocalizationsKk extends AppLocalizations {
   String get app_name => 'Klozy';
 
   @override
-  String get ds_set_composition_header => 'This set includes';
+  String get ds_set_composition_header => 'Бұл жинақта бар';
 
   @override
   String get ds_set_composition_owner_note =>
-      'Add a photo of each piece to reassure buyers and sell faster.';
+      'Сатып алушыларды сендіру және тез сату үшін әр бөліктің фотосын қосыңыз.';
 
   @override
   String get ds_set_composition_buyer_note =>
-      'Some pieces aren\'t photographed. Contact the seller for details.';
+      'Кейбір бөліктер суретке түсірілмеген. Мәліметтер үшін сатушыға хабарласыңыз.';
 
   @override
-  String get ds_set_composition_photo => 'Photo';
+  String get ds_set_composition_photo => 'Фото';
 
   @override
-  String get ds_set_composition_add => 'Add';
+  String get ds_set_composition_add => 'Қосу';
 
   @override
-  String get ds_set_composition_no_photo => 'No photo';
+  String get ds_set_composition_no_photo => 'Фото жоқ';
 
   @override
-  String get ds_search_bar_hint => 'Search for an item or member';
+  String get ds_search_bar_hint => 'Зат немесе мүше іздеу';
 
   @override
   String get error_page_show_details => 'ТОЛЫҒЫРАҚ КӨРСЕТУ';
@@ -188,7 +188,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get auth_country_uae => 'БІРІККЕН АРАБ ӘМІРЛІКТЕРІ';
 
   @override
-  String get auth_hero_placeholder => 'HERO  ·  EDITORIAL  FASHION  SHOT';
+  String get auth_hero_placeholder => 'БАСТЫ СУРЕТ · РЕДАКЦИЯЛЫҚ СӘН ФОТОСЫ';
 
   @override
   String get auth_welcome_title =>
@@ -462,7 +462,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String home_picked_for_you(String categories) {
-    return 'Picked for you · $categories';
+    return 'Сізге таңдалды · $categories';
   }
 
   @override
@@ -473,27 +473,27 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get home_wishlist_empty_hint =>
-      'Tap the heart on any item to save it here.';
+      'Сақтау үшін кез келген затқа жүрек белгісін басыңыз.';
 
   @override
   String home_wishlist_saved_count(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count saved items',
-      one: '1 saved item',
+      other: '$count сақталған зат',
+      one: '1 сақталған зат',
     );
     return '$_temp0';
   }
 
   @override
-  String get reels_processing_video => 'Processing video…';
+  String get reels_processing_video => 'Видео өңделуде…';
 
   @override
   String get reels_composer_title => 'Жаңа reel';
 
   @override
-  String get reels_compose_details_title => 'Add details';
+  String get reels_compose_details_title => 'Мәліметтер қосу';
 
   @override
   String get reels_pick_subtitle =>
@@ -503,13 +503,13 @@ class AppLocalizationsKk extends AppLocalizations {
   String get reels_record_video => 'Видео жазу';
 
   @override
-  String get reels_record_hint => 'Up to 60s · vertical';
+  String get reels_record_hint => '60 сек дейін · тік';
 
   @override
   String get reels_choose_from_gallery => 'Галереядан таңдау';
 
   @override
-  String get reels_caption_label => 'Caption';
+  String get reels_caption_label => 'Жазба';
 
   @override
   String get reels_caption_hint => 'Көрінісіңіз туралы бірдеңе айтыңыз…';
@@ -526,11 +526,11 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String reels_post_reel_tagged(int count) {
-    return 'Post reel · $count tagged';
+    return 'Reel жариялау · $count белгіленді';
   }
 
   @override
-  String get reels_publishing => 'Publishing your reel…';
+  String get reels_publishing => 'Reel жарияланып жатыр…';
 
   @override
   String get reels_posted_title => 'Reel жарияланды!';
@@ -544,14 +544,14 @@ class AppLocalizationsKk extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'items',
-      one: 'item',
+      other: '$count белгіленген затпен',
+      one: '1 белгіленген затпен',
     );
-    return 'Your reel is live in the feed with $count tagged $_temp0.';
+    return 'Рилыңыз $_temp0 таспада жарияланды.';
   }
 
   @override
-  String get reels_view_in_reels => 'View in Reels';
+  String get reels_view_in_reels => 'Reels-те көру';
 
   @override
   String get reels_done => 'Дайын';
@@ -589,25 +589,26 @@ class AppLocalizationsKk extends AppLocalizations {
   String get reels_link_copied_snackbar => 'Сілтеме буферге көшірілді.';
 
   @override
-  String get entry_sheet_title => 'What would you like to do?';
+  String get entry_sheet_title => 'Не жасағыңыз келеді?';
 
   @override
-  String get entry_create_reel => 'Create a reel';
+  String get entry_create_reel => 'Reel жасау';
 
   @override
-  String get entry_create_reel_sub => 'Share a video of your pieces';
+  String get entry_create_reel_sub => 'Заттарыңыздың видеосын бөлісу';
 
   @override
-  String get entry_create_reel_needs_product => 'Add a product first';
+  String get entry_create_reel_needs_product => 'Алдымен тауар қосыңыз';
 
   @override
-  String get entry_list_item => 'List an item for sale';
+  String get entry_list_item => 'Зат сатуға шығару';
 
   @override
-  String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+  String get entry_list_item_sub =>
+      'Фото бірінші · AI тізіміңізді алдын ала толтырады';
 
   @override
-  String get entry_cancel => 'Cancel';
+  String get entry_cancel => 'Бас тарту';
 
   @override
   String get search_hint => 'Заттарды, брендтерді іздеу…';
@@ -646,18 +647,18 @@ class AppLocalizationsKk extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count items',
-      one: '1 item',
+      other: '$count зат',
+      one: '1 зат',
     );
     return '$_temp0';
   }
 
   @override
-  String get category_empty => 'Nothing here yet.';
+  String get category_empty => 'Әзірге ештеңе жоқ.';
 
   @override
   String search_result_for_query(String query) {
-    return ' for “$query”';
+    return ' «$query» үшін';
   }
 
   @override
@@ -709,13 +710,13 @@ class AppLocalizationsKk extends AppLocalizations {
   String get search_filter_show_results => 'Нәтижелерді көрсету';
 
   @override
-  String get search_filter_clear => 'Clear';
+  String get search_filter_clear => 'Тазалау';
 
   @override
-  String get search_filter_all => 'All';
+  String get search_filter_all => 'Барлығы';
 
   @override
-  String get product_your_listing => 'Your listing';
+  String get product_your_listing => 'Сіздің тізіміңіз';
 
   @override
   String get product_add_to_cart => 'Себетке қосу';
@@ -746,7 +747,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get product_delete_confirm =>
-      'Delete this listing? This can\'t be undone.';
+      'Бұл тізімді жоясыз ба? Мұны қайтару мүмкін емес.';
 
   @override
   String get product_report_listing => 'Тізімге шағымдану';
@@ -759,7 +760,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get product_listing_deleted_subtitle =>
-      'This item and its photos have been removed.';
+      'Бұл зат және оның фотолары жойылды.';
 
   @override
   String get product_back_to_feed => 'Таспаға оралу';
@@ -819,10 +820,11 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get sell_reorder_hint =>
-      'Drag to reorder. The 1st photo is the cover.';
+      'Ретін өзгерту үшін сүйреңіз. 1-ші фото мұқаба болады.';
 
   @override
-  String get sell_add_at_least_one_photo => 'Add at least 1 photo to continue';
+  String get sell_add_at_least_one_photo =>
+      'Жалғастыру үшін кемінде 1 фото қосыңыз';
 
   @override
   String get sell_continue => 'Жалғастыру';
@@ -862,13 +864,13 @@ class AppLocalizationsKk extends AppLocalizations {
   String get sell_category => 'Санат';
 
   @override
-  String get sell_product_details => 'Product details';
+  String get sell_product_details => 'Тауар мәліметтері';
 
   @override
-  String get sell_subcategory => 'Subcategory';
+  String get sell_subcategory => 'Кіші санат';
 
   @override
-  String get sell_choose_subcategory => 'Choose a subcategory';
+  String get sell_choose_subcategory => 'Кіші санат таңдаңыз';
 
   @override
   String get sell_brand => 'Бренд';
@@ -883,10 +885,11 @@ class AppLocalizationsKk extends AppLocalizations {
   String get sell_suggested_by_ai => 'AI ұсынған';
 
   @override
-  String get sell_prefilled_by_ai => 'Pre-filled by AI — review and adjust.';
+  String get sell_prefilled_by_ai =>
+      'AI алдын ала толтырды — тексеріп, реттеңіз.';
 
   @override
-  String get sell_photo_edit => 'Edit';
+  String get sell_photo_edit => 'Өңдеу';
 
   @override
   String get sell_list_item => 'Затты тізімге қосу';
@@ -909,10 +912,10 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get sell_description_error =>
-      'Add a description so buyers know what they\'re getting';
+      'Сатып алушылар не алатынын білуі үшін сипаттама қосыңыз';
 
   @override
-  String get sell_size_one_size => 'One size';
+  String get sell_size_one_size => 'Бір өлшем';
 
   @override
   String get sell_search_brands => 'Брендтерді іздеу';
@@ -948,7 +951,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get sell_back_to_home => 'Басты бетке оралу';
 
   @override
-  String get sell_create_reel => 'Create a reel';
+  String get sell_create_reel => 'Reel жасау';
 
   @override
   String get cart_title => 'Себет';
@@ -957,7 +960,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get cart_make_an_offer => 'Ұсыныс жасау';
 
   @override
-  String get cart_offer_sent => 'Offer sent — the seller will get back to you';
+  String get cart_offer_sent => 'Ұсыныс жіберілді — сатушы жауап береді';
 
   @override
   String get cart_cancel_offer => 'Ұсынысты болдырмау';
@@ -978,42 +981,42 @@ class AppLocalizationsKk extends AppLocalizations {
   String get cart_pro_badge => 'PRO';
 
   @override
-  String get cart_cancel => 'Cancel';
+  String get cart_cancel => 'Бас тарту';
 
   @override
-  String get cart_in_bundle => 'In bundle offer';
+  String get cart_in_bundle => 'Пакеттік ұсынысқа кіреді';
 
   @override
-  String get cart_in_accepted_bundle => 'In accepted bundle';
+  String get cart_in_accepted_bundle => 'Қабылданған пакетке кіреді';
 
   @override
   String get cart_added_after_bundle =>
-      'Added after your bundle offer — not included';
+      'Пакеттік ұсынысыңыздан кейін қосылды — кіргізілмеген';
 
   @override
-  String get cart_bundle_pending => 'Pending response';
+  String get cart_bundle_pending => 'Жауап күтілуде';
 
   @override
-  String get cart_bundle_accepted => 'Accepted';
+  String get cart_bundle_accepted => 'Қабылданды';
 
   @override
   String cart_offer_sent_amount(int amount) {
-    return 'Offer sent · $amount Dhs';
+    return 'Ұсыныс жіберілді · $amount Dhs';
   }
 
   @override
   String cart_offer_accepted_save(int amount) {
-    return 'Offer accepted · save $amount Dhs';
+    return 'Ұсыныс қабылданды · $amount Dhs үнемделді';
   }
 
   @override
   String cart_bundle_was(int amount) {
-    return 'was $amount Dhs';
+    return 'бұрын $amount Dhs болды';
   }
 
   @override
   String cart_checkout_amount(int amount) {
-    return 'Check out · $amount Dhs';
+    return 'Тапсырысты рәсімдеу · $amount Dhs';
   }
 
   @override
@@ -1021,8 +1024,8 @@ class AppLocalizationsKk extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Offer for all $count items',
-      one: 'Offer for this item',
+      other: 'Барлық $count зат үшін ұсыныс',
+      one: 'Осы зат үшін ұсыныс',
     );
     return '$_temp0';
   }
@@ -1032,8 +1035,8 @@ class AppLocalizationsKk extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Bundle offer · $count items',
-      one: 'Bundle offer · 1 item',
+      other: 'Пакеттік ұсыныс · $count зат',
+      one: 'Пакеттік ұсыныс · 1 зат',
     );
     return '$_temp0';
   }
@@ -1066,7 +1069,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get cart_offer_escrow_note =>
-      'Your payment is held in escrow until you confirm delivery.';
+      'Жеткізуді растағаныңызға дейін төлемдеріңіз эскроуда сақталады.';
 
   @override
   String get cart_currency_dhs => 'Dhs';
@@ -1089,7 +1092,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String checkout_buy_more_from(String name) {
-    return 'Buy more from $name';
+    return '$name дүкенінен тағы сатып алу';
   }
 
   @override
@@ -1101,10 +1104,10 @@ class AppLocalizationsKk extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count items',
-      one: '1 item',
+      other: '$count зат',
+      one: '1 зат',
     );
-    return '$_temp0 · listed at $priceString Dhs';
+    return '$_temp0 · $priceString Dhs бағасымен тізімделген';
   }
 
   @override
@@ -1202,7 +1205,7 @@ class AppLocalizationsKk extends AppLocalizations {
   String get orders_prefix_to => 'кімге';
 
   @override
-  String get orders_negotiated => 'Negotiated';
+  String get orders_negotiated => 'Келіссөз нәтижесінде';
 
   @override
   String orders_price_dhs(int amount) {
@@ -1228,31 +1231,31 @@ class AppLocalizationsKk extends AppLocalizations {
   String get orders_emx_door_to_door => 'EMX есіктен есікке · БАӘ ішкі';
 
   @override
-  String get orders_emx_tracking => 'EMX tracking';
+  String get orders_emx_tracking => 'EMX қадағалау';
 
   @override
-  String get orders_track_confirmed_label => 'Order confirmed';
+  String get orders_track_confirmed_label => 'Тапсырыс расталды';
 
   @override
-  String get orders_track_confirmed_sub => 'Seller is preparing your item';
+  String get orders_track_confirmed_sub => 'Сатушы затыңызды дайындап жатыр';
 
   @override
-  String get orders_track_shipped_label => 'Shipped with EMX';
+  String get orders_track_shipped_label => 'EMX арқылы жіберілді';
 
   @override
-  String get orders_track_shipped_sub => 'Picked up · in transit';
+  String get orders_track_shipped_sub => 'Алынды · жолда';
 
   @override
-  String get orders_track_out_label => 'Out for delivery';
+  String get orders_track_out_label => 'Жеткізуге шықты';
 
   @override
-  String get orders_track_out_sub => 'Arriving today';
+  String get orders_track_out_sub => 'Бүгін жетеді';
 
   @override
-  String get orders_track_delivered_label => 'Delivered';
+  String get orders_track_delivered_label => 'Жеткізілді';
 
   @override
-  String get orders_track_delivered_sub => 'Confirm to release payment';
+  String get orders_track_delivered_sub => 'Төлемді босату үшін растаңыз';
 
   @override
   String orders_carrier_prefix(String carrier) {
@@ -1451,8 +1454,8 @@ class AppLocalizationsKk extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count reviews',
-      one: '1 review',
+      other: '$count пікір',
+      one: '1 пікір',
     );
     return '$_temp0';
   }
@@ -1506,17 +1509,17 @@ class AppLocalizationsKk extends AppLocalizations {
   String get settings_edit_profile => 'Профильді өңдеу';
 
   @override
-  String get edit_profile_discard_title => 'Discard changes?';
+  String get edit_profile_discard_title => 'Өзгерістерді жою?';
 
   @override
   String get edit_profile_discard_body =>
-      'You have unsaved changes. Leave without saving?';
+      'Сақталмаған өзгерістер бар. Сақтамай шығасыз ба?';
 
   @override
-  String get edit_profile_discard_confirm => 'Discard';
+  String get edit_profile_discard_confirm => 'Жою';
 
   @override
-  String get edit_profile_keep_editing => 'Keep editing';
+  String get edit_profile_keep_editing => 'Өңдеуді жалғастыру';
 
   @override
   String get settings_delivery_address => 'Жеткізу мекенжайы';
@@ -1574,25 +1577,25 @@ class AppLocalizationsKk extends AppLocalizations {
       'Құпия сөзді қалпына келтіру сілтемесі жіберілді. Поштаңызды тексеріңіз.';
 
   @override
-  String get settings_new_password => 'New password';
+  String get settings_new_password => 'Жаңа құпия сөз';
 
   @override
-  String get settings_new_password_hint => 'New password';
+  String get settings_new_password_hint => 'Жаңа құпия сөз';
 
   @override
-  String get settings_confirm_password => 'Confirm password';
+  String get settings_confirm_password => 'Құпия сөзді растау';
 
   @override
-  String get settings_confirm_password_hint => 'Re-enter password';
+  String get settings_confirm_password_hint => 'Құпия сөзді қайта енгізіңіз';
 
   @override
-  String get settings_passwords_no_match => 'Passwords do not match';
+  String get settings_passwords_no_match => 'Құпия сөздер сәйкес келмейді';
 
   @override
-  String get settings_password_too_short => 'Use at least 8 characters';
+  String get settings_password_too_short => 'Кемінде 8 таңба пайдаланыңыз';
 
   @override
-  String get settings_password_updated => 'Password updated.';
+  String get settings_password_updated => 'Құпия сөз жаңартылды.';
 
   @override
   String get settings_support_unavailable => 'Қолдау қазір қолжетімді емес.';
@@ -1633,50 +1636,50 @@ class AppLocalizationsKk extends AppLocalizations {
   String get settings_unblock => 'Бұғаттан шығару';
 
   @override
-  String get settings_group_account => 'Account';
+  String get settings_group_account => 'Аккаунт';
 
   @override
-  String get settings_group_notifications => 'Notifications';
+  String get settings_group_notifications => 'Хабарландырулар';
 
   @override
-  String get settings_group_other => 'Other';
+  String get settings_group_other => 'Басқа';
 
   @override
-  String get settings_group_links => 'Links';
+  String get settings_group_links => 'Сілтемелер';
 
   @override
-  String get settings_group_social => 'Social';
+  String get settings_group_social => 'Әлеуметтік';
 
   @override
-  String get settings_group_preferences => 'Preferences';
+  String get settings_group_preferences => 'Параметрлер';
 
   @override
-  String get settings_personal_data => 'Personal data';
+  String get settings_personal_data => 'Жеке деректер';
 
   @override
   String get settings_personal_data_sub =>
-      'Profile, preferences, blocked users';
+      'Профиль, параметрлер, бұғатталған пайдаланушылар';
 
   @override
-  String get settings_personal_information => 'Personal information';
+  String get settings_personal_information => 'Жеке ақпарат';
 
   @override
-  String get settings_security => 'Security';
+  String get settings_security => 'Қауіпсіздік';
 
   @override
-  String get settings_security_sub => 'Email, password, phone';
+  String get settings_security_sub => 'Электрондық пошта, құпия сөз, телефон';
 
   @override
-  String get settings_payouts_sub => 'Bank details (IBAN)';
+  String get settings_payouts_sub => 'Банктік деректемелер (IBAN)';
 
   @override
-  String get settings_share_app => 'Share the app';
+  String get settings_share_app => 'Қолданбамен бөлісу';
 
   @override
-  String get settings_legal_notices => 'Legal notices';
+  String get settings_legal_notices => 'Заңды ескертулер';
 
   @override
-  String get settings_about => 'About';
+  String get settings_about => 'Қолданба туралы';
 
   @override
   String get settings_instagram => 'Instagram';
@@ -1685,64 +1688,65 @@ class AppLocalizationsKk extends AppLocalizations {
   String get settings_instagram_handle => '@klozy';
 
   @override
-  String get settings_clothing_preference => 'Clothing preference';
+  String get settings_clothing_preference => 'Киім қалауы';
 
   @override
-  String get settings_preferred_size => 'Preferred size';
+  String get settings_preferred_size => 'Қажетті өлшем';
 
   @override
-  String get settings_preferred_brands => 'Preferred brands';
+  String get settings_preferred_brands => 'Қажетті брендтер';
 
   @override
-  String get settings_change_email => 'Change email';
+  String get settings_change_email => 'Электрондық поштаны өзгерту';
 
   @override
-  String get settings_phone_number => 'Phone number';
+  String get settings_phone_number => 'Телефон нөмірі';
 
   @override
-  String get settings_current_email => 'Current email';
+  String get settings_current_email => 'Ағымдағы электрондық пошта';
 
   @override
-  String get settings_new_email => 'New email';
+  String get settings_new_email => 'Жаңа электрондық пошта';
 
   @override
   String get settings_new_email_hint => 'you@email.com';
 
   @override
   String get settings_change_email_note =>
-      'We\'ll send a confirmation link to your new address. The change applies once confirmed.';
+      'Жаңа мекенжайыңызға растау сілтемесін жібереміз. Өзгеріс расталғаннан кейін қолданылады.';
 
   @override
   String get settings_email_link_sent =>
-      'Confirmation link sent. Check your new inbox to finish.';
+      'Растау сілтемесі жіберілді. Аяқтау үшін жаңа кіріс жәшігіңізді тексеріңіз.';
 
   @override
-  String get settings_current_number => 'Current number';
+  String get settings_current_number => 'Ағымдағы нөмір';
 
   @override
-  String get settings_new_number => 'New number';
+  String get settings_new_number => 'Жаңа нөмір';
 
   @override
   String get settings_new_number_hint => '50 123 4567';
 
   @override
   String get settings_phone_note =>
-      'We\'ll text a 6-digit code to confirm your new number.';
+      'Жаңа нөміріңізді растау үшін 6 таңбалы кодты SMS-пен жібереміз.';
 
   @override
-  String get settings_phone_updated => 'Phone number updated.';
+  String get settings_phone_updated => 'Телефон нөмірі жаңартылды.';
 
   @override
   String settings_enter_code_for(String number) {
-    return 'Enter the 6-digit code sent to $number';
+    return '$number нөміріне жіберілген 6 таңбалы кодты енгізіңіз';
   }
 
   @override
   String get settings_share_message =>
-      'Check out Klozy — buy & sell pre-loved fashion across the UAE. https://klozy.app';
+      'Klozy қолданбасын тексеріңіз — БАӘ бойынша бұрын киілген сәнді сатып алыңыз және сатыңыз. https://klozy.app';
 
   @override
-  String get settings_share_failed => 'Couldn\'t open share. Please try again.';
+  String get settings_share_failed =>
+      'Бөлісуді ашу мүмкін болмады. Қайталап көріңіз.';
 
   @override
   String get onboarding_avatar_failed =>
@@ -2011,7 +2015,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get categoryPickerDeepestHint =>
-      'Deepest level — filter by size below.';
+      'Ең терең деңгей — төмендегі өлшем бойынша сүзіңіз.';
 
   @override
   String get categoryPickerAddCategories => 'Санаттар қосу';
@@ -2046,97 +2050,97 @@ class AppLocalizationsKk extends AppLocalizations {
   String get product_see_offer => 'Ұсынысты көру';
 
   @override
-  String get chat_empty_title => 'No conversations yet';
+  String get chat_empty_title => 'Әзірге сөйлесу жоқ';
 
   @override
   String get chat_empty_subtitle =>
-      'Message a seller from any product to start chatting.';
+      'Чатты бастау үшін кез келген тауардан сатушыға хабарлаңыз.';
 
   @override
-  String get chat_composer_hint => 'Message…';
+  String get chat_composer_hint => 'Хабарлама…';
 
   @override
-  String get chat_recording => 'Recording…';
+  String get chat_recording => 'Жазу жүріп жатыр…';
 
   @override
-  String get chat_attach_photo => 'Photo & Video';
+  String get chat_attach_photo => 'Фото және бейне';
 
   @override
-  String get chat_attach_camera => 'Camera';
+  String get chat_attach_camera => 'Камера';
 
   @override
-  String get chat_incomplete_profile_title => 'Finish setting up your profile';
+  String get chat_incomplete_profile_title => 'Профиліңізді баптауды аяқтаңыз';
 
   @override
   String get chat_incomplete_profile_subtitle =>
-      'Complete your profile to start chatting with buyers and sellers.';
+      'Сатып алушылар мен сатушылармен чатты бастау үшін профиліңізді толтырыңыз.';
 
   @override
-  String get chat_incomplete_profile_cta => 'Complete profile';
+  String get chat_incomplete_profile_cta => 'Профильді толтыру';
 
   @override
-  String get chat_menu_report => 'Report & block';
+  String get chat_menu_report => 'Шағымдану және бұғаттау';
 
   @override
-  String get chat_menu_delete => 'Delete conversation';
+  String get chat_menu_delete => 'Сөйлесуді жою';
 
   @override
-  String get chat_reply_self => 'Replying to yourself';
+  String get chat_reply_self => 'Өзіңізге жауап бересіз';
 
   @override
-  String get chat_reply_other => 'Replying';
+  String get chat_reply_other => 'Жауап беру';
 
   @override
   String get chat_media_placeholder => '[media]';
 
   @override
-  String get chat_offer_yours => 'Your offer';
+  String get chat_offer_yours => 'Сіздің ұсынысыңыз';
 
   @override
-  String get chat_offer_incoming => 'Offer';
+  String get chat_offer_incoming => 'Ұсыныс';
 
   @override
-  String get chat_offer_refuse => 'Refuse';
+  String get chat_offer_refuse => 'Бас тарту';
 
   @override
-  String get chat_offer_accept => 'Accept';
+  String get chat_offer_accept => 'Қабылдау';
 
   @override
-  String get chat_offer_pending => 'Pending response…';
+  String get chat_offer_pending => 'Жауап күтілуде…';
 
   @override
-  String get chat_offer_accepted => 'Offer accepted';
+  String get chat_offer_accepted => 'Ұсыныс қабылданды';
 
   @override
-  String get chat_offer_declined => 'Offer declined';
+  String get chat_offer_declined => 'Ұсыныс қабылданбады';
 
   @override
-  String get chat_message_deleted => 'Message deleted';
+  String get chat_message_deleted => 'Хабарлама жойылды';
 
   @override
   String get chat_currency => 'Dhs';
 
   @override
-  String get chat_purchase_confirmed => 'Purchase confirmed';
+  String get chat_purchase_confirmed => 'Сатып алу расталды';
 
   @override
-  String get chat_purchase_for => 'for';
+  String get chat_purchase_for => 'үшін';
 
   @override
-  String get chat_no_messages => 'No messages yet';
+  String get chat_no_messages => 'Хабарлама әлі жоқ';
 
   @override
-  String get chat_preview_photo => '📷 Photo';
+  String get chat_preview_photo => '📷 Фото';
 
   @override
-  String get chat_preview_voice => '🎤 Voice message';
+  String get chat_preview_voice => '🎤 Дауыстық хабарлама';
 
   @override
-  String get chat_preview_offer_sent => 'You sent an offer';
+  String get chat_preview_offer_sent => 'Сіз ұсыныс жібердіңіз';
 
   @override
-  String get chat_preview_offer_new => 'New offer';
+  String get chat_preview_offer_new => 'Жаңа ұсыныс';
 
   @override
-  String get chat_preview_you_prefix => 'You: ';
+  String get chat_preview_you_prefix => 'Сіз: ';
 }

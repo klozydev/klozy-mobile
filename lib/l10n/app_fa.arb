@@ -1,5 +1,13 @@
 {
   "app_name": "Klozy",
+  "@_ds": {},
+  "ds_set_composition_header": "این ست شامل می‌شود",
+  "ds_set_composition_owner_note": "برای جلب اطمینان خریداران و فروش سریع‌تر، از هر قطعه عکس اضافه کنید.",
+  "ds_set_composition_buyer_note": "برخی قطعات عکس ندارند. برای جزئیات با فروشنده تماس بگیرید.",
+  "ds_set_composition_photo": "عکس",
+  "ds_set_composition_add": "افزودن",
+  "ds_set_composition_no_photo": "بدون عکس",
+  "ds_search_bar_hint": "جستجوی کالا یا عضو",
   "@_error_page": {},
   "error_page_show_details": "نمایش جزئیات",
   "error_page_hide_details": "پنهان کردن جزئیات",
@@ -51,6 +59,7 @@
   "error_scenario_maintenance_http_label": "تعمیرات",
   "@_auth": {},
   "auth_country_uae": "امارات متحده عربی",
+  "auth_hero_placeholder": "تصویر اصلی · عکاسی مد ویراستاری",
   "auth_welcome_title": "خرید و فروش مد دست‌دوم\nکه عاشقش می‌شوید.",
   "auth_get_started": "شروع کنید",
   "auth_already_have_account": "از قبل حساب دارم · ",
@@ -81,13 +90,6 @@
   "auth_enter_code_title": "کد را وارد کنید",
   "auth_code_sent_to": "ارسال‌شده به ",
   "auth_resend_code_in": "ارسال مجدد کد تا {time}",
-  "@auth_resend_code_in": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "auth_resend_code": "ارسال مجدد کد",
   "auth_code_spam_hint": "دریافت نکردید؟ پوشه اسپم را بررسی کنید. پس از پایان زمان انتظار می‌توانید کد جدیدی درخواست کنید.",
   "auth_verify": "تأیید",
@@ -95,13 +97,6 @@
   "@_onboarding": {},
   "onboarding_all_set": "همه چیز آماده است!",
   "onboarding_all_set_named": "همه چیز آماده است، {name}!",
-  "@onboarding_all_set_named": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_feed_ready_subtitle": "فید Klozy شما آماده است. کشف کنید، بفروشید و استایل را بخرید — همه در یک‌جا.",
   "onboarding_start_exploring": "شروع به کاوش",
   "onboarding_complete_profile_title": "نمایه خود را تکمیل کنید",
@@ -114,16 +109,6 @@
   "onboarding_address_label": "آدرس",
   "onboarding_bio_label": "بیوگرافی",
   "onboarding_bio_char_count": "{count}/{max}",
-  "@onboarding_bio_char_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_bio_hint": "کمی درباره استایل خود به خریداران بگویید…",
   "onboarding_continue": "ادامه",
   "onboarding_skip": "رد کردن",
@@ -134,26 +119,12 @@
   "onboarding_sizes_title": "اندازه‌ها",
   "onboarding_clothing_label": "پوشاک",
   "onboarding_shoes_label": "کفش · {system}",
-  "@onboarding_shoes_label": {
-    "placeholders": {
-      "system": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_brands_title": "برندها",
   "onboarding_brands_hint": "موارد محبوبتان را دنبال کنید",
   "onboarding_brands_search_hint": "جستجوی برندها",
   "onboarding_no_brand_matches": "هیچ برندی مطابقت ندارد.",
   "onboarding_show_feed": "نمایش فید من",
   "onboarding_show_feed_count": "نمایش فید من · {count} انتخاب‌شده",
-  "@onboarding_show_feed_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_seller_account_set_up": "حساب فروشنده راه‌اندازی شد.",
   "onboarding_seller_role_title": "چگونه می‌فروشید؟",
   "onboarding_seller_role_subtitle": "حسابی را که مناسب شماست انتخاب کنید. هر زمان می‌توانید در تنظیمات تغییر دهید یا ارتقا دهید.",
@@ -172,38 +143,48 @@
   "home_tab_reels": "ریلز",
   "home_feed_empty": "هنوز چیزی اینجا نیست.",
   "home_category_all": "همه",
+  "home_picked_for_you": "انتخاب‌شده برای شما · {categories}",
   "home_product_badge_new": "جدید",
   "home_wishlist_empty": "فهرست علاقه‌مندی‌های شما خالی است",
+  "home_wishlist_empty_hint": "روی قلب هر کالایی بزنید تا اینجا ذخیره شود.",
+  "home_wishlist_saved_count": "{count, plural, =1{۱ کالای ذخیره‌شده} other{{count} کالای ذخیره‌شده}}",
   "@_reels": {},
+  "reels_processing_video": "در حال پردازش ویدیو…",
   "reels_composer_title": "ریل جدید",
-  "reels_pick_title": "ساخت ریل",
+  "reels_compose_details_title": "افزودن جزئیات",
   "reels_pick_subtitle": "یک ویدیوی کوتاه ضبط کنید که تکه‌هایتان را نشان دهد، یا یکی را از گالری خود انتخاب کنید.",
   "reels_record_video": "ضبط ویدیو",
+  "reels_record_hint": "تا ۶۰ ثانیه · عمودی",
   "reels_choose_from_gallery": "انتخاب از گالری",
+  "reels_caption_label": "کپشن",
   "reels_caption_hint": "چیزی درباره استایل خود بگویید…",
   "reels_tag_items_title": "تگ کردن کالاها از فروشگاهتان",
   "reels_no_listings_to_tag": "هنوز لیست فعالی برای تگ کردن ندارید.",
   "reels_post_reel": "انتشار ریل",
+  "reels_post_reel_tagged": "انتشار ریل · {count} تگ‌شده",
+  "reels_publishing": "در حال انتشار ریل شما…",
   "reels_posted_title": "ریل منتشر شد!",
   "reels_posted_subtitle": "پس از پایان پردازش در بخش ریلز نمایش داده می‌شود.",
+  "reels_posted_subtitle_tagged": "ریل شما با {count} {count, plural, one{کالا} other{کالا}} تگ‌شده در فید زنده است.",
+  "reels_view_in_reels": "مشاهده در ریلز",
   "reels_done": "انجام شد",
   "reels_delete_reel": "حذف ریل",
   "reels_report_reel": "گزارش ریل",
   "reels_share": "اشتراک‌گذاری",
   "reels_shop_the_look_count": "خرید استایل · {count}",
-  "@reels_shop_the_look_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "reels_no_tagged_items": "هیچ کالای تگ‌شده‌ای نیست.",
   "reels_shop_the_look": "خرید استایل",
   "reels_deleted_snackbar": "ریل حذف شد.",
   "reels_report_received_snackbar": "ممنون — گزارش دریافت شد.",
   "reels_empty": "هنوز ریلی نیست",
   "reels_link_copied_snackbar": "پیوند در کلیپ‌بورد کپی شد.",
+  "entry_sheet_title": "می‌خواهید چه کاری انجام دهید؟",
+  "entry_create_reel": "ساختن ریل",
+  "entry_create_reel_sub": "ویدیوی قطعات خود را به اشتراک بگذارید",
+  "entry_create_reel_needs_product": "اول یک محصول اضافه کنید",
+  "entry_list_item": "ثبت کالا برای فروش",
+  "entry_list_item_sub": "عکس‌محور · هوش مصنوعی لیست شما را پر می‌کند",
+  "entry_cancel": "انصراف",
   "@_search": {},
   "search_hint": "جستجوی کالاها، برندها…",
   "search_sort_popular": "محبوب",
@@ -212,47 +193,26 @@
   "search_sort_price_desc": "قیمت ↓",
   "search_filters": "فیلترها",
   "search_filters_with_count": "فیلترها · {count}",
-  "@search_filters_with_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_browse_categories": "مرور دسته‌بندی‌ها",
   "search_popular_now": "محبوب در حال حاضر",
   "search_no_results": "نتیجه‌ای نیست",
+  "category_items_count": "{count, plural, =1{۱ کالا} other{{count} کالا}}",
+  "category_empty": "هنوز چیزی اینجا نیست.",
+  "search_result_for_query": " برای «{query}»",
   "search_result_count": "{count, plural, =1{۱ نتیجه} other{{count} نتیجه}}",
-  "@search_result_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_condition_count": "{count, plural, =1{۱ وضعیت} other{{count} وضعیت}}",
-  "@search_condition_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_size_count": "{count, plural, =1{۱ اندازه} other{{count} اندازه}}",
-  "@search_size_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_filter_category": "دسته‌بندی",
   "search_filter_condition": "وضعیت",
   "search_filter_size": "اندازه",
   "search_filter_reset": "بازنشانی",
   "search_filter_show_results": "نمایش نتایج",
+  "search_filter_clear": "پاک کردن",
+  "search_filter_all": "همه",
   "@_product": {},
+  "product_your_listing": "لیست شما",
   "product_add_to_cart": "افزودن به سبد خرید",
+  "product_buy": "خرید",
   "product_in_cart_view_cart": "در سبد خرید · مشاهده سبد",
   "product_edit_listing": "ویرایش لیست",
   "product_status_sold": "فروخته‌شده",
@@ -260,9 +220,11 @@
   "product_mark_as_sold": "علامت‌گذاری به‌عنوان فروخته‌شده",
   "product_mark_as_available": "علامت‌گذاری به‌عنوان موجود",
   "product_delete_listing": "حذف لیست",
+  "product_delete_confirm": "این لیست حذف شود؟ این کار قابل بازگشت نیست.",
   "product_report_listing": "گزارش لیست",
   "product_report_this_listing": "گزارش این لیست",
   "product_listing_deleted": "لیست حذف شد",
+  "product_listing_deleted_subtitle": "این کالا و عکس‌هایش حذف شدند.",
   "product_back_to_feed": "بازگشت به فید",
   "product_added_to_cart": "به سبد خرید افزوده شد.",
   "product_edit_coming_soon": "ویرایش لیست به‌زودی در دسترس خواهد بود.",
@@ -274,19 +236,15 @@
   "product_stat_posted": "منتشرشده",
   "product_stamp_sold": "فروخته‌شده",
   "product_stamp_reserved": "رزرو شده",
+  "product_make_offer": "ارائه پیشنهاد",
   "product_currency_dhs": "Dhs",
   "product_price_amount": "{amount} ",
-  "@product_price_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "@_sell": {},
   "sell_sell_in_seconds": "در چند ثانیه بفروشید",
   "sell_your_photos": "عکس‌های شما",
   "sell_add_photos_hint": "تا ۸ عکس اضافه کنید. هوش مصنوعی لیست شما را از پیش پر می‌کند.",
+  "sell_reorder_hint": "برای مرتب‌سازی بکشید. اولین عکس جلد است.",
+  "sell_add_at_least_one_photo": "برای ادامه، حداقل ۱ عکس اضافه کنید",
   "sell_continue": "ادامه",
   "sell_cover": "جلد",
   "sell_add_a_photo": "افزودن عکس",
@@ -299,24 +257,25 @@
   "sell_price": "قیمت",
   "sell_description": "توضیحات",
   "sell_category": "دسته‌بندی",
+  "sell_product_details": "جزئیات محصول",
+  "sell_subcategory": "زیردسته",
+  "sell_choose_subcategory": "یک زیردسته انتخاب کنید",
   "sell_brand": "برند",
   "sell_size": "اندازه",
   "sell_condition": "وضعیت",
   "sell_suggested_by_ai": "پیشنهادشده توسط هوش مصنوعی",
+  "sell_prefilled_by_ai": "پیش‌پر شده توسط هوش مصنوعی — بررسی و تنظیم کنید.",
+  "sell_photo_edit": "ویرایش",
   "sell_list_item": "ثبت کالا",
   "sell_optional": "اختیاری",
   "sell_title_hint": "مثلاً ژاکت چرمی موتورسواری",
   "sell_price_hint": "AED",
+  "sell_price_suffix": "Dhs",
   "sell_description_hint": "جزئیاتی درباره وضعیت، اندازه، جنس اضافه کنید…",
+  "sell_description_error": "توضیحاتی اضافه کنید تا خریداران بدانند چه می‌گیرند",
+  "sell_size_one_size": "تک‌سایز",
   "sell_search_brands": "جستجوی برندها",
   "sell_use_quoted": "استفاده از «{value}»",
-  "@sell_use_quoted": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "sell_title_error": "یک عنوان اضافه کنید (حداقل ۲ نویسه)",
   "sell_price_error": "یک قیمت وارد کنید",
   "sell_category_error": "یک دسته‌بندی انتخاب کنید",
@@ -325,54 +284,43 @@
   "sell_item_visible_to_buyers": "کالای شما اکنون برای خریداران قابل مشاهده است.",
   "sell_view_listing": "مشاهده لیست",
   "sell_back_to_home": "بازگشت به خانه",
+  "sell_create_reel": "ساختن ریل",
   "@_cart": {},
   "cart_title": "سبد خرید",
   "cart_make_an_offer": "پیشنهاد قیمت",
+  "cart_offer_sent": "پیشنهاد ارسال شد — فروشنده پاسخ خواهد داد",
   "cart_cancel_offer": "لغو پیشنهاد",
   "cart_check_out": "تسویه‌حساب",
   "cart_subtotal": "جمع جزئی",
   "cart_offer_pending": "پیشنهاد در انتظار",
   "cart_offer_accepted": "پیشنهاد پذیرفته شد",
   "cart_pro_badge": "PRO",
+  "cart_cancel": "انصراف",
+  "cart_in_bundle": "در پیشنهاد بسته",
+  "cart_in_accepted_bundle": "در بسته پذیرفته‌شده",
+  "cart_added_after_bundle": "پس از ارسال پیشنهاد بسته اضافه شد — شامل نمی‌شود",
+  "cart_bundle_pending": "در انتظار پاسخ",
+  "cart_bundle_accepted": "پذیرفته شد",
+  "cart_offer_sent_amount": "پیشنهاد ارسال شد · {amount} Dhs",
+  "cart_offer_accepted_save": "پیشنهاد پذیرفته شد · صرفه‌جویی {amount} Dhs",
+  "cart_bundle_was": "بود {amount} Dhs",
+  "cart_checkout_amount": "تسویه‌حساب · {amount} Dhs",
+  "cart_offer_for_all": "{count, plural, =1{پیشنهاد برای این کالا} other{پیشنهاد برای همه {count} کالا}}",
+  "cart_bundle_title": "{count, plural, =1{پیشنهاد بسته · ۱ کالا} other{پیشنهاد بسته · {count} کالا}}",
   "cart_empty_title": "سبد خرید شما خالی است",
   "cart_empty_subtitle": "کالاها را اضافه کنید تا اینجا بر اساس فروشنده گروه‌بندی شوند.",
   "cart_offer_send": "ارسال پیشنهاد",
   "cart_offer_hint_single": "پیشنهاد شما",
   "cart_offer_hint_multi": "پیشنهاد شما برای هر {count} کالا",
-  "@cart_offer_hint_multi": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "cart_offer_error_below_total": "پیشنهاد باید کمتر از قیمت کل باشد",
   "cart_offer_chat_note": "یک پیشنهاد همه چیز را از این فروشنده پوشش می‌دهد. به‌صورت خصوصی در گفتگو ارسال می‌شود — فروشنده می‌پذیرد یا رد می‌کند.",
+  "cart_offer_escrow_note": "پرداخت شما تا زمان تأیید تحویل در امانت نگه داشته می‌شود.",
   "cart_currency_dhs": "Dhs",
   "cart_price_dhs": "{amount} Dhs",
-  "@cart_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "cart_item_count": "{count, plural, =1{۱ کالا} other{{count} کالا}}",
-  "@cart_item_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
+  "checkout_buy_more_from": "خرید بیشتر از {name}",
+  "cart_offer_seller_meta": "{count, plural, =1{۱ کالا} other{{count} کالا}} · قیمت‌گذاری‌شده در {price} Dhs",
   "cart_sellers_summary": "{count, plural, =1{۱ فروشنده · یک پیشنهاد و تسویه‌حساب برای هر فروشنده} other{{count} فروشنده · یک پیشنهاد و تسویه‌حساب برای هر فروشنده}}",
-  "@cart_sellers_summary": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_checkout": {},
   "checkout_title": "تسویه‌حساب",
   "checkout_delivery": "تحویل",
@@ -383,21 +331,7 @@
   "checkout_vat": "VAT",
   "checkout_total": "جمع کل",
   "checkout_pay_amount": "پرداخت {amount} Dhs",
-  "@checkout_pay_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_amount_dhs": "{amount} Dhs",
-  "@checkout_amount_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_encrypted_escrow_note": "تسویه‌حساب رمزگذاری‌شده · پرداخت در امانت نگه داشته می‌شود",
   "checkout_order_placed_title": "سفارش ثبت شد!",
   "checkout_order_placed_escrow_message": "پرداخت شما تا زمانی که تحویل را تأیید کنید در امانت نگه داشته می‌شود.",
@@ -414,37 +348,23 @@
   "orders_no_orders_yet": "هنوز سفارشی نیست",
   "orders_prefix_from": "از",
   "orders_prefix_to": "به",
+  "orders_negotiated": "مذاکره‌شده",
   "orders_price_dhs": "{amount} Dhs",
-  "@orders_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "orders_counterpart_meta": "{prefix} {name}",
-  "@orders_counterpart_meta": {
-    "placeholders": {
-      "prefix": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "orders_order_details": "جزئیات سفارش",
   "orders_tracking": "پیگیری",
   "orders_tracking_updates_empty": "به‌روزرسانی‌های پیگیری اینجا نمایش داده می‌شوند.",
   "orders_emx_door_to_door": "EMX درب‌به‌درب · داخلی امارات",
+  "orders_emx_tracking": "پیگیری EMX",
+  "orders_track_confirmed_label": "سفارش تأیید شد",
+  "orders_track_confirmed_sub": "فروشنده در حال آماده کردن کالای شماست",
+  "orders_track_shipped_label": "ارسال‌شده با EMX",
+  "orders_track_shipped_sub": "تحویل گرفته شد · در راه",
+  "orders_track_out_label": "خارج‌شده برای تحویل",
+  "orders_track_out_sub": "امروز می‌رسد",
+  "orders_track_delivered_label": "تحویل داده شد",
+  "orders_track_delivered_sub": "تأیید کنید تا پرداخت آزاد شود",
   "orders_carrier_prefix": "{carrier} · ",
-  "@orders_carrier_prefix": {
-    "placeholders": {
-      "carrier": {
-        "type": "String"
-      }
-    }
-  },
   "orders_mark_as_shipped": "علامت‌گذاری به‌عنوان ارسال‌شده",
   "orders_download_emx_label": "دانلود برچسب EMX",
   "orders_confirm_receipt": "تأیید دریافت",
@@ -485,29 +405,8 @@
   "notifications_profile_coming_soon": "نمایه‌ها به‌زودی در دسترس خواهند بود.",
   "notifications_time_just_now": "همین حالا",
   "notifications_time_minutes": "{count} دقیقه پیش",
-  "@notifications_time_minutes": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_hours": "{count} ساعت پیش",
-  "@notifications_time_hours": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_days": "{count} روز پیش",
-  "@notifications_time_days": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_profile_feature": {},
   "profile_edit": "ویرایش نمایه",
   "profile_follow": "دنبال کردن",
@@ -527,6 +426,7 @@
   "profile_no_listings": "هنوز لیستی نیست",
   "profile_no_reels": "هنوز ریلی نیست",
   "profile_no_reviews": "هنوز نظری نیست",
+  "profile_reviews_count": "{count, plural, =1{۱ نظر} other{{count} نظر}}",
   "profile_no_followers": "هنوز دنبال‌کننده‌ای نیست",
   "profile_no_following": "هنوز کسی را دنبال نمی‌کنید",
   "profile_connections_title": "ارتباط‌ها",
@@ -544,6 +444,10 @@
   "settings_section_legal": "حقوقی و پشتیبانی",
   "settings_section_account": "حساب",
   "settings_edit_profile": "ویرایش نمایه",
+  "edit_profile_discard_title": "تغییرات دور انداخته شوند؟",
+  "edit_profile_discard_body": "تغییرات ذخیره‌نشده دارید. بدون ذخیره خارج می‌شوید؟",
+  "edit_profile_discard_confirm": "دور انداختن",
+  "edit_profile_keep_editing": "ادامه ویرایش",
   "settings_delivery_address": "آدرس تحویل",
   "settings_payout_iban": "IBAN برای واریز",
   "settings_seller_stats": "آمار فروشنده",
@@ -561,8 +465,14 @@
   "settings_delete_confirm": "حساب خود را برای همیشه حذف می‌کنید؟ این کار قابل بازگشت نیست.",
   "settings_change_password_no_email": "هیچ ایمیلی به این حساب متصل نیست.",
   "settings_password_reset_sent": "پیوند بازنشانی گذرواژه ارسال شد. ایمیل خود را بررسی کنید.",
+  "settings_new_password": "گذرواژه جدید",
+  "settings_new_password_hint": "گذرواژه جدید",
+  "settings_confirm_password": "تأیید گذرواژه",
+  "settings_confirm_password_hint": "گذرواژه را دوباره وارد کنید",
+  "settings_passwords_no_match": "گذرواژه‌ها مطابقت ندارند",
+  "settings_password_too_short": "از حداقل ۸ نویسه استفاده کنید",
+  "settings_password_updated": "گذرواژه به‌روزرسانی شد.",
   "settings_support_unavailable": "پشتیبانی در حال حاضر در دسترس نیست.",
-  "settings_handle": "نام کاربری",
   "settings_address_line1": "خط آدرس",
   "settings_address_area": "منطقه",
   "settings_address_city": "شهر",
@@ -574,6 +484,41 @@
   "settings_doc_unavailable": "این سند در حال حاضر در دسترس نیست.",
   "settings_no_blocked": "شما کسی را مسدود نکرده‌اید.",
   "settings_unblock": "رفع مسدودیت",
+  "settings_group_account": "حساب",
+  "settings_group_notifications": "اعلان‌ها",
+  "settings_group_other": "سایر",
+  "settings_group_links": "پیوندها",
+  "settings_group_social": "اجتماعی",
+  "settings_group_preferences": "ترجیحات",
+  "settings_personal_data": "داده‌های شخصی",
+  "settings_personal_data_sub": "نمایه، ترجیحات، کاربران مسدودشده",
+  "settings_personal_information": "اطلاعات شخصی",
+  "settings_security": "امنیت",
+  "settings_security_sub": "ایمیل، گذرواژه، تلفن",
+  "settings_payouts_sub": "اطلاعات بانکی (IBAN)",
+  "settings_share_app": "اشتراک‌گذاری اپلیکیشن",
+  "settings_legal_notices": "اطلاعیه‌های حقوقی",
+  "settings_about": "درباره",
+  "settings_instagram": "Instagram",
+  "settings_instagram_handle": "@klozy",
+  "settings_clothing_preference": "ترجیح پوشاک",
+  "settings_preferred_size": "اندازه مورد نظر",
+  "settings_preferred_brands": "برندهای مورد نظر",
+  "settings_change_email": "تغییر ایمیل",
+  "settings_phone_number": "شماره تلفن",
+  "settings_current_email": "ایمیل فعلی",
+  "settings_new_email": "ایمیل جدید",
+  "settings_new_email_hint": "you@email.com",
+  "settings_change_email_note": "یک پیوند تأیید به آدرس جدید شما ارسال می‌کنیم. تغییر پس از تأیید اعمال می‌شود.",
+  "settings_email_link_sent": "پیوند تأیید ارسال شد. صندوق ورودی جدید خود را بررسی کنید تا تمام شود.",
+  "settings_current_number": "شماره فعلی",
+  "settings_new_number": "شماره جدید",
+  "settings_new_number_hint": "50 123 4567",
+  "settings_phone_note": "یک کد ۶ رقمی برای تأیید شماره جدید شما پیامک می‌کنیم.",
+  "settings_phone_updated": "شماره تلفن به‌روزرسانی شد.",
+  "settings_enter_code_for": "کد ۶ رقمی ارسال‌شده به {number} را وارد کنید",
+  "settings_share_message": "Klozy را ببینید — مد دست‌دوم در سراسر امارات بخرید و بفروشید. https://klozy.app",
+  "settings_share_failed": "نتوانستیم اشتراک‌گذاری را باز کنیم. لطفاً دوباره تلاش کنید.",
   "onboarding_avatar_failed": "نتوانستیم عکس شما را بارگذاری کنیم. لطفاً دوباره تلاش کنید.",
   "sell_weight": "وزن (گرم)",
   "sell_weight_hint": "مثلاً ۸۰۰",
@@ -637,35 +582,11 @@
   "search_price_min": "حداقل",
   "search_price_max": "حداکثر",
   "search_brand_count": "{count, plural, =1{۱ برند} other{{count} برند}}",
-  "@search_brand_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_price_chip": "{min}–{max} Dhs",
-  "@search_price_chip": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "settings_iban_current": "IBAN فعلی: {masked}",
-  "@settings_iban_current": {
-    "placeholders": {
-      "masked": {
-        "type": "String"
-      }
-    }
-  },
   "auth_or_continue_with": "یا ادامه با",
   "onboarding_address_search_hint": "آدرس خود را جستجو کنید",
-  "settings_language": "زبان",
+  "@_account": {},
   "account_gate_guest_title": "برای ادامه، حساب کاربری بسازید یا وارد شوید",
   "account_gate_guest_subtitle": "به Klozy بپیوندید تا اقلام را به فهرست علاقه‌مندی‌ها اضافه کنید، فروشندگان را دنبال کنید و مد دست‌دوم بخرید.",
   "account_gate_create_account": "ایجاد حساب کاربری",
@@ -673,24 +594,58 @@
   "account_gate_incomplete_title": "تنظیم پروفایل خود را کامل کنید",
   "account_gate_incomplete_subtitle": "برای باز کردن همه ویژگی‌های Klozy، پروفایل خود را تکمیل کنید.",
   "account_gate_finish_setup": "پایان تنظیم",
+  "@_guest_tab": {},
   "guest_tab_title": "ورود به Klozy",
   "guest_tab_subtitle": "برای دسترسی به این بخش، حساب کاربری بسازید یا وارد شوید.",
   "guest_tab_cta": "ایجاد حساب کاربری",
   "guest_tab_log_in": "ورود",
+  "@_categoryPicker": {},
   "categoryPickerTitle": "انتخاب دسته‌بندی",
   "categoryPickerBreadcrumbRoot": "همه دسته‌بندی‌ها",
   "categoryPickerLoading": "در حال بارگذاری...",
   "categoryPickerRetry": "تلاش مجدد",
+  "categoryPickerDeepestHint": "عمیق‌ترین سطح — از اندازه در پایین فیلتر کنید.",
   "categoryPickerAddCategories": "افزودن دسته‌بندی‌ها",
   "categoryPickerPreferred": "دسته‌بندی‌های مورد علاقه",
+  "@_sell_enrich": {},
   "sellPhotosEmptyTitle": "افزودن عکس",
   "sellPhotosEmptySubtitle": "از کالای خود عکس بگیرید یا بارگذاری کنید",
   "sellPhotosCounter": "عکس",
   "sellRecapPhotoStripEdit": "ویرایش",
   "sellRequiredHint": "* فیلدهای الزامی",
-  "sellSizeSystem": "سیستم اندازه",
-  "product_buy": "خرید",
-  "product_make_offer": "ارائه پیشنهاد",
+  "settings_language": "زبان",
   "offer_send_failed": "ارسال پیشنهاد شما ممکن نشد. دوباره تلاش کنید.",
-  "product_see_offer": "مشاهده پیشنهاد"
+  "product_see_offer": "مشاهده پیشنهاد",
+  "@_chat": {},
+  "chat_empty_title": "هنوز گفتگویی نیست",
+  "chat_empty_subtitle": "از هر محصولی با فروشنده پیام بگذارید تا گفتگو شروع شود.",
+  "chat_composer_hint": "پیام…",
+  "chat_recording": "در حال ضبط…",
+  "chat_attach_photo": "عکس و ویدیو",
+  "chat_attach_camera": "دوربین",
+  "chat_incomplete_profile_title": "تنظیم پروفایل خود را تمام کنید",
+  "chat_incomplete_profile_subtitle": "پروفایل خود را تکمیل کنید تا با خریداران و فروشندگان گفتگو کنید.",
+  "chat_incomplete_profile_cta": "تکمیل پروفایل",
+  "chat_menu_report": "گزارش و مسدود کردن",
+  "chat_menu_delete": "حذف گفتگو",
+  "chat_reply_self": "پاسخ به خودتان",
+  "chat_reply_other": "پاسخ",
+  "chat_media_placeholder": "[رسانه]",
+  "chat_offer_yours": "پیشنهاد شما",
+  "chat_offer_incoming": "پیشنهاد",
+  "chat_offer_refuse": "رد کردن",
+  "chat_offer_accept": "پذیرش",
+  "chat_offer_pending": "در انتظار پاسخ…",
+  "chat_offer_accepted": "پیشنهاد پذیرفته شد",
+  "chat_offer_declined": "پیشنهاد رد شد",
+  "chat_message_deleted": "پیام حذف شد",
+  "chat_currency": "Dhs",
+  "chat_purchase_confirmed": "خرید تأیید شد",
+  "chat_purchase_for": "برای",
+  "chat_no_messages": "هنوز پیامی نیست",
+  "chat_preview_photo": "📷 عکس",
+  "chat_preview_voice": "🎤 پیام صوتی",
+  "chat_preview_offer_sent": "شما یک پیشنهاد ارسال کردید",
+  "chat_preview_offer_new": "پیشنهاد جدید",
+  "chat_preview_you_prefix": "شما: "
 }

@@ -12,27 +12,27 @@ class AppLocalizationsHi extends AppLocalizations {
   String get app_name => 'Klozy';
 
   @override
-  String get ds_set_composition_header => 'This set includes';
+  String get ds_set_composition_header => 'इस सेट में शामिल है';
 
   @override
   String get ds_set_composition_owner_note =>
-      'Add a photo of each piece to reassure buyers and sell faster.';
+      'खरीदारों को आश्वस्त करने और जल्दी बेचने के लिए प्रत्येक टुकड़े की फ़ोटो जोड़ें।';
 
   @override
   String get ds_set_composition_buyer_note =>
-      'Some pieces aren\'t photographed. Contact the seller for details.';
+      'कुछ टुकड़ों की फ़ोटो नहीं ली गई है। विवरण के लिए विक्रेता से संपर्क करें।';
 
   @override
-  String get ds_set_composition_photo => 'Photo';
+  String get ds_set_composition_photo => 'फ़ोटो';
 
   @override
-  String get ds_set_composition_add => 'Add';
+  String get ds_set_composition_add => 'जोड़ें';
 
   @override
-  String get ds_set_composition_no_photo => 'No photo';
+  String get ds_set_composition_no_photo => 'कोई फ़ोटो नहीं';
 
   @override
-  String get ds_search_bar_hint => 'Search for an item or member';
+  String get ds_search_bar_hint => 'कोई आइटम या सदस्य खोजें';
 
   @override
   String get error_page_show_details => 'विवरण दिखाएँ';
@@ -188,7 +188,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get auth_country_uae => 'संयुक्त अरब अमीरात';
 
   @override
-  String get auth_hero_placeholder => 'HERO  ·  EDITORIAL  FASHION  SHOT';
+  String get auth_hero_placeholder => 'हीरो · एडिटोरियल फ़ैशन शॉट';
 
   @override
   String get auth_welcome_title => 'पसंदीदा प्री-लव्ड\nफ़ैशन खरीदें और बेचें।';
@@ -461,7 +461,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String home_picked_for_you(String categories) {
-    return 'Picked for you · $categories';
+    return 'आपके लिए चुना गया · $categories';
   }
 
   @override
@@ -472,27 +472,27 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get home_wishlist_empty_hint =>
-      'Tap the heart on any item to save it here.';
+      'किसी भी आइटम पर दिल टैप करें और यहाँ सेव करें।';
 
   @override
   String home_wishlist_saved_count(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count saved items',
-      one: '1 saved item',
+      other: '$count सहेजे गए आइटम',
+      one: '1 सहेजा गया आइटम',
     );
     return '$_temp0';
   }
 
   @override
-  String get reels_processing_video => 'Processing video…';
+  String get reels_processing_video => 'वीडियो प्रोसेस हो रहा है…';
 
   @override
   String get reels_composer_title => 'नई रील';
 
   @override
-  String get reels_compose_details_title => 'Add details';
+  String get reels_compose_details_title => 'विवरण जोड़ें';
 
   @override
   String get reels_pick_subtitle =>
@@ -502,13 +502,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get reels_record_video => 'एक वीडियो रिकॉर्ड करें';
 
   @override
-  String get reels_record_hint => 'Up to 60s · vertical';
+  String get reels_record_hint => '60 सेकंड तक · वर्टिकल';
 
   @override
   String get reels_choose_from_gallery => 'गैलरी से चुनें';
 
   @override
-  String get reels_caption_label => 'Caption';
+  String get reels_caption_label => 'कैप्शन';
 
   @override
   String get reels_caption_hint => 'अपने लुक के बारे में कुछ कहें…';
@@ -525,11 +525,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String reels_post_reel_tagged(int count) {
-    return 'Post reel · $count tagged';
+    return 'रील पोस्ट करें · $count टैग';
   }
 
   @override
-  String get reels_publishing => 'Publishing your reel…';
+  String get reels_publishing => 'आपकी रील प्रकाशित हो रही है…';
 
   @override
   String get reels_posted_title => 'रील पोस्ट हो गई!';
@@ -543,14 +543,14 @@ class AppLocalizationsHi extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'items',
-      one: 'item',
+      other: 'आइटम',
+      one: 'आइटम',
     );
-    return 'Your reel is live in the feed with $count tagged $_temp0.';
+    return 'आपकी रील $count टैग किए गए $_temp0 के साथ फ़ीड में लाइव है।';
   }
 
   @override
-  String get reels_view_in_reels => 'View in Reels';
+  String get reels_view_in_reels => 'Reels में देखें';
 
   @override
   String get reels_done => 'हो गया';
@@ -588,25 +588,25 @@ class AppLocalizationsHi extends AppLocalizations {
   String get reels_link_copied_snackbar => 'लिंक क्लिपबोर्ड पर कॉपी हो गया।';
 
   @override
-  String get entry_sheet_title => 'What would you like to do?';
+  String get entry_sheet_title => 'आप क्या करना चाहेंगे?';
 
   @override
-  String get entry_create_reel => 'Create a reel';
+  String get entry_create_reel => 'एक रील बनाएँ';
 
   @override
-  String get entry_create_reel_sub => 'Share a video of your pieces';
+  String get entry_create_reel_sub => 'अपने आइटम का वीडियो शेयर करें';
 
   @override
-  String get entry_create_reel_needs_product => 'Add a product first';
+  String get entry_create_reel_needs_product => 'पहले एक उत्पाद जोड़ें';
 
   @override
-  String get entry_list_item => 'List an item for sale';
+  String get entry_list_item => 'बिक्री के लिए एक आइटम लिस्ट करें';
 
   @override
-  String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+  String get entry_list_item_sub => 'पहले फ़ोटो · AI आपकी लिस्टिंग भर देगा';
 
   @override
-  String get entry_cancel => 'Cancel';
+  String get entry_cancel => 'रद्द करें';
 
   @override
   String get search_hint => 'आइटम, ब्रांड खोजें…';
@@ -645,18 +645,18 @@ class AppLocalizationsHi extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count items',
-      one: '1 item',
+      other: '$count आइटम',
+      one: '1 आइटम',
     );
     return '$_temp0';
   }
 
   @override
-  String get category_empty => 'Nothing here yet.';
+  String get category_empty => 'अभी यहाँ कुछ नहीं।';
 
   @override
   String search_result_for_query(String query) {
-    return ' for “$query”';
+    return ' “$query” के लिए';
   }
 
   @override
@@ -708,13 +708,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get search_filter_show_results => 'परिणाम दिखाएँ';
 
   @override
-  String get search_filter_clear => 'Clear';
+  String get search_filter_clear => 'साफ़ करें';
 
   @override
-  String get search_filter_all => 'All';
+  String get search_filter_all => 'सभी';
 
   @override
-  String get product_your_listing => 'Your listing';
+  String get product_your_listing => 'आपकी लिस्टिंग';
 
   @override
   String get product_add_to_cart => 'कार्ट में जोड़ें';
@@ -745,7 +745,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get product_delete_confirm =>
-      'Delete this listing? This can\'t be undone.';
+      'यह लिस्टिंग हटाएँ? इसे पूर्ववत नहीं किया जा सकता।';
 
   @override
   String get product_report_listing => 'लिस्टिंग की रिपोर्ट करें';
@@ -758,7 +758,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get product_listing_deleted_subtitle =>
-      'This item and its photos have been removed.';
+      'यह आइटम और इसकी फ़ोटो हटा दी गई हैं।';
 
   @override
   String get product_back_to_feed => 'फ़ीड पर वापस जाएँ';
@@ -816,10 +816,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get sell_reorder_hint =>
-      'Drag to reorder. The 1st photo is the cover.';
+      'क्रम बदलने के लिए खींचें। पहली फ़ोटो कवर है।';
 
   @override
-  String get sell_add_at_least_one_photo => 'Add at least 1 photo to continue';
+  String get sell_add_at_least_one_photo =>
+      'जारी रखने के लिए कम से कम 1 फ़ोटो जोड़ें';
 
   @override
   String get sell_continue => 'जारी रखें';
@@ -860,13 +861,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get sell_category => 'श्रेणी';
 
   @override
-  String get sell_product_details => 'Product details';
+  String get sell_product_details => 'उत्पाद विवरण';
 
   @override
-  String get sell_subcategory => 'Subcategory';
+  String get sell_subcategory => 'उपश्रेणी';
 
   @override
-  String get sell_choose_subcategory => 'Choose a subcategory';
+  String get sell_choose_subcategory => 'एक उपश्रेणी चुनें';
 
   @override
   String get sell_brand => 'ब्रांड';
@@ -881,10 +882,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get sell_suggested_by_ai => 'AI द्वारा सुझाया गया';
 
   @override
-  String get sell_prefilled_by_ai => 'Pre-filled by AI — review and adjust.';
+  String get sell_prefilled_by_ai =>
+      'AI द्वारा पहले से भरा गया — समीक्षा करें और समायोजित करें।';
 
   @override
-  String get sell_photo_edit => 'Edit';
+  String get sell_photo_edit => 'संपादित करें';
 
   @override
   String get sell_list_item => 'आइटम लिस्ट करें';
@@ -907,10 +909,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get sell_description_error =>
-      'Add a description so buyers know what they\'re getting';
+      'विवरण जोड़ें ताकि खरीदार जान सकें कि उन्हें क्या मिल रहा है';
 
   @override
-  String get sell_size_one_size => 'One size';
+  String get sell_size_one_size => 'एक साइज़';
 
   @override
   String get sell_search_brands => 'ब्रांड खोजें';
@@ -946,7 +948,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get sell_back_to_home => 'होम पर वापस जाएँ';
 
   @override
-  String get sell_create_reel => 'Create a reel';
+  String get sell_create_reel => 'एक रील बनाएँ';
 
   @override
   String get cart_title => 'कार्ट';
@@ -955,7 +957,8 @@ class AppLocalizationsHi extends AppLocalizations {
   String get cart_make_an_offer => 'एक ऑफ़र दें';
 
   @override
-  String get cart_offer_sent => 'Offer sent — the seller will get back to you';
+  String get cart_offer_sent =>
+      'ऑफ़र भेजा गया — विक्रेता आपसे जल्द संपर्क करेगा';
 
   @override
   String get cart_cancel_offer => 'ऑफ़र रद्द करें';
@@ -976,42 +979,42 @@ class AppLocalizationsHi extends AppLocalizations {
   String get cart_pro_badge => 'PRO';
 
   @override
-  String get cart_cancel => 'Cancel';
+  String get cart_cancel => 'रद्द करें';
 
   @override
-  String get cart_in_bundle => 'In bundle offer';
+  String get cart_in_bundle => 'बंडल ऑफ़र में';
 
   @override
-  String get cart_in_accepted_bundle => 'In accepted bundle';
+  String get cart_in_accepted_bundle => 'स्वीकृत बंडल में';
 
   @override
   String get cart_added_after_bundle =>
-      'Added after your bundle offer — not included';
+      'बंडल ऑफ़र के बाद जोड़ा गया — शामिल नहीं';
 
   @override
-  String get cart_bundle_pending => 'Pending response';
+  String get cart_bundle_pending => 'प्रतिक्रिया की प्रतीक्षा में';
 
   @override
-  String get cart_bundle_accepted => 'Accepted';
+  String get cart_bundle_accepted => 'स्वीकृत';
 
   @override
   String cart_offer_sent_amount(int amount) {
-    return 'Offer sent · $amount Dhs';
+    return 'ऑफ़र भेजा गया · $amount Dhs';
   }
 
   @override
   String cart_offer_accepted_save(int amount) {
-    return 'Offer accepted · save $amount Dhs';
+    return 'ऑफ़र स्वीकृत · $amount Dhs की बचत';
   }
 
   @override
   String cart_bundle_was(int amount) {
-    return 'was $amount Dhs';
+    return 'पहले $amount Dhs था';
   }
 
   @override
   String cart_checkout_amount(int amount) {
-    return 'Check out · $amount Dhs';
+    return 'चेकआउट · $amount Dhs';
   }
 
   @override
@@ -1019,8 +1022,8 @@ class AppLocalizationsHi extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Offer for all $count items',
-      one: 'Offer for this item',
+      other: 'सभी $count आइटम के लिए ऑफ़र',
+      one: 'इस आइटम के लिए ऑफ़र',
     );
     return '$_temp0';
   }
@@ -1030,8 +1033,8 @@ class AppLocalizationsHi extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Bundle offer · $count items',
-      one: 'Bundle offer · 1 item',
+      other: 'बंडल ऑफ़र · $count आइटम',
+      one: 'बंडल ऑफ़र · 1 आइटम',
     );
     return '$_temp0';
   }
@@ -1063,7 +1066,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get cart_offer_escrow_note =>
-      'Your payment is held in escrow until you confirm delivery.';
+      'डिलीवरी की पुष्टि होने तक आपका भुगतान एस्क्रो में रखा जाता है।';
 
   @override
   String get cart_currency_dhs => 'Dhs';
@@ -1086,7 +1089,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String checkout_buy_more_from(String name) {
-    return 'Buy more from $name';
+    return '$name से और खरीदें';
   }
 
   @override
@@ -1098,10 +1101,10 @@ class AppLocalizationsHi extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count items',
-      one: '1 item',
+      other: '$count आइटम',
+      one: '1 आइटम',
     );
-    return '$_temp0 · listed at $priceString Dhs';
+    return '$_temp0 · $priceString Dhs पर सूचीबद्ध';
   }
 
   @override
@@ -1199,7 +1202,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get orders_prefix_to => 'को';
 
   @override
-  String get orders_negotiated => 'Negotiated';
+  String get orders_negotiated => 'बातचीत किया गया';
 
   @override
   String orders_price_dhs(int amount) {
@@ -1225,31 +1228,32 @@ class AppLocalizationsHi extends AppLocalizations {
   String get orders_emx_door_to_door => 'EMX डोर-टू-डोर · UAE घरेलू';
 
   @override
-  String get orders_emx_tracking => 'EMX tracking';
+  String get orders_emx_tracking => 'EMX ट्रैकिंग';
 
   @override
-  String get orders_track_confirmed_label => 'Order confirmed';
+  String get orders_track_confirmed_label => 'ऑर्डर पुष्टि';
 
   @override
-  String get orders_track_confirmed_sub => 'Seller is preparing your item';
+  String get orders_track_confirmed_sub => 'विक्रेता आपका आइटम तैयार कर रहा है';
 
   @override
-  String get orders_track_shipped_label => 'Shipped with EMX';
+  String get orders_track_shipped_label => 'EMX से भेजा गया';
 
   @override
-  String get orders_track_shipped_sub => 'Picked up · in transit';
+  String get orders_track_shipped_sub => 'पिकअप हुआ · रास्ते में';
 
   @override
-  String get orders_track_out_label => 'Out for delivery';
+  String get orders_track_out_label => 'डिलीवरी के लिए निकला';
 
   @override
-  String get orders_track_out_sub => 'Arriving today';
+  String get orders_track_out_sub => 'आज आ रहा है';
 
   @override
-  String get orders_track_delivered_label => 'Delivered';
+  String get orders_track_delivered_label => 'डिलीवर हो गया';
 
   @override
-  String get orders_track_delivered_sub => 'Confirm to release payment';
+  String get orders_track_delivered_sub =>
+      'भुगतान जारी करने के लिए पुष्टि करें';
 
   @override
   String orders_carrier_prefix(String carrier) {
@@ -1444,8 +1448,8 @@ class AppLocalizationsHi extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count reviews',
-      one: '1 review',
+      other: '$count समीक्षाएँ',
+      one: '1 समीक्षा',
     );
     return '$_temp0';
   }
@@ -1500,17 +1504,17 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settings_edit_profile => 'प्रोफ़ाइल संपादित करें';
 
   @override
-  String get edit_profile_discard_title => 'Discard changes?';
+  String get edit_profile_discard_title => 'बदलाव छोड़ें?';
 
   @override
   String get edit_profile_discard_body =>
-      'You have unsaved changes. Leave without saving?';
+      'आपके पास सहेजे नहीं गए बदलाव हैं। बिना सहेजे छोड़ें?';
 
   @override
-  String get edit_profile_discard_confirm => 'Discard';
+  String get edit_profile_discard_confirm => 'छोड़ें';
 
   @override
-  String get edit_profile_keep_editing => 'Keep editing';
+  String get edit_profile_keep_editing => 'संपादन जारी रखें';
 
   @override
   String get settings_delivery_address => 'डिलीवरी पता';
@@ -1567,25 +1571,25 @@ class AppLocalizationsHi extends AppLocalizations {
       'पासवर्ड रीसेट लिंक भेज दिया गया। अपना ईमेल जाँचें।';
 
   @override
-  String get settings_new_password => 'New password';
+  String get settings_new_password => 'नया पासवर्ड';
 
   @override
-  String get settings_new_password_hint => 'New password';
+  String get settings_new_password_hint => 'नया पासवर्ड';
 
   @override
-  String get settings_confirm_password => 'Confirm password';
+  String get settings_confirm_password => 'पासवर्ड की पुष्टि करें';
 
   @override
-  String get settings_confirm_password_hint => 'Re-enter password';
+  String get settings_confirm_password_hint => 'पासवर्ड फिर से दर्ज करें';
 
   @override
-  String get settings_passwords_no_match => 'Passwords do not match';
+  String get settings_passwords_no_match => 'पासवर्ड मेल नहीं खाते';
 
   @override
-  String get settings_password_too_short => 'Use at least 8 characters';
+  String get settings_password_too_short => 'कम से कम 8 अक्षरों का उपयोग करें';
 
   @override
-  String get settings_password_updated => 'Password updated.';
+  String get settings_password_updated => 'पासवर्ड अपडेट हो गया।';
 
   @override
   String get settings_support_unavailable => 'सहायता अभी उपलब्ध नहीं है।';
@@ -1626,50 +1630,50 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settings_unblock => 'अनब्लॉक करें';
 
   @override
-  String get settings_group_account => 'Account';
+  String get settings_group_account => 'खाता';
 
   @override
-  String get settings_group_notifications => 'Notifications';
+  String get settings_group_notifications => 'सूचनाएँ';
 
   @override
-  String get settings_group_other => 'Other';
+  String get settings_group_other => 'अन्य';
 
   @override
-  String get settings_group_links => 'Links';
+  String get settings_group_links => 'लिंक';
 
   @override
-  String get settings_group_social => 'Social';
+  String get settings_group_social => 'सोशल';
 
   @override
-  String get settings_group_preferences => 'Preferences';
+  String get settings_group_preferences => 'प्राथमिकताएँ';
 
   @override
-  String get settings_personal_data => 'Personal data';
+  String get settings_personal_data => 'व्यक्तिगत डेटा';
 
   @override
   String get settings_personal_data_sub =>
-      'Profile, preferences, blocked users';
+      'प्रोफ़ाइल, प्राथमिकताएँ, ब्लॉक किए गए उपयोगकर्ता';
 
   @override
-  String get settings_personal_information => 'Personal information';
+  String get settings_personal_information => 'व्यक्तिगत जानकारी';
 
   @override
-  String get settings_security => 'Security';
+  String get settings_security => 'सुरक्षा';
 
   @override
-  String get settings_security_sub => 'Email, password, phone';
+  String get settings_security_sub => 'ईमेल, पासवर्ड, फ़ोन';
 
   @override
-  String get settings_payouts_sub => 'Bank details (IBAN)';
+  String get settings_payouts_sub => 'बैंक विवरण (IBAN)';
 
   @override
-  String get settings_share_app => 'Share the app';
+  String get settings_share_app => 'ऐप शेयर करें';
 
   @override
-  String get settings_legal_notices => 'Legal notices';
+  String get settings_legal_notices => 'कानूनी सूचनाएँ';
 
   @override
-  String get settings_about => 'About';
+  String get settings_about => 'के बारे में';
 
   @override
   String get settings_instagram => 'Instagram';
@@ -1678,64 +1682,65 @@ class AppLocalizationsHi extends AppLocalizations {
   String get settings_instagram_handle => '@klozy';
 
   @override
-  String get settings_clothing_preference => 'Clothing preference';
+  String get settings_clothing_preference => 'कपड़ों की प्राथमिकता';
 
   @override
-  String get settings_preferred_size => 'Preferred size';
+  String get settings_preferred_size => 'पसंदीदा साइज़';
 
   @override
-  String get settings_preferred_brands => 'Preferred brands';
+  String get settings_preferred_brands => 'पसंदीदा ब्रांड';
 
   @override
-  String get settings_change_email => 'Change email';
+  String get settings_change_email => 'ईमेल बदलें';
 
   @override
-  String get settings_phone_number => 'Phone number';
+  String get settings_phone_number => 'फ़ोन नंबर';
 
   @override
-  String get settings_current_email => 'Current email';
+  String get settings_current_email => 'वर्तमान ईमेल';
 
   @override
-  String get settings_new_email => 'New email';
+  String get settings_new_email => 'नया ईमेल';
 
   @override
   String get settings_new_email_hint => 'you@email.com';
 
   @override
   String get settings_change_email_note =>
-      'We\'ll send a confirmation link to your new address. The change applies once confirmed.';
+      'हम आपके नए पते पर एक पुष्टिकरण लिंक भेजेंगे। बदलाव पुष्टि होने के बाद लागू होगा।';
 
   @override
   String get settings_email_link_sent =>
-      'Confirmation link sent. Check your new inbox to finish.';
+      'पुष्टिकरण लिंक भेज दिया गया। समाप्त करने के लिए अपना नया इनबॉक्स जाँचें।';
 
   @override
-  String get settings_current_number => 'Current number';
+  String get settings_current_number => 'वर्तमान नंबर';
 
   @override
-  String get settings_new_number => 'New number';
+  String get settings_new_number => 'नया नंबर';
 
   @override
   String get settings_new_number_hint => '50 123 4567';
 
   @override
   String get settings_phone_note =>
-      'We\'ll text a 6-digit code to confirm your new number.';
+      'हम आपके नए नंबर की पुष्टि करने के लिए 6-अंकों का कोड भेजेंगे।';
 
   @override
-  String get settings_phone_updated => 'Phone number updated.';
+  String get settings_phone_updated => 'फ़ोन नंबर अपडेट हो गया।';
 
   @override
   String settings_enter_code_for(String number) {
-    return 'Enter the 6-digit code sent to $number';
+    return '$number पर भेजा गया 6-अंकों का कोड दर्ज करें';
   }
 
   @override
   String get settings_share_message =>
-      'Check out Klozy — buy & sell pre-loved fashion across the UAE. https://klozy.app';
+      'Klozy देखें — UAE भर में प्री-लव्ड फ़ैशन खरीदें और बेचें। https://klozy.app';
 
   @override
-  String get settings_share_failed => 'Couldn\'t open share. Please try again.';
+  String get settings_share_failed =>
+      'शेयर नहीं खुल सका। कृपया फिर से प्रयास करें।';
 
   @override
   String get onboarding_avatar_failed =>
@@ -2004,7 +2009,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get categoryPickerDeepestHint =>
-      'Deepest level — filter by size below.';
+      'सबसे गहरा स्तर — नीचे साइज़ से फ़िल्टर करें।';
 
   @override
   String get categoryPickerAddCategories => 'श्रेणियां जोड़ें';
@@ -2038,97 +2043,97 @@ class AppLocalizationsHi extends AppLocalizations {
   String get product_see_offer => 'ऑफ़र देखें';
 
   @override
-  String get chat_empty_title => 'No conversations yet';
+  String get chat_empty_title => 'अभी कोई बातचीत नहीं';
 
   @override
   String get chat_empty_subtitle =>
-      'Message a seller from any product to start chatting.';
+      'चैट शुरू करने के लिए किसी भी उत्पाद से विक्रेता को संदेश भेजें।';
 
   @override
-  String get chat_composer_hint => 'Message…';
+  String get chat_composer_hint => 'संदेश…';
 
   @override
-  String get chat_recording => 'Recording…';
+  String get chat_recording => 'रिकॉर्ड हो रहा है…';
 
   @override
-  String get chat_attach_photo => 'Photo & Video';
+  String get chat_attach_photo => 'फ़ोटो और वीडियो';
 
   @override
-  String get chat_attach_camera => 'Camera';
+  String get chat_attach_camera => 'कैमरा';
 
   @override
-  String get chat_incomplete_profile_title => 'Finish setting up your profile';
+  String get chat_incomplete_profile_title => 'अपनी प्रोफ़ाइल सेटअप पूरा करें';
 
   @override
   String get chat_incomplete_profile_subtitle =>
-      'Complete your profile to start chatting with buyers and sellers.';
+      'खरीदारों और विक्रेताओं से चैट शुरू करने के लिए अपनी प्रोफ़ाइल पूरी करें।';
 
   @override
-  String get chat_incomplete_profile_cta => 'Complete profile';
+  String get chat_incomplete_profile_cta => 'प्रोफ़ाइल पूरी करें';
 
   @override
-  String get chat_menu_report => 'Report & block';
+  String get chat_menu_report => 'रिपोर्ट करें और ब्लॉक करें';
 
   @override
-  String get chat_menu_delete => 'Delete conversation';
+  String get chat_menu_delete => 'बातचीत हटाएँ';
 
   @override
-  String get chat_reply_self => 'Replying to yourself';
+  String get chat_reply_self => 'खुद को जवाब दे रहे हैं';
 
   @override
-  String get chat_reply_other => 'Replying';
+  String get chat_reply_other => 'जवाब दे रहे हैं';
 
   @override
-  String get chat_media_placeholder => '[media]';
+  String get chat_media_placeholder => '[मीडिया]';
 
   @override
-  String get chat_offer_yours => 'Your offer';
+  String get chat_offer_yours => 'आपका ऑफ़र';
 
   @override
-  String get chat_offer_incoming => 'Offer';
+  String get chat_offer_incoming => 'ऑफ़र';
 
   @override
-  String get chat_offer_refuse => 'Refuse';
+  String get chat_offer_refuse => 'अस्वीकार करें';
 
   @override
-  String get chat_offer_accept => 'Accept';
+  String get chat_offer_accept => 'स्वीकार करें';
 
   @override
-  String get chat_offer_pending => 'Pending response…';
+  String get chat_offer_pending => 'प्रतिक्रिया का इंतज़ार…';
 
   @override
-  String get chat_offer_accepted => 'Offer accepted';
+  String get chat_offer_accepted => 'ऑफ़र स्वीकृत';
 
   @override
-  String get chat_offer_declined => 'Offer declined';
+  String get chat_offer_declined => 'ऑफ़र अस्वीकृत';
 
   @override
-  String get chat_message_deleted => 'Message deleted';
+  String get chat_message_deleted => 'संदेश हटा दिया गया';
 
   @override
   String get chat_currency => 'Dhs';
 
   @override
-  String get chat_purchase_confirmed => 'Purchase confirmed';
+  String get chat_purchase_confirmed => 'खरीद की पुष्टि हुई';
 
   @override
-  String get chat_purchase_for => 'for';
+  String get chat_purchase_for => 'के लिए';
 
   @override
-  String get chat_no_messages => 'No messages yet';
+  String get chat_no_messages => 'अभी कोई संदेश नहीं';
 
   @override
-  String get chat_preview_photo => '📷 Photo';
+  String get chat_preview_photo => '📷 फ़ोटो';
 
   @override
-  String get chat_preview_voice => '🎤 Voice message';
+  String get chat_preview_voice => '🎤 वॉइस मैसेज';
 
   @override
-  String get chat_preview_offer_sent => 'You sent an offer';
+  String get chat_preview_offer_sent => 'आपने एक ऑफ़र भेजा';
 
   @override
-  String get chat_preview_offer_new => 'New offer';
+  String get chat_preview_offer_new => 'नया ऑफ़र';
 
   @override
-  String get chat_preview_you_prefix => 'You: ';
+  String get chat_preview_you_prefix => 'आप: ';
 }

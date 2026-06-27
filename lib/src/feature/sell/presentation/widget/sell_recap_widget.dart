@@ -71,6 +71,34 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
 
   bool get _isOneSize => _category != null && _sizesLoaded && _sizes.isEmpty;
 
+  /// Known region-scoped size systems, used to detect prefixed shoe tokens.
+  static const List<String> _sizeSystems = <String>['EU', 'UK', 'US'];
+
+  /// A size is region-scoped if its token is prefixed (e.g. "EU 42") OR it
+  /// carries multiple per-system labels (`systemLabels`).
+  bool _isRegional(CatalogSizeValue s) =>
+      s.isRegional ||
+      _sizeSystems.any(
+        (String sys) => s.token.toUpperCase().startsWith('$sys '),
+      );
+
+  /// Whether the EU/UK/US selector is meaningful for the current category.
+  bool get _hasRegionalSizes => _sizes.any(_isRegional);
+
+  /// Sizes to display for the selected [system]. Prefixed shoe tokens ("EU 42")
+  /// are filtered to the active system so the selector actually swaps the rows;
+  /// `systemLabels`-based and region-agnostic sizes are always shown (their
+  /// representation is swapped at the label level via [CatalogSizeValue.labelFor]).
+  List<CatalogSizeValue> _visibleSizes(SizeSystem system) {
+    final String active = system.name.toUpperCase();
+    return _sizes.where((CatalogSizeValue s) {
+      final bool prefixed = _sizeSystems.any(
+        (String sys) => s.token.toUpperCase().startsWith('$sys '),
+      );
+      return !prefixed || s.token.toUpperCase().startsWith('$active ');
+    }).toList();
+  }
+
   @override
   void dispose() {
     _title.dispose();
@@ -363,28 +391,37 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
                 if (_sizes.isNotEmpty) ...<Widget>[
                   const SizedBox(height: DSSpacing.s),
                   // Label left, EU/UK/US segmented toggle inline right (design).
+                  // The toggle only appears for region-scoped sizes (shoes) —
+                  // it would be meaningless on clothing (S/M/L), which carries a
+                  // single representation.
                   Padding(
                     padding: const EdgeInsets.only(bottom: 12),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         DSFieldLabel(context.l10N.sell_size),
-                        SellSizeToggleWidget(
-                          current: state.sizeSystem,
-                          onToggle: (SizeSystem system) => context
-                              .read<SellBloc>()
-                              .add(SellSizeSystemToggled(system)),
-                        ),
+                        if (_hasRegionalSizes)
+                          SellSizeToggleWidget(
+                            current: state.sizeSystem,
+                            onToggle: (SizeSystem system) => context
+                                .read<SellBloc>()
+                                .add(SellSizeSystemToggled(system)),
+                          ),
                       ],
                     ),
                   ),
                   Wrap(
                     spacing: DSSpacing.xxs,
                     runSpacing: DSSpacing.xxs,
-                    children: _sizes
+                    children: _visibleSizes(state.sizeSystem)
                         .map(
                           (CatalogSizeValue s) => DSSelectableChip(
-                            label: s.label,
+                            // Render the chip in the selected region (EU/UK/US)
+                            // so toggling the system actually swaps what's shown;
+                            // the stored value (_size token) stays stable.
+                            label: s.labelFor(
+                              state.sizeSystem.name.toUpperCase(),
+                            ),
                             selected: _size == s.token,
                             onTap: () => setState(() => _size = s.token),
                           ),

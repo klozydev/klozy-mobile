@@ -133,25 +133,18 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
         SettingsSectionWidget(
           title: l.settings_group_notifications,
           children: <Widget>[
+            // Email notifications are intentionally omitted for now — only push
+            // is exposed. The Switch uses a shrink-wrapped tap target so the row
+            // height matches the other (subtitle-less) settings rows.
             SettingsRowWidget(
               icon: Icons.notifications_none_rounded,
               label: l.settings_push_notifications,
               trailing: Switch(
                 value: state.settings.push,
                 activeColor: DSColor.primary,
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 onChanged: (bool v) => context.read<SettingsBloc>().add(
                   SettingsToggleNotification(push: v),
-                ),
-              ),
-            ),
-            SettingsRowWidget(
-              icon: Icons.mail_outline_rounded,
-              label: l.settings_email_notifications,
-              trailing: Switch(
-                value: state.settings.email,
-                activeColor: DSColor.primary,
-                onChanged: (bool v) => context.read<SettingsBloc>().add(
-                  SettingsToggleNotification(email: v),
                 ),
               ),
             ),

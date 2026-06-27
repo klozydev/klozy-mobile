@@ -12,27 +12,27 @@ class AppLocalizationsAr extends AppLocalizations {
   String get app_name => 'Klozy';
 
   @override
-  String get ds_set_composition_header => 'This set includes';
+  String get ds_set_composition_header => 'يشمل هذه المجموعة';
 
   @override
   String get ds_set_composition_owner_note =>
-      'Add a photo of each piece to reassure buyers and sell faster.';
+      'أضف صورة لكل قطعة لطمأنة المشترين والبيع بشكل أسرع.';
 
   @override
   String get ds_set_composition_buyer_note =>
-      'Some pieces aren\'t photographed. Contact the seller for details.';
+      'بعض القطع غير مصوّرة. تواصل مع البائع لمزيد من التفاصيل.';
 
   @override
-  String get ds_set_composition_photo => 'Photo';
+  String get ds_set_composition_photo => 'صورة';
 
   @override
-  String get ds_set_composition_add => 'Add';
+  String get ds_set_composition_add => 'إضافة';
 
   @override
-  String get ds_set_composition_no_photo => 'No photo';
+  String get ds_set_composition_no_photo => 'لا توجد صورة';
 
   @override
-  String get ds_search_bar_hint => 'Search for an item or member';
+  String get ds_search_bar_hint => 'ابحث عن قطعة أو عضو';
 
   @override
   String get error_page_show_details => 'عرض التفاصيل';
@@ -457,7 +457,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String home_picked_for_you(String categories) {
-    return 'Picked for you · $categories';
+    return 'مختار لك · $categories';
   }
 
   @override
@@ -468,27 +468,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get home_wishlist_empty_hint =>
-      'Tap the heart on any item to save it here.';
+      'اضغط على القلب على أي قطعة لحفظها هنا.';
 
   @override
   String home_wishlist_saved_count(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count saved items',
-      one: '1 saved item',
+      other: '$count عنصر محفوظ',
+      many: '$count عنصرًا محفوظًا',
+      few: '$count عناصر محفوظة',
+      two: 'عنصران محفوظان',
+      one: 'عنصر محفوظ واحد',
+      zero: 'لا عناصر محفوظة',
     );
     return '$_temp0';
   }
 
   @override
-  String get reels_processing_video => 'Processing video…';
+  String get reels_processing_video => 'جارٍ معالجة الفيديو…';
 
   @override
   String get reels_composer_title => 'مقطع جديد';
 
   @override
-  String get reels_compose_details_title => 'Add details';
+  String get reels_compose_details_title => 'إضافة تفاصيل';
 
   @override
   String get reels_pick_subtitle =>
@@ -498,13 +502,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reels_record_video => 'تسجيل فيديو';
 
   @override
-  String get reels_record_hint => 'Up to 60s · vertical';
+  String get reels_record_hint => 'حتى 60 ثانية · رأسي';
 
   @override
   String get reels_choose_from_gallery => 'اختيار من المعرض';
 
   @override
-  String get reels_caption_label => 'Caption';
+  String get reels_caption_label => 'وصف';
 
   @override
   String get reels_caption_hint => 'قل شيئًا عن إطلالتك…';
@@ -520,11 +524,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String reels_post_reel_tagged(int count) {
-    return 'Post reel · $count tagged';
+    return 'نشر المقطع · $count مميّز';
   }
 
   @override
-  String get reels_publishing => 'Publishing your reel…';
+  String get reels_publishing => 'جارٍ نشر مقطعك…';
 
   @override
   String get reels_posted_title => 'تم نشر المقطع!';
@@ -537,14 +541,18 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'items',
-      one: 'item',
+      other: '$count قطعة مميّزة',
+      many: '$count قطعةً مميّزةً',
+      few: '$count قطع مميّزة',
+      two: 'قطعتان مميّزتان',
+      one: 'قطعة مميّزة واحدة',
+      zero: 'لا قطع مميّزة',
     );
-    return 'Your reel is live in the feed with $count tagged $_temp0.';
+    return 'مقطعك الآن مباشر في الموجز مع $_temp0.';
   }
 
   @override
-  String get reels_view_in_reels => 'View in Reels';
+  String get reels_view_in_reels => 'عرض في المقاطع';
 
   @override
   String get reels_done => 'تم';
@@ -582,25 +590,25 @@ class AppLocalizationsAr extends AppLocalizations {
   String get reels_link_copied_snackbar => 'تم نسخ الرابط إلى الحافظة.';
 
   @override
-  String get entry_sheet_title => 'What would you like to do?';
+  String get entry_sheet_title => 'ماذا تريد أن تفعل؟';
 
   @override
-  String get entry_create_reel => 'Create a reel';
+  String get entry_create_reel => 'إنشاء مقطع';
 
   @override
-  String get entry_create_reel_sub => 'Share a video of your pieces';
+  String get entry_create_reel_sub => 'شارك فيديو لقطعك';
 
   @override
-  String get entry_create_reel_needs_product => 'Add a product first';
+  String get entry_create_reel_needs_product => 'أضف منتجًا أولًا';
 
   @override
-  String get entry_list_item => 'List an item for sale';
+  String get entry_list_item => 'إدراج قطعة للبيع';
 
   @override
-  String get entry_list_item_sub => 'Photo-first · AI pre-fills your listing';
+  String get entry_list_item_sub => 'صورة أولًا · الذكاء الاصطناعي يملأ قائمتك';
 
   @override
-  String get entry_cancel => 'Cancel';
+  String get entry_cancel => 'إلغاء';
 
   @override
   String get search_hint => 'ابحث عن قطع وماركات…';
@@ -639,18 +647,22 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count items',
-      one: '1 item',
+      other: '$count قطعة',
+      many: '$count قطعةً',
+      few: '$count قطع',
+      two: 'قطعتان',
+      one: 'قطعة واحدة',
+      zero: 'لا قطع',
     );
     return '$_temp0';
   }
 
   @override
-  String get category_empty => 'Nothing here yet.';
+  String get category_empty => 'لا يوجد شيء هنا بعد.';
 
   @override
   String search_result_for_query(String query) {
-    return ' for “$query”';
+    return ' لـ \"$query\"';
   }
 
   @override
@@ -714,13 +726,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get search_filter_show_results => 'عرض النتائج';
 
   @override
-  String get search_filter_clear => 'Clear';
+  String get search_filter_clear => 'مسح';
 
   @override
-  String get search_filter_all => 'All';
+  String get search_filter_all => 'الكل';
 
   @override
-  String get product_your_listing => 'Your listing';
+  String get product_your_listing => 'قائمتك';
 
   @override
   String get product_add_to_cart => 'أضف إلى السلة';
@@ -751,7 +763,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get product_delete_confirm =>
-      'Delete this listing? This can\'t be undone.';
+      'حذف هذه القائمة؟ لا يمكن التراجع عن هذا.';
 
   @override
   String get product_report_listing => 'الإبلاغ عن القائمة';
@@ -763,8 +775,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get product_listing_deleted => 'تم حذف القائمة';
 
   @override
-  String get product_listing_deleted_subtitle =>
-      'This item and its photos have been removed.';
+  String get product_listing_deleted_subtitle => 'تمت إزالة هذه القطعة وصورها.';
 
   @override
   String get product_back_to_feed => 'العودة إلى الموجز';
@@ -822,10 +833,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sell_reorder_hint =>
-      'Drag to reorder. The 1st photo is the cover.';
+      'اسحب لإعادة الترتيب. الصورة الأولى هي الغلاف.';
 
   @override
-  String get sell_add_at_least_one_photo => 'Add at least 1 photo to continue';
+  String get sell_add_at_least_one_photo => 'أضف صورة واحدة على الأقل للمتابعة';
 
   @override
   String get sell_continue => 'متابعة';
@@ -864,13 +875,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sell_category => 'الفئة';
 
   @override
-  String get sell_product_details => 'Product details';
+  String get sell_product_details => 'تفاصيل المنتج';
 
   @override
-  String get sell_subcategory => 'Subcategory';
+  String get sell_subcategory => 'الفئة الفرعية';
 
   @override
-  String get sell_choose_subcategory => 'Choose a subcategory';
+  String get sell_choose_subcategory => 'اختر فئة فرعية';
 
   @override
   String get sell_brand => 'الماركة';
@@ -885,10 +896,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sell_suggested_by_ai => 'مقترح بواسطة الذكاء الاصطناعي';
 
   @override
-  String get sell_prefilled_by_ai => 'Pre-filled by AI — review and adjust.';
+  String get sell_prefilled_by_ai =>
+      'تم ملؤه بواسطة الذكاء الاصطناعي — راجع وعدّل.';
 
   @override
-  String get sell_photo_edit => 'Edit';
+  String get sell_photo_edit => 'تعديل';
 
   @override
   String get sell_list_item => 'إدراج القطعة';
@@ -910,10 +922,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sell_description_error =>
-      'Add a description so buyers know what they\'re getting';
+      'أضف وصفًا حتى يعرف المشترون ما يحصلون عليه';
 
   @override
-  String get sell_size_one_size => 'One size';
+  String get sell_size_one_size => 'مقاس موحّد';
 
   @override
   String get sell_search_brands => 'ابحث عن ماركات';
@@ -948,7 +960,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get sell_back_to_home => 'العودة إلى الرئيسية';
 
   @override
-  String get sell_create_reel => 'Create a reel';
+  String get sell_create_reel => 'إنشاء مقطع';
 
   @override
   String get cart_title => 'السلة';
@@ -957,7 +969,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cart_make_an_offer => 'قدّم عرضًا';
 
   @override
-  String get cart_offer_sent => 'Offer sent — the seller will get back to you';
+  String get cart_offer_sent => 'تم إرسال العرض — سيرد عليك البائع';
 
   @override
   String get cart_cancel_offer => 'إلغاء العرض';
@@ -978,42 +990,41 @@ class AppLocalizationsAr extends AppLocalizations {
   String get cart_pro_badge => 'PRO';
 
   @override
-  String get cart_cancel => 'Cancel';
+  String get cart_cancel => 'إلغاء';
 
   @override
-  String get cart_in_bundle => 'In bundle offer';
+  String get cart_in_bundle => 'في عرض الحزمة';
 
   @override
-  String get cart_in_accepted_bundle => 'In accepted bundle';
+  String get cart_in_accepted_bundle => 'في الحزمة المقبولة';
 
   @override
-  String get cart_added_after_bundle =>
-      'Added after your bundle offer — not included';
+  String get cart_added_after_bundle => 'أضيف بعد عرض حزمتك — غير مشمول';
 
   @override
-  String get cart_bundle_pending => 'Pending response';
+  String get cart_bundle_pending => 'بانتظار الرد';
 
   @override
-  String get cart_bundle_accepted => 'Accepted';
+  String get cart_bundle_accepted => 'مقبول';
 
   @override
   String cart_offer_sent_amount(int amount) {
-    return 'Offer sent · $amount Dhs';
+    return 'تم إرسال العرض · $amount Dhs';
   }
 
   @override
   String cart_offer_accepted_save(int amount) {
-    return 'Offer accepted · save $amount Dhs';
+    return 'تم قبول العرض · وفّر $amount Dhs';
   }
 
   @override
   String cart_bundle_was(int amount) {
-    return 'was $amount Dhs';
+    return 'كان $amount Dhs';
   }
 
   @override
   String cart_checkout_amount(int amount) {
-    return 'Check out · $amount Dhs';
+    return 'إتمام الشراء · $amount Dhs';
   }
 
   @override
@@ -1021,8 +1032,12 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Offer for all $count items',
-      one: 'Offer for this item',
+      other: 'عرض لجميع $count قطعة',
+      many: 'عرض لجميع $count قطعةً',
+      few: 'عرض لجميع $count قطع',
+      two: 'عرض لهاتين القطعتين',
+      one: 'عرض لهذه القطعة',
+      zero: 'عرض للقطع',
     );
     return '$_temp0';
   }
@@ -1032,8 +1047,12 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Bundle offer · $count items',
-      one: 'Bundle offer · 1 item',
+      other: 'عرض حزمة · $count قطعة',
+      many: 'عرض حزمة · $count قطعةً',
+      few: 'عرض حزمة · $count قطع',
+      two: 'عرض حزمة · قطعتان',
+      one: 'عرض حزمة · قطعة واحدة',
+      zero: 'عرض حزمة · لا قطع',
     );
     return '$_temp0';
   }
@@ -1065,7 +1084,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cart_offer_escrow_note =>
-      'Your payment is held in escrow until you confirm delivery.';
+      'يُحتجز دفعك في الضمان حتى تؤكد التسليم.';
 
   @override
   String get cart_currency_dhs => 'Dhs';
@@ -1081,7 +1100,7 @@ class AppLocalizationsAr extends AppLocalizations {
       count,
       locale: localeName,
       other: '$count قطعة',
-      many: '$count قطعة',
+      many: '$count قطعةً',
       few: '$count قطع',
       two: 'قطعتان',
       one: 'قطعة واحدة',
@@ -1092,7 +1111,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String checkout_buy_more_from(String name) {
-    return 'Buy more from $name';
+    return 'شراء المزيد من $name';
   }
 
   @override
@@ -1104,10 +1123,14 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count items',
-      one: '1 item',
+      other: '$count قطعة',
+      many: '$count قطعةً',
+      few: '$count قطع',
+      two: 'قطعتان',
+      one: 'قطعة واحدة',
+      zero: 'لا قطع',
     );
-    return '$_temp0 · listed at $priceString Dhs';
+    return '$_temp0 · السعر المعلن $priceString Dhs';
   }
 
   @override
@@ -1207,7 +1230,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get orders_prefix_to => 'إلى';
 
   @override
-  String get orders_negotiated => 'Negotiated';
+  String get orders_negotiated => 'متفاوَض عليه';
 
   @override
   String orders_price_dhs(int amount) {
@@ -1233,31 +1256,31 @@ class AppLocalizationsAr extends AppLocalizations {
       'EMX من الباب إلى الباب · داخل الإمارات';
 
   @override
-  String get orders_emx_tracking => 'EMX tracking';
+  String get orders_emx_tracking => 'تتبّع EMX';
 
   @override
-  String get orders_track_confirmed_label => 'Order confirmed';
+  String get orders_track_confirmed_label => 'تم تأكيد الطلب';
 
   @override
-  String get orders_track_confirmed_sub => 'Seller is preparing your item';
+  String get orders_track_confirmed_sub => 'البائع يجهّز قطعتك';
 
   @override
-  String get orders_track_shipped_label => 'Shipped with EMX';
+  String get orders_track_shipped_label => 'تم الشحن مع EMX';
 
   @override
-  String get orders_track_shipped_sub => 'Picked up · in transit';
+  String get orders_track_shipped_sub => 'تم الاستلام · في الطريق';
 
   @override
-  String get orders_track_out_label => 'Out for delivery';
+  String get orders_track_out_label => 'خرج للتوصيل';
 
   @override
-  String get orders_track_out_sub => 'Arriving today';
+  String get orders_track_out_sub => 'سيصل اليوم';
 
   @override
-  String get orders_track_delivered_label => 'Delivered';
+  String get orders_track_delivered_label => 'تم التوصيل';
 
   @override
-  String get orders_track_delivered_sub => 'Confirm to release payment';
+  String get orders_track_delivered_sub => 'أكّد لتحويل الدفع';
 
   @override
   String orders_carrier_prefix(String carrier) {
@@ -1448,8 +1471,12 @@ class AppLocalizationsAr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count reviews',
-      one: '1 review',
+      other: '$count تقييم',
+      many: '$count تقييمًا',
+      few: '$count تقييمات',
+      two: 'تقييمان',
+      one: 'تقييم واحد',
+      zero: 'لا تقييمات',
     );
     return '$_temp0';
   }
@@ -1503,17 +1530,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settings_edit_profile => 'تعديل الملف الشخصي';
 
   @override
-  String get edit_profile_discard_title => 'Discard changes?';
+  String get edit_profile_discard_title => 'تجاهل التغييرات؟';
 
   @override
   String get edit_profile_discard_body =>
-      'You have unsaved changes. Leave without saving?';
+      'لديك تغييرات غير محفوظة. هل تريد المغادرة دون حفظ؟';
 
   @override
-  String get edit_profile_discard_confirm => 'Discard';
+  String get edit_profile_discard_confirm => 'تجاهل';
 
   @override
-  String get edit_profile_keep_editing => 'Keep editing';
+  String get edit_profile_keep_editing => 'متابعة التعديل';
 
   @override
   String get settings_delivery_address => 'عنوان التوصيل';
@@ -1570,25 +1597,25 @@ class AppLocalizationsAr extends AppLocalizations {
       'تم إرسال رابط إعادة تعيين كلمة المرور. تحقق من بريدك الإلكتروني.';
 
   @override
-  String get settings_new_password => 'New password';
+  String get settings_new_password => 'كلمة المرور الجديدة';
 
   @override
-  String get settings_new_password_hint => 'New password';
+  String get settings_new_password_hint => 'كلمة المرور الجديدة';
 
   @override
-  String get settings_confirm_password => 'Confirm password';
+  String get settings_confirm_password => 'تأكيد كلمة المرور';
 
   @override
-  String get settings_confirm_password_hint => 'Re-enter password';
+  String get settings_confirm_password_hint => 'أعد إدخال كلمة المرور';
 
   @override
-  String get settings_passwords_no_match => 'Passwords do not match';
+  String get settings_passwords_no_match => 'كلمتا المرور غير متطابقتين';
 
   @override
-  String get settings_password_too_short => 'Use at least 8 characters';
+  String get settings_password_too_short => 'استخدم 8 أحرف على الأقل';
 
   @override
-  String get settings_password_updated => 'Password updated.';
+  String get settings_password_updated => 'تم تحديث كلمة المرور.';
 
   @override
   String get settings_support_unavailable => 'الدعم غير متاح حاليًا.';
@@ -1627,50 +1654,50 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settings_unblock => 'إلغاء الحظر';
 
   @override
-  String get settings_group_account => 'Account';
+  String get settings_group_account => 'الحساب';
 
   @override
-  String get settings_group_notifications => 'Notifications';
+  String get settings_group_notifications => 'الإشعارات';
 
   @override
-  String get settings_group_other => 'Other';
+  String get settings_group_other => 'أخرى';
 
   @override
-  String get settings_group_links => 'Links';
+  String get settings_group_links => 'الروابط';
 
   @override
-  String get settings_group_social => 'Social';
+  String get settings_group_social => 'التواصل الاجتماعي';
 
   @override
-  String get settings_group_preferences => 'Preferences';
+  String get settings_group_preferences => 'التفضيلات';
 
   @override
-  String get settings_personal_data => 'Personal data';
+  String get settings_personal_data => 'البيانات الشخصية';
 
   @override
   String get settings_personal_data_sub =>
-      'Profile, preferences, blocked users';
+      'الملف الشخصي والتفضيلات والمستخدمون المحظورون';
 
   @override
-  String get settings_personal_information => 'Personal information';
+  String get settings_personal_information => 'المعلومات الشخصية';
 
   @override
-  String get settings_security => 'Security';
+  String get settings_security => 'الأمان';
 
   @override
-  String get settings_security_sub => 'Email, password, phone';
+  String get settings_security_sub => 'البريد الإلكتروني وكلمة المرور والهاتف';
 
   @override
-  String get settings_payouts_sub => 'Bank details (IBAN)';
+  String get settings_payouts_sub => 'البيانات البنكية (IBAN)';
 
   @override
-  String get settings_share_app => 'Share the app';
+  String get settings_share_app => 'مشاركة التطبيق';
 
   @override
-  String get settings_legal_notices => 'Legal notices';
+  String get settings_legal_notices => 'الإشعارات القانونية';
 
   @override
-  String get settings_about => 'About';
+  String get settings_about => 'حول';
 
   @override
   String get settings_instagram => 'Instagram';
@@ -1679,64 +1706,64 @@ class AppLocalizationsAr extends AppLocalizations {
   String get settings_instagram_handle => '@klozy';
 
   @override
-  String get settings_clothing_preference => 'Clothing preference';
+  String get settings_clothing_preference => 'تفضيل الملابس';
 
   @override
-  String get settings_preferred_size => 'Preferred size';
+  String get settings_preferred_size => 'المقاس المفضّل';
 
   @override
-  String get settings_preferred_brands => 'Preferred brands';
+  String get settings_preferred_brands => 'الماركات المفضّلة';
 
   @override
-  String get settings_change_email => 'Change email';
+  String get settings_change_email => 'تغيير البريد الإلكتروني';
 
   @override
-  String get settings_phone_number => 'Phone number';
+  String get settings_phone_number => 'رقم الهاتف';
 
   @override
-  String get settings_current_email => 'Current email';
+  String get settings_current_email => 'البريد الإلكتروني الحالي';
 
   @override
-  String get settings_new_email => 'New email';
+  String get settings_new_email => 'البريد الإلكتروني الجديد';
 
   @override
   String get settings_new_email_hint => 'you@email.com';
 
   @override
   String get settings_change_email_note =>
-      'We\'ll send a confirmation link to your new address. The change applies once confirmed.';
+      'سنرسل رابط تأكيد إلى عنوانك الجديد. ستُطبَّق التغييرات بعد التأكيد.';
 
   @override
   String get settings_email_link_sent =>
-      'Confirmation link sent. Check your new inbox to finish.';
+      'تم إرسال رابط التأكيد. تحقق من صندوق الوارد الجديد للإنهاء.';
 
   @override
-  String get settings_current_number => 'Current number';
+  String get settings_current_number => 'الرقم الحالي';
 
   @override
-  String get settings_new_number => 'New number';
+  String get settings_new_number => 'الرقم الجديد';
 
   @override
   String get settings_new_number_hint => '50 123 4567';
 
   @override
   String get settings_phone_note =>
-      'We\'ll text a 6-digit code to confirm your new number.';
+      'سنرسل لك رمزًا من 6 أرقام لتأكيد رقمك الجديد.';
 
   @override
-  String get settings_phone_updated => 'Phone number updated.';
+  String get settings_phone_updated => 'تم تحديث رقم الهاتف.';
 
   @override
   String settings_enter_code_for(String number) {
-    return 'Enter the 6-digit code sent to $number';
+    return 'أدخل الرمز المكوّن من 6 أرقام المُرسَل إلى $number';
   }
 
   @override
   String get settings_share_message =>
-      'Check out Klozy — buy & sell pre-loved fashion across the UAE. https://klozy.app';
+      'اكتشف Klozy — شراء وبيع الأزياء المستعملة في الإمارات. https://klozy.app';
 
   @override
-  String get settings_share_failed => 'Couldn\'t open share. Please try again.';
+  String get settings_share_failed => 'تعذّر فتح المشاركة. حاول مرة أخرى.';
 
   @override
   String get onboarding_avatar_failed =>
@@ -2007,8 +2034,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get categoryPickerRetry => 'إعادة المحاولة';
 
   @override
-  String get categoryPickerDeepestHint =>
-      'Deepest level — filter by size below.';
+  String get categoryPickerDeepestHint => 'أعمق مستوى — صنّف حسب المقاس أدناه.';
 
   @override
   String get categoryPickerAddCategories => 'إضافة فئات';
@@ -2041,97 +2067,97 @@ class AppLocalizationsAr extends AppLocalizations {
   String get product_see_offer => 'مشاهدة العرض';
 
   @override
-  String get chat_empty_title => 'No conversations yet';
+  String get chat_empty_title => 'لا محادثات بعد';
 
   @override
   String get chat_empty_subtitle =>
-      'Message a seller from any product to start chatting.';
+      'أرسل رسالة لبائع من أي منتج لبدء المحادثة.';
 
   @override
-  String get chat_composer_hint => 'Message…';
+  String get chat_composer_hint => 'رسالة…';
 
   @override
-  String get chat_recording => 'Recording…';
+  String get chat_recording => 'جارٍ التسجيل…';
 
   @override
-  String get chat_attach_photo => 'Photo & Video';
+  String get chat_attach_photo => 'صورة وفيديو';
 
   @override
-  String get chat_attach_camera => 'Camera';
+  String get chat_attach_camera => 'الكاميرا';
 
   @override
-  String get chat_incomplete_profile_title => 'Finish setting up your profile';
+  String get chat_incomplete_profile_title => 'أكمل إعداد ملفك الشخصي';
 
   @override
   String get chat_incomplete_profile_subtitle =>
-      'Complete your profile to start chatting with buyers and sellers.';
+      'أكمل ملفك الشخصي لبدء المحادثة مع المشترين والبائعين.';
 
   @override
-  String get chat_incomplete_profile_cta => 'Complete profile';
+  String get chat_incomplete_profile_cta => 'إكمال الملف الشخصي';
 
   @override
-  String get chat_menu_report => 'Report & block';
+  String get chat_menu_report => 'إبلاغ وحظر';
 
   @override
-  String get chat_menu_delete => 'Delete conversation';
+  String get chat_menu_delete => 'حذف المحادثة';
 
   @override
-  String get chat_reply_self => 'Replying to yourself';
+  String get chat_reply_self => 'تردّ على نفسك';
 
   @override
-  String get chat_reply_other => 'Replying';
+  String get chat_reply_other => 'ردّ';
 
   @override
-  String get chat_media_placeholder => '[media]';
+  String get chat_media_placeholder => '[وسائط]';
 
   @override
-  String get chat_offer_yours => 'Your offer';
+  String get chat_offer_yours => 'عرضك';
 
   @override
-  String get chat_offer_incoming => 'Offer';
+  String get chat_offer_incoming => 'عرض';
 
   @override
-  String get chat_offer_refuse => 'Refuse';
+  String get chat_offer_refuse => 'رفض';
 
   @override
-  String get chat_offer_accept => 'Accept';
+  String get chat_offer_accept => 'قبول';
 
   @override
-  String get chat_offer_pending => 'Pending response…';
+  String get chat_offer_pending => 'بانتظار الرد…';
 
   @override
-  String get chat_offer_accepted => 'Offer accepted';
+  String get chat_offer_accepted => 'تم قبول العرض';
 
   @override
-  String get chat_offer_declined => 'Offer declined';
+  String get chat_offer_declined => 'تم رفض العرض';
 
   @override
-  String get chat_message_deleted => 'Message deleted';
+  String get chat_message_deleted => 'تم حذف الرسالة';
 
   @override
   String get chat_currency => 'Dhs';
 
   @override
-  String get chat_purchase_confirmed => 'Purchase confirmed';
+  String get chat_purchase_confirmed => 'تم تأكيد الشراء';
 
   @override
-  String get chat_purchase_for => 'for';
+  String get chat_purchase_for => 'بـ';
 
   @override
-  String get chat_no_messages => 'No messages yet';
+  String get chat_no_messages => 'لا رسائل بعد';
 
   @override
-  String get chat_preview_photo => '📷 Photo';
+  String get chat_preview_photo => '📷 صورة';
 
   @override
-  String get chat_preview_voice => '🎤 Voice message';
+  String get chat_preview_voice => '🎤 رسالة صوتية';
 
   @override
-  String get chat_preview_offer_sent => 'You sent an offer';
+  String get chat_preview_offer_sent => 'أرسلت عرضًا';
 
   @override
-  String get chat_preview_offer_new => 'New offer';
+  String get chat_preview_offer_new => 'عرض جديد';
 
   @override
-  String get chat_preview_you_prefix => 'You: ';
+  String get chat_preview_you_prefix => 'أنت: ';
 }

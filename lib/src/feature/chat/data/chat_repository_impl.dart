@@ -29,12 +29,17 @@ import 'package:klozy/src/feature/chat/domain/entity/message_kind.dart';
 class ChatRepositoryImpl implements ChatRepository {
   ChatRepositoryImpl(this._remote, this._auth, this._me, this._offers) {
     // Drop the cached name/avatar when the user edits their profile so the next
-    // conversation write embeds fresh participant data.
+    // conversation write embeds fresh participant data. Also re-arm the one-shot
+    // token refresh: completing onboarding is when the backend grants the
+    // `klozyUserId` claim, so the next _ensureMe must force a fresh ID token to
+    // carry that claim to the Firestore rules (otherwise chat stays denied until
+    // a cold start mints a new token).
     locator<EventBus>().on<ProfileChangedEvent>().listen((_) {
       _meLoaded = false;
       _myId = null;
       _myName = null;
       _myAvatar = null;
+      _claimRefreshed = false;
     });
   }
 

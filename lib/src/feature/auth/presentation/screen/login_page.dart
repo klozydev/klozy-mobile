@@ -274,12 +274,15 @@ class _LoginPageState extends State<LoginPage> {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthSuccess) {
-      // Re-resolve the global account session now that we're signed in — the
+      // Resolve the global account session now that we're signed in — the
       // singleton AccountBloc still holds the pre-auth (guest) status, so the
       // shell's Chat / Profile tabs would otherwise render the guest/login
-      // placeholder until a hot restart. Bootstrapping first makes them resolve
-      // to incompleteOnboarding/valid.
-      context.read<AccountBloc>().add(const AccountBootstrapRequested());
+      // placeholder until a hot restart. Pass the known onboarding flag instead
+      // of re-resolving: a fresh signup's backend profile can momentarily 404,
+      // which the resolver maps to legacy → silent sign-out → guest placeholder.
+      context.read<AccountBloc>().add(
+        AccountAuthenticated(onboardingComplete: state.onboardingComplete),
+      );
       // Go straight home after auth — profile completion is no longer forced
       // up front; it's requested on-demand by the actions that need it
       // (e.g. the seller address gate).

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/domain/me/entity/address.dart';
 import 'package:klozy/src/domain/me/entity/address_input.dart';
 import 'package:klozy/src/domain/me/entity/blocked_user.dart';
@@ -14,8 +15,9 @@ import 'package:klozy/src/domain/me/me_repository.dart';
 @LazySingleton(as: MeRepository)
 class MeRepositoryImpl implements MeRepository {
   final Dio _dio;
+  final SessionCache _cache;
 
-  MeRepositoryImpl(this._dio);
+  MeRepositoryImpl(this._dio, this._cache);
 
   // ── getMe cache ───────────────────────────────────────────────────────────
   // One network round-trip per "dirty" window: all concurrent callers share
@@ -72,6 +74,10 @@ class MeRepositoryImpl implements MeRepository {
     // Warm the cache with the fresh profile returned by the server.
     _cached = updated;
     _inFlight = null;
+    // The Profile/Account tab renders the cached `social` profile
+    // (GET v1/users/:id). Drop it so its ProfileChangedEvent refresh refetches
+    // the new name/bio instead of serving the stale cached response.
+    _cache.invalidateGroup('social');
     return updated;
   }
 
@@ -85,6 +91,9 @@ class MeRepositoryImpl implements MeRepository {
       data: formData,
     );
     invalidate();
+    // The Profile/Account tab reads the cached `social` profile, which embeds
+    // the avatar URL — drop it so the new avatar shows after the broadcast.
+    _cache.invalidateGroup('social');
     final json = _unwrap(response.data);
     return _str(json, ['avatarUrl', 'avatar', 'url', 'photoUrl']);
   }

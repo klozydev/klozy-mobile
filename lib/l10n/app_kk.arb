@@ -1,5 +1,13 @@
 {
   "app_name": "Klozy",
+  "@_ds": {},
+  "ds_set_composition_header": "Бұл жинақта бар",
+  "ds_set_composition_owner_note": "Сатып алушыларды сендіру және тез сату үшін әр бөліктің фотосын қосыңыз.",
+  "ds_set_composition_buyer_note": "Кейбір бөліктер суретке түсірілмеген. Мәліметтер үшін сатушыға хабарласыңыз.",
+  "ds_set_composition_photo": "Фото",
+  "ds_set_composition_add": "Қосу",
+  "ds_set_composition_no_photo": "Фото жоқ",
+  "ds_search_bar_hint": "Зат немесе мүше іздеу",
   "@_error_page": {},
   "error_page_show_details": "ТОЛЫҒЫРАҚ КӨРСЕТУ",
   "error_page_hide_details": "ТОЛЫҒЫРАҚ ЖАСЫРУ",
@@ -51,6 +59,7 @@
   "error_scenario_maintenance_http_label": "Техникалық қызмет",
   "@_auth": {},
   "auth_country_uae": "БІРІККЕН АРАБ ӘМІРЛІКТЕРІ",
+  "auth_hero_placeholder": "БАСТЫ СУРЕТ · РЕДАКЦИЯЛЫҚ СӘН ФОТОСЫ",
   "auth_welcome_title": "Ұнайтын қолданылған\nкиімді сатып ал және сат.",
   "auth_get_started": "Бастау",
   "auth_already_have_account": "Менде аккаунт бар · ",
@@ -81,13 +90,6 @@
   "auth_enter_code_title": "Кодты енгізіңіз",
   "auth_code_sent_to": "Кімге жіберілді: ",
   "auth_resend_code_in": "Кодты қайта жіберу {time}",
-  "@auth_resend_code_in": {
-    "placeholders": {
-      "time": {
-        "type": "String"
-      }
-    }
-  },
   "auth_resend_code": "Кодты қайта жіберу",
   "auth_code_spam_hint": "Алмадыңыз ба? Спам бумасын тексеріңіз. Күту мерзімінен кейін жаңа кодты сұрауға болады.",
   "auth_verify": "Растау",
@@ -95,13 +97,6 @@
   "@_onboarding": {},
   "onboarding_all_set": "Барлығы дайын!",
   "onboarding_all_set_named": "Барлығы дайын, {name}!",
-  "@onboarding_all_set_named": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_feed_ready_subtitle": "Klozy таспаңыз дайын. Бір жерден ашыңыз, сатыңыз және ұнаған киімді сатып алыңыз.",
   "onboarding_start_exploring": "Шолуды бастау",
   "onboarding_complete_profile_title": "Профиліңізді толтырыңыз",
@@ -114,16 +109,6 @@
   "onboarding_address_label": "Мекенжай",
   "onboarding_bio_label": "Өзіңіз туралы",
   "onboarding_bio_char_count": "{count}/{max}",
-  "@onboarding_bio_char_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_bio_hint": "Сатып алушыларға стиліңіз туралы аздап айтыңыз…",
   "onboarding_continue": "Жалғастыру",
   "onboarding_skip": "Өткізіп жіберу",
@@ -134,26 +119,12 @@
   "onboarding_sizes_title": "Өлшемдер",
   "onboarding_clothing_label": "Киім",
   "onboarding_shoes_label": "Аяқ киім · {system}",
-  "@onboarding_shoes_label": {
-    "placeholders": {
-      "system": {
-        "type": "String"
-      }
-    }
-  },
   "onboarding_brands_title": "Брендтер",
   "onboarding_brands_hint": "Сүйікті брендтеріңізге жазылыңыз",
   "onboarding_brands_search_hint": "Брендтерді іздеу",
   "onboarding_no_brand_matches": "Сәйкес бренд жоқ.",
   "onboarding_show_feed": "Таспамды көрсету",
   "onboarding_show_feed_count": "Таспамды көрсету · {count} таңдалды",
-  "@onboarding_show_feed_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "onboarding_seller_account_set_up": "Сатушы аккаунты орнатылды.",
   "onboarding_seller_role_title": "Қалай сатасыз?",
   "onboarding_seller_role_subtitle": "Сізге сай аккаунтты таңдаңыз. Параметрлерде кез келген уақытта ауыстыруға немесе жаңартуға болады.",
@@ -172,38 +143,48 @@
   "home_tab_reels": "Reels",
   "home_feed_empty": "Әзірге мұнда ештеңе жоқ.",
   "home_category_all": "Барлығы",
+  "home_picked_for_you": "Сізге таңдалды · {categories}",
   "home_product_badge_new": "Жаңа",
   "home_wishlist_empty": "Қалаулар тізіміңіз бос",
+  "home_wishlist_empty_hint": "Сақтау үшін кез келген затқа жүрек белгісін басыңыз.",
+  "home_wishlist_saved_count": "{count, plural, one{1 сақталған зат} other{{count} сақталған зат}}",
   "@_reels": {},
+  "reels_processing_video": "Видео өңделуде…",
   "reels_composer_title": "Жаңа reel",
-  "reels_pick_title": "Reel жасау",
+  "reels_compose_details_title": "Мәліметтер қосу",
   "reels_pick_subtitle": "Заттарыңызды көрсететін қысқа видео жазыңыз немесе галереядан таңдаңыз.",
   "reels_record_video": "Видео жазу",
+  "reels_record_hint": "60 сек дейін · тік",
   "reels_choose_from_gallery": "Галереядан таңдау",
+  "reels_caption_label": "Жазба",
   "reels_caption_hint": "Көрінісіңіз туралы бірдеңе айтыңыз…",
   "reels_tag_items_title": "Дүкеніңізден заттарды белгілеу",
   "reels_no_listings_to_tag": "Сізде белгілейтін белсенді тізімдер әлі жоқ.",
   "reels_post_reel": "Reel жариялау",
+  "reels_post_reel_tagged": "Reel жариялау · {count} белгіленді",
+  "reels_publishing": "Reel жарияланып жатыр…",
   "reels_posted_title": "Reel жарияланды!",
   "reels_posted_subtitle": "Өңдеу аяқталғаннан кейін ол Reels-те пайда болады.",
+  "reels_posted_subtitle_tagged": "Рилыңыз {count, plural, one{1 белгіленген затпен} other{{count} белгіленген затпен}} таспада жарияланды.",
+  "reels_view_in_reels": "Reels-те көру",
   "reels_done": "Дайын",
   "reels_delete_reel": "Reel-ді жою",
   "reels_report_reel": "Reel туралы шағымдану",
   "reels_share": "Бөлісу",
   "reels_shop_the_look_count": "Көріністі сатып алу · {count}",
-  "@reels_shop_the_look_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "reels_no_tagged_items": "Белгіленген заттар жоқ.",
   "reels_shop_the_look": "Көріністі сатып алу",
   "reels_deleted_snackbar": "Reel жойылды.",
   "reels_report_received_snackbar": "Рақмет — шағым қабылданды.",
   "reels_empty": "Әзірге reels жоқ",
   "reels_link_copied_snackbar": "Сілтеме буферге көшірілді.",
+  "entry_sheet_title": "Не жасағыңыз келеді?",
+  "entry_create_reel": "Reel жасау",
+  "entry_create_reel_sub": "Заттарыңыздың видеосын бөлісу",
+  "entry_create_reel_needs_product": "Алдымен тауар қосыңыз",
+  "entry_list_item": "Зат сатуға шығару",
+  "entry_list_item_sub": "Фото бірінші · AI тізіміңізді алдын ала толтырады",
+  "entry_cancel": "Бас тарту",
   "@_search": {},
   "search_hint": "Заттарды, брендтерді іздеу…",
   "search_sort_popular": "Танымал",
@@ -212,47 +193,26 @@
   "search_sort_price_desc": "Баға ↓",
   "search_filters": "Сүзгілер",
   "search_filters_with_count": "Сүзгілер · {count}",
-  "@search_filters_with_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_browse_categories": "Санаттарды шолу",
   "search_popular_now": "Қазір танымал",
   "search_no_results": "Нәтиже жоқ",
+  "category_items_count": "{count, plural, one{1 зат} other{{count} зат}}",
+  "category_empty": "Әзірге ештеңе жоқ.",
+  "search_result_for_query": " «{query}» үшін",
   "search_result_count": "{count, plural, =1{1 нәтиже} other{{count} нәтиже}}",
-  "@search_result_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_condition_count": "{count, plural, =1{1 күй} other{{count} күй}}",
-  "@search_condition_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_size_count": "{count, plural, =1{1 өлшем} other{{count} өлшем}}",
-  "@search_size_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_filter_category": "Санат",
   "search_filter_condition": "Күй",
   "search_filter_size": "Өлшем",
   "search_filter_reset": "Тазалау",
   "search_filter_show_results": "Нәтижелерді көрсету",
+  "search_filter_clear": "Тазалау",
+  "search_filter_all": "Барлығы",
   "@_product": {},
+  "product_your_listing": "Сіздің тізіміңіз",
   "product_add_to_cart": "Себетке қосу",
+  "product_buy": "Сатып алу",
   "product_in_cart_view_cart": "Себетте · Себетті көру",
   "product_edit_listing": "Тізімді өңдеу",
   "product_status_sold": "Сатылды",
@@ -260,9 +220,11 @@
   "product_mark_as_sold": "Сатылды деп белгілеу",
   "product_mark_as_available": "Қолжетімді деп белгілеу",
   "product_delete_listing": "Тізімді жою",
+  "product_delete_confirm": "Бұл тізімді жоясыз ба? Мұны қайтару мүмкін емес.",
   "product_report_listing": "Тізімге шағымдану",
   "product_report_this_listing": "Осы тізімге шағымдану",
   "product_listing_deleted": "Тізім жойылды",
+  "product_listing_deleted_subtitle": "Бұл зат және оның фотолары жойылды.",
   "product_back_to_feed": "Таспаға оралу",
   "product_added_to_cart": "Себетке қосылды.",
   "product_edit_coming_soon": "Тізімді өңдеу жақында қолжетімді болады.",
@@ -274,19 +236,15 @@
   "product_stat_posted": "Жарияланды",
   "product_stamp_sold": "САТЫЛДЫ",
   "product_stamp_reserved": "БРОНДАЛДЫ",
+  "product_make_offer": "Ұсыныс жасау",
   "product_currency_dhs": "Dhs",
   "product_price_amount": "{amount} ",
-  "@product_price_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "@_sell": {},
   "sell_sell_in_seconds": "Бірнеше секундта сатыңыз",
   "sell_your_photos": "Фотоларыңыз",
   "sell_add_photos_hint": "8 фотоға дейін қосыңыз. AI тізіміңізді алдын ала толтырады.",
+  "sell_reorder_hint": "Ретін өзгерту үшін сүйреңіз. 1-ші фото мұқаба болады.",
+  "sell_add_at_least_one_photo": "Жалғастыру үшін кемінде 1 фото қосыңыз",
   "sell_continue": "Жалғастыру",
   "sell_cover": "Мұқаба",
   "sell_add_a_photo": "Фото қосу",
@@ -299,24 +257,25 @@
   "sell_price": "Баға",
   "sell_description": "Сипаттама",
   "sell_category": "Санат",
+  "sell_product_details": "Тауар мәліметтері",
+  "sell_subcategory": "Кіші санат",
+  "sell_choose_subcategory": "Кіші санат таңдаңыз",
   "sell_brand": "Бренд",
   "sell_size": "Өлшем",
   "sell_condition": "Күй",
   "sell_suggested_by_ai": "AI ұсынған",
+  "sell_prefilled_by_ai": "AI алдын ала толтырды — тексеріп, реттеңіз.",
+  "sell_photo_edit": "Өңдеу",
   "sell_list_item": "Затты тізімге қосу",
   "sell_optional": "Міндетті емес",
   "sell_title_hint": "мыс. Былғары мотокуртка",
   "sell_price_hint": "AED",
+  "sell_price_suffix": "Dhs",
   "sell_description_hint": "Күйі, отырысы, материалы туралы мәлімет қосыңыз…",
+  "sell_description_error": "Сатып алушылар не алатынын білуі үшін сипаттама қосыңыз",
+  "sell_size_one_size": "Бір өлшем",
   "sell_search_brands": "Брендтерді іздеу",
   "sell_use_quoted": "\"{value}\" қолдану",
-  "@sell_use_quoted": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
   "sell_title_error": "Тақырып қосыңыз (кемінде 2 таңба)",
   "sell_price_error": "Баға енгізіңіз",
   "sell_category_error": "Санат таңдаңыз",
@@ -325,54 +284,43 @@
   "sell_item_visible_to_buyers": "Затыңыз енді сатып алушыларға көрінеді.",
   "sell_view_listing": "Тізімді көру",
   "sell_back_to_home": "Басты бетке оралу",
+  "sell_create_reel": "Reel жасау",
   "@_cart": {},
   "cart_title": "Себет",
   "cart_make_an_offer": "Ұсыныс жасау",
+  "cart_offer_sent": "Ұсыныс жіберілді — сатушы жауап береді",
   "cart_cancel_offer": "Ұсынысты болдырмау",
   "cart_check_out": "Тапсырысты рәсімдеу",
   "cart_subtotal": "Аралық сома",
   "cart_offer_pending": "Ұсыныс күтілуде",
   "cart_offer_accepted": "Ұсыныс қабылданды",
   "cart_pro_badge": "PRO",
+  "cart_cancel": "Бас тарту",
+  "cart_in_bundle": "Пакеттік ұсынысқа кіреді",
+  "cart_in_accepted_bundle": "Қабылданған пакетке кіреді",
+  "cart_added_after_bundle": "Пакеттік ұсынысыңыздан кейін қосылды — кіргізілмеген",
+  "cart_bundle_pending": "Жауап күтілуде",
+  "cart_bundle_accepted": "Қабылданды",
+  "cart_offer_sent_amount": "Ұсыныс жіберілді · {amount} Dhs",
+  "cart_offer_accepted_save": "Ұсыныс қабылданды · {amount} Dhs үнемделді",
+  "cart_bundle_was": "бұрын {amount} Dhs болды",
+  "cart_checkout_amount": "Тапсырысты рәсімдеу · {amount} Dhs",
+  "cart_offer_for_all": "{count, plural, one{Осы зат үшін ұсыныс} other{Барлық {count} зат үшін ұсыныс}}",
+  "cart_bundle_title": "{count, plural, one{Пакеттік ұсыныс · 1 зат} other{Пакеттік ұсыныс · {count} зат}}",
   "cart_empty_title": "Себетіңіз бос",
   "cart_empty_subtitle": "Заттарды қосыңыз, олар мұнда сатушы бойынша топталады.",
   "cart_offer_send": "Ұсыныс жіберу",
   "cart_offer_hint_single": "Сіздің ұсынысыңыз",
   "cart_offer_hint_multi": "Барлық {count} зат үшін ұсынысыңыз",
-  "@cart_offer_hint_multi": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "cart_offer_error_below_total": "Ұсыныс жалпы бағадан төмен болуы керек",
   "cart_offer_chat_note": "Бір ұсыныс осы сатушыдан барлығын қамтиды. Ол чатта жеке жіберіледі — сатушы қабылдайды немесе бас тартады.",
+  "cart_offer_escrow_note": "Жеткізуді растағаныңызға дейін төлемдеріңіз эскроуда сақталады.",
   "cart_currency_dhs": "Dhs",
   "cart_price_dhs": "{amount} Dhs",
-  "@cart_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "cart_item_count": "{count, plural, =1{1 зат} other{{count} зат}}",
-  "@cart_item_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
+  "checkout_buy_more_from": "{name} дүкенінен тағы сатып алу",
+  "cart_offer_seller_meta": "{count, plural, one{1 зат} other{{count} зат}} · {price} Dhs бағасымен тізімделген",
   "cart_sellers_summary": "{count, plural, =1{1 сатушы · әр сатушыға бір ұсыныс және тапсырыс} other{{count} сатушы · әр сатушыға бір ұсыныс және тапсырыс}}",
-  "@cart_sellers_summary": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_checkout": {},
   "checkout_title": "Тапсырысты рәсімдеу",
   "checkout_delivery": "Жеткізу",
@@ -383,21 +331,7 @@
   "checkout_vat": "VAT",
   "checkout_total": "Жалпы",
   "checkout_pay_amount": "{amount} Dhs төлеу",
-  "@checkout_pay_amount": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_amount_dhs": "{amount} Dhs",
-  "@checkout_amount_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "checkout_encrypted_escrow_note": "Шифрланған тапсырыс · төлем эскроуда сақталады",
   "checkout_order_placed_title": "Тапсырыс берілді!",
   "checkout_order_placed_escrow_message": "Төлеміңіз жеткізуді растағаныңызға дейін эскроуда сақталады.",
@@ -414,37 +348,23 @@
   "orders_no_orders_yet": "Әзірге тапсырыс жоқ",
   "orders_prefix_from": "кімнен",
   "orders_prefix_to": "кімге",
+  "orders_negotiated": "Келіссөз нәтижесінде",
   "orders_price_dhs": "{amount} Dhs",
-  "@orders_price_dhs": {
-    "placeholders": {
-      "amount": {
-        "type": "int"
-      }
-    }
-  },
   "orders_counterpart_meta": "{prefix} {name}",
-  "@orders_counterpart_meta": {
-    "placeholders": {
-      "prefix": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
   "orders_order_details": "Тапсырыс мәліметтері",
   "orders_tracking": "Қадағалау",
   "orders_tracking_updates_empty": "Қадағалау жаңартулары мұнда пайда болады.",
   "orders_emx_door_to_door": "EMX есіктен есікке · БАӘ ішкі",
+  "orders_emx_tracking": "EMX қадағалау",
+  "orders_track_confirmed_label": "Тапсырыс расталды",
+  "orders_track_confirmed_sub": "Сатушы затыңызды дайындап жатыр",
+  "orders_track_shipped_label": "EMX арқылы жіберілді",
+  "orders_track_shipped_sub": "Алынды · жолда",
+  "orders_track_out_label": "Жеткізуге шықты",
+  "orders_track_out_sub": "Бүгін жетеді",
+  "orders_track_delivered_label": "Жеткізілді",
+  "orders_track_delivered_sub": "Төлемді босату үшін растаңыз",
   "orders_carrier_prefix": "{carrier} · ",
-  "@orders_carrier_prefix": {
-    "placeholders": {
-      "carrier": {
-        "type": "String"
-      }
-    }
-  },
   "orders_mark_as_shipped": "Жіберілді деп белгілеу",
   "orders_download_emx_label": "EMX жапсырмасын жүктеу",
   "orders_confirm_receipt": "Қабылдауды растау",
@@ -473,7 +393,6 @@
   "@_misc": {},
   "profile_title": "Профиль",
   "chat_title": "Чат",
-  "@_ds": {},
   "ds_password_strength_weak": "Әлсіз",
   "ds_password_strength_fair": "Орташа",
   "ds_password_strength_good": "Жақсы",
@@ -485,29 +404,8 @@
   "notifications_profile_coming_soon": "Профильдер жақында қолжетімді болады.",
   "notifications_time_just_now": "Дәл қазір",
   "notifications_time_minutes": "{count} мин бұрын",
-  "@notifications_time_minutes": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_hours": "{count} сағ бұрын",
-  "@notifications_time_hours": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "notifications_time_days": "{count} күн бұрын",
-  "@notifications_time_days": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "@_profile_feature": {},
   "profile_edit": "Профильді өңдеу",
   "profile_follow": "Жазылу",
@@ -527,6 +425,7 @@
   "profile_no_listings": "Әзірге тізім жоқ",
   "profile_no_reels": "Әзірге reels жоқ",
   "profile_no_reviews": "Әзірге пікір жоқ",
+  "profile_reviews_count": "{count, plural, one{1 пікір} other{{count} пікір}}",
   "profile_no_followers": "Әзірге жазылушы жоқ",
   "profile_no_following": "Әзірге ешкімге жазылмаған",
   "profile_connections_title": "Байланыстар",
@@ -544,6 +443,10 @@
   "settings_section_legal": "Құқықтық және қолдау",
   "settings_section_account": "Аккаунт",
   "settings_edit_profile": "Профильді өңдеу",
+  "edit_profile_discard_title": "Өзгерістерді жою?",
+  "edit_profile_discard_body": "Сақталмаған өзгерістер бар. Сақтамай шығасыз ба?",
+  "edit_profile_discard_confirm": "Жою",
+  "edit_profile_keep_editing": "Өңдеуді жалғастыру",
   "settings_delivery_address": "Жеткізу мекенжайы",
   "settings_payout_iban": "Төлем IBAN",
   "settings_seller_stats": "Сатушы статистикасы",
@@ -561,8 +464,14 @@
   "settings_delete_confirm": "Аккаунтыңызды біржола жоясыз ба? Мұны қайтару мүмкін емес.",
   "settings_change_password_no_email": "Бұл аккаунтқа электрондық пошта байланыстырылмаған.",
   "settings_password_reset_sent": "Құпия сөзді қалпына келтіру сілтемесі жіберілді. Поштаңызды тексеріңіз.",
+  "settings_new_password": "Жаңа құпия сөз",
+  "settings_new_password_hint": "Жаңа құпия сөз",
+  "settings_confirm_password": "Құпия сөзді растау",
+  "settings_confirm_password_hint": "Құпия сөзді қайта енгізіңіз",
+  "settings_passwords_no_match": "Құпия сөздер сәйкес келмейді",
+  "settings_password_too_short": "Кемінде 8 таңба пайдаланыңыз",
+  "settings_password_updated": "Құпия сөз жаңартылды.",
   "settings_support_unavailable": "Қолдау қазір қолжетімді емес.",
-  "settings_handle": "Лақап ат",
   "settings_address_line1": "Мекенжай жолы",
   "settings_address_area": "Аудан",
   "settings_address_city": "Қала",
@@ -574,6 +483,41 @@
   "settings_doc_unavailable": "Бұл құжат қазір қолжетімді емес.",
   "settings_no_blocked": "Сіз ешкімді бұғаттаған жоқсыз.",
   "settings_unblock": "Бұғаттан шығару",
+  "settings_group_account": "Аккаунт",
+  "settings_group_notifications": "Хабарландырулар",
+  "settings_group_other": "Басқа",
+  "settings_group_links": "Сілтемелер",
+  "settings_group_social": "Әлеуметтік",
+  "settings_group_preferences": "Параметрлер",
+  "settings_personal_data": "Жеке деректер",
+  "settings_personal_data_sub": "Профиль, параметрлер, бұғатталған пайдаланушылар",
+  "settings_personal_information": "Жеке ақпарат",
+  "settings_security": "Қауіпсіздік",
+  "settings_security_sub": "Электрондық пошта, құпия сөз, телефон",
+  "settings_payouts_sub": "Банктік деректемелер (IBAN)",
+  "settings_share_app": "Қолданбамен бөлісу",
+  "settings_legal_notices": "Заңды ескертулер",
+  "settings_about": "Қолданба туралы",
+  "settings_instagram": "Instagram",
+  "settings_instagram_handle": "@klozy",
+  "settings_clothing_preference": "Киім қалауы",
+  "settings_preferred_size": "Қажетті өлшем",
+  "settings_preferred_brands": "Қажетті брендтер",
+  "settings_change_email": "Электрондық поштаны өзгерту",
+  "settings_phone_number": "Телефон нөмірі",
+  "settings_current_email": "Ағымдағы электрондық пошта",
+  "settings_new_email": "Жаңа электрондық пошта",
+  "settings_new_email_hint": "you@email.com",
+  "settings_change_email_note": "Жаңа мекенжайыңызға растау сілтемесін жібереміз. Өзгеріс расталғаннан кейін қолданылады.",
+  "settings_email_link_sent": "Растау сілтемесі жіберілді. Аяқтау үшін жаңа кіріс жәшігіңізді тексеріңіз.",
+  "settings_current_number": "Ағымдағы нөмір",
+  "settings_new_number": "Жаңа нөмір",
+  "settings_new_number_hint": "50 123 4567",
+  "settings_phone_note": "Жаңа нөміріңізді растау үшін 6 таңбалы кодты SMS-пен жібереміз.",
+  "settings_phone_updated": "Телефон нөмірі жаңартылды.",
+  "settings_enter_code_for": "{number} нөміріне жіберілген 6 таңбалы кодты енгізіңіз",
+  "settings_share_message": "Klozy қолданбасын тексеріңіз — БАӘ бойынша бұрын киілген сәнді сатып алыңыз және сатыңыз. https://klozy.app",
+  "settings_share_failed": "Бөлісуді ашу мүмкін болмады. Қайталап көріңіз.",
   "onboarding_avatar_failed": "Фотоңызды жүктеу мүмкін болмады. Қайталап көріңіз.",
   "sell_weight": "Салмағы (грамм)",
   "sell_weight_hint": "мыс. 800",
@@ -637,35 +581,11 @@
   "search_price_min": "Мин",
   "search_price_max": "Макс",
   "search_brand_count": "{count, plural, =1{1 бренд} other{{count} бренд}}",
-  "@search_brand_count": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "search_price_chip": "{min}–{max} Dhs",
-  "@search_price_chip": {
-    "placeholders": {
-      "min": {
-        "type": "int"
-      },
-      "max": {
-        "type": "int"
-      }
-    }
-  },
   "settings_iban_current": "Ағымдағы IBAN: {masked}",
-  "@settings_iban_current": {
-    "placeholders": {
-      "masked": {
-        "type": "String"
-      }
-    }
-  },
   "auth_or_continue_with": "немесе мынамен жалғастырыңыз",
   "onboarding_address_search_hint": "Мекенжайыңызды іздеу",
-  "settings_language": "Тіл",
+  "@_account": {},
   "account_gate_guest_title": "Жалғастыру үшін аккаунт жасаңыз немесе кіріңіз",
   "account_gate_guest_subtitle": "Тауарларды қалаулар тізіміне қосу, сатушыларға жазылу және бұрын киілген сәнді сатып алу үшін Klozy-ге қосылыңыз.",
   "account_gate_create_account": "Аккаунт жасау",
@@ -673,24 +593,58 @@
   "account_gate_incomplete_title": "Профиліңізді баптауды аяқтаңыз",
   "account_gate_incomplete_subtitle": "Klozy-дің барлық мүмкіндіктерін ашу үшін профиліңізді толтырыңыз.",
   "account_gate_finish_setup": "Баптауды аяқтау",
+  "@_guest_tab": {},
   "guest_tab_title": "Klozy-ге кіру",
   "guest_tab_subtitle": "Осы бөлімге кіру үшін аккаунт жасаңыз немесе кіріңіз.",
   "guest_tab_cta": "Аккаунт жасау",
   "guest_tab_log_in": "Кіру",
+  "@_categoryPicker": {},
   "categoryPickerTitle": "Санатты таңдаңыз",
   "categoryPickerBreadcrumbRoot": "Барлық санаттар",
   "categoryPickerLoading": "Жүктелуде...",
   "categoryPickerRetry": "Қайталау",
+  "categoryPickerDeepestHint": "Ең терең деңгей — төмендегі өлшем бойынша сүзіңіз.",
   "categoryPickerAddCategories": "Санаттар қосу",
   "categoryPickerPreferred": "Таңдаулы санаттар",
+  "@_sell_enrich": {},
   "sellPhotosEmptyTitle": "Фото қосу",
   "sellPhotosEmptySubtitle": "Тауарыңыздың фотосуреттерін түсіріңіз немесе жүктеңіз",
   "sellPhotosCounter": "фото",
   "sellRecapPhotoStripEdit": "Өңдеу",
   "sellRequiredHint": "* Міндетті өрістер",
-  "sellSizeSystem": "Өлшем жүйесі",
-  "product_buy": "Сатып алу",
-  "product_make_offer": "Ұсыныс жасау",
+  "settings_language": "Тіл",
   "offer_send_failed": "Ұсынысыңызды жіберу мүмкін болмады. Қайталап көріңіз.",
-  "product_see_offer": "Ұсынысты көру"
+  "product_see_offer": "Ұсынысты көру",
+  "@_chat": {},
+  "chat_empty_title": "Әзірге сөйлесу жоқ",
+  "chat_empty_subtitle": "Чатты бастау үшін кез келген тауардан сатушыға хабарлаңыз.",
+  "chat_composer_hint": "Хабарлама…",
+  "chat_recording": "Жазу жүріп жатыр…",
+  "chat_attach_photo": "Фото және бейне",
+  "chat_attach_camera": "Камера",
+  "chat_incomplete_profile_title": "Профиліңізді баптауды аяқтаңыз",
+  "chat_incomplete_profile_subtitle": "Сатып алушылар мен сатушылармен чатты бастау үшін профиліңізді толтырыңыз.",
+  "chat_incomplete_profile_cta": "Профильді толтыру",
+  "chat_menu_report": "Шағымдану және бұғаттау",
+  "chat_menu_delete": "Сөйлесуді жою",
+  "chat_reply_self": "Өзіңізге жауап бересіз",
+  "chat_reply_other": "Жауап беру",
+  "chat_media_placeholder": "[media]",
+  "chat_offer_yours": "Сіздің ұсынысыңыз",
+  "chat_offer_incoming": "Ұсыныс",
+  "chat_offer_refuse": "Бас тарту",
+  "chat_offer_accept": "Қабылдау",
+  "chat_offer_pending": "Жауап күтілуде…",
+  "chat_offer_accepted": "Ұсыныс қабылданды",
+  "chat_offer_declined": "Ұсыныс қабылданбады",
+  "chat_message_deleted": "Хабарлама жойылды",
+  "chat_currency": "Dhs",
+  "chat_purchase_confirmed": "Сатып алу расталды",
+  "chat_purchase_for": "үшін",
+  "chat_no_messages": "Хабарлама әлі жоқ",
+  "chat_preview_photo": "📷 Фото",
+  "chat_preview_voice": "🎤 Дауыстық хабарлама",
+  "chat_preview_offer_sent": "Сіз ұсыныс жібердіңіз",
+  "chat_preview_offer_new": "Жаңа ұсыныс",
+  "chat_preview_you_prefix": "Сіз: "
 }
