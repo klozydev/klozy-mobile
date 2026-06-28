@@ -1,0 +1,1892 @@
+{
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/firebase_options.dart": {
+    "mtime": 1781073365.1896915,
+    "ast_hash": "f7fa2a1b7f4258a2c6ec2701cf6140e8",
+    "semantic_hash": "f7fa2a1b7f4258a2c6ec2701cf6140e8"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/gen/assets.gen.dart": {
+    "mtime": 1781105712.7596478,
+    "ast_hash": "10ae1de2fbdfc2476c65ad952f35bf1b",
+    "semantic_hash": "10ae1de2fbdfc2476c65ad952f35bf1b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/l10n/app_localizations.dart": {
+    "mtime": 1781272856.3872793,
+    "ast_hash": "02cf874c9670ccc0412d05c3cfef4d4a",
+    "semantic_hash": "02cf874c9670ccc0412d05c3cfef4d4a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/l10n/app_localizations_en.dart": {
+    "mtime": 1781272856.3813148,
+    "ast_hash": "cfaf6fd71d361342dc4150e5e0a726b2",
+    "semantic_hash": "cfaf6fd71d361342dc4150e5e0a726b2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/main.dart": {
+    "mtime": 1781082326.2529714,
+    "ast_hash": "a6ca1488e7fb5c508db891a5a289333c",
+    "semantic_hash": "a6ca1488e7fb5c508db891a5a289333c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/bloc/account/account_bloc.dart": {
+    "mtime": 1781272781.8657713,
+    "ast_hash": "c56572b1b8e135dea7b02e21114fe0b2",
+    "semantic_hash": "c56572b1b8e135dea7b02e21114fe0b2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/bloc/account/account_event.dart": {
+    "mtime": 1781086456.8766232,
+    "ast_hash": "dc27c7cb8709c72ac53f007316831ac7",
+    "semantic_hash": "dc27c7cb8709c72ac53f007316831ac7"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/bloc/account/account_state.dart": {
+    "mtime": 1781086461.5631132,
+    "ast_hash": "8db0c2ce06e9d6ee22304026b0adca80",
+    "semantic_hash": "8db0c2ce06e9d6ee22304026b0adca80"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/bloc/app_bloc.dart": {
+    "mtime": 1781073365.190924,
+    "ast_hash": "587cea2056f5b345ce2670959d1fdbc1",
+    "semantic_hash": "587cea2056f5b345ce2670959d1fdbc1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/bloc/app_event.dart": {
+    "mtime": 1781073365.1910536,
+    "ast_hash": "eef8ea51cfe7d7dd298d7f0ac9d0ec64",
+    "semantic_hash": "eef8ea51cfe7d7dd298d7f0ac9d0ec64"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/bloc/app_state.dart": {
+    "mtime": 1781073365.1911707,
+    "ast_hash": "46e17097ccb01ea74362c3f0f392fa4e",
+    "semantic_hash": "46e17097ccb01ea74362c3f0f392fa4e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/cart/cart_cubit.dart": {
+    "mtime": 1781073365.1913462,
+    "ast_hash": "36015ed61ae1fdd01d0294d5109e7641",
+    "semantic_hash": "36015ed61ae1fdd01d0294d5109e7641"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/initializer/app_initializer.dart": {
+    "mtime": 1781082326.253329,
+    "ast_hash": "749b1f23436947c138702deece7e167b",
+    "semantic_hash": "749b1f23436947c138702deece7e167b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/notifications/notifications_cubit.dart": {
+    "mtime": 1781073365.1917436,
+    "ast_hash": "26895e0771e49935fc364155fecfdc64",
+    "semantic_hash": "26895e0771e49935fc364155fecfdc64"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/push/push_service.dart": {
+    "mtime": 1781272781.8662229,
+    "ast_hash": "1c14db2e4d678018c94b5e2300c91480",
+    "semantic_hash": "1c14db2e4d678018c94b5e2300c91480"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/theme/app_config_change_notifier.dart": {
+    "mtime": 1781073365.1921494,
+    "ast_hash": "341170ac424c93cbf8841ea16a244f62",
+    "semantic_hash": "341170ac424c93cbf8841ea16a244f62"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/widget/app.dart": {
+    "mtime": 1781272781.8667212,
+    "ast_hash": "f06c5ebe9649d51a75d737d30c2faec1",
+    "semantic_hash": "f06c5ebe9649d51a75d737d30c2faec1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/app/wishlist/wishlist_cubit.dart": {
+    "mtime": 1781272781.8671324,
+    "ast_hash": "109f9b372e945a52b999f4a5b61654d1",
+    "semantic_hash": "109f9b372e945a52b999f4a5b61654d1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/account/account_gate.dart": {
+    "mtime": 1781086891.0651684,
+    "ast_hash": "cd549490a06825d04431ee75d49e0eec",
+    "semantic_hash": "cd549490a06825d04431ee75d49e0eec"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/account/account_gate_sheet.dart": {
+    "mtime": 1781272787.7739513,
+    "ast_hash": "9efea44f4135ced7548ef7b83a566c6e",
+    "semantic_hash": "9efea44f4135ced7548ef7b83a566c6e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/account/guest_tab_placeholder_widget.dart": {
+    "mtime": 1781091766.7879221,
+    "ast_hash": "2f86c6978d7baaf43141c129a150e9fa",
+    "semantic_hash": "2f86c6978d7baaf43141c129a150e9fa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/components/app_error_type.dart": {
+    "mtime": 1781073365.1930494,
+    "ast_hash": "ece448c7d3747273816b7475704349ee",
+    "semantic_hash": "ece448c7d3747273816b7475704349ee"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/components/app_error_widget.dart": {
+    "mtime": 1781073365.1931605,
+    "ast_hash": "d6f2c5ed6a2e781092d1a0e0a7d65f5f",
+    "semantic_hash": "d6f2c5ed6a2e781092d1a0e0a7d65f5f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/components/avatar_upload_widget.dart": {
+    "mtime": 1781073365.1932702,
+    "ast_hash": "85f53c08b3c690637167a9646f19fc60",
+    "semantic_hash": "85f53c08b3c690637167a9646f19fc60"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/events/products_changed_event.dart": {
+    "mtime": 1781082326.25389,
+    "ast_hash": "7efcd440992fe2265795e0faa81f5e8e",
+    "semantic_hash": "7efcd440992fe2265795e0faa81f5e8e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/events/reels_changed_event.dart": {
+    "mtime": 1781082326.2540069,
+    "ast_hash": "47087e4b165f34a6c947de3cda6e8337",
+    "semantic_hash": "47087e4b165f34a6c947de3cda6e8337"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/events/wishlist_changed_event.dart": {
+    "mtime": 1781092775.514689,
+    "ast_hash": "91d93f70e6ca90a1ac8c1798c2a3191d",
+    "semantic_hash": "91d93f70e6ca90a1ac8c1798c2a3191d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/extensions/context_ext.dart": {
+    "mtime": 1781073365.1934338,
+    "ast_hash": "695ed638d794f6ba7a806144954ff2c3",
+    "semantic_hash": "695ed638d794f6ba7a806144954ff2c3"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/network/base_url/base_url.dart": {
+    "mtime": 1781073365.1936657,
+    "ast_hash": "5200edf6a5e157acba7209846280dc00",
+    "semantic_hash": "5200edf6a5e157acba7209846280dc00"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/network/base_url/dev_base_url.dart": {
+    "mtime": 1781073365.1937556,
+    "ast_hash": "b1ebd589b413990591fbb6f9a248f28c",
+    "semantic_hash": "b1ebd589b413990591fbb6f9a248f28c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/network/base_url/prod_base_url.dart": {
+    "mtime": 1781073365.1938434,
+    "ast_hash": "c1a4b6d9e3d47950725d2e0b5d84e900",
+    "semantic_hash": "c1a4b6d9e3d47950725d2e0b5d84e900"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/network/interceptors/authentication_interceptor.dart": {
+    "mtime": 1781092786.5425737,
+    "ast_hash": "a6802f911cf23d4a159f43a59036c442",
+    "semantic_hash": "a6802f911cf23d4a159f43a59036c442"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/network/interceptors/default_interceptor.dart": {
+    "mtime": 1781073365.194102,
+    "ast_hash": "7202668ef53667e35a110e4a04402f16",
+    "semantic_hash": "7202668ef53667e35a110e4a04402f16"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/network/interceptors/logging_interceptor.dart": {
+    "mtime": 1781073365.1941948,
+    "ast_hash": "2663b7deee5d645a73837613b0266f4b",
+    "semantic_hash": "2663b7deee5d645a73837613b0266f4b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/observability/app_logger.dart": {
+    "mtime": 1781073365.194347,
+    "ast_hash": "23a3ccb262c8729094ac10e13466803e",
+    "semantic_hash": "23a3ccb262c8729094ac10e13466803e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/observability/no_op_app_logger.dart": {
+    "mtime": 1781073365.1944382,
+    "ast_hash": "9abe9f92185fc931c16050f79085b822",
+    "semantic_hash": "9abe9f92185fc931c16050f79085b822"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/observability/observability_module.dart": {
+    "mtime": 1781073365.1945312,
+    "ast_hash": "2cb3b4440da42475f455647b26b3fedf",
+    "semantic_hash": "2cb3b4440da42475f455647b26b3fedf"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/pagination/mapper/paginated_list_mapper.dart": {
+    "mtime": 1781073365.1947482,
+    "ast_hash": "6f99b96b04635e3abf2d6ed91f5be80c",
+    "semantic_hash": "6f99b96b04635e3abf2d6ed91f5be80c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/pagination/paginated_list.dart": {
+    "mtime": 1781073365.194833,
+    "ast_hash": "b8cfeea342441a9aec2b2886302c9baa",
+    "semantic_hash": "b8cfeea342441a9aec2b2886302c9baa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/pagination/paginated_list_response.dart": {
+    "mtime": 1781073365.1949217,
+    "ast_hash": "879aa6438747145812bc1f61e9cd4094",
+    "semantic_hash": "879aa6438747145812bc1f61e9cd4094"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/prefs/prefs.dart": {
+    "mtime": 1781073365.1950786,
+    "ast_hash": "d7b23f58982287c2fe39b18f5541c671",
+    "semantic_hash": "d7b23f58982287c2fe39b18f5541c671"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/util/app_share.dart": {
+    "mtime": 1781073365.19523,
+    "ast_hash": "110b05d69cd5653f9e1139ff20444f28",
+    "semantic_hash": "110b05d69cd5653f9e1139ff20444f28"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/util/iban_validator.dart": {
+    "mtime": 1781073365.19532,
+    "ast_hash": "b959427071ef1d0779c04c5e76ba5ad1",
+    "semantic_hash": "b959427071ef1d0779c04c5e76ba5ad1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/core/utils/upper_case_text_formatter.dart": {
+    "mtime": 1781073365.1954825,
+    "ast_hash": "079ad0c6a920d437dad54d32c6924ac6",
+    "semantic_hash": "079ad0c6a920d437dad54d32c6924ac6"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/auth/firebase_auth_repository.dart": {
+    "mtime": 1781272781.867913,
+    "ast_hash": "eff07be007d26443f33743145ef42bc3",
+    "semantic_hash": "eff07be007d26443f33743145ef42bc3"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/cart/cart_mapper.dart": {
+    "mtime": 1781073365.1959558,
+    "ast_hash": "503747102e9c3af120d687d9f2d242af",
+    "semantic_hash": "503747102e9c3af120d687d9f2d242af"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/cart/cart_repository_impl.dart": {
+    "mtime": 1781073365.196065,
+    "ast_hash": "09ad251a866ced058366612b6d3ea699",
+    "semantic_hash": "09ad251a866ced058366612b6d3ea699"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/catalog/catalog_repository_impl.dart": {
+    "mtime": 1781073365.1962597,
+    "ast_hash": "a1fc9e83697065c840afd410d95600aa",
+    "semantic_hash": "a1fc9e83697065c840afd410d95600aa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/checkout/checkout_repository_impl.dart": {
+    "mtime": 1781272781.8682048,
+    "ast_hash": "08dd0fe1d7d4c6d0f7ed7a1d8bd658fe",
+    "semantic_hash": "08dd0fe1d7d4c6d0f7ed7a1d8bd658fe"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/config/public_config_repository_impl.dart": {
+    "mtime": 1781073365.1966133,
+    "ast_hash": "30ad867935a023fd3eca29ddb1c58d34",
+    "semantic_hash": "30ad867935a023fd3eca29ddb1c58d34"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/me/me_repository_impl.dart": {
+    "mtime": 1781272781.868597,
+    "ast_hash": "d04bf76872854c7e4b4ddf67cb0e852f",
+    "semantic_hash": "d04bf76872854c7e4b4ddf67cb0e852f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/notifications/notification_mapper.dart": {
+    "mtime": 1781073365.196984,
+    "ast_hash": "869821b14c72c156413b836cda2fe5a0",
+    "semantic_hash": "869821b14c72c156413b836cda2fe5a0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/notifications/notifications_repository_impl.dart": {
+    "mtime": 1781073365.1971033,
+    "ast_hash": "29793d5950f04de75ec13c3b94a49669",
+    "semantic_hash": "29793d5950f04de75ec13c3b94a49669"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/offers/offers_repository_impl.dart": {
+    "mtime": 1781073365.1972973,
+    "ast_hash": "eeebeefe03d7675fa218da9b7a7ed8a2",
+    "semantic_hash": "eeebeefe03d7675fa218da9b7a7ed8a2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/orders/order_mapper.dart": {
+    "mtime": 1781073365.1974728,
+    "ast_hash": "5b34a1bc538fb7ab9103fd3e57974e42",
+    "semantic_hash": "5b34a1bc538fb7ab9103fd3e57974e42"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/orders/orders_repository_impl.dart": {
+    "mtime": 1781073365.197572,
+    "ast_hash": "d74f24479a3509743ef3966421e967b0",
+    "semantic_hash": "d74f24479a3509743ef3966421e967b0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/places/datasource/places_remote_datasource.dart": {
+    "mtime": 1781093456.5649242,
+    "ast_hash": "81f744def69791215857b423b8d925fc",
+    "semantic_hash": "81f744def69791215857b423b8d925fc"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/places/mapper/places_mapper.dart": {
+    "mtime": 1781087181.110392,
+    "ast_hash": "d0b0dc5328530be97354454489ee40c3",
+    "semantic_hash": "d0b0dc5328530be97354454489ee40c3"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/places/model/place_details_response.dart": {
+    "mtime": 1781087181.115561,
+    "ast_hash": "98ed013b9ff76035b3bf229701335c01",
+    "semantic_hash": "98ed013b9ff76035b3bf229701335c01"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/places/model/place_details_response.g.dart": {
+    "mtime": 1781092279.2549298,
+    "ast_hash": "8a776a8ec228bc66bc3a6e350d4556b9",
+    "semantic_hash": "8a776a8ec228bc66bc3a6e350d4556b9"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/places/model/place_suggestion_response.dart": {
+    "mtime": 1781086948.6648026,
+    "ast_hash": "8292c80879353c9cd3d23ea50fe9c1d1",
+    "semantic_hash": "8292c80879353c9cd3d23ea50fe9c1d1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/places/model/place_suggestion_response.g.dart": {
+    "mtime": 1781105712.7572756,
+    "ast_hash": "3ee03f20488ba8de666a3956199da5e1",
+    "semantic_hash": "3ee03f20488ba8de666a3956199da5e1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/places/places_repository_impl.dart": {
+    "mtime": 1781087012.871553,
+    "ast_hash": "49ba464aed1c3d609ca21f31688d82bd",
+    "semantic_hash": "49ba464aed1c3d609ca21f31688d82bd"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/product/product_detail_mapper.dart": {
+    "mtime": 1781272787.7742891,
+    "ast_hash": "ae943c0dc159d3676d6e86bb2eab761d",
+    "semantic_hash": "ae943c0dc159d3676d6e86bb2eab761d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/product/product_mapper.dart": {
+    "mtime": 1781073365.1978614,
+    "ast_hash": "9f977c0ba90b0becea1ed5f5447b711a",
+    "semantic_hash": "9f977c0ba90b0becea1ed5f5447b711a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/product/products_repository_impl.dart": {
+    "mtime": 1781272787.774549,
+    "ast_hash": "a6f43c33d335c6e7e5b245424a76f471",
+    "semantic_hash": "a6f43c33d335c6e7e5b245424a76f471"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/sell/sell_repository_impl.dart": {
+    "mtime": 1781272781.8692124,
+    "ast_hash": "68a94dd7a4c18b41bd5878049a39851c",
+    "semantic_hash": "68a94dd7a4c18b41bd5878049a39851c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/social/social_mapper.dart": {
+    "mtime": 1781073365.1983054,
+    "ast_hash": "a7c6201c3bc937ab25f6a998006d129f",
+    "semantic_hash": "a7c6201c3bc937ab25f6a998006d129f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/social/social_repository_impl.dart": {
+    "mtime": 1781073365.1984036,
+    "ast_hash": "9ec5d77679f3f7fdfc7c9a3c056398d8",
+    "semantic_hash": "9ec5d77679f3f7fdfc7c9a3c056398d8"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/uploads/uploads_repository_impl.dart": {
+    "mtime": 1781073365.1985672,
+    "ast_hash": "3f2e10d43743cf3e76629fd18e3509a0",
+    "semantic_hash": "3f2e10d43743cf3e76629fd18e3509a0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/data/wishlist/wishlist_repository_impl.dart": {
+    "mtime": 1781073365.1987348,
+    "ast_hash": "99d5a8c3dcb5cdce4374fc30a078a029",
+    "semantic_hash": "99d5a8c3dcb5cdce4374fc30a078a029"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/app_theme.dart": {
+    "mtime": 1781073365.198894,
+    "ast_hash": "86490c71ccbdef6de8f2ab694903456d",
+    "semantic_hash": "86490c71ccbdef6de8f2ab694903456d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_address_field.dart": {
+    "mtime": 1781073365.199084,
+    "ast_hash": "6250c6220eece533cc49eab43397cf95",
+    "semantic_hash": "6250c6220eece533cc49eab43397cf95"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_address_suggestion.dart": {
+    "mtime": 1781073365.1991842,
+    "ast_hash": "23549267318e73f8a180cc9cd522afdb",
+    "semantic_hash": "23549267318e73f8a180cc9cd522afdb"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_app_bar.dart": {
+    "mtime": 1781073365.1992762,
+    "ast_hash": "4f0bf5a9440aa00f97e8d1b5d86df2c8",
+    "semantic_hash": "4f0bf5a9440aa00f97e8d1b5d86df2c8"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_attribute_chip.dart": {
+    "mtime": 1781073365.199368,
+    "ast_hash": "3113299a3ea4cfa1bb3dac49527c4a7a",
+    "semantic_hash": "3113299a3ea4cfa1bb3dac49527c4a7a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_avatar_uploader.dart": {
+    "mtime": 1781073365.1994674,
+    "ast_hash": "c2ff30fe46c4331fc3f06484892ade29",
+    "semantic_hash": "c2ff30fe46c4331fc3f06484892ade29"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_bottom_bar.dart": {
+    "mtime": 1781073365.1995795,
+    "ast_hash": "cf539ad1e69e73a96946495b74902cd0",
+    "semantic_hash": "cf539ad1e69e73a96946495b74902cd0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_bottom_sheet.dart": {
+    "mtime": 1781272781.8694534,
+    "ast_hash": "be9fa549d99a96c771180300ef7fee8b",
+    "semantic_hash": "be9fa549d99a96c771180300ef7fee8b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_brand_chip.dart": {
+    "mtime": 1781073365.1997879,
+    "ast_hash": "287cea9233ab64691815031000cce08c",
+    "semantic_hash": "287cea9233ab64691815031000cce08c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_button_elevated.dart": {
+    "mtime": 1781073365.1998825,
+    "ast_hash": "0c790c07c5c874e25f87e07d5e1c0a9c",
+    "semantic_hash": "0c790c07c5c874e25f87e07d5e1c0a9c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_button_outline.dart": {
+    "mtime": 1781073365.1999776,
+    "ast_hash": "3a6e253fa4c46bdbc623e1d77d4335cc",
+    "semantic_hash": "3a6e253fa4c46bdbc623e1d77d4335cc"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_card.dart": {
+    "mtime": 1781073365.2000718,
+    "ast_hash": "dcacb76f6dc666a6d2996a97eb4cdbaa",
+    "semantic_hash": "dcacb76f6dc666a6d2996a97eb4cdbaa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_cart_badge.dart": {
+    "mtime": 1781073365.2001705,
+    "ast_hash": "3546359ca626b08b3fc48da6aa5b4f61",
+    "semantic_hash": "3546359ca626b08b3fc48da6aa5b4f61"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_category_breadcrumb.dart": {
+    "mtime": 1781109805.8056555,
+    "ast_hash": "dcf48cda83b1ffa18397524ca64128e4",
+    "semantic_hash": "dcf48cda83b1ffa18397524ca64128e4"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_category_list_item.dart": {
+    "mtime": 1781098360.9021575,
+    "ast_hash": "a53b3468d88a84418edaa85ca556228e",
+    "semantic_hash": "a53b3468d88a84418edaa85ca556228e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_category_tree_picker.dart": {
+    "mtime": 1781098504.927913,
+    "ast_hash": "2616dfbc58530f273a4518b31e99eb14",
+    "semantic_hash": "2616dfbc58530f273a4518b31e99eb14"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_chip.dart": {
+    "mtime": 1781073365.2002735,
+    "ast_hash": "b7a60f6dfb8ab2a2debd0f4e3a88b2b7",
+    "semantic_hash": "b7a60f6dfb8ab2a2debd0f4e3a88b2b7"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_code_input.dart": {
+    "mtime": 1781073365.2003794,
+    "ast_hash": "0bfba21fd1d3fc0f37c9911b73b360ed",
+    "semantic_hash": "0bfba21fd1d3fc0f37c9911b73b360ed"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_dashed_circle_painter.dart": {
+    "mtime": 1781073365.2004805,
+    "ast_hash": "7a0c65cf80715be7a9e63740498ed126",
+    "semantic_hash": "7a0c65cf80715be7a9e63740498ed126"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_divider.dart": {
+    "mtime": 1781073365.200779,
+    "ast_hash": "f0f36f9b9f2af951ab758f8df66b9848",
+    "semantic_hash": "f0f36f9b9f2af951ab758f8df66b9848"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_error_text.dart": {
+    "mtime": 1781073365.200888,
+    "ast_hash": "94067f85b3ddd4c9869093377e47a27a",
+    "semantic_hash": "94067f85b3ddd4c9869093377e47a27a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_field_label.dart": {
+    "mtime": 1781073365.200991,
+    "ast_hash": "a33f79abe2164a2c0a9d7d1cd4900644",
+    "semantic_hash": "a33f79abe2164a2c0a9d7d1cd4900644"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_filter_chip.dart": {
+    "mtime": 1781073365.2010798,
+    "ast_hash": "ea8019c66ebfeecdd69e15006d956f1b",
+    "semantic_hash": "ea8019c66ebfeecdd69e15006d956f1b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_glass_button.dart": {
+    "mtime": 1781073365.2011743,
+    "ast_hash": "a89c11aba30e4122f20a505232e8b694",
+    "semantic_hash": "a89c11aba30e4122f20a505232e8b694"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_google_glyph.dart": {
+    "mtime": 1781073365.2012646,
+    "ast_hash": "7edb862f2aad49b636952a2736d33389",
+    "semantic_hash": "7edb862f2aad49b636952a2736d33389"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_klozy_mark.dart": {
+    "mtime": 1781073365.201354,
+    "ast_hash": "929563e163c377c3636e8a1d4e98212e",
+    "semantic_hash": "929563e163c377c3636e8a1d4e98212e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_list_item.dart": {
+    "mtime": 1781073365.2014427,
+    "ast_hash": "648676132d984e87d8d59271663a2c8e",
+    "semantic_hash": "648676132d984e87d8d59271663a2c8e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_loader.dart": {
+    "mtime": 1781073365.2015278,
+    "ast_hash": "982946bd3955ecc44306d0db7ce78842",
+    "semantic_hash": "982946bd3955ecc44306d0db7ce78842"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_option_card.dart": {
+    "mtime": 1781073365.2016437,
+    "ast_hash": "9062cdd3d73f58349480873b96030a1b",
+    "semantic_hash": "9062cdd3d73f58349480873b96030a1b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_or_divider.dart": {
+    "mtime": 1781073365.2017243,
+    "ast_hash": "ed296fc802823e3f8b402eb7ab84e663",
+    "semantic_hash": "ed296fc802823e3f8b402eb7ab84e663"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_password_strength.dart": {
+    "mtime": 1781073365.201815,
+    "ast_hash": "5f107310dd704ca154bebc9127955dbb",
+    "semantic_hash": "5f107310dd704ca154bebc9127955dbb"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_pill_indicator.dart": {
+    "mtime": 1781073365.2019057,
+    "ast_hash": "310765031e4a6b4633b0b6f88f80977b",
+    "semantic_hash": "310765031e4a6b4633b0b6f88f80977b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_product_card.dart": {
+    "mtime": 1781272781.8696444,
+    "ast_hash": "000c94d9a2f052191b165f76f21223c4",
+    "semantic_hash": "000c94d9a2f052191b165f76f21223c4"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_segmented_control.dart": {
+    "mtime": 1781073365.2021015,
+    "ast_hash": "80c47f045c3b559f442df3c5afa96393",
+    "semantic_hash": "80c47f045c3b559f442df3c5afa96393"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_selectable_chip.dart": {
+    "mtime": 1781073365.2021854,
+    "ast_hash": "e4f96f49649ba3bd44a0c91657467e82",
+    "semantic_hash": "e4f96f49649ba3bd44a0c91657467e82"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_social_button.dart": {
+    "mtime": 1781073365.202277,
+    "ast_hash": "0d98b66e63d3e1452b5e9f1f903dc59e",
+    "semantic_hash": "0d98b66e63d3e1452b5e9f1f903dc59e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_star_rating.dart": {
+    "mtime": 1781073365.2023647,
+    "ast_hash": "453283f9d4b2e08cacae43ab76d2750b",
+    "semantic_hash": "453283f9d4b2e08cacae43ab76d2750b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_step_bar.dart": {
+    "mtime": 1781073365.202449,
+    "ast_hash": "7186b7d0e68ef803bbe344100dcf6391",
+    "semantic_hash": "7186b7d0e68ef803bbe344100dcf6391"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/ds_text_field.dart": {
+    "mtime": 1781073365.2025356,
+    "ast_hash": "bd7b5f375332b0828c9ad7af8b823652",
+    "semantic_hash": "bd7b5f375332b0828c9ad7af8b823652"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/pressable/pressable_widget.dart": {
+    "mtime": 1781073365.202681,
+    "ast_hash": "31c85e522b85dca6fb142b58f84c2291",
+    "semantic_hash": "31c85e522b85dca6fb142b58f84c2291"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/components/shimmer_box/shimmer_box_widget.dart": {
+    "mtime": 1781073365.2028315,
+    "ast_hash": "2c29662b282628cdfa6dabfac196eb19",
+    "semantic_hash": "2c29662b282628cdfa6dabfac196eb19"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/tokens/ds_border_radius.dart": {
+    "mtime": 1781073365.2029707,
+    "ast_hash": "b7a30640e875847f5a9e2643939ef6cb",
+    "semantic_hash": "b7a30640e875847f5a9e2643939ef6cb"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/tokens/ds_color.dart": {
+    "mtime": 1781073365.203059,
+    "ast_hash": "d16d72681796b43620208a31d878137d",
+    "semantic_hash": "d16d72681796b43620208a31d878137d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/tokens/ds_font.dart": {
+    "mtime": 1781073365.203144,
+    "ast_hash": "2bccc35baf7b6164bacfe0f0f3dbcfa2",
+    "semantic_hash": "2bccc35baf7b6164bacfe0f0f3dbcfa2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/tokens/ds_spacing.dart": {
+    "mtime": 1781073365.203225,
+    "ast_hash": "b84e798b21f8a76c4b1611d47c562165",
+    "semantic_hash": "b84e798b21f8a76c4b1611d47c562165"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/design/tokens/ds_theme.dart": {
+    "mtime": 1781073365.2033126,
+    "ast_hash": "e75fd7fa9a62d4326496de14c9fc18aa",
+    "semantic_hash": "e75fd7fa9a62d4326496de14c9fc18aa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/di/app_module.dart": {
+    "mtime": 1781073365.2034569,
+    "ast_hash": "c822acd62281059eb4b9338c15dfae43",
+    "semantic_hash": "c822acd62281059eb4b9338c15dfae43"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/di/firebase_module.dart": {
+    "mtime": 1781073365.2035563,
+    "ast_hash": "e0d9256eb0901ed5771f13c24780e3bc",
+    "semantic_hash": "e0d9256eb0901ed5771f13c24780e3bc"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/di/injection.config.dart": {
+    "mtime": 1781272781.87029,
+    "ast_hash": "4d24446b3dd0525c9f75e2f2f2e3ee40",
+    "semantic_hash": "4d24446b3dd0525c9f75e2f2f2e3ee40"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/di/injection.dart": {
+    "mtime": 1781073365.2037947,
+    "ast_hash": "375e7c92dffd07631529bb56305382ac",
+    "semantic_hash": "375e7c92dffd07631529bb56305382ac"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/di/network_module.dart": {
+    "mtime": 1781073365.2039125,
+    "ast_hash": "c6bae478a7f9c360b3bdf7dcdd2fbbee",
+    "semantic_hash": "c6bae478a7f9c360b3bdf7dcdd2fbbee"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/account/entity/account_status.dart": {
+    "mtime": 1781086402.2840676,
+    "ast_hash": "d046b1d146af908462fd7871811adc22",
+    "semantic_hash": "d046b1d146af908462fd7871811adc22"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/account/usecase/get_account_status_usecase.dart": {
+    "mtime": 1781272781.8708794,
+    "ast_hash": "703e6b1d395dbb7d928dc6c88ebc8bb0",
+    "semantic_hash": "703e6b1d395dbb7d928dc6c88ebc8bb0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/account/usecase/require_valid_account_usecase.dart": {
+    "mtime": 1781086875.8146806,
+    "ast_hash": "4fad0f23822b26a7dbf6d42315566ffa",
+    "semantic_hash": "4fad0f23822b26a7dbf6d42315566ffa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/auth/auth_exception.dart": {
+    "mtime": 1781073365.204226,
+    "ast_hash": "8b7bb94e5f19a487eba14173f246f688",
+    "semantic_hash": "8b7bb94e5f19a487eba14173f246f688"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/auth/auth_repository.dart": {
+    "mtime": 1781272781.8712306,
+    "ast_hash": "745d31bcff6882dbf34f0c8eedd67c88",
+    "semantic_hash": "745d31bcff6882dbf34f0c8eedd67c88"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/auth/entity/auth_user.dart": {
+    "mtime": 1781073365.204542,
+    "ast_hash": "67d62fffb066c1cad78c9a5c78a3f649",
+    "semantic_hash": "67d62fffb066c1cad78c9a5c78a3f649"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/cart/cart_repository.dart": {
+    "mtime": 1781073365.20474,
+    "ast_hash": "4062443f5695f6d25db403d3f0b91fa0",
+    "semantic_hash": "4062443f5695f6d25db403d3f0b91fa0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/cart/entity/cart.dart": {
+    "mtime": 1781073365.204933,
+    "ast_hash": "e2cac87d1f3e880855965dd2f625d39c",
+    "semantic_hash": "e2cac87d1f3e880855965dd2f625d39c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/cart/entity/cart_bucket.dart": {
+    "mtime": 1781073365.2050195,
+    "ast_hash": "82aa41fb5622408e1b184bbdfe0dc4d0",
+    "semantic_hash": "82aa41fb5622408e1b184bbdfe0dc4d0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/cart/entity/cart_item.dart": {
+    "mtime": 1781073365.2051084,
+    "ast_hash": "5de5d374a7a118309d5ae1da69ad2bf0",
+    "semantic_hash": "5de5d374a7a118309d5ae1da69ad2bf0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/catalog/catalog_repository.dart": {
+    "mtime": 1781073365.2052505,
+    "ast_hash": "5149a35d9c92d3d1e434ce46ca338cd6",
+    "semantic_hash": "5149a35d9c92d3d1e434ce46ca338cd6"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/catalog/entity/catalog_brand.dart": {
+    "mtime": 1781073365.2053866,
+    "ast_hash": "a79e73a0db0c294c4fcd107a606c3a16",
+    "semantic_hash": "a79e73a0db0c294c4fcd107a606c3a16"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/catalog/entity/catalog_category.dart": {
+    "mtime": 1781073365.2054713,
+    "ast_hash": "42c4f082d127ccf07e73b1f02af8c458",
+    "semantic_hash": "42c4f082d127ccf07e73b1f02af8c458"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/catalog/entity/catalog_condition.dart": {
+    "mtime": 1781073365.2055535,
+    "ast_hash": "5bbc9c52287465e9ce48c602869e5533",
+    "semantic_hash": "5bbc9c52287465e9ce48c602869e5533"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/catalog/entity/catalog_size_value.dart": {
+    "mtime": 1781073365.2056375,
+    "ast_hash": "f0e7f448c0eb2e74ea4cada717463ae9",
+    "semantic_hash": "f0e7f448c0eb2e74ea4cada717463ae9"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/checkout/checkout_repository.dart": {
+    "mtime": 1781073365.2057743,
+    "ast_hash": "c63e7dbd3703ff747f4bc755ea12cc2e",
+    "semantic_hash": "c63e7dbd3703ff747f4bc755ea12cc2e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/checkout/entity/checkout_quote.dart": {
+    "mtime": 1781073365.2059102,
+    "ast_hash": "3de45316a033926dc32ca160702c68f4",
+    "semantic_hash": "3de45316a033926dc32ca160702c68f4"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/checkout/entity/checkout_result.dart": {
+    "mtime": 1781073365.2059991,
+    "ast_hash": "1bbe172703dc5401477ba764e43601fe",
+    "semantic_hash": "1bbe172703dc5401477ba764e43601fe"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/checkout/entity/order_fees.dart": {
+    "mtime": 1781073365.2060888,
+    "ast_hash": "eef09a3b5d0721ed0509f9b4114c9f05",
+    "semantic_hash": "eef09a3b5d0721ed0509f9b4114c9f05"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/checkout/entity/order_summary.dart": {
+    "mtime": 1781073365.206171,
+    "ast_hash": "cbef32a2301700c2c4415c1067fb008c",
+    "semantic_hash": "cbef32a2301700c2c4415c1067fb008c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/checkout/entity/payment_sheet_data.dart": {
+    "mtime": 1781073365.2062492,
+    "ast_hash": "432dc629aba0cd6d136d74a1832695bd",
+    "semantic_hash": "432dc629aba0cd6d136d74a1832695bd"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/config/entity/contact_info.dart": {
+    "mtime": 1781073365.2064357,
+    "ast_hash": "ea933223faba2cd0451cb59df250614b",
+    "semantic_hash": "ea933223faba2cd0451cb59df250614b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/config/entity/legal_doc.dart": {
+    "mtime": 1781073365.2065156,
+    "ast_hash": "ff1ddfba9360fc510678f20c4bb0f90a",
+    "semantic_hash": "ff1ddfba9360fc510678f20c4bb0f90a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/config/public_config_repository.dart": {
+    "mtime": 1781073365.2065961,
+    "ast_hash": "f1c9b096ffc80edf3470d6fbd46b1e6c",
+    "semantic_hash": "f1c9b096ffc80edf3470d6fbd46b1e6c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/entity/address.dart": {
+    "mtime": 1781073365.2067974,
+    "ast_hash": "2b61dbcdc8332784491775dc222cd4f3",
+    "semantic_hash": "2b61dbcdc8332784491775dc222cd4f3"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/entity/address_input.dart": {
+    "mtime": 1781073365.2068968,
+    "ast_hash": "8aa15d05b96f5e8cdb3f67364e816f10",
+    "semantic_hash": "8aa15d05b96f5e8cdb3f67364e816f10"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/entity/blocked_user.dart": {
+    "mtime": 1781073365.2069933,
+    "ast_hash": "e12b14fa92ef5661dacf17bcfbc2745a",
+    "semantic_hash": "e12b14fa92ef5661dacf17bcfbc2745a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/entity/connect_status.dart": {
+    "mtime": 1781073365.2070875,
+    "ast_hash": "bc0aa5cf8fbc61604fefcafa7a4ef64a",
+    "semantic_hash": "bc0aa5cf8fbc61604fefcafa7a4ef64a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/entity/me_profile.dart": {
+    "mtime": 1781073365.2071826,
+    "ast_hash": "e1f0e7b9cddcd0aacda1f6f7aa5c4c60",
+    "semantic_hash": "e1f0e7b9cddcd0aacda1f6f7aa5c4c60"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/entity/notification_settings.dart": {
+    "mtime": 1781073365.2072823,
+    "ast_hash": "0cbd3b1e732838acdde30347ef675ecc",
+    "semantic_hash": "0cbd3b1e732838acdde30347ef675ecc"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/entity/payout.dart": {
+    "mtime": 1781073365.2073798,
+    "ast_hash": "9cd6b65b65aace9c84e32e38ba76977d",
+    "semantic_hash": "9cd6b65b65aace9c84e32e38ba76977d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/entity/preferences_input.dart": {
+    "mtime": 1781073365.2074685,
+    "ast_hash": "4e1b3b57230c42690f24424903f481c0",
+    "semantic_hash": "4e1b3b57230c42690f24424903f481c0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/entity/seller_stats.dart": {
+    "mtime": 1781073365.20755,
+    "ast_hash": "7dbd2b745fc5b2d8987f80d2d7254255",
+    "semantic_hash": "7dbd2b745fc5b2d8987f80d2d7254255"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/me/me_repository.dart": {
+    "mtime": 1781094487.8243349,
+    "ast_hash": "a2269812bf828ce42ece2f75cb3f8ad8",
+    "semantic_hash": "a2269812bf828ce42ece2f75cb3f8ad8"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/notifications/entity/app_notification.dart": {
+    "mtime": 1781073365.2078533,
+    "ast_hash": "e4e7b3a312a1434c030bd0922ab4d6d5",
+    "semantic_hash": "e4e7b3a312a1434c030bd0922ab4d6d5"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/notifications/entity/notification_type.dart": {
+    "mtime": 1781073365.2079413,
+    "ast_hash": "f3b1e9644a0d13551cdfb06bad61b4bd",
+    "semantic_hash": "f3b1e9644a0d13551cdfb06bad61b4bd"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/notifications/notifications_repository.dart": {
+    "mtime": 1781073365.208037,
+    "ast_hash": "d0f174873b59e57d26a40bc91f1b5aa2",
+    "semantic_hash": "d0f174873b59e57d26a40bc91f1b5aa2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/offers/entity/offer.dart": {
+    "mtime": 1781073365.2082343,
+    "ast_hash": "e9350f84473d989b1a44f6bf45418ce5",
+    "semantic_hash": "e9350f84473d989b1a44f6bf45418ce5"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/offers/offers_repository.dart": {
+    "mtime": 1781073365.2083206,
+    "ast_hash": "67e5c5607fd00d8b0a5ace14712422d7",
+    "semantic_hash": "67e5c5607fd00d8b0a5ace14712422d7"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/orders/entity/order.dart": {
+    "mtime": 1781073365.2085257,
+    "ast_hash": "aac8af2bcafc97a4be9e582bbd412afe",
+    "semantic_hash": "aac8af2bcafc97a4be9e582bbd412afe"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/orders/entity/order_action.dart": {
+    "mtime": 1781073365.208622,
+    "ast_hash": "686d78379b52d09b50c36d1baf56de0d",
+    "semantic_hash": "686d78379b52d09b50c36d1baf56de0d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/orders/entity/order_list_item.dart": {
+    "mtime": 1781073365.2087264,
+    "ast_hash": "97fc7e1a4c0964970fe9695ad1cf5b02",
+    "semantic_hash": "97fc7e1a4c0964970fe9695ad1cf5b02"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/orders/entity/order_status.dart": {
+    "mtime": 1781073365.2088282,
+    "ast_hash": "688ce9eb9c480219e0a108366bfd92de",
+    "semantic_hash": "688ce9eb9c480219e0a108366bfd92de"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/orders/entity/order_tracking.dart": {
+    "mtime": 1781073365.2089312,
+    "ast_hash": "1a710397241af9186ec225508df67c5c",
+    "semantic_hash": "1a710397241af9186ec225508df67c5c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/orders/orders_repository.dart": {
+    "mtime": 1781073365.2090352,
+    "ast_hash": "4a47be7d3b7409f06f076e6a5ce1c6ee",
+    "semantic_hash": "4a47be7d3b7409f06f076e6a5ce1c6ee"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/places/entity/place_details.dart": {
+    "mtime": 1781086528.3277361,
+    "ast_hash": "9af51a0ff9e0a9025053f71a38bd4770",
+    "semantic_hash": "9af51a0ff9e0a9025053f71a38bd4770"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/places/entity/place_suggestion.dart": {
+    "mtime": 1781086521.275485,
+    "ast_hash": "fa446444cfcc63d36aff9b710802011c",
+    "semantic_hash": "fa446444cfcc63d36aff9b710802011c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/places/places_repository.dart": {
+    "mtime": 1781086533.9857838,
+    "ast_hash": "74f3eee15930b16611623d122c956730",
+    "semantic_hash": "74f3eee15930b16611623d122c956730"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/product/entity/create_product_input.dart": {
+    "mtime": 1781073365.2092443,
+    "ast_hash": "859860561a6d654426ad8ab86c241a8f",
+    "semantic_hash": "859860561a6d654426ad8ab86c241a8f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/product/entity/product.dart": {
+    "mtime": 1781073365.2093356,
+    "ast_hash": "d4906b89175060962c809e2112fcda3b",
+    "semantic_hash": "d4906b89175060962c809e2112fcda3b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/product/entity/product_detail.dart": {
+    "mtime": 1781272787.774843,
+    "ast_hash": "ef0e88da0b5253400e6f490e7df022a6",
+    "semantic_hash": "ef0e88da0b5253400e6f490e7df022a6"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/product/products_repository.dart": {
+    "mtime": 1781073365.20952,
+    "ast_hash": "d385ffd56bdf9f3ee24314c6fdacade2",
+    "semantic_hash": "d385ffd56bdf9f3ee24314c6fdacade2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/sell/entity/sell_draft.dart": {
+    "mtime": 1781272781.8719451,
+    "ast_hash": "4f0020c56ccd3cbdd021214d0f513f21",
+    "semantic_hash": "4f0020c56ccd3cbdd021214d0f513f21"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/sell/sell_repository.dart": {
+    "mtime": 1781073365.209812,
+    "ast_hash": "1a5d20b52db017478d71b83657964a98",
+    "semantic_hash": "1a5d20b52db017478d71b83657964a98"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/sell/usecase/check_sell_prerequisite_usecase.dart": {
+    "mtime": 1781086894.6226168,
+    "ast_hash": "39ff54b4ab312682d2f2e24a4593c5aa",
+    "semantic_hash": "39ff54b4ab312682d2f2e24a4593c5aa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/sell/usecase/sell_prerequisite.dart": {
+    "mtime": 1781086501.8240752,
+    "ast_hash": "8f48eafae94975cbb820af75a519e8c9",
+    "semantic_hash": "8f48eafae94975cbb820af75a519e8c9"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/social/entity/follow_user.dart": {
+    "mtime": 1781073365.2100344,
+    "ast_hash": "281ddf32db84e87c16732418f1a741f2",
+    "semantic_hash": "281ddf32db84e87c16732418f1a741f2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/social/entity/profile_reel.dart": {
+    "mtime": 1781073365.2101228,
+    "ast_hash": "9024ca38d5f99835b2bef027d10c5205",
+    "semantic_hash": "9024ca38d5f99835b2bef027d10c5205"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/social/entity/social_profile.dart": {
+    "mtime": 1781073365.2102175,
+    "ast_hash": "97f29c5332553b8eefff634027e972ff",
+    "semantic_hash": "97f29c5332553b8eefff634027e972ff"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/social/entity/user_review.dart": {
+    "mtime": 1781073365.2103052,
+    "ast_hash": "1e3236ce9aa529eb1c5cbb86e10e5e9c",
+    "semantic_hash": "1e3236ce9aa529eb1c5cbb86e10e5e9c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/social/social_repository.dart": {
+    "mtime": 1781073365.210396,
+    "ast_hash": "f56dd143069e918a13ddece1a452198d",
+    "semantic_hash": "f56dd143069e918a13ddece1a452198d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/uploads/uploads_repository.dart": {
+    "mtime": 1781073365.210546,
+    "ast_hash": "bc32442e4fdcae1ad2eb3bca4d178722",
+    "semantic_hash": "bc32442e4fdcae1ad2eb3bca4d178722"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/domain/wishlist/wishlist_repository.dart": {
+    "mtime": 1781073365.2107117,
+    "ast_hash": "252a8c4c979929a3ca6ac67e0e8228ad",
+    "semantic_hash": "252a8c4c979929a3ca6ac67e0e8228ad"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/auth/presentation/bloc/auth_bloc.dart": {
+    "mtime": 1781272781.8722923,
+    "ast_hash": "2649d38478fd75bb4804293c7a504cab",
+    "semantic_hash": "2649d38478fd75bb4804293c7a504cab"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/auth/presentation/bloc/auth_event.dart": {
+    "mtime": 1781272781.8724687,
+    "ast_hash": "3c90727a3431edfffa7a41cb6d753887",
+    "semantic_hash": "3c90727a3431edfffa7a41cb6d753887"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/auth/presentation/bloc/auth_state.dart": {
+    "mtime": 1781073365.2113187,
+    "ast_hash": "aca6d2fdf2a81e94dd117a9b2a1f784a",
+    "semantic_hash": "aca6d2fdf2a81e94dd117a9b2a1f784a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/auth/presentation/screen/login_page.dart": {
+    "mtime": 1781272781.8726823,
+    "ast_hash": "d6c8850c0a1063f959f857efc1ed804d",
+    "semantic_hash": "d6c8850c0a1063f959f857efc1ed804d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/auth/presentation/screen/otp_page.dart": {
+    "mtime": 1781272781.8730025,
+    "ast_hash": "0ddbc54c862bf2014cdfacb9f60fa057",
+    "semantic_hash": "0ddbc54c862bf2014cdfacb9f60fa057"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/auth/presentation/screen/phone_page.dart": {
+    "mtime": 1781272781.8733802,
+    "ast_hash": "368fba7ce228edc617aa630fdeab464d",
+    "semantic_hash": "368fba7ce228edc617aa630fdeab464d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/auth/presentation/screen/welcome_page.dart": {
+    "mtime": 1781073365.2118852,
+    "ast_hash": "929b7ed7747c13695520716355ab4c8f",
+    "semantic_hash": "929b7ed7747c13695520716355ab4c8f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/cart/presentation/bloc/cart_bloc.dart": {
+    "mtime": 1781073365.212184,
+    "ast_hash": "7d863de82af420103d0b284259fb21d9",
+    "semantic_hash": "7d863de82af420103d0b284259fb21d9"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/cart/presentation/bloc/cart_event.dart": {
+    "mtime": 1781073365.2122967,
+    "ast_hash": "35f4e9e01198cb48c494c296abe91590",
+    "semantic_hash": "35f4e9e01198cb48c494c296abe91590"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/cart/presentation/bloc/cart_state.dart": {
+    "mtime": 1781073365.2123945,
+    "ast_hash": "436274029e26bf3fca8505835092e5b5",
+    "semantic_hash": "436274029e26bf3fca8505835092e5b5"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/cart/presentation/screen/cart_page.dart": {
+    "mtime": 1781082326.255647,
+    "ast_hash": "5b10c3e8aad3246466ec8b9aa29912d8",
+    "semantic_hash": "5b10c3e8aad3246466ec8b9aa29912d8"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/cart/presentation/widget/cart_bucket_card_widget.dart": {
+    "mtime": 1781082326.255874,
+    "ast_hash": "1b7217d1fa42f712f67e1b6e6163747c",
+    "semantic_hash": "1b7217d1fa42f712f67e1b6e6163747c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/cart/presentation/widget/offer_sheet.dart": {
+    "mtime": 1781073365.2128825,
+    "ast_hash": "f60c7e2c02bb7c6b6599652b0d47c5d6",
+    "semantic_hash": "f60c7e2c02bb7c6b6599652b0d47c5d6"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/chat_config.dart": {
+    "mtime": 1781272781.873639,
+    "ast_hash": "4ee04dee72cc2e73e5e0d2636e4c4875",
+    "semantic_hash": "4ee04dee72cc2e73e5e0d2636e4c4875"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/chat_message_styles.dart": {
+    "mtime": 1781082326.2561886,
+    "ast_hash": "3fa54749af3c5a9e2e6f668dcc8ce3dc",
+    "semantic_hash": "3fa54749af3c5a9e2e6f668dcc8ce3dc"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/chat_offer_controller.dart": {
+    "mtime": 1781082326.2562907,
+    "ast_hash": "67c2dd310223a0726a066a8e5909d91b",
+    "semantic_hash": "67c2dd310223a0726a066a8e5909d91b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/chat_theme.dart": {
+    "mtime": 1781272781.8737833,
+    "ast_hash": "ae9a37d3ae42fd0bf36bf185e3365d75",
+    "semantic_hash": "ae9a37d3ae42fd0bf36bf185e3365d75"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/custom_text_message.dart": {
+    "mtime": 1781272781.8741107,
+    "ast_hash": "74de7b70e6e76806df885ceecfa2caf1",
+    "semantic_hash": "74de7b70e6e76806df885ceecfa2caf1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/mobile_message_controller.dart": {
+    "mtime": 1781272781.8742845,
+    "ast_hash": "37a897f14b6857a26f985712a7dbb495",
+    "semantic_hash": "37a897f14b6857a26f985712a7dbb495"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/mobile_tchat_controller.dart": {
+    "mtime": 1781082326.2566688,
+    "ast_hash": "12c5a440f151ceba963f8ff341d12ac1",
+    "semantic_hash": "12c5a440f151ceba963f8ff341d12ac1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/offer_message_builder.dart": {
+    "mtime": 1781082326.2568095,
+    "ast_hash": "2ea21a3b794fbbf0c31f2aab029eecd2",
+    "semantic_hash": "2ea21a3b794fbbf0c31f2aab029eecd2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/purchase_message_builder.dart": {
+    "mtime": 1781082326.2569416,
+    "ast_hash": "d6819cc688285ec141383085e0879aa1",
+    "semantic_hash": "d6819cc688285ec141383085e0879aa1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/bridge/user_data_mapper.dart": {
+    "mtime": 1781082326.2570462,
+    "ast_hash": "0f60a4ca2836132c23ce7ead85bc29e5",
+    "semantic_hash": "0f60a4ca2836132c23ce7ead85bc29e5"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/entry/chat_entry.dart": {
+    "mtime": 1781272781.8744364,
+    "ast_hash": "81339f62384c84492859750d14634b94",
+    "semantic_hash": "81339f62384c84492859750d14634b94"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/entry/chat_launcher.dart": {
+    "mtime": 1781272781.8745952,
+    "ast_hash": "7769b8a055d54ef767620b35782e68ae",
+    "semantic_hash": "7769b8a055d54ef767620b35782e68ae"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/presentation/screen/chat_media_picker_page.dart": {
+    "mtime": 1781082326.2574584,
+    "ast_hash": "afcfad391ea1623c021d26ce80defcfa",
+    "semantic_hash": "afcfad391ea1623c021d26ce80defcfa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/presentation/screen/chat_page.dart": {
+    "mtime": 1781091793.2137046,
+    "ast_hash": "4049dbd01b5e77828339b8ee61c8dc91",
+    "semantic_hash": "4049dbd01b5e77828339b8ee61c8dc91"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/chat/presentation/screen/chat_thread_page.dart": {
+    "mtime": 1781082326.2578585,
+    "ast_hash": "972fcb56e261eb10290a275e5304869f",
+    "semantic_hash": "972fcb56e261eb10290a275e5304869f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/checkout/presentation/bloc/checkout_bloc.dart": {
+    "mtime": 1781272781.8748071,
+    "ast_hash": "ef8c29e205d051e2d4be5405e2517a52",
+    "semantic_hash": "ef8c29e205d051e2d4be5405e2517a52"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/checkout/presentation/bloc/checkout_event.dart": {
+    "mtime": 1781272781.8749585,
+    "ast_hash": "ceade18035bc5e03bc68628dc2362ff7",
+    "semantic_hash": "ceade18035bc5e03bc68628dc2362ff7"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/checkout/presentation/bloc/checkout_state.dart": {
+    "mtime": 1781272781.8751073,
+    "ast_hash": "8fb59c9ba928c4069e04f946f78e135e",
+    "semantic_hash": "8fb59c9ba928c4069e04f946f78e135e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/checkout/presentation/screen/checkout_page.dart": {
+    "mtime": 1781272781.8754208,
+    "ast_hash": "d712b337a41dd8bb72decbd8233c653a",
+    "semantic_hash": "d712b337a41dd8bb72decbd8233c653a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/bloc/feed_bloc.dart": {
+    "mtime": 1781272781.875738,
+    "ast_hash": "bee47e2da3baa0ffd407232b296e2877",
+    "semantic_hash": "bee47e2da3baa0ffd407232b296e2877"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/bloc/feed_event.dart": {
+    "mtime": 1781272781.8758974,
+    "ast_hash": "98e39f8e8d4fa4e0fb0446bb4fc1697c",
+    "semantic_hash": "98e39f8e8d4fa4e0fb0446bb4fc1697c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/bloc/feed_state.dart": {
+    "mtime": 1781073365.214447,
+    "ast_hash": "3beca5a9b461a19efc73f40481871998",
+    "semantic_hash": "3beca5a9b461a19efc73f40481871998"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/screen/home_page.dart": {
+    "mtime": 1781272781.8761044,
+    "ast_hash": "2c7bfabd222e780e6b142f3cc69aedec",
+    "semantic_hash": "2c7bfabd222e780e6b142f3cc69aedec"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/widget/feed_tab_widget.dart": {
+    "mtime": 1781272781.8762827,
+    "ast_hash": "c79a38297999eab749a93a41679fbbb7",
+    "semantic_hash": "c79a38297999eab749a93a41679fbbb7"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/widget/legal_acceptance_sheet.dart": {
+    "mtime": 1781073365.214832,
+    "ast_hash": "fddda641538c3efe8989fe0bd091ea13",
+    "semantic_hash": "fddda641538c3efe8989fe0bd091ea13"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/widget/notifications_bell_widget.dart": {
+    "mtime": 1781073365.2149255,
+    "ast_hash": "7d42dfa061b3906e1f748fadd9ae9ea5",
+    "semantic_hash": "7d42dfa061b3906e1f748fadd9ae9ea5"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/widget/product_card_widget.dart": {
+    "mtime": 1781092922.316869,
+    "ast_hash": "002bd5d66a520602594099d168454819",
+    "semantic_hash": "002bd5d66a520602594099d168454819"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/widget/shell_tabs_widget.dart": {
+    "mtime": 1781073365.215094,
+    "ast_hash": "b66c29f065bdae684d0b38c635179899",
+    "semantic_hash": "b66c29f065bdae684d0b38c635179899"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/home/presentation/widget/wishlist_tab_widget.dart": {
+    "mtime": 1781272781.8800075,
+    "ast_hash": "d24654d30187df1ce41cf84490c71ae9",
+    "semantic_hash": "d24654d30187df1ce41cf84490c71ae9"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/notifications/presentation/bloc/notifications_bloc.dart": {
+    "mtime": 1781272781.8804216,
+    "ast_hash": "2436790e470d44419a2a4ba759ebfe9a",
+    "semantic_hash": "2436790e470d44419a2a4ba759ebfe9a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/notifications/presentation/bloc/notifications_event.dart": {
+    "mtime": 1781272781.8806324,
+    "ast_hash": "5b66b17506b0c285b03a34692f5b43ba",
+    "semantic_hash": "5b66b17506b0c285b03a34692f5b43ba"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/notifications/presentation/bloc/notifications_state.dart": {
+    "mtime": 1781272781.8807776,
+    "ast_hash": "4e9aa9df2538b979ca7bbc11bdf9510c",
+    "semantic_hash": "4e9aa9df2538b979ca7bbc11bdf9510c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/notifications/presentation/screen/notifications_page.dart": {
+    "mtime": 1781272781.8809917,
+    "ast_hash": "7bc850476c12c6b35c9de0f3497a5693",
+    "semantic_hash": "7bc850476c12c6b35c9de0f3497a5693"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/notifications/presentation/widget/notification_row_widget.dart": {
+    "mtime": 1781073365.2160468,
+    "ast_hash": "37ac026f2a1d4ca22f09cb6b84f09f09",
+    "semantic_hash": "37ac026f2a1d4ca22f09cb6b84f09f09"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/notifications/presentation/widget/notification_skeleton_widget.dart": {
+    "mtime": 1781073365.216162,
+    "ast_hash": "b6dc7033db497382d0acb1f378b2817b",
+    "semantic_hash": "b6dc7033db497382d0acb1f378b2817b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/notifications/presentation/widget/notification_type_visuals.dart": {
+    "mtime": 1781073365.2162602,
+    "ast_hash": "ed4a5272205cc26c5fad5d8af9da0015",
+    "semantic_hash": "ed4a5272205cc26c5fad5d8af9da0015"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/bloc/personalize_bloc.dart": {
+    "mtime": 1781073365.2165296,
+    "ast_hash": "c32514cadc3fed1615751287744a0c70",
+    "semantic_hash": "c32514cadc3fed1615751287744a0c70"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/bloc/personalize_event.dart": {
+    "mtime": 1781073365.2166178,
+    "ast_hash": "ccacda53ebd12b51e2e6135e9b4fdf31",
+    "semantic_hash": "ccacda53ebd12b51e2e6135e9b4fdf31"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/bloc/personalize_state.dart": {
+    "mtime": 1781073365.2167144,
+    "ast_hash": "bca727a3e74c421f8d5097bd02c00a33",
+    "semantic_hash": "bca727a3e74c421f8d5097bd02c00a33"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/bloc/profile_completion_bloc.dart": {
+    "mtime": 1781091824.009725,
+    "ast_hash": "658672747cc3ff8212bacdedece38e96",
+    "semantic_hash": "658672747cc3ff8212bacdedece38e96"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/bloc/profile_completion_event.dart": {
+    "mtime": 1781091892.0582957,
+    "ast_hash": "2e9803d0d450377720dfa70ff39197be",
+    "semantic_hash": "2e9803d0d450377720dfa70ff39197be"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/bloc/profile_completion_state.dart": {
+    "mtime": 1781091423.80801,
+    "ast_hash": "00a18dadcf92b7c2ac8e5268c9b6dfd9",
+    "semantic_hash": "00a18dadcf92b7c2ac8e5268c9b6dfd9"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/bloc/seller_role_bloc.dart": {
+    "mtime": 1781073365.2170784,
+    "ast_hash": "b9c2a3daf65d5c10af00be2f6c139f79",
+    "semantic_hash": "b9c2a3daf65d5c10af00be2f6c139f79"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/bloc/seller_role_event.dart": {
+    "mtime": 1781073365.217165,
+    "ast_hash": "c2e7e554f3bd2b35adde6d5e67d18b35",
+    "semantic_hash": "c2e7e554f3bd2b35adde6d5e67d18b35"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/bloc/seller_role_state.dart": {
+    "mtime": 1781073365.2172463,
+    "ast_hash": "926da381e3efc7560004e33603a9d0bf",
+    "semantic_hash": "926da381e3efc7560004e33603a9d0bf"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/screen/personalize_page.dart": {
+    "mtime": 1781109806.11655,
+    "ast_hash": "b0da349b9aa680f4fc28e5fefb5ae716",
+    "semantic_hash": "b0da349b9aa680f4fc28e5fefb5ae716"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/screen/profile_completion_page.dart": {
+    "mtime": 1781272787.7752135,
+    "ast_hash": "e4fcef48d3e3bb57c531ab3b60889601",
+    "semantic_hash": "e4fcef48d3e3bb57c531ab3b60889601"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/screen/seller_role_page.dart": {
+    "mtime": 1781073365.217584,
+    "ast_hash": "1588a8399786cabbbf9f1a77bebb6627",
+    "semantic_hash": "1588a8399786cabbbf9f1a77bebb6627"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/widget/personalize_add_chip_widget.dart": {
+    "mtime": 1781098698.577525,
+    "ast_hash": "a98f03fb5bd3c047c0f3990f60c8aac8",
+    "semantic_hash": "a98f03fb5bd3c047c0f3990f60c8aac8"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/widget/personalize_removable_chip_widget.dart": {
+    "mtime": 1781098691.8225486,
+    "ast_hash": "a922137d3dbda8535c22a7abe83e5761",
+    "semantic_hash": "a922137d3dbda8535c22a7abe83e5761"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/widget/personalize_section_title_widget.dart": {
+    "mtime": 1781103898.9457786,
+    "ast_hash": "f47783e9c60da445508c984dd573462a",
+    "semantic_hash": "f47783e9c60da445508c984dd573462a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/onboarding/presentation/widget/personalize_sub_label_widget.dart": {
+    "mtime": 1781103908.54116,
+    "ast_hash": "2d5d49e4b012807dbf384bc071180cc4",
+    "semantic_hash": "2d5d49e4b012807dbf384bc071180cc4"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/bloc/order_detail_bloc.dart": {
+    "mtime": 1781272781.8814206,
+    "ast_hash": "530e6c3662769b4d4e22323b55a61719",
+    "semantic_hash": "530e6c3662769b4d4e22323b55a61719"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/bloc/order_detail_event.dart": {
+    "mtime": 1781073365.218113,
+    "ast_hash": "8cb029a929c1e5d4cd0ffecd174c6ec3",
+    "semantic_hash": "8cb029a929c1e5d4cd0ffecd174c6ec3"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/bloc/order_detail_state.dart": {
+    "mtime": 1781272781.8818142,
+    "ast_hash": "4fd004b71e823a31912a18efa53c7cf0",
+    "semantic_hash": "4fd004b71e823a31912a18efa53c7cf0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/bloc/orders_bloc.dart": {
+    "mtime": 1781073365.2182891,
+    "ast_hash": "5b2fd36e0f8733cfeb13bc880b025263",
+    "semantic_hash": "5b2fd36e0f8733cfeb13bc880b025263"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/bloc/orders_event.dart": {
+    "mtime": 1781073365.2183816,
+    "ast_hash": "e83385c5e44cba0f8f35d252ee4c0542",
+    "semantic_hash": "e83385c5e44cba0f8f35d252ee4c0542"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/bloc/orders_state.dart": {
+    "mtime": 1781073365.2184727,
+    "ast_hash": "42c6225ef133ccc0f8f9e081142aef25",
+    "semantic_hash": "42c6225ef133ccc0f8f9e081142aef25"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/screen/offers_page.dart": {
+    "mtime": 1781272781.8820562,
+    "ast_hash": "a55d0bdcc2a4c597e92fc798518801db",
+    "semantic_hash": "a55d0bdcc2a4c597e92fc798518801db"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/screen/order_detail_page.dart": {
+    "mtime": 1781272781.8824053,
+    "ast_hash": "bd2216fbeaa7bf26ac6d290208a132d7",
+    "semantic_hash": "bd2216fbeaa7bf26ac6d290208a132d7"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/screen/orders_page.dart": {
+    "mtime": 1781073365.2188613,
+    "ast_hash": "93942d2595d709308acd2c34929c6369",
+    "semantic_hash": "93942d2595d709308acd2c34929c6369"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/widget/offer_row_widget.dart": {
+    "mtime": 1781073365.2190297,
+    "ast_hash": "681cad12900db4b4d18a09aa16d6e61f",
+    "semantic_hash": "681cad12900db4b4d18a09aa16d6e61f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/widget/order_action_bar_widget.dart": {
+    "mtime": 1781073365.2191281,
+    "ast_hash": "bc3d6607158a8d331d12160a181be964",
+    "semantic_hash": "bc3d6607158a8d331d12160a181be964"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/widget/order_counterpart_card_widget.dart": {
+    "mtime": 1781073365.2192361,
+    "ast_hash": "8b676e175cc002d5be387820dfbba799",
+    "semantic_hash": "8b676e175cc002d5be387820dfbba799"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/widget/order_list_card_widget.dart": {
+    "mtime": 1781073365.219345,
+    "ast_hash": "332fe592f4874042426c5983c96e4bca",
+    "semantic_hash": "332fe592f4874042426c5983c96e4bca"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/widget/order_status_pill_widget.dart": {
+    "mtime": 1781073365.219435,
+    "ast_hash": "5a714758a6695e7b643f02c1ae1c11a9",
+    "semantic_hash": "5a714758a6695e7b643f02c1ae1c11a9"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/widget/order_tracking_stepper_widget.dart": {
+    "mtime": 1781073365.2195349,
+    "ast_hash": "78f5b1ea22fd4484a32096c0820bbf14",
+    "semantic_hash": "78f5b1ea22fd4484a32096c0820bbf14"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/widget/report_problem_sheet.dart": {
+    "mtime": 1781073365.2196357,
+    "ast_hash": "b67eeb41a24a2c1c57cf54397d1833f9",
+    "semantic_hash": "b67eeb41a24a2c1c57cf54397d1833f9"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/widget/review_sheet.dart": {
+    "mtime": 1781073365.2197795,
+    "ast_hash": "0e300952f6370d5e5d06e4eca991d7a3",
+    "semantic_hash": "0e300952f6370d5e5d06e4eca991d7a3"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/orders/presentation/widget/star_rating_input.dart": {
+    "mtime": 1781073365.219869,
+    "ast_hash": "8f4d66e9128ba55293b1646a0b57e595",
+    "semantic_hash": "8f4d66e9128ba55293b1646a0b57e595"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/bloc/product_bloc.dart": {
+    "mtime": 1781272781.8825839,
+    "ast_hash": "aeae4008fd609eafac8efdd45942aa09",
+    "semantic_hash": "aeae4008fd609eafac8efdd45942aa09"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/bloc/product_event.dart": {
+    "mtime": 1781073365.2202141,
+    "ast_hash": "56acb8f4069b51c6dc721d4be5a26dec",
+    "semantic_hash": "56acb8f4069b51c6dc721d4be5a26dec"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/bloc/product_state.dart": {
+    "mtime": 1781272781.8827586,
+    "ast_hash": "6c2165435b42cfe0994736d3f4415190",
+    "semantic_hash": "6c2165435b42cfe0994736d3f4415190"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/screen/edit_listing_page.dart": {
+    "mtime": 1781073365.220446,
+    "ast_hash": "e0f0cd63df7025d43f242fab81118555",
+    "semantic_hash": "e0f0cd63df7025d43f242fab81118555"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/screen/product_page.dart": {
+    "mtime": 1781272787.7755532,
+    "ast_hash": "2eb5bf8740d60c96c34bbf5866e65958",
+    "semantic_hash": "2eb5bf8740d60c96c34bbf5866e65958"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_bottom_scrim_widget.dart": {
+    "mtime": 1781272787.7758,
+    "ast_hash": "410ea7b95bc7ce832e015770cdb7b6ff",
+    "semantic_hash": "410ea7b95bc7ce832e015770cdb7b6ff"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_carousel_widget.dart": {
+    "mtime": 1781272787.7760556,
+    "ast_hash": "71fd62fa15c334e23770c48913883640",
+    "semantic_hash": "71fd62fa15c334e23770c48913883640"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_cta_bar_widget.dart": {
+    "mtime": 1781272787.7763329,
+    "ast_hash": "ed3a0a8a41e2592e5aa38c5c9829852f",
+    "semantic_hash": "ed3a0a8a41e2592e5aa38c5c9829852f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_detail_meta_row_widget.dart": {
+    "mtime": 1781109806.178949,
+    "ast_hash": "6bc52ebd32704144a0f49b61b6f6f30a",
+    "semantic_hash": "6bc52ebd32704144a0f49b61b6f6f30a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_details_panel_widget.dart": {
+    "mtime": 1781109806.180104,
+    "ast_hash": "49e58ace30afcda3defe9634925c4d39",
+    "semantic_hash": "49e58ace30afcda3defe9634925c4d39"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_heart_button_widget.dart": {
+    "mtime": 1781091623.011529,
+    "ast_hash": "eb04419365a2b7d03bdc4ffc74cf5f0f",
+    "semantic_hash": "eb04419365a2b7d03bdc4ffc74cf5f0f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_menu_sheet.dart": {
+    "mtime": 1781073365.2208686,
+    "ast_hash": "672a4b91206da2b1e858f9b4c46c61fa",
+    "semantic_hash": "672a4b91206da2b1e858f9b4c46c61fa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_page_dots_widget.dart": {
+    "mtime": 1781272787.7765634,
+    "ast_hash": "5fde711330ae2667c87882165eb00f89",
+    "semantic_hash": "5fde711330ae2667c87882165eb00f89"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_seller_card_widget.dart": {
+    "mtime": 1781272787.7768135,
+    "ast_hash": "97e4f6717eb27263d07231ac4d68a38d",
+    "semantic_hash": "97e4f6717eb27263d07231ac4d68a38d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_title_block_widget.dart": {
+    "mtime": 1781272787.7770329,
+    "ast_hash": "31f0cc0c70883b621dad6c32e015ef45",
+    "semantic_hash": "31f0cc0c70883b621dad6c32e015ef45"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_top_bar_widget.dart": {
+    "mtime": 1781272787.7772257,
+    "ast_hash": "32380e30c0a788c492a0226d27d96d36",
+    "semantic_hash": "32380e30c0a788c492a0226d27d96d36"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/product/presentation/widget/product_top_scrim_widget.dart": {
+    "mtime": 1781109806.1869717,
+    "ast_hash": "9e03487bfa13047b311f311658d70970",
+    "semantic_hash": "9e03487bfa13047b311f311658d70970"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/bloc/follow_list_bloc.dart": {
+    "mtime": 1781073365.221226,
+    "ast_hash": "66320c15a4c373098026f52646ea17fa",
+    "semantic_hash": "66320c15a4c373098026f52646ea17fa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/bloc/follow_list_event.dart": {
+    "mtime": 1781073365.2213142,
+    "ast_hash": "bdf316c74172dedd7037c5098830d696",
+    "semantic_hash": "bdf316c74172dedd7037c5098830d696"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/bloc/follow_list_state.dart": {
+    "mtime": 1781073365.2213976,
+    "ast_hash": "9ab33459fd9992aa8337f2ab6c392691",
+    "semantic_hash": "9ab33459fd9992aa8337f2ab6c392691"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/bloc/profile_bloc.dart": {
+    "mtime": 1781082326.2601612,
+    "ast_hash": "192b1a664173abd83abc14ec2dba10c4",
+    "semantic_hash": "192b1a664173abd83abc14ec2dba10c4"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/bloc/profile_event.dart": {
+    "mtime": 1781082326.2603385,
+    "ast_hash": "1ae739617f18e1fda164fd47e5d24980",
+    "semantic_hash": "1ae739617f18e1fda164fd47e5d24980"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/bloc/profile_state.dart": {
+    "mtime": 1781073365.2216623,
+    "ast_hash": "8d63a9c265b3c01feb933fdf3da52f3a",
+    "semantic_hash": "8d63a9c265b3c01feb933fdf3da52f3a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/bloc/profile_tab.dart": {
+    "mtime": 1781073365.2217398,
+    "ast_hash": "4c189798056e2369a41977b153572929",
+    "semantic_hash": "4c189798056e2369a41977b153572929"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/screen/follow_list_page.dart": {
+    "mtime": 1781073365.221875,
+    "ast_hash": "1088b1052010c24aac37e02541be5330",
+    "semantic_hash": "1088b1052010c24aac37e02541be5330"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/screen/profile_page.dart": {
+    "mtime": 1781091793.1970851,
+    "ast_hash": "b96cc1de5b6bfbead11b2feb8b45cb9d",
+    "semantic_hash": "b96cc1de5b6bfbead11b2feb8b45cb9d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/screen/user_profile_page.dart": {
+    "mtime": 1781073365.2220204,
+    "ast_hash": "6febea5464d85cec261198eafa8733aa",
+    "semantic_hash": "6febea5464d85cec261198eafa8733aa"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/follow_user_row_widget.dart": {
+    "mtime": 1781073365.2221508,
+    "ast_hash": "ec0405baae77b8df747b42a6468cf042",
+    "semantic_hash": "ec0405baae77b8df747b42a6468cf042"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_actions_widget.dart": {
+    "mtime": 1781073365.2222476,
+    "ast_hash": "c1fac74c7436d0efa4a9d47cff587cc7",
+    "semantic_hash": "c1fac74c7436d0efa4a9d47cff587cc7"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_header_widget.dart": {
+    "mtime": 1781272781.8864532,
+    "ast_hash": "b099071cb370535ef1bda7365ebc0cc6",
+    "semantic_hash": "b099071cb370535ef1bda7365ebc0cc6"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_menu_sheet.dart": {
+    "mtime": 1781073365.2224376,
+    "ast_hash": "abbfba77981b2e36996404816a590deb",
+    "semantic_hash": "abbfba77981b2e36996404816a590deb"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_products_grid.dart": {
+    "mtime": 1781073365.2225258,
+    "ast_hash": "a156df20c163db65378761dc3c8f6bb2",
+    "semantic_hash": "a156df20c163db65378761dc3c8f6bb2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_reels_grid.dart": {
+    "mtime": 1781073365.2226267,
+    "ast_hash": "92cdaccb68850716a8d4bb4f8e175726",
+    "semantic_hash": "92cdaccb68850716a8d4bb4f8e175726"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_reviews_list.dart": {
+    "mtime": 1781073365.2228096,
+    "ast_hash": "3149da557247491e4f6e67285b25d2f1",
+    "semantic_hash": "3149da557247491e4f6e67285b25d2f1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_stats_row_widget.dart": {
+    "mtime": 1781272781.8867857,
+    "ast_hash": "9bbc1f70093105e5cbb6566bc092e17e",
+    "semantic_hash": "9bbc1f70093105e5cbb6566bc092e17e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_tab_bar_widget.dart": {
+    "mtime": 1781109806.2141771,
+    "ast_hash": "964dc5c1ea4c04fcf1d9aba125ded187",
+    "semantic_hash": "964dc5c1ea4c04fcf1d9aba125ded187"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_tab_empty.dart": {
+    "mtime": 1781073365.222888,
+    "ast_hash": "fb1046a2f909939958fa001954870c5b",
+    "semantic_hash": "fb1046a2f909939958fa001954870c5b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/profile_view.dart": {
+    "mtime": 1781272787.777466,
+    "ast_hash": "c2ebd4ee1c6921743e64bae921488c14",
+    "semantic_hash": "c2ebd4ee1c6921743e64bae921488c14"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/profile/presentation/widget/review_card_widget.dart": {
+    "mtime": 1781073365.2231543,
+    "ast_hash": "cd5b6f916bddafeae1bd22662b917fe0",
+    "semantic_hash": "cd5b6f916bddafeae1bd22662b917fe0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/data/datasource/remote_reels_data_source.dart": {
+    "mtime": 1781073365.2234476,
+    "ast_hash": "76fc08c29e1c6c904a1e2453cc2950bc",
+    "semantic_hash": "76fc08c29e1c6c904a1e2453cc2950bc"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/data/reel_mapper.dart": {
+    "mtime": 1781073365.2235425,
+    "ast_hash": "f629efe0771e69b552dbef3cd9863915",
+    "semantic_hash": "f629efe0771e69b552dbef3cd9863915"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/data/reels_repository_impl.dart": {
+    "mtime": 1781082326.2610185,
+    "ast_hash": "25ceba812c4b40c9e0f83ae4913c8066",
+    "semantic_hash": "25ceba812c4b40c9e0f83ae4913c8066"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/domain/entity/reel.dart": {
+    "mtime": 1781272781.8871613,
+    "ast_hash": "8d4c5c4cc54c30718fd0703fec482c7a",
+    "semantic_hash": "8d4c5c4cc54c30718fd0703fec482c7a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/domain/entity/reel_author.dart": {
+    "mtime": 1781073365.2239203,
+    "ast_hash": "bd895b084f355fa0d7c34188c32a27b8",
+    "semantic_hash": "bd895b084f355fa0d7c34188c32a27b8"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/domain/entity/reel_comment.dart": {
+    "mtime": 1781073365.223996,
+    "ast_hash": "79db6c9a1714f4adf9523626409a5563",
+    "semantic_hash": "79db6c9a1714f4adf9523626409a5563"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/domain/reels_repository.dart": {
+    "mtime": 1781073365.2240732,
+    "ast_hash": "fb12271ede90f028be3d02bc0e1e24a2",
+    "semantic_hash": "fb12271ede90f028be3d02bc0e1e24a2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/bloc/reel_composer_bloc.dart": {
+    "mtime": 1781073365.224244,
+    "ast_hash": "de45fecc3ff31e60ad7a4100f25fe4c1",
+    "semantic_hash": "de45fecc3ff31e60ad7a4100f25fe4c1"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/bloc/reel_composer_event.dart": {
+    "mtime": 1781073365.2243137,
+    "ast_hash": "465f4b1747c7343cb1327f525dbca5db",
+    "semantic_hash": "465f4b1747c7343cb1327f525dbca5db"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/bloc/reel_composer_state.dart": {
+    "mtime": 1781073365.2243807,
+    "ast_hash": "9f9404853e72d4553826baa8e8f263ba",
+    "semantic_hash": "9f9404853e72d4553826baa8e8f263ba"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/bloc/reels_bloc.dart": {
+    "mtime": 1781272781.8873563,
+    "ast_hash": "d86d7e97756b7e0985c03f8034b8b822",
+    "semantic_hash": "d86d7e97756b7e0985c03f8034b8b822"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/bloc/reels_event.dart": {
+    "mtime": 1781073365.2245233,
+    "ast_hash": "7275176b39902bfb646e4b5de1cc68d6",
+    "semantic_hash": "7275176b39902bfb646e4b5de1cc68d6"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/bloc/reels_state.dart": {
+    "mtime": 1781073365.2245977,
+    "ast_hash": "ca3799945568a2263309f134734fd7eb",
+    "semantic_hash": "ca3799945568a2263309f134734fd7eb"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/screen/reel_composer_page.dart": {
+    "mtime": 1781073365.2247186,
+    "ast_hash": "b9b2320ac0ddefc1df5c286c2f2dfe02",
+    "semantic_hash": "b9b2320ac0ddefc1df5c286c2f2dfe02"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/screen/single_reel_page.dart": {
+    "mtime": 1781272781.887559,
+    "ast_hash": "9bf977f0f130f01c32b7461ee332c7d0",
+    "semantic_hash": "9bf977f0f130f01c32b7461ee332c7d0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/widget/reel_action_widget.dart": {
+    "mtime": 1781073365.2249153,
+    "ast_hash": "ca668d921697021cba17666c649fd43f",
+    "semantic_hash": "ca668d921697021cba17666c649fd43f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/widget/reel_comments_sheet.dart": {
+    "mtime": 1781272781.887766,
+    "ast_hash": "5b51d49a243ad62722ce16d12e205ec0",
+    "semantic_hash": "5b51d49a243ad62722ce16d12e205ec0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/widget/reel_edit_sheet.dart": {
+    "mtime": 1781073365.2250905,
+    "ast_hash": "c7440b3901cda1521d43ec7191d77e7a",
+    "semantic_hash": "c7440b3901cda1521d43ec7191d77e7a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/widget/reel_menu_sheet.dart": {
+    "mtime": 1781073365.2251616,
+    "ast_hash": "7470aa26dc4b645e411765d614251672",
+    "semantic_hash": "7470aa26dc4b645e411765d614251672"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/widget/reel_page_widget.dart": {
+    "mtime": 1781073365.22524,
+    "ast_hash": "bb07fee1429e9cf4f502752b2223fa63",
+    "semantic_hash": "bb07fee1429e9cf4f502752b2223fa63"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/widget/reel_shop_sheet.dart": {
+    "mtime": 1781272781.887944,
+    "ast_hash": "77bcf0f410ffee346dbc6e4e80b2605c",
+    "semantic_hash": "77bcf0f410ffee346dbc6e4e80b2605c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/reels/presentation/widget/reel_viewer_widget.dart": {
+    "mtime": 1781272781.888119,
+    "ast_hash": "cac11e03180235b812a50e74a51205d4",
+    "semantic_hash": "cac11e03180235b812a50e74a51205d4"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/search/presentation/bloc/search_bloc.dart": {
+    "mtime": 1781272781.8885055,
+    "ast_hash": "8d6567b900da85cfad9fef29e8e2d82b",
+    "semantic_hash": "8d6567b900da85cfad9fef29e8e2d82b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/search/presentation/bloc/search_event.dart": {
+    "mtime": 1781073365.2257783,
+    "ast_hash": "e04c7260c5005663dfd1c7c6e240b1f6",
+    "semantic_hash": "e04c7260c5005663dfd1c7c6e240b1f6"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/search/presentation/bloc/search_filters.dart": {
+    "mtime": 1781073365.2258563,
+    "ast_hash": "801e0090447367cba62d6e13ae6528c0",
+    "semantic_hash": "801e0090447367cba62d6e13ae6528c0"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/search/presentation/bloc/search_state.dart": {
+    "mtime": 1781073365.2259393,
+    "ast_hash": "7b667ff0bdc4b5cecf02beefaf500654",
+    "semantic_hash": "7b667ff0bdc4b5cecf02beefaf500654"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/search/presentation/screen/search_page.dart": {
+    "mtime": 1781272781.8890066,
+    "ast_hash": "deed9b1e37669c0cf74b5746dd2f140e",
+    "semantic_hash": "deed9b1e37669c0cf74b5746dd2f140e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/search/presentation/widget/filter_section_label_widget.dart": {
+    "mtime": 1781098635.0435739,
+    "ast_hash": "03c8299960108b27aaf3860da69f6bb3",
+    "semantic_hash": "03c8299960108b27aaf3860da69f6bb3"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/search/presentation/widget/search_filters_sheet.dart": {
+    "mtime": 1781272781.8896198,
+    "ast_hash": "310d46fa289b1f5031cc41466d31c56b",
+    "semantic_hash": "310d46fa289b1f5031cc41466d31c56b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/search/presentation/widget/selected_category_chip_widget.dart": {
+    "mtime": 1781109806.3070889,
+    "ast_hash": "2ba22f9d5895bc57666273ab64634a9c",
+    "semantic_hash": "2ba22f9d5895bc57666273ab64634a9c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/domain/entity/sell_draft_field.dart": {
+    "mtime": 1781109806.3115718,
+    "ast_hash": "95b719c3065aff0aff05774744d4ba2c",
+    "semantic_hash": "95b719c3065aff0aff05774744d4ba2c"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/domain/entity/size_system.dart": {
+    "mtime": 1781097930.9212167,
+    "ast_hash": "f28abac8a6f3f13d4b0bf2bce4b23575",
+    "semantic_hash": "f28abac8a6f3f13d4b0bf2bce4b23575"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/bloc/sell_bloc.dart": {
+    "mtime": 1781272781.8900852,
+    "ast_hash": "1c746c133f436ea5c5e50b59b20db5b5",
+    "semantic_hash": "1c746c133f436ea5c5e50b59b20db5b5"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/bloc/sell_event.dart": {
+    "mtime": 1781098394.9189887,
+    "ast_hash": "39203ff55894be89f9a42377f63e018e",
+    "semantic_hash": "39203ff55894be89f9a42377f63e018e"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/bloc/sell_state.dart": {
+    "mtime": 1781272781.890486,
+    "ast_hash": "6b87ab92c6fa3a8f76d84455196aaf2b",
+    "semantic_hash": "6b87ab92c6fa3a8f76d84455196aaf2b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/screen/sell_category_page.dart": {
+    "mtime": 1781098390.9793298,
+    "ast_hash": "996bba49c25c0d55982e936de6e1391d",
+    "semantic_hash": "996bba49c25c0d55982e936de6e1391d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/screen/sell_page.dart": {
+    "mtime": 1781073365.2268817,
+    "ast_hash": "55ab27b2de6fc3763865ef78723a5202",
+    "semantic_hash": "55ab27b2de6fc3763865ef78723a5202"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/widget/sell_brand_picker.dart": {
+    "mtime": 1781073365.2270482,
+    "ast_hash": "150ce82a3e0902aa0ee1c99014fa9153",
+    "semantic_hash": "150ce82a3e0902aa0ee1c99014fa9153"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/widget/sell_category_picker.dart": {
+    "mtime": 1781073365.2271445,
+    "ast_hash": "7b88d4e1e149ecbef78957395d0ddaf4",
+    "semantic_hash": "7b88d4e1e149ecbef78957395d0ddaf4"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/widget/sell_field_ai_badge_widget.dart": {
+    "mtime": 1781109789.4473107,
+    "ast_hash": "b31a115d36276161281ce837a563bafb",
+    "semantic_hash": "b31a115d36276161281ce837a563bafb"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/widget/sell_photo_strip_widget.dart": {
+    "mtime": 1781272781.8910315,
+    "ast_hash": "292e1ca74455bc1e14c92698bd64d8b6",
+    "semantic_hash": "292e1ca74455bc1e14c92698bd64d8b6"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/widget/sell_photos_widget.dart": {
+    "mtime": 1781098542.9031897,
+    "ast_hash": "05309793d1bc06fc0dea35aaf3415b9a",
+    "semantic_hash": "05309793d1bc06fc0dea35aaf3415b9a"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/widget/sell_recap_widget.dart": {
+    "mtime": 1781272781.8913174,
+    "ast_hash": "92a2d952ceb712367cad10f957d44998",
+    "semantic_hash": "92a2d952ceb712367cad10f957d44998"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/widget/sell_size_toggle_widget.dart": {
+    "mtime": 1781098494.8892002,
+    "ast_hash": "858692093d1a603bd87126ca1fe2bff4",
+    "semantic_hash": "858692093d1a603bd87126ca1fe2bff4"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/widget/sell_success_widget.dart": {
+    "mtime": 1781073365.2274485,
+    "ast_hash": "110692991bbab698194d5499181081ed",
+    "semantic_hash": "110692991bbab698194d5499181081ed"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/sell/presentation/widget/sell_transition_widget.dart": {
+    "mtime": 1781073365.227532,
+    "ast_hash": "2d09c7825f0ca4f969a6595339fab36b",
+    "semantic_hash": "2d09c7825f0ca4f969a6595339fab36b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/bloc/settings_bloc.dart": {
+    "mtime": 1781272781.891621,
+    "ast_hash": "cdc127ba9c6b8c6fe18d8052e711d5f9",
+    "semantic_hash": "cdc127ba9c6b8c6fe18d8052e711d5f9"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/bloc/settings_event.dart": {
+    "mtime": 1781073365.227842,
+    "ast_hash": "45f31f9526c4916d1e4824f7c6fbf785",
+    "semantic_hash": "45f31f9526c4916d1e4824f7c6fbf785"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/bloc/settings_state.dart": {
+    "mtime": 1781073365.2279143,
+    "ast_hash": "83c654c2cb181c43a2c611ce2e9fc42f",
+    "semantic_hash": "83c654c2cb181c43a2c611ce2e9fc42f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/address_book_page.dart": {
+    "mtime": 1781073365.2280512,
+    "ast_hash": "d1e95468d1504d9d5214ce6038006aa5",
+    "semantic_hash": "d1e95468d1504d9d5214ce6038006aa5"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/address_form_page.dart": {
+    "mtime": 1781073365.2281315,
+    "ast_hash": "7d44e24cac1bbbb93c67303bf88f4150",
+    "semantic_hash": "7d44e24cac1bbbb93c67303bf88f4150"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/blocked_users_page.dart": {
+    "mtime": 1781272781.8918202,
+    "ast_hash": "f9b28cc8a3966a1bc5e14bb54a9455bc",
+    "semantic_hash": "f9b28cc8a3966a1bc5e14bb54a9455bc"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/edit_profile_page.dart": {
+    "mtime": 1781073365.228329,
+    "ast_hash": "01a2ad7252fb1337fe4321431f6086a5",
+    "semantic_hash": "01a2ad7252fb1337fe4321431f6086a5"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/legal_doc_page.dart": {
+    "mtime": 1781073365.2284184,
+    "ast_hash": "7f0b509f21d0317fcf184f43272c211d",
+    "semantic_hash": "7f0b509f21d0317fcf184f43272c211d"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/payout_page.dart": {
+    "mtime": 1781073365.2285101,
+    "ast_hash": "4ea3a2d2c79ec31c2ade8f5da6e545f3",
+    "semantic_hash": "4ea3a2d2c79ec31c2ade8f5da6e545f3"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/payouts_page.dart": {
+    "mtime": 1781073365.2286012,
+    "ast_hash": "924ad7458bbf1ef1eb8706791cef1574",
+    "semantic_hash": "924ad7458bbf1ef1eb8706791cef1574"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/preferences_page.dart": {
+    "mtime": 1781073365.2286794,
+    "ast_hash": "3c3430c7d60675735fca61468ba10c72",
+    "semantic_hash": "3c3430c7d60675735fca61468ba10c72"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/seller_stats_page.dart": {
+    "mtime": 1781073365.2287588,
+    "ast_hash": "51f48343a5e7877a6a28d9e21b6ef104",
+    "semantic_hash": "51f48343a5e7877a6a28d9e21b6ef104"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/seller_verification_page.dart": {
+    "mtime": 1781073365.2288482,
+    "ast_hash": "d3cc993f9717a822f21437062802cb8f",
+    "semantic_hash": "d3cc993f9717a822f21437062802cb8f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/screen/settings_page.dart": {
+    "mtime": 1781073365.2289426,
+    "ast_hash": "d28ac156fe294e1317d36fa2274daa78",
+    "semantic_hash": "d28ac156fe294e1317d36fa2274daa78"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/widget/settings_row_widget.dart": {
+    "mtime": 1781073365.2290988,
+    "ast_hash": "f6212f866d59ddf222a774906be85873",
+    "semantic_hash": "f6212f866d59ddf222a774906be85873"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/settings/presentation/widget/settings_section_widget.dart": {
+    "mtime": 1781073365.2291887,
+    "ast_hash": "e1cdd73c3e7011190bb328404d2ece94",
+    "semantic_hash": "e1cdd73c3e7011190bb328404d2ece94"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/shell/presentation/screen/shell_page.dart": {
+    "mtime": 1781091674.4387672,
+    "ast_hash": "e1c4c9a3313cfb97b70cefbd4b96d151",
+    "semantic_hash": "e1c4c9a3313cfb97b70cefbd4b96d151"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/shell/presentation/widget/shell_bottom_nav_widget.dart": {
+    "mtime": 1781073365.2296207,
+    "ast_hash": "f4fcbc3ed194d9539071d3b0e629e772",
+    "semantic_hash": "f4fcbc3ed194d9539071d3b0e629e772"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/shell/presentation/widget/shell_nav_item_widget.dart": {
+    "mtime": 1781073365.229755,
+    "ast_hash": "7aa83d12dd57b96c19b46e77f109ce6f",
+    "semantic_hash": "7aa83d12dd57b96c19b46e77f109ce6f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/feature/shell/presentation/widget/shell_sell_fab_widget.dart": {
+    "mtime": 1781073365.2298357,
+    "ast_hash": "da1fa6103b65c329858c3352a3fba0f2",
+    "semantic_hash": "da1fa6103b65c329858c3352a3fba0f2"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/router/account_guard.dart": {
+    "mtime": 1781272781.8923876,
+    "ast_hash": "747c16f709f33a9042e03de4682932fc",
+    "semantic_hash": "747c16f709f33a9042e03de4682932fc"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/router/account_routes.dart": {
+    "mtime": 1781086440.7942991,
+    "ast_hash": "3072d7316bc2be9b4161c2f0b6c4cda5",
+    "semantic_hash": "3072d7316bc2be9b4161c2f0b6c4cda5"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/router/app_router.dart": {
+    "mtime": 1781097901.7200167,
+    "ast_hash": "f563834e6b57cbe9fe0677f8246b3f8f",
+    "semantic_hash": "f563834e6b57cbe9fe0677f8246b3f8f"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/router/app_router.gr.dart": {
+    "mtime": 1781272781.8928533,
+    "ast_hash": "deb1df7e38ad8957dbf78833c979f16b",
+    "semantic_hash": "deb1df7e38ad8957dbf78833c979f16b"
+  },
+  "/Users/quentin.gallois/Documents/projects/perso/klozy/klozy-mobile/lib/src/router/auth_guard.dart": {
+    "mtime": 1781073365.2301753,
+    "ast_hash": "f525a5e333b3b748fc8b426775e50348",
+    "semantic_hash": "f525a5e333b3b748fc8b426775e50348"
+  }
+}

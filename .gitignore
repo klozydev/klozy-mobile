@@ -108,6 +108,7 @@ unlinked_spec.ds
 
 # Coverage
 coverage/
+.covstore/
 
 # Symbols
 app.*.symbols
