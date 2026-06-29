@@ -49,6 +49,12 @@ class _LegalDocPageState extends State<LegalDocPage> {
                 transparentBackground: true,
                 disableContextMenu: true,
                 supportZoom: false,
+                // Legal copy is admin-edited and must show the latest version
+                // on every visit. Skip the WebView's HTTP cache so an edit in
+                // the admin propagates without waiting for cache expiry or an
+                // app restart.
+                cacheMode: CacheMode.LOAD_NO_CACHE,
+                clearCache: true,
               ),
               onLoadStop: (_, _) => setState(() => _loading = false),
               // Sub-resource failures (favicon, fonts, etc.) must NOT flip the
