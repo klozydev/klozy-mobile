@@ -191,17 +191,26 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
             ),
           ],
         ),
-        SettingsSectionWidget(
-          title: l.settings_group_social,
-          children: <Widget>[
-            SettingsRowWidget(
-              icon: Icons.camera_alt_outlined,
-              label: l.settings_instagram,
-              value: l.settings_instagram_handle,
-              onTap: () => _support(context, state),
-            ),
-          ],
-        ),
+        // Instagram lives in the social section — only render it when the
+        // admin has configured a handle. Otherwise the row "works" but the tap
+        // fell through to the support fallback and surfaced a misleading
+        // "Support is unavailable" snackbar.
+        if (state.contact.instagram != null &&
+            state.contact.instagram!.trim().isNotEmpty)
+          SettingsSectionWidget(
+            title: l.settings_group_social,
+            children: <Widget>[
+              SettingsRowWidget(
+                icon: Icons.camera_alt_outlined,
+                label: l.settings_instagram,
+                value: _instagramDisplay(state.contact.instagram!),
+                onTap: () => _launch(
+                  context,
+                  _instagramUrl(state.contact.instagram!),
+                ),
+              ),
+            ],
+          ),
         const SizedBox(height: 16),
         const _VersionRow(),
       ],
@@ -295,10 +304,7 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
 
   void _support(BuildContext context, SettingsLoadedState state) {
     final email = state.contact.supportEmail;
-    final instagram = state.contact.instagram;
-    if (instagram != null && instagram.isNotEmpty) {
-      _launch(context, _instagramUrl(instagram));
-    } else if (email != null && email.isNotEmpty) {
+    if (email != null && email.isNotEmpty) {
       _launch(context, 'mailto:$email');
     } else {
       context.showSnackBar(context.l10N.settings_support_unavailable);
@@ -316,6 +322,18 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
     }
     final handle = trimmed.startsWith('@') ? trimmed.substring(1) : trimmed;
     return 'https://instagram.com/$handle';
+  }
+
+  /// Pretty-print whatever the admin entered as a handle prefixed with `@`,
+  /// even if they pasted a full URL or left the `@` off.
+  String _instagramDisplay(String value) {
+    final trimmed = value.trim();
+    if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
+      final segments = Uri.parse(trimmed).pathSegments;
+      final handle = segments.isNotEmpty ? segments.first : trimmed;
+      return '@$handle';
+    }
+    return trimmed.startsWith('@') ? trimmed : '@$trimmed';
   }
 }
 
