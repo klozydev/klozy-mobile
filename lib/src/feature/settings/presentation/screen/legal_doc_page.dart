@@ -51,10 +51,21 @@ class _LegalDocPageState extends State<LegalDocPage> {
                 supportZoom: false,
               ),
               onLoadStop: (_, _) => setState(() => _loading = false),
-              onReceivedError: (_, _, _) =>
-                  setState(() => _failed = true),
-              onReceivedHttpError: (_, _, _) =>
-                  setState(() => _failed = true),
+              // Sub-resource failures (favicon, fonts, etc.) must NOT flip the
+              // page to its error state — only flag a failure when the main
+              // document itself fails to load. Previously, the backend's
+              // missing /favicon.ico turned a successful render into the
+              // "document unavailable" overlay.
+              onReceivedError: (_, WebResourceRequest request, _) {
+                if (request.isForMainFrame ?? false) {
+                  setState(() => _failed = true);
+                }
+              },
+              onReceivedHttpError: (_, WebResourceRequest request, _) {
+                if (request.isForMainFrame ?? false) {
+                  setState(() => _failed = true);
+                }
+              },
             ),
           if (_loading && !_failed) const DSLoader(),
           if (_failed)
