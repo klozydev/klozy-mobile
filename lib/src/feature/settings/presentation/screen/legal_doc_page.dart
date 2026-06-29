@@ -27,7 +27,7 @@ class _LegalDocPageState extends State<LegalDocPage> {
   bool _failed = false;
 
   late final WebUri _uri = WebUri(
-    '${locator<BaseUrl>().baseUrl}v1/legal/${widget.docKey}.html',
+    '${locator<BaseUrl>().baseUrl}v1/legal/${widget.docKey}/html',
   );
 
   @override

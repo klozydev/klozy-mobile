@@ -297,12 +297,25 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
     final email = state.contact.supportEmail;
     final instagram = state.contact.instagram;
     if (instagram != null && instagram.isNotEmpty) {
-      _launch(context, instagram);
+      _launch(context, _instagramUrl(instagram));
     } else if (email != null && email.isNotEmpty) {
       _launch(context, 'mailto:$email');
     } else {
       context.showSnackBar(context.l10N.settings_support_unavailable);
     }
+  }
+
+  /// The admin stores Instagram as a handle (e.g. `@klozy` or just `klozy`),
+  /// not a full URL. Strip a leading `@` and resolve to `instagram.com/<handle>`
+  /// so url_launcher gets a real URL and the OS hands it to the Instagram app
+  /// (or browser) instead of silently failing on a scheme-less string.
+  String _instagramUrl(String value) {
+    final trimmed = value.trim();
+    if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
+      return trimmed;
+    }
+    final handle = trimmed.startsWith('@') ? trimmed.substring(1) : trimmed;
+    return 'https://instagram.com/$handle';
   }
 }
 
