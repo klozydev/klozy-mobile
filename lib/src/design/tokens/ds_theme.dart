@@ -96,5 +96,17 @@ ThemeData dsTheme() {
       centerTitle: true,
       iconTheme: IconThemeData(color: DSColor.onSurface),
     ),
+    // AndroidManifest opts into Predictive Back via
+    // `android:enableOnBackInvokedCallback="true"`. Without an explicit
+    // PredictiveBackPageTransitionsBuilder, Android plays the system back-
+    // gesture preview AND Flutter's default Zoom transition runs the pop —
+    // producing the visible "closed screen reopens then closes again" glitch
+    // on every back navigation. Registering the predictive builder hands the
+    // animation to the system so the two stay in sync.
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: <TargetPlatform, PageTransitionsBuilder>{
+        TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+      },
+    ),
   );
 }

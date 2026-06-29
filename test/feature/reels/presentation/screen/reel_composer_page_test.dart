@@ -32,7 +32,6 @@ class _MockStackRouter extends Mock implements StackRouter {}
 
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
-class _FakeReelComposerEvent extends Fake implements ReelComposerEvent {}
 
 // ---- Fake image picker platform ----------------------------------------
 

@@ -1,13 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/network/base_url/base_url.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
-import 'package:klozy/src/domain/config/entity/legal_doc.dart';
-import 'package:klozy/src/domain/config/public_config_repository.dart';
 
+/// In-app browser for an admin-edited legal document. The actual page
+/// (title, copy, last-updated stamp) is served by the API as a rendered
+/// HTML page at `v1/legal/{key}.html`, so edits in the admin take effect
+/// without a mobile release.
 @RoutePage()
 class LegalDocPage extends StatefulWidget {
   final String docKey;
@@ -19,8 +23,12 @@ class LegalDocPage extends StatefulWidget {
 }
 
 class _LegalDocPageState extends State<LegalDocPage> {
-  late final Future<LegalDocContent> _future = locator<PublicConfigRepository>()
-      .getLegalDoc(widget.docKey);
+  bool _loading = true;
+  bool _failed = false;
+
+  late final WebUri _uri = WebUri(
+    '${locator<BaseUrl>().baseUrl}v1/legal/${widget.docKey}.html',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -32,53 +40,35 @@ class _LegalDocPageState extends State<LegalDocPage> {
           onPressed: () => context.router.maybePop(),
         ),
       ),
-      body: FutureBuilder<LegalDocContent>(
-        future: _future,
-        builder:
-            (BuildContext context, AsyncSnapshot<LegalDocContent> snapshot) {
-              if (snapshot.connectionState != ConnectionState.done) {
-                return const DSLoader();
-              }
-              final doc = snapshot.data;
-              if (doc == null || doc.body.isEmpty) {
-                return Center(
-                  child: Text(
-                    context.l10N.settings_doc_unavailable,
-                    style: const TextStyle(
-                      fontFamily: dsFontFamily,
-                      fontSize: DSFontSize.bodyMedium,
-                      color: DSColor.onSurface45,
-                    ),
-                  ),
-                );
-              }
-              return ListView(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-                children: <Widget>[
-                  if (doc.title.isNotEmpty) ...<Widget>[
-                    Text(
-                      doc.title,
-                      style: const TextStyle(
-                        fontFamily: dsFontFamily,
-                        fontSize: 22,
-                        fontWeight: DSFontWeight.bold,
-                        color: DSColor.onSurface,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-                  Text(
-                    doc.body,
-                    style: const TextStyle(
-                      fontFamily: dsFontFamily,
-                      fontSize: DSFontSize.bodyMedium,
-                      height: 1.6,
-                      color: DSColor.onSurface75,
-                    ),
-                  ),
-                ],
-              );
-            },
+      body: Stack(
+        children: <Widget>[
+          if (!_failed)
+            InAppWebView(
+              initialUrlRequest: URLRequest(url: _uri),
+              initialSettings: InAppWebViewSettings(
+                transparentBackground: true,
+                disableContextMenu: true,
+                supportZoom: false,
+              ),
+              onLoadStop: (_, _) => setState(() => _loading = false),
+              onReceivedError: (_, _, _) =>
+                  setState(() => _failed = true),
+              onReceivedHttpError: (_, _, _) =>
+                  setState(() => _failed = true),
+            ),
+          if (_loading && !_failed) const DSLoader(),
+          if (_failed)
+            Center(
+              child: Text(
+                context.l10N.settings_doc_unavailable,
+                style: const TextStyle(
+                  fontFamily: dsFontFamily,
+                  fontSize: DSFontSize.bodyMedium,
+                  color: DSColor.onSurface45,
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }

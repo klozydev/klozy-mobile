@@ -84,17 +84,6 @@ class _AppState extends State<App> {
                     routerConfig: _appRouter.config(
                       deepLinkBuilder: (PlatformDeepLink deepLink) {
                         final Uri uri = deepLink.uri;
-                        // Only our own links should drive navigation. Auth SDK
-                        // callbacks come back on their own URL scheme — Firebase
-                        // phone reCAPTCHA / Google sign-in return via the
-                        // reversed-client-id scheme (com.googleusercontent.apps…)
-                        // or an app-id scheme. Those are consumed by the Firebase
-                        // SDK; if we let them fall through here they hit the '*'
-                        // → '/' redirect and the guard bounces the (still
-                        // signed-out) user to WelcomeRoute, flashing the Get
-                        // Started screen mid sign-in. Ignore any non-app scheme.
-                        // The empty scheme (normal cold start) and http/https
-                        // (Universal Links) still route normally.
                         final String scheme = uri.scheme;
                         final bool routable =
                             scheme.isEmpty ||
@@ -102,11 +91,6 @@ class _AppState extends State<App> {
                             scheme == 'http' ||
                             scheme == 'https';
                         if (!routable) return DeepLink.none;
-                        // Custom-scheme links (e.g. klozy://product/123) put
-                        // the first path segment in the URI host, so AutoRoute
-                        // can't match `/product/:id`. Rebuild a normal path.
-                        // https links already carry the real path (host is the
-                        // domain), so they pass through unchanged.
                         if (uri.scheme == 'klozy' && uri.host.isNotEmpty) {
                           return DeepLink.path('/${uri.host}${uri.path}');
                         }
@@ -116,8 +100,6 @@ class _AppState extends State<App> {
                     debugShowCheckedModeBanner: false,
                     onGenerateTitle: (BuildContext context) =>
                         context.l10N.app_name,
-                    // App strings + locale are driven by gen-l10n
-                    // (`context.l10N`) and AppConfigChangeNotifier.
                     localizationsDelegates:
                         AppLocalizations.localizationsDelegates,
                     supportedLocales: AppLocalizations.supportedLocales,

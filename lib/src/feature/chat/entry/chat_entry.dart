@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
+import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/feature/chat/domain/usecase/open_or_create_thread.dart';
@@ -11,10 +12,31 @@ import 'package:klozy/src/router/app_router.dart';
 /// computed locally (`sorted(myId, otherUserId)`) and the thread opens
 /// **instantly** — the doc is created/refreshed in the background. The header
 /// renders from the passed [displayName] / [avatarUrl] hints meanwhile.
+///
+/// Messaging is a gated action (parity with wishlist/follow/checkout): guest
+/// and incomplete-onboarding users see the [AccountGate] sheet instead of the
+/// thread, which routes them to sign-up or profile completion.
 class ChatEntry {
   const ChatEntry._();
 
   static Future<void> open(
+    BuildContext context, {
+    required String otherUserId,
+    String? displayName,
+    String? avatarUrl,
+  }) async {
+    await locator<AccountGate>().guard(
+      context,
+      onAllowed: () => _openThread(
+        context,
+        otherUserId: otherUserId,
+        displayName: displayName,
+        avatarUrl: avatarUrl,
+      ),
+    );
+  }
+
+  static Future<void> _openThread(
     BuildContext context, {
     required String otherUserId,
     String? displayName,

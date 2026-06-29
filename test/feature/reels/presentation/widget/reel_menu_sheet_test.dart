@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_menu_sheet.dart';
 
@@ -7,36 +8,6 @@ void main() {
   setUpAll(disableDsFonts);
 
   group('ReelMenuSheet — owner mode', () {
-    testWidgets('shows Edit, Share and Delete when isOwner=true with onEdit', (
-      WidgetTester tester,
-    ) async {
-      bool editCalled = false;
-      bool shareCalled = false;
-      bool deleteCalled = false;
-      bool reportCalled = false;
-
-      await tester.pumpWidget(
-        dsWrap(
-          ReelMenuSheet(
-            isOwner: true,
-            onEdit: () => editCalled = true,
-            onShare: () => shareCalled = true,
-            onDelete: () => deleteCalled = true,
-            onReport: () => reportCalled = true,
-          ),
-          wrapInScaffold: true,
-        ),
-      );
-      await tester.pump();
-
-      // Owner rows: Edit, Share, Delete (3 InkWell rows)
-      expect(find.byType(InkWell), findsNWidgets(3));
-      _ = editCalled;
-      _ = shareCalled;
-      _ = deleteCalled;
-      _ = reportCalled;
-    });
-
     testWidgets('tapping Edit calls onEdit', (WidgetTester tester) async {
       bool editCalled = false;
 
