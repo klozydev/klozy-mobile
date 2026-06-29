@@ -45,6 +45,7 @@ class HomePage extends StatefulWidget implements AutoRouteWrapper {
 
 class _HomePageState extends State<HomePage> {
   int _tab = 0;
+  late final PageController _pageController = PageController();
   late final StreamSubscription<OpenReelsTabEvent> _openReelsSub;
 
   // The shell's tabs router — used to know whether the Home tab is the one
@@ -67,8 +68,25 @@ class _HomePageState extends State<HomePage> {
     // Jump to the Reels tab when another flow asks for it (e.g. after posting
     // a reel from the composer).
     _openReelsSub = locator<EventBus>().on<OpenReelsTabEvent>().listen((_) {
-      if (mounted) setState(() => _tab = 2);
+      if (mounted) _goToTab(2, animate: false);
     });
+  }
+
+  /// Drive both the tab indicator and the PageView from a single setter so
+  /// taps on the tab bar and horizontal swipes stay in sync.
+  void _goToTab(int index, {bool animate = true}) {
+    if (_tab == index && _pageController.page?.round() == index) return;
+    setState(() => _tab = index);
+    if (!_pageController.hasClients) return;
+    if (animate) {
+      _pageController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 240),
+        curve: Curves.easeOut,
+      );
+    } else {
+      _pageController.jumpToPage(index);
+    }
   }
 
   @override
@@ -91,6 +109,7 @@ class _HomePageState extends State<HomePage> {
   void dispose() {
     _tabsRouter?.removeListener(_onShellTabChanged);
     _openReelsSub.cancel();
+    _pageController.dispose();
     super.dispose();
   }
 
@@ -129,10 +148,14 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: <Widget>[
           // Reels is full-bleed (video runs edge-to-edge under the overlay bar);
-          // Feed / Wishlist are inset below the opaque bar.
+          // Feed / Wishlist are inset below the opaque bar. Horizontal swipes
+          // between the three tabs are wired through a PageView so the tab bar
+          // and gesture stay in sync.
           Positioned.fill(
-            child: IndexedStack(
-              index: _tab,
+            child: PageView(
+              controller: _pageController,
+              physics: const ClampingScrollPhysics(),
+              onPageChanged: (int i) => setState(() => _tab = i),
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(top: contentInset),
@@ -171,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                           context.l10N.home_tab_reels,
                         ],
                         selectedIndex: _tab,
-                        onChanged: (int i) => setState(() => _tab = i),
+                        onChanged: _goToTab,
                         overlay: reels,
                       ),
                       Align(
