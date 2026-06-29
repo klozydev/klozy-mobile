@@ -177,7 +177,7 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
             SettingsRowWidget(
               icon: Icons.description_outlined,
               label: l.settings_terms,
-              onTap: () => context.router.push(LegalDocRoute(docKey: 'terms')),
+              onTap: () => context.router.push(LegalDocRoute(docKey: 'cgvu')),
             ),
             SettingsRowWidget(
               icon: Icons.gavel_rounded,
