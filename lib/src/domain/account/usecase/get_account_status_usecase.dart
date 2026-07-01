@@ -16,6 +16,12 @@ import 'package:klozy/src/domain/me/me_repository.dart';
 ///
 /// `getMe()` errors are never re-thrown — session resolution cannot hard-fail:
 /// - 404 → legacy (no backend profile).
+/// - 401 / 403 → legacy. The credential was definitively rejected (e.g. the
+///   backend session was wiped or the Firebase account deleted server-side).
+///   The [AuthenticationInterceptor] has already force-refreshed the ID token
+///   once before this surfaces, so it is not a refreshable blip: the user must
+///   re-authenticate. Routing to legacy signs the stale session out and returns
+///   them to Welcome.
 /// - Transient network/server errors → incompleteOnboarding. Rationale: a
 ///   Firebase user is confirmed to exist, but we cannot determine their profile
 ///   state. Routing them to onboarding is the least-destructive safe fallback
@@ -47,8 +53,11 @@ class GetAccountStatusUseCase {
       }
       return AccountStatus.valid;
     } on DioException catch (e) {
-      // 404 → no backend profile → treat as legacy (same as anonymous).
-      if (e.response?.statusCode == 404) {
+      final statusCode = e.response?.statusCode;
+      // 404 → no backend profile. 401/403 → credential rejected and already
+      // force-refreshed once by the interceptor (stale/deleted session).
+      // Both mean the user must re-authenticate → legacy.
+      if (statusCode == 404 || statusCode == 401 || statusCode == 403) {
         return AccountStatus.legacy;
       }
       // Transient network/server error: Firebase user confirmed but profile

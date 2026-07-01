@@ -78,6 +78,29 @@ void main() {
       expect(result, AccountStatus.legacy);
     });
 
+    test('returns legacy when getMe throws 401 (credentials rejected)', () async {
+      // A stale Firebase session that the backend refuses (e.g. the account was
+      // deleted server-side). The interceptor has already force-refreshed once,
+      // so a 401 here is definitive: the user must re-authenticate.
+      when(() => mockAuth.currentUserId).thenReturn('uid-real');
+      when(() => mockAuth.isAnonymous).thenReturn(false);
+      when(() => mockMe.getMe()).thenThrow(_dioException(401));
+
+      final result = await useCase();
+
+      expect(result, AccountStatus.legacy);
+    });
+
+    test('returns legacy when getMe throws 403 (forbidden)', () async {
+      when(() => mockAuth.currentUserId).thenReturn('uid-real');
+      when(() => mockAuth.isAnonymous).thenReturn(false);
+      when(() => mockMe.getMe()).thenThrow(_dioException(403));
+
+      final result = await useCase();
+
+      expect(result, AccountStatus.legacy);
+    });
+
     test('returns incompleteOnboarding when profile is not complete', () async {
       when(() => mockAuth.currentUserId).thenReturn('uid-real');
       when(() => mockAuth.isAnonymous).thenReturn(false);
