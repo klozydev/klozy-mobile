@@ -1692,7 +1692,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get settings_instagram => 'Instagram';
 
   @override
-  String get settings_instagram_handle => '@klozy';
+  String get settings_instagram_handle => '@klozy_uae';
 
   @override
   String get settings_clothing_preference => 'വസ്ത്ര മുൻഗണന';

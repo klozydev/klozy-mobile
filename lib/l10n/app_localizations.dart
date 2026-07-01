@@ -3019,7 +3019,7 @@ abstract class AppLocalizations {
   /// No description provided for @settings_instagram_handle.
   ///
   /// In en, this message translates to:
-  /// **'@klozy'**
+  /// **'@klozy_uae'**
   String get settings_instagram_handle;
 
   /// No description provided for @settings_clothing_preference.

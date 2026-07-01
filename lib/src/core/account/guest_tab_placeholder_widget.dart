@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_app_logo.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
-import 'package:klozy/src/design/components/ds_klozy_mark.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/router/app_router.dart';
@@ -28,7 +28,7 @@ class GuestTabPlaceholderWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              const DSKlozyMark(size: 48),
+              const DSAppLogo(size: 64),
               const SizedBox(height: DSSpacing.xl),
               Text(
                 context.l10N.guest_tab_title,

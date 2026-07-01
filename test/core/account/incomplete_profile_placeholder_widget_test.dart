@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:klozy/l10n/app_localizations.dart';
-import 'package:klozy/src/core/account/guest_tab_placeholder_widget.dart';
+import 'package:klozy/src/core/account/incomplete_profile_placeholder_widget.dart';
 import 'package:klozy/src/design/components/ds_app_logo.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
-import 'package:klozy/src/design/components/ds_button_outline.dart';
 import 'package:klozy/src/design/tokens/ds_theme.dart';
 import 'package:klozy/src/router/app_router.dart';
 import 'package:mocktail/mocktail.dart';
@@ -25,10 +24,10 @@ Widget _wrap(Widget child, {required StackRouter router}) {
 void main() {
   setUpAll(() {
     GoogleFonts.config.allowRuntimeFetching = false;
-    registerFallbackValue(const WelcomeRoute());
+    registerFallbackValue(const EditProfileRoute());
   });
 
-  group('GuestTabPlaceholderWidget', () {
+  group('IncompleteProfilePlaceholderWidget', () {
     late _MockStackRouter router;
 
     setUp(() {
@@ -40,7 +39,7 @@ void main() {
 
     testWidgets('renders app logo', (WidgetTester tester) async {
       await tester.pumpWidget(
-        _wrap(const GuestTabPlaceholderWidget(), router: router),
+        _wrap(const IncompleteProfilePlaceholderWidget(), router: router),
       );
       await tester.pump();
 
@@ -49,46 +48,48 @@ void main() {
 
     testWidgets('renders title', (WidgetTester tester) async {
       await tester.pumpWidget(
-        _wrap(const GuestTabPlaceholderWidget(), router: router),
+        _wrap(const IncompleteProfilePlaceholderWidget(), router: router),
       );
       await tester.pump();
 
-      expect(find.text('Sign in to Klozy'), findsOneWidget);
+      expect(find.text('Finish setting up your profile'), findsOneWidget);
     });
 
     testWidgets('renders subtitle', (WidgetTester tester) async {
       await tester.pumpWidget(
-        _wrap(const GuestTabPlaceholderWidget(), router: router),
+        _wrap(const IncompleteProfilePlaceholderWidget(), router: router),
       );
       await tester.pump();
 
       expect(
-        find.text('Create an account or log in to access this section.'),
+        find.text(
+          'Complete your profile to start chatting with buyers and sellers.',
+        ),
         findsOneWidget,
       );
     });
 
-    testWidgets('renders primary CTA and secondary log-in button', (
+    testWidgets('renders the complete-profile CTA', (
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(const GuestTabPlaceholderWidget(), router: router),
+        _wrap(const IncompleteProfilePlaceholderWidget(), router: router),
       );
       await tester.pump();
 
       expect(find.byType(DSButtonElevated), findsOneWidget);
-      expect(find.byType(DSButtonOutline), findsOneWidget);
+      expect(find.text('Complete profile'), findsOneWidget);
     });
 
-    testWidgets('tapping "Create an account" pushes WelcomeRoute', (
+    testWidgets('tapping the CTA pushes EditProfileRoute', (
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(const GuestTabPlaceholderWidget(), router: router),
+        _wrap(const IncompleteProfilePlaceholderWidget(), router: router),
       );
       await tester.pump();
 
-      await tester.tap(find.text('Create an account'));
+      await tester.tap(find.text('Complete profile'));
       await tester.pump();
 
       final captured = verify(
@@ -97,27 +98,7 @@ void main() {
           onFailure: any(named: 'onFailure'),
         ),
       ).captured;
-      expect(captured.single, isA<WelcomeRoute>());
-    });
-
-    testWidgets('tapping "Log in" pushes WelcomeRoute', (
-      WidgetTester tester,
-    ) async {
-      await tester.pumpWidget(
-        _wrap(const GuestTabPlaceholderWidget(), router: router),
-      );
-      await tester.pump();
-
-      await tester.tap(find.text('Log in'));
-      await tester.pump();
-
-      final captured = verify(
-        () => router.push<Object?>(
-          captureAny(),
-          onFailure: any(named: 'onFailure'),
-        ),
-      ).captured;
-      expect(captured.single, isA<WelcomeRoute>());
+      expect(captured.single, isA<EditProfileRoute>());
     });
   });
 }

@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:klozy/l10n/app_localizations.dart';
 import 'package:klozy/src/design/components/ds_list_item.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
+import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_brand.dart';
@@ -125,7 +127,8 @@ void main() {
             ),
           ),
         ),
-        localizationsDelegates: const [],
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
       ),
     );
 
@@ -138,5 +141,117 @@ void main() {
     expect(result, isNotNull);
     expect(result!.id, 'b1');
     expect(result!.name, 'Nike');
+  });
+
+  testWidgets('shows a search field once brands have loaded', (tester) async {
+    when(
+      () => mockCatalog.searchBrands(query: any(named: 'query')),
+    ).thenAnswer((_) async => const [CatalogBrand(id: 'b1', name: 'Nike')]);
+
+    await tester.pumpWidget(buildWidget());
+    await tester.pumpAndSettle();
+
+    expect(find.byType(DSTextField), findsOneWidget);
+  });
+
+  testWidgets('filters the list locally as the user types', (tester) async {
+    const brands = [
+      CatalogBrand(id: 'b1', name: 'Nike'),
+      CatalogBrand(id: 'b2', name: 'Adidas'),
+      CatalogBrand(id: 'b3', name: 'New Balance'),
+    ];
+    when(
+      () => mockCatalog.searchBrands(query: any(named: 'query')),
+    ).thenAnswer((_) async => brands);
+
+    await tester.pumpWidget(buildWidget());
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'ni');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Nike'), findsOneWidget);
+    expect(find.text('Adidas'), findsNothing);
+    expect(find.text('New Balance'), findsNothing);
+    expect(find.byType(DSListItem), findsOneWidget);
+  });
+
+  testWidgets('local search is case-insensitive', (tester) async {
+    const brands = [
+      CatalogBrand(id: 'b1', name: 'Nike'),
+      CatalogBrand(id: 'b2', name: 'Adidas'),
+    ];
+    when(
+      () => mockCatalog.searchBrands(query: any(named: 'query')),
+    ).thenAnswer((_) async => brands);
+
+    await tester.pumpWidget(buildWidget());
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'ADIDAS');
+    await tester.pumpAndSettle();
+
+    expect(find.text('Adidas'), findsOneWidget);
+    expect(find.text('Nike'), findsNothing);
+  });
+
+  testWidgets('clearing the query restores the full list', (tester) async {
+    const brands = [
+      CatalogBrand(id: 'b1', name: 'Nike'),
+      CatalogBrand(id: 'b2', name: 'Adidas'),
+    ];
+    when(
+      () => mockCatalog.searchBrands(query: any(named: 'query')),
+    ).thenAnswer((_) async => brands);
+
+    await tester.pumpWidget(buildWidget());
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'nike');
+    await tester.pumpAndSettle();
+    expect(find.byType(DSListItem), findsOneWidget);
+
+    await tester.enterText(find.byType(TextField), '');
+    await tester.pumpAndSettle();
+    expect(find.byType(DSListItem), findsNWidgets(2));
+  });
+
+  testWidgets('shows no items when the query matches nothing', (tester) async {
+    const brands = [CatalogBrand(id: 'b1', name: 'Nike')];
+    when(
+      () => mockCatalog.searchBrands(query: any(named: 'query')),
+    ).thenAnswer((_) async => brands);
+
+    await tester.pumpWidget(buildWidget());
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'zzz');
+    await tester.pumpAndSettle();
+
+    expect(find.byType(DSListItem), findsNothing);
+  });
+
+  testWidgets('search stays local — typing does not hit the repository', (
+    tester,
+  ) async {
+    const brands = [
+      CatalogBrand(id: 'b1', name: 'Nike'),
+      CatalogBrand(id: 'b2', name: 'Adidas'),
+    ];
+    when(
+      () => mockCatalog.searchBrands(query: any(named: 'query')),
+    ).thenAnswer((_) async => brands);
+
+    await tester.pumpWidget(buildWidget());
+    await tester.pumpAndSettle();
+
+    await tester.enterText(find.byType(TextField), 'adi');
+    await tester.pumpAndSettle();
+
+    // The repository is queried exactly once, on load. Every keystroke filters
+    // the already-loaded list in memory — no extra network round-trips.
+    verify(
+      () => mockCatalog.searchBrands(query: any(named: 'query')),
+    ).called(1);
   });
 }

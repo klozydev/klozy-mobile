@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 
 /// A single bottom-nav destination: an icon that turns gold when active, with
 /// an optional unread/count badge (chat).
 class ShellNavItemWidget extends StatelessWidget {
-  final IconData icon;
+  static const double _iconSize = 24;
+
+  final String assetPath;
   final bool active;
   final VoidCallback onTap;
   final int badge;
 
   const ShellNavItemWidget({
     super.key,
-    required this.icon,
+    required this.assetPath,
     required this.active,
     required this.onTap,
     this.badge = 0,
@@ -28,10 +31,14 @@ class ShellNavItemWidget extends StatelessWidget {
         child: Stack(
           clipBehavior: Clip.none,
           children: <Widget>[
-            Icon(
-              icon,
-              size: 23,
-              color: active ? DSColor.primary : DSColor.onSurface45,
+            SvgPicture.asset(
+              assetPath,
+              width: _iconSize,
+              height: _iconSize,
+              colorFilter: ColorFilter.mode(
+                active ? DSColor.primary : DSColor.onSurface45,
+                BlendMode.srcIn,
+              ),
             ),
             if (badge > 0)
               Positioned(

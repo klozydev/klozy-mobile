@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/core/util/app_share.dart';
+import 'package:klozy/src/core/util/instagram_link.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
@@ -203,11 +204,9 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
               SettingsRowWidget(
                 icon: Icons.camera_alt_outlined,
                 label: l.settings_instagram,
-                value: _instagramDisplay(state.contact.instagram!),
-                onTap: () => _launch(
-                  context,
-                  _instagramUrl(state.contact.instagram!),
-                ),
+                value: instagramHandleDisplay(state.contact.instagram!),
+                onTap: () =>
+                    _launch(context, instagramUrl(state.contact.instagram!)),
               ),
             ],
           ),
@@ -309,31 +308,6 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
     } else {
       context.showSnackBar(context.l10N.settings_support_unavailable);
     }
-  }
-
-  /// The admin stores Instagram as a handle (e.g. `@klozy` or just `klozy`),
-  /// not a full URL. Strip a leading `@` and resolve to `instagram.com/<handle>`
-  /// so url_launcher gets a real URL and the OS hands it to the Instagram app
-  /// (or browser) instead of silently failing on a scheme-less string.
-  String _instagramUrl(String value) {
-    final trimmed = value.trim();
-    if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
-      return trimmed;
-    }
-    final handle = trimmed.startsWith('@') ? trimmed.substring(1) : trimmed;
-    return 'https://instagram.com/$handle';
-  }
-
-  /// Pretty-print whatever the admin entered as a handle prefixed with `@`,
-  /// even if they pasted a full URL or left the `@` off.
-  String _instagramDisplay(String value) {
-    final trimmed = value.trim();
-    if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
-      final segments = Uri.parse(trimmed).pathSegments;
-      final handle = segments.isNotEmpty ? segments.first : trimmed;
-      return '@$handle';
-    }
-    return trimmed.startsWith('@') ? trimmed : '@$trimmed';
   }
 }
 

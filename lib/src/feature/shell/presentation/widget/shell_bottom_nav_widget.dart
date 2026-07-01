@@ -34,24 +34,24 @@ class ShellBottomNavWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           ShellNavItemWidget(
-            icon: Icons.home_outlined,
+            assetPath: 'assets/svg/ic_home.svg',
             active: activeIndex == 0,
             onTap: () => onTab(0),
           ),
           ShellNavItemWidget(
-            icon: Icons.search_rounded,
+            assetPath: 'assets/svg/ic_search.svg',
             active: activeIndex == 1,
             onTap: () => onTab(1),
           ),
           ShellSellFabWidget(onTap: onSell),
           ShellNavItemWidget(
-            icon: Icons.chat_bubble_outline_rounded,
+            assetPath: 'assets/svg/ic_tchat.svg',
             active: activeIndex == 2,
             onTap: () => onTab(2),
             badge: chatBadge,
           ),
           ShellNavItemWidget(
-            icon: Icons.person_outline_rounded,
+            assetPath: 'assets/svg/ic_profile.svg',
             active: activeIndex == 3,
             onTap: () => onTab(3),
           ),

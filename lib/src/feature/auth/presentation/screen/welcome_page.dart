@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_app_logo.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
-import 'package:klozy/src/design/components/ds_klozy_mark.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
@@ -28,7 +28,7 @@ class WelcomePage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const DSKlozyMark(size: 42),
+                const DSAppLogo(size: 44),
                 const SizedBox(height: 18),
                 Text(
                   context.l10N.auth_country_uae,

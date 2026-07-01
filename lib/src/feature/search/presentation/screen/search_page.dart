@@ -23,6 +23,7 @@ import 'package:klozy/src/feature/search/presentation/bloc/search_bloc.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_event.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_filters.dart';
 import 'package:klozy/src/feature/search/presentation/bloc/search_state.dart';
+import 'package:klozy/src/feature/search/presentation/widget/search_category_card_widget.dart';
 import 'package:klozy/src/feature/search/presentation/widget/search_filters_sheet.dart';
 import 'package:klozy/src/router/app_router.dart';
 
@@ -339,40 +340,10 @@ class _SearchPageState extends State<SearchPage> {
             return Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(right: 8),
-                child: GestureDetector(
+                child: SearchCategoryCardWidget(
+                  category: c,
+                  gradient: grad,
                   onTap: () => _openCategoryDrill(context, c),
-                  child: AspectRatio(
-                    aspectRatio: 1,
-                    child: Container(
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: grad,
-                        ),
-                        borderRadius: BorderRadius.circular(
-                          DSBorderRadius.image,
-                        ),
-                      ),
-                      child: Text(
-                        c.label,
-                        style: const TextStyle(
-                          fontFamily: dsFontFamily,
-                          fontSize: DSFontSize.bodyLarge,
-                          fontWeight: DSFontWeight.bold,
-                          color: Colors.white,
-                          shadows: <Shadow>[
-                            Shadow(
-                              color: Colors.black54,
-                              blurRadius: 6,
-                              offset: Offset(0, 1),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                 ),
               ),
             );

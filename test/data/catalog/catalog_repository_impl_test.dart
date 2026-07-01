@@ -65,6 +65,30 @@ void main() {
       expect(result[1].hasChildren, isFalse);
     });
 
+    test('maps imageUrl from the API response', () async {
+      when(
+        () => mockDio.get<List<dynamic>>(
+          'v1/catalog/categories',
+          queryParameters: any(named: 'queryParameters'),
+          options: any(named: 'options'),
+        ),
+      ).thenAnswer(
+        (_) async => _ok<List<dynamic>>('v1/catalog/categories', <dynamic>[
+          <String, dynamic>{
+            'id': 'women',
+            'label': 'Women',
+            'imageUrl': 'https://cdn.klozy.com/uploads/women.jpg',
+          },
+          <String, dynamic>{'id': 'men', 'label': 'Men'},
+        ]),
+      );
+
+      final List<CatalogCategory> result = await repo.getCategories();
+
+      expect(result[0].imageUrl, 'https://cdn.klozy.com/uploads/women.jpg');
+      expect(result[1].imageUrl, isNull);
+    });
+
     test('filters out entries with empty id or label', () async {
       when(
         () => mockDio.get<List<dynamic>>(

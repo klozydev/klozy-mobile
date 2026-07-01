@@ -29,6 +29,7 @@ class CatalogRepositoryImpl implements CatalogRepository {
             id: _str(json, ['id', '_id', 'slug']) ?? '',
             label: _str(json, ['label', 'name', 'title', 'slug']) ?? '',
             hasChildren: _hasChildren(json),
+            imageUrl: _str(json, ['imageUrl', 'image', 'imageUri', 'photo']),
           ),
         )
         .where((CatalogCategory c) => c.id.isNotEmpty && c.label.isNotEmpty)

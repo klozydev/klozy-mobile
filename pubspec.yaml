@@ -50,6 +50,7 @@ dependencies:
   firebase_messaging: 16.2.0
   cloud_firestore: 6.3.0
   firebase_storage: 13.3.0
+  flutter_svg: 2.2.2
 
 dev_dependencies:
   flutter_test:
@@ -93,6 +94,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/translations/
+    - assets/svg/
 
 flutter_native_splash:
   color: "#f9f9ff"
