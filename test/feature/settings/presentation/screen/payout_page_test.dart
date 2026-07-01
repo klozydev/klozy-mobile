@@ -39,14 +39,14 @@ void main() {
     }
   });
 
-  Widget _pump() {
+  Widget pump() {
     return dsWrapRouted(const PayoutPage(), router: router);
   }
 
   group('PayoutPage — current IBAN display', () {
     testWidgets('shows masked IBAN when user has one', (tester) async {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMeWithIban);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       expect(find.textContaining('AE** **** 1234'), findsOneWidget);
@@ -54,7 +54,7 @@ void main() {
 
     testWidgets('does not show masked IBAN when user has none', (tester) async {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMeNoIban);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       expect(find.textContaining('AE** **** 1234'), findsNothing);
@@ -66,7 +66,7 @@ void main() {
       when(
         () => mockMe.getMe(),
       ).thenAnswer((_) => Future.error(Exception('network')));
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
       // Page still renders, just no masked IBAN
       expect(find.byType(PayoutPage), findsOneWidget);
@@ -76,7 +76,7 @@ void main() {
   group('PayoutPage — IBAN validation', () {
     testWidgets('save button disabled with empty field', (tester) async {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMeNoIban);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       final btn = tester.widget<ElevatedButton>(find.byType(ElevatedButton));
@@ -85,7 +85,7 @@ void main() {
 
     testWidgets('shows error for invalid IBAN', (tester) async {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMeNoIban);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       await tester.enterText(find.byType(TextField).first, 'GB12345');
@@ -97,7 +97,7 @@ void main() {
 
     testWidgets('save button enabled with valid UAE IBAN', (tester) async {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMeNoIban);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       await tester.enterText(
@@ -112,7 +112,7 @@ void main() {
 
     testWidgets('no error text when field is empty', (tester) async {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMeNoIban);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       expect(find.textContaining('invalid'), findsNothing);
@@ -124,7 +124,7 @@ void main() {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMeNoIban);
       when(() => mockMe.setPayoutIban(any())).thenAnswer((_) async {});
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       await tester.enterText(
@@ -144,7 +144,7 @@ void main() {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMeNoIban);
       when(() => mockMe.setPayoutIban(any())).thenThrow(Exception('server'));
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       await tester.enterText(
@@ -164,7 +164,7 @@ void main() {
   group('PayoutPage — navigation', () {
     testWidgets('back button calls router.maybePop', (tester) async {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMeNoIban);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.arrow_back_ios_new));

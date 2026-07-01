@@ -100,7 +100,7 @@ void main() {
     testWidgets('renders PRO badge when isPro = true', (
       WidgetTester tester,
     ) async {
-      final bucket = const CartBucket(
+      const bucket = CartBucket(
         sellerId: 'seller1',
         sellerName: 'Pro Seller',
         items: <CartItem>[_kItem],
@@ -163,10 +163,10 @@ void main() {
     ) async {
       // Need 2+ standalone items for canBundle
       const item2 = CartItem(productId: 'p2', title: 'Item 2', price: 50);
-      final bucket = CartBucket(
+      const bucket = CartBucket(
         sellerId: 'seller1',
         sellerName: 'Seller',
-        items: const <CartItem>[_kItem, item2],
+        items: <CartItem>[_kItem, item2],
         subtotal: 250,
         canBundle: true,
       );
@@ -180,10 +180,10 @@ void main() {
     ) async {
       var tapped = false;
       const item2 = CartItem(productId: 'p2', title: 'Item 2', price: 50);
-      final bucket = CartBucket(
+      const bucket = CartBucket(
         sellerId: 'seller1',
         sellerName: 'Seller',
-        items: const <CartItem>[_kItem, item2],
+        items: <CartItem>[_kItem, item2],
         subtotal: 250,
         canBundle: true,
       );
@@ -200,7 +200,7 @@ void main() {
     testWidgets(
       'shows pending offer tag and cancel for item with pending offer',
       (WidgetTester tester) async {
-        final bucket = const CartBucket(
+        const bucket = CartBucket(
           sellerId: 'seller1',
           sellerName: 'Seller',
           items: <CartItem>[_kItemPending],
@@ -217,7 +217,7 @@ void main() {
       WidgetTester tester,
     ) async {
       String? cancelled;
-      final bucket = const CartBucket(
+      const bucket = CartBucket(
         sellerId: 'seller1',
         sellerName: 'Seller',
         items: <CartItem>[_kItemPending],
@@ -260,17 +260,17 @@ void main() {
     testWidgets('renders bundle banner when bundles list is non-empty', (
       WidgetTester tester,
     ) async {
-      final bundle = CartBundle(
+      const bundle = CartBundle(
         id: 'bundle1',
         amount: 180,
         status: CartOfferStatus.pending,
-        productIds: const <String>['p1', 'p2'],
+        productIds: <String>['p1', 'p2'],
         listSum: 250,
       );
-      final bucket = CartBucket(
+      const bucket = CartBucket(
         sellerId: 'seller1',
         sellerName: 'Seller',
-        items: const <CartItem>[_kItem],
+        items: <CartItem>[_kItem],
         subtotal: 200,
         bundles: <CartBundle>[bundle],
       );
@@ -283,7 +283,7 @@ void main() {
     testWidgets('renders item with accepted offer — shows accepted tag', (
       WidgetTester tester,
     ) async {
-      final bucket = const CartBucket(
+      const bucket = CartBucket(
         sellerId: 'seller1',
         sellerName: 'Seller',
         items: <CartItem>[_kItemAccepted],

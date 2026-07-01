@@ -34,7 +34,7 @@ void main() {
     }
   });
 
-  Widget _pump(String currentCode) {
+  Widget pump(String currentCode) {
     return dsWrap(
       Scaffold(body: LanguagePickerSheet(currentCode: currentCode)),
     );
@@ -48,13 +48,13 @@ void main() {
       await tester.binding.setSurfaceSize(const Size(800, 1200));
       addTearDown(() => tester.binding.setSurfaceSize(null));
 
-      await tester.pumpWidget(_pump('en'));
+      await tester.pumpWidget(pump('en'));
       await tester.pump();
       expect(find.byType(ListTile), findsNWidgets(kAppLanguages.length));
     });
 
     testWidgets('visible languages include English and French', (tester) async {
-      await tester.pumpWidget(_pump('en'));
+      await tester.pumpWidget(pump('en'));
       await tester.pump();
       expect(find.text('English'), findsOneWidget);
       expect(find.text('Français'), findsOneWidget);
@@ -63,7 +63,7 @@ void main() {
     testWidgets('shows check icon for the currently selected language', (
       tester,
     ) async {
-      await tester.pumpWidget(_pump('fr'));
+      await tester.pumpWidget(pump('fr'));
       await tester.pump();
       expect(find.byIcon(Icons.check_rounded), findsOneWidget);
     });
@@ -71,7 +71,7 @@ void main() {
     testWidgets('no check icon when current code matches no language', (
       tester,
     ) async {
-      await tester.pumpWidget(_pump('zz'));
+      await tester.pumpWidget(pump('zz'));
       await tester.pump();
       expect(find.byIcon(Icons.check_rounded), findsNothing);
     });
@@ -79,7 +79,7 @@ void main() {
     testWidgets('tapping a language calls setLocale with correct code', (
       tester,
     ) async {
-      await tester.pumpWidget(_pump('en'));
+      await tester.pumpWidget(pump('en'));
       await tester.pump();
 
       // Tap the second language (Arabic)
@@ -93,7 +93,7 @@ void main() {
     testWidgets('tapping a language dismisses the sheet (pops navigator)', (
       tester,
     ) async {
-      await tester.pumpWidget(_pump('en'));
+      await tester.pumpWidget(pump('en'));
       await tester.pump();
 
       final english = kAppLanguages[0];

@@ -30,7 +30,7 @@ void main() {
 
   group('EventMessage', () {
     testWidgets('renders event text', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(EventMessage(message: _eventMsg)));
+      await tester.pumpWidget(_wrap(const EventMessage(message: _eventMsg)));
       await tester.pump();
 
       expect(find.text('You started a conversation'), findsOneWidget);
@@ -46,7 +46,7 @@ void main() {
         kind: ChatMessageKind.event,
         isMine: false,
       );
-      await tester.pumpWidget(_wrap(EventMessage(message: noText)));
+      await tester.pumpWidget(_wrap(const EventMessage(message: noText)));
       await tester.pump();
 
       // Widget renders without error even with null text.

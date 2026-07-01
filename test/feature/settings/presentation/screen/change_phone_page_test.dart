@@ -210,7 +210,7 @@ void main() {
 
   group('ChangePhonePage — verify flow', () {
     /// Helper: navigates to the code step (enters a valid phone, sends code).
-    Future<void> _goToCodeStep(WidgetTester tester) async {
+    Future<void> goToCodeStep(WidgetTester tester) async {
       await tester.pumpWidget(wrap());
       await tester.pump();
 
@@ -221,7 +221,7 @@ void main() {
     }
 
     /// Enters a 6-digit code into the DSCodeInput fields (all 6 TextFields).
-    Future<void> _enterCode(WidgetTester tester, String code) async {
+    Future<void> enterCode(WidgetTester tester, String code) async {
       final fields = find.byType(TextField);
       for (int i = 0; i < 6; i++) {
         await tester.enterText(fields.at(i), code[i]);
@@ -232,8 +232,8 @@ void main() {
     testWidgets('successful verify calls updatePhoneNumber and pops', (
       tester,
     ) async {
-      await _goToCodeStep(tester);
-      await _enterCode(tester, '123456');
+      await goToCodeStep(tester);
+      await enterCode(tester, '123456');
 
       await tester.tap(find.byType(DSButtonElevated));
       await tester.pumpAndSettle();
@@ -255,8 +255,8 @@ void main() {
         ),
       ).thenThrow(const AuthException('wrong code'));
 
-      await _goToCodeStep(tester);
-      await _enterCode(tester, '999999');
+      await goToCodeStep(tester);
+      await enterCode(tester, '999999');
 
       await tester.tap(find.byType(DSButtonElevated));
       await tester.pumpAndSettle();
@@ -276,8 +276,8 @@ void main() {
         ),
       ).thenThrow(Exception('network'));
 
-      await _goToCodeStep(tester);
-      await _enterCode(tester, '000000');
+      await goToCodeStep(tester);
+      await enterCode(tester, '000000');
 
       await tester.tap(find.byType(DSButtonElevated));
       await tester.pumpAndSettle();

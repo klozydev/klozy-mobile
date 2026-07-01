@@ -39,10 +39,10 @@ class _FakeCheckoutBloc extends CheckoutBloc {
 
 const _kItem = CartItem(productId: 'p1', title: 'Blue Jacket', price: 200);
 
-final _kBucket = CartBucket(
+const _kBucket = CartBucket(
   sellerId: 'seller1',
   sellerName: 'Test Seller',
-  items: const <CartItem>[_kItem],
+  items: <CartItem>[_kItem],
   subtotal: 200,
 );
 
@@ -64,8 +64,8 @@ const _kAddress = Address(
   isDefault: true,
 );
 
-final _kReadyState = CheckoutReadyState(
-  addresses: const <Address>[_kAddress],
+const _kReadyState = CheckoutReadyState(
+  addresses: <Address>[_kAddress],
   selectedAddressId: 'addr1',
   quote: _kQuote,
 );
@@ -80,7 +80,7 @@ Widget _wrap(CheckoutState state, StackRouter router) {
       home: StackRouterScope(
         controller: router,
         stateHash: 0,
-        child: CheckoutPage(sellerId: 'seller1', bucket: _kBucket),
+        child: const CheckoutPage(sellerId: 'seller1', bucket: _kBucket),
       ),
     ),
   );
@@ -170,8 +170,8 @@ void main() {
     testWidgets('ready state pay button disabled when no address', (
       WidgetTester tester,
     ) async {
-      final stateNoAddress = CheckoutReadyState(
-        addresses: const <Address>[],
+      const stateNoAddress = CheckoutReadyState(
+        addresses: <Address>[],
         quote: _kQuote,
       );
       await tester.pumpWidget(_wrap(stateNoAddress, router));

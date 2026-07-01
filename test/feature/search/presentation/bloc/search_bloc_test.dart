@@ -33,7 +33,6 @@ const _kCategory = CatalogCategory(id: 'cat1', label: 'Women');
 const _kProduct = Product(id: 'p1', title: 'Shirt', price: 50.0);
 
 const _emptyPage = PaginatedList<Product>(data: <Product>[]);
-const _emptyFeed = FeedPage(data: <Product>[]);
 const _emptyResult = SearchResult(page: _emptyPage, facets: SearchFacets.empty);
 
 /// 20 products — fills a full page → hasMore = true.

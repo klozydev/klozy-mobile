@@ -13,7 +13,6 @@ import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/domain/product/products_repository.dart';
 import 'package:klozy/src/domain/wishlist/wishlist_repository.dart';
 import 'package:klozy/src/feature/home/presentation/bloc/feed_bloc.dart';
-import 'package:klozy/src/feature/home/presentation/bloc/feed_event.dart';
 import 'package:klozy/src/feature/home/presentation/bloc/feed_state.dart';
 import 'package:klozy/src/feature/home/presentation/widget/feed_tab_widget.dart';
 import 'package:mocktail/mocktail.dart';

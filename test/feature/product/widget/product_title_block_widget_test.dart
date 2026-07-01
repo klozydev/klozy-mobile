@@ -19,7 +19,10 @@ void main() {
         seller: _kSeller,
       );
       await tester.pumpWidget(
-        dsWrap(ProductTitleBlockWidget(product: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductTitleBlockWidget(product: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -34,7 +37,10 @@ void main() {
         seller: _kSeller,
       );
       await tester.pumpWidget(
-        dsWrap(ProductTitleBlockWidget(product: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductTitleBlockWidget(product: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -52,7 +58,10 @@ void main() {
         brand: 'Nike',
       );
       await tester.pumpWidget(
-        dsWrap(ProductTitleBlockWidget(product: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductTitleBlockWidget(product: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -71,7 +80,10 @@ void main() {
         size: 'M',
       );
       await tester.pumpWidget(
-        dsWrap(ProductTitleBlockWidget(product: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductTitleBlockWidget(product: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -89,7 +101,10 @@ void main() {
         isOwner: true,
       );
       await tester.pumpWidget(
-        dsWrap(ProductTitleBlockWidget(product: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductTitleBlockWidget(product: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -107,7 +122,10 @@ void main() {
         isOwner: false,
       );
       await tester.pumpWidget(
-        dsWrap(ProductTitleBlockWidget(product: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductTitleBlockWidget(product: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 

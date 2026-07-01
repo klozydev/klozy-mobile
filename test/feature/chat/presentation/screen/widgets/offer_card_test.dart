@@ -8,7 +8,7 @@ import 'package:klozy/src/feature/chat/domain/entity/message_kind.dart';
 import 'package:klozy/src/feature/chat/domain/entity/offer_data.dart';
 import 'package:klozy/src/feature/chat/presentation/screen/widgets/offer_card.dart';
 
-Widget _wrap(Widget child) => MaterialApp(
+Widget wrap(Widget child) => MaterialApp(
   theme: dsTheme(),
   localizationsDelegates: AppLocalizations.localizationsDelegates,
   supportedLocales: AppLocalizations.supportedLocales,
@@ -97,7 +97,7 @@ void main() {
     testWidgets('renders SizedBox.shrink when offer is null', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(OfferCard(message: _noOffer)));
+      await tester.pumpWidget(wrap(const OfferCard(message: _noOffer)));
       await tester.pump();
 
       expect(find.byType(SizedBox), findsWidgets);
@@ -109,7 +109,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           OfferCard(
             message: _incomingPending,
             onAccept: () {},
@@ -126,7 +126,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           OfferCard(
             message: _incomingPending,
             onAccept: () {},
@@ -145,7 +145,7 @@ void main() {
     ) async {
       var accepted = false;
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           OfferCard(
             message: _incomingPending,
             onAccept: () => accepted = true,
@@ -167,7 +167,7 @@ void main() {
     ) async {
       var refused = false;
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           OfferCard(
             message: _incomingPending,
             onAccept: () {},
@@ -186,7 +186,7 @@ void main() {
     testWidgets('renders pending status for mine pending offer', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(OfferCard(message: _minePending)));
+      await tester.pumpWidget(wrap(const OfferCard(message: _minePending)));
       await tester.pumpAndSettle();
 
       expect(find.textContaining('250'), findsOneWidget);
@@ -195,14 +195,14 @@ void main() {
     testWidgets('renders accepted offer without action buttons', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(OfferCard(message: _accepted)));
+      await tester.pumpWidget(wrap(const OfferCard(message: _accepted)));
       await tester.pumpAndSettle();
 
       expect(find.textContaining('180'), findsOneWidget);
     });
 
     testWidgets('renders refused offer', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(OfferCard(message: _refused)));
+      await tester.pumpWidget(wrap(const OfferCard(message: _refused)));
       await tester.pumpAndSettle();
 
       expect(find.textContaining('40'), findsOneWidget);
@@ -210,7 +210,7 @@ void main() {
 
     testWidgets('renders product name in header', (WidgetTester tester) async {
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           OfferCard(
             message: _incomingPending,
             onAccept: () {},

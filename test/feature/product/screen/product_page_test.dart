@@ -12,7 +12,6 @@ import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_theme.dart';
 import 'package:klozy/src/domain/cart/cart_repository.dart';
-import 'package:klozy/src/domain/cart/entity/cart.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
 import 'package:klozy/src/domain/product/products_repository.dart';
@@ -28,8 +27,6 @@ class _MockProductsRepository extends Mock implements ProductsRepository {}
 class _MockCartRepository extends Mock implements CartRepository {}
 
 class _MockMeRepository extends Mock implements MeRepository {}
-
-class _MockCartCubit extends Mock implements CartCubit {}
 
 class _MockWishlistRepository extends Mock implements WishlistRepository {}
 

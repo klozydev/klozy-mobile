@@ -33,6 +33,7 @@ class _MockStackRouter extends Mock implements StackRouter {}
 
 class _MockCatalogRepository extends Mock implements CatalogRepository {}
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 // ---- Helpers --------------------------------------------------------------
@@ -58,7 +59,7 @@ _MockSellBloc _buildBloc(SellState state, {Stream<SellState>? stream}) {
 
 Widget _wrapWithBloc(_MockSellBloc bloc, {StackRouter? router}) {
   const page = SellPage();
-  Widget child = BlocProvider<SellBloc>.value(value: bloc, child: page);
+  final child = BlocProvider<SellBloc>.value(value: bloc, child: page);
   if (router != null) {
     return dsWrapRouted(child, router: router);
   }
@@ -88,7 +89,7 @@ void main() {
     router = _MockStackRouter();
     when(() => router.maybePop<Object?>()).thenAnswer((_) async => true);
     when(() => router.push(any())).thenAnswer((_) async => null);
-    when(() => router.replace(any())).thenAnswer((_) async {});
+    when(() => router.replace(any())).thenAnswer((_) async => null);
 
     mockCatalog = _MockCatalogRepository();
     when(

@@ -64,7 +64,7 @@ void main() {
     }
   });
 
-  Widget _pump() {
+  Widget pump() {
     return dsWrapRouted(const BlockedUsersPage(), router: router);
   }
 
@@ -75,7 +75,7 @@ void main() {
       final completer = Completer<List<BlockedUser>>();
       when(() => mockMe.getBlocked()).thenAnswer((_) => completer.future);
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump(); // one frame — still loading
 
       expect(find.byType(DSLoader), findsOneWidget);
@@ -86,7 +86,7 @@ void main() {
     testWidgets('shows no-blocked message when list is empty', (tester) async {
       when(() => mockMe.getBlocked()).thenAnswer((_) async => const []);
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       expect(find.byType(DSLoader), findsNothing);
@@ -99,7 +99,7 @@ void main() {
     ) async {
       when(() => mockMe.getBlocked()).thenThrow(Exception('network'));
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       expect(find.byType(DSLoader), findsNothing);
@@ -116,7 +116,7 @@ void main() {
         () => mockMe.getBlocked(),
       ).thenAnswer((_) async => [_kUserA, _kUserB]);
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       expect(find.text('Alice'), findsOneWidget);
@@ -126,7 +126,7 @@ void main() {
     testWidgets('shows person icon when avatarUrl is null', (tester) async {
       when(() => mockMe.getBlocked()).thenAnswer((_) async => [_kUserA]);
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.person), findsOneWidget);
@@ -137,7 +137,7 @@ void main() {
 
       when(() => mockMe.getBlocked()).thenAnswer((_) async => [_kUserB]);
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       // User B has avatar — no fallback person icon
@@ -154,7 +154,7 @@ void main() {
       ).thenAnswer((_) async => [_kUserA, _kUserB]);
       when(() => mockMe.unblock(any())).thenAnswer((_) async {});
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       // Find unblock button for Alice (first GestureDetector)
@@ -170,7 +170,7 @@ void main() {
       when(() => mockMe.getBlocked()).thenAnswer((_) async => [_kUserA]);
       when(() => mockMe.unblock(any())).thenAnswer((_) async {});
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       await tester.tap(find.byType(GestureDetector).first);
@@ -183,7 +183,7 @@ void main() {
       when(() => mockMe.getBlocked()).thenAnswer((_) async => [_kUserA]);
       when(() => mockMe.unblock(any())).thenThrow(Exception('server'));
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       await tester.tap(find.byType(GestureDetector).first);
@@ -198,7 +198,7 @@ void main() {
     testWidgets('back button calls router.maybePop', (tester) async {
       when(() => mockMe.getBlocked()).thenAnswer((_) async => const []);
 
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pumpAndSettle();
 
       await tester.tap(find.byIcon(Icons.arrow_back_ios_new));

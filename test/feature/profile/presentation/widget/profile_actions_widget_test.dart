@@ -10,12 +10,12 @@ import '../../../../support/ds_harness.dart';
 void main() {
   setUpAll(disableDsFonts);
 
-  const _notFollowing = SocialProfile(
+  const notFollowing = SocialProfile(
     id: 'u1',
     displayName: 'Alice',
     isFollowing: false,
   );
-  const _following = SocialProfile(
+  const following = SocialProfile(
     id: 'u1',
     displayName: 'Alice',
     isFollowing: true,
@@ -27,7 +27,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileActionsWidget(
-          profile: _notFollowing,
+          profile: notFollowing,
           onFollow: () {},
           onMessage: () {},
         ),
@@ -45,7 +45,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileActionsWidget(
-          profile: _following,
+          profile: following,
           onFollow: () {},
           onMessage: () {},
         ),
@@ -64,7 +64,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileActionsWidget(
-          profile: _notFollowing,
+          profile: notFollowing,
           onFollow: () => calls++,
           onMessage: () {},
         ),
@@ -79,7 +79,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileActionsWidget(
-          profile: _notFollowing,
+          profile: notFollowing,
           onFollow: () {},
           onMessage: () {},
         ),
@@ -96,7 +96,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileActionsWidget(
-          profile: _notFollowing,
+          profile: notFollowing,
           onFollow: () {},
           onMessage: () => calls++,
         ),

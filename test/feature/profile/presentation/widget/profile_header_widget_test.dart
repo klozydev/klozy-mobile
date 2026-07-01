@@ -18,7 +18,7 @@ bool _isNetworkError(FlutterErrorDetails d) {
 void main() {
   setUpAll(disableDsFonts);
 
-  const _baseProfile = SocialProfile(
+  const baseProfile = SocialProfile(
     id: 'u1',
     displayName: 'Alice Smith',
     followers: 42,
@@ -29,7 +29,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileHeaderWidget(
-          profile: _baseProfile,
+          profile: baseProfile,
           onFollowers: () {},
           onFollowing: () {},
           onRatingTap: () {},
@@ -46,7 +46,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileHeaderWidget(
-          profile: _baseProfile,
+          profile: baseProfile,
           onFollowers: () {},
           onFollowing: () {},
           onRatingTap: () {},
@@ -116,7 +116,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileHeaderWidget(
-          profile: _baseProfile,
+          profile: baseProfile,
           onFollowers: () {},
           onFollowing: () {},
           onRatingTap: () {},
@@ -153,7 +153,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileHeaderWidget(
-          profile: _baseProfile,
+          profile: baseProfile,
           onFollowers: () {},
           onFollowing: () {},
           onRatingTap: () {},
@@ -171,7 +171,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileHeaderWidget(
-          profile: _baseProfile,
+          profile: baseProfile,
           onFollowers: () => calls++,
           onFollowing: () {},
           onRatingTap: () {},
@@ -190,7 +190,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         ProfileHeaderWidget(
-          profile: _baseProfile,
+          profile: baseProfile,
           onFollowers: () {},
           onFollowing: () => calls++,
           onRatingTap: () {},

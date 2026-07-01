@@ -1,3 +1,4 @@
+// ignore_for_file: subtype_of_sealed_class, avoid_implementing_value_types
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -112,7 +113,7 @@ void main() {
   // ── watchThreads ─────────────────────────────────────────────────────────────
 
   group('ChatRemoteDataSource.watchThreads', () {
-    void _stubThreadQuery() {
+    void stubThreadQuery() {
       when(
         () => mockCol.where(
           'participantIds',
@@ -128,7 +129,7 @@ void main() {
     }
 
     test('emits empty list when no docs', () async {
-      _stubThreadQuery();
+      stubThreadQuery();
       when(() => mockQuery.snapshots()).thenAnswer(
         (_) => Stream<QuerySnapshot<Map<String, dynamic>>>.value(
           mockQuerySnapshot,
@@ -146,7 +147,7 @@ void main() {
     });
 
     test('filters out conversations deleted for myUid', () async {
-      _stubThreadQuery();
+      stubThreadQuery();
       final _MockQueryDocumentSnapshot doc = _makeDoc(
         'conv-1',
         <String, dynamic>{
@@ -172,7 +173,7 @@ void main() {
     });
 
     test('includes conversations not deleted for myUid', () async {
-      _stubThreadQuery();
+      stubThreadQuery();
       final _MockQueryDocumentSnapshot doc = _makeDoc(
         'conv-2',
         <String, dynamic>{
@@ -199,7 +200,7 @@ void main() {
     });
 
     test('handles missing deletedFor field (treats as empty)', () async {
-      _stubThreadQuery();
+      stubThreadQuery();
       final _MockQueryDocumentSnapshot doc = _makeDoc(
         'conv-3',
         <String, dynamic>{
@@ -474,8 +475,6 @@ void main() {
         'participantIds': <dynamic>['sender-uid', 'recipient-uid'],
       });
       when(() => mockDb.batch()).thenReturn(mockBatch);
-      when(() => mockBatch.set(any(), any())).thenReturn(mockBatch);
-      when(() => mockBatch.set(any(), any(), any())).thenReturn(mockBatch);
       when(() => mockBatch.commit()).thenAnswer((_) async {});
     });
 

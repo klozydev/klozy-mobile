@@ -29,13 +29,13 @@ void main() {
     ).thenAnswer((_) async => null);
   });
 
-  Widget _pump() {
+  Widget pump() {
     return dsWrapRouted(const PersonalDataPage(), router: router);
   }
 
   group('PersonalDataPage — layout', () {
     testWidgets('renders without error', (tester) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
       expect(find.byType(PersonalDataPage), findsOneWidget);
     });
@@ -45,7 +45,7 @@ void main() {
     testWidgets('personal information row pushes EditProfileRoute', (
       tester,
     ) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.person_outline));
@@ -63,7 +63,7 @@ void main() {
     testWidgets('clothing preference row pushes ClothingPreferenceRoute', (
       tester,
     ) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.palette_outlined));
@@ -79,7 +79,7 @@ void main() {
     });
 
     testWidgets('preferred size row pushes PreferredSizeRoute', (tester) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.straighten_rounded));
@@ -97,7 +97,7 @@ void main() {
     testWidgets('preferred brands row pushes PreferredBrandsRoute', (
       tester,
     ) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.sell_outlined));
@@ -113,7 +113,7 @@ void main() {
     });
 
     testWidgets('blocked users row pushes BlockedUsersRoute', (tester) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.block_outlined));
@@ -129,7 +129,7 @@ void main() {
     });
 
     testWidgets('back button calls router.maybePop', (tester) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.arrow_back_ios_new));

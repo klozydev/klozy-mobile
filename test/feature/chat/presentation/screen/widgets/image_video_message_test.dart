@@ -48,21 +48,6 @@ const ChatMessage _videoWithThumb = ChatMessage(
   ],
 );
 
-const ChatMessage _imageWithUrl = ChatMessage(
-  id: 'img2',
-  threadId: 'thread1',
-  senderId: 'other',
-  kind: ChatMessageKind.image,
-  isMine: false,
-  media: <ChatMedia>[
-    ChatMedia(
-      type: MediaType.image,
-      url: 'https://example.com/image.jpg',
-      name: 'photo.jpg',
-    ),
-  ],
-);
-
 void main() {
   setUpAll(() {
     GoogleFonts.config.allowRuntimeFetching = false;
@@ -72,7 +57,9 @@ void main() {
     testWidgets('renders image placeholder when no url', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(ImageVideoMessage(message: _imageNoUrl)));
+      await tester.pumpWidget(
+        _wrap(const ImageVideoMessage(message: _imageNoUrl)),
+      );
       await tester.pump();
 
       expect(find.byType(ImageVideoMessage), findsOneWidget);
@@ -81,7 +68,9 @@ void main() {
     testWidgets(
       'renders video poster overlay with play icon when kind is video',
       (WidgetTester tester) async {
-        await tester.pumpWidget(_wrap(ImageVideoMessage(message: _videoNoUrl)));
+        await tester.pumpWidget(
+          _wrap(const ImageVideoMessage(message: _videoNoUrl)),
+        );
         await tester.pump();
 
         expect(find.byIcon(Icons.play_arrow), findsOneWidget);
@@ -92,7 +81,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(ImageVideoMessage(message: _videoWithThumb)),
+        _wrap(const ImageVideoMessage(message: _videoWithThumb)),
       );
       await tester.pump();
 
@@ -116,7 +105,9 @@ void main() {
     testWidgets('mine message uses different border radius', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(ImageVideoMessage(message: _imageNoUrl)));
+      await tester.pumpWidget(
+        _wrap(const ImageVideoMessage(message: _imageNoUrl)),
+      );
       await tester.pump();
 
       // Widget renders without error for mine=true case.
@@ -126,7 +117,9 @@ void main() {
     testWidgets('their message renders without error', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(ImageVideoMessage(message: _videoNoUrl)));
+      await tester.pumpWidget(
+        _wrap(const ImageVideoMessage(message: _videoNoUrl)),
+      );
       await tester.pump();
 
       expect(find.byType(ImageVideoMessage), findsOneWidget);

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
@@ -15,7 +14,6 @@ import 'package:klozy/src/feature/reels/presentation/widget/reel_page_loader_wid
 import 'package:klozy/src/feature/reels/presentation/widget/reel_page_widget.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_processing_widget.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:video_player/video_player.dart';
 import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -231,7 +229,9 @@ void main() {
           const ReelPageLoaderWidget(reelId: 'r2', isActive: false, myId: null),
         ),
       );
-      await tester.pumpAndSettle();
+      // Use bounded pumps (not pumpAndSettle): the processing state shows
+      // DSLoader's indeterminate CircularProgressIndicator, which never settles.
+      await tester.pump();
 
       expect(find.byType(ReelProcessingWidget), findsOneWidget);
     });
@@ -254,13 +254,15 @@ void main() {
         ),
       );
 
-      // First load completes: processing
-      await tester.pumpAndSettle();
+      // First load completes: processing. Bounded pump (not pumpAndSettle) so
+      // the spinner animation and the 3s poll timer don't trip us up.
+      await tester.pump();
       expect(find.byType(ReelProcessingWidget), findsOneWidget);
 
-      // Advance clock by the poll interval (3 seconds)
+      // Advance clock by the poll interval to fire the poll, then flush the
+      // getReel future + rebuild into the ready state.
       await tester.pump(const Duration(seconds: 3));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       // After poll, reel is ready → ReelPageWidget shown
       expect(find.byType(ReelPageWidget), findsOneWidget);
@@ -448,16 +450,18 @@ void main() {
         ),
       );
 
-      await tester.pumpAndSettle();
+      // Bounded pumps: the processing state shows DSLoader's indeterminate
+      // spinner, so pumpAndSettle would hang.
+      await tester.pump();
       expect(find.byType(ReelProcessingWidget), findsOneWidget);
 
-      // First poll: fails
+      // First poll: fails (still processing afterwards).
       await tester.pump(const Duration(seconds: 3));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
-      // Second poll: ready
+      // Second poll: ready.
       await tester.pump(const Duration(seconds: 3));
-      await tester.pumpAndSettle();
+      await tester.pump();
 
       expect(find.byType(ReelPageWidget), findsOneWidget);
     });

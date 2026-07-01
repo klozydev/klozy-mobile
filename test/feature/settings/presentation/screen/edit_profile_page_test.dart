@@ -11,8 +11,8 @@ import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/me/entity/address.dart';
 import 'package:klozy/src/domain/me/entity/address_input.dart';
 import 'package:klozy/src/domain/me/entity/me_profile.dart';
-import 'package:klozy/src/domain/places/places_repository.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
+import 'package:klozy/src/domain/places/places_repository.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/edit_profile_page.dart';
 import 'package:mocktail/mocktail.dart';
 

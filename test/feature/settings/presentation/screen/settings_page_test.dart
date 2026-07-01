@@ -23,6 +23,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../../../support/ds_harness.dart';
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 class _MockStackRouter extends Mock implements StackRouter {}
@@ -118,7 +119,7 @@ void main() {
 
       // wrappedRoute calls locator<SettingsBloc>()..add(SettingsStarted()).
       // add() on the mock is a recorded no-op; state stays SettingsLoadingState.
-      final page = const SettingsPage();
+      const page = SettingsPage();
       await tester.pumpWidget(
         MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -185,7 +186,11 @@ void main() {
 
     testWidgets('loaded state renders SettingsSectionWidgets', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -197,7 +202,11 @@ void main() {
   group('SettingsPage – navigation', () {
     testWidgets('back button calls router.maybePop', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -208,7 +217,11 @@ void main() {
 
     testWidgets('personal data row pushes route', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -220,7 +233,11 @@ void main() {
 
     testWidgets('security row pushes route', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -232,7 +249,11 @@ void main() {
 
     testWidgets('payouts row pushes route', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -248,7 +269,7 @@ void main() {
     // enough so the full menu is rendered without scrolling.
     Widget wrapLarge(SettingsBloc bloc) => wrapWithBloc(bloc);
 
-    Future<void> _setup(WidgetTester tester, SettingsBloc bloc) async {
+    Future<void> setup(WidgetTester tester, SettingsBloc bloc) async {
       tester.view.physicalSize = const Size(800, 4000);
       tester.view.devicePixelRatio = 1.0;
       addTearDown(tester.view.reset);
@@ -258,9 +279,13 @@ void main() {
 
     testWidgets('privacy row pushes LegalDocRoute privacy', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
-      await _setup(tester, bloc);
+      await setup(tester, bloc);
       await tester.tap(find.byIcon(Icons.privacy_tip_outlined));
       await tester.pump();
       verify(() => router.push(any())).called(1);
@@ -269,9 +294,13 @@ void main() {
 
     testWidgets('terms row pushes LegalDocRoute terms', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
-      await _setup(tester, bloc);
+      await setup(tester, bloc);
       await tester.tap(find.byIcon(Icons.description_outlined));
       await tester.pump();
       verify(() => router.push(any())).called(1);
@@ -280,9 +309,13 @@ void main() {
 
     testWidgets('legal notices row pushes LegalDocRoute legal', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
-      await _setup(tester, bloc);
+      await setup(tester, bloc);
       await tester.tap(find.byIcon(Icons.gavel_rounded));
       await tester.pump();
       verify(() => router.push(any())).called(1);
@@ -291,9 +324,13 @@ void main() {
 
     testWidgets('about row pushes LegalDocRoute about', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
-      await _setup(tester, bloc);
+      await setup(tester, bloc);
       // info_outline_rounded appears in both the about row and the version row.
       // Tap the first occurrence which is the about row (above version row).
       await tester.tap(find.byIcon(Icons.info_outline_rounded).first);
@@ -304,13 +341,13 @@ void main() {
 
     testWidgets('instagram row triggers _support call', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(
+        const SettingsLoadedState(
           me: _kMe,
           settings: _kSettings,
           contact: _kContactWithInstagram,
         ),
       );
-      await _setup(tester, bloc);
+      await setup(tester, bloc);
       await tester.tap(find.byIcon(Icons.camera_alt_outlined));
       await tester.pump();
       // _support → _launch → launchUrl (hangs in tests); just verify no crash
@@ -320,9 +357,13 @@ void main() {
 
     testWidgets('version row renders version string', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
-      await _setup(tester, bloc);
+      await setup(tester, bloc);
       // Second pump lets the PackageInfo FutureBuilder resolve.
       await tester.pump();
       // PackageInfo mock returns '1.0.0 (1)'; version row is rendered.
@@ -334,7 +375,11 @@ void main() {
   group('SettingsPage – overflow menu', () {
     testWidgets('shows PopupMenuButton when not busy', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -344,7 +389,7 @@ void main() {
 
     testWidgets('shows spinner when isBusy', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(
+        const SettingsLoadedState(
           me: _kMe,
           settings: _kSettings,
           contact: _kContact,
@@ -370,7 +415,11 @@ void main() {
       addTearDown(() => FlutterError.onError = prevOnError);
 
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -393,7 +442,11 @@ void main() {
       addTearDown(() => FlutterError.onError = prevOnError);
 
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -420,7 +473,11 @@ void main() {
       addTearDown(() => FlutterError.onError = prevOnError);
 
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -450,7 +507,11 @@ void main() {
       addTearDown(() => FlutterError.onError = prevOnError);
 
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -475,7 +536,11 @@ void main() {
       addTearDown(() => FlutterError.onError = prevOnError);
 
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
       await tester.pump();
@@ -499,9 +564,9 @@ void main() {
       tester,
     ) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(
+        const SettingsLoadedState(
           me: _kMe,
-          settings: const NotificationSettings(push: false),
+          settings: NotificationSettings(push: false),
           contact: _kContact,
         ),
       );
@@ -517,7 +582,7 @@ void main() {
       'notification switch tap dispatches SettingsToggleNotification',
       (tester) async {
         final bloc = _buildBloc(
-          SettingsLoadedState(
+          const SettingsLoadedState(
             me: _kMe,
             settings: _kSettings,
             contact: _kContact,
@@ -544,10 +609,10 @@ void main() {
       tester,
     ) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(
+        const SettingsLoadedState(
           me: _kMe,
           settings: _kSettings,
-          contact: const ContactInfo(),
+          contact: ContactInfo(),
         ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
@@ -562,10 +627,10 @@ void main() {
 
     testWidgets('support tap with email attempts url launch', (tester) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(
+        const SettingsLoadedState(
           me: _kMe,
           settings: _kSettings,
-          contact: const ContactInfo(supportEmail: 'help@klozy.com'),
+          contact: ContactInfo(supportEmail: 'help@klozy.com'),
         ),
       );
       await tester.pumpWidget(wrapWithBloc(bloc));
@@ -582,7 +647,7 @@ void main() {
       tester,
     ) async {
       final bloc = _buildBloc(
-        SettingsLoadedState(
+        const SettingsLoadedState(
           me: _kMe,
           settings: _kSettings,
           contact: _kContactWithInstagram,
@@ -603,7 +668,11 @@ void main() {
     ) async {
       final stateController = StreamController<SettingsState>.broadcast();
       final bloc = _buildBloc(
-        SettingsLoadedState(me: _kMe, settings: _kSettings, contact: _kContact),
+        const SettingsLoadedState(
+          me: _kMe,
+          settings: _kSettings,
+          contact: _kContact,
+        ),
         stream: stateController.stream,
       );
 

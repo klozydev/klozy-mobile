@@ -7,13 +7,12 @@ import '../../../../support/ds_harness.dart';
 void main() {
   setUpAll(disableDsFonts);
 
-  Widget _pump(SettingsRowWidget widget) =>
-      dsWrap(widget, wrapInScaffold: true);
+  Widget pump(SettingsRowWidget widget) => dsWrap(widget, wrapInScaffold: true);
 
   group('SettingsRowWidget — label', () {
     testWidgets('renders label text', (tester) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           const SettingsRowWidget(
             icon: Icons.person_outline,
             label: 'My Label',
@@ -28,7 +27,7 @@ void main() {
   group('SettingsRowWidget — subtitle', () {
     testWidgets('shows subtitle when provided', (tester) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           const SettingsRowWidget(
             icon: Icons.person_outline,
             label: 'Label',
@@ -42,7 +41,7 @@ void main() {
 
     testWidgets('no subtitle text when omitted', (tester) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           const SettingsRowWidget(icon: Icons.person_outline, label: 'Label'),
         ),
       );
@@ -54,7 +53,7 @@ void main() {
   group('SettingsRowWidget — value', () {
     testWidgets('shows value when provided', (tester) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           const SettingsRowWidget(
             icon: Icons.person_outline,
             label: 'Label',
@@ -68,7 +67,7 @@ void main() {
 
     testWidgets('no value text when omitted', (tester) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           const SettingsRowWidget(icon: Icons.person_outline, label: 'Label'),
         ),
       );
@@ -82,7 +81,7 @@ void main() {
       tester,
     ) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           SettingsRowWidget(
             icon: Icons.person_outline,
             label: 'Label',
@@ -96,7 +95,7 @@ void main() {
 
     testWidgets('no chevron when onTap is null', (tester) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           const SettingsRowWidget(icon: Icons.person_outline, label: 'Label'),
         ),
       );
@@ -106,7 +105,7 @@ void main() {
 
     testWidgets('no chevron when danger=true even with onTap', (tester) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           SettingsRowWidget(
             icon: Icons.delete_outline,
             label: 'Delete',
@@ -122,7 +121,7 @@ void main() {
     testWidgets('onTap callback fires when tapped', (tester) async {
       var tapped = false;
       await tester.pumpWidget(
-        _pump(
+        pump(
           SettingsRowWidget(
             icon: Icons.person_outline,
             label: 'Label',
@@ -139,7 +138,7 @@ void main() {
   group('SettingsRowWidget — trailing', () {
     testWidgets('renders trailing widget when provided', (tester) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           SettingsRowWidget(
             icon: Icons.person_outline,
             label: 'Label',
@@ -158,7 +157,7 @@ void main() {
   group('SettingsRowWidget — danger', () {
     testWidgets('danger flag renders the row without error', (tester) async {
       await tester.pumpWidget(
-        _pump(
+        pump(
           const SettingsRowWidget(
             icon: Icons.delete_outline,
             label: 'Delete account',

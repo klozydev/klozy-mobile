@@ -6,12 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:image_picker_platform_interface/image_picker_platform_interface.dart';
 import 'package:klozy/l10n/app_localizations.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_theme.dart';
-import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_bloc.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_event.dart';
@@ -19,7 +17,6 @@ import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_state.da
 import 'package:klozy/src/feature/reels/presentation/screen/reel_composer_page.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-import 'package:video_player/video_player.dart';
 import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 
 import '../../../../support/ds_harness.dart';
@@ -30,8 +27,8 @@ class _MockReelComposerBloc extends Mock implements ReelComposerBloc {}
 
 class _MockStackRouter extends Mock implements StackRouter {}
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
-
 
 // ---- Fake image picker platform ----------------------------------------
 
@@ -158,15 +155,26 @@ const _kProduct2 = Product(
   coverImageUrl: 'https://example.com/img.jpg',
 );
 
+bool _isNetworkImageError(FlutterErrorDetails d) {
+  final String msg = d.exception.toString();
+  return msg.contains('HTTP request failed') ||
+      msg.contains('NetworkImageLoadException') ||
+      msg.contains('SocketException') ||
+      msg.contains('ClientException');
+}
+
 void main() {
   late _MockStackRouter router;
   late EventBus eventBus;
+  void Function(FlutterErrorDetails)? originalErrorHandler;
 
   setUpAll(() {
     disableDsFonts();
     registerFallbackValue(_FakeRoute());
     registerFallbackValue(const <PageRouteInfo<Object?>>[]);
-    registerFallbackValue(_FakeReelComposerEvent());
+    registerFallbackValue(const ReelComposerStarted());
+    registerFallbackValue(ImageSource.gallery);
+    registerFallbackValue(CameraDevice.rear);
   });
 
   setUp(() async {
@@ -179,9 +187,18 @@ void main() {
     GetIt.I.registerSingleton<EventBus>(eventBus);
 
     when(() => router.maybePop<Object?>()).thenAnswer((_) async => true);
+
+    // Product cells render NetworkImage covers; swallow the load failures the
+    // test HTTP client raises so they don't fail otherwise-valid tests.
+    originalErrorHandler = FlutterError.onError;
+    FlutterError.onError = (FlutterErrorDetails d) {
+      if (_isNetworkImageError(d)) return;
+      originalErrorHandler?.call(d);
+    };
   });
 
   tearDown(() async {
+    FlutterError.onError = originalErrorHandler;
     await GetIt.I.reset();
   });
 
@@ -294,9 +311,11 @@ void main() {
       expect(find.byType(Text), findsWidgets);
     });
 
-    testWidgets('shows product grid when products are present', (
+    testWidgets('pick stage does not render product grid yet', (
       WidgetTester tester,
     ) async {
+      // Products are tagged in the compose stage (after a video is picked),
+      // not in the pick stage — so their price cells must not appear here.
       await tester.pumpWidget(
         _wrapWithBloc(
           const ReelComposerReady(products: <Product>[_kProduct, _kProduct2]),
@@ -305,15 +324,16 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.text('Nice Shirt'), findsOneWidget);
-      expect(find.text('Cool Dress'), findsOneWidget);
+      expect(find.byType(GridView), findsNothing);
+      expect(find.text('50 Dhs'), findsNothing);
+      expect(find.text('80 Dhs'), findsNothing);
     });
 
     testWidgets('error message shown via snackbar when errorMessage != null', (
       WidgetTester tester,
     ) async {
       final StreamController<ReelComposerState> controller =
-          StreamController<ReelComposerState>();
+          StreamController<ReelComposerState>.broadcast();
 
       await tester.pumpWidget(
         _wrapWithBloc(
@@ -420,7 +440,7 @@ void main() {
 
       // The gallery GestureDetector is the second one (camera is first).
       // Find the gallery pick button by looking for the gallery icon.
-      await tester.tap(find.byIcon(Icons.photo_library_rounded));
+      await tester.tap(find.byIcon(Icons.shopping_bag_outlined));
       await tester.pump();
       // Let the async _pick complete.
       await tester.pumpAndSettle();
@@ -474,7 +494,7 @@ void main() {
       );
       await tester.pump();
 
-      await tester.tap(find.byIcon(Icons.photo_library_rounded));
+      await tester.tap(find.byIcon(Icons.shopping_bag_outlined));
       await tester.pumpAndSettle();
 
       // Stays on pick stage — no back arrow in app bar.
@@ -489,7 +509,7 @@ void main() {
       );
       await tester.pump();
 
-      await tester.tap(find.byIcon(Icons.photo_library_rounded));
+      await tester.tap(find.byIcon(Icons.shopping_bag_outlined));
       await tester.pumpAndSettle();
 
       // Now in compose stage; back button is in app bar.
@@ -526,7 +546,7 @@ void main() {
       await tester.pump();
 
       // Pick a video.
-      await tester.tap(find.byIcon(Icons.photo_library_rounded));
+      await tester.tap(find.byIcon(Icons.shopping_bag_outlined));
       await tester.pumpAndSettle();
 
       // Now tap the post button (ElevatedButton at bottom).
@@ -540,20 +560,38 @@ void main() {
     testWidgets(
       'compose stage with products: toggle product selection adds checkmark',
       (WidgetTester tester) async {
+        // The page captures products in the BlocConsumer listener, so the
+        // ready state must arrive via the stream (not just the initial state).
+        final StreamController<ReelComposerState> controller =
+            StreamController<ReelComposerState>.broadcast();
+        addTearDown(controller.close);
+
         await tester.pumpWidget(
           _wrapWithBloc(
             const ReelComposerReady(products: <Product>[_kProduct]),
             router,
+            stream: controller.stream,
           ),
         );
         await tester.pump();
 
+        controller.add(const ReelComposerReady(products: <Product>[_kProduct]));
+        await tester.pump();
+
         // Pick a video to get to compose stage.
-        await tester.tap(find.byIcon(Icons.photo_library_rounded));
+        await tester.tap(find.byIcon(Icons.shopping_bag_outlined));
         await tester.pumpAndSettle();
 
-        // Product card is visible in compose stage; tap it.
-        await tester.tap(find.text('Nice Shirt'));
+        // Product cell (keyed by its price) is visible in compose stage; tap
+        // the cell's GestureDetector — its centre is on-screen, whereas the
+        // price overlay sits at the cell's bottom edge behind the post bar.
+        final Finder cell = find
+            .ancestor(
+              of: find.text('50 Dhs'),
+              matching: find.byType(GestureDetector),
+            )
+            .first;
+        await tester.tap(cell, warnIfMissed: false);
         await tester.pump();
 
         // Checkmark (Icons.check) appears for selected product.
@@ -564,19 +602,27 @@ void main() {
     testWidgets('compose stage: product with image URL rendered', (
       WidgetTester tester,
     ) async {
+      final StreamController<ReelComposerState> controller =
+          StreamController<ReelComposerState>.broadcast();
+      addTearDown(controller.close);
+
       await tester.pumpWidget(
         _wrapWithBloc(
           const ReelComposerReady(products: <Product>[_kProduct2]),
           router,
+          stream: controller.stream,
         ),
       );
       await tester.pump();
 
-      await tester.tap(find.byIcon(Icons.photo_library_rounded));
+      controller.add(const ReelComposerReady(products: <Product>[_kProduct2]));
+      await tester.pump();
+
+      await tester.tap(find.byIcon(Icons.shopping_bag_outlined));
       await tester.pumpAndSettle();
 
-      // Product with coverImageUrl renders an Image.network.
-      expect(find.text('Cool Dress'), findsOneWidget);
+      // Product with coverImageUrl renders in the grid (keyed by its price).
+      expect(find.text('80 Dhs'), findsOneWidget);
     });
 
     testWidgets('done state with tagged products shows tagged subtitle', (

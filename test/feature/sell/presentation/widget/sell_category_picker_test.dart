@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_list_item.dart';
+import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_brand.dart';
@@ -124,7 +124,7 @@ void main() {
                 result = await Navigator.of(ctx).push<PickedCategory>(
                   MaterialPageRoute(
                     builder: (_) =>
-                        Scaffold(body: SellCategoryPicker(root: _kRoot)),
+                        const Scaffold(body: SellCategoryPicker(root: _kRoot)),
                   ),
                 );
               },

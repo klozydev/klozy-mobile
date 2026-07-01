@@ -13,7 +13,6 @@ import 'package:klozy/src/feature/reels/presentation/playback/reel_playback_coor
 import 'package:klozy/src/feature/reels/presentation/screen/single_reel_page.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_progress_dots_widget.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:video_player/video_player.dart';
 import 'package:video_player_platform_interface/video_player_platform_interface.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -27,6 +26,7 @@ class _MockReelsRepository extends Mock implements ReelsRepository {}
 
 class _MockStackRouter extends Mock implements StackRouter {}
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 // ---- Fake video player -------------------------------------------------
@@ -140,13 +140,13 @@ void main() {
     await GetIt.I.reset();
   });
 
-  Widget _wrap(Widget child) => dsWrapRouted(child, router: router);
+  Widget wrap(Widget child) => dsWrapRouted(child, router: router);
 
   group('SingleReelPage — single reel', () {
     testWidgets('renders scaffold with black background', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(const SingleReelPage(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const SingleReelPage(reelId: 'r1')));
       await tester.pump();
 
       final Scaffold scaffold = tester.widget<Scaffold>(find.byType(Scaffold));
@@ -156,14 +156,14 @@ void main() {
     testWidgets('does NOT show progress dots for single reel', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(const SingleReelPage(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const SingleReelPage(reelId: 'r1')));
       await tester.pump();
 
       expect(find.byType(ReelProgressDotsWidget), findsNothing);
     });
 
     testWidgets('shows back button', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(const SingleReelPage(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const SingleReelPage(reelId: 'r1')));
       await tester.pump();
 
       expect(find.byIcon(Icons.arrow_back_ios_new), findsOneWidget);
@@ -172,7 +172,7 @@ void main() {
     testWidgets('back button calls router.maybePop', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(const SingleReelPage(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const SingleReelPage(reelId: 'r1')));
       await tester.pump();
 
       // DSGlassButton has an IconButton or GestureDetector — tap the back icon.
@@ -183,7 +183,7 @@ void main() {
     });
 
     testWidgets('renders PageView', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(const SingleReelPage(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const SingleReelPage(reelId: 'r1')));
       await tester.pump();
 
       expect(find.byType(PageView), findsOneWidget);
@@ -201,7 +201,7 @@ void main() {
       );
 
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           const SingleReelPage(
             reelId: 'r1',
             reelIds: <String>['r1', 'r2'],
@@ -224,7 +224,7 @@ void main() {
 
       // initialIndex=99, should be clamped to 1 (last valid index)
       await tester.pumpWidget(
-        _wrap(
+        wrap(
           const SingleReelPage(
             reelId: 'r1',
             reelIds: <String>['r1', 'r2'],
@@ -242,7 +242,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(const SingleReelPage(reelId: 'r1', reelIds: null)),
+        wrap(const SingleReelPage(reelId: 'r1', reelIds: null)),
       );
       await tester.pump();
 
@@ -253,7 +253,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(const SingleReelPage(reelId: 'r1', reelIds: <String>[])),
+        wrap(const SingleReelPage(reelId: 'r1', reelIds: <String>[])),
       );
       await tester.pump();
 
@@ -263,10 +263,11 @@ void main() {
 
   group('SingleReelPage — getMe async', () {
     testWidgets('getMe resolves and updates myId', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(const SingleReelPage(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const SingleReelPage(reelId: 'r1')));
       await tester.pump();
-      // Let getMe future complete.
-      await tester.pumpAndSettle();
+      // Let getMe future complete. Bounded pump (not pumpAndSettle): the reel
+      // is processing, so DSLoader's indeterminate spinner never settles.
+      await tester.pump();
 
       verify(() => mockMe.getMe()).called(1);
     });
@@ -277,7 +278,7 @@ void main() {
       final Completer<MeProfile> completer = Completer<MeProfile>();
       when(() => mockMe.getMe()).thenAnswer((_) => completer.future);
 
-      await tester.pumpWidget(_wrap(const SingleReelPage(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const SingleReelPage(reelId: 'r1')));
       await tester.pump();
 
       // Widget renders normally even without myId.

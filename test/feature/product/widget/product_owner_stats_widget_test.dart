@@ -22,7 +22,10 @@ void main() {
 
     testWidgets('shows Views label', (WidgetTester tester) async {
       await tester.pumpWidget(
-        dsWrap(ProductOwnerStatsWidget(detail: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductOwnerStatsWidget(detail: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -31,7 +34,10 @@ void main() {
 
     testWidgets('shows Likes label', (WidgetTester tester) async {
       await tester.pumpWidget(
-        dsWrap(ProductOwnerStatsWidget(detail: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductOwnerStatsWidget(detail: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -40,7 +46,10 @@ void main() {
 
     testWidgets('shows Posted label', (WidgetTester tester) async {
       await tester.pumpWidget(
-        dsWrap(ProductOwnerStatsWidget(detail: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductOwnerStatsWidget(detail: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -49,7 +58,10 @@ void main() {
 
     testWidgets('shows correct view count', (WidgetTester tester) async {
       await tester.pumpWidget(
-        dsWrap(ProductOwnerStatsWidget(detail: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductOwnerStatsWidget(detail: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -58,7 +70,10 @@ void main() {
 
     testWidgets('shows correct likes count', (WidgetTester tester) async {
       await tester.pumpWidget(
-        dsWrap(ProductOwnerStatsWidget(detail: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductOwnerStatsWidget(detail: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -69,7 +84,10 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        dsWrap(ProductOwnerStatsWidget(detail: detail), wrapInScaffold: true),
+        dsWrap(
+          const ProductOwnerStatsWidget(detail: detail),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 
@@ -86,7 +104,10 @@ void main() {
         seller: _kSeller,
       );
       await tester.pumpWidget(
-        dsWrap(ProductOwnerStatsWidget(detail: noPosted), wrapInScaffold: true),
+        dsWrap(
+          const ProductOwnerStatsWidget(detail: noPosted),
+          wrapInScaffold: true,
+        ),
       );
       await tester.pump();
 

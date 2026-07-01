@@ -25,6 +25,7 @@ import '../../../../support/ds_harness.dart';
 // Fakes / mocks
 // ---------------------------------------------------------------------------
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 class _MockStackRouter extends Mock implements StackRouter {}
@@ -88,7 +89,7 @@ void main() {
   setUpAll(() {
     disableDsFonts();
     registerFallbackValue(_FakeRoute());
-    registerFallbackValue(FollowListStarted('u1'));
+    registerFallbackValue(const FollowListStarted('u1'));
   });
 
   late _MockStackRouter router;
@@ -322,7 +323,7 @@ void main() {
       final bloc = _buildBloc(const FollowListLoadingState());
       locator.registerSingleton<FollowListBloc>(bloc);
 
-      final page = const FollowListPage(userId: 'u1');
+      const page = FollowListPage(userId: 'u1');
       await tester.pumpWidget(
         MaterialApp(
           debugShowCheckedModeBanner: false,

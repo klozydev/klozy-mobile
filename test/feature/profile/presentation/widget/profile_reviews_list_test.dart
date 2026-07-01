@@ -10,13 +10,13 @@ import '../../../../support/ds_harness.dart';
 void main() {
   setUpAll(disableDsFonts);
 
-  const _profileNoReviews = SocialProfile(
+  const profileNoReviews = SocialProfile(
     id: 'u1',
     displayName: 'Alice',
     reviewCount: 0,
   );
 
-  const _profileWithReviews = SocialProfile(
+  const profileWithReviews = SocialProfile(
     id: 'u1',
     displayName: 'Alice',
     rating: 4.5,
@@ -28,7 +28,7 @@ void main() {
     (WidgetTester tester) async {
       await tester.pumpWidget(
         dsWrap(
-          ProfileReviewsList(profile: _profileNoReviews, reviews: const []),
+          const ProfileReviewsList(profile: profileNoReviews, reviews: []),
           wrapInScaffold: true,
         ),
       );
@@ -47,7 +47,7 @@ void main() {
     ];
     await tester.pumpWidget(
       dsWrap(
-        ProfileReviewsList(profile: _profileWithReviews, reviews: reviews),
+        const ProfileReviewsList(profile: profileWithReviews, reviews: reviews),
         wrapInScaffold: true,
       ),
     );
@@ -66,7 +66,7 @@ void main() {
     ];
     await tester.pumpWidget(
       dsWrap(
-        ProfileReviewsList(profile: _profileWithReviews, reviews: reviews),
+        const ProfileReviewsList(profile: profileWithReviews, reviews: reviews),
         wrapInScaffold: true,
       ),
     );
@@ -87,7 +87,7 @@ void main() {
     );
     await tester.pumpWidget(
       dsWrap(
-        ProfileReviewsList(profile: profileWithCount, reviews: const []),
+        const ProfileReviewsList(profile: profileWithCount, reviews: []),
         wrapInScaffold: true,
       ),
     );

@@ -40,7 +40,7 @@ void main() {
 
   group('PurchasePill', () {
     testWidgets('renders product name', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(PurchasePill(message: _purchaseMsg)));
+      await tester.pumpWidget(_wrap(const PurchasePill(message: _purchaseMsg)));
       await tester.pumpAndSettle();
 
       expect(find.textContaining('Blue Sofa'), findsOneWidget);
@@ -50,7 +50,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(PurchasePill(message: _purchaseWholeAmount)),
+        _wrap(const PurchasePill(message: _purchaseWholeAmount)),
       );
       await tester.pumpAndSettle();
 
@@ -67,7 +67,7 @@ void main() {
         kind: ChatMessageKind.purchase,
         isMine: false,
       );
-      await tester.pumpWidget(_wrap(PurchasePill(message: noPurchase)));
+      await tester.pumpWidget(_wrap(const PurchasePill(message: noPurchase)));
       await tester.pumpAndSettle();
 
       expect(find.byType(PurchasePill), findsOneWidget);

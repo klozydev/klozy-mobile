@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:image_picker_platform_interface/image_picker_platform_interface.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_bloc.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_event.dart';

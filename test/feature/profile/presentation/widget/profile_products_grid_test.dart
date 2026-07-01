@@ -18,6 +18,7 @@ class _MockWishlistRepository extends Mock implements WishlistRepository {}
 
 class _MockAccountGate extends Mock implements AccountGate {}
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 // Wraps the widget with WishlistCubit provided so ProductCardWidget works.

@@ -17,6 +17,7 @@ class _MockReelsRepository extends Mock implements ReelsRepository {}
 
 class _MockStackRouter extends Mock implements StackRouter {}
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 // Suppress network image errors from product covers.
@@ -76,7 +77,7 @@ void main() {
     await GetIt.I.reset();
   });
 
-  Widget _wrap(Widget child) => dsWrapRouted(child, router: router);
+  Widget wrap(Widget child) => dsWrapRouted(child, router: router);
 
   group('ReelShopSheet — loading state', () {
     testWidgets('shows DSLoader while fetching products', (
@@ -87,7 +88,7 @@ void main() {
         () => mockRepo.shopTheLook(any()),
       ).thenAnswer((_) => completer.future);
 
-      await tester.pumpWidget(_wrap(const ReelShopSheet(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const ReelShopSheet(reelId: 'r1')));
       await tester.pump();
 
       expect(find.byType(DSLoader), findsOneWidget);
@@ -102,7 +103,7 @@ void main() {
         () => mockRepo.shopTheLook(any()),
       ).thenAnswer((_) async => const <Product>[]);
 
-      await tester.pumpWidget(_wrap(const ReelShopSheet(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const ReelShopSheet(reelId: 'r1')));
       await tester.pumpAndSettle();
 
       expect(find.byType(DSLoader), findsNothing);
@@ -118,7 +119,7 @@ void main() {
         () => mockRepo.shopTheLook(any()),
       ).thenAnswer((_) async => const <Product>[_kProduct, _kProductWithImage]);
 
-      await tester.pumpWidget(_wrap(const ReelShopSheet(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const ReelShopSheet(reelId: 'r1')));
       await tester.pumpAndSettle();
 
       expect(find.text('Cool Shirt'), findsOneWidget);
@@ -130,7 +131,7 @@ void main() {
         () => mockRepo.shopTheLook(any()),
       ).thenAnswer((_) async => const <Product>[_kProduct]);
 
-      await tester.pumpWidget(_wrap(const ReelShopSheet(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const ReelShopSheet(reelId: 'r1')));
       await tester.pumpAndSettle();
 
       // Price is formatted with the l10n key cart_price_dhs(99)
@@ -144,7 +145,7 @@ void main() {
         () => mockRepo.shopTheLook(any()),
       ).thenAnswer((_) async => const <Product>[_kProduct]);
 
-      await tester.pumpWidget(_wrap(const ReelShopSheet(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const ReelShopSheet(reelId: 'r1')));
       await tester.pumpAndSettle();
 
       // No NetworkImage — finds at least one ColoredBox (the placeholder).
@@ -158,7 +159,7 @@ void main() {
         () => mockRepo.shopTheLook(any()),
       ).thenAnswer((_) async => const <Product>[_kProductWithImage]);
 
-      await tester.pumpWidget(_wrap(const ReelShopSheet(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const ReelShopSheet(reelId: 'r1')));
       await tester.pumpAndSettle();
 
       expect(find.byType(Image), findsOneWidget);
@@ -171,7 +172,7 @@ void main() {
         () => mockRepo.shopTheLook(any()),
       ).thenAnswer((_) async => const <Product>[_kProduct]);
 
-      await tester.pumpWidget(_wrap(const ReelShopSheet(reelId: 'r1')));
+      await tester.pumpWidget(wrap(const ReelShopSheet(reelId: 'r1')));
       await tester.pumpAndSettle();
 
       await tester.tap(find.byType(GestureDetector).first);

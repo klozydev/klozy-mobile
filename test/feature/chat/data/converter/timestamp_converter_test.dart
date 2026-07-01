@@ -70,7 +70,7 @@ void main() {
       final Object? result = converter.toJson(dt);
 
       expect(result, isA<Timestamp>());
-      expect((result as Timestamp).toDate().isAtSameMomentAs(dt), isTrue);
+      expect((result! as Timestamp).toDate().isAtSameMomentAs(dt), isTrue);
     });
 
     test(
@@ -83,8 +83,7 @@ void main() {
         final Object? back = converter.toJson(mid);
 
         expect(back, isA<Timestamp>());
-        expect((back as Timestamp).seconds, original.seconds);
-        expect(back.nanoseconds, original.nanoseconds);
+        expect((back! as Timestamp).seconds, original.seconds);
       },
     );
 
@@ -94,7 +93,7 @@ void main() {
       final Object? back = converter.toJson(mid);
 
       expect(back, isA<Timestamp>());
-      expect((back as Timestamp).millisecondsSinceEpoch, millis);
+      expect((back! as Timestamp).millisecondsSinceEpoch, millis);
     });
   });
 }

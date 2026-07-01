@@ -32,6 +32,7 @@ class _MockCatalogRepository extends Mock implements CatalogRepository {}
 
 class _MockStackRouter extends Mock implements StackRouter {}
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 // ---- Fixtures -------------------------------------------------------------
@@ -92,16 +93,6 @@ bool _isImageError(FlutterErrorDetails d) {
       msg.contains('HTTP request failed');
 }
 
-// Must be called INSIDE testWidgets body (binding resets handler first).
-void _suppressImageErrors() {
-  final prev = FlutterError.onError;
-  FlutterError.onError = (FlutterErrorDetails d) {
-    if (_isImageError(d)) return;
-    prev?.call(d);
-  };
-  addTearDown(() => FlutterError.onError = prev);
-}
-
 _MockSellBloc _buildBloc() {
   final bloc = _MockSellBloc();
   when(() => bloc.state).thenReturn(_makeState());
@@ -115,9 +106,8 @@ Widget _wrapWidget(
   SellRecapState state, {
   required _MockSellBloc bloc,
   StackRouter? router,
-  _MockCatalogRepository? catalog,
 }) {
-  Widget child = BlocProvider<SellBloc>.value(
+  final child = BlocProvider<SellBloc>.value(
     value: bloc,
     child: Scaffold(body: SellRecapWidget(state: state)),
   );

@@ -126,10 +126,10 @@ void main() {
 
       await tester.pumpWidget(
         dsWrap(
-          Scaffold(
+          const Scaffold(
             body: SizedBox(
               height: 700,
-              child: SearchFiltersSheet(initial: const SearchFilters()),
+              child: SearchFiltersSheet(initial: SearchFilters()),
             ),
           ),
         ),
@@ -247,9 +247,9 @@ void main() {
                   popped = await showModalBottomSheet<SearchFilters>(
                     context: ctx,
                     isScrollControlled: true,
-                    builder: (_) => SizedBox(
+                    builder: (_) => const SizedBox(
                       height: 700,
-                      child: SearchFiltersSheet(initial: const SearchFilters()),
+                      child: SearchFiltersSheet(initial: SearchFilters()),
                     ),
                   );
                 },
@@ -287,11 +287,9 @@ void main() {
                     popped = await showModalBottomSheet<SearchFilters>(
                       context: ctx,
                       isScrollControlled: true,
-                      builder: (_) => SizedBox(
+                      builder: (_) => const SizedBox(
                         height: 700,
-                        child: SearchFiltersSheet(
-                          initial: const SearchFilters(),
-                        ),
+                        child: SearchFiltersSheet(initial: SearchFilters()),
                       ),
                     );
                   },

@@ -105,7 +105,7 @@ void main() {
     });
 
     test('maps thread list when authenticated', () async {
-      final _MockUser user = _MockUser();
+      final user = _MockUser();
       when(() => user.uid).thenReturn('firebase-uid');
       when(() => mockAuth.currentUser).thenReturn(user);
       when(() => mockMe.getMe()).thenAnswer(
@@ -185,7 +185,7 @@ void main() {
     });
 
     test('returns null when otherUserId is empty', () async {
-      final _MockUser user = _MockUser();
+      final user = _MockUser();
       when(() => user.uid).thenReturn('fb-uid');
       when(() => mockAuth.currentUser).thenReturn(user);
       when(() => user.getIdToken(any())).thenAnswer((_) async => 'tok');
@@ -206,7 +206,7 @@ void main() {
     });
 
     test('returns existing thread when findThread returns an id', () async {
-      final _MockUser user = _MockUser();
+      final user = _MockUser();
       when(() => user.uid).thenReturn('fb-uid-2');
       when(() => mockAuth.currentUser).thenReturn(user);
       when(() => user.getIdToken(any())).thenAnswer((_) async => 'tok');
@@ -232,7 +232,7 @@ void main() {
     });
 
     test('creates a new thread when findThread returns null', () async {
-      final _MockUser user = _MockUser();
+      final user = _MockUser();
       when(() => user.uid).thenReturn('fb-uid-3');
       when(() => mockAuth.currentUser).thenReturn(user);
       when(() => user.getIdToken(any())).thenAnswer((_) async => 'tok');
@@ -348,14 +348,14 @@ void main() {
   // These tests share a common "logged-in user" setup. Each creates a fresh
   // repo so the _meLoaded / _myId state is isolated and _ensureMe runs once.
 
-  _MockUser _mockUser(String uid) {
-    final _MockUser user = _MockUser();
+  _MockUser mockUser(String uid) {
+    final user = _MockUser();
     when(() => user.uid).thenReturn(uid);
     when(() => user.getIdToken(any())).thenAnswer((_) async => 'token');
     return user;
   }
 
-  void _stubAuth(_MockUser user, String backendId) {
+  void stubAuth(_MockUser user, String backendId) {
     when(() => mockAuth.currentUser).thenReturn(user);
     when(() => mockMe.getMe()).thenAnswer(
       (_) async =>
@@ -367,8 +367,8 @@ void main() {
 
   group('openOrCreateThread — self-message guard', () {
     test('returns null when otherUserId equals myId', () async {
-      final _MockUser user = _mockUser('fb-uid-self');
-      _stubAuth(user, 'backend-self');
+      final user = mockUser('fb-uid-self');
+      stubAuth(user, 'backend-self');
 
       final ChatRepositoryImpl freshRepo = _make(
         mockRemote,
@@ -386,8 +386,8 @@ void main() {
 
   group('watchMessages — authenticated', () {
     test('maps remote messages to ChatMessage list', () async {
-      final _MockUser user = _mockUser('fb-uid-wm');
-      _stubAuth(user, 'backend-wm');
+      final user = mockUser('fb-uid-wm');
+      stubAuth(user, 'backend-wm');
 
       final ChatMessageResponse msg = ChatMessageResponse.fromJson(
         <String, dynamic>{
@@ -425,8 +425,8 @@ void main() {
 
   group('watchThread — authenticated', () {
     test('maps remote conversation to ChatThread', () async {
-      final _MockUser user = _mockUser('fb-uid-wt');
-      _stubAuth(user, 'backend-wt');
+      final user = mockUser('fb-uid-wt');
+      stubAuth(user, 'backend-wt');
 
       final ConversationResponse conv = ConversationResponse.fromJson(
         <String, dynamic>{
@@ -459,8 +459,8 @@ void main() {
     });
 
     test('maps null remote conversation to null entity', () async {
-      final _MockUser user = _mockUser('fb-uid-wt2');
-      _stubAuth(user, 'backend-wt2');
+      final user = mockUser('fb-uid-wt2');
+      stubAuth(user, 'backend-wt2');
 
       when(
         () => mockRemote.watchThread('thread-null'),
@@ -485,8 +485,8 @@ void main() {
 
   group('sendText — authenticated', () {
     test('delegates to remote.sendMessage without replyTo', () async {
-      final _MockUser user = _mockUser('fb-uid-st');
-      _stubAuth(user, 'backend-st');
+      final user = mockUser('fb-uid-st');
+      stubAuth(user, 'backend-st');
 
       when(
         () => mockRemote.sendMessage(
@@ -520,8 +520,8 @@ void main() {
     });
 
     test('builds replyTo from ChatMessage and delegates', () async {
-      final _MockUser user = _mockUser('fb-uid-st2');
-      _stubAuth(user, 'backend-st2');
+      final user = mockUser('fb-uid-st2');
+      stubAuth(user, 'backend-st2');
 
       when(
         () => mockRemote.sendMessage(
@@ -574,8 +574,8 @@ void main() {
 
   group('markSeen — authenticated', () {
     test('delegates to remote.markThreadSeen', () async {
-      final _MockUser user = _mockUser('fb-uid-ms');
-      _stubAuth(user, 'backend-ms');
+      final user = mockUser('fb-uid-ms');
+      stubAuth(user, 'backend-ms');
 
       when(
         () => mockRemote.markThreadSeen(any(), any()),
@@ -599,8 +599,8 @@ void main() {
 
   group('deleteConversation — authenticated', () {
     test('delegates to remote.deleteConversation', () async {
-      final _MockUser user = _mockUser('fb-uid-dc');
-      _stubAuth(user, 'backend-dc');
+      final user = mockUser('fb-uid-dc');
+      stubAuth(user, 'backend-dc');
 
       when(
         () => mockRemote.deleteConversation(any(), any()),
@@ -624,8 +624,8 @@ void main() {
 
   group('reportAndBlock — authenticated', () {
     test('delegates to remote.blockUser with myId', () async {
-      final _MockUser user = _mockUser('fb-uid-rb');
-      _stubAuth(user, 'backend-rb');
+      final user = mockUser('fb-uid-rb');
+      stubAuth(user, 'backend-rb');
 
       when(() => mockRemote.blockUser(any(), any())).thenAnswer((_) async {});
 
@@ -645,8 +645,8 @@ void main() {
 
   group('sendMedia — authenticated', () {
     test('uploads file then delegates to remote.sendMessage', () async {
-      final _MockUser user = _mockUser('fb-uid-sm');
-      _stubAuth(user, 'backend-sm');
+      final user = mockUser('fb-uid-sm');
+      stubAuth(user, 'backend-sm');
 
       const ChatMediaResponse uploadedMedia = ChatMediaResponse(
         id: 'media-1',
@@ -713,8 +713,8 @@ void main() {
 
   group('sendAudio — authenticated', () {
     test('uploads audio then delegates to remote.sendMessage', () async {
-      final _MockUser user = _mockUser('fb-uid-sa');
-      _stubAuth(user, 'backend-sa');
+      final user = mockUser('fb-uid-sa');
+      stubAuth(user, 'backend-sa');
 
       const ChatMediaResponse uploadedAudio = ChatMediaResponse(
         id: 'audio-1',

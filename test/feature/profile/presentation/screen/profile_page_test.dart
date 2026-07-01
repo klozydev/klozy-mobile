@@ -30,6 +30,7 @@ import '../../../../support/ds_harness.dart';
 // Fakes / mocks
 // ---------------------------------------------------------------------------
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 class _MockStackRouter extends Mock implements StackRouter {}
@@ -107,7 +108,7 @@ void main() {
     when(() => router.push(any())).thenAnswer((_) async => null);
   });
 
-  tearDown(() async {
+  tearDown(() {
     if (locator.isRegistered<ProfileBloc>()) {
       locator.unregister<ProfileBloc>();
     }

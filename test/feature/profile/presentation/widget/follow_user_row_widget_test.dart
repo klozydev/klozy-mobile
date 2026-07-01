@@ -16,7 +16,7 @@ bool _isNetworkError(FlutterErrorDetails d) {
 void main() {
   setUpAll(disableDsFonts);
 
-  const _user = FollowUser(
+  const user = FollowUser(
     id: 'u1',
     displayName: 'Bob Jones',
     isFollowing: false,
@@ -26,7 +26,7 @@ void main() {
   testWidgets('shows display name', (WidgetTester tester) async {
     await tester.pumpWidget(
       dsWrap(
-        FollowUserRowWidget(user: _user, onTap: () {}, onToggleFollow: () {}),
+        FollowUserRowWidget(user: user, onTap: () {}, onToggleFollow: () {}),
         wrapInScaffold: true,
       ),
     );
@@ -37,7 +37,7 @@ void main() {
   testWidgets('shows "Follow" when not following', (WidgetTester tester) async {
     await tester.pumpWidget(
       dsWrap(
-        FollowUserRowWidget(user: _user, onTap: () {}, onToggleFollow: () {}),
+        FollowUserRowWidget(user: user, onTap: () {}, onToggleFollow: () {}),
         wrapInScaffold: true,
       ),
     );
@@ -88,7 +88,7 @@ void main() {
   ) async {
     await tester.pumpWidget(
       dsWrap(
-        FollowUserRowWidget(user: _user, onTap: () {}, onToggleFollow: () {}),
+        FollowUserRowWidget(user: user, onTap: () {}, onToggleFollow: () {}),
         wrapInScaffold: true,
       ),
     );
@@ -101,7 +101,7 @@ void main() {
   ) async {
     await tester.pumpWidget(
       dsWrap(
-        FollowUserRowWidget(user: _user, onTap: () {}, onToggleFollow: () {}),
+        FollowUserRowWidget(user: user, onTap: () {}, onToggleFollow: () {}),
         wrapInScaffold: true,
       ),
     );
@@ -143,7 +143,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         FollowUserRowWidget(
-          user: _user,
+          user: user,
           onTap: () => tapCalls++,
           onToggleFollow: () {},
         ),
@@ -163,7 +163,7 @@ void main() {
     await tester.pumpWidget(
       dsWrap(
         FollowUserRowWidget(
-          user: _user,
+          user: user,
           onTap: () {},
           onToggleFollow: () => toggleCalls++,
         ),

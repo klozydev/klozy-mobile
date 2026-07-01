@@ -36,6 +36,7 @@ import '../../../../support/ds_harness.dart';
 // Fakes / mocks
 // ---------------------------------------------------------------------------
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 class _MockStackRouter extends Mock implements StackRouter {}
@@ -170,7 +171,7 @@ void main() {
     }
   });
 
-  void _registerBloc(ProfileState state, {int notificationCount = 0}) {
+  void registerBloc(ProfileState state, {int notificationCount = 0}) {
     final profileBloc = _buildProfileBloc(state);
     final notifCubit = _buildNotificationsCubit(count: notificationCount);
     if (!locator.isRegistered<ProfileBloc>()) {
@@ -184,7 +185,7 @@ void main() {
   // -------------------------------------------------------------------------
   group('ProfileView – loading state', () {
     testWidgets('shows DSLoader while loading', (WidgetTester tester) async {
-      _registerBloc(const ProfileLoadingState());
+      registerBloc(const ProfileLoadingState());
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: const ProfileLoadingState(),
@@ -200,7 +201,7 @@ void main() {
   // -------------------------------------------------------------------------
   group('ProfileView – error state', () {
     testWidgets('shows AppErrorWidget on error', (WidgetTester tester) async {
-      _registerBloc(const ProfileErrorState(type: AppErrorType.network));
+      registerBloc(const ProfileErrorState(type: AppErrorType.network));
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: const ProfileErrorState(type: AppErrorType.network),
@@ -251,7 +252,7 @@ void main() {
     testWidgets('shows bag/bell/settings buttons in app bar', (
       WidgetTester tester,
     ) async {
-      _registerBloc(ownLoaded);
+      registerBloc(ownLoaded);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: ownLoaded,
@@ -269,7 +270,7 @@ void main() {
     testWidgets('notification badge shown when unread > 0', (
       WidgetTester tester,
     ) async {
-      _registerBloc(ownLoaded, notificationCount: 3);
+      registerBloc(ownLoaded, notificationCount: 3);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: ownLoaded,
@@ -288,7 +289,7 @@ void main() {
     testWidgets('does not show ProfileActionsWidget for own profile', (
       WidgetTester tester,
     ) async {
-      _registerBloc(ownLoaded);
+      registerBloc(ownLoaded);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: ownLoaded,
@@ -303,7 +304,7 @@ void main() {
     testWidgets('shows Products tab content by default', (
       WidgetTester tester,
     ) async {
-      _registerBloc(ownLoaded);
+      registerBloc(ownLoaded);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: ownLoaded,
@@ -328,7 +329,7 @@ void main() {
     testWidgets('shows more button (not bag/bell/settings)', (
       WidgetTester tester,
     ) async {
-      _registerBloc(otherLoaded);
+      registerBloc(otherLoaded);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: otherLoaded,
@@ -346,7 +347,7 @@ void main() {
     testWidgets('shows ProfileActionsWidget for other user', (
       WidgetTester tester,
     ) async {
-      _registerBloc(otherLoaded);
+      registerBloc(otherLoaded);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: otherLoaded,
@@ -362,7 +363,7 @@ void main() {
     testWidgets('shows "more" menu sheet when more button tapped', (
       WidgetTester tester,
     ) async {
-      _registerBloc(otherLoaded);
+      registerBloc(otherLoaded);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: otherLoaded,
@@ -417,12 +418,12 @@ void main() {
     testWidgets('shows DSLoader when tabLoading=true and reels==null', (
       WidgetTester tester,
     ) async {
-      final loadingState = const ProfileLoadedState(
+      const loadingState = ProfileLoadedState(
         profile: _ownProfile,
         tabLoading: true,
         reels: null,
       );
-      _registerBloc(loadingState);
+      registerBloc(loadingState);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: loadingState,
@@ -455,11 +456,11 @@ void main() {
         ProfileReel(id: 'r1', views: 42),
         ProfileReel(id: 'r2', views: 0),
       ];
-      final loadedState = const ProfileLoadedState(
+      const loadedState = ProfileLoadedState(
         profile: _ownProfile,
         reels: reels,
       );
-      _registerBloc(loadedState);
+      registerBloc(loadedState);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: loadedState,
@@ -478,11 +479,8 @@ void main() {
     testWidgets('shows ProfileTabEmpty when reels list is empty', (
       WidgetTester tester,
     ) async {
-      final loadedState = const ProfileLoadedState(
-        profile: _ownProfile,
-        reels: [],
-      );
-      _registerBloc(loadedState);
+      const loadedState = ProfileLoadedState(profile: _ownProfile, reels: []);
+      registerBloc(loadedState);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: loadedState,
@@ -504,12 +502,12 @@ void main() {
     testWidgets('shows DSLoader when tabLoading=true and reviews==null', (
       WidgetTester tester,
     ) async {
-      final loadingState = const ProfileLoadedState(
+      const loadingState = ProfileLoadedState(
         profile: _ownProfile,
         tabLoading: true,
         reviews: null,
       );
-      _registerBloc(loadingState);
+      registerBloc(loadingState);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: loadingState,
@@ -532,8 +530,8 @@ void main() {
       const reviews = <UserReview>[
         UserReview(id: 'rev1', authorName: 'Dave', rating: 5.0, body: ''),
       ];
-      final loadedState = ProfileLoadedState(
-        profile: const SocialProfile(
+      const loadedState = ProfileLoadedState(
+        profile: SocialProfile(
           id: 'me',
           displayName: 'My Profile',
           isMe: true,
@@ -542,7 +540,7 @@ void main() {
         ),
         reviews: reviews,
       );
-      _registerBloc(loadedState);
+      registerBloc(loadedState);
       await tester.pumpWidget(
         _wrapProfileView(
           profileState: loadedState,

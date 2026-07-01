@@ -39,14 +39,14 @@ void main() {
       ).thenAnswer((_) async => null);
     });
 
-    const ChatParticipant _participant = ChatParticipant(
+    const ChatParticipant participant = ChatParticipant(
       id: 'u1',
       displayName: 'Alice Martin',
       rating: 4.5,
       isPro: false,
     );
 
-    const ChatParticipant _noRating = ChatParticipant(
+    const ChatParticipant noRating = ChatParticipant(
       id: 'u2',
       displayName: 'Bob',
       rating: 0,
@@ -57,7 +57,7 @@ void main() {
     ) async {
       await tester.pumpWidget(
         _wrap(
-          ThreadHeader(other: _participant, onBack: () {}, onMenu: () {}),
+          ThreadHeader(other: participant, onBack: () {}, onMenu: () {}),
           router,
         ),
       );
@@ -71,7 +71,7 @@ void main() {
     ) async {
       await tester.pumpWidget(
         _wrap(
-          ThreadHeader(other: _participant, onBack: () {}, onMenu: () {}),
+          ThreadHeader(other: participant, onBack: () {}, onMenu: () {}),
           router,
         ),
       );
@@ -85,7 +85,7 @@ void main() {
     ) async {
       await tester.pumpWidget(
         _wrap(
-          ThreadHeader(other: _noRating, onBack: () {}, onMenu: () {}),
+          ThreadHeader(other: noRating, onBack: () {}, onMenu: () {}),
           router,
         ),
       );
@@ -97,7 +97,7 @@ void main() {
     testWidgets('renders back chevron button', (WidgetTester tester) async {
       await tester.pumpWidget(
         _wrap(
-          ThreadHeader(other: _participant, onBack: () {}, onMenu: () {}),
+          ThreadHeader(other: participant, onBack: () {}, onMenu: () {}),
           router,
         ),
       );
@@ -113,7 +113,7 @@ void main() {
       await tester.pumpWidget(
         _wrap(
           ThreadHeader(
-            other: _participant,
+            other: participant,
             onBack: () => backed = true,
             onMenu: () {},
           ),
@@ -133,7 +133,7 @@ void main() {
       await tester.pumpWidget(
         _wrap(
           ThreadHeader(
-            other: _participant,
+            other: participant,
             onBack: () {},
             onMenu: () => menuOpened = true,
           ),
@@ -149,7 +149,7 @@ void main() {
     testWidgets('renders ChatAvatar', (WidgetTester tester) async {
       await tester.pumpWidget(
         _wrap(
-          ThreadHeader(other: _participant, onBack: () {}, onMenu: () {}),
+          ThreadHeader(other: participant, onBack: () {}, onMenu: () {}),
           router,
         ),
       );
@@ -163,7 +163,7 @@ void main() {
     ) async {
       await tester.pumpWidget(
         _wrap(
-          ThreadHeader(other: _participant, onBack: () {}, onMenu: () {}),
+          ThreadHeader(other: participant, onBack: () {}, onMenu: () {}),
           router,
         ),
       );

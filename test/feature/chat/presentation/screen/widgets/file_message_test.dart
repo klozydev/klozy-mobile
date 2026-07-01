@@ -51,14 +51,14 @@ void main() {
 
   group('FileMessage', () {
     testWidgets('renders filename for mine file', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(FileMessage(message: _mineFile)));
+      await tester.pumpWidget(_wrap(const FileMessage(message: _mineFile)));
       await tester.pump();
 
       expect(find.text('contract.pdf'), findsOneWidget);
     });
 
     testWidgets('renders filename for their file', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(FileMessage(message: _theirFile)));
+      await tester.pumpWidget(_wrap(const FileMessage(message: _theirFile)));
       await tester.pump();
 
       expect(find.text('invoice.pdf'), findsOneWidget);
@@ -67,14 +67,14 @@ void main() {
     testWidgets('falls back to "Attachment" when no media', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(FileMessage(message: _noMediaFile)));
+      await tester.pumpWidget(_wrap(const FileMessage(message: _noMediaFile)));
       await tester.pump();
 
       expect(find.text('Attachment'), findsOneWidget);
     });
 
     testWidgets('shows file icon', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(FileMessage(message: _mineFile)));
+      await tester.pumpWidget(_wrap(const FileMessage(message: _mineFile)));
       await tester.pump();
 
       expect(find.byIcon(Icons.insert_drive_file_outlined), findsOneWidget);

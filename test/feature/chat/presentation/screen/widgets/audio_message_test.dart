@@ -54,7 +54,7 @@ void main() {
     testWidgets('renders play icon in initial (idle) state for mine', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(AudioMessage(message: _mineAudio)));
+      await tester.pumpWidget(_wrap(const AudioMessage(message: _mineAudio)));
       await tester.pump();
 
       expect(find.byIcon(Icons.play_arrow), findsOneWidget);
@@ -63,14 +63,14 @@ void main() {
     testWidgets('renders play icon in initial (idle) state for them', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(AudioMessage(message: _theirAudio)));
+      await tester.pumpWidget(_wrap(const AudioMessage(message: _theirAudio)));
       await tester.pump();
 
       expect(find.byIcon(Icons.play_arrow), findsOneWidget);
     });
 
     testWidgets('renders AudioWaveform', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(AudioMessage(message: _mineAudio)));
+      await tester.pumpWidget(_wrap(const AudioMessage(message: _mineAudio)));
       await tester.pump();
 
       expect(find.byType(AudioWaveform), findsOneWidget);
@@ -79,7 +79,7 @@ void main() {
     testWidgets('renders duration label for 7 seconds', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(AudioMessage(message: _mineAudio)));
+      await tester.pumpWidget(_wrap(const AudioMessage(message: _mineAudio)));
       await tester.pump();
 
       expect(find.text('0:07'), findsOneWidget);
@@ -88,7 +88,7 @@ void main() {
     testWidgets('renders duration label for 3.5 seconds (rounds to 4)', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(AudioMessage(message: _theirAudio)));
+      await tester.pumpWidget(_wrap(const AudioMessage(message: _theirAudio)));
       await tester.pump();
 
       // 3500ms → 4 seconds → 0:04.
@@ -96,14 +96,16 @@ void main() {
     });
 
     testWidgets('renders 0:00 when no media', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(AudioMessage(message: _noMediaAudio)));
+      await tester.pumpWidget(
+        _wrap(const AudioMessage(message: _noMediaAudio)),
+      );
       await tester.pump();
 
       expect(find.text('0:00'), findsOneWidget);
     });
 
     testWidgets('widget disposes without error', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(AudioMessage(message: _mineAudio)));
+      await tester.pumpWidget(_wrap(const AudioMessage(message: _mineAudio)));
       await tester.pump();
 
       // Replace the widget tree to trigger dispose.

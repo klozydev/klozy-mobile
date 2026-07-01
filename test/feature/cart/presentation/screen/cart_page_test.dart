@@ -60,10 +60,10 @@ const _kItem = CartItem(
   size: 'M',
 );
 
-final _kBucket = CartBucket(
+const _kBucket = CartBucket(
   sellerId: 'seller1',
   sellerName: 'Test Seller',
-  items: const <CartItem>[_kItem],
+  items: <CartItem>[_kItem],
   subtotal: 100,
 );
 
@@ -108,8 +108,8 @@ void main() {
     testWidgets('shows CartBucketCardWidget for each bucket when loaded', (
       WidgetTester tester,
     ) async {
-      final cart = Cart(buckets: <CartBucket>[_kBucket]);
-      await tester.pumpWidget(_wrap(CartLoadedState(cart), router));
+      const cart = Cart(buckets: <CartBucket>[_kBucket]);
+      await tester.pumpWidget(_wrap(const CartLoadedState(cart), router));
       await tester.pump();
       expect(find.byType(CartBucketCardWidget), findsOneWidget);
     });
@@ -117,18 +117,18 @@ void main() {
     testWidgets('shows multiple CartBucketCardWidgets for multiple buckets', (
       WidgetTester tester,
     ) async {
-      final cart = Cart(
+      const cart = Cart(
         buckets: <CartBucket>[
           _kBucket,
           CartBucket(
             sellerId: 'seller2',
             sellerName: 'Second Seller',
-            items: const <CartItem>[_kItem],
+            items: <CartItem>[_kItem],
             subtotal: 50,
           ),
         ],
       );
-      await tester.pumpWidget(_wrap(CartLoadedState(cart), router));
+      await tester.pumpWidget(_wrap(const CartLoadedState(cart), router));
       await tester.pump();
       expect(find.byType(CartBucketCardWidget), findsNWidgets(2));
     });

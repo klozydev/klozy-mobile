@@ -44,7 +44,7 @@ const ChatMessage _replyOriginal = ChatMessage(
   text: 'Original message',
 );
 
-final ChatMessage _withReply = ChatMessage(
+const ChatMessage _withReply = ChatMessage(
   id: 'm3',
   threadId: 'thread1',
   senderId: 'me',
@@ -61,14 +61,14 @@ void main() {
 
   group('TextBubble', () {
     testWidgets('renders mine bubble text', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(TextBubble(message: _mineText)));
+      await tester.pumpWidget(_wrap(const TextBubble(message: _mineText)));
       await tester.pump();
 
       expect(find.text('Hello from me!'), findsOneWidget);
     });
 
     testWidgets('renders their bubble text', (WidgetTester tester) async {
-      await tester.pumpWidget(_wrap(TextBubble(message: _theirText)));
+      await tester.pumpWidget(_wrap(const TextBubble(message: _theirText)));
       await tester.pump();
 
       expect(find.text('Hello back!'), findsOneWidget);
@@ -77,7 +77,7 @@ void main() {
     testWidgets('renders QuotedMessage when replyTo is set', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(TextBubble(message: _withReply)));
+      await tester.pumpWidget(_wrap(const TextBubble(message: _withReply)));
       await tester.pump();
 
       expect(find.byType(QuotedMessage), findsOneWidget);
@@ -88,7 +88,7 @@ void main() {
     testWidgets('does not render QuotedMessage without reply', (
       WidgetTester tester,
     ) async {
-      await tester.pumpWidget(_wrap(TextBubble(message: _mineText)));
+      await tester.pumpWidget(_wrap(const TextBubble(message: _mineText)));
       await tester.pump();
 
       expect(find.byType(QuotedMessage), findsNothing);

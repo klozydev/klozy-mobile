@@ -67,7 +67,7 @@ void main() {
     testWidgets('renders all item titles for multiple items', (
       WidgetTester tester,
     ) async {
-      final bucket = const CartBucket(
+      const bucket = CartBucket(
         sellerId: 'seller1',
         sellerName: 'The Seller',
         items: <CartItem>[_kItem, _kItem2],
@@ -82,7 +82,7 @@ void main() {
     testWidgets('renders PRO badge when isPro = true', (
       WidgetTester tester,
     ) async {
-      final bucket = const CartBucket(
+      const bucket = CartBucket(
         sellerId: 'seller1',
         sellerName: 'Pro Seller',
         items: <CartItem>[_kItem],

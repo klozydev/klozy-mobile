@@ -25,7 +25,7 @@ void main() {
 
       final container = tester.widget<Container>(find.byType(Container).first);
       expect(container.decoration, isA<BoxDecoration>());
-      final decoration = container.decoration as BoxDecoration;
+      final decoration = container.decoration! as BoxDecoration;
       expect(decoration.gradient, isA<LinearGradient>());
     });
   });

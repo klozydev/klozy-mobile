@@ -37,6 +37,7 @@ class _MockCatalogRepository extends Mock implements CatalogRepository {}
 class _MockProductsRepository extends Mock implements ProductsRepository {}
 
 // Fallback for route push arguments.
+// ignore: avoid_implementing_value_types
 class _FakePageRouteInfo extends Fake implements PageRouteInfo<Object?> {}
 
 const _kProduct = Product(
@@ -313,11 +314,11 @@ void main() {
     testWidgets('shows no-results message', (tester) async {
       await tester.pumpWidget(
         build(
-          SearchResultsState(
-            results: const <Product>[],
+          const SearchResultsState(
+            results: <Product>[],
             query: 'shoes',
             sort: ProductSort.popular,
-            filters: const SearchFilters(),
+            filters: SearchFilters(),
           ),
         ),
       );
@@ -344,11 +345,11 @@ void main() {
 
       await tester.pumpWidget(
         build(
-          SearchResultsState(
-            results: const <Product>[_kProduct],
+          const SearchResultsState(
+            results: <Product>[_kProduct],
             query: '',
             sort: ProductSort.popular,
-            filters: const SearchFilters(),
+            filters: SearchFilters(),
           ),
         ),
       );
@@ -373,11 +374,11 @@ void main() {
 
       await tester.pumpWidget(
         build(
-          SearchResultsState(
-            results: const <Product>[_kProduct],
+          const SearchResultsState(
+            results: <Product>[_kProduct],
             query: 'jacket',
             sort: ProductSort.popular,
-            filters: const SearchFilters(),
+            filters: SearchFilters(),
           ),
         ),
       );
@@ -403,11 +404,11 @@ void main() {
 
       await tester.pumpWidget(
         build(
-          SearchResultsState(
-            results: const <Product>[_kProduct],
+          const SearchResultsState(
+            results: <Product>[_kProduct],
             query: '',
             sort: ProductSort.popular,
-            filters: const SearchFilters(),
+            filters: SearchFilters(),
             isLoadingMore: true,
           ),
         ),
@@ -494,11 +495,11 @@ void main() {
     ) async {
       // Emit a results state after initial so _filters is updated.
       when(() => mockBloc.state).thenReturn(
-        SearchResultsState(
-          results: const <Product>[],
+        const SearchResultsState(
+          results: <Product>[],
           query: '',
           sort: ProductSort.popular,
-          filters: const SearchFilters(conditions: {'new'}),
+          filters: SearchFilters(conditions: {'new'}),
           facets: SearchFacets.empty,
         ),
       );
@@ -512,11 +513,11 @@ void main() {
       // verify the pill widget exists and has the correct icon.
       await tester.pumpWidget(
         build(
-          SearchResultsState(
-            results: const <Product>[],
+          const SearchResultsState(
+            results: <Product>[],
             query: '',
             sort: ProductSort.popular,
-            filters: const SearchFilters(),
+            filters: SearchFilters(),
           ),
         ),
       );

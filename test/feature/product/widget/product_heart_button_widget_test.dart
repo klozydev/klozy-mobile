@@ -1,23 +1,19 @@
 import 'package:event_bus/event_bus.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:klozy/l10n/app_localizations.dart';
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/design/tokens/ds_theme.dart';
-import 'package:klozy/src/domain/account/usecase/require_valid_account_usecase.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
 import 'package:klozy/src/domain/wishlist/wishlist_repository.dart';
 import 'package:klozy/src/feature/product/presentation/widget/product_heart_button_widget.dart';
 import 'package:mocktail/mocktail.dart';
 
 class _MockWishlistRepository extends Mock implements WishlistRepository {}
-
-class _MockRequireValidAccountUseCase extends Mock
-    implements RequireValidAccountUseCase {}
 
 const _kSeller = ProductSeller(id: 's1', displayName: 'Seller');
 const _kDetail = ProductDetail(
@@ -34,7 +30,7 @@ Widget _wrap(WishlistCubit cubit) {
       theme: dsTheme(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: Scaffold(body: ProductHeartButtonWidget(detail: _kDetail)),
+      home: const Scaffold(body: ProductHeartButtonWidget(detail: _kDetail)),
     ),
   );
 }

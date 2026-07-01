@@ -39,14 +39,14 @@ void main() {
     }
   });
 
-  Widget _pump() {
+  Widget pump() {
     return dsWrapRouted(const ChangeEmailPage(), router: router);
   }
 
   group('ChangeEmailPage — current email card', () {
     testWidgets('shows current email when user has email', (tester) async {
       when(() => mockAuth.currentUser).thenReturn(_kUser);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
       expect(find.text('old@example.com'), findsOneWidget);
     });
@@ -55,7 +55,7 @@ void main() {
       tester,
     ) async {
       when(() => mockAuth.currentUser).thenReturn(null);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
       expect(find.text('old@example.com'), findsNothing);
     });
@@ -64,7 +64,7 @@ void main() {
       when(
         () => mockAuth.currentUser,
       ).thenReturn(const AuthUser(uid: 'u2', email: ''));
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
       expect(find.text('old@example.com'), findsNothing);
     });
@@ -73,7 +73,7 @@ void main() {
   group('ChangeEmailPage — form validation', () {
     testWidgets('save button disabled when field is empty', (tester) async {
       when(() => mockAuth.currentUser).thenReturn(null);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       final btn = tester.widget<ElevatedButton>(find.byType(ElevatedButton));
@@ -82,7 +82,7 @@ void main() {
 
     testWidgets('shows error text for invalid email', (tester) async {
       when(() => mockAuth.currentUser).thenReturn(null);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.enterText(find.byType(TextField).first, 'notanemail');
@@ -94,7 +94,7 @@ void main() {
 
     testWidgets('save button enabled for valid email', (tester) async {
       when(() => mockAuth.currentUser).thenReturn(null);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.enterText(find.byType(TextField).first, 'new@example.com');
@@ -106,7 +106,7 @@ void main() {
 
     testWidgets('no error text when field is empty', (tester) async {
       when(() => mockAuth.currentUser).thenReturn(null);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       // field is empty — no error should be shown
@@ -122,7 +122,7 @@ void main() {
       when(
         () => mockAuth.sendEmailUpdateVerification(any()),
       ).thenAnswer((_) async {});
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.enterText(find.byType(TextField).first, 'new@example.com');
@@ -144,7 +144,7 @@ void main() {
       when(
         () => mockAuth.sendEmailUpdateVerification(any()),
       ).thenThrow(const AuthException('Reauthentication required'));
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.enterText(find.byType(TextField).first, 'new@example.com');
@@ -164,7 +164,7 @@ void main() {
       when(
         () => mockAuth.sendEmailUpdateVerification(any()),
       ).thenThrow(Exception('network'));
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.enterText(find.byType(TextField).first, 'new@example.com');
@@ -182,7 +182,7 @@ void main() {
   group('ChangeEmailPage — navigation', () {
     testWidgets('back button calls router.maybePop', (tester) async {
       when(() => mockAuth.currentUser).thenReturn(null);
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.arrow_back_ios_new));

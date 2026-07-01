@@ -8,6 +8,7 @@ import '../../../../support/ds_harness.dart';
 
 class _MockStackRouter extends Mock implements StackRouter {}
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 void main() {
@@ -20,7 +21,7 @@ void main() {
 
   setUp(() {
     router = _MockStackRouter();
-    when(() => router.replace(any())).thenAnswer((_) async {});
+    when(() => router.replace(any())).thenAnswer((_) async => null);
     when(() => router.maybePop<Object?>()).thenAnswer((_) async => true);
   });
 

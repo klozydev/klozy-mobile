@@ -17,6 +17,7 @@ class _MockCatalogRepository extends Mock implements CatalogRepository {}
 
 class _MockStackRouter extends Mock implements StackRouter {}
 
+// ignore: avoid_implementing_value_types
 class _FakeRoute extends Fake implements PageRouteInfo<Object?> {}
 
 void main() {

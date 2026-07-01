@@ -74,6 +74,14 @@ Response<dynamic> _response({
 // ── Tests ─────────────────────────────────────────────────────────────────────
 
 void main() {
+  setUpAll(() {
+    // `mockCache.put` takes a `Response<dynamic>` positional arg; mocktail needs
+    // a registered fallback before `any()` can match it.
+    registerFallbackValue(
+      Response<dynamic>(requestOptions: RequestOptions(path: '')),
+    );
+  });
+
   late _MockSessionCache mockCache;
   late CacheInterceptor interceptor;
 

@@ -27,13 +27,13 @@ void main() {
     ).thenAnswer((_) async => null);
   });
 
-  Widget _pump() {
+  Widget pump() {
     return dsWrapRouted(const SecurityPage(), router: router);
   }
 
   group('SecurityPage — layout', () {
     testWidgets('renders without error', (tester) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
       expect(find.byType(SecurityPage), findsOneWidget);
     });
@@ -41,7 +41,7 @@ void main() {
 
   group('SecurityPage — navigation', () {
     testWidgets('change email row pushes ChangeEmailRoute', (tester) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.mail_outline_rounded));
@@ -59,7 +59,7 @@ void main() {
     testWidgets('change password row pushes ChangePasswordRoute', (
       tester,
     ) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.lock_outline_rounded));
@@ -75,7 +75,7 @@ void main() {
     });
 
     testWidgets('phone number row pushes ChangePhoneRoute', (tester) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.phone_outlined));
@@ -91,7 +91,7 @@ void main() {
     });
 
     testWidgets('back button calls router.maybePop', (tester) async {
-      await tester.pumpWidget(_pump());
+      await tester.pumpWidget(pump());
       await tester.pump();
 
       await tester.tap(find.byIcon(Icons.arrow_back_ios_new));

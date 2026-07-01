@@ -149,7 +149,7 @@ void main() {
           (Widget w) =>
               w is Container &&
               w.decoration is BoxDecoration &&
-              (w.decoration as BoxDecoration).shape == BoxShape.circle,
+              (w.decoration! as BoxDecoration).shape == BoxShape.circle,
         ),
         findsAtLeastNWidgets(1),
       );

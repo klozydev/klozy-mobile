@@ -43,7 +43,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(QuotedMessage(reply: _textReply, mine: false)),
+        _wrap(const QuotedMessage(reply: _textReply, mine: false)),
       );
       await tester.pump();
 
@@ -54,7 +54,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(QuotedMessage(reply: _textReply, mine: true)),
+        _wrap(const QuotedMessage(reply: _textReply, mine: true)),
       );
       await tester.pump();
 
@@ -65,7 +65,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
-        _wrap(QuotedMessage(reply: _noTextReply, mine: false)),
+        _wrap(const QuotedMessage(reply: _noTextReply, mine: false)),
       );
       await tester.pump();
 
