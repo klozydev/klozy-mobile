@@ -4,6 +4,7 @@ import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_app_bar.dart';
 import 'package:klozy/src/design/components/ds_category_tree_picker.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
+import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/catalog/catalog_repository.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
@@ -28,13 +29,21 @@ class SellCategoryPage extends StatelessWidget implements AutoRouteWrapper {
         backType: BackType.push,
       ),
       body: SafeArea(
-        child: DSCategoryTreePicker(
-          repo: locator<CatalogRepository>(),
-          showBreadcrumb: true,
-          initialParent: parent,
-          onLeafSelected: (PickedCategory picked) {
-            context.router.maybePop(picked);
-          },
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(
+            DSSpacing.s,
+            DSSpacing.xxs,
+            DSSpacing.s,
+            DSSpacing.s,
+          ),
+          child: DSCategoryTreePicker(
+            repo: locator<CatalogRepository>(),
+            showBreadcrumb: true,
+            initialParent: parent,
+            onLeafSelected: (PickedCategory picked) {
+              context.router.maybePop(picked);
+            },
+          ),
         ),
       ),
     );
