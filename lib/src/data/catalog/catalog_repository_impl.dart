@@ -62,7 +62,6 @@ class CatalogRepositoryImpl implements CatalogRepository {
       'v1/catalog/brands',
       queryParameters: <String, dynamic>{
         if (query != null && query.isNotEmpty) 'q': query,
-        'limit': 100,
       },
       options: cacheable('catalog'),
     );
