@@ -167,7 +167,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get error_scenario_generic_secondary => 'Kanselahin';
 
   @override
-  String get error_scenario_server_http_label => 'Internal Server Error';
+  String get error_scenario_server_http_label => 'Error sa Server';
 
   @override
   String get error_scenario_session_http_label => 'Nag-expire ang Session';
@@ -183,13 +183,13 @@ class AppLocalizationsFil extends AppLocalizations {
       'Masyadong Maraming Kahilingan';
 
   @override
-  String get error_scenario_maintenance_http_label => 'Maintenance';
+  String get error_scenario_maintenance_http_label => 'Pagmementena';
 
   @override
   String get auth_country_uae => 'UNITED ARAB EMIRATES';
 
   @override
-  String get auth_hero_placeholder => 'HERO  ·  EDITORIAL  FASHION  SHOT';
+  String get auth_hero_placeholder => 'HERO · EDITORYAL NA FASHION SHOOT';
 
   @override
   String get auth_welcome_title =>
@@ -342,7 +342,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get onboarding_last_name_hint => 'Hassan';
 
   @override
-  String get onboarding_address_label => 'Address';
+  String get onboarding_address_label => 'Tirahan';
 
   @override
   String get onboarding_bio_label => 'Bio';
@@ -428,7 +428,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Nililinis ang sarili mong aparador. Makakatanggap ng bayad diretso sa iyong bank account sa pamamagitan ng IBAN — walang papeles.';
 
   @override
-  String get onboarding_payout_iban_label => 'Payout IBAN';
+  String get onboarding_payout_iban_label => 'IBAN para sa Payout';
 
   @override
   String get onboarding_iban_shield_note =>
@@ -452,7 +452,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get home_tab_feed => 'Feed';
 
   @override
-  String get home_tab_wishlist => 'Wishlist';
+  String get home_tab_wishlist => 'Paborito';
 
   @override
   String get home_tab_reels => 'Reels';
@@ -1231,7 +1231,7 @@ class AppLocalizationsFil extends AppLocalizations {
       'Lalabas dito ang mga update sa pagsubaybay.';
 
   @override
-  String get orders_emx_door_to_door => 'EMX door-to-door · UAE domestic';
+  String get orders_emx_door_to_door => 'EMX door-to-door · sa loob ng UAE';
 
   @override
   String get orders_emx_tracking => 'EMX tracking';
@@ -1524,19 +1524,19 @@ class AppLocalizationsFil extends AppLocalizations {
   String get edit_profile_keep_editing => 'Patuloy na i-edit';
 
   @override
-  String get settings_delivery_address => 'Delivery address';
+  String get settings_delivery_address => 'Address ng Paghahatid';
 
   @override
-  String get settings_payout_iban => 'Payout IBAN';
+  String get settings_payout_iban => 'IBAN para sa Payout';
 
   @override
   String get settings_seller_stats => 'Stats ng nagbebenta';
 
   @override
-  String get settings_push_notifications => 'Push notifications';
+  String get settings_push_notifications => 'Mga Push Notification';
 
   @override
-  String get settings_email_notifications => 'Email notifications';
+  String get settings_email_notifications => 'Mga Abiso sa Email';
 
   @override
   String get settings_blocked_users => 'Mga naka-block na user';
@@ -1613,7 +1613,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get settings_address_city => 'Lungsod';
 
   @override
-  String get settings_address_emirate => 'Emirate';
+  String get settings_address_emirate => 'Emirato';
 
   @override
   String get settings_iban_label => 'IBAN';
@@ -2139,7 +2139,7 @@ class AppLocalizationsFil extends AppLocalizations {
   String get chat_preview_photo => '📷 Larawan';
 
   @override
-  String get chat_preview_voice => '🎤 Voice message';
+  String get chat_preview_voice => '🎤 Mensaheng Boses';
 
   @override
   String get chat_preview_offer_sent => 'Nagpadala ka ng alok';
