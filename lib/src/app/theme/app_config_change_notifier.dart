@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intl/intl.dart';
 import 'package:klozy/src/core/prefs/prefs.dart';
 
 @lazySingleton
@@ -28,6 +29,9 @@ class AppConfigChangeNotifier extends ChangeNotifier {
 
   void getLocale() {
     _locale = _prefs.getLocale();
+    // Keep the API language header (read from Intl.defaultLocale by
+    // DefaultInterceptor) in sync with the locale actually in use.
+    Intl.defaultLocale = _locale;
     notifyListeners();
   }
 
@@ -37,6 +41,7 @@ class AppConfigChangeNotifier extends ChangeNotifier {
     }
     await _prefs.setLocale(languageCode);
     _locale = languageCode;
+    Intl.defaultLocale = languageCode;
     notifyListeners();
   }
 }
