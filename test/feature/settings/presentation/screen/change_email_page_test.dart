@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/auth/auth_error_reason.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/auth/entity/auth_user.dart';
@@ -143,7 +144,7 @@ void main() {
       when(() => mockAuth.currentUser).thenReturn(null);
       when(
         () => mockAuth.sendEmailUpdateVerification(any()),
-      ).thenThrow(const AuthException('Reauthentication required'));
+      ).thenThrow(const AuthException(AuthErrorReason.reauthRequiredEmail));
       await tester.pumpWidget(pump());
       await tester.pump();
 
@@ -153,7 +154,10 @@ void main() {
       await tester.tap(find.byType(ElevatedButton));
       await tester.pumpAndSettle();
 
-      expect(find.text('Reauthentication required'), findsOneWidget);
+      expect(
+        find.text('Please sign in again to change your email.'),
+        findsOneWidget,
+      );
       verifyNever(() => router.maybePop<Object?>());
     });
 

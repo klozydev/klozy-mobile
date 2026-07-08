@@ -14,6 +14,7 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:klozy/src/feature/auth/presentation/bloc/auth_error_reason_l10n.dart';
 import 'package:klozy/src/feature/auth/presentation/bloc/auth_event.dart';
 import 'package:klozy/src/feature/auth/presentation/bloc/auth_state.dart';
 import 'package:klozy/src/router/app_router.dart';
@@ -245,7 +246,7 @@ class _OtpPageState extends State<OtpPage> {
       _startCountdown();
       context.showSnackBar(context.l10N.auth_new_code_sent);
     } else if (state is AuthFailure) {
-      context.showSnackBar(state.message);
+      context.showSnackBar(state.reason.message(context.l10N));
     }
   }
 }

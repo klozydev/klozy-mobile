@@ -16,6 +16,7 @@ import 'package:klozy/src/domain/sell/entity/sell_draft.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_bloc.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_event.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_state.dart';
+import 'package:klozy/src/feature/sell/presentation/bloc/sell_submit_error_reason.dart';
 import 'package:klozy/src/feature/sell/presentation/screen/sell_page.dart';
 import 'package:klozy/src/feature/sell/presentation/widget/sell_photos_widget.dart';
 import 'package:klozy/src/feature/sell/presentation/widget/sell_recap_widget.dart';
@@ -285,9 +286,7 @@ void main() {
       await tester.pump();
 
       streamCtrl.add(
-        _kRecapState.copyWith(
-          submitError: "Couldn't publish your listing. Please try again.",
-        ),
+        _kRecapState.copyWith(submitError: SellSubmitErrorReason.publishFailed),
       );
       // First pump delivers the stream event (listener fires + enqueues the
       // SnackBar); second builds the SnackBar into the tree.

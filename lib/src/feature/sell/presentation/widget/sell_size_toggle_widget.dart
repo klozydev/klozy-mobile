@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_selectable_chip.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/feature/sell/domain/entity/size_system.dart';
@@ -21,13 +22,13 @@ class SellSizeToggleWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         DSSelectableChip(
-          label: 'EU',
+          label: context.l10N.sell_size_system_eu,
           selected: current == SizeSystem.eu,
           onTap: () => onToggle(SizeSystem.eu),
         ),
         const SizedBox(width: DSSpacing.xxxs),
         DSSelectableChip(
-          label: 'US',
+          label: context.l10N.sell_size_system_us,
           selected: current == SizeSystem.us,
           onTap: () => onToggle(SizeSystem.us),
         ),

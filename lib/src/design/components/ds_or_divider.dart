@@ -7,7 +7,7 @@ import 'package:klozy/src/design/tokens/ds_font.dart';
 class DSOrDivider extends StatelessWidget {
   final String label;
 
-  const DSOrDivider({super.key, this.label = 'or continue with'});
+  const DSOrDivider({super.key, required this.label});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/util/relative_time_formatter.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/domain/product/entity/product_detail.dart';
@@ -13,10 +14,15 @@ class ProductOwnerStatsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String postedValue = detail.postedLabel != null
+        ? detail.postedLabel!
+        : detail.postedAt != null
+        ? RelativeTimeFormatter.format(context, detail.postedAt!)
+        : '—';
     final List<(String, String)> stats = <(String, String)>[
       (context.l10N.product_stat_views, '${detail.views}'),
       (context.l10N.product_stat_likes, '${detail.likes}'),
-      (context.l10N.product_stat_posted, detail.postedLabel ?? '—'),
+      (context.l10N.product_stat_posted, postedValue),
     ];
     return Container(
       margin: const EdgeInsets.only(top: 20),

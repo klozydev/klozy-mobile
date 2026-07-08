@@ -2139,4 +2139,202 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'آپ: ';
+
+  @override
+  String get common_try_again => 'دوبارہ کوشش کریں';
+
+  @override
+  String get common_time_just_now => 'ابھی ابھی';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count منٹ پہلے',
+      one: '1 منٹ پہلے',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count گھنٹے پہلے',
+      one: '1 گھنٹہ پہلے',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count دن پہلے',
+      one: '1 دن پہلے',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'کوئی کنکشن نہیں';
+
+  @override
+  String get error_type_network_message =>
+      'اپنا انٹرنیٹ کنکشن چیک کریں اور دوبارہ کوشش کریں۔';
+
+  @override
+  String get error_type_timeout_title => 'بہت زیادہ وقت لگ گیا';
+
+  @override
+  String get error_type_timeout_message =>
+      'درخواست کا وقت ختم ہو گیا۔ براہ کرم دوبارہ کوشش کریں۔';
+
+  @override
+  String get error_type_unauthorized_title => 'سیشن ختم ہو گیا';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'جاری رکھنے کے لیے براہ کرم دوبارہ سائن ان کریں۔';
+
+  @override
+  String get error_type_not_found_title => 'نہیں ملا';
+
+  @override
+  String get error_type_not_found_message =>
+      'ہم وہ نہیں تلاش کر سکے جو آپ ڈھونڈ رہے تھے۔';
+
+  @override
+  String get error_type_server_title => 'کچھ غلط ہو گیا';
+
+  @override
+  String get error_type_server_message =>
+      'ہمارے سرورز میں خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔';
+
+  @override
+  String get error_type_unknown_title => 'کچھ غلط ہو گیا';
+
+  @override
+  String get error_type_unknown_message =>
+      'ایک غیر متوقع خرابی پیش آئی۔ براہ کرم دوبارہ کوشش کریں۔';
+
+  @override
+  String get reels_composer_post_failed =>
+      'آپ کا ریل پوسٹ نہیں ہو سکا۔ براہ کرم دوبارہ کوشش کریں۔';
+
+  @override
+  String get sell_publish_failed =>
+      'آپ کی لسٹنگ شائع نہیں ہو سکی۔ براہ کرم دوبارہ کوشش کریں۔';
+
+  @override
+  String get auth_error_invalid_email => 'وہ ای میل ایڈریس غلط لگتا ہے۔';
+
+  @override
+  String get auth_error_user_disabled => 'یہ اکاؤنٹ غیر فعال کر دیا گیا ہے۔';
+
+  @override
+  String get auth_error_wrong_credentials => 'غلط ای میل یا پاس ورڈ۔';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'اس ای میل کے لیے پہلے سے ہی ایک اکاؤنٹ موجود ہے۔';
+
+  @override
+  String get auth_error_weak_password =>
+      'زیادہ مضبوط پاس ورڈ منتخب کریں (کم از کم 8 حروف)۔';
+
+  @override
+  String get auth_error_operation_not_allowed =>
+      'یہ سائن ان کا طریقہ فعال نہیں ہے۔';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'آپ کی حفاظت کے لیے، براہ کرم اسے تبدیل کرنے سے پہلے لاگ آؤٹ کریں اور دوبارہ سائن ان کریں۔';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'بہت زیادہ کوششیں۔ براہ کرم بعد میں دوبارہ کوشش کریں۔';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'نیٹ ورک کی خرابی۔ اپنا کنکشن چیک کریں۔';
+
+  @override
+  String get auth_error_invalid_phone_number => 'وہ فون نمبر غلط لگتا ہے۔';
+
+  @override
+  String get auth_error_invalid_verification_code => 'وہ کوڈ غلط ہے۔';
+
+  @override
+  String get auth_error_session_expired =>
+      'کوڈ کی میعاد ختم ہو گئی۔ نیا کوڈ طلب کریں۔';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'وہ نمبر پہلے سے ہی کسی اور اکاؤنٹ سے منسلک ہے۔';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'فون کی تصدیق ناکام ہو گئی۔ براہ کرم دوبارہ کوشش کریں۔';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'Google سائن ان ناکام ہو گیا۔ براہ کرم دوبارہ کوشش کریں۔';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'سائن ان منسوخ کر دیا گیا۔';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'Apple سائن ان ناکام ہو گیا۔ براہ کرم دوبارہ کوشش کریں۔';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'اپنی ای میل تبدیل کرنے کے لیے براہ کرم دوبارہ سائن ان کریں۔';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'آپ کی حفاظت کے لیے، اپنا پاس ورڈ تبدیل کرنے سے پہلے براہ کرم دوبارہ سائن ان کریں۔';
+
+  @override
+  String get auth_error_password_too_weak =>
+      'براہ کرم زیادہ مضبوط پاس ورڈ منتخب کریں۔';
+
+  @override
+  String get auth_error_password_update_failed =>
+      'آپ کا پاس ورڈ اپ ڈیٹ نہیں ہو سکا۔';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'اپنا نمبر تبدیل کرنے کے لیے براہ کرم دوبارہ سائن ان کریں۔';
+
+  @override
+  String get auth_error_generic => 'کچھ غلط ہو گیا۔ براہ کرم دوبارہ کوشش کریں۔';
+
+  @override
+  String get address_form_label_hint => 'گھر';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'آواز کا پیغام';
+
+  @override
+  String get chat_media_photo => 'تصویر';
+
+  @override
+  String get chat_media_attachment => 'منسلکہ';
 }

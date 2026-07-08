@@ -207,7 +207,7 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.text(AppErrorType.network.title), findsOneWidget);
+      expect(find.text('No connection'), findsOneWidget);
     });
   });
 

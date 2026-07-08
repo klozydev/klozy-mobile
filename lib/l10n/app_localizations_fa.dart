@@ -2135,4 +2135,202 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'شما: ';
+
+  @override
+  String get common_try_again => 'دوباره تلاش کنید';
+
+  @override
+  String get common_time_just_now => 'همین حالا';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count دقیقه پیش',
+      one: '۱ دقیقه پیش',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ساعت پیش',
+      one: '۱ ساعت پیش',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count روز پیش',
+      one: '۱ روز پیش',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'اتصالی وجود ندارد';
+
+  @override
+  String get error_type_network_message =>
+      'اتصال اینترنت خود را بررسی کنید و دوباره تلاش کنید.';
+
+  @override
+  String get error_type_timeout_title => 'بیش از حد طول کشید';
+
+  @override
+  String get error_type_timeout_message =>
+      'زمان درخواست به پایان رسید. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get error_type_unauthorized_title => 'نشست منقضی شد';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'برای ادامه لطفاً دوباره وارد شوید.';
+
+  @override
+  String get error_type_not_found_title => 'یافت نشد';
+
+  @override
+  String get error_type_not_found_message => 'چیزی که دنبالش بودید پیدا نشد.';
+
+  @override
+  String get error_type_server_title => 'مشکلی پیش آمد';
+
+  @override
+  String get error_type_server_message =>
+      'سرورهای ما با مشکلی مواجه شدند. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get error_type_unknown_title => 'مشکلی پیش آمد';
+
+  @override
+  String get error_type_unknown_message =>
+      'خطای غیرمنتظره‌ای رخ داد. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get reels_composer_post_failed =>
+      'ریل شما منتشر نشد. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get sell_publish_failed =>
+      'آگهی شما منتشر نشد. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get auth_error_invalid_email =>
+      'این آدرس ایمیل نامعتبر به نظر می‌رسد.';
+
+  @override
+  String get auth_error_user_disabled => 'این حساب غیرفعال شده است.';
+
+  @override
+  String get auth_error_wrong_credentials => 'ایمیل یا گذرواژه اشتباه است.';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'حسابی با این ایمیل از قبل وجود دارد.';
+
+  @override
+  String get auth_error_weak_password =>
+      'گذرواژه قوی‌تری انتخاب کنید (حداقل ۸ کاراکتر).';
+
+  @override
+  String get auth_error_operation_not_allowed => 'این روش ورود فعال نیست.';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'برای امنیت شما، لطفاً خارج شوید و پیش از تغییر این مورد دوباره وارد شوید.';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'تلاش‌های بیش از حد. لطفاً بعداً دوباره تلاش کنید.';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'خطای شبکه. اتصال خود را بررسی کنید.';
+
+  @override
+  String get auth_error_invalid_phone_number =>
+      'این شماره تلفن نامعتبر به نظر می‌رسد.';
+
+  @override
+  String get auth_error_invalid_verification_code => 'این کد نادرست است.';
+
+  @override
+  String get auth_error_session_expired =>
+      'کد منقضی شد. یک کد جدید درخواست کنید.';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'این شماره از قبل به حساب دیگری متصل است.';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'تأیید شماره تلفن ناموفق بود. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'ورود با Google ناموفق بود. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'ورود لغو شد.';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'ورود با Apple ناموفق بود. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'برای تغییر ایمیل خود، لطفاً دوباره وارد شوید.';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'برای امنیت شما، پیش از تغییر گذرواژه لطفاً دوباره وارد شوید.';
+
+  @override
+  String get auth_error_password_too_weak =>
+      'لطفاً گذرواژه قوی‌تری انتخاب کنید.';
+
+  @override
+  String get auth_error_password_update_failed =>
+      'گذرواژه شما به‌روزرسانی نشد.';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'برای تغییر شماره خود، لطفاً دوباره وارد شوید.';
+
+  @override
+  String get auth_error_generic => 'مشکلی پیش آمد. لطفاً دوباره تلاش کنید.';
+
+  @override
+  String get address_form_label_hint => 'خانه';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'پیام صوتی';
+
+  @override
+  String get chat_media_photo => 'عکس';
+
+  @override
+  String get chat_media_attachment => 'پیوست';
 }

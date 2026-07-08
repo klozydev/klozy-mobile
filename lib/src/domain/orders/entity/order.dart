@@ -19,7 +19,14 @@ class Order extends Equatable {
   final String? deliveryName;
   final String? deliveryAddress;
   final String? returnReason;
+
+  /// Server-provided pre-formatted label, when present. Prefer this in the UI;
+  /// otherwise format [createdAt] via `RelativeTimeFormatter`.
   final String? createdAtLabel;
+
+  /// Raw creation timestamp for locally-computed relative time. Populated by the
+  /// mapper from `createdAt`; the UI localizes it via `RelativeTimeFormatter`.
+  final DateTime? createdAt;
 
   const Order({
     required this.id,
@@ -34,6 +41,7 @@ class Order extends Equatable {
     this.deliveryAddress,
     this.returnReason,
     this.createdAtLabel,
+    this.createdAt,
   });
 
   /// "the seller" for a buyer's view, "the buyer" for a seller's view.
@@ -54,5 +62,6 @@ class Order extends Equatable {
     deliveryAddress,
     returnReason,
     createdAtLabel,
+    createdAt,
   ];
 }

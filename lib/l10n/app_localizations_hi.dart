@@ -2136,4 +2136,202 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'आप: ';
+
+  @override
+  String get common_try_again => 'फिर से प्रयास करें';
+
+  @override
+  String get common_time_just_now => 'अभी-अभी';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count मिनट पहले',
+      one: '1 मिनट पहले',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count घंटे पहले',
+      one: '1 घंटा पहले',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count दिन पहले',
+      one: '1 दिन पहले',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'कोई कनेक्शन नहीं';
+
+  @override
+  String get error_type_network_message =>
+      'अपना इंटरनेट कनेक्शन जाँचें और फिर से प्रयास करें।';
+
+  @override
+  String get error_type_timeout_title => 'बहुत समय लग गया';
+
+  @override
+  String get error_type_timeout_message =>
+      'अनुरोध का समय समाप्त हो गया। कृपया फिर से प्रयास करें।';
+
+  @override
+  String get error_type_unauthorized_title => 'सत्र समाप्त हो गया';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'जारी रखने के लिए कृपया फिर से साइन इन करें।';
+
+  @override
+  String get error_type_not_found_title => 'नहीं मिला';
+
+  @override
+  String get error_type_not_found_message =>
+      'आप जो खोज रहे थे वह हमें नहीं मिला।';
+
+  @override
+  String get error_type_server_title => 'कुछ गड़बड़ हो गई';
+
+  @override
+  String get error_type_server_message =>
+      'हमारे सर्वर में समस्या आई। कृपया फिर से प्रयास करें।';
+
+  @override
+  String get error_type_unknown_title => 'कुछ गड़बड़ हो गई';
+
+  @override
+  String get error_type_unknown_message =>
+      'एक अप्रत्याशित त्रुटि हुई। कृपया फिर से प्रयास करें।';
+
+  @override
+  String get reels_composer_post_failed =>
+      'आपका रील पोस्ट नहीं हो सका। कृपया फिर से प्रयास करें।';
+
+  @override
+  String get sell_publish_failed =>
+      'आपकी लिस्टिंग प्रकाशित नहीं हो सकी। कृपया फिर से प्रयास करें।';
+
+  @override
+  String get auth_error_invalid_email => 'वह ईमेल पता अमान्य लगता है।';
+
+  @override
+  String get auth_error_user_disabled => 'यह खाता निष्क्रिय कर दिया गया है।';
+
+  @override
+  String get auth_error_wrong_credentials => 'गलत ईमेल या पासवर्ड।';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'उस ईमेल के लिए पहले से ही एक खाता मौजूद है।';
+
+  @override
+  String get auth_error_weak_password =>
+      'अधिक मज़बूत पासवर्ड चुनें (कम से कम 8 अक्षर)।';
+
+  @override
+  String get auth_error_operation_not_allowed =>
+      'यह साइन-इन तरीका सक्षम नहीं है।';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'आपकी सुरक्षा के लिए, कृपया इसे बदलने से पहले लॉग आउट करें और फिर से साइन इन करें।';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'बहुत अधिक प्रयास। कृपया बाद में फिर से प्रयास करें।';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'नेटवर्क त्रुटि। अपना कनेक्शन जाँचें।';
+
+  @override
+  String get auth_error_invalid_phone_number => 'वह फ़ोन नंबर अमान्य लगता है।';
+
+  @override
+  String get auth_error_invalid_verification_code => 'वह कोड गलत है।';
+
+  @override
+  String get auth_error_session_expired =>
+      'कोड की समय-सीमा समाप्त हो गई। नया कोड मंगवाएँ।';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'वह नंबर पहले से ही किसी अन्य खाते से जुड़ा है।';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'फ़ोन सत्यापन विफल रहा। कृपया फिर से प्रयास करें।';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'Google साइन-इन विफल रहा। कृपया फिर से प्रयास करें।';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'साइन-इन रद्द कर दिया गया।';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'Apple साइन-इन विफल रहा। कृपया फिर से प्रयास करें।';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'अपना ईमेल बदलने के लिए कृपया फिर से साइन इन करें।';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'आपकी सुरक्षा के लिए, अपना पासवर्ड बदलने से पहले कृपया फिर से साइन इन करें।';
+
+  @override
+  String get auth_error_password_too_weak => 'कृपया अधिक मज़बूत पासवर्ड चुनें।';
+
+  @override
+  String get auth_error_password_update_failed =>
+      'आपका पासवर्ड अपडेट नहीं किया जा सका।';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'अपना नंबर बदलने के लिए कृपया फिर से साइन इन करें।';
+
+  @override
+  String get auth_error_generic =>
+      'कुछ गड़बड़ हो गई। कृपया फिर से प्रयास करें।';
+
+  @override
+  String get address_form_label_hint => 'घर';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'वॉइस मैसेज';
+
+  @override
+  String get chat_media_photo => 'फ़ोटो';
+
+  @override
+  String get chat_media_attachment => 'अटैचमेंट';
 }

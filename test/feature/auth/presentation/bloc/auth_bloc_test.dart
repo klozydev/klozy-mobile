@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:klozy/src/domain/auth/auth_error_reason.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/auth/entity/auth_user.dart';
@@ -129,7 +130,7 @@ void main() {
           email: any(named: 'email'),
           password: any(named: 'password'),
         ),
-      ).thenThrow(const AuthException('Wrong password'));
+      ).thenThrow(const AuthException(AuthErrorReason.wrongCredentials));
 
       final states = await _collectStates(
         bloc,
@@ -142,7 +143,7 @@ void main() {
 
       expect(states, [
         const AuthLoading(),
-        const AuthFailure('Wrong password'),
+        const AuthFailure(AuthErrorReason.wrongCredentials),
       ]);
     });
 
@@ -214,11 +215,14 @@ void main() {
     test('emits [AuthLoading, AuthFailure] on error', () async {
       when(
         () => mockAuth.signInWithGoogle(),
-      ).thenThrow(const AuthException('cancelled'));
+      ).thenThrow(const AuthException(AuthErrorReason.signInCancelled));
 
       final states = await _collectStates(bloc, const AuthGooglePressed());
 
-      expect(states, [const AuthLoading(), const AuthFailure('cancelled')]);
+      expect(states, [
+        const AuthLoading(),
+        const AuthFailure(AuthErrorReason.signInCancelled),
+      ]);
     });
   });
 
@@ -263,7 +267,7 @@ void main() {
     test('emits [AuthLoading, AuthFailure] on error', () async {
       when(
         () => mockAuth.sendPasswordReset(any()),
-      ).thenThrow(const AuthException('Email not found'));
+      ).thenThrow(const AuthException(AuthErrorReason.wrongCredentials));
 
       final states = await _collectStates(
         bloc,
@@ -272,7 +276,7 @@ void main() {
 
       expect(states, [
         const AuthLoading(),
-        const AuthFailure('Email not found'),
+        const AuthFailure(AuthErrorReason.wrongCredentials),
       ]);
     });
   });
@@ -300,14 +304,17 @@ void main() {
     test('emits [AuthLoading, AuthFailure] on error', () async {
       when(
         () => mockAuth.startPhoneVerification(any()),
-      ).thenThrow(const AuthException('invalid phone'));
+      ).thenThrow(const AuthException(AuthErrorReason.invalidPhoneNumber));
 
       final states = await _collectStates(
         bloc,
         const AuthPhoneStarted('+971501234567'),
       );
 
-      expect(states, [const AuthLoading(), const AuthFailure('invalid phone')]);
+      expect(states, [
+        const AuthLoading(),
+        const AuthFailure(AuthErrorReason.invalidPhoneNumber),
+      ]);
     });
   });
 
@@ -338,14 +345,17 @@ void main() {
           verificationId: any(named: 'verificationId'),
           smsCode: any(named: 'smsCode'),
         ),
-      ).thenThrow(const AuthException('Invalid code'));
+      ).thenThrow(const AuthException(AuthErrorReason.invalidVerificationCode));
 
       final states = await _collectStates(
         bloc,
         const AuthPhoneCodeSubmitted(verificationId: 'vid', smsCode: '000000'),
       );
 
-      expect(states, [const AuthLoading(), const AuthFailure('Invalid code')]);
+      expect(states, [
+        const AuthLoading(),
+        const AuthFailure(AuthErrorReason.invalidVerificationCode),
+      ]);
     });
   });
 }

@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:klozy/src/core/constants/app_defaults.dart';
 
 /// A saved delivery address (`/v1/me/addresses`).
 class Address extends Equatable {
@@ -24,7 +25,7 @@ class Address extends Equatable {
     this.phone,
     this.line2,
     this.area,
-    this.country = 'United Arab Emirates',
+    this.country = kDefaultCountry,
     this.isDefault = false,
   });
 

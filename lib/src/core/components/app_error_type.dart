@@ -48,22 +48,4 @@ enum AppErrorType {
     }
     return null;
   }
-
-  String get title => switch (this) {
-    AppErrorType.network => 'No connection',
-    AppErrorType.timeout => 'Took too long',
-    AppErrorType.unauthorized => 'Session expired',
-    AppErrorType.notFound => 'Not found',
-    AppErrorType.server => 'Something went wrong',
-    AppErrorType.unknown => 'Something went wrong',
-  };
-
-  String get message => switch (this) {
-    AppErrorType.network => 'Check your internet connection and try again.',
-    AppErrorType.timeout => 'The request timed out. Please try again.',
-    AppErrorType.unauthorized => 'Please sign in again to continue.',
-    AppErrorType.notFound => "We couldn't find what you were looking for.",
-    AppErrorType.server => 'Our servers had a hiccup. Please try again.',
-    AppErrorType.unknown => 'An unexpected error occurred. Please try again.',
-  };
 }

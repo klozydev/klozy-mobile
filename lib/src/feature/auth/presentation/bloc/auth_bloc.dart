@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/domain/auth/auth_error_reason.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/auth/entity/auth_user.dart';
@@ -110,9 +111,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     try {
       await action();
     } on AuthException catch (e) {
-      emit(AuthFailure(e.message));
+      emit(AuthFailure(e.reason));
     } catch (_) {
-      emit(const AuthFailure('Something went wrong. Please try again.'));
+      emit(const AuthFailure(AuthErrorReason.generic));
     }
   }
 }

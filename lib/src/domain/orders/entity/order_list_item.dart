@@ -9,7 +9,14 @@ class OrderListItem extends Equatable {
   final num price;
   final OrderStatus status;
   final String counterpartName;
+
+  /// Server-provided pre-formatted label, when present. Prefer this in the UI;
+  /// otherwise format [createdAt] via `RelativeTimeFormatter`.
   final String? createdAtLabel;
+
+  /// Raw creation timestamp for locally-computed relative time. Populated by the
+  /// mapper from `createdAt`; the UI localizes it via `RelativeTimeFormatter`.
+  final DateTime? createdAt;
 
   const OrderListItem({
     required this.id,
@@ -19,6 +26,7 @@ class OrderListItem extends Equatable {
     this.coverImage,
     this.counterpartName = '',
     this.createdAtLabel,
+    this.createdAt,
   });
 
   @override
@@ -30,5 +38,6 @@ class OrderListItem extends Equatable {
     status,
     counterpartName,
     createdAtLabel,
+    createdAt,
   ];
 }

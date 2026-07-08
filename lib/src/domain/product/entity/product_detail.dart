@@ -41,7 +41,14 @@ class ProductDetail extends Equatable {
   final List<String> images;
   final String description;
   final String? location;
+
+  /// Server-provided pre-formatted "posted" label, when present. Prefer this in
+  /// the UI; otherwise format [postedAt] via `RelativeTimeFormatter`.
   final String? postedLabel;
+
+  /// Raw creation timestamp for locally-computed relative time. Populated by the
+  /// mapper from `createdAt`; the UI localizes it via `RelativeTimeFormatter`.
+  final DateTime? postedAt;
   final int likes;
   final int views;
   final ProductStatus status;
@@ -65,6 +72,7 @@ class ProductDetail extends Equatable {
     this.description = '',
     this.location,
     this.postedLabel,
+    this.postedAt,
     this.likes = 0,
     this.views = 0,
     this.status = ProductStatus.active,
@@ -92,6 +100,7 @@ class ProductDetail extends Equatable {
       description: description,
       location: location,
       postedLabel: postedLabel,
+      postedAt: postedAt,
       likes: likes,
       views: views,
       status: status ?? this.status,
@@ -113,6 +122,7 @@ class ProductDetail extends Equatable {
     description,
     location,
     postedLabel,
+    postedAt,
     likes,
     views,
     status,

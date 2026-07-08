@@ -2139,4 +2139,205 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'Tú: ';
+
+  @override
+  String get common_try_again => 'Intentar de nuevo';
+
+  @override
+  String get common_time_just_now => 'Ahora mismo';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Hace $count minutos',
+      one: 'Hace 1 minuto',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Hace $count horas',
+      one: 'Hace 1 hora',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Hace $count días',
+      one: 'Hace 1 día',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'Sin conexión';
+
+  @override
+  String get error_type_network_message =>
+      'Comprueba tu conexión a internet e inténtalo de nuevo.';
+
+  @override
+  String get error_type_timeout_title => 'Tardó demasiado';
+
+  @override
+  String get error_type_timeout_message =>
+      'La solicitud agotó el tiempo de espera. Inténtalo de nuevo.';
+
+  @override
+  String get error_type_unauthorized_title => 'Sesión caducada';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'Inicia sesión de nuevo para continuar.';
+
+  @override
+  String get error_type_not_found_title => 'No encontrado';
+
+  @override
+  String get error_type_not_found_message =>
+      'No pudimos encontrar lo que buscabas.';
+
+  @override
+  String get error_type_server_title => 'Algo salió mal';
+
+  @override
+  String get error_type_server_message =>
+      'Nuestros servidores tuvieron un problema. Inténtalo de nuevo.';
+
+  @override
+  String get error_type_unknown_title => 'Algo salió mal';
+
+  @override
+  String get error_type_unknown_message =>
+      'Se produjo un error inesperado. Inténtalo de nuevo.';
+
+  @override
+  String get reels_composer_post_failed =>
+      'No se pudo publicar tu reel. Inténtalo de nuevo.';
+
+  @override
+  String get sell_publish_failed =>
+      'No se pudo publicar tu anuncio. Inténtalo de nuevo.';
+
+  @override
+  String get auth_error_invalid_email =>
+      'Esa dirección de correo no parece válida.';
+
+  @override
+  String get auth_error_user_disabled => 'Esta cuenta ha sido deshabilitada.';
+
+  @override
+  String get auth_error_wrong_credentials =>
+      'Correo electrónico o contraseña incorrectos.';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'Ya existe una cuenta con ese correo electrónico.';
+
+  @override
+  String get auth_error_weak_password =>
+      'Elige una contraseña más segura (al menos 8 caracteres).';
+
+  @override
+  String get auth_error_operation_not_allowed =>
+      'Este método de inicio de sesión no está habilitado.';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'Por tu seguridad, cierra sesión y vuelve a iniciarla antes de cambiar esto.';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'Demasiados intentos. Inténtalo de nuevo más tarde.';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'Error de red. Comprueba tu conexión.';
+
+  @override
+  String get auth_error_invalid_phone_number =>
+      'Ese número de teléfono no parece válido.';
+
+  @override
+  String get auth_error_invalid_verification_code =>
+      'Ese código es incorrecto.';
+
+  @override
+  String get auth_error_session_expired =>
+      'El código ha caducado. Solicita uno nuevo.';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'Ese número ya está vinculado a otra cuenta.';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'Error al verificar el teléfono. Inténtalo de nuevo.';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'Error al iniciar sesión con Google. Inténtalo de nuevo.';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'Inicio de sesión cancelado.';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'Error al iniciar sesión con Apple. Inténtalo de nuevo.';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'Inicia sesión de nuevo para cambiar tu correo electrónico.';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'Por tu seguridad, inicia sesión de nuevo antes de cambiar tu contraseña.';
+
+  @override
+  String get auth_error_password_too_weak => 'Elige una contraseña más segura.';
+
+  @override
+  String get auth_error_password_update_failed =>
+      'No se pudo actualizar tu contraseña.';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'Inicia sesión de nuevo para cambiar tu número.';
+
+  @override
+  String get auth_error_generic => 'Algo salió mal. Inténtalo de nuevo.';
+
+  @override
+  String get address_form_label_hint => 'Casa';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'Mensaje de voz';
+
+  @override
+  String get chat_media_photo => 'Foto';
+
+  @override
+  String get chat_media_attachment => 'Archivo adjunto';
 }

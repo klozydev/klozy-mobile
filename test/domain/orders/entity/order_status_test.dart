@@ -94,13 +94,7 @@ void main() {
     });
   });
 
-  group('OrderStatus label and color', () {
-    test('every value has a non-null label', () {
-      for (final OrderStatus s in OrderStatus.values) {
-        expect(s.label, isNotNull);
-      }
-    });
-
+  group('OrderStatus color', () {
     test('every value has a non-null color', () {
       for (final OrderStatus s in OrderStatus.values) {
         expect(s.color, isNotNull);

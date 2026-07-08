@@ -11,6 +11,7 @@ import 'package:klozy/src/domain/uploads/uploads_repository.dart';
 import 'package:klozy/src/feature/sell/domain/entity/sell_draft_field.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_event.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_state.dart';
+import 'package:klozy/src/feature/sell/presentation/bloc/sell_submit_error_reason.dart';
 
 @injectable
 class SellBloc extends Bloc<SellEvent, SellState> {
@@ -154,7 +155,7 @@ class SellBloc extends Bloc<SellEvent, SellState> {
       emit(
         current.copyWith(
           isCreating: false,
-          submitError: "Couldn't publish your listing. Please try again.",
+          submitError: SellSubmitErrorReason.publishFailed,
         ),
       );
     }

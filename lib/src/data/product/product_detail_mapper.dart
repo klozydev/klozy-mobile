@@ -15,7 +15,8 @@ ProductDetail mapProductDetail(Object? raw) {
     images: _images(json),
     description: _str(json, ['description']) ?? '',
     location: _str(json, ['location']),
-    postedLabel: _posted(json),
+    postedLabel: _str(json, ['postedLabel', 'posted']),
+    postedAt: _postedAt(json),
     likes: _int(json, ['likes', 'likeCount', 'likesCount']),
     views: _int(json, ['views', 'viewCount']),
     status: switch (status) {
@@ -75,18 +76,10 @@ List<String> _images(Map<String, dynamic> json) {
       .toList();
 }
 
-String? _posted(Map<String, dynamic> json) {
-  final label = _str(json, ['postedLabel', 'posted']);
-  if (label != null) return label;
+DateTime? _postedAt(Map<String, dynamic> json) {
   final created = _str(json, ['createdAt', 'created']);
   if (created == null) return null;
-  final date = DateTime.tryParse(created);
-  if (date == null) return null;
-  final diff = DateTime.now().difference(date);
-  if (diff.inDays >= 1) return '${diff.inDays}d ago';
-  if (diff.inHours >= 1) return '${diff.inHours}h ago';
-  if (diff.inMinutes >= 1) return '${diff.inMinutes}m ago';
-  return 'Just now';
+  return DateTime.tryParse(created);
 }
 
 String? _str(Map<String, dynamic> json, List<String> keys) {

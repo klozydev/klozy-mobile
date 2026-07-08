@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/feature/chat/domain/entity/chat_outgoing_media.dart';
 import 'package:klozy/src/feature/chat/domain/entity/media_type.dart';
 import 'package:klozy/src/feature/chat/presentation/screen/widgets/composer_bar.dart';
@@ -61,6 +62,9 @@ class _ChatComposerState extends State<ChatComposer> {
   }
 
   Future<void> _stopRecording() async {
+    // Captured before the async gap below so we never touch `context` after
+    // an `await` (unsafe once the widget may have been disposed).
+    final String voiceMessageName = context.l10N.chat_media_voice_message;
     _timer?.cancel();
     final int seconds = _elapsed;
     final String? path = await _recorder.stop();
@@ -73,7 +77,7 @@ class _ChatComposerState extends State<ChatComposer> {
       ChatOutgoingMedia(
         file: file,
         type: MediaType.audio,
-        name: 'Voice message',
+        name: voiceMessageName,
         durationMs: seconds * 1000,
       ),
     );

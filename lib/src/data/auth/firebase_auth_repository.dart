@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/network/cache/session_cache.dart';
+import 'package:klozy/src/domain/auth/auth_error_reason.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/auth/entity/auth_user.dart';
@@ -52,7 +53,7 @@ class FirebaseAuthRepository implements AuthRepository {
       );
       return _map(cred.user!);
     } on FirebaseAuthException catch (e) {
-      throw AuthException(_emailMessage(e));
+      throw AuthException(_emailReason(e), debugDetail: e.message);
     }
   }
 
@@ -68,7 +69,7 @@ class FirebaseAuthRepository implements AuthRepository {
       );
       return _map(cred.user!);
     } on FirebaseAuthException catch (e) {
-      throw AuthException(_emailMessage(e));
+      throw AuthException(_emailReason(e), debugDetail: e.message);
     }
   }
 
@@ -77,7 +78,7 @@ class FirebaseAuthRepository implements AuthRepository {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email.trim());
     } on FirebaseAuthException catch (e) {
-      throw AuthException(_emailMessage(e));
+      throw AuthException(_emailReason(e), debugDetail: e.message);
     }
   }
 
@@ -87,7 +88,7 @@ class FirebaseAuthRepository implements AuthRepository {
       final account = await _googleSignIn.authenticate();
       final idToken = account.authentication.idToken;
       if (idToken == null) {
-        throw const AuthException('Google sign-in failed. Please try again.');
+        throw const AuthException(AuthErrorReason.googleSignInFailed);
       }
       final credential = GoogleAuthProvider.credential(idToken: idToken);
       final cred = await _firebaseAuth.signInWithCredential(credential);
@@ -95,11 +96,11 @@ class FirebaseAuthRepository implements AuthRepository {
     } on GoogleSignInException catch (e) {
       throw AuthException(
         e.code == GoogleSignInExceptionCode.canceled
-            ? 'Sign-in cancelled.'
-            : 'Google sign-in failed. Please try again.',
+            ? AuthErrorReason.signInCancelled
+            : AuthErrorReason.googleSignInFailed,
       );
     } on FirebaseAuthException catch (e) {
-      throw AuthException(_emailMessage(e));
+      throw AuthException(_emailReason(e), debugDetail: e.message);
     }
   }
 
@@ -125,11 +126,11 @@ class FirebaseAuthRepository implements AuthRepository {
     } on SignInWithAppleAuthorizationException catch (e) {
       throw AuthException(
         e.code == AuthorizationErrorCode.canceled
-            ? 'Sign-in cancelled.'
-            : 'Apple sign-in failed. Please try again.',
+            ? AuthErrorReason.signInCancelled
+            : AuthErrorReason.appleSignInFailed,
       );
     } on FirebaseAuthException catch (e) {
-      throw AuthException(_emailMessage(e));
+      throw AuthException(_emailReason(e), debugDetail: e.message);
     }
   }
 
@@ -141,7 +142,9 @@ class FirebaseAuthRepository implements AuthRepository {
       verificationCompleted: (_) {},
       verificationFailed: (e) {
         if (!completer.isCompleted) {
-          completer.completeError(AuthException(_phoneMessage(e)));
+          completer.completeError(
+            AuthException(_phoneReason(e), debugDetail: e.message),
+          );
         }
       },
       codeSent: (verificationId, resendToken) {
@@ -172,7 +175,7 @@ class FirebaseAuthRepository implements AuthRepository {
       final cred = await _firebaseAuth.signInWithCredential(credential);
       return _map(cred.user!);
     } on FirebaseAuthException catch (e) {
-      throw AuthException(_phoneMessage(e));
+      throw AuthException(_phoneReason(e), debugDetail: e.message);
     }
   }
 
@@ -180,12 +183,12 @@ class FirebaseAuthRepository implements AuthRepository {
   Future<void> sendEmailUpdateVerification(String newEmail) async {
     final user = _firebaseAuth.currentUser;
     if (user == null) {
-      throw const AuthException('Please sign in again to change your email.');
+      throw const AuthException(AuthErrorReason.reauthRequiredEmail);
     }
     try {
       await user.verifyBeforeUpdateEmail(newEmail.trim());
     } on FirebaseAuthException catch (e) {
-      throw AuthException(_emailMessage(e));
+      throw AuthException(_emailReason(e), debugDetail: e.message);
     }
   }
 
@@ -193,23 +196,27 @@ class FirebaseAuthRepository implements AuthRepository {
   Future<void> updatePassword(String newPassword) async {
     final user = _firebaseAuth.currentUser;
     if (user == null) {
-      throw const AuthException(
-        'Please sign in again to change your password.',
-      );
+      throw const AuthException(AuthErrorReason.reauthRequiredPassword);
     }
     try {
       await user.updatePassword(newPassword);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'requires-recent-login') {
-        throw const AuthException(
-          'For your security, please sign in again before changing your '
-          'password.',
+        throw AuthException(
+          AuthErrorReason.reauthRequiredPassword,
+          debugDetail: e.message,
         );
       }
       if (e.code == 'weak-password') {
-        throw const AuthException('Please choose a stronger password.');
+        throw AuthException(
+          AuthErrorReason.passwordTooWeak,
+          debugDetail: e.message,
+        );
       }
-      throw AuthException(e.message ?? 'Could not update your password.');
+      throw AuthException(
+        AuthErrorReason.passwordUpdateFailed,
+        debugDetail: e.message,
+      );
     }
   }
 
@@ -220,7 +227,7 @@ class FirebaseAuthRepository implements AuthRepository {
   }) async {
     final user = _firebaseAuth.currentUser;
     if (user == null) {
-      throw const AuthException('Please sign in again to change your number.');
+      throw const AuthException(AuthErrorReason.reauthRequiredPhone);
     }
     try {
       final credential = PhoneAuthProvider.credential(
@@ -229,7 +236,7 @@ class FirebaseAuthRepository implements AuthRepository {
       );
       await user.updatePhoneNumber(credential);
     } on FirebaseAuthException catch (e) {
-      throw AuthException(_phoneMessage(e));
+      throw AuthException(_phoneReason(e), debugDetail: e.message);
     }
   }
 
@@ -264,31 +271,29 @@ class FirebaseAuthRepository implements AuthRepository {
     ).join();
   }
 
-  String _emailMessage(FirebaseAuthException e) => switch (e.code) {
-    'invalid-email' => 'That email address looks invalid.',
-    'user-disabled' => 'This account has been disabled.',
+  AuthErrorReason _emailReason(FirebaseAuthException e) => switch (e.code) {
+    'invalid-email' => AuthErrorReason.invalidEmail,
+    'user-disabled' => AuthErrorReason.userDisabled,
     'user-not-found' ||
     'wrong-password' ||
-    'invalid-credential' => 'Wrong email or password.',
-    'email-already-in-use' => 'An account already exists for that email.',
-    'weak-password' => 'Choose a stronger password (at least 8 characters).',
-    'operation-not-allowed' => 'This sign-in method is not enabled.',
-    'requires-recent-login' =>
-      'For your security, please log out and sign in again before changing this.',
-    'too-many-requests' => 'Too many attempts. Please try again later.',
-    'network-request-failed' => 'Network error. Check your connection.',
-    _ => 'Something went wrong. Please try again.',
+    'invalid-credential' => AuthErrorReason.wrongCredentials,
+    'email-already-in-use' => AuthErrorReason.emailAlreadyInUse,
+    'weak-password' => AuthErrorReason.weakPassword,
+    'operation-not-allowed' => AuthErrorReason.operationNotAllowed,
+    'requires-recent-login' => AuthErrorReason.requiresRecentLogin,
+    'too-many-requests' => AuthErrorReason.tooManyRequests,
+    'network-request-failed' => AuthErrorReason.networkRequestFailed,
+    _ => AuthErrorReason.generic,
   };
 
-  String _phoneMessage(FirebaseAuthException e) => switch (e.code) {
-    'invalid-phone-number' => 'That phone number looks invalid.',
-    'invalid-verification-code' => 'That code is incorrect.',
-    'session-expired' => 'The code expired. Request a new one.',
+  AuthErrorReason _phoneReason(FirebaseAuthException e) => switch (e.code) {
+    'invalid-phone-number' => AuthErrorReason.invalidPhoneNumber,
+    'invalid-verification-code' => AuthErrorReason.invalidVerificationCode,
+    'session-expired' => AuthErrorReason.sessionExpired,
     'credential-already-in-use' || 'account-exists-with-different-credential' =>
-      'That number is already linked to another account.',
-    'requires-recent-login' =>
-      'For your security, please log out and sign in again before changing this.',
-    'too-many-requests' => 'Too many attempts. Please try again later.',
-    _ => 'Phone verification failed. Please try again.',
+      AuthErrorReason.phoneAlreadyInUse,
+    'requires-recent-login' => AuthErrorReason.requiresRecentLogin,
+    'too-many-requests' => AuthErrorReason.tooManyRequests,
+    _ => AuthErrorReason.phoneVerificationFailed,
   };
 }

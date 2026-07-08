@@ -2166,4 +2166,212 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'Вы: ';
+
+  @override
+  String get common_try_again => 'Попробовать снова';
+
+  @override
+  String get common_time_just_now => 'Только что';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count минуты назад',
+      many: '$count минут назад',
+      few: '$count минуты назад',
+      one: '$count минуту назад',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count часа назад',
+      many: '$count часов назад',
+      few: '$count часа назад',
+      one: '$count час назад',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count дня назад',
+      many: '$count дней назад',
+      few: '$count дня назад',
+      one: '$count день назад',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'Нет подключения';
+
+  @override
+  String get error_type_network_message =>
+      'Проверьте подключение к интернету и попробуйте снова.';
+
+  @override
+  String get error_type_timeout_title => 'Слишком долго';
+
+  @override
+  String get error_type_timeout_message =>
+      'Время ожидания запроса истекло. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get error_type_unauthorized_title => 'Сессия истекла';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'Пожалуйста, войдите снова, чтобы продолжить.';
+
+  @override
+  String get error_type_not_found_title => 'Не найдено';
+
+  @override
+  String get error_type_not_found_message =>
+      'Мы не смогли найти то, что вы искали.';
+
+  @override
+  String get error_type_server_title => 'Что-то пошло не так';
+
+  @override
+  String get error_type_server_message =>
+      'На наших серверах произошёл сбой. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get error_type_unknown_title => 'Что-то пошло не так';
+
+  @override
+  String get error_type_unknown_message =>
+      'Произошла непредвиденная ошибка. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get reels_composer_post_failed =>
+      'Не удалось опубликовать ваш reel. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get sell_publish_failed =>
+      'Не удалось опубликовать ваше объявление. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get auth_error_invalid_email =>
+      'Этот адрес электронной почты выглядит недействительным.';
+
+  @override
+  String get auth_error_user_disabled => 'Этот аккаунт отключён.';
+
+  @override
+  String get auth_error_wrong_credentials =>
+      'Неверный адрес электронной почты или пароль.';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'Аккаунт с таким адресом электронной почты уже существует.';
+
+  @override
+  String get auth_error_weak_password =>
+      'Выберите более надёжный пароль (не менее 8 символов).';
+
+  @override
+  String get auth_error_operation_not_allowed =>
+      'Этот способ входа не включён.';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'В целях безопасности, пожалуйста, выйдите и войдите снова, прежде чем изменять это.';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'Слишком много попыток. Пожалуйста, повторите попытку позже.';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'Ошибка сети. Проверьте подключение.';
+
+  @override
+  String get auth_error_invalid_phone_number =>
+      'Этот номер телефона выглядит недействительным.';
+
+  @override
+  String get auth_error_invalid_verification_code => 'Этот код неверен.';
+
+  @override
+  String get auth_error_session_expired =>
+      'Срок действия кода истёк. Запросите новый.';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'Этот номер уже привязан к другому аккаунту.';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'Не удалось подтвердить номер телефона. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'Не удалось войти через Google. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'Вход отменён.';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'Не удалось войти через Apple. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'Пожалуйста, войдите снова, чтобы изменить адрес электронной почты.';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'В целях безопасности, пожалуйста, войдите снова, прежде чем менять пароль.';
+
+  @override
+  String get auth_error_password_too_weak =>
+      'Пожалуйста, выберите более надёжный пароль.';
+
+  @override
+  String get auth_error_password_update_failed =>
+      'Не удалось обновить ваш пароль.';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'Пожалуйста, войдите снова, чтобы изменить номер.';
+
+  @override
+  String get auth_error_generic =>
+      'Что-то пошло не так. Пожалуйста, попробуйте снова.';
+
+  @override
+  String get address_form_label_hint => 'Дом';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'Голосовое сообщение';
+
+  @override
+  String get chat_media_photo => 'Фото';
+
+  @override
+  String get chat_media_attachment => 'Вложение';
 }

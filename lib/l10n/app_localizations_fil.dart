@@ -2149,4 +2149,205 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'Ikaw: ';
+
+  @override
+  String get common_try_again => 'Subukang muli';
+
+  @override
+  String get common_time_just_now => 'Ngayon lang';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count minuto ang nakalipas',
+      one: '1 minuto ang nakalipas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count oras ang nakalipas',
+      one: '1 oras ang nakalipas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count araw ang nakalipas',
+      one: '1 araw ang nakalipas',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'Walang koneksyon';
+
+  @override
+  String get error_type_network_message =>
+      'Tingnan ang iyong koneksyon sa internet at subukang muli.';
+
+  @override
+  String get error_type_timeout_title => 'Masyadong matagal';
+
+  @override
+  String get error_type_timeout_message =>
+      'Nag-time out ang kahilingan. Mangyaring subukang muli.';
+
+  @override
+  String get error_type_unauthorized_title => 'Nag-expire ang session';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'Mangyaring mag-sign in muli para magpatuloy.';
+
+  @override
+  String get error_type_not_found_title => 'Hindi Nahanap';
+
+  @override
+  String get error_type_not_found_message =>
+      'Hindi namin nahanap ang hinahanap mo.';
+
+  @override
+  String get error_type_server_title => 'May nangyaring mali';
+
+  @override
+  String get error_type_server_message =>
+      'Nagkaroon ng problema ang aming mga server. Mangyaring subukang muli.';
+
+  @override
+  String get error_type_unknown_title => 'May nangyaring mali';
+
+  @override
+  String get error_type_unknown_message =>
+      'Nagkaroon ng hindi inaasahang error. Mangyaring subukang muli.';
+
+  @override
+  String get reels_composer_post_failed =>
+      'Hindi na-post ang iyong reel. Mangyaring subukang muli.';
+
+  @override
+  String get sell_publish_failed =>
+      'Hindi na-publish ang iyong listing. Mangyaring subukang muli.';
+
+  @override
+  String get auth_error_invalid_email =>
+      'Mukhang hindi wasto ang email address na iyon.';
+
+  @override
+  String get auth_error_user_disabled => 'Na-disable na ang account na ito.';
+
+  @override
+  String get auth_error_wrong_credentials => 'Maling email o password.';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'May account na umiiral para sa email na iyon.';
+
+  @override
+  String get auth_error_weak_password =>
+      'Pumili ng mas matibay na password (hindi bababa sa 8 character).';
+
+  @override
+  String get auth_error_operation_not_allowed =>
+      'Hindi pinagana ang paraan ng pag-sign in na ito.';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'Para sa iyong seguridad, mangyaring mag-log out at mag-sign in muli bago baguhin ito.';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'Masyadong maraming pagsubok. Mangyaring subukang muli mamaya.';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'Error sa network. Tingnan ang iyong koneksyon.';
+
+  @override
+  String get auth_error_invalid_phone_number =>
+      'Mukhang hindi wasto ang numero ng telepono na iyon.';
+
+  @override
+  String get auth_error_invalid_verification_code => 'Mali ang code na iyon.';
+
+  @override
+  String get auth_error_session_expired =>
+      'Nag-expire ang code. Humiling ng bago.';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'Naka-link na ang numerong iyon sa ibang account.';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'Nabigo ang pag-verify ng telepono. Mangyaring subukang muli.';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'Nabigo ang pag-sign in gamit ang Google. Mangyaring subukang muli.';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'Kinansela ang pag-sign in.';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'Nabigo ang pag-sign in gamit ang Apple. Mangyaring subukang muli.';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'Mangyaring mag-sign in muli para baguhin ang iyong email.';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'Para sa iyong seguridad, mangyaring mag-sign in muli bago baguhin ang iyong password.';
+
+  @override
+  String get auth_error_password_too_weak =>
+      'Mangyaring pumili ng mas matibay na password.';
+
+  @override
+  String get auth_error_password_update_failed =>
+      'Hindi na-update ang iyong password.';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'Mangyaring mag-sign in muli para baguhin ang iyong numero.';
+
+  @override
+  String get auth_error_generic =>
+      'May nangyaring mali. Mangyaring subukang muli.';
+
+  @override
+  String get address_form_label_hint => 'Bahay';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'Mensaheng Boses';
+
+  @override
+  String get chat_media_photo => 'Larawan';
+
+  @override
+  String get chat_media_attachment => 'Kalakip';
 }

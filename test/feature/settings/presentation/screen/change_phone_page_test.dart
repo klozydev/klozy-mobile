@@ -5,6 +5,7 @@ import 'package:klozy/l10n/app_localizations.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/tokens/ds_theme.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/auth/auth_error_reason.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/auth/entity/auth_user.dart';
@@ -193,7 +194,7 @@ void main() {
     testWidgets('send code AuthException shows error message', (tester) async {
       when(
         () => mockAuth.startPhoneVerification(any()),
-      ).thenThrow(const AuthException('invalid phone'));
+      ).thenThrow(const AuthException(AuthErrorReason.invalidPhoneNumber));
 
       await tester.pumpWidget(wrap());
       await tester.pump();
@@ -204,7 +205,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(SnackBar), findsOneWidget);
-      expect(find.text('invalid phone'), findsOneWidget);
+      expect(find.text('That phone number looks invalid.'), findsOneWidget);
     });
   });
 
@@ -253,7 +254,7 @@ void main() {
           verificationId: any(named: 'verificationId'),
           smsCode: any(named: 'smsCode'),
         ),
-      ).thenThrow(const AuthException('wrong code'));
+      ).thenThrow(const AuthException(AuthErrorReason.invalidVerificationCode));
 
       await goToCodeStep(tester);
       await enterCode(tester, '999999');
@@ -262,7 +263,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(SnackBar), findsOneWidget);
-      expect(find.text('wrong code'), findsOneWidget);
+      expect(find.text('That code is incorrect.'), findsOneWidget);
       verifyNever(() => router.maybePop<Object?>());
     });
 

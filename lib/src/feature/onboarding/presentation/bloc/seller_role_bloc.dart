@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_event.dart';
+import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_failure_reason.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_state.dart';
 
 @injectable
@@ -21,7 +22,7 @@ class SellerRoleBloc extends Bloc<SellerRoleEvent, SellerRoleState> {
       await _meRepository.setSellerRole(role: event.role, iban: event.iban);
       emit(const SellerRoleDone());
     } catch (_) {
-      emit(const SellerRoleFailure("Couldn't save. Please try again."));
+      emit(const SellerRoleFailure(SellerRoleFailureReason.saveFailed));
     }
   }
 }

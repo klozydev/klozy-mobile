@@ -9,6 +9,7 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
+import 'package:klozy/src/feature/auth/presentation/bloc/auth_error_reason_l10n.dart';
 
 /// Settings › Security › Change password — an in-app form (new + confirm
 /// password) that sets the password directly via Firebase, matching the design
@@ -49,7 +50,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
         context.router.maybePop();
       }
     } on AuthException catch (e) {
-      if (mounted) context.showSnackBar(e.message);
+      if (mounted) context.showSnackBar(e.reason.message(context.l10N));
     } catch (_) {
       if (mounted) context.showSnackBar(context.l10N.settings_save_failed);
     } finally {

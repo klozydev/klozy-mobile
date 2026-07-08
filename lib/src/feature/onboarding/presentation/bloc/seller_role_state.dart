@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_failure_reason.dart';
 
 @immutable
 sealed class SellerRoleState extends Equatable {
@@ -22,10 +23,10 @@ final class SellerRoleDone extends SellerRoleState {
 }
 
 final class SellerRoleFailure extends SellerRoleState {
-  final String message;
+  final SellerRoleFailureReason reason;
 
-  const SellerRoleFailure(this.message);
+  const SellerRoleFailure(this.reason);
 
   @override
-  List<Object?> get props => [message];
+  List<Object?> get props => [reason];
 }

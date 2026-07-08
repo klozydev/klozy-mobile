@@ -19,6 +19,7 @@ import 'package:klozy/src/domain/sell/usecase/check_sell_prerequisite_usecase.da
 import 'package:klozy/src/domain/sell/usecase/sell_prerequisite.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_bloc.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_event.dart';
+import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_failure_reason.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_state.dart';
 import 'package:klozy/src/router/app_router.dart';
 
@@ -94,7 +95,10 @@ class _SellerRolePageState extends State<SellerRolePage> {
           // straight to the next required step (verification / payout / etc).
           _continueAfterRole(context);
         } else if (state is SellerRoleFailure) {
-          context.showSnackBar(state.message);
+          context.showSnackBar(switch (state.reason) {
+            SellerRoleFailureReason.saveFailed =>
+              context.l10N.settings_save_failed,
+          });
         }
       },
       builder: (BuildContext context, SellerRoleState state) {
@@ -161,7 +165,9 @@ class _SellerRolePageState extends State<SellerRolePage> {
                                 ),
                                 DSTextField(
                                   controller: _iban,
-                                  hintText: 'AE00 0000 0000 0000 0000',
+                                  hintText: context
+                                      .l10N
+                                      .onboarding_seller_role_iban_hint,
                                   prefixIcon: Icons.credit_card_outlined,
                                   inputFormatters: const <TextInputFormatter>[
                                     UpperCaseTextFormatter(),

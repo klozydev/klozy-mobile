@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:klozy/src/di/injection.dart';
+import 'package:klozy/src/domain/auth/auth_error_reason.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/feature/settings/presentation/screen/change_password_page.dart';
@@ -130,7 +131,7 @@ void main() {
     testWidgets('AuthException shows message in snackbar', (tester) async {
       when(
         () => mockAuth.updatePassword(any()),
-      ).thenThrow(const AuthException('Sign in again'));
+      ).thenThrow(const AuthException(AuthErrorReason.reauthRequiredPassword));
 
       await tester.pumpWidget(pump());
       await tester.pump();
@@ -142,7 +143,12 @@ void main() {
       await tester.tap(find.byType(ElevatedButton));
       await tester.pumpAndSettle();
 
-      expect(find.text('Sign in again'), findsOneWidget);
+      expect(
+        find.text(
+          'For your security, please sign in again before changing your password.',
+        ),
+        findsOneWidget,
+      );
       verifyNever(() => router.maybePop<Object?>());
     });
 

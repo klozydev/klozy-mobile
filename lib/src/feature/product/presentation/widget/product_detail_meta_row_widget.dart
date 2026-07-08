@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klozy/src/core/util/relative_time_formatter.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -14,8 +15,13 @@ class ProductDetailMetaRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> parts = <Widget>[];
 
-    if (product.postedLabel != null) {
-      parts.add(_MetaChip(icon: Icons.schedule, label: product.postedLabel!));
+    final String? postedLabel =
+        product.postedLabel ??
+        (product.postedAt != null
+            ? RelativeTimeFormatter.format(context, product.postedAt!)
+            : null);
+    if (postedLabel != null) {
+      parts.add(_MetaChip(icon: Icons.schedule, label: postedLabel));
     }
 
     if (product.location != null) {

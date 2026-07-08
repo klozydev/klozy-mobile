@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/components/avatar_upload_widget.dart';
+import 'package:klozy/src/core/constants/app_defaults.dart';
 import 'package:klozy/src/core/events/profile_changed_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_address_field.dart';
@@ -153,7 +154,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       line1: line1,
       city: city,
       emirate: city,
-      country: details.country ?? 'United Arab Emirates',
+      country: details.country ?? kDefaultCountry,
     );
   }
 
@@ -163,7 +164,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       line1: text,
       city: text,
       emirate: text,
-      country: 'United Arab Emirates',
+      country: kDefaultCountry,
     );
   }
 

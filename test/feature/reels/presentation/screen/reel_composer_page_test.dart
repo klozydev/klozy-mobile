@@ -12,6 +12,7 @@ import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_theme.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_bloc.dart';
+import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_error_reason.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_event.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_state.dart';
 import 'package:klozy/src/feature/reels/presentation/screen/reel_composer_page.dart';
@@ -329,7 +330,7 @@ void main() {
       expect(find.text('80 Dhs'), findsNothing);
     });
 
-    testWidgets('error message shown via snackbar when errorMessage != null', (
+    testWidgets('error message shown via snackbar when errorReason != null', (
       WidgetTester tester,
     ) async {
       final StreamController<ReelComposerState> controller =
@@ -344,11 +345,11 @@ void main() {
       );
       await tester.pump();
 
-      // Emit a ready state with errorMessage to trigger the listener.
+      // Emit a ready state with errorReason to trigger the listener.
       controller.add(
         const ReelComposerReady(
           products: <Product>[],
-          errorMessage: 'Something went wrong',
+          errorReason: ReelComposerErrorReason.postFailed,
         ),
       );
       await tester.pump();

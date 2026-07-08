@@ -1,20 +1,21 @@
 import 'package:flutter/widgets.dart';
 
-/// Order lifecycle status. Colours/labels mirror the prototype.
+/// Order lifecycle status. Colours mirror the prototype; the user-facing
+/// label is resolved via l10n at the widget layer (see OrderStatusPillWidget),
+/// so the enum only carries the display colour.
 enum OrderStatus {
-  pending('Pending', Color(0xFFE0A24D)),
-  waitingForExpedition('Awaiting shipment', Color(0xFFE0A24D)),
-  inDelivery('In delivery', Color(0xFFE0CE7D)),
-  deliveryCompleted('Out for delivery', Color(0xFFE0CE7D)),
-  completed('Completed', Color(0xFFA7D2BE)),
-  returnRequested('Return requested', Color(0xFFEB5353)),
-  canceled('Canceled', Color(0x73FFFFFF)),
-  unknown('—', Color(0x73FFFFFF));
+  pending(Color(0xFFE0A24D)),
+  waitingForExpedition(Color(0xFFE0A24D)),
+  inDelivery(Color(0xFFE0CE7D)),
+  deliveryCompleted(Color(0xFFE0CE7D)),
+  completed(Color(0xFFA7D2BE)),
+  returnRequested(Color(0xFFEB5353)),
+  canceled(Color(0x73FFFFFF)),
+  unknown(Color(0x73FFFFFF));
 
-  final String label;
   final Color color;
 
-  const OrderStatus(this.label, this.color);
+  const OrderStatus(this.color);
 
   bool get isCompletedBucket =>
       this == OrderStatus.completed ||

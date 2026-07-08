@@ -8,6 +8,7 @@ import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_bloc.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_event.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_state.dart';
+import 'package:klozy/src/feature/sell/presentation/bloc/sell_submit_error_reason.dart';
 import 'package:klozy/src/feature/sell/presentation/widget/sell_photos_widget.dart';
 import 'package:klozy/src/feature/sell/presentation/widget/sell_recap_widget.dart';
 import 'package:klozy/src/feature/sell/presentation/widget/sell_success_widget.dart';
@@ -31,8 +32,14 @@ class SellPage extends StatelessWidget implements AutoRouteWrapper {
       listenWhen: (SellState previous, SellState current) =>
           current is SellRecapState && current.submitError != null,
       listener: (BuildContext context, SellState state) {
-        if (state is SellRecapState && state.submitError != null) {
-          context.showSnackBar(state.submitError!);
+        final SellSubmitErrorReason? submitError = state is SellRecapState
+            ? state.submitError
+            : null;
+        if (submitError != null) {
+          context.showSnackBar(switch (submitError) {
+            SellSubmitErrorReason.publishFailed =>
+              context.l10N.sell_publish_failed,
+          });
         }
       },
       builder: (BuildContext context, SellState state) {

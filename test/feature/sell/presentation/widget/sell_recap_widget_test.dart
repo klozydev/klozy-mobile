@@ -16,6 +16,7 @@ import 'package:klozy/src/feature/sell/domain/entity/size_system.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_bloc.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_event.dart';
 import 'package:klozy/src/feature/sell/presentation/bloc/sell_state.dart';
+import 'package:klozy/src/feature/sell/presentation/bloc/sell_submit_error_reason.dart';
 import 'package:klozy/src/feature/sell/presentation/widget/sell_field_ai_badge_widget.dart';
 import 'package:klozy/src/feature/sell/presentation/widget/sell_photo_strip_widget.dart';
 import 'package:klozy/src/feature/sell/presentation/widget/sell_recap_widget.dart';
@@ -66,7 +67,7 @@ SellRecapState _makeState({
   Set<SellDraftField> aiFilled = const <SellDraftField>{},
   SizeSystem sizeSystem = SizeSystem.eu,
   bool isCreating = false,
-  String? submitError,
+  SellSubmitErrorReason? submitError,
   List<String> imageUrls = const <String>['https://cdn.klozy.com/a.jpg'],
   List<String> paths = const <String>['https://cdn.klozy.com/a.jpg'],
 }) {

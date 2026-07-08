@@ -93,7 +93,7 @@ class _PayoutPageState extends State<PayoutPage> {
           DSFieldLabel(l.settings_iban_label, required: true),
           DSTextField(
             controller: _iban,
-            hintText: 'AE07 0331 2345 6789 0123 456',
+            hintText: l.payout_iban_hint,
             onChanged: (_) => setState(() {}),
             errorText: _iban.text.isNotEmpty && !_valid
                 ? l.settings_iban_invalid

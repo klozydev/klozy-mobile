@@ -2160,4 +2160,214 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'أنت: ';
+
+  @override
+  String get common_try_again => 'حاول مرة أخرى';
+
+  @override
+  String get common_time_just_now => 'الآن';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'منذ $count دقيقة',
+      many: 'منذ $count دقيقةً',
+      few: 'منذ $count دقائق',
+      two: 'منذ دقيقتين',
+      one: 'منذ دقيقة واحدة',
+      zero: 'الآن',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'منذ $count ساعة',
+      many: 'منذ $count ساعةً',
+      few: 'منذ $count ساعات',
+      two: 'منذ ساعتين',
+      one: 'منذ ساعة واحدة',
+      zero: 'الآن',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'منذ $count يوم',
+      many: 'منذ $count يومًا',
+      few: 'منذ $count أيام',
+      two: 'منذ يومين',
+      one: 'منذ يوم واحد',
+      zero: 'اليوم',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'لا يوجد اتصال';
+
+  @override
+  String get error_type_network_message =>
+      'تحقق من اتصالك بالإنترنت وحاول مرة أخرى.';
+
+  @override
+  String get error_type_timeout_title => 'استغرق الأمر وقتًا طويلاً';
+
+  @override
+  String get error_type_timeout_message =>
+      'انتهت مهلة الطلب. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get error_type_unauthorized_title => 'انتهت صلاحية الجلسة';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'يرجى تسجيل الدخول مرة أخرى للمتابعة.';
+
+  @override
+  String get error_type_not_found_title => 'غير موجود';
+
+  @override
+  String get error_type_not_found_message =>
+      'لم نتمكن من العثور على ما كنت تبحث عنه.';
+
+  @override
+  String get error_type_server_title => 'حدث خطأ ما';
+
+  @override
+  String get error_type_server_message =>
+      'حدث خلل في خوادمنا. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get error_type_unknown_title => 'حدث خطأ ما';
+
+  @override
+  String get error_type_unknown_message =>
+      'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get reels_composer_post_failed =>
+      'تعذّر نشر الريل الخاص بك. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get sell_publish_failed => 'تعذّر نشر إعلانك. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get auth_error_invalid_email =>
+      'يبدو أن عنوان البريد الإلكتروني هذا غير صالح.';
+
+  @override
+  String get auth_error_user_disabled => 'تم تعطيل هذا الحساب.';
+
+  @override
+  String get auth_error_wrong_credentials =>
+      'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'يوجد حساب بالفعل بهذا البريد الإلكتروني.';
+
+  @override
+  String get auth_error_weak_password =>
+      'اختر كلمة مرور أقوى (8 أحرف على الأقل).';
+
+  @override
+  String get auth_error_operation_not_allowed =>
+      'طريقة تسجيل الدخول هذه غير مفعّلة.';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'لأمانك، يرجى تسجيل الخروج ثم تسجيل الدخول مرة أخرى قبل تغيير هذا.';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'محاولات كثيرة جدًا. يرجى المحاولة مرة أخرى لاحقًا.';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'خطأ في الشبكة. تحقق من اتصالك.';
+
+  @override
+  String get auth_error_invalid_phone_number =>
+      'يبدو أن رقم الهاتف هذا غير صالح.';
+
+  @override
+  String get auth_error_invalid_verification_code => 'هذا الرمز غير صحيح.';
+
+  @override
+  String get auth_error_session_expired =>
+      'انتهت صلاحية الرمز. اطلب رمزًا جديدًا.';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'هذا الرقم مرتبط بالفعل بحساب آخر.';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'فشل التحقق من رقم الهاتف. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'فشل تسجيل الدخول باستخدام Google. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'تم إلغاء تسجيل الدخول.';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'فشل تسجيل الدخول باستخدام Apple. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'يرجى تسجيل الدخول مرة أخرى لتغيير بريدك الإلكتروني.';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'لأمانك، يرجى تسجيل الدخول مرة أخرى قبل تغيير كلمة المرور.';
+
+  @override
+  String get auth_error_password_too_weak => 'يرجى اختيار كلمة مرور أقوى.';
+
+  @override
+  String get auth_error_password_update_failed => 'تعذّر تحديث كلمة المرور.';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'يرجى تسجيل الدخول مرة أخرى لتغيير رقمك.';
+
+  @override
+  String get auth_error_generic => 'حدث خطأ ما. يرجى المحاولة مرة أخرى.';
+
+  @override
+  String get address_form_label_hint => 'المنزل';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'رسالة صوتية';
+
+  @override
+  String get chat_media_photo => 'صورة';
+
+  @override
+  String get chat_media_attachment => 'مرفق';
 }

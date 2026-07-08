@@ -111,7 +111,7 @@ void main() {
 
         expect(states.first, const ReelComposerPosting());
         final ready = states.last as ReelComposerReady;
-        expect(ready.errorMessage, isNotNull);
+        expect(ready.errorReason, isNotNull);
       },
     );
 
@@ -133,7 +133,7 @@ void main() {
 
         expect(states.first, const ReelComposerPosting());
         final ready = states.last as ReelComposerReady;
-        expect(ready.errorMessage, isNotNull);
+        expect(ready.errorReason, isNotNull);
         // Products are preserved from the previous ready state
         expect(ready.products, [_kProduct]);
       },
@@ -162,7 +162,7 @@ void main() {
         );
 
         final ready = states.last as ReelComposerReady;
-        expect(ready.errorMessage, isNotNull);
+        expect(ready.errorReason, isNotNull);
       },
     );
   });

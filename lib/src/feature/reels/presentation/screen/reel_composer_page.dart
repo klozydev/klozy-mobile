@@ -18,6 +18,7 @@ import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_bloc.dart';
+import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_error_reason.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_event.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_state.dart';
 import 'package:video_player/video_player.dart';
@@ -114,8 +115,12 @@ class _ReelComposerPageState extends State<ReelComposerPage> {
       listener: (BuildContext context, ReelComposerState state) {
         if (state is ReelComposerReady) {
           _products = state.products;
-          if (state.errorMessage != null) {
-            context.showSnackBar(state.errorMessage!);
+          final ReelComposerErrorReason? errorReason = state.errorReason;
+          if (errorReason != null) {
+            context.showSnackBar(switch (errorReason) {
+              ReelComposerErrorReason.postFailed =>
+                context.l10N.reels_composer_post_failed,
+            });
           }
         }
       },

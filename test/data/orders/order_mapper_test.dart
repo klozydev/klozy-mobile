@@ -158,49 +158,35 @@ void main() {
   });
 
   group('mapOrderListItem — createdAtLabel', () {
-    test('label is null when createdAt absent', () {
+    test('createdAtLabel is always null (no local formatting)', () {
       expect(mapOrderListItem(_baseListItem()).createdAtLabel, isNull);
     });
 
-    test('produces a time label for a recent createdAt', () {
+    test('createdAtLabel stays null even when createdAt is present', () {
       final recent = DateTime.now()
           .subtract(const Duration(hours: 2))
           .toIso8601String();
       final raw = _baseListItem(createdAt: recent);
+      expect(mapOrderListItem(raw).createdAtLabel, isNull);
+    });
+  });
+
+  group('mapOrderListItem — createdAt', () {
+    test('null when createdAt absent', () {
+      expect(mapOrderListItem(_baseListItem()).createdAt, isNull);
+    });
+
+    test('parses createdAt into a DateTime', () {
+      final raw = _baseListItem(createdAt: '2024-01-15T10:00:00.000Z');
       expect(
-        mapOrderListItem(raw).createdAtLabel,
-        matches(RegExp(r'^\d+h ago$')),
+        mapOrderListItem(raw).createdAt,
+        DateTime.parse('2024-01-15T10:00:00.000Z'),
       );
     });
 
-    test('day label for yesterday', () {
-      final yesterday = DateTime.now()
-          .subtract(const Duration(hours: 25))
-          .toIso8601String();
-      final raw = _baseListItem(createdAt: yesterday);
-      expect(
-        mapOrderListItem(raw).createdAtLabel,
-        matches(RegExp(r'^\d+d ago$')),
-      );
-    });
-
-    test('minutes label for recent', () {
-      final recent = DateTime.now()
-          .subtract(const Duration(minutes: 5))
-          .toIso8601String();
-      final raw = _baseListItem(createdAt: recent);
-      expect(
-        mapOrderListItem(raw).createdAtLabel,
-        matches(RegExp(r'^\d+m ago$')),
-      );
-    });
-
-    test('Just now for very recent', () {
-      final now = DateTime.now()
-          .subtract(const Duration(seconds: 30))
-          .toIso8601String();
-      final raw = _baseListItem(createdAt: now);
-      expect(mapOrderListItem(raw).createdAtLabel, 'Just now');
+    test('null when createdAt is unparsable', () {
+      final raw = _baseListItem(createdAt: 'not-a-date');
+      expect(mapOrderListItem(raw).createdAt, isNull);
     });
   });
 
@@ -310,6 +296,35 @@ void main() {
       final raw = Map<String, dynamic>.from(_baseOrderDetail())
         ..remove('availableActions');
       expect(mapOrder(raw).availableActions, isEmpty);
+    });
+  });
+
+  group('mapOrder — createdAt', () {
+    test('null when createdAt absent', () {
+      expect(mapOrder(_baseOrderDetail()).createdAt, isNull);
+    });
+
+    test('createdAtLabel is always null (no local formatting)', () {
+      expect(mapOrder(_baseOrderDetail()).createdAtLabel, isNull);
+    });
+
+    test('parses createdAt into a DateTime', () {
+      final raw = <String, dynamic>{
+        ..._baseOrderDetail(),
+        'createdAt': '2024-01-15T10:00:00.000Z',
+      };
+      expect(
+        mapOrder(raw).createdAt,
+        DateTime.parse('2024-01-15T10:00:00.000Z'),
+      );
+    });
+
+    test('null when createdAt is unparsable', () {
+      final raw = <String, dynamic>{
+        ..._baseOrderDetail(),
+        'createdAt': 'not-a-date',
+      };
+      expect(mapOrder(raw).createdAt, isNull);
     });
   });
 

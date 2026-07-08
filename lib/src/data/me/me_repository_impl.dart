@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/constants/app_defaults.dart';
 import 'package:klozy/src/core/network/cache/session_cache.dart';
 import 'package:klozy/src/domain/me/entity/address.dart';
 import 'package:klozy/src/domain/me/entity/address_input.dart';
@@ -159,7 +160,7 @@ class MeRepositoryImpl implements MeRepository {
       area: _str(json, ['area']),
       city: _str(json, ['city']) ?? '',
       emirate: _str(json, ['emirate']) ?? '',
-      country: _str(json, ['country']) ?? 'United Arab Emirates',
+      country: _str(json, ['country']) ?? kDefaultCountry,
       isDefault: json['isDefault'] == true,
     );
   }

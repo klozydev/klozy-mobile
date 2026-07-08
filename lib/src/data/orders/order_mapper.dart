@@ -29,7 +29,7 @@ OrderListItem mapOrderListItem(Object? raw) {
         : (items.isNotEmpty ? items.first.price : 0),
     status: OrderStatus.fromApi(_str(json, ['status'])),
     counterpartName: counterpart.displayName,
-    createdAtLabel: _posted(_str(json, ['createdAt'])),
+    createdAt: _createdAt(_str(json, ['createdAt'])),
   );
 }
 
@@ -56,7 +56,7 @@ Order mapOrder(Object? raw) {
     deliveryName: _str(address, ['name']),
     deliveryAddress: _addressLine(address),
     returnReason: _str(json, ['returnReason']),
-    createdAtLabel: _posted(_str(json, ['createdAt'])),
+    createdAt: _createdAt(_str(json, ['createdAt'])),
   );
 }
 
@@ -143,15 +143,9 @@ String? _addressLine(Map<String, dynamic> address) {
   return parts.isEmpty ? null : parts.join(', ');
 }
 
-String? _posted(String? created) {
+DateTime? _createdAt(String? created) {
   if (created == null) return null;
-  final date = DateTime.tryParse(created);
-  if (date == null) return null;
-  final diff = DateTime.now().difference(date);
-  if (diff.inDays >= 1) return '${diff.inDays}d ago';
-  if (diff.inHours >= 1) return '${diff.inHours}h ago';
-  if (diff.inMinutes >= 1) return '${diff.inMinutes}m ago';
-  return 'Just now';
+  return DateTime.tryParse(created);
 }
 
 String? _str(Map<String, dynamic> json, List<String> keys) {

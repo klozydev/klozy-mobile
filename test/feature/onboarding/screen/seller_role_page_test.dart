@@ -13,6 +13,7 @@ import 'package:klozy/src/domain/sell/usecase/check_sell_prerequisite_usecase.da
 import 'package:klozy/src/domain/sell/usecase/sell_prerequisite.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_bloc.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_event.dart';
+import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_failure_reason.dart';
 import 'package:klozy/src/feature/onboarding/presentation/bloc/seller_role_state.dart';
 import 'package:klozy/src/feature/onboarding/presentation/screen/seller_role_page.dart';
 import 'package:klozy/src/router/app_router.dart';
@@ -165,7 +166,7 @@ void main() {
       await tester.pump();
 
       bloc.emitForTest(
-        const SellerRoleFailure("Couldn't save. Please try again."),
+        const SellerRoleFailure(SellerRoleFailureReason.saveFailed),
       );
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));

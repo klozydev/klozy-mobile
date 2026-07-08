@@ -3873,6 +3873,306 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You: '**
   String get chat_preview_you_prefix;
+
+  /// No description provided for @common_try_again.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get common_try_again;
+
+  /// No description provided for @common_time_just_now.
+  ///
+  /// In en, this message translates to:
+  /// **'Just now'**
+  String get common_time_just_now;
+
+  /// No description provided for @common_time_minutes_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 minute ago} other{{count} minutes ago}}'**
+  String common_time_minutes_ago(int count);
+
+  /// No description provided for @common_time_hours_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 hour ago} other{{count} hours ago}}'**
+  String common_time_hours_ago(int count);
+
+  /// No description provided for @common_time_days_ago.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day ago} other{{count} days ago}}'**
+  String common_time_days_ago(int count);
+
+  /// No description provided for @error_type_network_title.
+  ///
+  /// In en, this message translates to:
+  /// **'No connection'**
+  String get error_type_network_title;
+
+  /// No description provided for @error_type_network_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your internet connection and try again.'**
+  String get error_type_network_message;
+
+  /// No description provided for @error_type_timeout_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Took too long'**
+  String get error_type_timeout_title;
+
+  /// No description provided for @error_type_timeout_message.
+  ///
+  /// In en, this message translates to:
+  /// **'The request timed out. Please try again.'**
+  String get error_type_timeout_message;
+
+  /// No description provided for @error_type_unauthorized_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Session expired'**
+  String get error_type_unauthorized_title;
+
+  /// No description provided for @error_type_unauthorized_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Please sign in again to continue.'**
+  String get error_type_unauthorized_message;
+
+  /// No description provided for @error_type_not_found_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Not found'**
+  String get error_type_not_found_title;
+
+  /// No description provided for @error_type_not_found_message.
+  ///
+  /// In en, this message translates to:
+  /// **'We couldn\'t find what you were looking for.'**
+  String get error_type_not_found_message;
+
+  /// No description provided for @error_type_server_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get error_type_server_title;
+
+  /// No description provided for @error_type_server_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Our servers had a hiccup. Please try again.'**
+  String get error_type_server_message;
+
+  /// No description provided for @error_type_unknown_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get error_type_unknown_title;
+
+  /// No description provided for @error_type_unknown_message.
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred. Please try again.'**
+  String get error_type_unknown_message;
+
+  /// No description provided for @reels_composer_post_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t post your reel. Please try again.'**
+  String get reels_composer_post_failed;
+
+  /// No description provided for @sell_publish_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t publish your listing. Please try again.'**
+  String get sell_publish_failed;
+
+  /// No description provided for @auth_error_invalid_email.
+  ///
+  /// In en, this message translates to:
+  /// **'That email address looks invalid.'**
+  String get auth_error_invalid_email;
+
+  /// No description provided for @auth_error_user_disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'This account has been disabled.'**
+  String get auth_error_user_disabled;
+
+  /// No description provided for @auth_error_wrong_credentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong email or password.'**
+  String get auth_error_wrong_credentials;
+
+  /// No description provided for @auth_error_email_already_in_use.
+  ///
+  /// In en, this message translates to:
+  /// **'An account already exists for that email.'**
+  String get auth_error_email_already_in_use;
+
+  /// No description provided for @auth_error_weak_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a stronger password (at least 8 characters).'**
+  String get auth_error_weak_password;
+
+  /// No description provided for @auth_error_operation_not_allowed.
+  ///
+  /// In en, this message translates to:
+  /// **'This sign-in method is not enabled.'**
+  String get auth_error_operation_not_allowed;
+
+  /// No description provided for @auth_error_requires_recent_login.
+  ///
+  /// In en, this message translates to:
+  /// **'For your security, please log out and sign in again before changing this.'**
+  String get auth_error_requires_recent_login;
+
+  /// No description provided for @auth_error_too_many_requests.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many attempts. Please try again later.'**
+  String get auth_error_too_many_requests;
+
+  /// No description provided for @auth_error_network_request_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Network error. Check your connection.'**
+  String get auth_error_network_request_failed;
+
+  /// No description provided for @auth_error_invalid_phone_number.
+  ///
+  /// In en, this message translates to:
+  /// **'That phone number looks invalid.'**
+  String get auth_error_invalid_phone_number;
+
+  /// No description provided for @auth_error_invalid_verification_code.
+  ///
+  /// In en, this message translates to:
+  /// **'That code is incorrect.'**
+  String get auth_error_invalid_verification_code;
+
+  /// No description provided for @auth_error_session_expired.
+  ///
+  /// In en, this message translates to:
+  /// **'The code expired. Request a new one.'**
+  String get auth_error_session_expired;
+
+  /// No description provided for @auth_error_phone_already_in_use.
+  ///
+  /// In en, this message translates to:
+  /// **'That number is already linked to another account.'**
+  String get auth_error_phone_already_in_use;
+
+  /// No description provided for @auth_error_phone_verification_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone verification failed. Please try again.'**
+  String get auth_error_phone_verification_failed;
+
+  /// No description provided for @auth_error_google_sign_in_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Google sign-in failed. Please try again.'**
+  String get auth_error_google_sign_in_failed;
+
+  /// No description provided for @auth_error_sign_in_cancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign-in cancelled.'**
+  String get auth_error_sign_in_cancelled;
+
+  /// No description provided for @auth_error_apple_sign_in_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Apple sign-in failed. Please try again.'**
+  String get auth_error_apple_sign_in_failed;
+
+  /// No description provided for @auth_error_reauth_required_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Please sign in again to change your email.'**
+  String get auth_error_reauth_required_email;
+
+  /// No description provided for @auth_error_reauth_required_password.
+  ///
+  /// In en, this message translates to:
+  /// **'For your security, please sign in again before changing your password.'**
+  String get auth_error_reauth_required_password;
+
+  /// No description provided for @auth_error_password_too_weak.
+  ///
+  /// In en, this message translates to:
+  /// **'Please choose a stronger password.'**
+  String get auth_error_password_too_weak;
+
+  /// No description provided for @auth_error_password_update_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update your password.'**
+  String get auth_error_password_update_failed;
+
+  /// No description provided for @auth_error_reauth_required_phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Please sign in again to change your number.'**
+  String get auth_error_reauth_required_phone;
+
+  /// No description provided for @auth_error_generic.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get auth_error_generic;
+
+  /// No description provided for @address_form_label_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get address_form_label_hint;
+
+  /// No description provided for @sell_size_system_eu.
+  ///
+  /// In en, this message translates to:
+  /// **'EU'**
+  String get sell_size_system_eu;
+
+  /// No description provided for @sell_size_system_us.
+  ///
+  /// In en, this message translates to:
+  /// **'US'**
+  String get sell_size_system_us;
+
+  /// No description provided for @payout_iban_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'AE07 0331 2345 6789 0123 456'**
+  String get payout_iban_hint;
+
+  /// No description provided for @onboarding_seller_role_iban_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'AE00 0000 0000 0000 0000'**
+  String get onboarding_seller_role_iban_hint;
+
+  /// No description provided for @chat_media_voice_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice message'**
+  String get chat_media_voice_message;
+
+  /// No description provided for @chat_media_photo.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get chat_media_photo;
+
+  /// No description provided for @chat_media_attachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment'**
+  String get chat_media_attachment;
 }
 
 class _AppLocalizationsDelegate

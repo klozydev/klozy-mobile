@@ -2143,4 +2143,202 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'Сіз: ';
+
+  @override
+  String get common_try_again => 'Қайталап көру';
+
+  @override
+  String get common_time_just_now => 'Дәл қазір';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count минут бұрын',
+      one: '1 минут бұрын',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count сағат бұрын',
+      one: '1 сағат бұрын',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count күн бұрын',
+      one: '1 күн бұрын',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'Байланыс жоқ';
+
+  @override
+  String get error_type_network_message =>
+      'Интернет байланысыңызды тексеріп, қайталап көріңіз.';
+
+  @override
+  String get error_type_timeout_title => 'Тым ұзақ уақыт алды';
+
+  @override
+  String get error_type_timeout_message =>
+      'Сұраудың мерзімі бітті. Қайталап көріңіз.';
+
+  @override
+  String get error_type_unauthorized_title => 'Сеанс мерзімі бітті';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'Жалғастыру үшін қайта кіріңіз.';
+
+  @override
+  String get error_type_not_found_title => 'Табылмады';
+
+  @override
+  String get error_type_not_found_message => 'Іздегеніңізді таба алмадық.';
+
+  @override
+  String get error_type_server_title => 'Бірдеңе дұрыс болмады';
+
+  @override
+  String get error_type_server_message =>
+      'Серверлерімізде ақаулық болды. Қайталап көріңіз.';
+
+  @override
+  String get error_type_unknown_title => 'Бірдеңе дұрыс болмады';
+
+  @override
+  String get error_type_unknown_message =>
+      'Күтпеген қате орын алды. Қайталап көріңіз.';
+
+  @override
+  String get reels_composer_post_failed =>
+      'Риліңізді жариялау мүмкін болмады. Қайталап көріңіз.';
+
+  @override
+  String get sell_publish_failed =>
+      'Хабарландыруыңызды жариялау мүмкін болмады. Қайталап көріңіз.';
+
+  @override
+  String get auth_error_invalid_email =>
+      'Бұл электрондық пошта мекенжайы жарамсыз болып көрінеді.';
+
+  @override
+  String get auth_error_user_disabled => 'Бұл аккаунт өшірілген.';
+
+  @override
+  String get auth_error_wrong_credentials =>
+      'Электрондық пошта немесе құпия сөз қате.';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'Бұл электрондық поштаға аккаунт бұрыннан бар.';
+
+  @override
+  String get auth_error_weak_password =>
+      'Күштірек құпия сөз таңдаңыз (кемінде 8 таңба).';
+
+  @override
+  String get auth_error_operation_not_allowed => 'Бұл кіру әдісі қосылмаған.';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'Қауіпсіздігіңіз үшін мұны өзгертпес бұрын жүйеден шығып, қайта кіріңіз.';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'Тым көп әрекет жасалды. Кейінірек қайталап көріңіз.';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'Желі қатесі. Байланысыңызды тексеріңіз.';
+
+  @override
+  String get auth_error_invalid_phone_number =>
+      'Бұл телефон нөмірі жарамсыз болып көрінеді.';
+
+  @override
+  String get auth_error_invalid_verification_code => 'Бұл код қате.';
+
+  @override
+  String get auth_error_session_expired =>
+      'Кодтың мерзімі бітті. Жаңа код сұраңыз.';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'Бұл нөмір басқа аккаунтқа қосылған.';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'Телефонды растау сәтсіз аяқталды. Қайталап көріңіз.';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'Google арқылы кіру сәтсіз аяқталды. Қайталап көріңіз.';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'Кіру бас тартылды.';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'Apple арқылы кіру сәтсіз аяқталды. Қайталап көріңіз.';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'Электрондық поштаңызды өзгерту үшін қайта кіріңіз.';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'Қауіпсіздігіңіз үшін құпия сөзіңізді өзгертпес бұрын қайта кіріңіз.';
+
+  @override
+  String get auth_error_password_too_weak => 'Күштірек құпия сөз таңдаңыз.';
+
+  @override
+  String get auth_error_password_update_failed =>
+      'Құпия сөзіңізді жаңарту мүмкін болмады.';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'Нөміріңізді өзгерту үшін қайта кіріңіз.';
+
+  @override
+  String get auth_error_generic => 'Бірдеңе дұрыс болмады. Қайталап көріңіз.';
+
+  @override
+  String get address_form_label_hint => 'Үй';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'Дауыстық хабарлама';
+
+  @override
+  String get chat_media_photo => 'Фото';
+
+  @override
+  String get chat_media_attachment => 'Тіркеме';
 }

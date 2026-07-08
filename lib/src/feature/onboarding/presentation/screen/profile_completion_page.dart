@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_event.dart';
 import 'package:klozy/src/core/components/avatar_upload_widget.dart';
+import 'package:klozy/src/core/constants/app_defaults.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_address_field.dart';
 import 'package:klozy/src/design/components/ds_address_suggestion.dart';
@@ -93,7 +94,7 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
       line1: text,
       city: text,
       emirate: text,
-      country: 'United Arab Emirates',
+      country: kDefaultCountry,
     );
   }
 
@@ -345,7 +346,7 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
       // Use city as emirate fallback — backend accepts it and the onboarding
       // UX does not ask the user to disambiguate.
       emirate: city,
-      country: details.country ?? 'United Arab Emirates',
+      country: details.country ?? kDefaultCountry,
     );
   }
 }

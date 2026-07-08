@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/components/app_error_type.dart';
+import 'package:klozy/src/core/components/app_error_type_l10n.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -31,20 +32,23 @@ class AppErrorWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
-              type.title,
+              type.title(context.l10N),
               textAlign: TextAlign.center,
               style: context.textTheme.titleLarge,
             ),
             const SizedBox(height: DSSpacing.xxs),
             Text(
-              message ?? type.message,
+              message ?? type.message(context.l10N),
               textAlign: TextAlign.center,
               style: context.textTheme.bodyMedium?.copyWith(
                 color: DSColor.onSurface60,
               ),
             ),
             const SizedBox(height: DSSpacing.l),
-            DSButtonOutline(text: 'Try again', onPressed: onRetry),
+            DSButtonOutline(
+              text: context.l10N.common_try_again,
+              onPressed: onRetry,
+            ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/feature/chat/domain/entity/chat_message.dart';
@@ -16,7 +17,8 @@ class FileMessage extends StatelessWidget {
     final bool mine = message.isMine;
     final double maxWidth = MediaQuery.sizeOf(context).width * 0.8;
     final Color foreground = mine ? Colors.black : Colors.white;
-    final String name = message.firstMedia?.name ?? 'Attachment';
+    final String name =
+        message.firstMedia?.name ?? context.l10N.chat_media_attachment;
 
     return ConstrainedBox(
       constraints: BoxConstraints(maxWidth: maxWidth),

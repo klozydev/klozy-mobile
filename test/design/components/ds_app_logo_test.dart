@@ -4,7 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:klozy/src/design/components/ds_app_logo.dart';
 
 Widget _wrap(Widget child) {
-  return MaterialApp(home: Scaffold(body: Center(child: child)));
+  return MaterialApp(
+    home: Scaffold(body: Center(child: child)),
+  );
 }
 
 SvgPicture _svg(WidgetTester tester) {

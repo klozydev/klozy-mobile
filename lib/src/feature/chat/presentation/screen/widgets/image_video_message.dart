@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/feature/chat/domain/entity/chat_message.dart';
@@ -48,7 +49,7 @@ class ImageVideoMessage extends StatelessWidget {
             ),
             child: Stack(
               children: <Widget>[
-                _content(),
+                _content(context),
                 if (message.isSending)
                   Positioned.fill(
                     child: ColoredBox(
@@ -75,7 +76,7 @@ class ImageVideoMessage extends StatelessWidget {
     );
   }
 
-  Widget _content() {
+  Widget _content(BuildContext context) {
     final String? url = message.firstMedia?.url;
     final String? localPath = message.firstMedia?.localPath;
 
@@ -102,7 +103,7 @@ class ImageVideoMessage extends StatelessWidget {
       return _videoPoster();
     }
 
-    return _labelPlaceholder();
+    return _labelPlaceholder(context);
   }
 
   Widget _imagePlaceholder() {
@@ -160,7 +161,7 @@ class ImageVideoMessage extends StatelessWidget {
     );
   }
 
-  Widget _labelPlaceholder() {
+  Widget _labelPlaceholder(BuildContext context) {
     return Container(
       width: 180,
       height: 138,
@@ -173,7 +174,7 @@ class ImageVideoMessage extends StatelessWidget {
         ),
       ),
       child: Text(
-        message.firstMedia?.name ?? 'Photo',
+        message.firstMedia?.name ?? context.l10N.chat_media_photo,
         style: TextStyle(
           fontFamily: dsFontFamily,
           fontSize: 10,

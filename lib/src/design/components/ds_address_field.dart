@@ -23,7 +23,7 @@ class DSAddressField extends StatefulWidget {
     required this.onChanged,
     required this.onPicked,
     this.selected = false,
-    this.hintText = 'Search your address',
+    required this.hintText,
   });
 
   @override

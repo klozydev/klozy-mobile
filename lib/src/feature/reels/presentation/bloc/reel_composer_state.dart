@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
+import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_error_reason.dart';
 
 @immutable
 sealed class ReelComposerState extends Equatable {
@@ -16,12 +17,12 @@ final class ReelComposerLoading extends ReelComposerState {
 
 final class ReelComposerReady extends ReelComposerState {
   final List<Product> products;
-  final String? errorMessage;
+  final ReelComposerErrorReason? errorReason;
 
-  const ReelComposerReady({required this.products, this.errorMessage});
+  const ReelComposerReady({required this.products, this.errorReason});
 
   @override
-  List<Object?> get props => [products, errorMessage];
+  List<Object?> get props => [products, errorReason];
 }
 
 final class ReelComposerPosting extends ReelComposerState {

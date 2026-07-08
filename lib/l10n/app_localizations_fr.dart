@@ -2146,4 +2146,206 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'Vous : ';
+
+  @override
+  String get common_try_again => 'Réessayer';
+
+  @override
+  String get common_time_just_now => 'À l\'instant';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Il y a $count minutes',
+      one: 'Il y a 1 minute',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Il y a $count heures',
+      one: 'Il y a 1 heure',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Il y a $count jours',
+      one: 'Il y a 1 jour',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'Aucune connexion';
+
+  @override
+  String get error_type_network_message =>
+      'Vérifiez votre connexion internet et réessayez.';
+
+  @override
+  String get error_type_timeout_title => 'Cela a pris trop de temps';
+
+  @override
+  String get error_type_timeout_message =>
+      'La requête a expiré. Veuillez réessayer.';
+
+  @override
+  String get error_type_unauthorized_title => 'Session expirée';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'Veuillez vous reconnecter pour continuer.';
+
+  @override
+  String get error_type_not_found_title => 'Introuvable';
+
+  @override
+  String get error_type_not_found_message =>
+      'Nous n\'avons pas trouvé ce que vous cherchiez.';
+
+  @override
+  String get error_type_server_title => 'Une erreur est survenue';
+
+  @override
+  String get error_type_server_message =>
+      'Nos serveurs ont rencontré un problème. Veuillez réessayer.';
+
+  @override
+  String get error_type_unknown_title => 'Une erreur est survenue';
+
+  @override
+  String get error_type_unknown_message =>
+      'Une erreur inattendue s\'est produite. Veuillez réessayer.';
+
+  @override
+  String get reels_composer_post_failed =>
+      'Impossible de publier votre reel. Veuillez réessayer.';
+
+  @override
+  String get sell_publish_failed =>
+      'Impossible de publier votre annonce. Veuillez réessayer.';
+
+  @override
+  String get auth_error_invalid_email =>
+      'Cette adresse e-mail semble invalide.';
+
+  @override
+  String get auth_error_user_disabled => 'Ce compte a été désactivé.';
+
+  @override
+  String get auth_error_wrong_credentials =>
+      'E-mail ou mot de passe incorrect.';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'Un compte existe déjà avec cet e-mail.';
+
+  @override
+  String get auth_error_weak_password =>
+      'Choisissez un mot de passe plus fort (8 caractères minimum).';
+
+  @override
+  String get auth_error_operation_not_allowed =>
+      'Cette méthode de connexion n\'est pas activée.';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'Pour votre sécurité, veuillez vous déconnecter puis vous reconnecter avant de modifier ceci.';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'Trop de tentatives. Veuillez réessayer plus tard.';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'Erreur réseau. Vérifiez votre connexion.';
+
+  @override
+  String get auth_error_invalid_phone_number =>
+      'Ce numéro de téléphone semble invalide.';
+
+  @override
+  String get auth_error_invalid_verification_code => 'Ce code est incorrect.';
+
+  @override
+  String get auth_error_session_expired =>
+      'Le code a expiré. Demandez-en un nouveau.';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'Ce numéro est déjà associé à un autre compte.';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'La vérification du téléphone a échoué. Veuillez réessayer.';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'La connexion avec Google a échoué. Veuillez réessayer.';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'Connexion annulée.';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'La connexion avec Apple a échoué. Veuillez réessayer.';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'Veuillez vous reconnecter pour modifier votre e-mail.';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'Pour votre sécurité, veuillez vous reconnecter avant de modifier votre mot de passe.';
+
+  @override
+  String get auth_error_password_too_weak =>
+      'Veuillez choisir un mot de passe plus fort.';
+
+  @override
+  String get auth_error_password_update_failed =>
+      'Impossible de mettre à jour votre mot de passe.';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'Veuillez vous reconnecter pour modifier votre numéro.';
+
+  @override
+  String get auth_error_generic =>
+      'Une erreur est survenue. Veuillez réessayer.';
+
+  @override
+  String get address_form_label_hint => 'Domicile';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'Message vocal';
+
+  @override
+  String get chat_media_photo => 'Photo';
+
+  @override
+  String get chat_media_attachment => 'Pièce jointe';
 }

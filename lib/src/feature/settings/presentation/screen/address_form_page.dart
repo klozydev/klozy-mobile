@@ -118,7 +118,7 @@ class _AddressFormPageState extends State<AddressFormPage> {
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
         children: <Widget>[
           DSFieldLabel(l.address_label),
-          DSTextField(controller: _label, hintText: 'Home'),
+          DSTextField(controller: _label, hintText: l.address_form_label_hint),
           const SizedBox(height: 12),
           DSFieldLabel(l.address_recipient),
           DSTextField(controller: _recipient),

@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:klozy/src/core/constants/app_defaults.dart';
 
 /// Payload for `PUT /v1/me/address` and `POST/PATCH /v1/me/addresses`.
 class AddressInput extends Equatable {
@@ -18,7 +19,7 @@ class AddressInput extends Equatable {
     required this.emirate,
     this.line2,
     this.area,
-    this.country = 'United Arab Emirates',
+    this.country = kDefaultCountry,
     this.label,
     this.recipientName,
     this.phone,

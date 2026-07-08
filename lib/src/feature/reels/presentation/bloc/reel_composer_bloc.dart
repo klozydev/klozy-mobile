@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/feature/reels/domain/reels_repository.dart';
+import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_error_reason.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_event.dart';
 import 'package:klozy/src/feature/reels/presentation/bloc/reel_composer_state.dart';
 
@@ -48,7 +49,7 @@ class ReelComposerBloc extends Bloc<ReelComposerEvent, ReelComposerState> {
       emit(
         ReelComposerReady(
           products: _products,
-          errorMessage: "Couldn't post your reel. Please try again.",
+          errorReason: ReelComposerErrorReason.postFailed,
         ),
       );
     }

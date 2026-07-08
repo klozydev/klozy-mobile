@@ -6,6 +6,7 @@ import 'package:klozy/src/domain/catalog/entity/catalog_condition.dart';
 import 'package:klozy/src/domain/sell/entity/sell_draft.dart';
 import 'package:klozy/src/feature/sell/domain/entity/sell_draft_field.dart';
 import 'package:klozy/src/feature/sell/domain/entity/size_system.dart';
+import 'package:klozy/src/feature/sell/presentation/bloc/sell_submit_error_reason.dart';
 
 @immutable
 sealed class SellState extends Equatable {
@@ -59,7 +60,7 @@ final class SellRecapState extends SellState {
   /// EU / US size system selected for the size field.
   final SizeSystem sizeSystem;
   final bool isCreating;
-  final String? submitError;
+  final SellSubmitErrorReason? submitError;
 
   const SellRecapState({
     required this.draft,
@@ -78,7 +79,7 @@ final class SellRecapState extends SellState {
     Set<SellDraftField>? aiFilled,
     SizeSystem? sizeSystem,
     bool? isCreating,
-    String? submitError,
+    SellSubmitErrorReason? submitError,
   }) {
     return SellRecapState(
       draft: draft ?? this.draft,

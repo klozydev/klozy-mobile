@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/util/relative_time_formatter.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -100,13 +101,18 @@ class OrderListCardWidget extends StatelessWidget {
   }
 
   String _meta(BuildContext context) {
+    final String? createdLabel =
+        order.createdAtLabel ??
+        (order.createdAt != null
+            ? RelativeTimeFormatter.format(context, order.createdAt!)
+            : null);
     final parts = <String>[
       if (order.counterpartName.isNotEmpty)
         context.l10N.orders_counterpart_meta(
           counterpartPrefix,
           order.counterpartName,
         ),
-      if (order.createdAtLabel != null) order.createdAtLabel!,
+      if (createdLabel != null) createdLabel,
     ];
     return parts.join(' · ');
   }

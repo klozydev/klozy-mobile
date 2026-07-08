@@ -215,24 +215,56 @@ void main() {
       expect(mapProductDetail(product).postedLabel, '3 days ago');
     });
 
-    test('derives time-ago from createdAt when postedLabel absent', () {
-      final recent = DateTime.now()
-          .subtract(const Duration(hours: 2))
-          .toIso8601String();
+    test('uses posted key when postedLabel absent', () {
       final product = Map<String, dynamic>.from(fullProduct())
         ..remove('postedLabel')
-        ..['createdAt'] = recent;
-      expect(
-        mapProductDetail(product).postedLabel,
-        matches(RegExp(r'^\d+h ago$')),
-      );
+        ..['posted'] = '3 days ago';
+      expect(mapProductDetail(product).postedLabel, '3 days ago');
     });
+
+    test(
+      'null when postedLabel absent — never derived from createdAt locally',
+      () {
+        final product = Map<String, dynamic>.from(fullProduct())
+          ..remove('postedLabel');
+        expect(mapProductDetail(product).postedLabel, isNull);
+      },
+    );
 
     test('null when both postedLabel and createdAt are absent', () {
       final product = Map<String, dynamic>.from(fullProduct())
         ..remove('postedLabel')
         ..remove('createdAt');
       expect(mapProductDetail(product).postedLabel, isNull);
+    });
+  });
+
+  group('mapProductDetail — postedAt', () {
+    test('parses createdAt into postedAt', () {
+      final detail = mapProductDetail(fullProduct());
+      expect(detail.postedAt, DateTime.parse('2024-01-15T10:00:00.000Z'));
+    });
+
+    test('parses from created key when createdAt absent', () {
+      final product = Map<String, dynamic>.from(fullProduct())
+        ..remove('createdAt')
+        ..['created'] = '2024-02-01T00:00:00.000Z';
+      expect(
+        mapProductDetail(product).postedAt,
+        DateTime.parse('2024-02-01T00:00:00.000Z'),
+      );
+    });
+
+    test('null when createdAt/created absent', () {
+      final product = Map<String, dynamic>.from(fullProduct())
+        ..remove('createdAt');
+      expect(mapProductDetail(product).postedAt, isNull);
+    });
+
+    test('null when createdAt is unparsable', () {
+      final product = Map<String, dynamic>.from(fullProduct())
+        ..['createdAt'] = 'not-a-date';
+      expect(mapProductDetail(product).postedAt, isNull);
     });
   });
 

@@ -18,6 +18,7 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:klozy/src/feature/auth/presentation/bloc/auth_error_reason_l10n.dart';
 import 'package:klozy/src/feature/auth/presentation/bloc/auth_event.dart';
 import 'package:klozy/src/feature/auth/presentation/bloc/auth_state.dart';
 import 'package:klozy/src/router/app_router.dart';
@@ -294,7 +295,7 @@ class _LoginPageState extends State<LoginPage> {
       // (e.g. the seller address gate).
       context.router.replaceAll(<PageRouteInfo>[const ShellRoute()]);
     } else if (state is AuthFailure) {
-      context.showSnackBar(state.message);
+      context.showSnackBar(state.reason.message(context.l10N));
     } else if (state is AuthPasswordResetSent) {
       context.showSnackBar(context.l10N.auth_password_reset_sent);
     }

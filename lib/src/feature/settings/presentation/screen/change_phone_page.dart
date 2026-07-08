@@ -13,6 +13,7 @@ import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/auth/auth_exception.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
+import 'package:klozy/src/feature/auth/presentation/bloc/auth_error_reason_l10n.dart';
 
 /// Change-phone subpage (Settings › Security). Two steps: enter the new number
 /// → Firebase SMS verification → enter the 6-digit code → `updatePhoneNumber`.
@@ -55,7 +56,7 @@ class _ChangePhonePageState extends State<ChangePhonePage> {
         });
       }
     } on AuthException catch (e) {
-      if (mounted) context.showSnackBar(e.message);
+      if (mounted) context.showSnackBar(e.reason.message(context.l10N));
     } catch (_) {
       if (mounted) context.showSnackBar(context.l10N.settings_save_failed);
     } finally {
@@ -76,7 +77,7 @@ class _ChangePhonePageState extends State<ChangePhonePage> {
         context.router.maybePop();
       }
     } on AuthException catch (e) {
-      if (mounted) context.showSnackBar(e.message);
+      if (mounted) context.showSnackBar(e.reason.message(context.l10N));
     } catch (_) {
       if (mounted) context.showSnackBar(context.l10N.settings_save_failed);
     } finally {

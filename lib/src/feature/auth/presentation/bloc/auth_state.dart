@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:klozy/src/domain/auth/auth_error_reason.dart';
 import 'package:klozy/src/domain/auth/auth_repository.dart';
 import 'package:klozy/src/domain/auth/entity/auth_user.dart';
 
@@ -48,10 +49,10 @@ final class AuthSuccess extends AuthState {
 }
 
 final class AuthFailure extends AuthState {
-  final String message;
+  final AuthErrorReason reason;
 
-  const AuthFailure(this.message);
+  const AuthFailure(this.reason);
 
   @override
-  List<Object?> get props => [message];
+  List<Object?> get props => [reason];
 }

@@ -2125,4 +2125,203 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get chat_preview_you_prefix => 'You: ';
+
+  @override
+  String get common_try_again => 'Try again';
+
+  @override
+  String get common_time_just_now => 'Just now';
+
+  @override
+  String common_time_minutes_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count minutes ago',
+      one: '1 minute ago',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_hours_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count hours ago',
+      one: '1 hour ago',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String common_time_days_ago(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days ago',
+      one: '1 day ago',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get error_type_network_title => 'No connection';
+
+  @override
+  String get error_type_network_message =>
+      'Check your internet connection and try again.';
+
+  @override
+  String get error_type_timeout_title => 'Took too long';
+
+  @override
+  String get error_type_timeout_message =>
+      'The request timed out. Please try again.';
+
+  @override
+  String get error_type_unauthorized_title => 'Session expired';
+
+  @override
+  String get error_type_unauthorized_message =>
+      'Please sign in again to continue.';
+
+  @override
+  String get error_type_not_found_title => 'Not found';
+
+  @override
+  String get error_type_not_found_message =>
+      'We couldn\'t find what you were looking for.';
+
+  @override
+  String get error_type_server_title => 'Something went wrong';
+
+  @override
+  String get error_type_server_message =>
+      'Our servers had a hiccup. Please try again.';
+
+  @override
+  String get error_type_unknown_title => 'Something went wrong';
+
+  @override
+  String get error_type_unknown_message =>
+      'An unexpected error occurred. Please try again.';
+
+  @override
+  String get reels_composer_post_failed =>
+      'Couldn\'t post your reel. Please try again.';
+
+  @override
+  String get sell_publish_failed =>
+      'Couldn\'t publish your listing. Please try again.';
+
+  @override
+  String get auth_error_invalid_email => 'That email address looks invalid.';
+
+  @override
+  String get auth_error_user_disabled => 'This account has been disabled.';
+
+  @override
+  String get auth_error_wrong_credentials => 'Wrong email or password.';
+
+  @override
+  String get auth_error_email_already_in_use =>
+      'An account already exists for that email.';
+
+  @override
+  String get auth_error_weak_password =>
+      'Choose a stronger password (at least 8 characters).';
+
+  @override
+  String get auth_error_operation_not_allowed =>
+      'This sign-in method is not enabled.';
+
+  @override
+  String get auth_error_requires_recent_login =>
+      'For your security, please log out and sign in again before changing this.';
+
+  @override
+  String get auth_error_too_many_requests =>
+      'Too many attempts. Please try again later.';
+
+  @override
+  String get auth_error_network_request_failed =>
+      'Network error. Check your connection.';
+
+  @override
+  String get auth_error_invalid_phone_number =>
+      'That phone number looks invalid.';
+
+  @override
+  String get auth_error_invalid_verification_code => 'That code is incorrect.';
+
+  @override
+  String get auth_error_session_expired =>
+      'The code expired. Request a new one.';
+
+  @override
+  String get auth_error_phone_already_in_use =>
+      'That number is already linked to another account.';
+
+  @override
+  String get auth_error_phone_verification_failed =>
+      'Phone verification failed. Please try again.';
+
+  @override
+  String get auth_error_google_sign_in_failed =>
+      'Google sign-in failed. Please try again.';
+
+  @override
+  String get auth_error_sign_in_cancelled => 'Sign-in cancelled.';
+
+  @override
+  String get auth_error_apple_sign_in_failed =>
+      'Apple sign-in failed. Please try again.';
+
+  @override
+  String get auth_error_reauth_required_email =>
+      'Please sign in again to change your email.';
+
+  @override
+  String get auth_error_reauth_required_password =>
+      'For your security, please sign in again before changing your password.';
+
+  @override
+  String get auth_error_password_too_weak =>
+      'Please choose a stronger password.';
+
+  @override
+  String get auth_error_password_update_failed =>
+      'Could not update your password.';
+
+  @override
+  String get auth_error_reauth_required_phone =>
+      'Please sign in again to change your number.';
+
+  @override
+  String get auth_error_generic => 'Something went wrong. Please try again.';
+
+  @override
+  String get address_form_label_hint => 'Home';
+
+  @override
+  String get sell_size_system_eu => 'EU';
+
+  @override
+  String get sell_size_system_us => 'US';
+
+  @override
+  String get payout_iban_hint => 'AE07 0331 2345 6789 0123 456';
+
+  @override
+  String get onboarding_seller_role_iban_hint => 'AE00 0000 0000 0000 0000';
+
+  @override
+  String get chat_media_voice_message => 'Voice message';
+
+  @override
+  String get chat_media_photo => 'Photo';
+
+  @override
+  String get chat_media_attachment => 'Attachment';
 }
