@@ -30,3 +30,19 @@ const List<AppLanguage> kAppLanguages = <AppLanguage>[
   AppLanguage(code: 'fil', name: 'Filipino'),
   AppLanguage(code: 'kk', name: 'Қазақша'),
 ];
+
+/// Resolves [deviceLanguageCode] (e.g. `platformDispatcher.locale.languageCode`)
+/// to one of [kAppLanguages]' codes, falling back to `'en'` when the device
+/// language isn't shipped.
+///
+/// There is no in-app language picker — the UI language is driven purely by
+/// the device language, so this is the single source of truth for the app's
+/// active locale (see `AppConfigChangeNotifier`).
+String resolveSupportedLocaleCode(String deviceLanguageCode) {
+  final Iterable<String> supportedCodes = kAppLanguages.map(
+    (AppLanguage language) => language.code,
+  );
+  return supportedCodes.contains(deviceLanguageCode)
+      ? deviceLanguageCode
+      : 'en';
+}

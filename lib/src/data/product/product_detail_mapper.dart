@@ -10,7 +10,7 @@ ProductDetail mapProductDetail(Object? raw) {
     title: _str(json, ['title', 'name']) ?? '',
     price: _num(json, ['price', 'amount']) ?? 0,
     brand: _brand(json),
-    size: _str(json, ['size']) ?? '',
+    size: _str(json, ['sizeLabel', 'size']) ?? '',
     conditionLabel: _condition(json),
     images: _images(json),
     description: _str(json, ['description']) ?? '',
@@ -54,13 +54,18 @@ String _brand(Map<String, dynamic> json) {
   return _str(json, ['brandName']) ?? '';
 }
 
+/// Prefers the API-localized [conditionLabel] (falls back to English on the
+/// server). `condition` stays the raw slug and is only used as a display
+/// fallback when [conditionLabel] is absent, for older payload shapes.
 String? _condition(Map<String, dynamic> json) {
+  final String? label = _str(json, ['conditionLabel']);
+  if (label != null) return label;
   final condition = json['condition'];
   if (condition is Map<String, dynamic>) {
     return _str(condition, ['label', 'name']);
   }
   if (condition is String) return condition;
-  return _str(json, ['conditionLabel']);
+  return null;
 }
 
 List<String> _images(Map<String, dynamic> json) {

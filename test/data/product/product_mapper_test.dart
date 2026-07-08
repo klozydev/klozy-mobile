@@ -159,17 +159,20 @@ void main() {
   // -------------------------------------------------------------------------
 
   group('mapProduct — condition resolution', () {
-    test('conditionLabel from flat string', () {
+    test('conditionLabel from flat string (no top-level conditionLabel)', () {
       final raw = Map<String, dynamic>.from(_fullProduct())
         ..['condition'] = 'Good';
       expect(mapProduct(raw).conditionLabel, 'Good');
     });
 
-    test('conditionLabel from object name key', () {
-      final raw = Map<String, dynamic>.from(_fullProduct())
-        ..['condition'] = <String, dynamic>{'name': 'Like New'};
-      expect(mapProduct(raw).conditionLabel, 'Like New');
-    });
+    test(
+      'conditionLabel from object name key (no top-level conditionLabel)',
+      () {
+        final raw = Map<String, dynamic>.from(_fullProduct())
+          ..['condition'] = <String, dynamic>{'name': 'Like New'};
+        expect(mapProduct(raw).conditionLabel, 'Like New');
+      },
+    );
 
     test('conditionLabel from conditionLabel top-level key', () {
       final raw = Map<String, dynamic>.from(_fullProduct())
@@ -182,6 +185,41 @@ void main() {
       final raw = Map<String, dynamic>.from(_fullProduct())
         ..remove('condition');
       expect(mapProduct(raw).conditionLabel, isNull);
+    });
+
+    test(
+      'top-level conditionLabel (localized) is preferred over condition object',
+      () {
+        final raw = Map<String, dynamic>.from(_fullProduct())
+          ..['conditionLabel'] = 'Muy bueno';
+        // 'condition' object {'label': 'Very Good'} is still present but the
+        // localized top-level field wins.
+        expect(mapProduct(raw).conditionLabel, 'Muy bueno');
+      },
+    );
+
+    test('falls back to raw condition slug when conditionLabel is absent', () {
+      final raw = Map<String, dynamic>.from(_fullProduct())
+        ..['condition'] = 'veryGood';
+      expect(mapProduct(raw).conditionLabel, 'veryGood');
+    });
+  });
+
+  group('mapProduct — size resolution', () {
+    test('falls back to raw size token when sizeLabel is absent', () {
+      expect(mapProduct(_fullProduct()).size, '42');
+    });
+
+    test('prefers localized sizeLabel over the raw size token', () {
+      final raw = Map<String, dynamic>.from(_fullProduct())
+        ..['size'] = 'years_3_4'
+        ..['sizeLabel'] = '3-4 years';
+      expect(mapProduct(raw).size, '3-4 years');
+    });
+
+    test('empty string when both sizeLabel and size are absent', () {
+      final raw = Map<String, dynamic>.from(_fullProduct())..remove('size');
+      expect(mapProduct(raw).size, isEmpty);
     });
   });
 

@@ -1,8 +1,9 @@
 import 'dart:async';
 
+import 'package:flutter/widgets.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
-import 'package:klozy/src/core/prefs/prefs.dart';
+import 'package:klozy/src/core/l10n/app_language.dart';
 import 'package:klozy/src/di/injection.dart';
 
 /// Google web/server OAuth client (client_type 3 from google-services.json) —
@@ -13,7 +14,11 @@ const String _googleServerClientId =
 Future<void> initialize() async {
   await GoogleSignIn.instance.initialize(serverClientId: _googleServerClientId);
   await configureDependencies();
-  // Seed the API language header from the user's stored locale (falls back
-  // to 'en') so a returning user's first request is already localized.
-  Intl.defaultLocale = locator<Prefs>().getLocale();
+  // Seed the API language header from the device language (there is no
+  // in-app language picker — the UI language is purely device-driven) so the
+  // very first request, before AppConfigChangeNotifier is built, is already
+  // localized.
+  Intl.defaultLocale = resolveSupportedLocaleCode(
+    WidgetsBinding.instance.platformDispatcher.locale.languageCode,
+  );
 }
