@@ -17,13 +17,30 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 /// Both layers read from the shared tuned disk cache ([AppImageCacheManager]);
 /// the foreground shows an animated shimmer while loading and the blurred
 /// backdrop is decoded tiny (the blur hides the low resolution) so it is cheap.
-class ProductCarouselImageWidget extends StatelessWidget {
+///
+/// The page is kept alive ([AutomaticKeepAliveClientMixin]) so that once a photo
+/// has been shown, swiping away and back does NOT rebuild it: without this,
+/// [PageView] disposes off-screen pages and the returning page would restart
+/// [CachedNetworkImage]'s load state, flashing the shimmer again even on a warm
+/// disk cache. Keeping the state makes back-swipes instant, like a real carousel.
+class ProductCarouselImageWidget extends StatefulWidget {
   final String imageUrl;
 
   const ProductCarouselImageWidget({super.key, required this.imageUrl});
 
   @override
+  State<ProductCarouselImageWidget> createState() =>
+      _ProductCarouselImageWidgetState();
+}
+
+class _ProductCarouselImageWidgetState extends State<ProductCarouselImageWidget>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     final double screenWidth = MediaQuery.sizeOf(context).width;
     return Stack(
       fit: StackFit.expand,
@@ -35,7 +52,7 @@ class ProductCarouselImageWidget extends StatelessWidget {
         ImageFiltered(
           imageFilter: ui.ImageFilter.blur(sigmaX: 28, sigmaY: 28),
           child: CachedNetworkImage(
-            imageUrl: imageUrl,
+            imageUrl: widget.imageUrl,
             cacheManager: AppImageCacheManager.instance,
             fit: BoxFit.cover,
             memCacheWidth: 64,
@@ -50,7 +67,7 @@ class ProductCarouselImageWidget extends StatelessWidget {
         const ColoredBox(color: DSColor.photoBackdropScrim),
         // The product itself, shown in full over the backdrop.
         DSNetworkImage(
-          imageUrl: imageUrl,
+          imageUrl: widget.imageUrl,
           fit: BoxFit.contain,
           borderRadius: DSBorderRadius.none,
           cacheWidth: screenWidth,
