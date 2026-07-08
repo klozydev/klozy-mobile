@@ -2,6 +2,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -34,7 +35,7 @@ class DSProductCard extends StatefulWidget {
   final int likes;
   final String? badge;
   final bool isLiked;
-  final ImageProvider? image;
+  final String? imageUrl;
   final VoidCallback? onTap;
   final ValueChanged<bool>? onLikeChanged;
 
@@ -46,7 +47,7 @@ class DSProductCard extends StatefulWidget {
     this.likes = 0,
     this.badge,
     this.isLiked = false,
-    this.image,
+    this.imageUrl,
     this.onTap,
     this.onLikeChanged,
   });
@@ -105,10 +106,12 @@ class _DSProductCardState extends State<DSProductCard> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  if (widget.image != null)
-                    Image(image: widget.image!, fit: BoxFit.cover)
-                  else
-                    const ColoredBox(color: DSColor.lowBlack),
+                  DSNetworkImage(
+                    imageUrl: widget.imageUrl,
+                    fit: BoxFit.cover,
+                    borderRadius: DSBorderRadius.none,
+                    fallback: const ColoredBox(color: DSColor.lowBlack),
+                  ),
                   if (widget.badge != null)
                     Positioned(
                       top: DSSpacing.xxs,

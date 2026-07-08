@@ -16,6 +16,11 @@ abstract final class DSColor {
   static const Color danger = Color(0xFFEB5353);
   static const Color destructive = Color(0xFFDB3D2E);
 
+  // MARK: Scrims
+  /// Dim laid over a blurred photo backdrop so the in-full (contained) product
+  /// stays the focal point on the full-bleed product carousel.
+  static const Color photoBackdropScrim = Color(0x4D000000); // 30%
+
   // MARK: Avatar
   static const Color avatarGradientStart = Color(0xFF4A90E2);
   static const Color avatarGradientEnd = Color(0xFF2C5AA0);

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/domain/me/entity/me_profile.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel_comment.dart';
@@ -158,9 +159,25 @@ void main() {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMe);
 
       await tester.pumpWidget(_wrap(const ReelCommentsSheet(reelId: 'r1')));
-      await tester.pumpAndSettle();
+      // A real avatar URL means the DSNetworkImage shimmer placeholder
+      // animates indefinitely, so pumpAndSettle never settles. Bounded
+      // pumps let both futures (comments + me) resolve and rebuild.
+      await tester.pump();
+      await tester.pump();
 
       expect(find.text('My comment'), findsOneWidget);
+
+      final Finder avatarFinder = find.byType(DSNetworkImage);
+      expect(avatarFinder, findsOneWidget);
+      expect(
+        tester.widget<DSNetworkImage>(avatarFinder).imageUrl,
+        _kMyComment.authorAvatar,
+      );
+
+      // Unmount and flush so the still-animating shimmer leaves no pending
+      // timer at teardown.
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 2));
     });
   });
 
@@ -191,9 +208,17 @@ void main() {
       when(() => mockMe.getMe()).thenAnswer((_) async => _kMe);
 
       await tester.pumpWidget(_wrap(const ReelCommentsSheet(reelId: 'r1')));
-      await tester.pumpAndSettle();
+      // _kMyComment carries a real avatar URL, whose DSNetworkImage shimmer
+      // placeholder animates indefinitely, so pumpAndSettle never settles.
+      await tester.pump();
+      await tester.pump();
 
       expect(find.byIcon(Icons.delete_outline_rounded), findsOneWidget);
+
+      // Unmount and flush so the still-animating shimmer leaves no pending
+      // timer at teardown.
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 2));
     });
 
     testWidgets('hides delete icon when user is not owner and not author', (

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/core/util/relative_time_formatter.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -34,14 +35,15 @@ class OrderListCardWidget extends StatelessWidget {
         ),
         child: Row(
           children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(DSBorderRadius.light),
-              child: SizedBox(
+            DSNetworkImage(
+              imageUrl: order.coverImage,
+              width: 60,
+              height: 60,
+              borderRadius: DSBorderRadius.light,
+              fallback: const SizedBox(
                 width: 60,
                 height: 60,
-                child: order.coverImage == null
-                    ? const ColoredBox(color: DSColor.lowBlack)
-                    : Image.network(order.coverImage!, fit: BoxFit.cover),
+                child: ColoredBox(color: DSColor.lowBlack),
               ),
             ),
             const SizedBox(width: 12),

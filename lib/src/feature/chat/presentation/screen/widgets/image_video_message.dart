@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/feature/chat/domain/entity/chat_message.dart';
@@ -82,11 +84,12 @@ class ImageVideoMessage extends StatelessWidget {
 
     if (message.kind == ChatMessageKind.image) {
       if (url != null) {
-        return Image.network(
-          url,
+        return DSNetworkImage(
+          imageUrl: url,
           width: 208,
           fit: BoxFit.cover,
-          errorBuilder: (_, _, _) => _imagePlaceholder(),
+          borderRadius: DSBorderRadius.none,
+          fallback: _imagePlaceholder(),
         );
       }
       if (localPath != null) {
@@ -120,10 +123,13 @@ class ImageVideoMessage extends StatelessWidget {
         fit: StackFit.expand,
         children: <Widget>[
           if (thumbnailUrl != null)
-            Image.network(
-              thumbnailUrl,
+            DSNetworkImage(
+              imageUrl: thumbnailUrl,
+              width: 208,
+              height: 150,
               fit: BoxFit.cover,
-              errorBuilder: (_, _, _) => _videoBackground(),
+              borderRadius: DSBorderRadius.none,
+              fallback: _videoBackground(),
             )
           else
             _videoBackground(),

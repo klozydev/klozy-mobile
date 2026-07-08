@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel.dart';
 import 'package:klozy/src/feature/reels/domain/entity/reel_author.dart';
 import 'package:klozy/src/feature/reels/presentation/playback/reel_playback_coordinator.dart';
@@ -779,13 +781,19 @@ void main() {
       );
       await tester.pump();
 
-      // The author avatar/name is inside a CircleAvatar. Find the
-      // GestureDetector that is an ancestor of the CircleAvatar.
-      final Finder circleAvatarFinder = find.byType(CircleAvatar);
-      expect(circleAvatarFinder, findsOneWidget);
+      // The author avatar/name is inside a circular DSNetworkImage (the
+      // reel also renders a rounded DSNetworkImage for the poster, so
+      // disambiguate by shape). Find the GestureDetector that is an
+      // ancestor of the avatar DSNetworkImage.
+      final Finder avatarFinder = find.byWidgetPredicate(
+        (Widget widget) =>
+            widget is DSNetworkImage &&
+            widget.shape == DSNetworkImageShape.circle,
+      );
+      expect(avatarFinder, findsOneWidget);
 
       final Finder authorGestureFinder = find.ancestor(
-        of: circleAvatarFinder,
+        of: avatarFinder,
         matching: find.byType(GestureDetector),
       );
 

@@ -1,5 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -77,32 +78,31 @@ class _AvatarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (avatarUrl != null) {
-      return CircleAvatar(
-        radius: 44,
-        backgroundColor: DSColor.lowBlack,
-        backgroundImage: CachedNetworkImageProvider(avatarUrl!),
-      );
-    }
     final String initial = name.isEmpty
         ? '?'
         : name.characters.first.toUpperCase();
-    return Container(
+    return DSNetworkImage(
+      imageUrl: avatarUrl,
       width: 88,
       height: 88,
-      decoration: BoxDecoration(
-        color: DSColor.card,
-        shape: BoxShape.circle,
-        border: Border.all(color: DSColor.onSurface10, width: 1),
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        initial,
-        style: const TextStyle(
-          fontFamily: dsFontFamily,
-          fontSize: 30,
-          fontWeight: DSFontWeight.bold,
-          color: DSColor.onSurface45,
+      shape: DSNetworkImageShape.circle,
+      fallback: Container(
+        width: 88,
+        height: 88,
+        decoration: BoxDecoration(
+          color: DSColor.card,
+          shape: BoxShape.circle,
+          border: Border.all(color: DSColor.onSurface10, width: 1),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          initial,
+          style: const TextStyle(
+            fontFamily: dsFontFamily,
+            fontSize: 30,
+            fontWeight: DSFontWeight.bold,
+            color: DSColor.onSurface45,
+          ),
         ),
       ),
     );

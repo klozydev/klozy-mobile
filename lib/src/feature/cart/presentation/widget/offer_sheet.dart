@@ -1,8 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -61,15 +62,16 @@ class _OfferSheetState extends State<OfferSheet> {
           padding: const EdgeInsets.only(bottom: 12),
           child: Row(
             children: <Widget>[
-              CircleAvatar(
-                radius: 17,
-                backgroundColor: DSColor.lowBlack,
-                backgroundImage: widget.sellerAvatar == null
-                    ? null
-                    : NetworkImage(widget.sellerAvatar!),
-                child: widget.sellerAvatar == null
-                    ? const Icon(Icons.person, size: 17, color: Colors.white)
-                    : null,
+              DSNetworkImage(
+                imageUrl: widget.sellerAvatar,
+                width: 34,
+                height: 34,
+                shape: DSNetworkImageShape.circle,
+                fallback: const CircleAvatar(
+                  radius: 17,
+                  backgroundColor: DSColor.lowBlack,
+                  child: Icon(Icons.person, size: 17, color: Colors.white),
+                ),
               ),
               const SizedBox(width: 10),
               Expanded(
@@ -142,18 +144,12 @@ class _OfferSheetState extends State<OfferSheet> {
             padding: const EdgeInsets.only(bottom: 6),
             child: Row(
               children: <Widget>[
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: SizedBox(
-                    width: 32,
-                    height: 32,
-                    child: item.image == null
-                        ? const ColoredBox(color: DSColor.lowBlack)
-                        : CachedNetworkImage(
-                            imageUrl: item.image!,
-                            fit: BoxFit.cover,
-                          ),
-                  ),
+                DSNetworkImage(
+                  imageUrl: item.image,
+                  width: 32,
+                  height: 32,
+                  borderRadius: DSBorderRadius.light,
+                  fallback: const ColoredBox(color: DSColor.lowBlack),
                 ),
                 const SizedBox(width: 10),
                 Expanded(

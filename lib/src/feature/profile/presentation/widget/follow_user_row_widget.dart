@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -26,15 +28,18 @@ class FollowUserRowWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: Row(
           children: <Widget>[
-            CircleAvatar(
-              radius: 23,
-              backgroundColor: DSColor.lowBlack,
-              backgroundImage: user.avatarUrl == null
-                  ? null
-                  : NetworkImage(user.avatarUrl!),
-              child: user.avatarUrl == null
-                  ? const Icon(Icons.person, size: 22, color: Colors.white)
-                  : null,
+            DSNetworkImage(
+              imageUrl: user.avatarUrl,
+              width: 46,
+              height: 46,
+              shape: DSNetworkImageShape.circle,
+              fallback: Container(
+                width: 46,
+                height: 46,
+                color: DSColor.lowBlack,
+                alignment: Alignment.center,
+                child: const Icon(Icons.person, size: 22, color: Colors.white),
+              ),
             ),
             const SizedBox(width: 12),
             Expanded(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -27,15 +29,21 @@ class OrderCounterpartCardWidget extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          CircleAvatar(
-            radius: 20,
-            backgroundColor: DSColor.lowBlack,
-            backgroundImage: party.avatarUrl == null
-                ? null
-                : NetworkImage(party.avatarUrl!),
-            child: party.avatarUrl == null
-                ? const Icon(Icons.person, size: 20, color: Colors.white)
-                : null,
+          DSNetworkImage(
+            imageUrl: party.avatarUrl,
+            width: 40,
+            height: 40,
+            shape: DSNetworkImageShape.circle,
+            fallback: const SizedBox(
+              width: 40,
+              height: 40,
+              child: ColoredBox(
+                color: DSColor.lowBlack,
+                child: Center(
+                  child: Icon(Icons.person, size: 20, color: Colors.white),
+                ),
+              ),
+            ),
           ),
           const SizedBox(width: 12),
           Expanded(

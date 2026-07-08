@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:video_player/video_player.dart';
 
@@ -100,7 +102,11 @@ class _MediaLightboxState extends State<MediaLightbox> {
     return InteractiveViewer(
       minScale: 1,
       maxScale: 4,
-      child: Image.network(widget.url, fit: BoxFit.contain),
+      child: DSNetworkImage(
+        imageUrl: widget.url,
+        fit: BoxFit.contain,
+        borderRadius: DSBorderRadius.none,
+      ),
     );
   }
 }

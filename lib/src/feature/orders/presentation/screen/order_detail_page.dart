@@ -5,6 +5,7 @@ import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -317,14 +318,15 @@ class _OrderBody extends StatelessWidget {
       ),
       child: Row(
         children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(DSBorderRadius.light),
-            child: SizedBox(
+          DSNetworkImage(
+            imageUrl: item.image,
+            width: 60,
+            height: 60,
+            borderRadius: DSBorderRadius.light,
+            fallback: const SizedBox(
               width: 60,
               height: 60,
-              child: item.image == null
-                  ? const ColoredBox(color: DSColor.lowBlack)
-                  : Image.network(item.image!, fit: BoxFit.cover),
+              child: ColoredBox(color: DSColor.lowBlack),
             ),
           ),
           const SizedBox(width: 12),

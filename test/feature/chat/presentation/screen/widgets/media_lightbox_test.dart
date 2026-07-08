@@ -101,8 +101,15 @@ void main() {
         ),
       );
 
+      // Note: pumpAndSettle can't be used here — the pushed MediaLightbox's
+      // DSNetworkImage shows a ShimmerBoxWidget placeholder with a
+      // perpetually-repeating AnimationController while the (unmockable,
+      // always-failing in tests) network image resolves, so frames never
+      // stop being scheduled. Bounded pumps that outlast the route
+      // transition (300ms) are used instead.
       await tester.tap(find.text('Open'));
-      await tester.pumpAndSettle();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
 
       expect(find.byType(MediaLightbox), findsOneWidget);
 
@@ -117,7 +124,10 @@ void main() {
             .first,
       );
       closeGesture.onTap?.call();
-      await tester.pumpAndSettle();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.pump();
 
       expect(find.byType(MediaLightbox), findsNothing);
     });

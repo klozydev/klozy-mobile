@@ -15,6 +15,7 @@ import 'package:event_bus/event_bus.dart' as _i1017;
 import 'package:firebase_auth/firebase_auth.dart' as _i59;
 import 'package:firebase_messaging/firebase_messaging.dart' as _i892;
 import 'package:firebase_storage/firebase_storage.dart' as _i457;
+import 'package:flutter_cache_manager/flutter_cache_manager.dart' as _i447;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:google_sign_in/google_sign_in.dart' as _i116;
@@ -199,6 +200,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => firebaseModule.firebaseStorage,
     );
     gh.lazySingleton<_i1017.EventBus>(() => appModule.getEventBus());
+    gh.lazySingleton<_i447.CacheManager>(
+      () => appModule.getImageCacheManager(),
+    );
     gh.lazySingleton<_i558.FlutterSecureStorage>(
       () => appModule.getFlutterSecureStorage(),
     );

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -68,20 +69,12 @@ class _ReelShopSheetState extends State<ReelShopSheet> {
         ),
         child: Row(
           children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(DSBorderRadius.light),
-              child: SizedBox(
-                width: 56,
-                height: 56,
-                child: product.coverImageUrl == null
-                    ? const ColoredBox(color: DSColor.lowBlack)
-                    : Image.network(
-                        product.coverImageUrl!,
-                        fit: BoxFit.cover,
-                        errorBuilder: (_, _, _) =>
-                            const ColoredBox(color: DSColor.lowBlack),
-                      ),
-              ),
+            DSNetworkImage(
+              imageUrl: product.coverImageUrl,
+              width: 56,
+              height: 56,
+              borderRadius: DSBorderRadius.light,
+              fallback: const ColoredBox(color: DSColor.lowBlack),
             ),
             const SizedBox(width: 12),
             Expanded(

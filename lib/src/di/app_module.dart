@@ -1,13 +1,19 @@
 import 'package:event_bus/event_bus.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart'
     as flutter_secure_storage;
 import 'package:injectable/injectable.dart';
+import 'package:klozy/src/core/image/app_image_cache_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @module
 abstract class AppModule {
   @lazySingleton
   EventBus getEventBus() => EventBus();
+
+  /// Tuned disk cache shared by every remote image (see [AppImageCacheManager]).
+  @lazySingleton
+  CacheManager getImageCacheManager() => AppImageCacheManager.instance;
 
   @lazySingleton
   flutter_secure_storage.FlutterSecureStorage getFlutterSecureStorage() {

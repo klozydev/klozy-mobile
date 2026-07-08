@@ -117,7 +117,12 @@ void main() {
       ).thenAnswer((_) async => [_kUserA, _kUserB]);
 
       await tester.pumpWidget(pump());
-      await tester.pumpAndSettle();
+      // DSNetworkImage shows a shimmer placeholder for Bob's avatar with an
+      // infinitely-repeating AnimationController, so pumpAndSettle would
+      // never converge. Pump two bounded frames instead: one to flush the
+      // async getBlocked() future, one to rebuild with the loaded list.
+      await tester.pump();
+      await tester.pump();
 
       expect(find.text('Alice'), findsOneWidget);
       expect(find.text('Bob'), findsOneWidget);
@@ -138,7 +143,10 @@ void main() {
       when(() => mockMe.getBlocked()).thenAnswer((_) async => [_kUserB]);
 
       await tester.pumpWidget(pump());
-      await tester.pumpAndSettle();
+      // Same bounded-pump rationale as above: avoid pumpAndSettle hanging on
+      // the shimmer's infinitely-repeating animation while Bob's avatar loads.
+      await tester.pump();
+      await tester.pump();
 
       // User B has avatar — no fallback person icon
       expect(find.byIcon(Icons.person), findsNothing);
@@ -155,7 +163,10 @@ void main() {
       when(() => mockMe.unblock(any())).thenAnswer((_) async {});
 
       await tester.pumpWidget(pump());
-      await tester.pumpAndSettle();
+      // Bob's avatar shimmer animates indefinitely while loading, so
+      // pumpAndSettle would never converge. Bounded pumps instead.
+      await tester.pump();
+      await tester.pump();
 
       // Find unblock button for Alice (first GestureDetector)
       final unblockButtons = find.byType(GestureDetector);

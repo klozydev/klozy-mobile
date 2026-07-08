@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -40,16 +41,12 @@ class ProfileReelsGrid extends StatelessWidget {
             child: Stack(
               fit: StackFit.expand,
               children: <Widget>[
-                if (reel.thumbnailUrl == null)
-                  const ColoredBox(color: DSColor.lowBlack)
-                else
-                  Image.network(
-                    reel.thumbnailUrl!,
-                    fit: BoxFit.cover,
-                    // Broken/expired Mux thumbnail (404) → neutral tile.
-                    errorBuilder: (_, _, _) =>
-                        const ColoredBox(color: DSColor.lowBlack),
-                  ),
+                DSNetworkImage(
+                  imageUrl: reel.thumbnailUrl,
+                  borderRadius: DSBorderRadius.cardSmall,
+                  // Missing or broken/expired Mux thumbnail (404) → neutral tile.
+                  fallback: const ColoredBox(color: DSColor.lowBlack),
+                ),
                 // Bottom gradient scrim.
                 const DecoratedBox(
                   decoration: BoxDecoration(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -39,15 +41,21 @@ class OfferRowWidget extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              CircleAvatar(
-                radius: 18,
-                backgroundColor: DSColor.lowBlack,
-                backgroundImage: offer.counterpartAvatar == null
-                    ? null
-                    : NetworkImage(offer.counterpartAvatar!),
-                child: offer.counterpartAvatar == null
-                    ? const Icon(Icons.person, size: 18, color: Colors.white)
-                    : null,
+              DSNetworkImage(
+                imageUrl: offer.counterpartAvatar,
+                width: 36,
+                height: 36,
+                shape: DSNetworkImageShape.circle,
+                fallback: const SizedBox(
+                  width: 36,
+                  height: 36,
+                  child: ColoredBox(
+                    color: DSColor.lowBlack,
+                    child: Center(
+                      child: Icon(Icons.person, size: 18, color: Colors.white),
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(width: 10),
               Expanded(

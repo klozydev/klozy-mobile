@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 
@@ -36,18 +38,13 @@ class ChatAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color tint = _tint;
-    if (avatarUrl != null && avatarUrl!.isNotEmpty) {
-      return ClipOval(
-        child: Image.network(
-          avatarUrl!,
-          width: size,
-          height: size,
-          fit: BoxFit.cover,
-          errorBuilder: (_, _, _) => _monogram(tint),
-        ),
-      );
-    }
-    return _monogram(tint);
+    return DSNetworkImage(
+      imageUrl: avatarUrl,
+      width: size,
+      height: size,
+      shape: DSNetworkImageShape.circle,
+      fallback: _monogram(tint),
+    );
   }
 
   Widget _monogram(Color tint) {

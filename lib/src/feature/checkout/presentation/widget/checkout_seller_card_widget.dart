@@ -1,6 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -42,19 +43,20 @@ class CheckoutSellerCardWidget extends StatelessWidget {
                   behavior: HitTestBehavior.opaque,
                   child: Row(
                     children: <Widget>[
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundColor: DSColor.lowBlack,
-                        backgroundImage: bucket.sellerAvatar == null
-                            ? null
-                            : NetworkImage(bucket.sellerAvatar!),
-                        child: bucket.sellerAvatar == null
-                            ? const Icon(
-                                Icons.person,
-                                size: 20,
-                                color: Colors.white,
-                              )
-                            : null,
+                      DSNetworkImage(
+                        imageUrl: bucket.sellerAvatar,
+                        width: 40,
+                        height: 40,
+                        shape: DSNetworkImageShape.circle,
+                        fallback: const CircleAvatar(
+                          radius: 20,
+                          backgroundColor: DSColor.lowBlack,
+                          child: Icon(
+                            Icons.person,
+                            size: 20,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
@@ -146,18 +148,12 @@ class CheckoutSellerCardWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 6),
               child: Row(
                 children: <Widget>[
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(DSBorderRadius.image),
-                    child: SizedBox(
-                      width: 48,
-                      height: 48,
-                      child: item.image == null
-                          ? const ColoredBox(color: DSColor.lowBlack)
-                          : CachedNetworkImage(
-                              imageUrl: item.image!,
-                              fit: BoxFit.cover,
-                            ),
-                    ),
+                  DSNetworkImage(
+                    imageUrl: item.image,
+                    width: 48,
+                    height: 48,
+                    borderRadius: DSBorderRadius.image,
+                    fallback: const ColoredBox(color: DSColor.lowBlack),
                   ),
                   const SizedBox(width: 12),
                   Expanded(

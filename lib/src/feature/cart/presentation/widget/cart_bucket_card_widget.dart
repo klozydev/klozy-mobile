@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -91,15 +93,16 @@ class CartBucketCardWidget extends StatelessWidget {
   Widget _sellerHead(BuildContext context) {
     return Row(
       children: <Widget>[
-        CircleAvatar(
-          radius: 16,
-          backgroundColor: DSColor.lowBlack,
-          backgroundImage: bucket.sellerAvatar == null
-              ? null
-              : NetworkImage(bucket.sellerAvatar!),
-          child: bucket.sellerAvatar == null
-              ? const Icon(Icons.person, size: 16, color: Colors.white)
-              : null,
+        DSNetworkImage(
+          imageUrl: bucket.sellerAvatar,
+          width: 32,
+          height: 32,
+          shape: DSNetworkImageShape.circle,
+          fallback: const CircleAvatar(
+            radius: 16,
+            backgroundColor: DSColor.lowBlack,
+            child: Icon(Icons.person, size: 16, color: Colors.white),
+          ),
         ),
         const SizedBox(width: 10),
         Flexible(
@@ -170,15 +173,12 @@ class CartBucketCardWidget extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.circular(DSBorderRadius.light),
-                child: SizedBox(
-                  width: 56,
-                  height: 56,
-                  child: item.image == null
-                      ? const ColoredBox(color: DSColor.lowBlack)
-                      : Image.network(item.image!, fit: BoxFit.cover),
-                ),
+              DSNetworkImage(
+                imageUrl: item.image,
+                width: 56,
+                height: 56,
+                borderRadius: DSBorderRadius.light,
+                fallback: const ColoredBox(color: DSColor.lowBlack),
               ),
               const SizedBox(width: 12),
               Expanded(

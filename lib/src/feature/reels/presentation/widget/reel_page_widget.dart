@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -195,16 +197,13 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
         ),
       );
     }
-    final poster = widget.reel.posterUrl;
-    if (poster != null) {
-      return Image.network(
-        poster,
-        fit: BoxFit.cover,
-        // Broken thumbnail (404) → neutral surface, never an error glyph.
-        errorBuilder: (_, _, _) => const SizedBox.shrink(),
-      );
-    }
-    return const SizedBox.shrink();
+    // Broken/missing thumbnail → neutral surface, never an error glyph.
+    return DSNetworkImage(
+      imageUrl: widget.reel.posterUrl,
+      fit: BoxFit.cover,
+      borderRadius: DSBorderRadius.none,
+      fallback: const SizedBox.shrink(),
+    );
   }
 
   Widget _rail(BuildContext context, Reel reel) {
@@ -264,19 +263,22 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    CircleAvatar(
-                      radius: 19,
-                      backgroundColor: DSColor.lowBlack,
-                      backgroundImage: reel.author.avatarUrl == null
-                          ? null
-                          : NetworkImage(reel.author.avatarUrl!),
-                      child: reel.author.avatarUrl == null
-                          ? const Icon(
-                              Icons.person,
-                              size: 20,
-                              color: Colors.white,
-                            )
-                          : null,
+                    DSNetworkImage(
+                      imageUrl: reel.author.avatarUrl,
+                      width: 38,
+                      height: 38,
+                      shape: DSNetworkImageShape.circle,
+                      fallback: Container(
+                        width: 38,
+                        height: 38,
+                        color: DSColor.lowBlack,
+                        alignment: Alignment.center,
+                        child: const Icon(
+                          Icons.person,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 10),
                     ConstrainedBox(

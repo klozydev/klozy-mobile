@@ -29,9 +29,7 @@ class ProductCardWidget extends StatelessWidget {
       likes: product.likes,
       badge: product.isNewWithTags ? context.l10N.home_product_badge_new : null,
       isLiked: liked,
-      image: product.coverImageUrl == null
-          ? null
-          : NetworkImage(product.coverImageUrl!),
+      imageUrl: product.coverImageUrl,
       onTap: onTap ?? () => context.router.push(ProductRoute(id: product.id)),
       onLikeChanged: (_) => locator<AccountGate>().guard(
         context,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -182,15 +184,18 @@ class _CommentRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          CircleAvatar(
-            radius: 15,
-            backgroundColor: DSColor.lowBlack,
-            backgroundImage: comment.authorAvatar == null
-                ? null
-                : NetworkImage(comment.authorAvatar!),
-            child: comment.authorAvatar == null
-                ? const Icon(Icons.person, size: 14, color: Colors.white)
-                : null,
+          DSNetworkImage(
+            imageUrl: comment.authorAvatar,
+            width: 30,
+            height: 30,
+            shape: DSNetworkImageShape.circle,
+            fallback: Container(
+              width: 30,
+              height: 30,
+              color: DSColor.lowBlack,
+              alignment: Alignment.center,
+              child: const Icon(Icons.person, size: 14, color: Colors.white),
+            ),
           ),
           const SizedBox(width: 10),
           Expanded(

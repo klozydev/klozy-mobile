@@ -33,11 +33,19 @@ class _ShimmerBoxWidgetState extends State<ShimmerBoxWidget>
       vsync: this,
       duration: const Duration(milliseconds: 1400),
     );
-    Future<void>.delayed(widget.animationDelay, () {
-      if (mounted) {
-        _controller.repeat();
-      }
-    });
+    // Start immediately when there is no stagger delay. Routing the zero case
+    // through Future.delayed would schedule a redundant timer, which leaks as a
+    // pending-timer failure when this shimmer is used as a lazily-built image
+    // placeholder in widget tests.
+    if (widget.animationDelay == Duration.zero) {
+      _controller.repeat();
+    } else {
+      Future<void>.delayed(widget.animationDelay, () {
+        if (mounted) {
+          _controller.repeat();
+        }
+      });
+    }
   }
 
   @override

@@ -7,6 +7,38 @@
 // ignore_for_file: type=lint
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
+class $AssetsSvgGen {
+  const $AssetsSvgGen();
+
+  /// File path: assets/svg/ic_add.svg
+  String get icAdd => 'assets/svg/ic_add.svg';
+
+  /// File path: assets/svg/ic_home.svg
+  String get icHome => 'assets/svg/ic_home.svg';
+
+  /// File path: assets/svg/ic_profile.svg
+  String get icProfile => 'assets/svg/ic_profile.svg';
+
+  /// File path: assets/svg/ic_search.svg
+  String get icSearch => 'assets/svg/ic_search.svg';
+
+  /// File path: assets/svg/ic_tchat.svg
+  String get icTchat => 'assets/svg/ic_tchat.svg';
+
+  /// File path: assets/svg/logo_klozy.svg
+  String get logoKlozy => 'assets/svg/logo_klozy.svg';
+
+  /// List of all assets
+  List<String> get values => [
+    icAdd,
+    icHome,
+    icProfile,
+    icSearch,
+    icTchat,
+    logoKlozy,
+  ];
+}
+
 class $AssetsTranslationsGen {
   const $AssetsTranslationsGen();
 
@@ -53,5 +85,6 @@ class $AssetsTranslationsGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsSvgGen svg = $AssetsSvgGen();
   static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }

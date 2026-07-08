@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/feature/reels/domain/reels_repository.dart';
 import 'package:klozy/src/feature/reels/presentation/widget/reel_shop_sheet.dart';
@@ -120,10 +121,19 @@ void main() {
       ).thenAnswer((_) async => const <Product>[_kProduct, _kProductWithImage]);
 
       await tester.pumpWidget(wrap(const ReelShopSheet(reelId: 'r1')));
-      await tester.pumpAndSettle();
+      // _kProductWithImage has a coverImageUrl → its DSNetworkImage shimmer
+      // placeholder animates indefinitely, so pumpAndSettle never settles.
+      // Bounded pumps let the repo Future resolve and the list rebuild.
+      await tester.pump();
+      await tester.pump();
 
       expect(find.text('Cool Shirt'), findsOneWidget);
       expect(find.text('Nice Dress'), findsOneWidget);
+
+      // Unmount and flush so the still-animating shimmer leaves no pending
+      // timer at teardown.
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 2));
     });
 
     testWidgets('shows product price', (WidgetTester tester) async {
@@ -152,7 +162,7 @@ void main() {
       expect(find.byType(ColoredBox), findsAtLeastNWidgets(1));
     });
 
-    testWidgets('shows Image.network when coverImageUrl is present', (
+    testWidgets('shows DSNetworkImage when coverImageUrl is present', (
       WidgetTester tester,
     ) async {
       when(
@@ -160,9 +170,22 @@ void main() {
       ).thenAnswer((_) async => const <Product>[_kProductWithImage]);
 
       await tester.pumpWidget(wrap(const ReelShopSheet(reelId: 'r1')));
-      await tester.pumpAndSettle();
+      // Real network fetches never resolve in tests and the shimmer
+      // placeholder animates indefinitely, so pumpAndSettle never settles.
+      await tester.pump();
+      await tester.pump();
 
-      expect(find.byType(Image), findsOneWidget);
+      final Finder imageFinder = find.byType(DSNetworkImage);
+      expect(imageFinder, findsOneWidget);
+      expect(
+        tester.widget<DSNetworkImage>(imageFinder).imageUrl,
+        _kProductWithImage.coverImageUrl,
+      );
+
+      // Unmount and flush so the still-animating shimmer leaves no pending
+      // timer at teardown.
+      await tester.pumpWidget(const SizedBox());
+      await tester.pump(const Duration(seconds: 2));
     });
 
     testWidgets('tapping a product row navigates to ProductRoute', (

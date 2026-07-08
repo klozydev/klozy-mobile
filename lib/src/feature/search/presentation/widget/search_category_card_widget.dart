@@ -1,5 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/domain/catalog/entity/catalog_category.dart';
@@ -43,15 +43,12 @@ class SearchCategoryCardWidget extends StatelessWidget {
                 ),
               ),
               if (hasImage)
-                CachedNetworkImage(
+                DSNetworkImage(
                   imageUrl: imageUrl,
                   fit: BoxFit.cover,
-                  // Keep the gradient visible while loading / on failure.
-                  placeholder: (BuildContext context, String url) =>
-                      const SizedBox.shrink(),
-                  errorWidget:
-                      (BuildContext context, String url, Object error) =>
-                          const SizedBox.shrink(),
+                  borderRadius: DSBorderRadius.image,
+                  // Keep the gradient visible if the image fails to load.
+                  fallback: const SizedBox.shrink(),
                 ),
               if (hasImage)
                 const DecoratedBox(

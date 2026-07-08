@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
+import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/components/ds_star_rating.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -20,15 +22,18 @@ class ReviewCardWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          CircleAvatar(
-            radius: 19,
-            backgroundColor: DSColor.lowBlack,
-            backgroundImage: review.authorAvatar == null
-                ? null
-                : NetworkImage(review.authorAvatar!),
-            child: review.authorAvatar == null
-                ? const Icon(Icons.person, size: 19, color: Colors.white)
-                : null,
+          DSNetworkImage(
+            imageUrl: review.authorAvatar,
+            width: 38,
+            height: 38,
+            shape: DSNetworkImageShape.circle,
+            fallback: Container(
+              width: 38,
+              height: 38,
+              color: DSColor.lowBlack,
+              alignment: Alignment.center,
+              child: const Icon(Icons.person, size: 19, color: Colors.white),
+            ),
           ),
           const SizedBox(width: 12),
           Expanded(
