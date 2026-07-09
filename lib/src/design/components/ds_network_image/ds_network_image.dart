@@ -12,8 +12,9 @@ import 'package:klozy/src/design/tokens/ds_color.dart';
 /// - persists to the shared tuned disk cache ([AppImageCacheManager]) — no
 ///   re-download when the user returns to a list or reopens a product;
 /// - shows an animated [ShimmerBoxWidget] while loading instead of a bare box;
-/// - is decoded downsampled to its layout width ([cacheWidth]) so large source
-///   photos render fast and cheaply;
+/// - is decoded downsampled to the width it is painted at (explicit [cacheWidth]/
+///   [width], else the laid-out width) so large source photos render fast and
+///   cheaply and never exhaust the image cache;
 /// - fades in only briefly, so a cache hit feels instant.
 ///
 /// Use it in place of `Image.network` / `NetworkImage` everywhere. Pass
@@ -65,30 +66,47 @@ class DSNetworkImage extends StatelessWidget {
       return _clip(resolvedFallback);
     }
 
-    final double? decodeWidth = cacheWidth ?? width;
     final double dpr = MediaQuery.devicePixelRatioOf(context);
-    final int? memCacheWidth =
-        (decodeWidth != null && decodeWidth.isFinite && decodeWidth > 0)
-        ? (decodeWidth * dpr).round()
-        : null;
+    final double? explicitWidth = cacheWidth ?? width;
 
+    // Downsample to the width the bitmap is actually painted at. A [LayoutBuilder]
+    // supplies the laid-out width so callers that size the image through their
+    // constraints (e.g. a grid cell) still get a small decode instead of the
+    // full-resolution source. Without this, a 2-column card would decode a
+    // multi-megapixel photo, exhausting Flutter's image cache and evicting other
+    // thumbnails — which then flash their shimmer again when re-decoded.
     return _clip(
-      CachedNetworkImage(
-        imageUrl: imageUrl!,
-        cacheManager: AppImageCacheManager.instance,
-        width: width,
-        height: height,
-        fit: fit,
-        memCacheWidth: memCacheWidth,
-        fadeInDuration: const Duration(milliseconds: 150),
-        fadeOutDuration: Duration.zero,
-        placeholder: (BuildContext context, String url) => ShimmerBoxWidget(
-          width: width,
-          height: height,
-          borderRadius: _effectiveRadius,
-        ),
-        errorWidget: (BuildContext context, String url, Object error) =>
-            resolvedFallback,
+      LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          double? decodeWidth = explicitWidth;
+          if (decodeWidth == null ||
+              !decodeWidth.isFinite ||
+              decodeWidth <= 0) {
+            final double maxWidth = constraints.maxWidth;
+            decodeWidth = (maxWidth.isFinite && maxWidth > 0) ? maxWidth : null;
+          }
+          final int? memCacheWidth = decodeWidth != null
+              ? (decodeWidth * dpr).round()
+              : null;
+
+          return CachedNetworkImage(
+            imageUrl: imageUrl!,
+            cacheManager: AppImageCacheManager.instance,
+            width: width,
+            height: height,
+            fit: fit,
+            memCacheWidth: memCacheWidth,
+            fadeInDuration: const Duration(milliseconds: 150),
+            fadeOutDuration: Duration.zero,
+            placeholder: (BuildContext context, String url) => ShimmerBoxWidget(
+              width: width,
+              height: height,
+              borderRadius: _effectiveRadius,
+            ),
+            errorWidget: (BuildContext context, String url, Object error) =>
+                resolvedFallback,
+          );
+        },
       ),
     );
   }

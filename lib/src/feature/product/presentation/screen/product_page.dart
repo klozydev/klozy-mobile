@@ -83,8 +83,10 @@ class _LoadedViewState extends State<_LoadedView> {
   // Two-state immersive scroll (design reference product_detail_screen.dart):
   // the photo is fullscreen in `minimized`; pulling up reveals the details and
   // the screen snaps to the nearest state on release.
-  // Title→bottom gap while minimized (clears the floating CTAs).
-  static const double _kTitlePinned = 88;
+  // Base title→bottom gap while minimized. The real pinned offset adds the
+  // bottom safe-area inset at build time (see [build]) so the CTA button — which
+  // rises with the home-indicator inset — never overlaps the chips.
+  static const double _kTitleBasePinned = 96;
   // Final gap between the chips and the seller card once expanded.
   static const double _kTitleTight = 14;
   // Past this fraction of the scroll extent we snap to `expanded`.
@@ -191,10 +193,12 @@ class _LoadedViewState extends State<_LoadedView> {
     final int imageCount = detail.images.length;
     final double screenHeight = MediaQuery.sizeOf(context).height;
     // The title block is anchored [titleBottom] above the hero's bottom edge.
-    // It stays pinned at the start of the scroll (88) then hugs the seller card
-    // (14) as the screen expands.
-    final double titleBottom = (_kTitlePinned - _offset)
-        .clamp(_kTitleTight, _kTitlePinned)
+    // It stays pinned at the start of the scroll (clearing the floating CTA bar,
+    // safe-area included) then hugs the seller card (14) as the screen expands.
+    final double titlePinned =
+        _kTitleBasePinned + MediaQuery.viewPaddingOf(context).bottom;
+    final double titleBottom = (titlePinned - _offset)
+        .clamp(_kTitleTight, titlePinned)
         .toDouble();
 
     return Scaffold(
