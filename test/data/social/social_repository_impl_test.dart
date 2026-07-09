@@ -3,6 +3,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:klozy/src/core/network/cache/session_cache.dart';
+import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/data/social/social_repository_impl.dart';
 import 'package:klozy/src/domain/me/entity/me_profile.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
@@ -138,25 +139,28 @@ void main() {
   // ── getUserProducts ──────────────────────────────────────────────────────
 
   group('getUserProducts', () {
-    test('maps product list from bare list', () async {
-      when(
-        () => mockDio.get<dynamic>(
-          'v1/users/u1/products',
-          queryParameters: any(named: 'queryParameters'),
-        ),
-      ).thenAnswer(
-        (_) async => _ok<dynamic>('v1/users/u1/products', <dynamic>[
-          _productJson(id: 'p1'),
-          _productJson(id: 'p2'),
-        ]),
-      );
+    test(
+      'maps product list from bare list and returns PaginatedList',
+      () async {
+        when(
+          () => mockDio.get<dynamic>(
+            'v1/users/u1/products',
+            queryParameters: any(named: 'queryParameters'),
+          ),
+        ).thenAnswer(
+          (_) async => _ok<dynamic>('v1/users/u1/products', <dynamic>[
+            _productJson(id: 'p1'),
+            _productJson(id: 'p2'),
+          ]),
+        );
 
-      final List<Product> result = await repo.getUserProducts('u1');
+        final PaginatedList<Product> result = await repo.getUserProducts('u1');
 
-      expect(result, hasLength(2));
-      expect(result[0].id, 'p1');
-      expect(result[1].id, 'p2');
-    });
+        expect(result.data, hasLength(2));
+        expect(result.data[0].id, 'p1');
+        expect(result.data[1].id, 'p2');
+      },
+    );
 
     test('maps product list from data envelope', () async {
       when(
@@ -170,39 +174,113 @@ void main() {
         }),
       );
 
-      final List<Product> result = await repo.getUserProducts('u2');
-      expect(result.first.id, 'p3');
+      final PaginatedList<Product> result = await repo.getUserProducts('u2');
+      expect(result.data.first.id, 'p3');
+    });
+
+    test('sends default page and limit query parameters', () async {
+      when(
+        () => mockDio.get<dynamic>(
+          'v1/users/u1/products',
+          queryParameters: captureAny(named: 'queryParameters'),
+        ),
+      ).thenAnswer(
+        (_) async => _ok<dynamic>('v1/users/u1/products', <dynamic>[]),
+      );
+
+      await repo.getUserProducts('u1');
+
+      final VerificationResult v = verify(
+        () => mockDio.get<dynamic>(
+          'v1/users/u1/products',
+          queryParameters: captureAny(named: 'queryParameters'),
+        ),
+      );
+      final Map<String, dynamic> params =
+          v.captured.first as Map<String, dynamic>;
+      expect(params['page'], 1);
+      expect(params['limit'], 20);
+    });
+
+    test('sends custom page and limit query parameters', () async {
+      when(
+        () => mockDio.get<dynamic>(
+          'v1/users/u1/products',
+          queryParameters: captureAny(named: 'queryParameters'),
+        ),
+      ).thenAnswer(
+        (_) async => _ok<dynamic>('v1/users/u1/products', <dynamic>[]),
+      );
+
+      await repo.getUserProducts('u1', page: 3, limit: 5);
+
+      final VerificationResult v = verify(
+        () => mockDio.get<dynamic>(
+          'v1/users/u1/products',
+          queryParameters: captureAny(named: 'queryParameters'),
+        ),
+      );
+      final Map<String, dynamic> params =
+          v.captured.first as Map<String, dynamic>;
+      expect(params['page'], 3);
+      expect(params['limit'], 5);
     });
   });
 
   // ── getUserReels ─────────────────────────────────────────────────────────
 
   group('getUserReels', () {
-    test('calls v1/reels/mine when mine=true', () async {
+    test(
+      'calls v1/reels/mine when mine=true and returns PaginatedList',
+      () async {
+        when(
+          () => mockDio.get<dynamic>(
+            'v1/reels/mine',
+            queryParameters: any(named: 'queryParameters'),
+          ),
+        ).thenAnswer(
+          (_) async => _ok<dynamic>('v1/reels/mine', <dynamic>[
+            <String, dynamic>{'id': 'r1'},
+          ]),
+        );
+
+        final PaginatedList<ProfileReel> result = await repo.getUserReels(
+          'u1',
+          mine: true,
+        );
+
+        expect(result.data, hasLength(1));
+        expect(result.data.first.id, 'r1');
+        verify(
+          () => mockDio.get<dynamic>(
+            'v1/reels/mine',
+            queryParameters: any(named: 'queryParameters'),
+          ),
+        ).called(1);
+      },
+    );
+
+    test('mine=true does not include authorId in query parameters', () async {
       when(
         () => mockDio.get<dynamic>(
           'v1/reels/mine',
-          queryParameters: any(named: 'queryParameters'),
+          queryParameters: captureAny(named: 'queryParameters'),
         ),
-      ).thenAnswer(
-        (_) async => _ok<dynamic>('v1/reels/mine', <dynamic>[
-          <String, dynamic>{'id': 'r1'},
-        ]),
-      );
+      ).thenAnswer((_) async => _ok<dynamic>('v1/reels/mine', <dynamic>[]));
 
-      final List<ProfileReel> result = await repo.getUserReels(
-        'u1',
-        mine: true,
-      );
+      await repo.getUserReels('u1', mine: true);
 
-      expect(result, hasLength(1));
-      expect(result.first.id, 'r1');
-      verify(
+      final VerificationResult v = verify(
         () => mockDio.get<dynamic>(
           'v1/reels/mine',
-          queryParameters: any(named: 'queryParameters'),
+          queryParameters: captureAny(named: 'queryParameters'),
         ),
-      ).called(1);
+      );
+      final Map<String, dynamic> params =
+          v.captured.first as Map<String, dynamic>;
+      expect(params.containsKey('authorId'), isFalse);
+      expect(params['page'], 1);
+      expect(params['limit'], 30);
     });
 
     test('calls v1/reels with authorId when mine=false', () async {
@@ -217,12 +295,12 @@ void main() {
         ]),
       );
 
-      final List<ProfileReel> result = await repo.getUserReels(
+      final PaginatedList<ProfileReel> result = await repo.getUserReels(
         'u2',
         mine: false,
       );
 
-      expect(result, hasLength(1));
+      expect(result.data, hasLength(1));
       final VerificationResult v = verify(
         () => mockDio.get<dynamic>(
           'v1/reels',
@@ -233,6 +311,32 @@ void main() {
           v.captured.first as Map<String, dynamic>;
       expect(params['authorId'], 'u2');
     });
+
+    test(
+      'sends custom page and limit query parameters when mine=false',
+      () async {
+        when(
+          () => mockDio.get<dynamic>(
+            'v1/reels',
+            queryParameters: captureAny(named: 'queryParameters'),
+          ),
+        ).thenAnswer((_) async => _ok<dynamic>('v1/reels', <dynamic>[]));
+
+        await repo.getUserReels('u3', mine: false, page: 2, limit: 10);
+
+        final VerificationResult v = verify(
+          () => mockDio.get<dynamic>(
+            'v1/reels',
+            queryParameters: captureAny(named: 'queryParameters'),
+          ),
+        );
+        final Map<String, dynamic> params =
+            v.captured.first as Map<String, dynamic>;
+        expect(params['page'], 2);
+        expect(params['limit'], 10);
+        expect(params['authorId'], 'u3');
+      },
+    );
   });
 
   // ── getReviews ───────────────────────────────────────────────────────────

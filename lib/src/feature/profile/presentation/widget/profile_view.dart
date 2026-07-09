@@ -11,6 +11,7 @@ import 'package:klozy/src/core/extensions/context_ext.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
+import 'package:klozy/src/design/tokens/ds_spacing.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/account/entity/account_status.dart';
 import 'package:klozy/src/domain/social/entity/profile_reel.dart';
@@ -23,8 +24,8 @@ import 'package:klozy/src/feature/profile/presentation/widget/profile_actions_wi
 import 'package:klozy/src/feature/profile/presentation/widget/profile_circle_button.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_header_widget.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_menu_sheet.dart';
-import 'package:klozy/src/feature/profile/presentation/widget/profile_products_grid.dart';
-import 'package:klozy/src/feature/profile/presentation/widget/profile_reels_grid.dart';
+import 'package:klozy/src/feature/profile/presentation/widget/profile_products_sliver_grid.dart';
+import 'package:klozy/src/feature/profile/presentation/widget/profile_reels_sliver_grid.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_reviews_list.dart';
 import 'package:klozy/src/feature/profile/presentation/widget/profile_tab_bar_widget.dart';
 import 'package:klozy/src/router/app_router.dart';
@@ -256,10 +257,8 @@ class _ProfileBodyState extends State<_ProfileBody>
           body: TabBarView(
             controller: _tabController,
             children: <Widget>[
-              SingleChildScrollView(
-                child: ProfileProductsGrid(products: state.products),
-              ),
-              _ReelTabContent(state: state),
+              _ProductsTabContent(state: state),
+              _ReelsTabContent(state: state),
               _ReviewTabContent(state: state),
             ],
           ),
@@ -296,27 +295,156 @@ class _TabBarDelegate extends SliverPersistentHeaderDelegate {
   bool shouldRebuild(_TabBarDelegate old) => false;
 }
 
-class _ReelTabContent extends StatelessWidget {
+/// Bottom-of-list loading affordance shown while a "load more" fetch is in
+/// flight. Mirrors the Feed tab's inline sliver spinner.
+const Widget _kLoadMoreSliver = SliverToBoxAdapter(
+  child: Padding(
+    padding: EdgeInsets.symmetric(vertical: DSSpacing.s),
+    child: DSLoader(size: 22),
+  ),
+);
+
+/// Products tab: scrollable + pull-to-refresh + infinite scroll.
+class _ProductsTabContent extends StatefulWidget {
   final ProfileLoadedState state;
 
-  const _ReelTabContent({required this.state});
+  const _ProductsTabContent({required this.state});
+
+  @override
+  State<_ProductsTabContent> createState() => _ProductsTabContentState();
+}
+
+class _ProductsTabContentState extends State<_ProductsTabContent> {
+  final ScrollController _controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (!widget.state.productsHasMore || widget.state.productsLoadingMore) {
+      return;
+    }
+    if (_controller.position.pixels >=
+        _controller.position.maxScrollExtent - 300) {
+      context.read<ProfileBloc>().add(const ProfileProductsLoadMore());
+    }
+  }
+
+  Future<void> _onRefresh() async {
+    final ProfileBloc bloc = context.read<ProfileBloc>();
+    // Wait for the refresh to actually settle (a ProfileLoadedState that is no
+    // longer loading more products), with a timeout so the indicator can
+    // never get stuck if no further state is emitted.
+    final Future<ProfileState> settled = bloc.stream
+        .firstWhere(
+          (ProfileState s) => s is ProfileLoadedState && !s.productsLoadingMore,
+        )
+        .timeout(const Duration(seconds: 10), onTimeout: () => bloc.state);
+    bloc.add(const ProfilePullToRefresh());
+    await settled;
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_onScroll);
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    if (state.tabLoading && state.reels == null) {
+    return RefreshIndicator(
+      color: DSColor.primary,
+      backgroundColor: DSColor.card,
+      onRefresh: _onRefresh,
+      child: CustomScrollView(
+        controller: _controller,
+        physics: const AlwaysScrollableScrollPhysics(),
+        slivers: <Widget>[
+          ProfileProductsSliverGrid(products: widget.state.products),
+          if (widget.state.productsLoadingMore) _kLoadMoreSliver,
+        ],
+      ),
+    );
+  }
+}
+
+/// Reels tab: scrollable + pull-to-refresh + infinite scroll.
+class _ReelsTabContent extends StatefulWidget {
+  final ProfileLoadedState state;
+
+  const _ReelsTabContent({required this.state});
+
+  @override
+  State<_ReelsTabContent> createState() => _ReelsTabContentState();
+}
+
+class _ReelsTabContentState extends State<_ReelsTabContent> {
+  final ScrollController _controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    if (!widget.state.reelsHasMore || widget.state.reelsLoadingMore) {
+      return;
+    }
+    if (_controller.position.pixels >=
+        _controller.position.maxScrollExtent - 300) {
+      context.read<ProfileBloc>().add(const ProfileReelsLoadMore());
+    }
+  }
+
+  Future<void> _onRefresh() async {
+    final ProfileBloc bloc = context.read<ProfileBloc>();
+    final Future<ProfileState> settled = bloc.stream
+        .firstWhere(
+          (ProfileState s) => s is ProfileLoadedState && !s.reelsLoadingMore,
+        )
+        .timeout(const Duration(seconds: 10), onTimeout: () => bloc.state);
+    bloc.add(const ProfilePullToRefresh());
+    await settled;
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_onScroll);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.state.tabLoading && widget.state.reels == null) {
       return const DSLoader();
     }
-    final List<ProfileReel> reels = state.reels ?? const <ProfileReel>[];
-    return SingleChildScrollView(
-      child: ProfileReelsGrid(
-        reels: reels,
-        onTap: (ProfileReel reel) => context.router.push(
-          SingleReelRoute(
-            reelId: reel.id,
-            reelIds: reels.map((ProfileReel r) => r.id).toList(),
-            initialIndex: reels.indexOf(reel),
+    final List<ProfileReel> reels = widget.state.reels ?? const <ProfileReel>[];
+    return RefreshIndicator(
+      color: DSColor.primary,
+      backgroundColor: DSColor.card,
+      onRefresh: _onRefresh,
+      child: CustomScrollView(
+        controller: _controller,
+        physics: const AlwaysScrollableScrollPhysics(),
+        slivers: <Widget>[
+          ProfileReelsSliverGrid(
+            reels: reels,
+            onTap: (ProfileReel reel) => context.router.push(
+              SingleReelRoute(
+                reelId: reel.id,
+                reelIds: reels.map((ProfileReel r) => r.id).toList(),
+                initialIndex: reels.indexOf(reel),
+              ),
+            ),
           ),
-        ),
+          if (widget.state.reelsLoadingMore) _kLoadMoreSliver,
+        ],
       ),
     );
   }

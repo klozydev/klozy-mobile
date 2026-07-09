@@ -1,3 +1,4 @@
+import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
 import 'package:klozy/src/domain/social/entity/follow_user.dart';
 import 'package:klozy/src/domain/social/entity/profile_reel.dart';
@@ -12,12 +13,22 @@ abstract class SocialRepository {
   /// My own profile (resolves my id from `/v1/me` then `getProfile`).
   Future<SocialProfile> getMyProfile();
 
-  /// `GET /v1/users/{id}/products` — a user's active listings.
-  Future<List<Product>> getUserProducts(String userId, {int page = 1});
+  /// `GET /v1/users/{id}/products` — a user's active listings (paginated).
+  Future<PaginatedList<Product>> getUserProducts(
+    String userId, {
+    int page = 1,
+    int limit = 20,
+  });
 
-  /// `GET /v1/reels?authorId={id}` — a user's reels (thumbnails). When [mine]
-  /// is true, uses `GET /v1/reels/mine` so non-READY reels are included.
-  Future<List<ProfileReel>> getUserReels(String userId, {bool mine = false});
+  /// `GET /v1/reels?authorId={id}` — a user's reels (thumbnails, paginated).
+  /// When [mine] is true, uses `GET /v1/reels/mine` so non-READY reels are
+  /// included.
+  Future<PaginatedList<ProfileReel>> getUserReels(
+    String userId, {
+    bool mine = false,
+    int page = 1,
+    int limit = 30,
+  });
 
   /// `GET /v1/users/{id}/reviews` — reviews for the user (best-effort).
   Future<List<UserReview>> getReviews(String userId);

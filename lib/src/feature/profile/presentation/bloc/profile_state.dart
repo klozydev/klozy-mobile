@@ -35,6 +35,10 @@ final class ProfileLoadedState extends ProfileState {
   final List<ProfileReel>? reels;
   final List<UserReview>? reviews;
   final bool tabLoading;
+  final bool productsHasMore;
+  final bool productsLoadingMore;
+  final bool reelsHasMore;
+  final bool reelsLoadingMore;
 
   const ProfileLoadedState({
     required this.profile,
@@ -43,6 +47,10 @@ final class ProfileLoadedState extends ProfileState {
     this.reels,
     this.reviews,
     this.tabLoading = false,
+    this.productsHasMore = true,
+    this.productsLoadingMore = false,
+    this.reelsHasMore = true,
+    this.reelsLoadingMore = false,
   });
 
   ProfileLoadedState copyWith({
@@ -52,6 +60,10 @@ final class ProfileLoadedState extends ProfileState {
     List<ProfileReel>? reels,
     List<UserReview>? reviews,
     bool? tabLoading,
+    bool? productsHasMore,
+    bool? productsLoadingMore,
+    bool? reelsHasMore,
+    bool? reelsLoadingMore,
   }) {
     return ProfileLoadedState(
       profile: profile ?? this.profile,
@@ -60,6 +72,10 @@ final class ProfileLoadedState extends ProfileState {
       reels: reels ?? this.reels,
       reviews: reviews ?? this.reviews,
       tabLoading: tabLoading ?? this.tabLoading,
+      productsHasMore: productsHasMore ?? this.productsHasMore,
+      productsLoadingMore: productsLoadingMore ?? this.productsLoadingMore,
+      reelsHasMore: reelsHasMore ?? this.reelsHasMore,
+      reelsLoadingMore: reelsLoadingMore ?? this.reelsLoadingMore,
     );
   }
 
@@ -71,5 +87,9 @@ final class ProfileLoadedState extends ProfileState {
     reels,
     reviews,
     tabLoading,
+    productsHasMore,
+    productsLoadingMore,
+    reelsHasMore,
+    reelsLoadingMore,
   ];
 }

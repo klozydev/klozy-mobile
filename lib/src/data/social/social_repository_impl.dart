@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/core/network/cache/session_cache.dart';
+import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/data/product/product_mapper.dart';
 import 'package:klozy/src/data/social/social_mapper.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
@@ -35,27 +36,36 @@ class SocialRepositoryImpl implements SocialRepository {
   }
 
   @override
-  Future<List<Product>> getUserProducts(String userId, {int page = 1}) async {
+  Future<PaginatedList<Product>> getUserProducts(
+    String userId, {
+    int page = 1,
+    int limit = 20,
+  }) async {
     final response = await _dio.get<dynamic>(
       'v1/users/$userId/products',
-      queryParameters: <String, dynamic>{'page': page, 'limit': 20},
+      queryParameters: <String, dynamic>{'page': page, 'limit': limit},
     );
-    return _list(response.data).map(mapProduct).toList();
+    final products = _list(response.data).map(mapProduct).toList();
+    return PaginatedList<Product>(data: products);
   }
 
   @override
-  Future<List<ProfileReel>> getUserReels(
+  Future<PaginatedList<ProfileReel>> getUserReels(
     String userId, {
     bool mine = false,
+    int page = 1,
+    int limit = 30,
   }) async {
     final response = await _dio.get<dynamic>(
       mine ? 'v1/reels/mine' : 'v1/reels',
       queryParameters: <String, dynamic>{
+        'page': page,
+        'limit': limit,
         if (!mine) 'authorId': userId,
-        'limit': 30,
       },
     );
-    return _list(response.data).map(mapProfileReel).toList();
+    final reels = _list(response.data).map(mapProfileReel).toList();
+    return PaginatedList<ProfileReel>(data: reels);
   }
 
   @override

@@ -126,6 +126,8 @@ import 'package:klozy/src/feature/checkout/presentation/bloc/checkout_bloc.dart'
     as _i351;
 import 'package:klozy/src/feature/home/presentation/bloc/feed_bloc.dart'
     as _i266;
+import 'package:klozy/src/feature/home/presentation/bloc/wishlist_feed_cubit.dart'
+    as _i809;
 import 'package:klozy/src/feature/notifications/presentation/bloc/notifications_bloc.dart'
     as _i817;
 import 'package:klozy/src/feature/onboarding/presentation/bloc/personalize_bloc.dart'
@@ -399,6 +401,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i320.SellRepository>(),
         gh<_i786.ProductsRepository>(),
         gh<_i204.CatalogRepository>(),
+      ),
+    );
+    gh.factory<_i809.WishlistFeedCubit>(
+      () => _i809.WishlistFeedCubit(
+        gh<_i264.WishlistRepository>(),
+        gh<_i1017.EventBus>(),
       ),
     );
     gh.factory<_i1029.ProfileBloc>(

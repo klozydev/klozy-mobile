@@ -7,7 +7,10 @@ import 'package:klozy/src/core/components/app_error_type.dart';
 import 'package:klozy/src/core/events/products_changed_event.dart';
 import 'package:klozy/src/core/events/profile_changed_event.dart';
 import 'package:klozy/src/core/events/reels_changed_event.dart';
+import 'package:klozy/src/core/pagination/paginated_list.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
+import 'package:klozy/src/domain/product/entity/product.dart';
+import 'package:klozy/src/domain/social/entity/profile_reel.dart';
 import 'package:klozy/src/domain/social/social_repository.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_event.dart';
 import 'package:klozy/src/feature/profile/presentation/bloc/profile_state.dart';
@@ -21,6 +24,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final List<StreamSubscription<Object?>> _subscriptions =
       <StreamSubscription<Object?>>[];
 
+  static const int _productsLimit = 20;
+  static const int _reelsLimit = 30;
+  int _productsPage = 1;
+  int _reelsPage = 1;
+
   ProfileBloc(this._repository, this._meRepository, EventBus eventBus)
     : super(const ProfileLoadingState()) {
     on<ProfileStarted>(_onStarted);
@@ -29,6 +37,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<ProfileReported>(_onReported);
     on<ProfileBlocked>(_onBlocked);
     on<ProfileRefreshed>(_onRefreshed);
+    on<ProfileProductsLoadMore>(_onProductsLoadMore);
+    on<ProfileReelsLoadMore>(_onReelsLoadMore);
+    on<ProfilePullToRefresh>(_onPullToRefresh);
     _subscriptions.add(
       eventBus.on<ProductsChangedEvent>().listen(
         (_) => add(const ProfileRefreshed()),
@@ -63,13 +74,23 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       final profile = event.userId == null
           ? await _repository.getMyProfile()
           : await _repository.getProfile(event.userId!);
-      List<dynamic> products;
+      _productsPage = 1;
+      PaginatedList<Product> page;
       try {
-        products = await _repository.getUserProducts(profile.id);
+        page = await _repository.getUserProducts(
+          profile.id,
+          limit: _productsLimit,
+        );
       } catch (_) {
-        products = const <dynamic>[];
+        page = const PaginatedList<Product>(data: <Product>[]);
       }
-      emit(ProfileLoadedState(profile: profile, products: products.cast()));
+      emit(
+        ProfileLoadedState(
+          profile: profile,
+          products: page.data,
+          productsHasMore: page.data.length >= _productsLimit,
+        ),
+      );
     } catch (error) {
       emit(ProfileErrorState(type: AppErrorType.fromException(error)));
     }
@@ -92,14 +113,17 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     emit((state as ProfileLoadedState).copyWith(tabLoading: true));
     try {
       if (needsReels) {
-        final reels = await _repository.getUserReels(
+        _reelsPage = 1;
+        final page = await _repository.getUserReels(
           current.profile.id,
           mine: current.profile.isMe,
+          limit: _reelsLimit,
         );
         emit(
           (state as ProfileLoadedState).copyWith(
-            reels: reels,
+            reels: page.data,
             tabLoading: false,
+            reelsHasMore: page.data.length >= _reelsLimit,
           ),
         );
       } else {
@@ -174,21 +198,170 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     if (current is! ProfileLoadedState || !current.profile.isMe) return;
     try {
       final profile = await _repository.getMyProfile();
-      final products = await _repository.getUserProducts(profile.id);
-      final reels = current.reels == null
-          ? null
-          : await _repository.getUserReels(profile.id, mine: true);
+      _productsPage = 1;
+      final productsPage = await _repository.getUserProducts(
+        profile.id,
+        limit: _productsLimit,
+      );
+      List<ProfileReel>? reels;
+      bool reelsHasMore = current.reelsHasMore;
+      if (current.reels != null) {
+        _reelsPage = 1;
+        final reelsPage = await _repository.getUserReels(
+          profile.id,
+          mine: true,
+          limit: _reelsLimit,
+        );
+        reels = reelsPage.data;
+        reelsHasMore = reelsPage.data.length >= _reelsLimit;
+      }
       final latest = state;
       if (latest is! ProfileLoadedState) return;
       emit(
         latest.copyWith(
           profile: profile,
-          products: products,
+          products: productsPage.data,
+          productsHasMore: productsPage.data.length >= _productsLimit,
           reels: reels ?? latest.reels,
+          reelsHasMore: reelsHasMore,
         ),
       );
     } catch (_) {
       // Quiet refresh: keep showing what we have.
+    }
+  }
+
+  /// Append the next page of products. Guard on
+  /// `productsLoadingMore`/`productsHasMore`, flip `productsLoadingMore` true,
+  /// fetch page `_productsPage + 1` (limit `_productsLimit`), increment
+  /// `_productsPage` on success, then emit appended items with
+  /// `productsHasMore = page.data.length >= _productsLimit`. Mirror
+  /// FeedBloc._onLoadMore.
+  Future<void> _onProductsLoadMore(
+    ProfileProductsLoadMore event,
+    Emitter<ProfileState> emit,
+  ) async {
+    final current = state;
+    if (current is! ProfileLoadedState ||
+        current.productsLoadingMore ||
+        !current.productsHasMore) {
+      return;
+    }
+    emit(current.copyWith(productsLoadingMore: true));
+    try {
+      final page = await _repository.getUserProducts(
+        current.profile.id,
+        page: _productsPage + 1,
+        limit: _productsLimit,
+      );
+      _productsPage += 1;
+      emit(
+        current.copyWith(
+          products: <Product>[...current.products, ...page.data],
+          productsLoadingMore: false,
+          productsHasMore: page.data.length >= _productsLimit,
+        ),
+      );
+    } catch (_) {
+      emit(current.copyWith(productsLoadingMore: false));
+    }
+  }
+
+  /// Append the next page of reels. Guard on
+  /// `reelsLoadingMore`/`reelsHasMore`, flip `reelsLoadingMore` true, fetch
+  /// page `_reelsPage + 1` (limit `_reelsLimit`, `mine: profile.isMe`),
+  /// increment `_reelsPage` on success, then emit appended items with
+  /// `reelsHasMore = page.data.length >= _reelsLimit`.
+  Future<void> _onReelsLoadMore(
+    ProfileReelsLoadMore event,
+    Emitter<ProfileState> emit,
+  ) async {
+    final current = state;
+    if (current is! ProfileLoadedState ||
+        current.reelsLoadingMore ||
+        !current.reelsHasMore) {
+      return;
+    }
+    emit(current.copyWith(reelsLoadingMore: true));
+    try {
+      final page = await _repository.getUserReels(
+        current.profile.id,
+        mine: current.profile.isMe,
+        page: _reelsPage + 1,
+        limit: _reelsLimit,
+      );
+      _reelsPage += 1;
+      emit(
+        current.copyWith(
+          reels: <ProfileReel>[...?current.reels, ...page.data],
+          reelsLoadingMore: false,
+          reelsHasMore: page.data.length >= _reelsLimit,
+        ),
+      );
+    } catch (_) {
+      emit(current.copyWith(reelsLoadingMore: false));
+    }
+  }
+
+  /// User pull-to-refresh: reset `_productsPage`/`_reelsPage` to 1, emit a
+  /// value-distinct state FIRST (e.g. flip the visible tab's `*LoadingMore`
+  /// true) so the RefreshIndicator does not hang on an equal emit, refetch the
+  /// first page(s) of the visible tab, then emit fresh items with reset
+  /// `*HasMore` and cleared `*LoadingMore`. Mirror FeedBloc._onRefreshed.
+  Future<void> _onPullToRefresh(
+    ProfilePullToRefresh event,
+    Emitter<ProfileState> emit,
+  ) async {
+    final current = state;
+    if (current is! ProfileLoadedState) return;
+    // Mark in-flight so the result is always a *distinct* state — otherwise an
+    // unchanged first page is value-equal to the current state, Bloc drops the
+    // emit, and the RefreshIndicator (awaiting the next state) hangs on
+    // screen. Flip the currently-visible tab's flag.
+    final bool refreshingReels = current.tab == ProfileTab.reels;
+    emit(
+      current.copyWith(
+        productsLoadingMore: !refreshingReels || current.productsLoadingMore,
+        reelsLoadingMore: refreshingReels || current.reelsLoadingMore,
+      ),
+    );
+    try {
+      final profile = current.profile.isMe
+          ? await _repository.getMyProfile()
+          : await _repository.getProfile(current.profile.id);
+      _productsPage = 1;
+      final productsPage = await _repository.getUserProducts(
+        profile.id,
+        limit: _productsLimit,
+      );
+      List<ProfileReel>? reels = current.reels;
+      bool reelsHasMore = current.reelsHasMore;
+      if (current.reels != null) {
+        _reelsPage = 1;
+        final reelsPage = await _repository.getUserReels(
+          profile.id,
+          mine: profile.isMe,
+          limit: _reelsLimit,
+        );
+        reels = reelsPage.data;
+        reelsHasMore = reelsPage.data.length >= _reelsLimit;
+      }
+      emit(
+        ProfileLoadedState(
+          profile: profile,
+          tab: current.tab,
+          products: productsPage.data,
+          reels: reels,
+          reviews: current.reviews,
+          productsHasMore: productsPage.data.length >= _productsLimit,
+          reelsHasMore: reelsHasMore,
+        ),
+      );
+    } catch (_) {
+      // Settle the spinner but keep showing what we have.
+      emit(
+        current.copyWith(productsLoadingMore: false, reelsLoadingMore: false),
+      );
     }
   }
 }

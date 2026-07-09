@@ -45,3 +45,21 @@ final class ProfileBlocked extends ProfileEvent {
 final class ProfileRefreshed extends ProfileEvent {
   const ProfileRefreshed();
 }
+
+/// Append the next page of the Products tab (infinite scroll).
+final class ProfileProductsLoadMore extends ProfileEvent {
+  const ProfileProductsLoadMore();
+}
+
+/// Append the next page of the Reels tab (infinite scroll).
+final class ProfileReelsLoadMore extends ProfileEvent {
+  const ProfileReelsLoadMore();
+}
+
+/// User-initiated pull-to-refresh (distinct from the quiet EventBus-driven
+/// [ProfileRefreshed]). Resets page counters and refetches the first page of
+/// the currently-visible tab, emitting a value-distinct state first so the
+/// RefreshIndicator settles.
+final class ProfilePullToRefresh extends ProfileEvent {
+  const ProfilePullToRefresh();
+}
