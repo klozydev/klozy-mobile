@@ -792,6 +792,56 @@ void main() {
         await tester.pumpAndSettle();
       },
     );
+
+    testWidgets(
+      'swiping to refresh on the reels tab dispatches ProfilePullToRefresh '
+      'and awaits a reels-settled state',
+      (WidgetTester tester) async {
+        const reels = [ProfileReel(id: 'r1', views: 1)];
+        const initial = ProfileLoadedState(profile: _ownProfile, reels: reels);
+        final controller = StreamController<ProfileState>.broadcast();
+        addTearDown(controller.close);
+        final profileBloc = _buildProfileBloc(
+          initial,
+          stream: controller.stream,
+        );
+        locator.registerSingleton<ProfileBloc>(profileBloc);
+        locator.registerSingleton<NotificationsCubit>(
+          _buildNotificationsCubit(),
+        );
+
+        await tester.pumpWidget(
+          _wrapProfileView(
+            profileState: initial,
+            accountBloc: accountBloc,
+            router: router,
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Move to the Reels tab so the reels-scoped RefreshIndicator is the
+        // one shown — its `_onRefresh` awaits a state with reelsLoadingMore
+        // == false, a distinct path from the products tab.
+        await tester.tap(find.text('Reels'));
+        await tester.pumpAndSettle();
+
+        unawaited(
+          tester
+              .state<RefreshIndicatorState>(find.byType(RefreshIndicator).first)
+              .show(),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(seconds: 1));
+
+        verify(() => profileBloc.add(const ProfilePullToRefresh())).called(1);
+
+        // Settle the reels-scoped awaited stream (reelsLoadingMore == false).
+        controller.add(
+          const ProfileLoadedState(profile: _ownProfile, reels: reels),
+        );
+        await tester.pumpAndSettle();
+      },
+    );
   });
 
   // -------------------------------------------------------------------------
