@@ -53,10 +53,19 @@ class _SellPhotosWidgetState extends State<SellPhotosWidget> {
     if (source == null) return;
     final picker = ImagePicker();
     if (source == ImageSource.gallery) {
-      final files = await picker.pickMultiImage();
+      final files = await picker.pickMultiImage(
+        maxWidth: 2000,
+        maxHeight: 2000,
+        imageQuality: 90,
+      );
       _append(files.map((XFile f) => f.path));
     } else {
-      final file = await picker.pickImage(source: ImageSource.camera);
+      final file = await picker.pickImage(
+        source: ImageSource.camera,
+        maxWidth: 2000,
+        maxHeight: 2000,
+        imageQuality: 90,
+      );
       if (file != null) _append(<String>[file.path]);
     }
   }
