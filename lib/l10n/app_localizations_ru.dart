@@ -1341,6 +1341,39 @@ class AppLocalizationsRu extends AppLocalizations {
   String get orders_couldnt_open_link => 'Не удалось открыть ссылку.';
 
   @override
+  String get orders_accept_return => 'Принять возврат';
+
+  @override
+  String get orders_refuse_return => 'Отклонить возврат';
+
+  @override
+  String get orders_accept_return_message =>
+      'Принять этот возврат? Покупателю вернут оплату после того, как вы получите товар обратно.';
+
+  @override
+  String get orders_download_return_label => 'Скачать этикетку возврата';
+
+  @override
+  String get orders_refuse_return_title => 'Отклонить возврат';
+
+  @override
+  String get orders_refuse_return_hint =>
+      'Объясните, почему вы отклоняете этот возврат';
+
+  @override
+  String get orders_refuse_return_error =>
+      'Добавьте причину перед подтверждением';
+
+  @override
+  String get orders_return_reason_label => 'Причина возврата';
+
+  @override
+  String get orders_refuse_reason_label => 'Причина отказа';
+
+  @override
+  String get orders_return_tracking_label => 'Отслеживание возврата';
+
+  @override
   String get orders_status_pending => 'В ожидании';
 
   @override
@@ -1357,6 +1390,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'Запрошен возврат';
+
+  @override
+  String get orders_status_return_accepted => 'Возврат принят';
+
+  @override
+  String get orders_status_return_refused => 'Возврат отклонён';
+
+  @override
+  String get orders_status_return_completed => 'Возврат завершён';
 
   @override
   String get orders_status_canceled => 'Отменено';

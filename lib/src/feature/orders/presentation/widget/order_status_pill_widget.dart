@@ -20,6 +20,10 @@ class OrderStatusPillWidget extends StatelessWidget {
       OrderStatus.completed => context.l10N.orders_status_completed,
       OrderStatus.returnRequested =>
         context.l10N.orders_status_return_requested,
+      OrderStatus.returnAccepted => context.l10N.orders_status_return_accepted,
+      OrderStatus.returnRefused => context.l10N.orders_status_return_refused,
+      OrderStatus.returnCompleted =>
+        context.l10N.orders_status_return_completed,
       OrderStatus.canceled => context.l10N.orders_status_canceled,
       OrderStatus.unknown => context.l10N.orders_status_unknown,
     };

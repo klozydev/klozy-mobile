@@ -1341,6 +1341,37 @@ class AppLocalizationsAr extends AppLocalizations {
   String get orders_couldnt_open_link => 'تعذّر فتح الرابط.';
 
   @override
+  String get orders_accept_return => 'قبول الإرجاع';
+
+  @override
+  String get orders_refuse_return => 'رفض الإرجاع';
+
+  @override
+  String get orders_accept_return_message =>
+      'هل تقبل هذا الإرجاع؟ سيُسترد المبلغ للمشتري بعد استلامك القطعة مرة أخرى.';
+
+  @override
+  String get orders_download_return_label => 'تنزيل ملصق الإرجاع';
+
+  @override
+  String get orders_refuse_return_title => 'رفض الإرجاع';
+
+  @override
+  String get orders_refuse_return_hint => 'اشرح سبب رفضك لهذا الإرجاع';
+
+  @override
+  String get orders_refuse_return_error => 'أضف سببًا قبل التأكيد';
+
+  @override
+  String get orders_return_reason_label => 'سبب الإرجاع';
+
+  @override
+  String get orders_refuse_reason_label => 'سبب الرفض';
+
+  @override
+  String get orders_return_tracking_label => 'تتبّع الإرجاع';
+
+  @override
   String get orders_status_pending => 'قيد الانتظار';
 
   @override
@@ -1357,6 +1388,15 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'طُلب الإرجاع';
+
+  @override
+  String get orders_status_return_accepted => 'تم قبول الإرجاع';
+
+  @override
+  String get orders_status_return_refused => 'تم رفض الإرجاع';
+
+  @override
+  String get orders_status_return_completed => 'تم إتمام الإرجاع';
 
   @override
   String get orders_status_canceled => 'ملغى';

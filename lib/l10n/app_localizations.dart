@@ -2338,6 +2338,66 @@ abstract class AppLocalizations {
   /// **'Couldn\'t open the link.'**
   String get orders_couldnt_open_link;
 
+  /// No description provided for @orders_accept_return.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept return'**
+  String get orders_accept_return;
+
+  /// No description provided for @orders_refuse_return.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse return'**
+  String get orders_refuse_return;
+
+  /// No description provided for @orders_accept_return_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept this return? The buyer will be refunded once you receive the item back.'**
+  String get orders_accept_return_message;
+
+  /// No description provided for @orders_download_return_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Download return label'**
+  String get orders_download_return_label;
+
+  /// No description provided for @orders_refuse_return_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse return'**
+  String get orders_refuse_return_title;
+
+  /// No description provided for @orders_refuse_return_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Explain why you\'re refusing this return'**
+  String get orders_refuse_return_hint;
+
+  /// No description provided for @orders_refuse_return_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a reason before confirming'**
+  String get orders_refuse_return_error;
+
+  /// No description provided for @orders_return_reason_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Return reason'**
+  String get orders_return_reason_label;
+
+  /// No description provided for @orders_refuse_reason_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Refuse reason'**
+  String get orders_refuse_reason_label;
+
+  /// No description provided for @orders_return_tracking_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Return tracking'**
+  String get orders_return_tracking_label;
+
   /// No description provided for @orders_status_pending.
   ///
   /// In en, this message translates to:
@@ -2373,6 +2433,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Return requested'**
   String get orders_status_return_requested;
+
+  /// No description provided for @orders_status_return_accepted.
+  ///
+  /// In en, this message translates to:
+  /// **'Return accepted'**
+  String get orders_status_return_accepted;
+
+  /// No description provided for @orders_status_return_refused.
+  ///
+  /// In en, this message translates to:
+  /// **'Return refused'**
+  String get orders_status_return_refused;
+
+  /// No description provided for @orders_status_return_completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Return completed'**
+  String get orders_status_return_completed;
 
   /// No description provided for @orders_status_canceled.
   ///

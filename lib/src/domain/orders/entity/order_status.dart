@@ -10,6 +10,9 @@ enum OrderStatus {
   deliveryCompleted(Color(0xFFE0CE7D)),
   completed(Color(0xFFA7D2BE)),
   returnRequested(Color(0xFFEB5353)),
+  returnAccepted(Color(0xFFE0A24D)),
+  returnRefused(Color(0xFFEB5353)),
+  returnCompleted(Color(0xFFA7D2BE)),
   canceled(Color(0x73FFFFFF)),
   unknown(Color(0x73FFFFFF));
 
@@ -20,7 +23,10 @@ enum OrderStatus {
   bool get isCompletedBucket =>
       this == OrderStatus.completed ||
       this == OrderStatus.canceled ||
-      this == OrderStatus.returnRequested;
+      this == OrderStatus.returnRequested ||
+      this == OrderStatus.returnAccepted ||
+      this == OrderStatus.returnRefused ||
+      this == OrderStatus.returnCompleted;
 
   static OrderStatus fromApi(String? raw) {
     switch (_normalize(raw)) {
@@ -43,6 +49,12 @@ enum OrderStatus {
       case 'returnrequested':
       case 'reported':
         return OrderStatus.returnRequested;
+      case 'returnaccepted':
+        return OrderStatus.returnAccepted;
+      case 'returnrefused':
+        return OrderStatus.returnRefused;
+      case 'returncompleted':
+        return OrderStatus.returnCompleted;
       case 'canceled':
       case 'cancelled':
         return OrderStatus.canceled;

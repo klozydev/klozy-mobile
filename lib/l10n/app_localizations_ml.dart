@@ -1328,6 +1328,39 @@ class AppLocalizationsMl extends AppLocalizations {
   String get orders_couldnt_open_link => 'ലിങ്ക് തുറക്കാനായില്ല.';
 
   @override
+  String get orders_accept_return => 'റിട്ടേൺ അംഗീകരിക്കുക';
+
+  @override
+  String get orders_refuse_return => 'റിട്ടേൺ നിരസിക്കുക';
+
+  @override
+  String get orders_accept_return_message =>
+      'ഈ റിട്ടേൺ അംഗീകരിക്കണോ? ഇനം തിരികെ ലഭിച്ചാൽ ഉടൻ വാങ്ങുന്നയാൾക്ക് പണം തിരികെ നൽകും.';
+
+  @override
+  String get orders_download_return_label => 'റിട്ടേൺ ലേബൽ ഡൗൺലോഡ് ചെയ്യുക';
+
+  @override
+  String get orders_refuse_return_title => 'റിട്ടേൺ നിരസിക്കുക';
+
+  @override
+  String get orders_refuse_return_hint =>
+      'ഈ റിട്ടേൺ നിരസിക്കുന്നത് എന്തുകൊണ്ടെന്ന് വിശദീകരിക്കുക';
+
+  @override
+  String get orders_refuse_return_error =>
+      'സ്ഥിരീകരിക്കുന്നതിന് മുമ്പ് ഒരു കാരണം ചേർക്കുക';
+
+  @override
+  String get orders_return_reason_label => 'റിട്ടേൺ കാരണം';
+
+  @override
+  String get orders_refuse_reason_label => 'നിരസിക്കൽ കാരണം';
+
+  @override
+  String get orders_return_tracking_label => 'റിട്ടേൺ ട്രാക്കിംഗ്';
+
+  @override
   String get orders_status_pending => 'തീർപ്പാക്കാത്തത്';
 
   @override
@@ -1345,6 +1378,15 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'റിട്ടേൺ അഭ്യർത്ഥിച്ചു';
+
+  @override
+  String get orders_status_return_accepted => 'റിട്ടേൺ അംഗീകരിച്ചു';
+
+  @override
+  String get orders_status_return_refused => 'റിട്ടേൺ നിരസിച്ചു';
+
+  @override
+  String get orders_status_return_completed => 'റിട്ടേൺ പൂർത്തിയായി';
 
   @override
   String get orders_status_canceled => 'റദ്ദാക്കി';

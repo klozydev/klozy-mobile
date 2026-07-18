@@ -35,6 +35,9 @@ Widget _build(
   VoidCallback? onReview,
   VoidCallback? onTrack,
   VoidCallback? onLabel,
+  VoidCallback? onAcceptReturn,
+  VoidCallback? onRefuseReturn,
+  VoidCallback? onReturnLabel,
 }) => dsWrap(
   OrderActionBarWidget(
     order: order,
@@ -46,6 +49,9 @@ Widget _build(
     onReview: onReview ?? () {},
     onTrack: onTrack ?? () {},
     onLabel: onLabel ?? () {},
+    onAcceptReturn: onAcceptReturn ?? () {},
+    onRefuseReturn: onRefuseReturn ?? () {},
+    onReturnLabel: onReturnLabel ?? () {},
   ),
   wrapInScaffold: true,
 );
@@ -173,6 +179,94 @@ void main() {
       // When isActing, DSButtonElevated passes isLoading:true which renders
       // a CircularProgressIndicator inside the ElevatedButton.
       expect(find.byType(DSButtonElevated), findsOneWidget);
+    });
+
+    testWidgets('acceptReturn action shows Accept return primary button', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        _build(_order(actions: {OrderAction.acceptReturn})),
+      );
+      await tester.pump();
+      expect(find.text('Accept return'), findsOneWidget);
+      expect(find.byType(DSButtonElevated), findsOneWidget);
+    });
+
+    testWidgets('refuseReturn action shows Refuse return outline button', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        _build(_order(actions: {OrderAction.refuseReturn})),
+      );
+      await tester.pump();
+      expect(find.text('Refuse return'), findsOneWidget);
+      expect(find.byType(DSButtonOutline), findsOneWidget);
+    });
+
+    testWidgets('returnLabelUrl shows Download return label button', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        _build(
+          _order(
+            tracking: const OrderTracking(
+              returnLabelUrl: 'https://emx.test/return-label',
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+      expect(find.text('Download return label'), findsOneWidget);
+      expect(find.byType(DSButtonOutline), findsOneWidget);
+    });
+
+    testWidgets('tapping accept return fires onAcceptReturn callback', (
+      tester,
+    ) async {
+      bool fired = false;
+      await tester.pumpWidget(
+        _build(
+          _order(actions: {OrderAction.acceptReturn}),
+          onAcceptReturn: () => fired = true,
+        ),
+      );
+      await tester.pump();
+      await tester.tap(find.text('Accept return'));
+      expect(fired, isTrue);
+    });
+
+    testWidgets('tapping refuse return fires onRefuseReturn callback', (
+      tester,
+    ) async {
+      bool fired = false;
+      await tester.pumpWidget(
+        _build(
+          _order(actions: {OrderAction.refuseReturn}),
+          onRefuseReturn: () => fired = true,
+        ),
+      );
+      await tester.pump();
+      await tester.tap(find.text('Refuse return'));
+      expect(fired, isTrue);
+    });
+
+    testWidgets('tapping download return label fires onReturnLabel callback', (
+      tester,
+    ) async {
+      bool fired = false;
+      await tester.pumpWidget(
+        _build(
+          _order(
+            tracking: const OrderTracking(
+              returnLabelUrl: 'https://emx.test/return-label',
+            ),
+          ),
+          onReturnLabel: () => fired = true,
+        ),
+      );
+      await tester.pump();
+      await tester.tap(find.text('Download return label'));
+      expect(fired, isTrue);
     });
   });
 }

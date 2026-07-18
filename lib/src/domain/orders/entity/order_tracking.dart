@@ -22,6 +22,14 @@ class OrderTracking extends Equatable {
   final String? trackingNumber;
   final String? liveTrackingUrl;
   final String? labelUrl;
+
+  /// Return shipment tracking number (`tracking.returnTrackingNumber`).
+  /// Visible to both buyer and seller.
+  final String? returnTrackingNumber;
+
+  /// Return shipping label (`tracking.returnLabelUrl`). Buyer-only; the API
+  /// omits it for the seller.
+  final String? returnLabelUrl;
   final List<TrackingStep> steps;
 
   const OrderTracking({
@@ -29,6 +37,8 @@ class OrderTracking extends Equatable {
     this.trackingNumber,
     this.liveTrackingUrl,
     this.labelUrl,
+    this.returnTrackingNumber,
+    this.returnLabelUrl,
     this.steps = const <TrackingStep>[],
   });
 
@@ -38,6 +48,8 @@ class OrderTracking extends Equatable {
     trackingNumber,
     liveTrackingUrl,
     labelUrl,
+    returnTrackingNumber,
+    returnLabelUrl,
     steps,
   ];
 }

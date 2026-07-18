@@ -24,6 +24,9 @@ List<TrackingStep> buildEmxTrackingSteps(
     OrderStatus.deliveryCompleted => 2,
     OrderStatus.completed ||
     OrderStatus.returnRequested ||
+    OrderStatus.returnAccepted ||
+    OrderStatus.returnRefused ||
+    OrderStatus.returnCompleted ||
     OrderStatus.canceled => order.length - 1,
     OrderStatus.unknown => 0,
   };

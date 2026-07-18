@@ -1316,6 +1316,38 @@ class AppLocalizationsHi extends AppLocalizations {
   String get orders_couldnt_open_link => 'लिंक नहीं खुल सका।';
 
   @override
+  String get orders_accept_return => 'वापसी स्वीकार करें';
+
+  @override
+  String get orders_refuse_return => 'वापसी अस्वीकार करें';
+
+  @override
+  String get orders_accept_return_message =>
+      'क्या आप इस वापसी को स्वीकार करते हैं? आइटम वापस मिलने पर खरीदार को धनवापसी कर दी जाएगी।';
+
+  @override
+  String get orders_download_return_label => 'वापसी लेबल डाउनलोड करें';
+
+  @override
+  String get orders_refuse_return_title => 'वापसी अस्वीकार करें';
+
+  @override
+  String get orders_refuse_return_hint =>
+      'बताएँ कि आप इस वापसी को क्यों अस्वीकार कर रहे हैं';
+
+  @override
+  String get orders_refuse_return_error => 'पुष्टि करने से पहले एक कारण जोड़ें';
+
+  @override
+  String get orders_return_reason_label => 'वापसी का कारण';
+
+  @override
+  String get orders_refuse_reason_label => 'अस्वीकृति का कारण';
+
+  @override
+  String get orders_return_tracking_label => 'वापसी ट्रैकिंग';
+
+  @override
   String get orders_status_pending => 'लंबित';
 
   @override
@@ -1332,6 +1364,15 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'वापसी का अनुरोध किया गया';
+
+  @override
+  String get orders_status_return_accepted => 'वापसी स्वीकृत';
+
+  @override
+  String get orders_status_return_refused => 'वापसी अस्वीकृत';
+
+  @override
+  String get orders_status_return_completed => 'वापसी पूर्ण';
 
   @override
   String get orders_status_canceled => 'रद्द कर दिया गया';

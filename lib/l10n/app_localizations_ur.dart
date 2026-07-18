@@ -1320,6 +1320,39 @@ class AppLocalizationsUr extends AppLocalizations {
   String get orders_couldnt_open_link => 'لنک نہیں کھل سکا۔';
 
   @override
+  String get orders_accept_return => 'واپسی قبول کریں';
+
+  @override
+  String get orders_refuse_return => 'واپسی مسترد کریں';
+
+  @override
+  String get orders_accept_return_message =>
+      'کیا آپ اس واپسی کو قبول کرتے ہیں؟ آئٹم واپس ملنے پر خریدار کو رقم واپس کر دی جائے گی۔';
+
+  @override
+  String get orders_download_return_label => 'واپسی لیبل ڈاؤن لوڈ کریں';
+
+  @override
+  String get orders_refuse_return_title => 'واپسی مسترد کریں';
+
+  @override
+  String get orders_refuse_return_hint =>
+      'بتائیں کہ آپ اس واپسی کو کیوں مسترد کر رہے ہیں';
+
+  @override
+  String get orders_refuse_return_error =>
+      'تصدیق کرنے سے پہلے ایک وجہ شامل کریں';
+
+  @override
+  String get orders_return_reason_label => 'واپسی کی وجہ';
+
+  @override
+  String get orders_refuse_reason_label => 'مستردگی کی وجہ';
+
+  @override
+  String get orders_return_tracking_label => 'واپسی ٹریکنگ';
+
+  @override
   String get orders_status_pending => 'زیر التواء';
 
   @override
@@ -1336,6 +1369,15 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'واپسی کی درخواست';
+
+  @override
+  String get orders_status_return_accepted => 'واپسی منظور';
+
+  @override
+  String get orders_status_return_refused => 'واپسی مسترد';
+
+  @override
+  String get orders_status_return_completed => 'واپسی مکمل';
 
   @override
   String get orders_status_canceled => 'منسوخ';

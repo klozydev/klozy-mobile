@@ -1315,6 +1315,39 @@ class AppLocalizationsEs extends AppLocalizations {
   String get orders_couldnt_open_link => 'No se pudo abrir el enlace.';
 
   @override
+  String get orders_accept_return => 'Aceptar devolución';
+
+  @override
+  String get orders_refuse_return => 'Rechazar devolución';
+
+  @override
+  String get orders_accept_return_message =>
+      '¿Aceptas esta devolución? Se reembolsará al comprador una vez que recibas el artículo de vuelta.';
+
+  @override
+  String get orders_download_return_label => 'Descargar etiqueta de devolución';
+
+  @override
+  String get orders_refuse_return_title => 'Rechazar devolución';
+
+  @override
+  String get orders_refuse_return_hint =>
+      'Explica por qué rechazas esta devolución';
+
+  @override
+  String get orders_refuse_return_error =>
+      'Agrega un motivo antes de confirmar';
+
+  @override
+  String get orders_return_reason_label => 'Motivo de la devolución';
+
+  @override
+  String get orders_refuse_reason_label => 'Motivo de rechazo';
+
+  @override
+  String get orders_return_tracking_label => 'Seguimiento de la devolución';
+
+  @override
   String get orders_status_pending => 'Pendiente';
 
   @override
@@ -1331,6 +1364,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'Devolución solicitada';
+
+  @override
+  String get orders_status_return_accepted => 'Devolución aceptada';
+
+  @override
+  String get orders_status_return_refused => 'Devolución rechazada';
+
+  @override
+  String get orders_status_return_completed => 'Devolución completada';
 
   @override
   String get orders_status_canceled => 'Cancelado';

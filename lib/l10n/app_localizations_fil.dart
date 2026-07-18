@@ -1323,6 +1323,40 @@ class AppLocalizationsFil extends AppLocalizations {
   String get orders_couldnt_open_link => 'Hindi mabuksan ang link.';
 
   @override
+  String get orders_accept_return => 'Tanggapin ang pagsasauli';
+
+  @override
+  String get orders_refuse_return => 'Tanggihan ang pagsasauli';
+
+  @override
+  String get orders_accept_return_message =>
+      'Tanggapin ang pagsasauling ito? Mare-refund ang bumibili sa oras na matanggap mo ang item pabalik.';
+
+  @override
+  String get orders_download_return_label =>
+      'I-download ang label ng pagsasauli';
+
+  @override
+  String get orders_refuse_return_title => 'Tanggihan ang pagsasauli';
+
+  @override
+  String get orders_refuse_return_hint =>
+      'Ipaliwanag kung bakit tinatanggihan mo ang pagsasauling ito';
+
+  @override
+  String get orders_refuse_return_error =>
+      'Magdagdag ng dahilan bago kumpirmahin';
+
+  @override
+  String get orders_return_reason_label => 'Dahilan ng pagsasauli';
+
+  @override
+  String get orders_refuse_reason_label => 'Dahilan ng pagtanggi';
+
+  @override
+  String get orders_return_tracking_label => 'Pagsubaybay sa pagsasauli';
+
+  @override
   String get orders_status_pending => 'Nakabinbin';
 
   @override
@@ -1339,6 +1373,15 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'Hiniling ang pagsasauli';
+
+  @override
+  String get orders_status_return_accepted => 'Tinanggap ang pagsasauli';
+
+  @override
+  String get orders_status_return_refused => 'Tinanggihan ang pagsasauli';
+
+  @override
+  String get orders_status_return_completed => 'Nakumpleto ang pagsasauli';
 
   @override
   String get orders_status_canceled => 'Kinansela';

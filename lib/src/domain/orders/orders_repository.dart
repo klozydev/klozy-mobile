@@ -27,4 +27,12 @@ abstract class OrdersRepository {
 
   /// `POST /v1/orders/{id}/review` — buyer: 1–5 review for the seller.
   Future<void> review(String id, {required int rating, String? body});
+
+  /// `POST /v1/orders/{id}/accept-return` — seller: accept the return request
+  /// (no body).
+  Future<void> acceptReturn(String id);
+
+  /// `POST /v1/orders/{id}/refuse-return` — seller: refuse the return request
+  /// with a mandatory [reason] (max 500 chars, enforced server-side).
+  Future<void> refuseReturn(String id, {required String reason});
 }

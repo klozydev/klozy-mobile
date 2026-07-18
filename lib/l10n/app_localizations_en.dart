@@ -1307,6 +1307,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orders_couldnt_open_link => 'Couldn\'t open the link.';
 
   @override
+  String get orders_accept_return => 'Accept return';
+
+  @override
+  String get orders_refuse_return => 'Refuse return';
+
+  @override
+  String get orders_accept_return_message =>
+      'Accept this return? The buyer will be refunded once you receive the item back.';
+
+  @override
+  String get orders_download_return_label => 'Download return label';
+
+  @override
+  String get orders_refuse_return_title => 'Refuse return';
+
+  @override
+  String get orders_refuse_return_hint =>
+      'Explain why you\'re refusing this return';
+
+  @override
+  String get orders_refuse_return_error => 'Add a reason before confirming';
+
+  @override
+  String get orders_return_reason_label => 'Return reason';
+
+  @override
+  String get orders_refuse_reason_label => 'Refuse reason';
+
+  @override
+  String get orders_return_tracking_label => 'Return tracking';
+
+  @override
   String get orders_status_pending => 'Pending';
 
   @override
@@ -1323,6 +1355,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'Return requested';
+
+  @override
+  String get orders_status_return_accepted => 'Return accepted';
+
+  @override
+  String get orders_status_return_refused => 'Return refused';
+
+  @override
+  String get orders_status_return_completed => 'Return completed';
 
   @override
   String get orders_status_canceled => 'Canceled';

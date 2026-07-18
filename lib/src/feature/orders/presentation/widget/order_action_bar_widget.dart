@@ -18,6 +18,9 @@ class OrderActionBarWidget extends StatelessWidget {
   final VoidCallback onReview;
   final VoidCallback onTrack;
   final VoidCallback onLabel;
+  final VoidCallback onAcceptReturn;
+  final VoidCallback onRefuseReturn;
+  final VoidCallback onReturnLabel;
 
   const OrderActionBarWidget({
     super.key,
@@ -30,6 +33,9 @@ class OrderActionBarWidget extends StatelessWidget {
     required this.onReview,
     required this.onTrack,
     required this.onLabel,
+    required this.onAcceptReturn,
+    required this.onRefuseReturn,
+    required this.onReturnLabel,
   });
 
   @override
@@ -55,8 +61,17 @@ class OrderActionBarWidget extends StatelessWidget {
     if (actions.contains(OrderAction.review)) {
       primary(context.l10N.orders_leave_a_review, onReview);
     }
+    if (actions.contains(OrderAction.acceptReturn)) {
+      primary(context.l10N.orders_accept_return, onAcceptReturn);
+    }
     if (order.tracking.liveTrackingUrl != null) {
       secondary(context.l10N.orders_view_live_tracking, onTrack);
+    }
+    if (order.tracking.returnLabelUrl != null) {
+      secondary(context.l10N.orders_download_return_label, onReturnLabel);
+    }
+    if (actions.contains(OrderAction.refuseReturn)) {
+      secondary(context.l10N.orders_refuse_return, onRefuseReturn);
     }
     if (actions.contains(OrderAction.reportProblem)) {
       secondary(context.l10N.orders_report_a_problem, onReport);

@@ -56,6 +56,7 @@ Order mapOrder(Object? raw) {
     deliveryName: _str(address, ['name']),
     deliveryAddress: _addressLine(address),
     returnReason: _str(json, ['returnReason']),
+    returnRefuseReason: _str(json, ['returnRefuseReason']),
     createdAt: _createdAt(_str(json, ['createdAt'])),
   );
 }
@@ -76,6 +77,8 @@ OrderTracking _tracking(Map<String, dynamic> json) {
     trackingNumber: _str(tracking, ['trackingNumber']),
     liveTrackingUrl: _str(tracking, ['liveTrackingUrl']),
     labelUrl: _str(tracking, ['labelUrl']),
+    returnTrackingNumber: _str(tracking, ['returnTrackingNumber']),
+    returnLabelUrl: _str(tracking, ['returnLabelUrl']),
     steps: steps,
   );
 }

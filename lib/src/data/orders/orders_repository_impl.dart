@@ -70,6 +70,19 @@ class OrdersRepositoryImpl implements OrdersRepository {
     );
   }
 
+  @override
+  Future<void> acceptReturn(String id) async {
+    await _dio.post<dynamic>('v1/orders/$id/accept-return');
+  }
+
+  @override
+  Future<void> refuseReturn(String id, {required String reason}) async {
+    await _dio.post<dynamic>(
+      'v1/orders/$id/refuse-return',
+      data: <String, dynamic>{'reason': reason},
+    );
+  }
+
   List<dynamic> _list(Object? data) {
     if (data is List) return data;
     if (data is Map<String, dynamic>) {

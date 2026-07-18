@@ -4,7 +4,9 @@ enum OrderAction {
   confirmReceipt,
   reportProblem,
   cancel,
-  review;
+  review,
+  acceptReturn,
+  refuseReturn;
 
   /// Maps the opaque `availableActions` strings to actions (normalises casing
   /// and `-`/`_`).
@@ -18,6 +20,12 @@ enum OrderAction {
       if (token.contains('report')) result.add(OrderAction.reportProblem);
       if (token.contains('cancel')) result.add(OrderAction.cancel);
       if (token.contains('review')) result.add(OrderAction.review);
+      if (token.contains('accept') && token.contains('return')) {
+        result.add(OrderAction.acceptReturn);
+      }
+      if (token.contains('refuse') && token.contains('return')) {
+        result.add(OrderAction.refuseReturn);
+      }
     }
     return result;
   }

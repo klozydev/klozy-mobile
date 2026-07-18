@@ -69,6 +69,7 @@ Map<String, dynamic> _baseOrderDetail({
   String status = 'pending',
   List<String> actions = const <String>[],
   String? returnReason,
+  String? returnRefuseReason,
   Map<String, dynamic>? tracking,
   Map<String, dynamic>? deliveryAddress,
 }) => <String, dynamic>{
@@ -80,6 +81,7 @@ Map<String, dynamic> _baseOrderDetail({
   'fees': _baseFees(),
   'seller': _baseSeller(),
   if (returnReason != null) 'returnReason': returnReason,
+  if (returnRefuseReason != null) 'returnRefuseReason': returnRefuseReason,
   if (tracking != null) 'tracking': tracking,
   if (deliveryAddress != null) 'deliveryAddress': deliveryAddress,
 };
@@ -251,6 +253,10 @@ void main() {
     test('deliveryName null', () => expect(order.deliveryName, isNull));
     test('deliveryAddress null', () => expect(order.deliveryAddress, isNull));
     test('returnReason null', () => expect(order.returnReason, isNull));
+    test(
+      'returnRefuseReason null',
+      () => expect(order.returnRefuseReason, isNull),
+    );
   });
 
   group('mapOrder — seller role', () {
@@ -335,6 +341,31 @@ void main() {
     });
   });
 
+  group('mapOrder — returnRefuseReason', () {
+    test('returnRefuseReason is forwarded when present', () {
+      final order = mapOrder(
+        _baseOrderDetail(returnRefuseReason: 'Item not as described'),
+      );
+      expect(order.returnRefuseReason, 'Item not as described');
+    });
+
+    test('returnRefuseReason is null when absent', () {
+      final order = mapOrder(_baseOrderDetail());
+      expect(order.returnRefuseReason, isNull);
+    });
+
+    test('returnRefuseReason distinct from returnReason', () {
+      final order = mapOrder(
+        _baseOrderDetail(
+          returnReason: 'Item damaged',
+          returnRefuseReason: 'Item not as described',
+        ),
+      );
+      expect(order.returnReason, 'Item damaged');
+      expect(order.returnRefuseReason, 'Item not as described');
+    });
+  });
+
   group('mapOrder — deliveryAddress', () {
     test('deliveryName and address line composed correctly', () {
       final order = mapOrder(
@@ -357,6 +388,8 @@ void main() {
       final order = mapOrder(_baseOrderDetail());
       expect(order.tracking.carrier, 'EMX');
       expect(order.tracking.steps, isEmpty);
+      expect(order.tracking.returnTrackingNumber, isNull);
+      expect(order.tracking.returnLabelUrl, isNull);
     });
 
     test('tracking fields mapped', () {
@@ -380,6 +413,34 @@ void main() {
       expect(order.tracking.steps[0].state, TrackStepState.done);
       expect(order.tracking.steps[1].state, TrackStepState.active);
       expect(order.tracking.steps[2].state, TrackStepState.pending);
+    });
+
+    test('returnTrackingNumber and returnLabelUrl mapped for buyer', () {
+      final raw = _baseOrderDetail(
+        tracking: <String, dynamic>{
+          'returnTrackingNumber': 'RET-456',
+          'returnLabelUrl': 'https://cdn.example.com/return-label.pdf',
+        },
+      );
+      final order = mapOrder(raw);
+      expect(order.tracking.returnTrackingNumber, 'RET-456');
+      expect(
+        order.tracking.returnLabelUrl,
+        'https://cdn.example.com/return-label.pdf',
+      );
+    });
+
+    test('returnLabelUrl null for seller (API omits it)', () {
+      final raw = _baseOrderDetail(
+        role: 'seller',
+        tracking: <String, dynamic>{
+          'returnTrackingNumber': 'RET-456',
+          'returnLabelUrl': null,
+        },
+      );
+      final order = mapOrder(raw);
+      expect(order.tracking.returnTrackingNumber, 'RET-456');
+      expect(order.tracking.returnLabelUrl, isNull);
     });
 
     test('step with state == done string', () {

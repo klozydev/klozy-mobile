@@ -186,5 +186,91 @@ void main() {
       await tester.tap(find.byIcon(Icons.arrow_back_ios_new));
       verify(() => router.maybePop<Object?>()).called(1);
     });
+
+    testWidgets(
+      'returnRefused status shows the seller refuse reason near return info',
+      (tester) async {
+        const orderWithRefuseReason = Order(
+          id: 'order-5',
+          status: OrderStatus.returnRefused,
+          viewerRole: OrderRole.buyer,
+          counterpart: _kSeller,
+          returnReason: 'Changed my mind',
+          returnRefuseReason: 'Item shows signs of wear',
+        );
+        await tester.pumpWidget(
+          _wrap(const OrderDetailLoadedState(orderWithRefuseReason), router),
+        );
+        await tester.pump();
+        expect(find.text('Refuse reason'), findsOneWidget);
+        expect(find.text('Item shows signs of wear'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'acceptReturn action shows Accept return and opens confirm dialog',
+      (tester) async {
+        const orderWithReturnActions = Order(
+          id: 'order-6',
+          status: OrderStatus.returnRequested,
+          viewerRole: OrderRole.seller,
+          counterpart: _kSeller,
+          availableActions: <OrderAction>{OrderAction.acceptReturn},
+        );
+        await tester.pumpWidget(
+          _wrap(const OrderDetailLoadedState(orderWithReturnActions), router),
+        );
+        await tester.pump();
+
+        await tester.tap(find.text('Accept return'));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(AlertDialog), findsOneWidget);
+      },
+    );
+
+    testWidgets('refuseReturn action opens the RefuseReturnSheet', (
+      tester,
+    ) async {
+      const orderWithReturnActions = Order(
+        id: 'order-7',
+        status: OrderStatus.returnRequested,
+        viewerRole: OrderRole.seller,
+        counterpart: _kSeller,
+        availableActions: <OrderAction>{OrderAction.refuseReturn},
+      );
+      await tester.pumpWidget(
+        _wrap(const OrderDetailLoadedState(orderWithReturnActions), router),
+      );
+      await tester.pump();
+
+      await tester.tap(find.text('Refuse return'));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Refuse return'), findsWidgets);
+      expect(
+        find.text("Explain why you're refusing this return"),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('returnLabelUrl shows Download return label button', (
+      tester,
+    ) async {
+      const orderWithReturnLabel = Order(
+        id: 'order-8',
+        status: OrderStatus.returnAccepted,
+        viewerRole: OrderRole.buyer,
+        counterpart: _kSeller,
+        tracking: OrderTracking(
+          returnLabelUrl: 'https://emx.test/return-label',
+        ),
+      );
+      await tester.pumpWidget(
+        _wrap(const OrderDetailLoadedState(orderWithReturnLabel), router),
+      );
+      await tester.pump();
+      expect(find.text('Download return label'), findsOneWidget);
+    });
   });
 }

@@ -47,6 +47,10 @@ class OrderDetailBloc extends Bloc<OrderDetailEvent, OrderDetailState> {
             rating: event.rating ?? 5,
             body: event.body,
           );
+        case OrderAction.acceptReturn:
+          await _repository.acceptReturn(id);
+        case OrderAction.refuseReturn:
+          await _repository.refuseReturn(id, reason: event.reason ?? '');
       }
     } catch (_) {}
     await _load(id, emit);

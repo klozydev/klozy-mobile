@@ -130,6 +130,38 @@ void main() {
       verify(() => mockRepo.reportProblem('order1', 'broken')).called(1);
     });
 
+    test('acceptReturn: calls acceptReturn and reloads', () async {
+      await loadOrder();
+      when(() => mockRepo.acceptReturn(any())).thenAnswer((_) async {});
+
+      await _collectStates(
+        bloc,
+        const OrderActionRequested(OrderAction.acceptReturn),
+      );
+
+      verify(() => mockRepo.acceptReturn('order1')).called(1);
+      verify(() => mockRepo.getOrder('order1')).called(2); // initial + reload
+    });
+
+    test('refuseReturn: calls refuseReturn with reason', () async {
+      await loadOrder();
+      when(
+        () => mockRepo.refuseReturn(any(), reason: any(named: 'reason')),
+      ).thenAnswer((_) async {});
+
+      await _collectStates(
+        bloc,
+        const OrderActionRequested(
+          OrderAction.refuseReturn,
+          reason: 'damaged',
+        ),
+      );
+
+      verify(
+        () => mockRepo.refuseReturn('order1', reason: 'damaged'),
+      ).called(1);
+    });
+
     test('review: calls review with rating and body', () async {
       await loadOrder();
       when(

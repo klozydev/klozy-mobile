@@ -1319,6 +1319,38 @@ class AppLocalizationsKk extends AppLocalizations {
   String get orders_couldnt_open_link => 'Сілтемені ашу мүмкін болмады.';
 
   @override
+  String get orders_accept_return => 'Қайтаруды қабылдау';
+
+  @override
+  String get orders_refuse_return => 'Қайтарудан бас тарту';
+
+  @override
+  String get orders_accept_return_message =>
+      'Бұл қайтаруды қабылдайсыз ба? Затты кері алғаннан кейін сатып алушыға төлем қайтарылады.';
+
+  @override
+  String get orders_download_return_label => 'Қайтару жапсырмасын жүктеу';
+
+  @override
+  String get orders_refuse_return_title => 'Қайтарудан бас тарту';
+
+  @override
+  String get orders_refuse_return_hint =>
+      'Бұл қайтарудан неге бас тартқаныңызды түсіндіріңіз';
+
+  @override
+  String get orders_refuse_return_error => 'Растамас бұрын себеп қосыңыз';
+
+  @override
+  String get orders_return_reason_label => 'Қайтару себебі';
+
+  @override
+  String get orders_refuse_reason_label => 'Бас тарту себебі';
+
+  @override
+  String get orders_return_tracking_label => 'Қайтаруды қадағалау';
+
+  @override
   String get orders_status_pending => 'Күтілуде';
 
   @override
@@ -1335,6 +1367,15 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'Қайтару сұралды';
+
+  @override
+  String get orders_status_return_accepted => 'Қайтару қабылданды';
+
+  @override
+  String get orders_status_return_refused => 'Қайтарудан бас тартылды';
+
+  @override
+  String get orders_status_return_completed => 'Қайтару аяқталды';
 
   @override
   String get orders_status_canceled => 'Болдырылмады';

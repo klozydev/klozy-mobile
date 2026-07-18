@@ -20,6 +20,11 @@ class Order extends Equatable {
   final String? deliveryAddress;
   final String? returnReason;
 
+  /// Seller's reason for refusing a return (root `returnRefuseReason`).
+  /// Populated when [status] is [OrderStatus.returnRefused]; visible to both
+  /// buyer and seller.
+  final String? returnRefuseReason;
+
   /// Server-provided pre-formatted label, when present. Prefer this in the UI;
   /// otherwise format [createdAt] via `RelativeTimeFormatter`.
   final String? createdAtLabel;
@@ -40,6 +45,7 @@ class Order extends Equatable {
     this.deliveryName,
     this.deliveryAddress,
     this.returnReason,
+    this.returnRefuseReason,
     this.createdAtLabel,
     this.createdAt,
   });
@@ -61,6 +67,7 @@ class Order extends Equatable {
     deliveryName,
     deliveryAddress,
     returnReason,
+    returnRefuseReason,
     createdAtLabel,
     createdAt,
   ];

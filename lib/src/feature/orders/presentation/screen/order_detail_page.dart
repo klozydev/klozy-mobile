@@ -21,7 +21,9 @@ import 'package:klozy/src/feature/orders/presentation/widget/order_action_bar_wi
 import 'package:klozy/src/feature/orders/presentation/widget/order_counterpart_card_widget.dart';
 import 'package:klozy/src/feature/orders/presentation/widget/order_status_pill_widget.dart';
 import 'package:klozy/src/feature/orders/presentation/widget/order_tracking_stepper_widget.dart';
+import 'package:klozy/src/feature/orders/presentation/widget/refuse_return_sheet.dart';
 import 'package:klozy/src/feature/orders/presentation/widget/report_problem_sheet.dart';
+import 'package:klozy/src/feature/orders/presentation/widget/return_details_card_widget.dart';
 import 'package:klozy/src/feature/orders/presentation/widget/review_sheet.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -59,6 +61,18 @@ class OrderDetailPage extends StatelessWidget implements AutoRouteWrapper {
     );
     if (reason != null && reason.isNotEmpty) {
       bloc.add(OrderActionRequested(OrderAction.reportProblem, reason: reason));
+    }
+  }
+
+  Future<void> _refuseReturn(BuildContext context) async {
+    final bloc = context.read<OrderDetailBloc>();
+    final reason = await DSBottomSheet.show<String>(
+      context,
+      title: context.l10N.orders_refuse_return_title,
+      child: const RefuseReturnSheet(),
+    );
+    if (reason != null && reason.isNotEmpty) {
+      bloc.add(OrderActionRequested(OrderAction.refuseReturn, reason: reason));
     }
   }
 
@@ -160,6 +174,13 @@ class OrderDetailPage extends StatelessWidget implements AutoRouteWrapper {
             onReview: () => _review(context),
             onTrack: () => _open(context, order.tracking.liveTrackingUrl),
             onLabel: () => _open(context, order.tracking.labelUrl),
+            onAcceptReturn: () => _confirm(
+              context,
+              context.l10N.orders_accept_return_message,
+              OrderAction.acceptReturn,
+            ),
+            onRefuseReturn: () => _refuseReturn(context),
+            onReturnLabel: () => _open(context, order.tracking.returnLabelUrl),
           );
         },
       ),
@@ -231,6 +252,12 @@ class _OrderBody extends StatelessWidget {
             ],
           ),
         ),
+        if (order.returnReason != null ||
+            order.returnRefuseReason != null ||
+            order.tracking.returnTrackingNumber != null) ...<Widget>[
+          const SizedBox(height: 16),
+          ReturnDetailsCardWidget(order: order),
+        ],
         const SizedBox(height: 16),
         OrderCounterpartCardWidget(
           party: order.counterpart,

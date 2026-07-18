@@ -353,4 +353,73 @@ void main() {
       expect(reqBody.containsKey('body'), isFalse);
     });
   });
+
+  // ── acceptReturn ────────────────────────────────────────────────────────
+
+  group('acceptReturn', () {
+    test('posts to v1/orders/:id/accept-return with no body', () async {
+      when(
+        () => mockDio.post<dynamic>('v1/orders/ord1/accept-return'),
+      ).thenAnswer((_) async => _voidOk('v1/orders/ord1/accept-return'));
+
+      await repo.acceptReturn('ord1');
+
+      verify(
+        () => mockDio.post<dynamic>('v1/orders/ord1/accept-return'),
+      ).called(1);
+    });
+
+    test('propagates DioException', () async {
+      final DioException error = DioException(
+        requestOptions: RequestOptions(path: 'v1/orders/ord1/accept-return'),
+      );
+      when(
+        () => mockDio.post<dynamic>('v1/orders/ord1/accept-return'),
+      ).thenThrow(error);
+
+      expect(() => repo.acceptReturn('ord1'), throwsA(same(error)));
+    });
+  });
+
+  // ── refuseReturn ────────────────────────────────────────────────────────
+
+  group('refuseReturn', () {
+    test('posts reason to v1/orders/:id/refuse-return', () async {
+      when(
+        () => mockDio.post<dynamic>(
+          'v1/orders/ord1/refuse-return',
+          data: any(named: 'data'),
+        ),
+      ).thenAnswer((_) async => _voidOk('v1/orders/ord1/refuse-return'));
+
+      await repo.refuseReturn('ord1', reason: 'item not received');
+
+      final VerificationResult v = verify(
+        () => mockDio.post<dynamic>(
+          'v1/orders/ord1/refuse-return',
+          data: captureAny(named: 'data'),
+        ),
+      );
+      final Map<String, dynamic> body =
+          v.captured.first as Map<String, dynamic>;
+      expect(body['reason'], 'item not received');
+    });
+
+    test('propagates DioException', () async {
+      final DioException error = DioException(
+        requestOptions: RequestOptions(path: 'v1/orders/ord1/refuse-return'),
+      );
+      when(
+        () => mockDio.post<dynamic>(
+          'v1/orders/ord1/refuse-return',
+          data: any(named: 'data'),
+        ),
+      ).thenThrow(error);
+
+      expect(
+        () => repo.refuseReturn('ord1', reason: 'item not received'),
+        throwsA(same(error)),
+      );
+    });
+  });
 }

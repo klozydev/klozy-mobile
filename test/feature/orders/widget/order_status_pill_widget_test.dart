@@ -48,6 +48,24 @@ void main() {
       expect(find.text('RETURN REQUESTED'), findsOneWidget);
     });
 
+    testWidgets('returnAccepted shows RETURN ACCEPTED', (tester) async {
+      await tester.pumpWidget(build(OrderStatus.returnAccepted));
+      await tester.pump();
+      expect(find.text('RETURN ACCEPTED'), findsOneWidget);
+    });
+
+    testWidgets('returnRefused shows RETURN REFUSED', (tester) async {
+      await tester.pumpWidget(build(OrderStatus.returnRefused));
+      await tester.pump();
+      expect(find.text('RETURN REFUSED'), findsOneWidget);
+    });
+
+    testWidgets('returnCompleted shows RETURN COMPLETED', (tester) async {
+      await tester.pumpWidget(build(OrderStatus.returnCompleted));
+      await tester.pump();
+      expect(find.text('RETURN COMPLETED'), findsOneWidget);
+    });
+
     testWidgets('canceled shows CANCELED', (tester) async {
       await tester.pumpWidget(build(OrderStatus.canceled));
       await tester.pump();

@@ -1313,6 +1313,38 @@ class AppLocalizationsFa extends AppLocalizations {
   String get orders_couldnt_open_link => 'نتوانستیم پیوند را باز کنیم.';
 
   @override
+  String get orders_accept_return => 'پذیرفتن مرجوعی';
+
+  @override
+  String get orders_refuse_return => 'رد کردن مرجوعی';
+
+  @override
+  String get orders_accept_return_message =>
+      'این مرجوعی را می‌پذیرید؟ پس از دریافت مجدد کالا، مبلغ به خریدار بازپرداخت خواهد شد.';
+
+  @override
+  String get orders_download_return_label => 'دانلود برچسب مرجوعی';
+
+  @override
+  String get orders_refuse_return_title => 'رد کردن مرجوعی';
+
+  @override
+  String get orders_refuse_return_hint =>
+      'توضیح دهید چرا این مرجوعی را رد می‌کنید';
+
+  @override
+  String get orders_refuse_return_error => 'پیش از تأیید، دلیلی اضافه کنید';
+
+  @override
+  String get orders_return_reason_label => 'دلیل مرجوعی';
+
+  @override
+  String get orders_refuse_reason_label => 'دلیل رد';
+
+  @override
+  String get orders_return_tracking_label => 'پیگیری مرجوعی';
+
+  @override
   String get orders_status_pending => 'در انتظار';
 
   @override
@@ -1329,6 +1361,15 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get orders_status_return_requested => 'درخواست مرجوعی';
+
+  @override
+  String get orders_status_return_accepted => 'مرجوعی پذیرفته شد';
+
+  @override
+  String get orders_status_return_refused => 'مرجوعی رد شد';
+
+  @override
+  String get orders_status_return_completed => 'مرجوعی تکمیل شد';
 
   @override
   String get orders_status_canceled => 'لغوشده';
