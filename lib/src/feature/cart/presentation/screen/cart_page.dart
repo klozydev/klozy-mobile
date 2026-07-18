@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -130,7 +131,7 @@ class CartPage extends StatelessWidget implements AutoRouteWrapper {
                             // ProfileCompletionRoute; guests get sign-up.
                             onCheckout: () => locator<AccountGate>().guard(
                               context,
-                              onAllowed: () => context.router.push(
+                              onAllowed: () => context.router.pushSafe(
                                 CheckoutRoute(sellerId: b.sellerId, bucket: b),
                               ),
                             ),

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stripe/flutter_stripe.dart' hide Address;
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
@@ -130,7 +131,7 @@ class _Review extends StatelessWidget {
   /// the checkout so the new/edited address is reflected once the form returns.
   Future<void> _editAddress(BuildContext context, {Address? address}) async {
     final bloc = context.read<CheckoutBloc>();
-    final changed = await context.router.push<bool>(
+    final changed = await context.router.pushSafe<bool>(
       AddressFormRoute(address: address),
     );
     if (changed == true) bloc.add(CheckoutStarted(bucket.sellerId));
@@ -168,8 +169,9 @@ class _Review extends StatelessWidget {
           ),
           CheckoutSellerCardWidget(
             bucket: bucket,
-            onOpenSeller: () =>
-                context.router.push(UserProfileRoute(userId: bucket.sellerId)),
+            onOpenSeller: () => context.router.pushSafe(
+              UserProfileRoute(userId: bucket.sellerId),
+            ),
             onMessage: () => context.openChatWith(
               bucket.sellerId,
               displayName: bucket.sellerName,
@@ -488,14 +490,14 @@ class _OrderPlaced extends StatelessWidget {
                 children: <Widget>[
                   DSButtonElevated(
                     text: context.l10N.checkout_track_order,
-                    onPressed: () => context.router.replaceAll(
+                    onPressed: () => context.router.replaceAllSafe(
                       const <PageRouteInfo>[ShellRoute(), OrdersRoute()],
                     ),
                   ),
                   const SizedBox(height: 10),
                   DSButtonOutline(
                     text: context.l10N.checkout_continue_shopping,
-                    onPressed: () => context.router.replaceAll(
+                    onPressed: () => context.router.replaceAllSafe(
                       const <PageRouteInfo>[ShellRoute()],
                     ),
                   ),

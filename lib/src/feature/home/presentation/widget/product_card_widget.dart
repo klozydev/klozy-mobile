@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_product_card.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/product/entity/product.dart';
@@ -30,7 +31,8 @@ class ProductCardWidget extends StatelessWidget {
       badge: product.isNewWithTags ? context.l10N.home_product_badge_new : null,
       isLiked: liked,
       imageUrl: product.coverImageUrl,
-      onTap: onTap ?? () => context.router.push(ProductRoute(id: product.id)),
+      onTap:
+          onTap ?? () => context.router.pushSafe(ProductRoute(id: product.id)),
       onLikeChanged: (_) => locator<AccountGate>().guard(
         context,
         onAllowed: () => context.read<WishlistCubit>().toggle(product.id),

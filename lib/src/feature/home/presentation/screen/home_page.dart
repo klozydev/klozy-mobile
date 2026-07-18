@@ -11,6 +11,7 @@ import 'package:klozy/src/app/wishlist/wishlist_cubit.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/events/open_reels_tab_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_cart_badge.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -118,7 +119,7 @@ class _HomePageState extends State<HomePage> {
   void _openCart(BuildContext context) {
     locator<AccountGate>().guard(
       context,
-      onAllowed: () => context.router.push(const CartRoute()),
+      onAllowed: () => context.router.pushSafe(const CartRoute()),
     );
   }
 

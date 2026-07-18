@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_brand_chip.dart';
@@ -68,7 +69,7 @@ class _PersonalizePageState extends State<PersonalizePage> {
     setState(() => set.contains(value) ? set.remove(value) : set.add(value));
   }
 
-  void _goNext() => context.router.push(const ProfileCompletionRoute());
+  void _goNext() => context.router.pushSafe(const ProfileCompletionRoute());
 
   Future<void> _openCategoryPicker() async {
     final picked = await DSBottomSheet.show<PickedCategory>(

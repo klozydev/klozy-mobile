@@ -6,6 +6,7 @@ import 'package:klozy/src/app/bloc/account/account_event.dart';
 import 'package:klozy/src/core/components/avatar_upload_widget.dart';
 import 'package:klozy/src/core/constants/app_defaults.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_address_field.dart';
 import 'package:klozy/src/design/components/ds_address_suggestion.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
@@ -159,7 +160,7 @@ class _ProfileCompletionPageState extends State<ProfileCompletionPage> {
       // AccountResolved(incompleteOnboarding) for the rest of the session,
       // causing profile actions (edit, settings) to be incorrectly blocked.
       context.read<AccountBloc>().add(const AccountBootstrapRequested());
-      context.router.replaceAll(const <PageRouteInfo>[ShellRoute()]);
+      context.router.replaceAllSafe(const <PageRouteInfo>[ShellRoute()]);
     } else if (state is ProfileCompletionFailure) {
       context.showSnackBar(state.message);
     } else if (state is ProfileCompletionSuggestionsLoaded) {

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
@@ -77,7 +78,7 @@ class _GuestOrLegacyContent extends StatelessWidget {
           onPressed: () {
             final router = context.router;
             Navigator.of(context).maybePop();
-            router.push(const WelcomeRoute());
+            router.pushSafe(const WelcomeRoute());
           },
         ),
         const SizedBox(height: DSSpacing.xs),
@@ -86,7 +87,7 @@ class _GuestOrLegacyContent extends StatelessWidget {
           onPressed: () {
             final router = context.router;
             Navigator.of(context).maybePop();
-            router.push(const WelcomeRoute());
+            router.pushSafe(const WelcomeRoute());
           },
         ),
         const SizedBox(height: DSSpacing.xxs),
@@ -132,7 +133,7 @@ class _IncompleteOnboardingContent extends StatelessWidget {
             Navigator.of(context).maybePop();
             // Skip the "personalize your feed" step — go straight to the
             // profile-completion form when an action needs a complete profile.
-            router.push(const ProfileCompletionRoute());
+            router.pushSafe(const ProfileCompletionRoute());
           },
         ),
         const SizedBox(height: DSSpacing.xxs),

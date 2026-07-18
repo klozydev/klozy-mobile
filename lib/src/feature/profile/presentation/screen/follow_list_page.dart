@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_segmented_control.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -111,7 +112,7 @@ class _FollowListPageState extends State<FollowListPage> {
         final FollowUser u = users[i];
         return FollowUserRowWidget(
           user: u,
-          onTap: () => context.router.push(UserProfileRoute(userId: u.id)),
+          onTap: () => context.router.pushSafe(UserProfileRoute(userId: u.id)),
           onToggleFollow: () =>
               context.read<FollowListBloc>().add(FollowListRowToggled(u.id)),
         );

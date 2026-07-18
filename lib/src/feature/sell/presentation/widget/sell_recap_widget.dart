@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
@@ -119,7 +120,7 @@ class _SellRecapWidgetState extends State<SellRecapWidget> {
   }
 
   Future<void> _pickCategory() async {
-    final result = await context.router.push(
+    final result = await context.router.pushSafe(
       SellCategoryRoute(parent: _mainCategory),
     );
     if (!mounted) return;

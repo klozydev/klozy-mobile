@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_category_tree_picker.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
@@ -130,7 +131,7 @@ class _SearchPageState extends State<SearchPage> {
     BuildContext context,
     CatalogCategory root,
   ) async {
-    final Object? result = await context.router.push(
+    final Object? result = await context.router.pushSafe(
       SearchCategoryRoute(root: root),
     );
     if (result is PickedCategory) {

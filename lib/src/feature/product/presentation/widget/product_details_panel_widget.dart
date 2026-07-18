@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
@@ -44,7 +45,7 @@ class ProductDetailsPanelWidget extends StatelessWidget {
               ),
               onTap: isOwner
                   ? null
-                  : () => context.router.push(
+                  : () => context.router.pushSafe(
                       UserProfileRoute(userId: detail.seller.id),
                     ),
             ),

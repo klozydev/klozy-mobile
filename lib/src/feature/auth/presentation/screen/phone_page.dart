@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_text_field.dart';
@@ -187,7 +188,7 @@ class _PhonePageState extends State<PhonePage> {
 
   void _listener(BuildContext context, AuthState state) {
     if (state is AuthCodeSent) {
-      context.router.push(
+      context.router.pushSafe(
         OtpRoute(
           verificationId: state.verification.verificationId,
           destination: state.destination,

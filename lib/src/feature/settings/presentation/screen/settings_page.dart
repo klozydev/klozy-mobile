@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/core/util/app_share.dart';
 import 'package:klozy/src/core/util/instagram_link.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
@@ -72,7 +73,7 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
     return BlocConsumer<SettingsBloc, SettingsState>(
       listener: (BuildContext context, SettingsState state) {
         if (state is SettingsSignedOutState) {
-          context.router.replaceAll(const <PageRouteInfo>[WelcomeRoute()]);
+          context.router.replaceAllSafe(const <PageRouteInfo>[WelcomeRoute()]);
         }
       },
       builder: (BuildContext context, SettingsState state) {
@@ -115,19 +116,19 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
               icon: Icons.person_outline,
               label: l.settings_personal_data,
               subtitle: l.settings_personal_data_sub,
-              onTap: () => context.router.push(const PersonalDataRoute()),
+              onTap: () => context.router.pushSafe(const PersonalDataRoute()),
             ),
             SettingsRowWidget(
               icon: Icons.shield_outlined,
               label: l.settings_security,
               subtitle: l.settings_security_sub,
-              onTap: () => context.router.push(const SecurityRoute()),
+              onTap: () => context.router.pushSafe(const SecurityRoute()),
             ),
             SettingsRowWidget(
               icon: Icons.account_balance_outlined,
               label: l.settings_payouts,
               subtitle: l.settings_payouts_sub,
-              onTap: () => context.router.push(const PayoutRoute()),
+              onTap: () => context.router.pushSafe(const PayoutRoute()),
             ),
           ],
         ),
@@ -173,22 +174,25 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
               icon: Icons.privacy_tip_outlined,
               label: l.settings_privacy,
               onTap: () =>
-                  context.router.push(LegalDocRoute(docKey: 'privacy')),
+                  context.router.pushSafe(LegalDocRoute(docKey: 'privacy')),
             ),
             SettingsRowWidget(
               icon: Icons.description_outlined,
               label: l.settings_terms,
-              onTap: () => context.router.push(LegalDocRoute(docKey: 'cgvu')),
+              onTap: () =>
+                  context.router.pushSafe(LegalDocRoute(docKey: 'cgvu')),
             ),
             SettingsRowWidget(
               icon: Icons.gavel_rounded,
               label: l.settings_legal_notices,
-              onTap: () => context.router.push(LegalDocRoute(docKey: 'legal')),
+              onTap: () =>
+                  context.router.pushSafe(LegalDocRoute(docKey: 'legal')),
             ),
             SettingsRowWidget(
               icon: Icons.info_outline_rounded,
               label: l.settings_about,
-              onTap: () => context.router.push(LegalDocRoute(docKey: 'about')),
+              onTap: () =>
+                  context.router.pushSafe(LegalDocRoute(docKey: 'about')),
             ),
           ],
         ),

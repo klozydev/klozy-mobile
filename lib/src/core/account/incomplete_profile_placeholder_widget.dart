@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_app_logo.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -42,7 +43,8 @@ class IncompleteProfilePlaceholderWidget extends StatelessWidget {
               const SizedBox(height: DSSpacing.xl),
               DSButtonElevated(
                 text: context.l10N.chat_incomplete_profile_cta,
-                onPressed: () => context.router.push(const EditProfileRoute()),
+                onPressed: () =>
+                    context.router.pushSafe(const EditProfileRoute()),
               ),
             ],
           ),

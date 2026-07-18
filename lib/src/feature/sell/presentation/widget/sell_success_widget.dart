@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_button_outline.dart';
@@ -73,14 +74,14 @@ class SellSuccessWidget extends StatelessWidget {
                     text: context.l10N.sell_view_listing,
                     isEnable: productId.isNotEmpty,
                     onPressed: () =>
-                        context.router.replace(ProductRoute(id: productId)),
+                        context.router.replaceSafe(ProductRoute(id: productId)),
                   ),
                   const SizedBox(height: 10),
                   // Quick path into the reel composer with this product
                   // pre-tagged (a reel requires at least one tagged product).
                   DSButtonOutline(
                     text: context.l10N.sell_create_reel,
-                    onPressed: () => context.router.replace(
+                    onPressed: () => context.router.replaceSafe(
                       ReelComposerRoute(initialProductId: productId),
                     ),
                   ),

@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_google_glyph.dart';
@@ -219,7 +220,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           label: context.l10N.auth_continue_phone,
                           onPressed: () =>
-                              context.router.push(const PhoneRoute()),
+                              context.router.pushSafe(const PhoneRoute()),
                         ),
                       ],
                     ),
@@ -293,7 +294,7 @@ class _LoginPageState extends State<LoginPage> {
       // Go straight home after auth — profile completion is no longer forced
       // up front; it's requested on-demand by the actions that need it
       // (e.g. the seller address gate).
-      context.router.replaceAll(<PageRouteInfo>[const ShellRoute()]);
+      context.router.replaceAllSafe(<PageRouteInfo>[const ShellRoute()]);
     } else if (state is AuthFailure) {
       context.showSnackBar(state.reason.message(context.l10N));
     } else if (state is AuthPasswordResetSent) {

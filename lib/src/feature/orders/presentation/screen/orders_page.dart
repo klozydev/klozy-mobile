@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_segmented_control.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -48,7 +49,7 @@ class OrdersPage extends StatelessWidget implements AutoRouteWrapper {
           IconButton(
             icon: const Icon(Icons.local_offer_outlined, size: 22),
             tooltip: context.l10N.offers_title,
-            onPressed: () => context.router.push(const OffersRoute()),
+            onPressed: () => context.router.pushSafe(const OffersRoute()),
           ),
         ],
       ),
@@ -137,7 +138,7 @@ class OrdersPage extends StatelessWidget implements AutoRouteWrapper {
           counterpartPrefix: role == OrderRole.seller
               ? context.l10N.orders_prefix_to
               : context.l10N.orders_prefix_from,
-          onTap: () => context.router.push(OrderDetailRoute(id: o.id)),
+          onTap: () => context.router.pushSafe(OrderDetailRoute(id: o.id)),
         ),
       ),
     ];

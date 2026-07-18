@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_bloc.dart';
 import 'package:klozy/src/app/bloc/account/account_event.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_code_input.dart';
@@ -240,7 +241,7 @@ class _OtpPageState extends State<OtpPage> {
       );
       // Always land on home after a verified sign-in; profile completion is
       // on-demand now (no forced personalize/complete-profile step).
-      context.router.replaceAll(<PageRouteInfo>[const ShellRoute()]);
+      context.router.replaceAllSafe(<PageRouteInfo>[const ShellRoute()]);
     } else if (state is AuthCodeSent) {
       setState(() => _verificationId = state.verification.verificationId);
       _startCountdown();

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/feature/settings/presentation/widget/settings_row_widget.dart';
 import 'package:klozy/src/feature/settings/presentation/widget/settings_section_widget.dart';
@@ -33,7 +34,7 @@ class PersonalDataPage extends StatelessWidget {
               SettingsRowWidget(
                 icon: Icons.person_outline,
                 label: l.settings_personal_information,
-                onTap: () => context.router.push(const EditProfileRoute()),
+                onTap: () => context.router.pushSafe(const EditProfileRoute()),
               ),
             ],
           ),
@@ -44,17 +45,19 @@ class PersonalDataPage extends StatelessWidget {
                 icon: Icons.palette_outlined,
                 label: l.settings_clothing_preference,
                 onTap: () =>
-                    context.router.push(const ClothingPreferenceRoute()),
+                    context.router.pushSafe(const ClothingPreferenceRoute()),
               ),
               SettingsRowWidget(
                 icon: Icons.straighten_rounded,
                 label: l.settings_preferred_size,
-                onTap: () => context.router.push(const PreferredSizeRoute()),
+                onTap: () =>
+                    context.router.pushSafe(const PreferredSizeRoute()),
               ),
               SettingsRowWidget(
                 icon: Icons.sell_outlined,
                 label: l.settings_preferred_brands,
-                onTap: () => context.router.push(const PreferredBrandsRoute()),
+                onTap: () =>
+                    context.router.pushSafe(const PreferredBrandsRoute()),
               ),
             ],
           ),
@@ -64,7 +67,7 @@ class PersonalDataPage extends StatelessWidget {
               SettingsRowWidget(
                 icon: Icons.block_outlined,
                 label: l.settings_blocked_users,
-                onTap: () => context.router.push(const BlockedUsersRoute()),
+                onTap: () => context.router.pushSafe(const BlockedUsersRoute()),
               ),
             ],
           ),

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_app_logo.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -75,12 +76,12 @@ class WelcomePage extends StatelessWidget {
                     DSButtonElevated(
                       text: context.l10N.auth_get_started,
                       onPressed: () =>
-                          context.router.push(LoginRoute(isSignUp: true)),
+                          context.router.pushSafe(LoginRoute(isSignUp: true)),
                     ),
                     const SizedBox(height: 12),
                     TextButton(
                       onPressed: () =>
-                          context.router.push(LoginRoute(isSignUp: false)),
+                          context.router.pushSafe(LoginRoute(isSignUp: false)),
                       child: Text.rich(
                         TextSpan(
                           text: context.l10N.auth_already_have_account,

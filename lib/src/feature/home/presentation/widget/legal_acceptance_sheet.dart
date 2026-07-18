@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
@@ -56,7 +57,8 @@ class _LegalAcceptanceSheetState extends State<LegalAcceptanceSheet> {
         const SizedBox(height: 12),
         ...widget.docs.map(
           (LegalDoc doc) => InkWell(
-            onTap: () => context.router.push(LegalDocRoute(docKey: doc.key)),
+            onTap: () =>
+                context.router.pushSafe(LegalDocRoute(docKey: doc.key)),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Row(

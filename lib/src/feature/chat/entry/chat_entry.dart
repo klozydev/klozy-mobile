@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
+import 'package:klozy/src/core/navigation/navigation_guard.dart';
 import 'package:klozy/src/di/injection.dart';
 import 'package:klozy/src/domain/me/me_repository.dart';
 import 'package:klozy/src/feature/chat/domain/usecase/open_or_create_thread.dart';
@@ -24,14 +25,22 @@ class ChatEntry {
     required String otherUserId,
     String? displayName,
     String? avatarUrl,
-  }) async {
-    await locator<AccountGate>().guard(
-      context,
-      onAllowed: () => _openThread(
+  }) {
+    // Opening a thread awaits async work (account gate, /me, thread upsert)
+    // before it navigates. Without a lock, re-tapping the affordance during
+    // that gap runs the whole flow again and stacks a second chat screen.
+    // The in-flight lock (keyed per peer) collapses re-taps to one open and
+    // releases when the thread is dismissed.
+    return NavigationGuard.instance.runExclusive(
+      'chat:$otherUserId',
+      () => locator<AccountGate>().guard(
         context,
-        otherUserId: otherUserId,
-        displayName: displayName,
-        avatarUrl: avatarUrl,
+        onAllowed: () => _openThread(
+          context,
+          otherUserId: otherUserId,
+          displayName: displayName,
+          avatarUrl: avatarUrl,
+        ),
       ),
     );
   }

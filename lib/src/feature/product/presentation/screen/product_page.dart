@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_button_elevated.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
@@ -138,7 +139,7 @@ class _LoadedViewState extends State<_LoadedView> {
         isOwner: true,
         onEdit: () {
           Navigator.of(context).maybePop();
-          context.router.push(EditListingRoute(productId: _detail.id));
+          context.router.pushSafe(EditListingRoute(productId: _detail.id));
         },
         onDelete: () {
           Navigator.of(context).maybePop();
@@ -287,10 +288,11 @@ class _LoadedViewState extends State<_LoadedView> {
               },
               onViewCart: () => locator<AccountGate>().guard(
                 context,
-                onAllowed: () => context.router.push(const CartRoute()),
+                onAllowed: () => context.router.pushSafe(const CartRoute()),
               ),
-              onEdit: () =>
-                  context.router.push(EditListingRoute(productId: detail.id)),
+              onEdit: () => context.router.pushSafe(
+                EditListingRoute(productId: detail.id),
+              ),
               onOpenMenu: () => _openOwnerMenu(context),
             ),
           ),

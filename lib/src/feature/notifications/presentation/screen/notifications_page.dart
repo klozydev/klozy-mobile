@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/di/injection.dart';
@@ -58,13 +59,15 @@ class _NotificationsPageState extends State<NotificationsPage> {
   void _open(BuildContext context, AppNotification n) {
     context.read<NotificationsBloc>().add(NotificationMarkedRead(n.id));
     if (n.conversationId != null) {
-      context.router.push(ChatThreadRoute(conversationId: n.conversationId!));
+      context.router.pushSafe(
+        ChatThreadRoute(conversationId: n.conversationId!),
+      );
     } else if (n.productId != null) {
-      context.router.push(ProductRoute(id: n.productId!));
+      context.router.pushSafe(ProductRoute(id: n.productId!));
     } else if (n.orderId != null) {
-      context.router.push(OrderDetailRoute(id: n.orderId!));
+      context.router.pushSafe(OrderDetailRoute(id: n.orderId!));
     } else if (n.userId != null) {
-      context.router.push(UserProfileRoute(userId: n.userId!));
+      context.router.pushSafe(UserProfileRoute(userId: n.userId!));
     }
   }
 

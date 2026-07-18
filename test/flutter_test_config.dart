@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:klozy/src/core/navigation/navigation_guard.dart';
 
 /// Global widget-test bootstrap (auto-loaded by `flutter test` for every test in
 /// this directory tree). Installs a fake [HttpClient] so that `Image.network`
@@ -12,6 +13,9 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   // init, so we must set ours afterwards for it to stick.
   TestWidgetsFlutterBinding.ensureInitialized();
   HttpOverrides.global = _FakeImageHttpOverrides();
+  // The navigation guard is an app-wide singleton; clear its cooldown/in-flight
+  // state between tests so one test's navigation can't suppress another's.
+  setUp(NavigationGuard.instance.reset);
   await testMain();
 }
 

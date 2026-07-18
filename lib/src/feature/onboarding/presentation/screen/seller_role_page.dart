@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/core/util/iban_validator.dart';
 import 'package:klozy/src/core/utils/upper_case_text_formatter.dart';
 import 'package:klozy/src/design/components/ds_bottom_bar.dart';
@@ -74,13 +75,13 @@ class _SellerRolePageState extends State<SellerRolePage> {
     if (!context.mounted) return;
     switch (next) {
       case SellPrerequisite.needsAddress:
-        context.router.replace(AddressFormRoute(requirePhone: true));
+        context.router.replaceSafe(AddressFormRoute(requirePhone: true));
       case SellPrerequisite.needsIban:
-        context.router.replace(const PayoutRoute());
+        context.router.replaceSafe(const PayoutRoute());
       case SellPrerequisite.needsKyb:
-        context.router.replace(const SellerVerificationRoute());
+        context.router.replaceSafe(const SellerVerificationRoute());
       case SellPrerequisite.ready:
-        context.router.replace(const SellRoute());
+        context.router.replaceSafe(const SellRoute());
       case SellPrerequisite.needsRole:
         context.router.maybePop();
     }

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/feature/settings/presentation/widget/settings_row_widget.dart';
 import 'package:klozy/src/feature/settings/presentation/widget/settings_section_widget.dart';
@@ -33,17 +34,18 @@ class SecurityPage extends StatelessWidget {
               SettingsRowWidget(
                 icon: Icons.mail_outline_rounded,
                 label: l.settings_change_email,
-                onTap: () => context.router.push(const ChangeEmailRoute()),
+                onTap: () => context.router.pushSafe(const ChangeEmailRoute()),
               ),
               SettingsRowWidget(
                 icon: Icons.lock_outline_rounded,
                 label: l.settings_change_password,
-                onTap: () => context.router.push(const ChangePasswordRoute()),
+                onTap: () =>
+                    context.router.pushSafe(const ChangePasswordRoute()),
               ),
               SettingsRowWidget(
                 icon: Icons.phone_outlined,
                 label: l.settings_phone_number,
-                onTap: () => context.router.push(const ChangePhoneRoute()),
+                onTap: () => context.router.pushSafe(const ChangePhoneRoute()),
               ),
             ],
           ),

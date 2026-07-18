@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/design/components/ds_network_image/ds_network_image_shape.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
@@ -257,7 +258,7 @@ class _ReelPageWidgetState extends State<ReelPageWidget> {
             children: <Widget>[
               GestureDetector(
                 behavior: HitTestBehavior.opaque,
-                onTap: () => context.router.push(
+                onTap: () => context.router.pushSafe(
                   UserProfileRoute(userId: reel.author.id),
                 ),
                 child: Row(

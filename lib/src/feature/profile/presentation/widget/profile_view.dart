@@ -8,6 +8,7 @@ import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/account/account_gate_sheet.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
@@ -106,7 +107,7 @@ class _ProfileScaffold extends StatelessWidget {
                         onTap: () => _guardedOwnerAction(
                           context,
                           onValid: () =>
-                              context.router.push(const OrdersRoute()),
+                              context.router.pushSafe(const OrdersRoute()),
                         ),
                       ),
                       BlocBuilder<NotificationsCubit, int>(
@@ -117,7 +118,7 @@ class _ProfileScaffold extends StatelessWidget {
                             showBadge: unread > 0,
                             onTap: () => _guardedOwnerAction(
                               context,
-                              onValid: () => context.router.push(
+                              onValid: () => context.router.pushSafe(
                                 const NotificationsRoute(),
                               ),
                             ),
@@ -129,7 +130,7 @@ class _ProfileScaffold extends StatelessWidget {
                         onTap: () => _guardedOwnerAction(
                           context,
                           onValid: () =>
-                              context.router.push(const SettingsRoute()),
+                              context.router.pushSafe(const SettingsRoute()),
                         ),
                       ),
                     ]
@@ -220,10 +221,10 @@ class _ProfileBodyState extends State<_ProfileBody>
             SliverToBoxAdapter(
               child: ProfileHeaderWidget(
                 profile: profile,
-                onFollowers: () => context.router.push(
+                onFollowers: () => context.router.pushSafe(
                   FollowListRoute(userId: profile.id, showFollowers: true),
                 ),
-                onFollowing: () => context.router.push(
+                onFollowing: () => context.router.pushSafe(
                   FollowListRoute(userId: profile.id, showFollowers: false),
                 ),
                 onRatingTap: () {},
@@ -435,7 +436,7 @@ class _ReelsTabContentState extends State<_ReelsTabContent> {
         slivers: <Widget>[
           ProfileReelsSliverGrid(
             reels: reels,
-            onTap: (ProfileReel reel) => context.router.push(
+            onTap: (ProfileReel reel) => context.router.pushSafe(
               SingleReelRoute(
                 reelId: reel.id,
                 reelIds: reels.map((ProfileReel r) => r.id).toList(),

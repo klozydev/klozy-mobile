@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/feature/chat/domain/entity/chat_participant.dart';
@@ -21,7 +22,7 @@ class ThreadHeader extends StatelessWidget {
   final VoidCallback onMenu;
 
   void _openProfile(BuildContext context) =>
-      context.router.push(UserProfileRoute(userId: other.id));
+      context.router.pushSafe(UserProfileRoute(userId: other.id));
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:injectable/injectable.dart';
 import 'package:klozy/src/app/notifications/notifications_cubit.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/domain/notifications/notifications_repository.dart';
 import 'package:klozy/src/router/app_router.dart';
 
@@ -81,13 +82,13 @@ class PushService {
     final orderId = data['orderId'];
     final userId = data['userId'];
     if (productId is String && productId.isNotEmpty) {
-      _router.push(ProductRoute(id: productId));
+      _router.pushSafe(ProductRoute(id: productId));
     } else if (orderId is String && orderId.isNotEmpty) {
-      _router.push(OrderDetailRoute(id: orderId));
+      _router.pushSafe(OrderDetailRoute(id: orderId));
     } else if (userId is String && userId.isNotEmpty) {
-      _router.push(UserProfileRoute(userId: userId));
+      _router.pushSafe(UserProfileRoute(userId: userId));
     } else {
-      _router.push(const NotificationsRoute());
+      _router.pushSafe(const NotificationsRoute());
     }
     _notificationsCubit.refresh();
   }

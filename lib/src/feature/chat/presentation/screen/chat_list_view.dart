@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/core/components/app_error_widget.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/design/tokens/ds_font.dart';
 import 'package:klozy/src/design/tokens/ds_spacing.dart';
@@ -75,7 +76,7 @@ class ChatListView extends StatelessWidget {
             final ChatThread thread = state.threads[i];
             return ChatListRow(
               thread: thread,
-              onTap: () => context.router.push(
+              onTap: () => context.router.pushSafe(
                 ChatThreadRoute(conversationId: thread.id),
               ),
             );

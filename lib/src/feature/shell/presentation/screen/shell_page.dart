@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:klozy/src/app/chat/chat_unread_cubit.dart';
 import 'package:klozy/src/core/account/account_gate.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_bottom_sheet.dart';
 import 'package:klozy/src/design/tokens/ds_color.dart';
 import 'package:klozy/src/di/injection.dart';
@@ -38,15 +39,17 @@ class ShellPage extends StatelessWidget {
                 await locator<CheckSellPrerequisiteUseCase>()();
             switch (prerequisite) {
               case SellPrerequisite.needsRole:
-                await context.router.push(const SellerRoleRoute());
+                await context.router.pushSafe(const SellerRoleRoute());
               case SellPrerequisite.needsAddress:
-                await context.router.push(AddressFormRoute(requirePhone: true));
+                await context.router.pushSafe(
+                  AddressFormRoute(requirePhone: true),
+                );
               case SellPrerequisite.needsIban:
-                await context.router.push(const PayoutRoute());
+                await context.router.pushSafe(const PayoutRoute());
               case SellPrerequisite.needsKyb:
-                await context.router.push(const SellerVerificationRoute());
+                await context.router.pushSafe(const SellerVerificationRoute());
               case SellPrerequisite.ready:
-                await context.router.push(const SellRoute());
+                await context.router.pushSafe(const SellRoute());
             }
           },
         );
@@ -62,7 +65,7 @@ class ShellPage extends StatelessWidget {
             case EntryChoice.reel:
               locator<AccountGate>().guard(
                 context,
-                onAllowed: () => context.router.push(ReelComposerRoute()),
+                onAllowed: () => context.router.pushSafe(ReelComposerRoute()),
               );
             case EntryChoice.sell:
               startSell();

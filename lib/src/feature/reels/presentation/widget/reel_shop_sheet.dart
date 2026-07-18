@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:klozy/src/core/extensions/context_ext.dart';
+import 'package:klozy/src/core/navigation/safe_navigation.dart';
 import 'package:klozy/src/design/components/ds_loader.dart';
 import 'package:klozy/src/design/components/ds_network_image/ds_network_image.dart';
 import 'package:klozy/src/design/tokens/ds_border_radius.dart';
@@ -59,7 +60,7 @@ class _ReelShopSheetState extends State<ReelShopSheet> {
 
   Widget _row(BuildContext context, Product product) {
     return GestureDetector(
-      onTap: () => context.router.push(ProductRoute(id: product.id)),
+      onTap: () => context.router.pushSafe(ProductRoute(id: product.id)),
       child: Container(
         margin: const EdgeInsets.only(bottom: 8),
         padding: const EdgeInsets.all(10),
